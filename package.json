@@ -1,15 +1,33 @@
 {
-  "name": "cubecubed",
-  "version": "0.0.0",
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "serve": "vite preview"
-  },
-  "devDependencies": {
-    "vite": "^2.6.14"
-  },
-  "dependencies": {
-    "d3": "^7.1.1"
-  }
+    "name": "cubecubed",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "serve": "vite preview"
+    },
+    "devDependencies": {
+        "vite": "^2.6.14"
+    },
+    "dependencies": {
+        "d3": "^7.1.1"
+    },
+    "description": "A mathematics animation rendering engine built on top of d3.js",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/imaphatduc/cubecubed.git"
+    },
+    "keywords": [
+        "math",
+        "animation",
+        "svg",
+        "graphics"
+    ],
+    "author": "imaphatduc",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/imaphatduc/cubecubed/issues"
+    },
+    "homepage": "https://github.com/imaphatduc/cubecubed#readme"
 }
