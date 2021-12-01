@@ -1,0 +1,23 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#svg-render {
+    position: relative;
+    /* display: inline-block; */
+}
+
+#svg-render svg,
+#svg-render canvas {
+    /* width: 100%; */
+    /* height: 100%; */
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+#svg-render canvas {
+    z-index: -1;
+}
