@@ -38,7 +38,9 @@ square.rotate(-45);
 square.fadeOut();
 ```
 
-### Result
+#### Result
+
+You should see a square being drawn on the screen, move around, and then disappear.
 
 ### Cubicons
 
