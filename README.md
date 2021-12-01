@@ -16,10 +16,20 @@ Imagine that a 3d cube multiply by itself two times— I don't know, I just find
 
 ## Usage
 
+#### Requirements
+
+-   The target HTML file must have a `<div id="#svg-render"></div>` tag.
+-   An svg tag inside that `div`, including `width`, `height` and `background-color` attribute (`black` is recommended)
+
+##### Example Scene
+
 ```js
-import { Square, COLOR, initSVGScene } from "cubecubed";
+import { Square, COLOR, initSVGScene, Grid } from "cubecubed";
 
 initSVGScene(); // This is neccessary
+
+const grid = new Grid();
+grid.drawGridFromOrigin();
 
 const square = new Square({
     position: { x: 0, y: 0 },
@@ -40,7 +50,7 @@ square.fadeOut();
 
 #### Result
 
-You should see a square being drawn on the screen, move around, and then disappear.
+![](cut.gif)
 
 ### Cubicons
 
