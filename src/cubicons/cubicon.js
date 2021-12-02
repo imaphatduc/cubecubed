@@ -1,10 +1,12 @@
 import * as d3 from "d3";
+import { line } from "d3";
 import { svg, svgWidth, svgHeight } from "../cubecubed";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 import { ANIME } from "./constants";
 
 let rectKey = 0;
 let circleKey = 0;
+let lineKey = 0;
 
 export class Mobject {
     constructor({ position, waitTime }) {
@@ -249,5 +251,39 @@ export class Circle extends Mobject {
         this.stroke
             .style("transform-box", "fill-box")
             .style("transform-origin", "center");
+    }
+}
+
+export class Line extends Mobject {
+    constructor({ startPoint, endPoint, lineColor, lineWidth, waitTime }) {
+        super({ position: startPoint, waitTime: waitTime });
+
+        this.startPoint = {
+            x: xGtoW(startPoint.x),
+            y: yGtoW(startPoint.y),
+        };
+        this.endPoint = {
+            x: xGtoW(endPoint.x),
+            y: yGtoW(endPoint.y),
+        };
+
+        this.lineColor = lineColor;
+        this.lineWidth = lineWidth;
+
+        this.#createPath();
+    }
+
+    #createPath() {
+        this.id = `line${lineKey++}`;
+        this.svg
+            .append("line")
+            .attr("id", this.id)
+            .attr("x1", this.startPoint.x)
+            .attr("y1", this.startPoint.y)
+            .attr("x2", this.endPoint.x)
+            .attr("y2", this.endPoint.y)
+            .attr("stroke", this.lineColor)
+            .attr("stroke-width", this.lineWidth);
+        this.stroke = this.svg.select(`svg #${this.id}`);
     }
 }

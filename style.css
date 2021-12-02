@@ -4,20 +4,38 @@ body {
     padding: 0;
 }
 
-#svg-render {
-    position: relative;
-    /* display: inline-block; */
+h1,
+h2,
+h3,
+h4,
+h5,
+p {
+    margin: 0;
+    padding: 0;
 }
 
-#svg-render svg,
-#svg-render canvas {
-    /* width: 100%; */
-    /* height: 100%; */
-    position: absolute;
-    top: 0;
-    left: 0;
+.katex {
+    font-size: 1em !important;
 }
 
-#svg-render canvas {
-    z-index: -1;
-}
+/* #svg-render { */
+/*     position: relative; */
+/*     /1* display: inline-block; *1/ */
+/* } */
+
+/* #svg-render svg, */
+/* #svg-render canvas { */
+/*     /1* width: 100%; *1/ */
+/*     /1* height: 100%; *1/ */
+/*     position: absolute; */
+/*     top: 0; */
+/*     left: 0; */
+/* } */
+
+/* #svg-render svg { */
+/*     z-index: -1; */
+/* } */
+
+/* #svg-render canvas { */
+/*     z-index: -2; */
+/* } */
