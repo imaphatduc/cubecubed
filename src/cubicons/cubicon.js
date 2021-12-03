@@ -1,9 +1,10 @@
 import * as d3 from "d3";
-import { line } from "d3";
-import { svg, svgWidth, svgHeight } from "../cubecubed";
-import { xGtoW, yGtoW } from "../math/convertUnit";
+import { svg, svgWidth, svgHeight } from "./constants";
+import { xGtoW, xWtoG, yGtoW } from "../math/convertUnit";
 import { ANIME } from "./constants";
 
+/// When any of the cubicon objects is created,
+// these keys will keep track of that object's own id key
 let rectKey = 0;
 let circleKey = 0;
 let lineKey = 0;
@@ -254,6 +255,18 @@ export class Circle extends Mobject {
     }
 }
 
+export class GridOrigin extends Circle {
+    constructor() {
+        super({
+            position: { x: 0, y: 0 },
+            radius: xWtoG(2.2),
+            strokeColor: "#fff",
+            strokeWidth: 2,
+            waitTime: 200,
+        });
+    }
+}
+
 export class Line extends Mobject {
     constructor({ startPoint, endPoint, lineColor, lineWidth, waitTime }) {
         super({ position: startPoint, waitTime: waitTime });
@@ -269,6 +282,8 @@ export class Line extends Mobject {
 
         this.lineColor = lineColor;
         this.lineWidth = lineWidth;
+
+        this.rotateAnimTime = 2000;
 
         this.#createPath();
     }

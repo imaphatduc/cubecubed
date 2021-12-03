@@ -1,25 +1,51 @@
-import * as d3 from "d3";
-import { svgWidth, svgHeight } from "../cubecubed";
+import { scaleLinear } from "d3-scale";
+import { svgWidth, svgHeight } from "../cubicons/constants";
 
-export const xBound = [-8, 8];
-export const yBound = [-8, 8];
+////////////////////////////////////////////////////////////////////
+//  Compute the x and y boundary on the grid plane                //
+// base on how many little squares on the shorter of the two axes //
+////////////////////////////////////////////////////////////////////
 
-export const xGtoW = d3
-    .scaleLinear()
+const larger = Math.max(svgWidth, svgHeight);
+const smaller = Math.min(svgWidth, svgHeight);
+
+// Users should only change this line
+const smallerDirSquareNums = 13;
+
+export const smallerBound = [
+    parseInt(-smallerDirSquareNums / 2),
+    parseInt(smallerDirSquareNums / 2),
+];
+
+const sqrLength =
+    (smaller - (smaller % smallerDirSquareNums)) / smallerDirSquareNums;
+const largerDirSquareNums = parseInt(larger / sqrLength);
+
+export const largerBound = [
+    parseInt(-largerDirSquareNums / 2),
+    parseInt(largerDirSquareNums / 2),
+];
+
+export const [xBound, yBound] =
+    svgWidth >= svgHeight
+        ? [largerBound, smallerBound]
+        : [smallerBound, largerBound];
+
+///////////////////////////////////////////////////////////////////////
+// Convert grid coordinates to real-world coordinates and vice-versa //
+///////////////////////////////////////////////////////////////////////
+export const xGtoW = scaleLinear()
     .domain(xBound)
     .range([-svgWidth / 2, svgWidth / 2]);
 
-export const yGtoW = d3
-    .scaleLinear()
+export const yGtoW = scaleLinear()
     .domain(yBound)
     .range([-svgHeight / 2, svgHeight / 2]);
 
-export const xWtoG = d3
-    .scaleLinear()
+export const xWtoG = scaleLinear()
     .domain([-svgWidth / 2, svgWidth / 2])
     .range(xBound);
 
-export const yWtoG = d3
-    .scaleLinear()
+export const yWtoG = scaleLinear()
     .domain([-svgHeight / 2, svgHeight / 2])
     .range(yBound);

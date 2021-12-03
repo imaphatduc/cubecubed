@@ -12,7 +12,9 @@ Imagine that a 3d cube multiply by itself two times— I don't know, I just find
 
 ## Installation
 
-`npm i cubecubed --save`
+```sh
+npm i cubecubed --save
+```
 
 ## Usage
 

@@ -30,41 +30,31 @@
             onload="renderMathInElement(document.body);"
         ></script>
 
-        <!-- <script> -->
-        <!--     MathJax = { -->
-        <!--         tex: { -->
-        <!--             inlineMath: [ -->
-        <!--                 ["$", "$"], -->
-        <!--                 ["\\(", "\\)"], -->
-        <!--             ], -->
-        <!--         }, -->
-        <!--         svg: { fontCache: "global" }, -->
-        <!--     }; -->
-        <!-- </script> -->
-        <!-- <script -->
-        <!--     type="text/javascript" -->
-        <!--     id="MathJax-script" -->
-        <!--     async -->
-        <!--     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" -->
-        <!-- ></script> -->
+        <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.css"
+            integrity="sha384-WsHMgfkABRyG494OmuiNmkAOk8nhO1qE+Y6wns6v+EoNoTNxrWxYpl5ZYWFOLPCM"
+            crossorigin="anonymous"
+        />
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.js"
+            integrity="sha384-lhN3C1JSmmvbT89RGOy6nC8qFBS8X/PLsBWIqiNdD4WGNsYOWpS2Il0x4TBrK8E2"
+            crossorigin="anonymous"
+        ></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
     </head>
     <body>
         <div id="site-wrapper">
-            <div
-                id="svg-render"
-                style="position: relative; width: 500px; height: 500px"
-            >
+            <div id="svg-render">
                 <svg
+                    xmlns="http://w3.org/2000/svg"
                     id="viz"
-                    width="500"
-                    height="500"
+                    width="1000"
+                    height="600"
                     style="background-color: #000; position: absolute"
                 ></svg>
-                <div id="tex" style="color: #fff; position: absolute">
-                    <!-- <p>\(x^2 + y^2\)</p> -->
-                </div>
             </div>
         </div>
         <script type="module" src="/example.js"></script>

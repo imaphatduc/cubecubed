@@ -1,3 +1,10 @@
+import * as d3 from "d3";
+
+export const svg = d3.select("#viz");
+
+export const svgWidth = parseInt(svg.attr("width"));
+export const svgHeight = parseInt(svg.attr("height"));
+
 export const COLOR = {
     WHITE: "#ffffff",
     RED_1: "#ff5370",
