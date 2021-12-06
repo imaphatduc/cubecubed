@@ -2,7 +2,7 @@ import { scaleLinear } from "d3-scale";
 import { svgWidth, svgHeight } from "../cubicons/constants";
 
 ////////////////////////////////////////////////////////////////////
-//  Compute the x and y boundary on the grid plane                //
+/// Compute the x and y boundary on the grid plane                //
 // base on how many little squares on the shorter of the two axes //
 ////////////////////////////////////////////////////////////////////
 
@@ -49,3 +49,14 @@ export const xWtoG = scaleLinear()
 export const yWtoG = scaleLinear()
     .domain([-svgHeight / 2, svgHeight / 2])
     .range(yBound);
+
+///////////////////////////////////////////////
+// Convert radians to degrees and vice-versa //
+///////////////////////////////////////////////
+export const rToD = scaleLinear()
+    .domain([0, 2 * Math.PI])
+    .range([0, 360]);
+
+export const dToR = scaleLinear()
+    .domain([0, 360])
+    .range([0, 2 * Math.PI]);

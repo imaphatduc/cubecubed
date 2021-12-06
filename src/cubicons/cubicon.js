@@ -1,185 +1,80 @@
 import * as d3 from "d3";
-import { svg, svgWidth, svgHeight } from "./constants";
-import { xGtoW, xWtoG, yGtoW } from "../math/convertUnit";
-import { ANIME } from "./constants";
+import { svg } from "./constants";
+import { rToD, xGtoW, xWtoG, yGtoW } from "../math/convertUnit";
 
-/// When any of the cubicon objects is created,
+/// When any of the cubicon instance is created,
 // these keys will keep track of that object's own id key
 let rectKey = 0;
 let circleKey = 0;
 let lineKey = 0;
+let vectKey = 0;
 
-export class Mobject {
-    constructor({ position, waitTime }) {
+export class Cubicon {
+    constructor({ scene = { svg: svg }, position }) {
+        this.scene = scene;
+
+        /// I don't know if creating the id property is neccessary, but I like the tidy way!
+        this.id = "";
+
         this.x = xGtoW(position.x);
         this.y = yGtoW(position.y);
+
+        /// This property keeps track of the total vector a cubicon has moved
         this.moveVector = { x: 0, y: 0 };
+
+        // and this keeps track of the angle between the cubicon and the x axis
         this.angle = 0;
 
-        this.svg = svg;
-        this.svgWidth = xGtoW(svgWidth);
-        this.svgHeight = xGtoW(svgHeight);
+        this.svg = scene.svg;
 
-        /// Creating these properties instead of using the constants directly
-        // is to manipulate d3js's transition duration locally.
-        /// Plus, to let the users control animation time themselves.
-        this.createAnimTime = ANIME.CREATE;
-        this.translateAnimTime = ANIME.TRANSLATE;
-        this.rotateAnimTime = ANIME.ROTATE;
-        this.fadeInAnimTime = ANIME.FADEIN;
-        this.fadeOutAnimTime = ANIME.FADEOUT;
+        /// this.elapsedTime keeps track of the time passed by during the animations of this cubicon
+        this.elapsedTime = 0;
 
-        // this.elapsedTime keeps track of the time passed by during the animations
-        if (waitTime !== undefined && waitTime !== null) {
-            this.elapsedTime = waitTime;
-        } else this.elapsedTime = 0;
+        /// This is the main stroke (or shape) of the cubicon.
+        /// Initially, we set it to nothing.
+        this.stroke = d3.select();
 
-        // I don't know if creating the id property is neccessary, but I like the tidy way!
-        this.id = "";
-    }
-
-    create() {
-        this.stroke.style("fill-opacity", 0);
-        const lineLen = this.stroke.node().getTotalLength();
-
-        this.stroke
-            .attr("stroke-dasharray", lineLen + ", " + lineLen)
-            .attr("stroke-dashoffset", lineLen);
-
-        if (this.fillColor !== undefined && this.fillColor !== null) {
-            this.stroke
-                .transition()
-                .delay(this.elapsedTime)
-                .duration(this.createAnimTime)
-                .attr("stroke-dashoffset", 0)
-                .style("fill", this.fillColor)
-                .style("fill-opacity", 0.5);
-        } else {
-            this.stroke
-                .transition()
-                .delay(this.elapsedTime)
-                .duration(this.createAnimTime)
-                .attr("stroke-dashoffset", 0);
-        }
-
-        this.elapsedTime += this.createAnimTime;
-    }
-
-    translateByVector(vector) {
-        this.x += xGtoW(vector.x);
-        this.y += xGtoW(vector.y);
-
-        this.moveVector.x += xGtoW(vector.x);
-        this.moveVector.y += xGtoW(vector.y);
-
-        this.stroke
-            .transition()
-            .delay(this.elapsedTime)
-            .duration(this.translateAnimTime)
-            .attr(
-                "transform",
-                `translate(${this.moveVector.x}, ${this.moveVector.y}) rotate(${this.angle})`
-            );
-
-        this.elapsedTime += this.translateAnimTime;
-    }
-
-    // BUG HERE!!!
-    // translateToPoint(point) {
-    //     // pos1 = [ -2, 0 ]
-    //     // point1 = [ 0, 3 ]
-    //     // pos2 = [ 0, 3 ]
-    //     // point2 = [ 4, -3 ]
-    //     this.moveVector.x = xGtoW(point.x) - this.x; // 2 + (4 - 0) = 6
-    //     this.moveVector.y = xGtoW(point.y) - this.y; // 3 + (-3 - 3) = -3
-    //     // vect1 = [ 2, 3 ]
-    //     // vect2 = [ 6, -3 ]
-
-    //     this.x = point.x;
-    //     this.y = point.y;
-
-    //     this.stroke
-    //         .transition()
-    //         .delay(this.elapsedTime)
-    //         .duration(this.translateAnimTime)
-    //         .attr(
-    //             "transform",
-    //             `translate(${this.moveVector.x}, ${this.moveVector.y}) rotate(${this.angle})`
-    //         );
-
-    //     this.elapsedTime += this.translateAnimTime;
-    // }
-
-    rotate(degree) {
-        this.angle += degree;
-        this.stroke
-            .transition()
-            .delay(this.elapsedTime)
-            .duration(this.rotateAnimTime)
-            .attr(
-                "transform",
-                `translate(${this.moveVector.x}, ${this.moveVector.y}) rotate(${this.angle})`
-            );
-        this.elapsedTime += this.rotateAnimTime;
-    }
-
-    fadeIn() {
-        this.stroke.style("stroke-opacity", 0);
-        this.stroke
-            .transition()
-            .delay(this.elapsedTime)
-            .duration(this.fadeInAnimTime)
-            .style("stroke-opacity", 1)
-            .style("fill", this.fillColor)
-            .style("fill-opacity", 0.5);
-        this.elapsedTime += this.fadeInAnimTime;
-    }
-
-    fadeOut() {
-        this.stroke
-            .transition()
-            .delay(this.elapsedTime)
-            .duration(this.fadeOutAnimTime)
-            .style("opacity", 0);
-        this.elapsedTime += this.fadeOutAnimTime;
+        /// Add this to the target scene
+        this.scene.add(this);
     }
 }
 
-export class Rectangle extends Mobject {
+export class Rectangle extends Cubicon {
     constructor({
-        position,
+        scene = { svg: svg },
+        position = { x: 0, y: 0 },
         width,
         height,
-        fillColor,
-        strokeColor,
-        strokeWidth,
-        waitTime,
+        fillColor = "none",
+        fillOpacity = 1,
+        strokeColor = "#fff",
+        strokeWidth = 2,
     }) {
-        super({ position: position, waitTime: waitTime });
+        super({ scene: scene, position: position });
 
         this.width = xGtoW(width);
         this.height = xGtoW(height);
+
+        this.fillColor = fillColor;
+        this.fillOpacity = fillOpacity;
+
         this.strokeColor = strokeColor;
         this.strokeWidth = strokeWidth;
 
         // These are the coordinate of the draw origin
         this.X = -this.width / 2 + this.x;
         this.Y = this.height / 2 + this.y;
+        this.id = `square${rectKey++}`;
 
-        this.fillColor = fillColor;
-
-        this.#createPath();
+        this.#add();
     }
 
-    #createPath() {
-        const path = d3.path();
-        path.moveTo(this.X, this.Y);
-        path.lineTo(this.X + this.width, this.Y);
-        path.lineTo(this.X + this.width, this.Y - this.height);
-        path.lineTo(this.X, this.Y - this.height);
-        path.lineTo(this.X, this.Y + this.strokeWidth / 2);
-
-        this.id = `square${rectKey++}`;
+    ////////////////////////////////
+    // APPEND TAGS TO SCENE'S SVG //
+    ////////////////////////////////
+    /// this.stroke is equivalent to the d3's selection of its HTML (SVG) tag
+    #add() {
+        const path = this.#draw();
         this.svg
             .append("path")
             .attr("id", `${this.id}`)
@@ -189,63 +84,86 @@ export class Rectangle extends Mobject {
         this.stroke = this.svg.select(`svg #${this.id}`);
         this.stroke
             .style("fill", this.fillColor)
-            .style("fill-opacity", 0.5)
+            .style("fill-opacity", this.fillOpacity)
             .style("transform-box", "fill-box")
             .style("transform-origin", "center");
+    }
+
+    ////////////////////////////////////////////////////////
+    // DRAW (NOT RENDER) A RECTANGULAR PATH ON THE WINDOW //
+    ////////////////////////////////////////////////////////
+    #draw() {
+        const path = d3.path();
+        path.moveTo(this.X, this.Y);
+        path.lineTo(this.X + this.width, this.Y);
+        path.lineTo(this.X + this.width, this.Y - this.height);
+        path.lineTo(this.X, this.Y - this.height);
+        path.lineTo(this.X, this.Y + this.strokeWidth / 2);
+
+        return path;
     }
 }
 
 export class Square extends Rectangle {
     constructor({
+        scene = { svg: svg },
         position,
         sideLength,
         fillColor,
+        fillOpacity,
         strokeColor,
         strokeWidth,
-        waitTime,
     }) {
         super({
+            scene: scene,
             position: position,
             width: sideLength,
             height: sideLength,
             fillColor: fillColor,
+            fillOpacity: fillOpacity,
             strokeColor: strokeColor,
             strokeWidth: strokeWidth,
-            waitTime: waitTime,
         });
     }
 }
 
-export class Circle extends Mobject {
+export class Circle extends Cubicon {
     constructor({
-        position,
+        scene = { svg: svg },
+        position = { x: 0, y: 0 },
         radius,
-        fillColor,
-        strokeColor,
-        strokeWidth,
-        waitTime,
+        fillColor = "none",
+        fillOpacity = 1,
+        strokeColor = "#fff",
+        strokeWidth = 2,
     }) {
-        super({ position: position, waitTime: waitTime });
+        super({ scene: scene, position: position });
 
-        this.radius = xGtoW(radius);
-        this.fillColor = fillColor;
-        this.strokeColor = strokeColor;
-        this.strokeWidth = strokeWidth;
+        this.id = `circle${circleKey++}`;
+
         this.cx = this.x;
         this.cy = this.y;
-        this.fillColor = fillColor;
 
-        this.#createPath();
+        this.radius = xGtoW(radius);
+
+        this.strokeColor = strokeColor;
+        this.strokeWidth = strokeWidth;
+
+        this.fillColor = fillColor;
+        this.fillOpacity = fillOpacity;
+
+        this.#draw();
     }
 
-    #createPath() {
-        this.id = `circle${circleKey++}`;
+    #draw() {
         this.svg
             .append("circle")
             .attr("id", `${this.id}`)
             .attr("cx", this.cx)
             .attr("cy", this.cy)
             .attr("r", this.radius)
+            .attr("fill", this.fillColor)
+            .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
             .attr("stroke-width", this.strokeWidth);
         this.stroke = this.svg.select(`svg #${this.id}`);
@@ -256,20 +174,28 @@ export class Circle extends Mobject {
 }
 
 export class GridOrigin extends Circle {
-    constructor() {
+    constructor({ scene = { svg: svg } }) {
         super({
+            scene: scene,
             position: { x: 0, y: 0 },
             radius: xWtoG(2.2),
             strokeColor: "#fff",
             strokeWidth: 2,
-            waitTime: 200,
         });
     }
 }
 
-export class Line extends Mobject {
-    constructor({ startPoint, endPoint, lineColor, lineWidth, waitTime }) {
-        super({ position: startPoint, waitTime: waitTime });
+export class Line extends Cubicon {
+    constructor({
+        scene = { svg: svg },
+        startPoint = { x: 0, y: 0 },
+        endPoint,
+        lineColor = "#fff",
+        lineWidth = 2,
+    }) {
+        super({ scene: scene, position: startPoint });
+
+        this.id = `line${lineKey++}`;
 
         this.startPoint = {
             x: xGtoW(startPoint.x),
@@ -283,13 +209,13 @@ export class Line extends Mobject {
         this.lineColor = lineColor;
         this.lineWidth = lineWidth;
 
+        // Override rotateAnimTime property of Cubicon class
         this.rotateAnimTime = 2000;
 
-        this.#createPath();
+        this.#draw();
     }
 
-    #createPath() {
-        this.id = `line${lineKey++}`;
+    #draw() {
         this.svg
             .append("line")
             .attr("id", this.id)
@@ -300,5 +226,87 @@ export class Line extends Mobject {
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
         this.stroke = this.svg.select(`svg #${this.id}`);
+    }
+}
+
+export class Vector extends Cubicon {
+    constructor({
+        scene = { svg: svg },
+        startPoint = { x: 0, y: 0 },
+        endPoint,
+        vectColor = "#fff",
+        vectStrokeWidth = 2,
+    }) {
+        super({
+            scene: scene,
+            position: startPoint,
+        });
+
+        this.id = `vect${vectKey++}`;
+
+        this.startPoint = {
+            x: xGtoW(startPoint.x),
+            y: yGtoW(startPoint.y),
+        };
+        this.endPoint = {
+            x: xGtoW(endPoint.x),
+            y: yGtoW(endPoint.y),
+        };
+
+        this.vectColor = vectColor;
+        this.vectStrokeWidth = vectStrokeWidth;
+
+        this.rotateAnimTime = 2000;
+
+        // this.theta determines the angle between vector's arrow and its line.
+        this.theta = rToD(
+            Math.atan2(
+                this.endPoint.y - this.startPoint.y,
+                this.endPoint.x - this.startPoint.x
+            )
+        );
+
+        this.#draw();
+    }
+
+    #draw() {
+        this.stroke = this.svg
+            .append("g")
+            .attr("id", `${this.id}-group`)
+            .attr("transform-box", "fill-box")
+            .attr(
+                "transform-origin",
+                `${this.startPoint.x} ${this.startPoint.y}`
+            );
+
+        this.stroke
+            .append("line")
+            .attr("id", this.id)
+            .attr("x1", this.startPoint.x)
+            .attr("y1", this.startPoint.y)
+            .attr("x2", this.startPoint.x) /// Set end point to be start point
+            .attr("y2", this.startPoint.y) // to define the initial state of the animation
+            .attr("stroke", this.vectColor)
+            .attr("stroke-width", this.vectStrokeWidth);
+        this.stroke
+            .append("polygon")
+            .attr(
+                "points",
+                `${xGtoW(-0.25)}, ${yGtoW(-0.25)} 0, 0 ${xGtoW(0.25)}, ${yGtoW(
+                    -0.25
+                )}`
+            )
+            .attr("fill", this.vectColor)
+            .attr("stroke", "none")
+            .style("opacity", 0)
+            .attr(
+                "transform",
+                `translate(${this.endPoint.x} ${this.endPoint.y}) rotate(${
+                    this.theta - 90
+                })`
+            );
+
+        this.lineStroke = this.stroke.select("line");
+        this.arrowHead = this.stroke.select("polygon");
     }
 }
