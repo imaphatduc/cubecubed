@@ -8,7 +8,7 @@
         "d3": "^7.1.1",
         "katex": "^0.15.1"
     },
-    "description": "A mathematics animation rendering engine built on top of d3.js",
+    "description": "Play eye-catching math visualization on the web using SVG graphics",
     "module": "src/index.js",
     "main": "src/index.js",
     "repository": {
