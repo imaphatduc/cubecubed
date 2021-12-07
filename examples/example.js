@@ -35,7 +35,11 @@ const square = new Square({
     strokeWidth: 2,
 });
 
-scene.play([new Create(square)]);
+scene.play([
+    new Create({
+        cubicon: square,
+    }),
+]);
 
 const circle = new Circle({
     scene: scene,
@@ -48,20 +52,20 @@ const circle = new Circle({
 });
 
 scene.play([
-    new Translate(square, new Vector3(1, 2, 0)),
-    new Rotate(square, 45),
+    new Translate({ cubicon: square, vector: new Vector3(1, 2, 0) }),
+    new Rotate({ cubicon: square, degree: 45 }),
 ]);
 
-scene.play([new FadeIn(circle)]);
+scene.play([new FadeIn({ cubicon: circle })]);
 
 scene.play([
-    new Translate(circle, new Vector3(1, 2, 0)),
-    new Translate(square, new Vector3(1, 2, 0)),
-    new Translate(circle, new Vector3(1, -3, 0)),
+    new Translate({ cubicon: circle, vector: new Vector3(1, 2, 0) }),
+    new Translate({ cubicon: square, vector: new Vector3(1, 2, 0) }),
+    new Translate({ cubicon: circle, vector: new Vector3(1, -3, 0) }),
 ]);
 
-scene.play([new FadeOut(square)]);
-scene.play([new FadeOut(circle)]);
+scene.play([new FadeOut({ cubicon: square })]);
+scene.play([new FadeOut({ cubicon: circle })]);
 
 const vect = new Vector({
     scene: scene,
@@ -71,17 +75,26 @@ const vect = new Vector({
     vectStrokeWidth: 2,
 });
 
-scene.play([new Create(vect), new Rotate(vect, -90)]);
-scene.play([new Translate(vect, new Vector3(1, 3, 0)), new Rotate(vect, -90)]);
+scene.play([
+    new Create({ cubicon: vect }),
+    new Rotate({ cubicon: vect, degree: -90 }),
+]);
+scene.play([
+    new Translate({ cubicon: vect, vector: new Vector3(1, 3, 0) }),
+    new Rotate({ cubicon: vect, degree: -90 }),
+]);
 
-const line = new Line({
+const vect2 = new Vector({
     scene: scene,
     startPoint: { x: 0, y: 0 },
     endPoint: { x: 3, y: 2 },
-    lineColor: COLOR.PINK_2,
-    lineWidth: 2,
+    vectColor: COLOR.PINK_2,
+    vectStrokeWidth: 2,
 });
 
-scene.play([new Create(line)]);
+scene.play([new Create({ cubicon: vect2 })]);
 
-scene.play([new Rotate(line, 90), new Rotate(vect, 90)]);
+scene.play([
+    new Rotate({ cubicon: vect2, degree: 90 }),
+    new Rotate({ cubicon: vect, degree: 90 }),
+]);

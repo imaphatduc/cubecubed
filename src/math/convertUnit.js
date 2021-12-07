@@ -10,16 +10,15 @@ const larger = Math.max(svgWidth, svgHeight);
 const smaller = Math.min(svgWidth, svgHeight);
 
 // Users should only change this line
-const smallerDirSquareNums = 13;
+const smallerDirSquareNums = 12;
 
 export const smallerBound = [
     parseInt(-smallerDirSquareNums / 2),
     parseInt(smallerDirSquareNums / 2),
 ];
 
-const sqrLength =
-    (smaller - (smaller % smallerDirSquareNums)) / smallerDirSquareNums;
-const largerDirSquareNums = parseInt(larger / sqrLength);
+const sqrLength = smaller / smallerDirSquareNums;
+const largerDirSquareNums = Math.floor(larger / 2 / sqrLength) * 2;
 
 export const largerBound = [
     parseInt(-largerDirSquareNums / 2),
@@ -36,7 +35,10 @@ export const [xBound, yBound] =
 ///////////////////////////////////////////////////////////////////////
 export const xGtoW = scaleLinear()
     .domain(xBound)
-    .range([-svgWidth / 2, svgWidth / 2]);
+    .range([
+        -sqrLength * (largerDirSquareNums / 2),
+        sqrLength * (largerDirSquareNums / 2),
+    ]);
 
 export const yGtoW = scaleLinear()
     .domain(yBound)

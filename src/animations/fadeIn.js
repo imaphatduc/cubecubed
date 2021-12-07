@@ -2,10 +2,10 @@ import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 
 export class FadeIn extends Animation {
-    constructor(cubicon) {
+    constructor({ cubicon, duration = ANIME.FADEIN }) {
         super();
         this.cubicon = cubicon;
-        this.duration = ANIME.FADEIN;
+        this.duration = duration;
     }
 
     play() {

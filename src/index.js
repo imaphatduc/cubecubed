@@ -2,7 +2,7 @@
 import { Square } from "./cubicons/cubicon";
 
 export * from "./cubicons/cubicon";
-export * from "./cubicons/graph";
+export * from "./cubicons/grid";
 export * from "./cubicons/constants";
 
 export * from "./scene/scene";

@@ -18,7 +18,7 @@ export class Grid extends Cubicon {
 
         this.xs = [];
         this.ys = [];
-        for (let i = xBound[0]; i <= xBound[1]; i++) {
+        for (let i = xBound[0] - 1; i <= xBound[1] + 1; i++) {
             this.xs.push(i);
         }
         for (let i = yBound[0]; i <= yBound[1]; i++) {

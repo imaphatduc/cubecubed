@@ -3,11 +3,11 @@ import { ANIME } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class Translate extends Animation {
-    constructor(cubicon, vector) {
+    constructor({ cubicon, vector, duration = ANIME.TRANSLATE }) {
         super();
         this.cubicon = cubicon;
         this.vector = vector;
-        this.duration = ANIME.TRANSLATE;
+        this.duration = duration;
     }
 
     play() {

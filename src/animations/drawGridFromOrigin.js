@@ -49,9 +49,9 @@ export class DrawGridFromOrigin extends Animation {
             .transition()
             .delay(grid.elapsedTime)
             .duration(grid.drawX)
-            .attr("x1", xGtoW(xBound[0]))
+            .attr("x1", xGtoW(xBound[0] - 1))
             .attr("y1", (d) => yGtoW(d))
-            .attr("x2", xGtoW(xBound[1]))
+            .attr("x2", xGtoW(xBound[1] + 1))
             .attr("y2", (d) => yGtoW(d))
             .attr("stroke", (d) =>
                 xGtoW(d) === 0 ? grid.xAxesColor : grid.lineColor
@@ -154,6 +154,12 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     #drawOrigin(grid) {
-        grid.scene.play([new Create(new GridOrigin({ scene: grid.scene }))]);
+        grid.scene.play([
+            new Create({
+                cubicon: new GridOrigin({
+                    scene: grid.scene,
+                }),
+            }),
+        ]);
     }
 }

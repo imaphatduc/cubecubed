@@ -2,11 +2,11 @@ import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 
 export class Rotate extends Animation {
-    constructor(cubicon, degree) {
+    constructor({ cubicon, degree, duration = ANIME.ROTATE }) {
         super();
         this.cubicon = cubicon;
         this.degree = degree;
-        this.duration = ANIME.ROTATE;
+        this.duration = duration;
     }
 
     play() {
