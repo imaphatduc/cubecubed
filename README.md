@@ -94,13 +94,13 @@ Codes in the following steps are in simpleScene().
 const scene = new Scene("simple-scene");
 ```
 
-3. Create a group and append that group to a scene:
+4. Create a group and append that group to a scene:
 
 ```js
 const group = new Group("shapes", scene);
 ```
 
-4. Create cubicon(s) in group:
+5. Create cubicon(s) in group:
 
 ```js
 /// Remember to initialize each cubicon with a group
@@ -121,7 +121,7 @@ const circle = new Circle({
 });
 ```
 
-4. Animate the cubicon(s)!
+6. Animate the cubicon(s)!
 
 ```js
 /// group.play() method takes an array as the animation queue.
