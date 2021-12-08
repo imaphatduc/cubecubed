@@ -55,7 +55,7 @@ To make it easier to understand, consider this example: you solved some math pro
 There are two things to keep in mind:
 
 -   A cubicon must be in a group, and a group must belong to a scene.
--   Groups in the same scene animate synchronously.
+-   Groups in the same scene animate asynchronously.
 
 ### The Animation Engine
 
