@@ -6,6 +6,7 @@ export * from "./cubicons/grid";
 export * from "./cubicons/constants";
 
 export * from "./scene/scene";
+export * from "./scene/group";
 
 export * from "./animations/create";
 export * from "./animations/translate";

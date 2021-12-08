@@ -8,17 +8,17 @@ export class FadeOut extends Animation {
         this.duration = duration;
     }
 
-    play() {
-        this.#fadeOut(this.cubicon);
+    play(sleepTime) {
+        this.#fadeOut(this.cubicon, sleepTime);
     }
 
-    #fadeOut(cubicon) {
+    #fadeOut(cubicon, sleepTime) {
         cubicon.stroke
             .transition()
-            .delay(cubicon.elapsedTime)
+            .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .style("opacity", 0);
 
-        cubicon.elapsedTime += this.duration;
+        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

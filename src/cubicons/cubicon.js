@@ -1,5 +1,4 @@
 import * as d3 from "d3";
-import { svg } from "./constants";
 import { rToD, xGtoW, xWtoG, yGtoW } from "../math/convertUnit";
 
 /// When any of the cubicon instance is created,
@@ -10,10 +9,9 @@ let lineKey = 0;
 let vectKey = 0;
 
 export class Cubicon {
-    constructor({ scene = { svg: svg }, position }) {
-        this.scene = scene;
+    constructor({ group, position }) {
+        this.group = group;
 
-        /// I don't know if creating the id property is neccessary, but I like the tidy way!
         this.id = "";
 
         this.x = xGtoW(position.x);
@@ -25,7 +23,7 @@ export class Cubicon {
         // and this keeps track of the angle between the cubicon and the x axis
         this.angle = 0;
 
-        this.svg = scene.svg;
+        this.svg = group.svg;
 
         /// this.elapsedTime keeps track of the time passed by during the animations of this cubicon
         this.elapsedTime = 0;
@@ -34,14 +32,14 @@ export class Cubicon {
         /// Initially, we set it to nothing.
         this.stroke = d3.select();
 
-        /// Add this to the target scene
-        this.scene.add(this);
+        /// Add this to the target group
+        this.group.add(this);
     }
 }
 
 export class Rectangle extends Cubicon {
     constructor({
-        scene = { svg: svg },
+        group,
         position = { x: 0, y: 0 },
         width,
         height,
@@ -50,7 +48,7 @@ export class Rectangle extends Cubicon {
         strokeColor = "#fff",
         strokeWidth = 2,
     }) {
-        super({ scene: scene, position: position });
+        super({ group: group, position: position });
 
         this.width = xGtoW(width);
         this.height = xGtoW(height);
@@ -64,13 +62,13 @@ export class Rectangle extends Cubicon {
         // These are the coordinate of the draw origin
         this.X = -this.width / 2 + this.x;
         this.Y = this.height / 2 + this.y;
-        this.id = `square${rectKey++}`;
+        this.id = `rect${rectKey++}`;
 
         this.#add();
     }
 
     ////////////////////////////////
-    // APPEND TAGS TO SCENE'S SVG //
+    // APPEND TAGS TO Group'S SVG //
     ////////////////////////////////
     /// this.stroke is equivalent to the d3's selection of its HTML (SVG) tag
     #add() {
@@ -78,6 +76,7 @@ export class Rectangle extends Cubicon {
         this.svg
             .append("path")
             .attr("id", `${this.id}`)
+            .attr("class", "rectangle")
             .attr("d", path.toString())
             .attr("stroke", this.strokeColor)
             .attr("stroke-width", this.strokeWidth);
@@ -106,7 +105,7 @@ export class Rectangle extends Cubicon {
 
 export class Square extends Rectangle {
     constructor({
-        scene = { svg: svg },
+        group,
         position,
         sideLength,
         fillColor,
@@ -115,7 +114,7 @@ export class Square extends Rectangle {
         strokeWidth,
     }) {
         super({
-            scene: scene,
+            group: group,
             position: position,
             width: sideLength,
             height: sideLength,
@@ -129,7 +128,7 @@ export class Square extends Rectangle {
 
 export class Circle extends Cubicon {
     constructor({
-        scene = { svg: svg },
+        group,
         position = { x: 0, y: 0 },
         radius,
         fillColor = "none",
@@ -137,7 +136,7 @@ export class Circle extends Cubicon {
         strokeColor = "#fff",
         strokeWidth = 2,
     }) {
-        super({ scene: scene, position: position });
+        super({ group: group, position: position });
 
         this.id = `circle${circleKey++}`;
 
@@ -159,6 +158,7 @@ export class Circle extends Cubicon {
         this.svg
             .append("circle")
             .attr("id", `${this.id}`)
+            .attr("class", "circle")
             .attr("cx", this.cx)
             .attr("cy", this.cy)
             .attr("r", this.radius)
@@ -174,9 +174,9 @@ export class Circle extends Cubicon {
 }
 
 export class GridOrigin extends Circle {
-    constructor({ scene = { svg: svg } }) {
+    constructor({ group }) {
         super({
-            scene: scene,
+            group: group,
             position: { x: 0, y: 0 },
             radius: xWtoG(2.2),
             strokeColor: "#fff",
@@ -187,13 +187,13 @@ export class GridOrigin extends Circle {
 
 export class Line extends Cubicon {
     constructor({
-        scene = { svg: svg },
+        group,
         startPoint = { x: 0, y: 0 },
         endPoint,
         lineColor = "#fff",
         lineWidth = 2,
     }) {
-        super({ scene: scene, position: startPoint });
+        super({ group: group, position: startPoint });
 
         this.id = `line${lineKey++}`;
 
@@ -219,6 +219,7 @@ export class Line extends Cubicon {
         this.svg
             .append("line")
             .attr("id", this.id)
+            .attr("class", "line")
             .attr("x1", this.startPoint.x)
             .attr("y1", this.startPoint.y)
             .attr("x2", this.endPoint.x)
@@ -231,14 +232,14 @@ export class Line extends Cubicon {
 
 export class Vector extends Cubicon {
     constructor({
-        scene = { svg: svg },
+        group,
         startPoint = { x: 0, y: 0 },
         endPoint,
         vectColor = "#fff",
         vectStrokeWidth = 2,
     }) {
         super({
-            scene: scene,
+            group: group,
             position: startPoint,
         });
 
@@ -273,6 +274,7 @@ export class Vector extends Cubicon {
         this.stroke = this.svg
             .append("g")
             .attr("id", `${this.id}-group`)
+            .attr("class", "vector")
             .attr("transform-box", "fill-box")
             .attr(
                 "transform-origin",

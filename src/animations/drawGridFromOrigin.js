@@ -29,15 +29,15 @@ export class DrawGridFromOrigin extends Animation {
         this.hasNums = grid.hasNums;
     }
 
-    play() {
-        this.#drawHorizontalLines(this.cubicon, this.hasNums);
-        this.#drawVerticalLines(this.cubicon, this.hasNums);
-        this.#drawOrigin(this.cubicon);
+    play(waitTime) {
+        this.#drawHorizontalLines(this.cubicon, this.hasNums, waitTime);
+        this.#drawVerticalLines(this.cubicon, this.hasNums, waitTime);
+        this.#drawOrigin(this.cubicon, waitTime);
 
-        this.cubicon.elapsedTime += this.duration;
+        this.cubicon.elapsedTime += this.duration + waitTime;
     }
 
-    #drawHorizontalLines(grid, hasNums) {
+    #drawHorizontalLines(grid, hasNums, waitTime) {
         const horizontalLines = grid.horizontal
             .append("g")
             .attr("id", "horizontal-lines");
@@ -47,8 +47,8 @@ export class DrawGridFromOrigin extends Animation {
             .enter()
             .append("line")
             .transition()
-            .delay(grid.elapsedTime)
-            .duration(grid.drawX)
+            .delay(grid.elapsedTime + waitTime)
+            .duration(this.drawX)
             .attr("x1", xGtoW(xBound[0] - 1))
             .attr("y1", (d) => yGtoW(d))
             .attr("x2", xGtoW(xBound[1] + 1))
@@ -59,10 +59,10 @@ export class DrawGridFromOrigin extends Animation {
             .attr("stroke-width", (d) => (xGtoW(d) === 0 ? 2 : 1))
             .style("stroke-opacity", (d) => (d % 2 === 0 ? 1 : 0.2));
 
-        if (hasNums) this.#placeXAxisNums(grid);
+        if (hasNums) this.#placeXAxisNums(grid, waitTime);
     }
 
-    #placeXAxisNums(grid) {
+    #placeXAxisNums(grid, waitTime) {
         const xNumWidth = 30;
         const xNumHeight = 20;
 
@@ -73,7 +73,7 @@ export class DrawGridFromOrigin extends Animation {
             .attr("id", "x-axis-numbers");
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
-            .data(grid.xs.slice(1, grid.xs.length - 1))
+            .data(grid.xs.slice(2, grid.xs.length - 2))
             .enter()
             .each((d) => {
                 xAxisNumbers
@@ -84,18 +84,22 @@ export class DrawGridFromOrigin extends Animation {
                     .attr("width", xNumWidth)
                     .attr("height", xNumHeight)
                     .attr("transform", "scale(1,-1)")
+                    .attr("opacity", 0)
                     .style("text-align", "center")
                     .append("xhtml:text")
-                    .transition()
-                    .duration(grid.drawXNums)
-                    .delay(grid.drawXNumsDelay)
                     .style("color", "#fff")
                     .node().innerHTML =
                     d !== 0 ? katex.renderToString(`${d}`) : "";
             });
+        xAxisNumbers
+            .selectAll("foreignObject.x-axis-number")
+            .transition()
+            .duration(this.drawXNums)
+            .delay(grid.elapsedTime + this.drawXNumsDelay + waitTime)
+            .attr("opacity", 1);
     }
 
-    #drawVerticalLines(grid, hasNums) {
+    #drawVerticalLines(grid, hasNums, waitTime) {
         const verticalLines = grid.vertical
             .append("g")
             .attr("id", "vertical-lines");
@@ -105,8 +109,8 @@ export class DrawGridFromOrigin extends Animation {
             .enter()
             .append("line")
             .transition()
-            .delay(grid.drawYDelay)
-            .duration(grid.drawY)
+            .delay(grid.elapsedTime + this.drawYDelay + waitTime)
+            .duration(this.drawY)
             .attr("x1", (d) => xGtoW(d))
             .attr("y1", yGtoW(yBound[0]))
             .attr("x2", (d) => xGtoW(d))
@@ -117,10 +121,10 @@ export class DrawGridFromOrigin extends Animation {
             .attr("stroke-width", (d) => (yGtoW(d) === 0 ? 2 : 1))
             .style("stroke-opacity", (d) => (d % 2 === 0 ? 1 : 0.2));
 
-        if (hasNums) this.#placeYAxisNums(grid);
+        if (hasNums) this.#placeYAxisNums(grid, waitTime);
     }
 
-    #placeYAxisNums(grid) {
+    #placeYAxisNums(grid, waitTime) {
         const yNumWidth = 30;
         const yNumHeight = 20;
 
@@ -142,22 +146,26 @@ export class DrawGridFromOrigin extends Animation {
                     .attr("width", yNumWidth)
                     .attr("height", yNumHeight)
                     .attr("transform", "scale(1,-1)")
+                    .attr("opacity", 0)
                     .style("text-align", "center")
                     .append("xhtml:text")
-                    .transition()
-                    .duration(grid.drawYNums)
-                    .delay(grid.drawYNumsDelay)
                     .style("color", "#fff")
                     .node().innerHTML =
                     d !== 0 ? katex.renderToString(`${d}`) : "";
             });
+        yAxisNumbers
+            .selectAll("foreignObject.y-axis-number")
+            .transition()
+            .duration(this.drawYNums)
+            .delay(grid.elapsedTime + this.drawYNumsDelay + waitTime)
+            .attr("opacity", 1);
     }
 
     #drawOrigin(grid) {
-        grid.scene.play([
+        grid.group.play([
             new Create({
                 cubicon: new GridOrigin({
-                    scene: grid.scene,
+                    group: grid.group,
                 }),
             }),
         ]);

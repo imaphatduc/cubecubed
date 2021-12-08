@@ -8,21 +8,21 @@ export class Create extends Animation {
         this.duration = duration;
     }
 
-    play() {
-        this.#create(this.cubicon);
+    play(sleepTime) {
+        this.#create(this.cubicon, sleepTime);
     }
 
-    #create(cubicon) {
+    #create(cubicon, sleepTime) {
         if (cubicon.constructor.name === "Vector") {
             const drawLineAnimTime = 1500;
             cubicon.lineStroke
                 .transition()
-                .delay(cubicon.elapsedTime)
+                .delay(cubicon.elapsedTime + sleepTime)
                 .duration(drawLineAnimTime)
                 .attr("x2", cubicon.endPoint.x)
                 .attr("y2", cubicon.endPoint.y);
 
-            cubicon.elapsedTime += drawLineAnimTime;
+            cubicon.elapsedTime += drawLineAnimTime + sleepTime;
 
             const drawArrowHeadAnimTime = 1500;
             cubicon.arrowHead
@@ -43,7 +43,7 @@ export class Create extends Animation {
             if (cubicon.fillColor !== undefined && cubicon.fillColor !== null) {
                 cubicon.stroke
                     .transition()
-                    .delay(cubicon.elapsedTime)
+                    .delay(cubicon.elapsedTime + sleepTime)
                     .duration(this.duration)
                     .attr("stroke-dashoffset", 0)
                     .style("fill", cubicon.fillColor)
@@ -51,12 +51,12 @@ export class Create extends Animation {
             } else {
                 cubicon.stroke
                     .transition()
-                    .delay(cubicon.elapsedTime)
+                    .delay(cubicon.elapsedTime + sleepTime)
                     .duration(this.duration)
                     .attr("stroke-dashoffset", 0);
             }
 
-            cubicon.elapsedTime += this.duration;
+            cubicon.elapsedTime += this.duration + sleepTime;
         }
     }
 }

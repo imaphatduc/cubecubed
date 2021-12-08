@@ -1,100 +1,90 @@
 import {
-    initAnimScene,
-    Scene,
-    Grid,
-    Square,
-    Circle,
-    Line,
-    Vector,
     COLOR,
-    Vector3,
     Create,
-    Translate,
-    Rotate,
     DrawGridFromOrigin,
-    FadeOut,
-    FadeIn,
+    Grid,
+    Group,
+    initAnimScene,
+    Rotate,
+    Scene,
+    Square,
+    Vector,
+    Vector2,
 } from "../src/index.js";
 
+/// Optional.
+/// If this line doesn't exist in your code,
+// make sure to add "transform="scale(1, -1)"" to svg#viz to flip the y axis
 initAnimScene();
 
-const scene = new Scene("start");
-const grid = new Grid({
-    scene: scene,
-    hasNums: true,
-});
+/// This variable keeps track of the time goes by during the animations
+/// We'll use this to control time, so don't forget to include it to your code
+let elapsed = 0;
 
-scene.play([new DrawGridFromOrigin(grid)]);
+/// By convention, each function implements the animations in each scene...
+function drawShapes() {
+    const scene = new Scene("draw-shapes");
 
-const square = new Square({
-    scene: scene,
-    position: { x: 0, y: 0 },
-    sideLength: 2,
-    fillOpacity: 0.5,
-    strokeColor: COLOR.PINK_1,
-    strokeWidth: 2,
-});
+    /// ...And groups should be inside functions
+    function squares() {
+        const squares = new Group("squares", scene);
 
-scene.play([
-    new Create({
-        cubicon: square,
-    }),
-]);
+        const square1 = new Square({
+            group: squares,
+            sideLength: 2,
+            strokeColor: COLOR.PINK_1,
+        });
 
-const circle = new Circle({
-    scene: scene,
-    position: { x: 1, y: 3 },
-    radius: 1,
-    fillColor: COLOR.PURPLE_1,
-    fillOpacity: 0.5,
-    strokeColor: COLOR.PINK_1,
-    strokeWidth: 2,
-});
+        squares.play([new Create({ cubicon: square1 })]);
 
-scene.play([
-    new Translate({ cubicon: square, vector: new Vector3(1, 2, 0) }),
-    new Rotate({ cubicon: square, degree: 45 }),
-]);
+        const square2 = new Square({
+            group: squares,
+            sideLength: 2,
+            strokeColor: COLOR.PINK_1,
+        });
 
-scene.play([new FadeIn({ cubicon: circle })]);
+        squares.play([
+            new Create({ cubicon: square2 }),
+            new Rotate({ cubicon: square1, degree: 45 }),
+        ]);
 
-scene.play([
-    new Translate({ cubicon: circle, vector: new Vector3(1, 2, 0) }),
-    new Translate({ cubicon: square, vector: new Vector3(1, 2, 0) }),
-    new Translate({ cubicon: circle, vector: new Vector3(1, -3, 0) }),
-]);
+        /// Set elapsed
+        elapsed = squares.groupElapsed;
+    }
 
-scene.play([new FadeOut({ cubicon: square })]);
-scene.play([new FadeOut({ cubicon: circle })]);
+    function vectors() {
+        const vectors = new Group("vectors", scene);
 
-const vect = new Vector({
-    scene: scene,
-    startPoint: { x: 0, y: 0 },
-    endPoint: { x: 3, y: 2 },
-    vectColor: COLOR.TEAL_1,
-    vectStrokeWidth: 2,
-});
+        const vector = new Vector({
+            group: vectors,
+            endPoint: new Vector2(2, 3),
+            vectColor: COLOR.TEAL_1,
+        });
 
-scene.play([
-    new Create({ cubicon: vect }),
-    new Rotate({ cubicon: vect, degree: -90 }),
-]);
-scene.play([
-    new Translate({ cubicon: vect, vector: new Vector3(1, 3, 0) }),
-    new Rotate({ cubicon: vect, degree: -90 }),
-]);
+        /// wait for the previous group's animations to complete, then start this group's ones
+        vectors.sleep(elapsed);
 
-const vect2 = new Vector({
-    scene: scene,
-    startPoint: { x: 0, y: 0 },
-    endPoint: { x: 3, y: 2 },
-    vectColor: COLOR.PINK_2,
-    vectStrokeWidth: 2,
-});
+        vectors.play([new Create({ cubicon: vector })]);
 
-scene.play([new Create({ cubicon: vect2 })]);
+        elapsed = vectors.groupElapsed;
+    }
 
-scene.play([
-    new Rotate({ cubicon: vect2, degree: 90 }),
-    new Rotate({ cubicon: vect, degree: 90 }),
-]);
+    squares();
+    vectors();
+}
+
+function animatePlaneGrid() {
+    const scene = new Scene("animate-plane-grid");
+
+    const planeGridGroup = new Group("plane-grid-group", scene);
+
+    const grid = new Grid({ group: planeGridGroup, hasNums: true });
+
+    planeGridGroup.sleep(elapsed - 2000);
+    planeGridGroup.play([new DrawGridFromOrigin(grid)]);
+
+    elapsed = planeGridGroup.groupElapsed;
+}
+
+drawShapes();
+animatePlaneGrid();

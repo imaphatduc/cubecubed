@@ -26,23 +26,36 @@ Imagine that a 3d cube multiply by itself two times— That's it!
 npm i cubecubed --save
 ```
 
-## Usage
-
-#### Requirement
+## Required HTML
 
 The target HTML structure must have this element:
 
 ```html
 <div id="svg-render">
-    <svg xmlns="http://w3.org/2000/svg" id="viz"></svg>
+    <svg xmlns="http://w3.org/2000/svg" id="viz" transform="scale(1, -1)"></svg>
 </div>
 ```
 
 -   **A note about KaTeX**: Make sure that you include the proper katex.min.css (one easy way is to pull the script from a CDN service), otherwise KaTeX will render texts two times onto the animation screen (See the sample index.html for more information).
 
+## Setting Scenes
+
+To set a scene in Cubecubed, we need to understand some terms first.
+
 ### Cubicons
 
 `Cubicons` are nuclear objects of a scene, such as squares and circles. Don't misunderstand them with 3d cubes, which are things that cubecubed has not applied to its functionality.
+
+### Scenes and Groups
+
+View `Scenes` and `Groups` like so: an animation video is made up of scenes, each scene includes different groups.
+
+To make it easier to understand, consider this example: you solved some math problems, and you want to make a video to explain all your solutions to others. In `scene`#1, you proved "square root of 2 is irrational", `scene`#2 is the solution of a logarithm equation, and so on. In scene#1, there are two groups: `group` problem ("prove square root of 2 is irrational") and `group` solution (steps to solve it), each stands separately to the other.
+
+There are two things to keep in mind:
+
+-   A cubicon must be in a group, and a group must belong to a scene.
+-   Groups in the same scene animate synchronously.
 
 ### The Animation Engine
 
@@ -51,34 +64,55 @@ Below are the steps to set an animation scene:
 1. Import animation type and initialize the main scene (svg#viz):
 
 ```js
-import { Scene, Create, Translate, Rotate, FadeIn, FadeOut } from "cubecubed";
+import {
+    initAnimScene,
+    Scene,
+    Group,
+    Square,
+    Circle,
+    Vector2,
+    COLOR,
+    Create,
+    Translate,
+    Rotate,
+} from "cubecubed";
 
 initAnimScene();
 ```
 
-2. Create a scene (this scene will be the child of svg#viz):
+2. By convention, each scene should be placed in a function for easier management:
 
 ```js
-const scene = new Scene("name-of-the-scene");
+function simpleScene() {}
 ```
 
-3. Create cubicon(s):
+Codes in the following steps are in simpleScene().
+
+3. Create a scene (this scene will be the child of svg#viz):
 
 ```js
-/// Remember to initialize each cubicon with a scene, in order to append it to a child svg tag.
+const scene = new Scene("simple-scene");
+```
+
+3. Create a group and append that group to a scene:
+
+```js
+const group = new Group("shapes", scene);
+```
+
+4. Create cubicon(s) in group:
+
+```js
+/// Remember to initialize each cubicon with a group
 /// Cubicons append to the <svg id="viz"></svg> by default.
 const square = new Square({
-    scene: scene,
-    position: { x: 0, y: 0 },
+    group: group,
     sideLength: 2,
-    fillOpacity: 0.5,
-    strokeColor: COLOR.PINK_1,
-    strokeWidth: 2,
 });
 
 const circle = new Circle({
-    scene: scene,
-    position: { x: 1, y: 3 },
+    group: group,
+    position: new Vector2(1, 3),
     radius: 1,
     fillColor: COLOR.PURPLE_1,
     fillOpacity: 0.5,
@@ -90,9 +124,9 @@ const circle = new Circle({
 4. Animate the cubicon(s)!
 
 ```js
-/// scene.play() method takes an array as the animation queue.
+/// group.play() method takes an array as the animation queue.
 /// The target cubicons will be animated concurrently.
-scene.play([new Create(square), new Create(circle)]);
+group.play([new Create(square), new Create(circle)]);
 
 /// Note that when a cubicon appears multiple times in the same queue,
 // its animations will be applied synchronously.
@@ -103,93 +137,95 @@ scene.play([new Translate(square), new Rotate(square, 45)]);
 
 ```js
 import {
-    initAnimScene,
-    Scene,
-    Grid,
-    Square,
-    Circle,
-    Line,
-    Vector,
     COLOR,
-    Vector3,
     Create,
-    Translate,
-    Rotate,
     DrawGridFromOrigin,
-    FadeOut,
-    FadeIn,
+    Grid,
+    Group,
+    initAnimScene,
+    Rotate,
+    Scene,
+    Square,
+    Vector,
+    Vector2,
 } from "cubecubed";
 
-// This is required!
+/// Optional.
+/// If this line doesn't exist in your code,
+// make sure to add "transform="scale(1, -1)"" to svg#viz to flip the y axis
 initAnimScene();
 
-const scene = new Scene("start");
-const grid = new Grid({
-    scene: scene,
-    hasNums: true,
-});
+/// This variable keeps track of the time goes by during the animations
+/// We'll use this to control time, so don't forget to include it to your code
+let elapsed = 0;
 
-scene.play([new DrawGridFromOrigin(grid)]);
+/// By convention, each function implements the animations in each scene...
+function drawShapes() {
+    const scene = new Scene("draw-shapes");
 
-const square = new Square({
-    scene: scene,
-    position: { x: 0, y: 0 },
-    sideLength: 2,
-    fillOpacity: 0.5,
-    strokeColor: COLOR.PINK_1,
-    strokeWidth: 2,
-});
+    /// ...And groups should be inside functions
+    function squares() {
+        const squares = new Group("squares", scene);
 
-scene.play([new Create(square)]);
+        const square1 = new Square({
+            group: squares,
+            sideLength: 2,
+            strokeColor: COLOR.PINK_1,
+        });
 
-const circle = new Circle({
-    scene: scene,
-    position: { x: 1, y: 3 },
-    radius: 1,
-    fillColor: COLOR.PURPLE_1,
-    fillOpacity: 0.5,
-    strokeColor: COLOR.PINK_1,
-    strokeWidth: 2,
-});
+        squares.play([new Create({ cubicon: square1 })]);
 
-scene.play([
-    new Translate(square, new Vector3(1, 2, 0)),
-    new Rotate(square, 45),
-]);
+        const square2 = new Square({
+            group: squares,
+            sideLength: 2,
+            strokeColor: COLOR.PINK_1,
+        });
 
-scene.play([new FadeIn(circle)]);
+        squares.play([
+            new Create({ cubicon: square2 }),
+            new Rotate({ cubicon: square1, degree: 45 }),
+        ]);
 
-scene.play([
-    new Translate(circle, new Vector3(1, 2, 0)),
-    new Translate(square, new Vector3(1, 2, 0)),
-    new Translate(circle, new Vector3(1, -3, 0)),
-]);
+        /// Set elapsed
+        elapsed = squares.groupElapsed;
+    }
 
-scene.play([new FadeOut(square)]);
-scene.play([new FadeOut(circle)]);
+    function vectors() {
+        const vectors = new Group("vectors", scene);
 
-const vect = new Vector({
-    scene: scene,
-    startPoint: { x: 0, y: 0 },
-    endPoint: { x: 3, y: 2 },
-    vectColor: COLOR.TEAL_1,
-    vectStrokeWidth: 2,
-});
+        const vector = new Vector({
+            group: vectors,
+            endPoint: new Vector2(2, 3),
+            vectColor: COLOR.TEAL_1,
+        });
 
-scene.play([new Create(vect), new Rotate(vect, -90)]);
-scene.play([new Translate(vect, new Vector3(1, 3, 0)), new Rotate(vect, -90)]);
+        /// wait for the previous group's animations to complete, then start this group's ones
+        vectors.sleep(elapsed);
 
-const line = new Line({
-    scene: scene,
-    startPoint: { x: 0, y: 0 },
-    endPoint: { x: 3, y: 2 },
-    lineColor: COLOR.PINK_2,
-    lineWidth: 2,
-});
+        vectors.play([new Create({ cubicon: vector })]);
 
-scene.play([new Create(line)]);
+        elapsed = vectors.groupElapsed;
+    }
 
-scene.play([new Rotate(line, 90), new Rotate(vect, 90)]);
+    squares();
+    vectors();
+}
+
+function animatePlaneGrid() {
+    const scene = new Scene("animate-plane-grid");
+
+    const planeGridGroup = new Group("plane-grid-group", scene);
+
+    const grid = new Grid({ group: planeGridGroup, hasNums: true });
+
+    planeGridGroup.sleep(elapsed - 2000);
+    planeGridGroup.play([new DrawGridFromOrigin(grid)]);
+
+    elapsed = planeGridGroup.groupElapsed;
+}
+
+drawShapes();
+animatePlaneGrid();
 ```
 
 #### Result
@@ -212,9 +248,9 @@ Cubecubed is currently just a work in progress. Any contribution is appreciated.
 
 -   [ ] Input & error handling.
 -   [x] Use [KaTeX](https://github.com/KaTeX/KaTeX) for rendering math text.
--   [ ] Implement sleep medthod (apply sleep times between animations).
+-   [x] Implement sleep medthod (apply sleep times between animations).
 -   [ ] Make a Docs API and Getting Started page.
 -   [x] Vector visualization.
 -   [ ] Matrix transformation.
 -   [ ] Create 3d scene (a.k.a. projecting 3d scene into 2d SVG canvas).
--   [ ] A way to let the users customize (override) animation time constants.
+-   [x] A way to let the users customize animation time

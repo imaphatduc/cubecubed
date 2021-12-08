@@ -10,11 +10,11 @@ export class Translate extends Animation {
         this.duration = duration;
     }
 
-    play() {
-        this.#translateByVector(this.cubicon, this.vector);
+    play(sleepTime) {
+        this.#translateByVector(this.cubicon, this.vector, sleepTime);
     }
 
-    #translateByVector(cubicon, vector) {
+    #translateByVector(cubicon, vector, sleepTime) {
         /// These x and y position attributes do not exist in most SVG elements,
         // except for closed shapes (such as square, circle).
         /// I created these property for the sake of translation tracking.
@@ -27,7 +27,7 @@ export class Translate extends Animation {
 
         cubicon.stroke
             .transition()
-            .delay(cubicon.elapsedTime)
+            .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             /// `moveVector` and `angle` is very useful here.
             /// We must have these properties, otherwise our cubicons will return to
@@ -37,6 +37,6 @@ export class Translate extends Animation {
                 `translate(${cubicon.moveVector.x}, ${cubicon.moveVector.y}) rotate(${cubicon.angle})`
             );
 
-        cubicon.elapsedTime += this.duration;
+        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

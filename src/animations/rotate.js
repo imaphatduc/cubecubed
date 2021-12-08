@@ -9,26 +9,33 @@ export class Rotate extends Animation {
         this.duration = duration;
     }
 
-    play() {
-        this.#rotate(this.cubicon, this.degree);
+    play(sleepTime) {
+        this.#rotate(this.cubicon, this.degree, sleepTime);
     }
 
-    #rotate(cubicon, degree) {
+    #rotate(cubicon, degree, sleepTime) {
         if (
             cubicon.constructor.name === "Vector" ||
             cubicon.constructor.name === "Line"
-        )
+        ) {
             this.duration = 2000;
-        cubicon.angle += degree;
+        }
+        // cubicon.angle += degree;
         cubicon.stroke
             .transition()
-            .delay(cubicon.elapsedTime)
+            .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
-            .attr(
-                "transform",
-                `translate(${cubicon.moveVector.x}, ${cubicon.moveVector.y}) rotate(${cubicon.angle})`
-            );
+            /// d3 normalize the rotation vector, so we must use attrTween method here
+            .attrTween("transform", () =>
+                d3.interpolate(
+                    `translate(${cubicon.moveVector.x}, ${cubicon.moveVector.y}) rotate(${cubicon.angle})`,
+                    `translate(${cubicon.moveVector.x}, ${
+                        cubicon.moveVector.y
+                    }) rotate(${cubicon.angle + degree})`
+                )
+            )
+            .on("end", () => (cubicon.angle += degree));
 
-        cubicon.elapsedTime += this.duration;
+        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

@@ -8,21 +8,21 @@ export class FadeIn extends Animation {
         this.duration = duration;
     }
 
-    play() {
-        this.#fadeIn(this.cubicon);
+    play(sleepTime) {
+        this.#fadeIn(this.cubicon, sleepTime);
     }
 
-    #fadeIn(cubicon) {
+    #fadeIn(cubicon, sleepTime) {
         cubicon.stroke.style("fill-opacity", 0);
         cubicon.stroke.style("stroke-opacity", 0);
         cubicon.stroke
             .transition()
-            .delay(cubicon.elapsedTime)
+            .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .style("stroke-opacity", 1)
             .style("fill", cubicon.fillColor)
             .style("fill-opacity", cubicon.fillOpacity);
 
-        cubicon.elapsedTime += this.duration;
+        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

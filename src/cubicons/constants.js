@@ -23,7 +23,7 @@ export const COLOR = {
     PINK_2: "#ff39b3",
 };
 
-// ANIME is just a abbreviation for ANImation TiME :)
+// ANIME is just an abbreviation for ANImation tiME :)
 export const ANIME = {
     CREATE: 1500,
     TRANSLATE: 1500,

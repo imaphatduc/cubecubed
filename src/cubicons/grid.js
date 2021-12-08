@@ -1,12 +1,12 @@
 import { Cubicon } from "./cubicon";
-import { svg, COLOR } from "./constants";
+import { COLOR } from "./constants";
 import { xBound, yBound } from "../math/convertUnit";
 
 export class Grid extends Cubicon {
-    constructor({ scene = { svg: svg }, hasNums = false, waitTime = 0 }) {
-        super({ scene: scene, position: { x: 0, y: 0 }, waitTime: waitTime });
+    constructor({ group, hasNums = false }) {
+        super({ group: group, position: { x: 0, y: 0 } });
 
-        this.scene = scene;
+        this.group = group;
 
         this.id = "plane-grid";
 
@@ -25,7 +25,7 @@ export class Grid extends Cubicon {
             this.ys.push(i);
         }
 
-        this.svg = scene.svg;
+        this.svg = group.svg;
         this.planeGrid = this.svg
             .append("g")
             .attr("id", "plane-grid")
@@ -33,16 +33,7 @@ export class Grid extends Cubicon {
         this.horizontal = this.planeGrid.append("g").attr("id", "horizontal");
         this.vertical = this.planeGrid.append("g").attr("id", "vertical");
 
-        this.elapsedTime = waitTime;
-
-        this.drawX = 1000;
-        this.drawXNums = 500;
-        this.drawXNumsDelay = 800;
-
-        this.drawY = 1000;
-        this.drawYDelay = 200;
-        this.drawYNums = 500;
-        this.drawYNumsDelay = 800;
+        this.elapsedTime = 0;
 
         this.drawTime = Math.max(
             Math.max(this.drawX, this.drawXNums + this.drawXNumsDelay),
