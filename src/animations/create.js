@@ -14,6 +14,10 @@ export class Create extends Animation {
 
     #create(cubicon, sleepTime) {
         if (cubicon.constructor.name === "Vector") {
+            cubicon.lineStroke
+                .attr("x2", cubicon.startPoint.x)
+                .attr("y2", cubicon.startPoint.y);
+
             const drawLineAnimTime = 1500;
             cubicon.lineStroke
                 .transition()
@@ -26,6 +30,7 @@ export class Create extends Animation {
 
             const drawArrowHeadAnimTime = 1500;
             cubicon.arrowHead
+                .style("opacity", 0)
                 .transition()
                 .delay(cubicon.elapsedTime - 500)
                 .duration(drawArrowHeadAnimTime)

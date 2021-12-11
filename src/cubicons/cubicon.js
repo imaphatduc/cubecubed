@@ -1,5 +1,6 @@
 import * as d3 from "d3";
-import { rToD, xGtoW, xWtoG, yGtoW } from "../math/convertUnit";
+import { rToD, xGtoW, yGtoW, xWtoG, yWtoG } from "../math/convertUnit";
+import { svgWidth, svgHeight } from "./constants";
 
 /// When any of the cubicon instance is created,
 // these keys will keep track of that object's own id key
@@ -14,8 +15,13 @@ export class Cubicon {
 
         this.id = "";
 
-        this.x = xGtoW(position.x);
-        this.y = yGtoW(position.y);
+        // this.x = xGtoW(position.x);
+        // this.y = yGtoW(position.y);
+
+        this.position = {
+            x: xGtoW(position.x),
+            y: yGtoW(position.y),
+        };
 
         /// This property keeps track of the total vector a cubicon has moved
         this.moveVector = { x: 0, y: 0 };
@@ -60,8 +66,8 @@ export class Rectangle extends Cubicon {
         this.strokeWidth = strokeWidth;
 
         // These are the coordinate of the draw origin
-        this.X = -this.width / 2 + this.x;
-        this.Y = this.height / 2 + this.y;
+        this.X = -this.width / 2 + this.position.x;
+        this.Y = this.height / 2 + this.position.y;
         this.id = `rect${rectKey++}`;
 
         this.#add();
@@ -140,8 +146,8 @@ export class Circle extends Cubicon {
 
         this.id = `circle${circleKey++}`;
 
-        this.cx = this.x;
-        this.cy = this.y;
+        this.cx = this.position.x;
+        this.cy = this.position.y;
 
         this.radius = xGtoW(radius);
 
@@ -270,6 +276,13 @@ export class Vector extends Cubicon {
         this.#draw();
     }
 
+    get gEndPoint() {
+        return {
+            x: xWtoG(this.endPoint.x),
+            y: yWtoG(this.endPoint.y),
+        };
+    }
+
     #draw() {
         this.stroke = this.svg
             .append("g")
@@ -286,8 +299,8 @@ export class Vector extends Cubicon {
             .attr("id", this.id)
             .attr("x1", this.startPoint.x)
             .attr("y1", this.startPoint.y)
-            .attr("x2", this.startPoint.x) /// Set end point to be start point
-            .attr("y2", this.startPoint.y) // to define the initial state of the animation
+            .attr("x2", this.endPoint.x) /// Set end point to be start point
+            .attr("y2", this.endPoint.y) // to define the initial state of the animation
             .attr("stroke", this.vectColor)
             .attr("stroke-width", this.vectStrokeWidth);
         this.stroke
@@ -300,7 +313,6 @@ export class Vector extends Cubicon {
             )
             .attr("fill", this.vectColor)
             .attr("stroke", "none")
-            .style("opacity", 0)
             .attr(
                 "transform",
                 `translate(${this.endPoint.x} ${this.endPoint.y}) rotate(${
@@ -310,5 +322,39 @@ export class Vector extends Cubicon {
 
         this.lineStroke = this.stroke.select("line");
         this.arrowHead = this.stroke.select("polygon");
+    }
+}
+
+export class MathText extends Cubicon {
+    constructor({
+        group,
+        position = { x: 0, y: 0 },
+        text = "",
+        color = "#fff",
+        fontSize = 13,
+    }) {
+        super({ group: group, position: position });
+
+        this.text = text;
+        this.color = color;
+        this.fontSize = fontSize;
+
+        this.#draw();
+    }
+
+    #draw() {
+        /// this.stroke is a d3 selection of HTML <text />
+        this.stroke = this.svg
+            .append("foreignObject")
+            .attr("x", this.position.x)
+            /// When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
+            .attr("y", -this.position.y)
+            .attr("width", svgWidth)
+            .attr("height", svgHeight)
+            .attr("transform", "scale(1, -1)")
+            .append("xhtml:text")
+            .style("font-size", `${this.fontSize}pt`)
+            .style("color", this.color);
+        this.stroke.node().innerHTML = katex.renderToString(this.text);
     }
 }

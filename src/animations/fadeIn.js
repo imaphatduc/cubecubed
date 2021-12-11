@@ -13,13 +13,15 @@ export class FadeIn extends Animation {
     }
 
     #fadeIn(cubicon, sleepTime) {
-        cubicon.stroke.style("fill-opacity", 0);
-        cubicon.stroke.style("stroke-opacity", 0);
+        // cubicon.stroke.style("fill-opacity", 0);
+        // cubicon.stroke.style("stroke-opacity", 0);
+        cubicon.stroke.style("opacity", 0);
         cubicon.stroke
             .transition()
             .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .style("stroke-opacity", 1)
+            .style("opacity", 1)
             .style("fill", cubicon.fillColor)
             .style("fill-opacity", cubicon.fillOpacity);
 

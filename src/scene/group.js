@@ -1,6 +1,5 @@
 import { FadeOut } from "../animations/fadeOut";
 import { svgWidth, svgHeight } from "../cubicons/constants";
-import { xWtoG, yWtoG } from "../math/convertUnit";
 
 export class Group {
     constructor(groupName, scene) {
@@ -18,15 +17,9 @@ export class Group {
                       } ${svgWidth} ${svgHeight}`
                   );
         this.name = groupName;
-        this.svgWidth = xWtoG(svgWidth);
-        this.svgHeight = yWtoG(svgHeight);
 
         /// List of all cubicons in this group
         this.cubicons = [];
-
-        /// List of the **animated** cubicons and their ids
-        this.animCubicons = [];
-        this.animCubiconsId = [];
 
         /// List of the animations used in this group
         this.animations = [];
