@@ -236,6 +236,14 @@ animatePlaneGrid();
 
 Cubecubed is built on top of [D3](https://github.com/d3/d3), a marvelous data visualization library, using its powerful SVG manipulation system, along with some [Manim](https://github.com/3b1b/manim)'s animation concepts.
 
+## Showcase
+
+Source code for these are in `/examples` directory.
+
+#### Graphing Scene
+
+![](./media/graphing.gif)
+
 ## Inspiration
 
 Cubecubed is deeply inspired by [3b1b/manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_, as described on its GitHub repo.
