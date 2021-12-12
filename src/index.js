@@ -4,6 +4,7 @@ import { Square } from "./cubicons/cubicon";
 export * from "./cubicons/cubicon";
 export * from "./cubicons/grid";
 export * from "./cubicons/constants";
+export * from "./cubicons/graph";
 
 export * from "./scene/scene";
 export * from "./scene/group";

@@ -299,8 +299,8 @@ export class Vector extends Cubicon {
             .attr("id", this.id)
             .attr("x1", this.startPoint.x)
             .attr("y1", this.startPoint.y)
-            .attr("x2", this.endPoint.x) /// Set end point to be start point
-            .attr("y2", this.endPoint.y) // to define the initial state of the animation
+            .attr("x2", this.endPoint.x)
+            .attr("y2", this.endPoint.y)
             .attr("stroke", this.vectColor)
             .attr("stroke-width", this.vectStrokeWidth);
         this.stroke
