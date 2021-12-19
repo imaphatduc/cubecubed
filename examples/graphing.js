@@ -1,15 +1,4 @@
-import {
-    initAnimScene,
-    Axes,
-    Group,
-    Scene,
-    COLOR,
-    MathText,
-    Vector2,
-    FadeIn,
-    Grid,
-    DrawGridFromOrigin,
-} from "../src/index";
+import { initAnimScene, Axes, Group, Scene, COLOR } from "../src/index";
 
 /// Optional.
 /// If this line doesn't exist in your code,
