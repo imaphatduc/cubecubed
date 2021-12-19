@@ -1,0 +1,17 @@
+<!-- docs/_sidebar.md -->
+
+-   [Quick Start](/quickstart.md)
+-   [Reference](/reference/reference.md)
+    -   [Scene](/reference/scene/scene.md)
+    -   [Group](/reference/scene/group.md)
+    -   [Cubicon](/reference/cubicon/cubicon.md)
+        -   [Geometry](/reference/cubicon/geometry/geometry.md)
+            -   [Rectangle](/reference/cubicon/geometry/rectangle.md)
+            -   [Square](/reference/cubicon/geometry/square.md)
+            -   [Circle](/reference/cubicon/geometry/circle.md)
+            -   [Line](/reference/cubicon/geometry/line.md)
+            -   [Vector](/reference/cubicon/geometry/vector.md)
+        -   [Grid](/reference/cubicon/grid.md)
+        -   [Graph](/reference/cubicon/graph.md)
+        -   [Axes](/reference/cubicon/axes.md)
+        -   [MathText](/reference/cubicon/mathtext.md)
