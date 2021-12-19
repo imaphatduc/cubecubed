@@ -1,6 +1,6 @@
 # Cubicon
 
-!> Note: Cubicon cannot used directly.
+!> Note: Cubicon cannot be used directly.
 
 ## Child Classes
 
