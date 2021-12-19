@@ -1,5 +1,6 @@
 import { Cubicon } from "./cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG, yWtoG } from "../math/convertUnit";
+import { Vector2 } from "../math/vector";
 
 /// When any of the cubicon instance is created,
 // these keys will keep track of that object's own id key
@@ -11,7 +12,7 @@ let vectKey = 0;
 export class Rectangle extends Cubicon {
     constructor({
         group,
-        position = { x: 0, y: 0 },
+        position = new Vector2(0, 0),
         width,
         height,
         fillColor = "none",
@@ -100,7 +101,7 @@ export class Square extends Rectangle {
 export class Circle extends Cubicon {
     constructor({
         group,
-        position = { x: 0, y: 0 },
+        position = new Vector2(0, 0),
         radius,
         fillColor = "none",
         fillOpacity = 1,
@@ -148,7 +149,7 @@ export class GridOrigin extends Circle {
     constructor({ group }) {
         super({
             group: group,
-            position: { x: 0, y: 0 },
+            position: new Vector2(0, 0),
             radius: xWtoG(2.2),
             strokeColor: "#fff",
             strokeWidth: 2,
@@ -204,7 +205,7 @@ export class Line extends Cubicon {
 export class Vector extends Cubicon {
     constructor({
         group,
-        startPoint = { x: 0, y: 0 },
+        startPoint = new Vector2(0, 0),
         endPoint,
         vectColor = "#fff",
         vectStrokeWidth = 2,

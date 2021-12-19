@@ -1,10 +1,11 @@
+import { xBound, yBound } from "../cubecubed";
 import { Cubicon } from "./cubicon";
 import { COLOR } from "./constants";
-import { xBound, yBound } from "../cubecubed";
+import { Vector2 } from "../math/vector";
 
 export class Grid extends Cubicon {
     constructor({ group, hasNums = false }) {
-        super({ group: group, position: { x: 0, y: 0 } });
+        super({ group: group, position: new Vector2(0, 0) });
 
         this.group = group;
 

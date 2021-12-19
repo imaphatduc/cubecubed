@@ -1,10 +1,11 @@
 import { Cubicon } from "./cubicon";
 import { svgWidth, svgHeight } from "./constants";
+import { Vector2 } from "../math/vector";
 
 export class MathText extends Cubicon {
     constructor({
         group,
-        position = { x: 0, y: 0 },
+        position = new Vector2(0, 0),
         text = "",
         color = "#fff",
         fontSize = 13,

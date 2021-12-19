@@ -2,11 +2,12 @@ import { Cubicon } from "./cubicon";
 import { MathText } from "./text";
 import { Create } from "../animations/create";
 import { xWtoG, yWtoG } from "../math/convertUnit";
+import { Vector2 } from "../math/vector";
 
 export class Axes extends Cubicon {
     constructor({
         group,
-        position = { x: 0, y: 0 },
+        position = new Vector2(0, 0),
         xRange = [0, 0],
         xLength = 50,
         yRange = [0, 0],
@@ -165,7 +166,7 @@ export class Axes extends Cubicon {
 class Graph extends Cubicon {
     constructor({
         group,
-        position = { x: 0, y: 0 },
+        position = new Vector2(0, 0),
         path,
         func,
         xRange,

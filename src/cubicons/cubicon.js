@@ -1,4 +1,5 @@
 import { xGtoW, yGtoW } from "../math/convertUnit";
+import { Vector2 } from "../math/vector";
 
 export class Cubicon {
     constructor({ group, position }) {
@@ -12,7 +13,7 @@ export class Cubicon {
         };
 
         /// This property keeps track of the total vector a cubicon has moved
-        this.moveVector = { x: 0, y: 0 };
+        this.moveVector = new Vector2(0, 0);
 
         // and this keeps track of the angle between the cubicon and the x axis
         this.angle = 0;
