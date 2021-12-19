@@ -15,9 +15,6 @@ export class Cubicon {
 
         this.id = "";
 
-        // this.x = xGtoW(position.x);
-        // this.y = yGtoW(position.y);
-
         this.position = {
             x: xGtoW(position.x),
             y: yGtoW(position.y),

@@ -7,6 +7,8 @@ import {
     MathText,
     Vector2,
     FadeIn,
+    Grid,
+    DrawGridFromOrigin,
 } from "../src/index";
 
 /// Optional.
@@ -22,11 +24,14 @@ let elapsed = 0;
 function graphingFunctions() {
     const scene = new Scene("graphing-functions");
     const gr = new Group("graphing-group", scene);
+
+    // const grid = new Grid({ group: gr });
+    // gr.play([new DrawGridFromOrigin(grid)]);
+
     const a = new Axes({
         group: gr,
         xRange: [-4, 4],
         yRange: [-3, 3],
-        hasNums: true,
     });
 
     /// Plotting cosine graph
@@ -34,26 +39,16 @@ function graphingFunctions() {
         func: (x) => Math.cos(x),
         color: COLOR.CYAN,
     });
-    const cosTex = new MathText({
-        group: gr,
-        position: new Vector2(6.5, -1),
-        text: "f(x) = cos(x)",
-    });
+    a.addGraphLabel(cos, "cos(x)");
     a.create([cos]);
-    gr.play([new FadeIn({ cubicon: cosTex })]);
 
     /// Plotting natural logarithm graph
     const ln = a.graph({
         func: (x) => Math.log(x),
         color: COLOR.GREEN_1,
     });
-    const lnTex = new MathText({
-        group: gr,
-        position: new Vector2(6, 3),
-        text: "f(x) = ln(x)",
-    });
+    a.addGraphLabel(ln, "ln(x)");
     a.create([ln]);
-    gr.play([new FadeIn({ cubicon: lnTex })]);
 
     /// Plotting cubic graph
     const cubic = a.graph({
@@ -61,13 +56,8 @@ function graphingFunctions() {
         color: COLOR.RED_2,
         createDuration: 2000,
     });
-    const cubicTex = new MathText({
-        group: gr,
-        position: new Vector2(2, 5.5),
-        text: "f(x) = x^3 + 2x^2",
-    });
+    a.addGraphLabel(cubic, "x^3 + 2x^2", 1);
     a.create([cubic]);
-    gr.play([new FadeIn({ cubicon: cubicTex })]);
 }
 
 graphingFunctions();

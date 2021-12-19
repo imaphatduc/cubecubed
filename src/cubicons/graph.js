@@ -1,37 +1,40 @@
-import { Cubicon } from "./cubicon";
-import { svgHeight } from "./constants";
+import * as d3 from "d3";
+import { Cubicon, MathText } from "./cubicon";
 import { Create } from "../animations/create";
+import { xWtoG, yWtoG } from "../math/convertUnit";
 
 export class Axes extends Cubicon {
     constructor({
         group,
         position = { x: 0, y: 0 },
         xRange = [0, 0],
+        xLength = 50,
         yRange = [0, 0],
+        yLength = 50,
         hasNums = false,
     }) {
         super({ group: group, position: position });
 
         this.xRange = xRange;
+        this.xLength = xLength;
         this.yRange = yRange;
+        this.yLength = yLength;
 
         this.func = [];
-
-        this.unitLength = 80;
 
         this.xScale = d3
             .scaleLinear()
             .domain(this.xRange)
             .range([
-                this.unitLength * this.xRange[0],
-                this.unitLength * this.xRange[1],
+                this.xLength * this.xRange[0],
+                this.xLength * this.xRange[1],
             ]);
         this.yScale = d3
             .scaleLinear()
             .domain(this.yRange)
             .range([
-                this.unitLength * this.yRange[0],
-                this.unitLength * this.yRange[1],
+                this.yLength * this.yRange[0],
+                this.yLength * this.yRange[1],
             ]);
 
         this.hasNums = hasNums;
@@ -40,7 +43,13 @@ export class Axes extends Cubicon {
     }
 
     #draw() {
-        this.coordinate = this.svg.append("g").attr("class", "xy-coordinate");
+        this.coordinate = this.svg
+            .append("g")
+            .attr("class", "xy-coordinate")
+            .attr(
+                "transform",
+                `translate(${this.position.x}, ${this.position.y})`
+            );
         this.axes = this.coordinate.append("g").attr("class", "axes");
 
         let xAxis = d3
@@ -71,12 +80,14 @@ export class Axes extends Cubicon {
 
         this.yAxes = this.axes
             .append("g")
-            .attr("transform", "scale(1, -1)")
             .style("font-size", "inherit")
             .style("color", "#fff")
             .style("stroke", "none")
             .call(yAxis);
-        this.yAxes.selectAll(".tick text").style("font-family", "KaTeX_Main");
+        this.yAxes
+            .selectAll(".tick text")
+            .attr("transform", "scale(1, -1)")
+            .style("font-family", "KaTeX_Main");
         this.yAxes.selectAll(".tick line").attr("x1", -5).attr("x2", 5);
 
         if (!this.hasNums) {
@@ -93,8 +104,8 @@ export class Axes extends Cubicon {
         const points = [];
         for (let x = xRange[0]; x <= xRange[1]; x += 0.01) {
             if (
-                this.yScale(func(x)) < svgHeight / 2 &&
-                this.yScale(func(x)) > -svgHeight / 2
+                this.yScale(func(x)) < this.yScale(this.yRange[1] + 1) &&
+                this.yScale(func(x)) > this.yScale(this.yRange[0] - 1)
             ) {
                 points.push([x, func(x)]);
             }
@@ -103,7 +114,7 @@ export class Axes extends Cubicon {
         const xScale = d3
             .scaleLinear()
             .domain(xRange)
-            .range([this.unitLength * xRange[0], this.unitLength * xRange[1]]);
+            .range([this.xLength * xRange[0], this.xLength * xRange[1]]);
 
         const lineGenerator = d3
             .line()
@@ -113,7 +124,7 @@ export class Axes extends Cubicon {
 
         const pathData = lineGenerator(points);
 
-        const graph = this.graphs
+        const path = this.graphs
             .append("path")
             .style("fill", "none")
             .style("stroke", color)
@@ -121,7 +132,9 @@ export class Axes extends Cubicon {
 
         return new Graph({
             group: this.group,
-            graph: graph,
+            path: path,
+            func: func,
+            xRange: xRange,
             createDuration: createDuration,
         });
     }
@@ -136,13 +149,35 @@ export class Axes extends Cubicon {
 
         this.group.play(anims);
     }
+
+    addGraphLabel(graph, text, xPos = graph.xRange[1]) {
+        const tex = new MathText({
+            group: graph.group,
+            position: {
+                x: xWtoG(this.xScale(xPos)),
+                y: yWtoG(this.yScale(graph.func(xPos))),
+            },
+            text: text,
+        });
+    }
 }
 
 class Graph extends Cubicon {
-    constructor({ group, position = { x: 0, y: 0 }, graph, createDuration }) {
+    constructor({
+        group,
+        position = { x: 0, y: 0 },
+        path,
+        func,
+        xRange,
+        createDuration,
+    }) {
         super({ group: group, position: position });
 
-        this.stroke = graph;
+        this.stroke = path;
         this.createDuration = createDuration;
+
+        this.xRange = xRange;
+
+        this.func = func;
     }
 }
