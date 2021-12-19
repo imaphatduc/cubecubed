@@ -1,5 +1,5 @@
-import * as d3 from "d3";
-import { Cubicon, MathText } from "./cubicon";
+import { Cubicon } from "./cubicon";
+import { MathText } from "./text";
 import { Create } from "../animations/create";
 import { xWtoG, yWtoG } from "../math/convertUnit";
 

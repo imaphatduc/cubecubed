@@ -1,7 +1,8 @@
 import { Animation } from "./animation";
+import { xBound, yBound } from "../cubecubed";
 import { Create } from "./create";
-import { GridOrigin } from "../cubicons/cubicon";
-import { xGtoW, yGtoW, xBound, yBound } from "../math/convertUnit";
+import { GridOrigin } from "../cubicons/geometry";
+import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class DrawGridFromOrigin extends Animation {
     constructor(grid) {

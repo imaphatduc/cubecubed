@@ -1,34 +1,6 @@
 import { scaleLinear } from "d3-scale";
 import { svgWidth, svgHeight } from "../cubicons/constants";
-
-////////////////////////////////////////////////////////////////////
-/// Compute the x and y boundary on the grid plane                //
-// base on how many little squares on the shorter of the two axes //
-////////////////////////////////////////////////////////////////////
-
-const larger = Math.max(svgWidth, svgHeight);
-const smaller = Math.min(svgWidth, svgHeight);
-
-// Users should only change this line
-const smallerDirSquareNums = 12;
-
-export const smallerBound = [
-    parseInt(-smallerDirSquareNums / 2),
-    parseInt(smallerDirSquareNums / 2),
-];
-
-const sqrLength = smaller / smallerDirSquareNums;
-const largerDirSquareNums = Math.floor(larger / 2 / sqrLength) * 2;
-
-export const largerBound = [
-    parseInt(-largerDirSquareNums / 2),
-    parseInt(largerDirSquareNums / 2),
-];
-
-export const [xBound, yBound] =
-    svgWidth >= svgHeight
-        ? [largerBound, smallerBound]
-        : [smallerBound, largerBound];
+import { xBound, yBound, sqrLength, largerDirSquareNums } from "../cubecubed";
 
 ///////////////////////////////////////////////////////////////////////
 // Convert grid coordinates to real-world coordinates and vice-versa //

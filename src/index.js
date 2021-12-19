@@ -1,10 +1,11 @@
 /// This magic line helps my dummy computer recognize the correct MIME type of this index.js
-import { Square } from "./cubicons/cubicon";
+import { Square } from "./cubicons/geometry";
 
-export * from "./cubicons/cubicon";
+export * from "./cubicons/geometry";
 export * from "./cubicons/grid";
 export * from "./cubicons/constants";
 export * from "./cubicons/graph";
+export * from "./cubicons/text";
 
 export * from "./scene/scene";
 export * from "./scene/group";

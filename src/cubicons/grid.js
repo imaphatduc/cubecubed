@@ -1,6 +1,6 @@
 import { Cubicon } from "./cubicon";
 import { COLOR } from "./constants";
-import { xBound, yBound } from "../math/convertUnit";
+import { xBound, yBound } from "../cubecubed";
 
 export class Grid extends Cubicon {
     constructor({ group, hasNums = false }) {
