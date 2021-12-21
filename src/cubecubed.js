@@ -1,9 +1,5 @@
 import { svg, svgWidth, svgHeight } from "./cubicons/constants";
 
-export function initAnimScene() {
-    svg.attr("transform", "scale(1, -1)");
-}
-
 ////////////////////////////////////////////////////////////////////
 /// Compute the x and y boundary on the grid plane                //
 // base on how many little squares on the shorter of the two axes //

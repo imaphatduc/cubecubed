@@ -19,5 +19,3 @@ export * from "./animations/drawGridFromOrigin";
 
 export * from "./math/convertUnit";
 export * from "./math/vector";
-
-export { initAnimScene } from "./cubecubed";

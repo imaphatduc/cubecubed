@@ -1,9 +1,4 @@
-import { initAnimScene, Axes, Group, Scene, COLOR } from "../src/index";
-
-/// Optional.
-/// If this line doesn't exist in your code,
-// make sure to add "transform="scale(1, -1)"" to svg#viz to flip the y axis
-initAnimScene();
+import { Axes, Group, Scene, COLOR } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code

@@ -7,18 +7,11 @@
 ```sh
 npm i cubecubed --save
 ```
+## Initialize Project
 
-## Required HTML
-
-The target HTML structure must have this element:
-
-```html
-<div id="svg-render">
-    <svg xmlns="http://w3.org/2000/svg" id="viz" transform="scale(1, -1)"></svg>
-</div>
+```sh
+npx ccw
 ```
-
--   **A note about KaTeX**: Make sure that you include the proper katex.min.css (one easy way is to pull the script from a CDN service), otherwise KaTeX will render texts two times onto the animation screen (See the sample index.html for more information).
 
 ## Setting Scenes
 
@@ -47,7 +40,6 @@ Below are the steps to set an animation scene:
 
 ```js
 import {
-    initAnimScene,
     Scene,
     Group,
     Square,
@@ -58,8 +50,6 @@ import {
     Translate,
     Rotate,
 } from "cubecubed";
-
-initAnimScene();
 ```
 
 #### 2. By convention, each scene should be placed in a function for easier management:
@@ -124,18 +114,12 @@ import {
     DrawGridFromOrigin,
     Grid,
     Group,
-    initAnimScene,
     Rotate,
     Scene,
     Square,
     Vector,
     Vector2,
 } from "cubecubed";
-
-/// Optional.
-/// If this line doesn't exist in your code,
-// make sure to add "transform="scale(1, -1)"" to svg#viz to flip the y axis
-initAnimScene();
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code

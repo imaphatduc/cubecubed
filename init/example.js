@@ -4,18 +4,12 @@ import {
     DrawGridFromOrigin,
     Grid,
     Group,
-    initAnimScene,
     Rotate,
     Scene,
     Square,
     Vector,
     Vector2,
 } from "cubecubed";
-
-/// Optional.
-/// If this line doesn't exist in your code,
-// make sure to add "transform="scale(1, -1)"" to svg#viz to flip the y axis
-initAnimScene();
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code
