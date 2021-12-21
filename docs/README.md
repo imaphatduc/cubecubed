@@ -1,21 +1,5 @@
 <!-- # Cubecubed - A Math Visualization Engine -->
 
-<p align="center">
-  <img
-    width="500"
-    src="./_media/cubed-horizontal.svg"
-    align="center" hspace="12"
-    alt="Cubecubed - A Math Visualization Engine"
-  />
-  <h1 align="center">Cubecubed - A Math Visualization Engine</h1>
-  <p align="center">
-   <a href="https://www.npmjs.com/package/cubecubed">
-        <img src="https://img.shields.io/npm/v/cubecubed?style=flat-square&logo=npm" />
-   </a>
-  </p>
-
-</p>
-
 ### Name Explanation
 
 Imagine that a 3d cube multiply by itself two times— That's it!
