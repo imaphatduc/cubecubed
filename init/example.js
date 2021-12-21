@@ -10,7 +10,7 @@ import {
     Square,
     Vector,
     Vector2,
-} from "../src/index.js";
+} from "cubecubed";
 
 /// Optional.
 /// If this line doesn't exist in your code,
