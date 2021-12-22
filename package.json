@@ -16,7 +16,7 @@
     "devDependencies": {
         "vite": "^2.7.4"
     },
-    "description": "Play eye-catching math visualization on the web using SVG graphics",
+    "description": "Play eye-catching math visualization on the web using SVG",
     "module": "src/index.js",
     "main": "src/index.js",
     "repository": {
