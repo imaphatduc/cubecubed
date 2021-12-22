@@ -1,4 +1,5 @@
 import { Cubicon } from "./cubicon";
+import { Circle } from "./geometry";
 import { MathText } from "./text";
 import { Create } from "../animations/create";
 import { xWtoG, yWtoG } from "../math/convertUnit";
@@ -154,11 +155,22 @@ export class Axes extends Cubicon {
     addGraphLabel(graph, text, xPos = graph.xRange[1]) {
         const tex = new MathText({
             group: graph.group,
-            position: {
-                x: xWtoG(this.xScale(xPos)),
-                y: yWtoG(this.yScale(graph.func(xPos))),
-            },
+            position: new Vector2(
+                xWtoG(this.xScale(xPos)),
+                yWtoG(this.yScale(graph.func(xPos)))
+            ),
             text: text,
+        });
+    }
+
+    pointOnGraph(graph, xPos = 0) {
+        const circle = new Circle({
+            group: graph.group,
+            position: new Vector2(
+                xWtoG(this.xScale(xPos)),
+                yWtoG(this.yScale(graph.func(xPos)))
+            ),
+            radius: 0.05,
         });
     }
 }

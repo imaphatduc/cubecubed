@@ -32,6 +32,7 @@ function graphingFunctions() {
         color: COLOR.GREEN_1,
     });
     a.addGraphLabel(ln, "ln(x)");
+    a.pointOnGraph(ln, 2);
     a.create([ln]);
 
     /// Plotting cubic graph
