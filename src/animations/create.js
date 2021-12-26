@@ -13,7 +13,10 @@ export class Create extends Animation {
     }
 
     #create(cubicon, sleepTime) {
-        if (cubicon.constructor.name === "Vector") {
+        if (
+            cubicon.constructor.name === "Vector" ||
+            cubicon.constructor.name === "Line"
+        ) {
             cubicon.lineStroke
                 .attr("x2", cubicon.startPoint.x)
                 .attr("y2", cubicon.startPoint.y);
@@ -28,15 +31,17 @@ export class Create extends Animation {
 
             cubicon.elapsedTime += drawLineAnimTime + sleepTime;
 
-            const drawArrowHeadAnimTime = 1500;
-            cubicon.arrowHead
-                .style("opacity", 0)
-                .transition()
-                .delay(cubicon.elapsedTime - 500)
-                .duration(drawArrowHeadAnimTime)
-                .style("opacity", 1);
+            if (cubicon.constructor.name === "Vector") {
+                const drawArrowHeadAnimTime = 1500;
+                cubicon.arrowHead
+                    .style("opacity", 0)
+                    .transition()
+                    .delay(cubicon.elapsedTime - 500)
+                    .duration(drawArrowHeadAnimTime)
+                    .style("opacity", 1);
 
-            cubicon.elapsedTime += drawArrowHeadAnimTime - 500;
+                cubicon.elapsedTime += drawArrowHeadAnimTime - 500;
+            }
         } else {
             cubicon.stroke.style("fill-opacity", 0);
 

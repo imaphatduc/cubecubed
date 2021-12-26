@@ -1,5 +1,5 @@
 import { Cubicon } from "./cubicon";
-import { Circle } from "./geometry";
+import { Circle, Line } from "./geometry";
 import { MathText } from "./text";
 import { Create } from "../animations/create";
 import { xWtoG, yWtoG } from "../math/convertUnit";
@@ -163,15 +163,55 @@ export class Axes extends Cubicon {
         });
     }
 
-    pointOnGraph(graph, xPos = 0) {
+    pointOnGraph(graph, xPos = 0, toCoords = false, draw = false) {
+        const pos = new Vector2(
+            xWtoG(this.xScale(xPos)),
+            yWtoG(this.yScale(graph.func(xPos)))
+        );
+
+        let horizontalLine, verticalLine;
+        if (toCoords) {
+            horizontalLine = new Line({
+                group: graph.group,
+                startPoint: new Vector2(pos.x, pos.y),
+                endPoint: new Vector2(0, yWtoG(this.yScale(graph.func(xPos)))),
+                lineWidth: 1,
+            });
+            horizontalLine.lineStroke
+                .style("shape-rendering", "crispEdges")
+                .style("stroke-dasharray", 5);
+
+            verticalLine = new Line({
+                group: graph.group,
+                startPoint: new Vector2(pos.x, pos.y),
+                endPoint: new Vector2(xWtoG(this.xScale(xPos)), 0),
+                lineWidth: 1,
+            });
+            verticalLine.lineStroke
+                .style("shape-rendering", "crispEdges")
+                .style("stroke-dasharray", 7);
+        }
+
         const circle = new Circle({
             group: graph.group,
-            position: new Vector2(
-                xWtoG(this.xScale(xPos)),
-                yWtoG(this.yScale(graph.func(xPos)))
-            ),
-            radius: 0.05,
+            position: pos,
+            fillColor: "#000",
+            strokeWidth: 1.5,
+            radius: 0.06,
         });
+
+        if (draw) {
+            graph.group.play([new Create({ cubicon: circle })]);
+
+            if (toCoords) {
+                graph.group.play([
+                    new Create({ cubicon: horizontalLine }),
+                    new Create({ cubicon: verticalLine }),
+                ]);
+            }
+        }
+
+        return circle;
     }
 }
 

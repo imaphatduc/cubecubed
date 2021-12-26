@@ -198,7 +198,7 @@ export class Line extends Cubicon {
             .attr("y2", this.endPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
-        this.stroke = this.svg.select(`svg #${this.id}`);
+        this.lineStroke = this.svg.select(`svg #${this.id}`);
     }
 }
 

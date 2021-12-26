@@ -1,4 +1,4 @@
-import { Axes, Group, Scene, COLOR } from "../src/index";
+import { Axes, Group, Scene, COLOR, Create } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code
@@ -32,8 +32,8 @@ function graphingFunctions() {
         color: COLOR.GREEN_1,
     });
     a.addGraphLabel(ln, "ln(x)");
-    a.pointOnGraph(ln, 2);
     a.create([ln]);
+    const pt = a.pointOnGraph(ln, 3, true, false);
 
     /// Plotting cubic graph
     const cubic = a.graph({
@@ -41,7 +41,7 @@ function graphingFunctions() {
         color: COLOR.RED_2,
         createDuration: 2000,
     });
-    a.addGraphLabel(cubic, "x^3 + 2x^2", 1);
+    a.addGraphLabel(cubic, "x^3 + 2x^2", 1.1);
     a.create([cubic]);
 }
 
