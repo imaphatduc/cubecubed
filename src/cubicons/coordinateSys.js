@@ -1,7 +1,6 @@
+import * as d3 from "d3";
 import { Cubicon } from "./cubicon";
-import { Circle, Line } from "./geometry";
 import { MathText } from "./text";
-import { Create } from "../animations/create";
 import { xWtoG, yWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
 
@@ -103,16 +102,6 @@ export class Axes extends Cubicon {
     graph({ func, xRange = this.xRange, color = "#fff", createDuration }) {
         this.func.push(func);
 
-        const points = [];
-        for (let x = xRange[0]; x <= xRange[1]; x += 0.01) {
-            if (
-                this.yScale(func(x)) < this.yScale(this.yRange[1] + 1) &&
-                this.yScale(func(x)) > this.yScale(this.yRange[0] - 1)
-            ) {
-                points.push([x, func(x)]);
-            }
-        }
-
         const xScale = d3
             .scaleLinear()
             .domain(xRange)
@@ -124,6 +113,16 @@ export class Axes extends Cubicon {
             .x((d) => xScale(d[0]))
             .y((d) => this.yScale(d[1]));
 
+        const points = [];
+        for (let x = xRange[0]; x <= xRange[1]; x += 0.01) {
+            if (
+                this.yScale(func(x)) < this.yScale(this.yRange[1] + 1) &&
+                this.yScale(func(x)) > this.yScale(this.yRange[0] - 1)
+            ) {
+                points.push([x, func(x)]);
+            }
+        }
+
         const pathData = lineGenerator(points);
 
         const path = this.graphs
@@ -134,84 +133,68 @@ export class Axes extends Cubicon {
 
         return new Graph({
             group: this.group,
+            axes: this,
             path: path,
             func: func,
+            points: points,
             xRange: xRange,
+            xScale: xScale,
             createDuration: createDuration,
         });
     }
 
-    create(graphs) {
-        let anims = [];
-        graphs.forEach((graph) => {
-            anims.push(
-                new Create({ cubicon: graph, duration: graph.createDuration })
-            );
-        });
-
-        this.group.play(anims);
-    }
-
     addGraphLabel(graph, text, xPos = graph.xRange[1]) {
-        const tex = new MathText({
+        return new MathText({
             group: graph.group,
             position: new Vector2(
-                xWtoG(this.xScale(xPos)),
-                yWtoG(this.yScale(graph.func(xPos)))
+                this.xScale(xPos),
+                this.yScale(graph.func(xPos))
             ),
             text: text,
         });
     }
 
-    pointOnGraph(graph, xPos = 0, toCoords = false, draw = false) {
-        const pos = new Vector2(
-            xWtoG(this.xScale(xPos)),
-            yWtoG(this.yScale(graph.func(xPos)))
-        );
+    pointOnGraph(graph, xPos) {
+        const pos = new Vector2(xPos, graph.func(xPos));
 
-        let horizontalLine, verticalLine;
-        if (toCoords) {
-            horizontalLine = new Line({
-                group: graph.group,
-                startPoint: new Vector2(pos.x, pos.y),
-                endPoint: new Vector2(0, yWtoG(this.yScale(graph.func(xPos)))),
-                lineWidth: 1,
-            });
-            horizontalLine.lineStroke
-                .style("shape-rendering", "crispEdges")
-                .style("stroke-dasharray", 5);
-
-            verticalLine = new Line({
-                group: graph.group,
-                startPoint: new Vector2(pos.x, pos.y),
-                endPoint: new Vector2(xWtoG(this.xScale(xPos)), 0),
-                lineWidth: 1,
-            });
-            verticalLine.lineStroke
-                .style("shape-rendering", "crispEdges")
-                .style("stroke-dasharray", 7);
-        }
-
-        const circle = new Circle({
-            group: graph.group,
+        const point = new Point({
+            axes: graph.axes,
             position: pos,
             fillColor: "#000",
             strokeWidth: 1.5,
             radius: 0.06,
         });
 
-        if (draw) {
-            graph.group.play([new Create({ cubicon: circle })]);
+        return { point: point };
+    }
 
-            if (toCoords) {
-                graph.group.play([
-                    new Create({ cubicon: horizontalLine }),
-                    new Create({ cubicon: verticalLine }),
-                ]);
-            }
-        }
+    pointToCoords(graph, xPos) {
+        const pos = new Vector2(xPos, graph.func(xPos));
 
-        return circle;
+        let horizontalLine = new ProjectLine({
+            axes: graph.axes,
+            startPoint: pos,
+            endPoint: new Vector2(0, pos.y),
+            lineWidth: 1,
+        });
+        horizontalLine.lineStroke.style("shape-rendering", "crispEdges");
+        // .style("stroke-dasharray", 5);
+
+        let verticalLine = new ProjectLine({
+            axes: graph.axes,
+            startPoint: pos,
+            endPoint: new Vector2(pos.x, 0),
+            lineWidth: 1,
+        });
+        verticalLine.lineStroke.style("shape-rendering", "crispEdges");
+        // .style("stroke-dasharray", 3);
+
+        const point = this.pointOnGraph(graph, xPos).point;
+
+        return {
+            point: point,
+            lines: [horizontalLine, verticalLine],
+        };
     }
 }
 
@@ -219,18 +202,110 @@ class Graph extends Cubicon {
     constructor({
         group,
         position = new Vector2(0, 0),
+        axes,
         path,
         func,
+        points,
         xRange,
+        xScale,
         createDuration,
     }) {
         super({ group: group, position: position });
+
+        this.axes = axes;
 
         this.stroke = path;
         this.createDuration = createDuration;
 
         this.xRange = xRange;
+        this.xScale = xScale;
 
         this.func = func;
+        this.points = points;
+    }
+}
+
+class Point extends Cubicon {
+    constructor({
+        axes,
+        position = new Vector2(0, 0),
+        radius,
+        fillColor = "none",
+        fillOpacity = 1,
+        strokeColor = "#fff",
+        strokeWidth = 2,
+    }) {
+        super({ group: axes.group, position: position });
+
+        this.cx = axes.xScale(this.position.x);
+        this.cy = axes.yScale(this.position.y);
+
+        this.radius = axes.xScale(radius);
+
+        this.strokeColor = strokeColor;
+        this.strokeWidth = strokeWidth;
+
+        this.fillColor = fillColor;
+        this.fillOpacity = fillOpacity;
+
+        this.#draw();
+    }
+
+    #draw() {
+        this.stroke = this.svg
+            .append("circle")
+            .attr("id", `${this.id}`)
+            .attr("class", "circle")
+            .attr("cx", this.cx)
+            .attr("cy", this.cy)
+            .attr("r", this.radius)
+            .attr("fill", this.fillColor)
+            .attr("fill-opacity", this.fillOpacity)
+            .attr("stroke", this.strokeColor)
+            .attr("stroke-width", this.strokeWidth);
+        this.stroke
+            .style("transform-box", "fill-box")
+            .style("transform-origin", "center");
+    }
+}
+
+class ProjectLine extends Cubicon {
+    constructor({
+        axes,
+        startPoint = { x: 0, y: 0 },
+        endPoint,
+        lineColor = "#fff",
+        lineWidth = 2,
+    }) {
+        super({ group: axes.group, position: startPoint });
+
+        this.startPoint = {
+            x: axes.xScale(startPoint.x),
+            y: axes.yScale(startPoint.y),
+        };
+        this.endPoint = {
+            x: axes.xScale(endPoint.x),
+            y: axes.yScale(endPoint.y),
+        };
+
+        this.lineColor = lineColor;
+        this.lineWidth = lineWidth;
+
+        // Override rotateAnimTime property of Cubicon class
+        this.rotateAnimTime = 2000;
+
+        this.#draw();
+    }
+
+    #draw() {
+        this.lineStroke = this.svg
+            .append("line")
+            .attr("class", "line")
+            .attr("x1", this.startPoint.x)
+            .attr("y1", this.startPoint.y)
+            .attr("x2", this.endPoint.x)
+            .attr("y2", this.endPoint.y)
+            .attr("stroke", this.lineColor)
+            .attr("stroke-width", this.lineWidth);
     }
 }

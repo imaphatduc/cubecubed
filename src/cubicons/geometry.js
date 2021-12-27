@@ -9,7 +9,22 @@ let circleKey = 0;
 let lineKey = 0;
 let vectKey = 0;
 
-export class Rectangle extends Cubicon {
+export class Geometry extends Cubicon {
+    constructor({ group, position }) {
+        super({ group: group, position: position });
+
+        this.group = group;
+
+        this.id = "";
+
+        this.position = {
+            x: xGtoW(position.x),
+            y: yGtoW(position.y),
+        };
+    }
+}
+
+export class Rectangle extends Geometry {
     constructor({
         group,
         position = new Vector2(0, 0),
@@ -98,7 +113,7 @@ export class Square extends Rectangle {
     }
 }
 
-export class Circle extends Cubicon {
+export class Circle extends Geometry {
     constructor({
         group,
         position = new Vector2(0, 0),
@@ -157,7 +172,7 @@ export class GridOrigin extends Circle {
     }
 }
 
-export class Line extends Cubicon {
+export class Line extends Geometry {
     constructor({
         group,
         startPoint = { x: 0, y: 0 },
@@ -202,7 +217,7 @@ export class Line extends Cubicon {
     }
 }
 
-export class Vector extends Cubicon {
+export class Vector extends Geometry {
     constructor({
         group,
         startPoint = new Vector2(0, 0),

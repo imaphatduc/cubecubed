@@ -15,7 +15,8 @@ export class Create extends Animation {
     #create(cubicon, sleepTime) {
         if (
             cubicon.constructor.name === "Vector" ||
-            cubicon.constructor.name === "Line"
+            cubicon.constructor.name === "Line" ||
+            cubicon.constructor.name === "ProjectLine"
         ) {
             cubicon.lineStroke
                 .attr("x2", cubicon.startPoint.x)

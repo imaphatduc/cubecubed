@@ -1,6 +1,7 @@
 import { Cubicon } from "./cubicon";
 import { svgWidth, svgHeight } from "./constants";
 import { Vector2 } from "../math/vector";
+import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class MathText extends Cubicon {
     constructor({

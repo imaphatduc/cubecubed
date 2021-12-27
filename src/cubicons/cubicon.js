@@ -5,11 +5,9 @@ export class Cubicon {
     constructor({ group, position }) {
         this.group = group;
 
-        this.id = "";
-
         this.position = {
-            x: xGtoW(position.x),
-            y: yGtoW(position.y),
+            x: position.x,
+            y: position.y,
         };
 
         /// This property keeps track of the total vector a cubicon has moved

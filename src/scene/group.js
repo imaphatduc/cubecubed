@@ -33,6 +33,9 @@ export class Group {
     play(anims) {
         anims.forEach((anim) => {
             anim.cubicon.elapsedTime = this.queueElapsed;
+            if (typeof anim.lines !== "undefined") {
+                anim.lines.forEach((l) => (l.elapsedTime = this.queueElapsed));
+            }
         });
 
         anims.forEach((anim) => {

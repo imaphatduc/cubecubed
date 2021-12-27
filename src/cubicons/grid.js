@@ -1,9 +1,9 @@
 import { xBound, yBound } from "../cubecubed";
-import { Cubicon } from "./cubicon";
+import { Geometry } from "./geometry";
 import { COLOR } from "./constants";
 import { Vector2 } from "../math/vector";
 
-export class Grid extends Cubicon {
+export class Grid extends Geometry {
     constructor({ group, hasNums = false }) {
         super({ group: group, position: new Vector2(0, 0) });
 

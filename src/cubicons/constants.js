@@ -1,3 +1,4 @@
+import * as d3 from "d3";
 export const svg = d3.select("#viz");
 
 export const svgWidth = parseInt(svg.attr("width"));

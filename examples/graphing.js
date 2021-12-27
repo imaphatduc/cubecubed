@@ -1,4 +1,15 @@
-import { Axes, Group, Scene, COLOR, Create } from "../src/index";
+import {
+    Axes,
+    Group,
+    Grid,
+    DrawGridFromOrigin,
+    Scene,
+    COLOR,
+    Create,
+    FadeIn,
+    PtAlongGraph,
+    PtToCoords,
+} from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code
@@ -14,8 +25,9 @@ function graphingFunctions() {
 
     const a = new Axes({
         group: gr,
-        xRange: [-4, 4],
+        xRange: [-4, 6],
         yRange: [-3, 3],
+        hasNums: true,
     });
 
     /// Plotting cosine graph
@@ -23,17 +35,37 @@ function graphingFunctions() {
         func: (x) => Math.cos(x),
         color: COLOR.CYAN,
     });
-    a.addGraphLabel(cos, "cos(x)");
-    a.create([cos]);
+    const tex = a.addGraphLabel(cos, "cos(x)");
+    const pt = a.pointToCoords(cos, 2);
+    gr.play([new Create({ cubicon: cos }), new FadeIn({ cubicon: tex })]);
+    gr.play([
+        new PtToCoords({
+            point: pt,
+            graph: cos,
+        }),
+    ]);
+    gr.play([
+        new PtAlongGraph({
+            point: pt,
+            graph: cos,
+            xPos: -3,
+        }),
+    ]);
 
     /// Plotting natural logarithm graph
     const ln = a.graph({
         func: (x) => Math.log(x),
         color: COLOR.GREEN_1,
     });
-    a.addGraphLabel(ln, "ln(x)");
-    a.create([ln]);
-    const pt = a.pointOnGraph(ln, 3, true, false);
+    // a.addGraphLabel(ln, "ln(x)");
+    gr.play([new Create({ cubicon: ln })]);
+    gr.play([
+        new PtAlongGraph({
+            point: pt,
+            graph: cos,
+            xPos: 5,
+        }),
+    ]);
 
     /// Plotting cubic graph
     const cubic = a.graph({
@@ -41,8 +73,8 @@ function graphingFunctions() {
         color: COLOR.RED_2,
         createDuration: 2000,
     });
-    a.addGraphLabel(cubic, "x^3 + 2x^2", 1.1);
-    a.create([cubic]);
+    // a.addGraphLabel(cubic, "x^3 + 2x^2", 1.1);
+    gr.play([new Create({ cubicon: cubic })]);
 }
 
 graphingFunctions();

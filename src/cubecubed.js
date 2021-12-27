@@ -9,7 +9,7 @@ const larger = Math.max(svgWidth, svgHeight);
 const smaller = Math.min(svgWidth, svgHeight);
 
 // Users should only change this line
-const smallerDirSquareNums = 12;
+const smallerDirSquareNums = 14;
 
 export const smallerBound = [
     parseInt(-smallerDirSquareNums / 2),
