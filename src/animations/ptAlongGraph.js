@@ -14,20 +14,22 @@ export class PtAlongGraph extends Animation {
 
     play(sleepTime) {
         this.#ptAlongGraph(this.cubicon, this.graph, this.xPos, sleepTime);
-        this.#horLineAlongGraph(
-            this.cubicon,
-            this.lines[0],
-            this.graph,
-            this.xPos,
-            sleepTime
-        );
-        this.#verLineAlongGraph(
-            this.cubicon,
-            this.lines[1],
-            this.graph,
-            this.xPos,
-            sleepTime
-        );
+        if (typeof this.lines !== "undefined") {
+            this.#horLineAlongGraph(
+                this.cubicon,
+                this.lines[0],
+                this.graph,
+                this.xPos,
+                sleepTime
+            );
+            this.#verLineAlongGraph(
+                this.cubicon,
+                this.lines[1],
+                this.graph,
+                this.xPos,
+                sleepTime
+            );
+        }
     }
 
     #ptAlongGraph(point, graph, xPos, sleepTime) {

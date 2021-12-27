@@ -1,7 +1,6 @@
 import * as d3 from "d3";
 import { Cubicon } from "./cubicon";
 import { MathText } from "./text";
-import { xWtoG, yWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
 
 export class Axes extends Cubicon {
@@ -125,14 +124,20 @@ export class Axes extends Cubicon {
 
         const pathData = lineGenerator(points);
 
-        const path = this.graphs
+        const graphGroup = this.graphs.append("g").attr("class", "graph-group");
+        const path = graphGroup
             .append("path")
+            .attr("class", "graph")
             .style("fill", "none")
             .style("stroke", color)
             .attr("d", pathData);
+        const projectorGroup = graphGroup
+            .append("g")
+            .attr("class", "projector-group");
 
         return new Graph({
-            group: this.group,
+            graphGroup: graphGroup,
+            projectorGroup: projectorGroup,
             axes: this,
             path: path,
             func: func,
@@ -145,7 +150,7 @@ export class Axes extends Cubicon {
 
     addGraphLabel(graph, text, xPos = graph.xRange[1]) {
         return new MathText({
-            group: graph.group,
+            group: graph.axes.group,
             position: new Vector2(
                 this.xScale(xPos),
                 this.yScale(graph.func(xPos))
@@ -158,6 +163,7 @@ export class Axes extends Cubicon {
         const pos = new Vector2(xPos, graph.func(xPos));
 
         const point = new Point({
+            projectorGroup: graph.projectorGroup,
             axes: graph.axes,
             position: pos,
             fillColor: "#000",
@@ -172,6 +178,7 @@ export class Axes extends Cubicon {
         const pos = new Vector2(xPos, graph.func(xPos));
 
         let horizontalLine = new ProjectLine({
+            projectorGroup: graph.projectorGroup,
             axes: graph.axes,
             startPoint: pos,
             endPoint: new Vector2(0, pos.y),
@@ -181,6 +188,7 @@ export class Axes extends Cubicon {
         // .style("stroke-dasharray", 5);
 
         let verticalLine = new ProjectLine({
+            projectorGroup: graph.projectorGroup,
             axes: graph.axes,
             startPoint: pos,
             endPoint: new Vector2(pos.x, 0),
@@ -200,7 +208,8 @@ export class Axes extends Cubicon {
 
 class Graph extends Cubicon {
     constructor({
-        group,
+        graphGroup,
+        projectorGroup,
         position = new Vector2(0, 0),
         axes,
         path,
@@ -210,8 +219,10 @@ class Graph extends Cubicon {
         xScale,
         createDuration,
     }) {
-        super({ group: group, position: position });
+        super({ group: axes.group, position: position });
 
+        this.graphGroup = graphGroup;
+        this.projectorGroup = projectorGroup;
         this.axes = axes;
 
         this.stroke = path;
@@ -227,6 +238,7 @@ class Graph extends Cubicon {
 
 class Point extends Cubicon {
     constructor({
+        projectorGroup,
         axes,
         position = new Vector2(0, 0),
         radius,
@@ -236,6 +248,9 @@ class Point extends Cubicon {
         strokeWidth = 2,
     }) {
         super({ group: axes.group, position: position });
+
+        this.projectorGroup = projectorGroup;
+        this.axes = axes;
 
         this.cx = axes.xScale(this.position.x);
         this.cy = axes.yScale(this.position.y);
@@ -252,10 +267,9 @@ class Point extends Cubicon {
     }
 
     #draw() {
-        this.stroke = this.svg
+        this.stroke = this.projectorGroup
             .append("circle")
-            .attr("id", `${this.id}`)
-            .attr("class", "circle")
+            .attr("class", "point")
             .attr("cx", this.cx)
             .attr("cy", this.cy)
             .attr("r", this.radius)
@@ -271,6 +285,7 @@ class Point extends Cubicon {
 
 class ProjectLine extends Cubicon {
     constructor({
+        projectorGroup,
         axes,
         startPoint = { x: 0, y: 0 },
         endPoint,
@@ -278,6 +293,9 @@ class ProjectLine extends Cubicon {
         lineWidth = 2,
     }) {
         super({ group: axes.group, position: startPoint });
+
+        this.projectorGroup = projectorGroup;
+        this.axes = axes;
 
         this.startPoint = {
             x: axes.xScale(startPoint.x),
@@ -298,9 +316,9 @@ class ProjectLine extends Cubicon {
     }
 
     #draw() {
-        this.lineStroke = this.svg
+        this.lineStroke = this.projectorGroup
             .append("line")
-            .attr("class", "line")
+            .attr("class", "project-line")
             .attr("x1", this.startPoint.x)
             .attr("y1", this.startPoint.y)
             .attr("x2", this.endPoint.x)

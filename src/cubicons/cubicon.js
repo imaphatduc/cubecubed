@@ -1,4 +1,4 @@
-import { xGtoW, yGtoW } from "../math/convertUnit";
+import * as d3 from "d3";
 import { Vector2 } from "../math/vector";
 
 export class Cubicon {

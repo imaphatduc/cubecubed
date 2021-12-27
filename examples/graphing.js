@@ -27,7 +27,6 @@ function graphingFunctions() {
         group: gr,
         xRange: [-4, 6],
         yRange: [-3, 3],
-        hasNums: true,
     });
 
     /// Plotting cosine graph
