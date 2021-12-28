@@ -19,6 +19,10 @@ export class Vector2 {
     dot(vect) {
         return this.x * vect.x + this.y * vect.y;
     }
+
+    apply(func) {
+        return new Vector2(func(this.x), func(this.y));
+    }
 }
 
 export class Vector3 {
@@ -42,5 +46,9 @@ export class Vector3 {
 
     dot(vect) {
         return this.x * vect.x + this.y * vect.y + this.z * vect.z;
+    }
+
+    apply(func) {
+        return new Vector3(func(this.x), func(this.y), func(this.z));
     }
 }

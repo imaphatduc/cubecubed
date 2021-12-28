@@ -17,14 +17,16 @@ export class Geometry extends Cubicon {
 
         this.id = "";
 
-        this.position = {
-            x: xGtoW(position.x),
-            y: yGtoW(position.y),
-        };
+        this.Wposition = new Vector2(xGtoW(position.x), yGtoW(position.y));
     }
 }
 
 export class Rectangle extends Geometry {
+    #Wwidth;
+    #Wheight;
+    #X;
+    #Y;
+
     constructor({
         group,
         position = new Vector2(0, 0),
@@ -37,8 +39,11 @@ export class Rectangle extends Geometry {
     }) {
         super({ group: group, position: position });
 
-        this.width = xGtoW(width);
-        this.height = xGtoW(height);
+        this.width = width;
+        this.#Wwidth = xGtoW(width);
+
+        this.height = height;
+        this.#Wheight = xGtoW(height);
 
         this.fillColor = fillColor;
         this.fillOpacity = fillOpacity;
@@ -47,8 +52,9 @@ export class Rectangle extends Geometry {
         this.strokeWidth = strokeWidth;
 
         // These are the coordinate of the draw origin
-        this.X = -this.width / 2 + this.position.x;
-        this.Y = this.height / 2 + this.position.y;
+        this.#X = -this.#Wwidth / 2 + this.Wposition.x;
+        this.#Y = this.#Wheight / 2 + this.Wposition.y;
+
         this.id = `rect${rectKey++}`;
 
         this.#add();
@@ -80,11 +86,11 @@ export class Rectangle extends Geometry {
     ////////////////////////////////////////////////////////
     #draw() {
         const path = d3.path();
-        path.moveTo(this.X, this.Y);
-        path.lineTo(this.X + this.width, this.Y);
-        path.lineTo(this.X + this.width, this.Y - this.height);
-        path.lineTo(this.X, this.Y - this.height);
-        path.lineTo(this.X, this.Y + this.strokeWidth / 2);
+        path.moveTo(this.#X, this.#Y);
+        path.lineTo(this.#X + this.#Wwidth, this.#Y);
+        path.lineTo(this.#X + this.#Wwidth, this.#Y - this.#Wheight);
+        path.lineTo(this.#X, this.#Y - this.#Wheight);
+        path.lineTo(this.#X, this.#Y + this.strokeWidth / 2);
 
         return path;
     }
@@ -114,6 +120,9 @@ export class Square extends Rectangle {
 }
 
 export class Circle extends Geometry {
+    // Wposition;
+    #Wradius;
+
     constructor({
         group,
         position = new Vector2(0, 0),
@@ -127,10 +136,10 @@ export class Circle extends Geometry {
 
         this.id = `circle${circleKey++}`;
 
-        this.cx = this.position.x;
-        this.cy = this.position.y;
+        this.Wposition = new Vector2(xGtoW(position.x), yGtoW(position.y));
 
-        this.radius = xGtoW(radius);
+        this.radius = radius;
+        this.#Wradius = xGtoW(radius);
 
         this.strokeColor = strokeColor;
         this.strokeWidth = strokeWidth;
@@ -146,9 +155,9 @@ export class Circle extends Geometry {
             .append("circle")
             .attr("id", `${this.id}`)
             .attr("class", "circle")
-            .attr("cx", this.cx)
-            .attr("cy", this.cy)
-            .attr("r", this.radius)
+            .attr("cx", this.Wposition.x)
+            .attr("cy", this.Wposition.y)
+            .attr("r", this.#Wradius)
             .attr("fill", this.fillColor)
             .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
@@ -173,6 +182,9 @@ export class GridOrigin extends Circle {
 }
 
 export class Line extends Geometry {
+    #WstartPoint;
+    #WendPoint;
+
     constructor({
         group,
         startPoint = { x: 0, y: 0 },
@@ -184,20 +196,17 @@ export class Line extends Geometry {
 
         this.id = `line${lineKey++}`;
 
-        this.startPoint = {
-            x: xGtoW(startPoint.x),
-            y: yGtoW(startPoint.y),
-        };
-        this.endPoint = {
-            x: xGtoW(endPoint.x),
-            y: yGtoW(endPoint.y),
-        };
+        this.startPoint = startPoint;
+        this.#WstartPoint = new Vector2(
+            xGtoW(startPoint.x),
+            yGtoW(startPoint.y)
+        );
+
+        this.endPoint = endPoint;
+        this.#WendPoint = new Vector2(xGtoW(endPoint.x), yGtoW(endPoint.y));
 
         this.lineColor = lineColor;
         this.lineWidth = lineWidth;
-
-        // Override rotateAnimTime property of Cubicon class
-        this.rotateAnimTime = 2000;
 
         this.#draw();
     }
@@ -207,17 +216,27 @@ export class Line extends Geometry {
             .append("line")
             .attr("id", this.id)
             .attr("class", "line")
-            .attr("x1", this.startPoint.x)
-            .attr("y1", this.startPoint.y)
-            .attr("x2", this.endPoint.x)
-            .attr("y2", this.endPoint.y)
+            .attr("x1", this.#WstartPoint.x)
+            .attr("y1", this.#WstartPoint.y)
+            .attr("x2", this.#WendPoint.x)
+            .attr("y2", this.#WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
         this.lineStroke = this.svg.select(`svg #${this.id}`);
     }
+
+    get WstartPoint() {
+        return this.#WstartPoint;
+    }
+    get WendPoint() {
+        return this.#WendPoint;
+    }
 }
 
 export class Vector extends Geometry {
+    #WstartPoint;
+    #WendPoint;
+
     constructor({
         group,
         startPoint = new Vector2(0, 0),
@@ -232,19 +251,17 @@ export class Vector extends Geometry {
 
         this.id = `vect${vectKey++}`;
 
-        this.startPoint = {
-            x: xGtoW(startPoint.x),
-            y: yGtoW(startPoint.y),
-        };
-        this.endPoint = {
-            x: xGtoW(endPoint.x),
-            y: yGtoW(endPoint.y),
-        };
+        this.startPoint = startPoint;
+        this.#WstartPoint = new Vector2(
+            xGtoW(startPoint.x),
+            yGtoW(startPoint.y)
+        );
+
+        this.endPoint = endPoint;
+        this.#WendPoint = new Vector2(xGtoW(endPoint.x), yGtoW(endPoint.y));
 
         this.vectColor = vectColor;
         this.vectStrokeWidth = vectStrokeWidth;
-
-        this.rotateAnimTime = 2000;
 
         // this.theta determines the angle between vector's arrow and its line.
         this.theta = rToD(
@@ -257,13 +274,6 @@ export class Vector extends Geometry {
         this.#draw();
     }
 
-    get gEndPoint() {
-        return {
-            x: xWtoG(this.endPoint.x),
-            y: yWtoG(this.endPoint.y),
-        };
-    }
-
     #draw() {
         this.stroke = this.svg
             .append("g")
@@ -272,16 +282,16 @@ export class Vector extends Geometry {
             .attr("transform-box", "fill-box")
             .attr(
                 "transform-origin",
-                `${this.startPoint.x} ${this.startPoint.y}`
+                `${this.#WstartPoint.x} ${this.#WstartPoint.y}`
             );
 
         this.stroke
             .append("line")
             .attr("id", this.id)
-            .attr("x1", this.startPoint.x)
-            .attr("y1", this.startPoint.y)
-            .attr("x2", this.endPoint.x)
-            .attr("y2", this.endPoint.y)
+            .attr("x1", this.#WstartPoint.x)
+            .attr("y1", this.#WstartPoint.y)
+            .attr("x2", this.#WendPoint.x)
+            .attr("y2", this.#WendPoint.y)
             .attr("stroke", this.vectColor)
             .attr("stroke-width", this.vectStrokeWidth);
         this.stroke
@@ -296,12 +306,19 @@ export class Vector extends Geometry {
             .attr("stroke", "none")
             .attr(
                 "transform",
-                `translate(${this.endPoint.x} ${this.endPoint.y}) rotate(${
+                `translate(${this.#WendPoint.x} ${this.#WendPoint.y}) rotate(${
                     this.theta - 90
                 })`
             );
 
         this.lineStroke = this.stroke.select("line");
         this.arrowHead = this.stroke.select("polygon");
+    }
+
+    get WstartPoint() {
+        return this.#WstartPoint;
+    }
+    get WendPoint() {
+        return this.#WendPoint;
     }
 }

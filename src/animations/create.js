@@ -19,16 +19,16 @@ export class Create extends Animation {
             cubicon.constructor.name === "ProjectLine"
         ) {
             cubicon.lineStroke
-                .attr("x2", cubicon.startPoint.x)
-                .attr("y2", cubicon.startPoint.y);
+                .attr("x2", cubicon.WstartPoint.x)
+                .attr("y2", cubicon.WstartPoint.y);
 
             const drawLineAnimTime = 1500;
             cubicon.lineStroke
                 .transition()
                 .delay(cubicon.elapsedTime + sleepTime)
                 .duration(drawLineAnimTime)
-                .attr("x2", cubicon.endPoint.x)
-                .attr("y2", cubicon.endPoint.y);
+                .attr("x2", cubicon.WendPoint.x)
+                .attr("y2", cubicon.WendPoint.y);
 
             cubicon.elapsedTime += drawLineAnimTime + sleepTime;
 

@@ -39,23 +39,21 @@ export class PtAlongGraph extends Animation {
             .duration(this.duration)
             .attrTween("cx", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
-                    return graph.axes.xScale(
-                        t * deltaX + point.cx / graph.axes.xLength
-                    );
+                    const deltaX = xPos - point.position.x;
+                    return graph.axes.xScale(t * deltaX + point.position.x);
                 };
             })
             .attrTween("cy", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
+                    const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.cx / graph.axes.xLength)
+                        graph.func(t * deltaX + point.position.x)
                     );
                 };
             })
             .on("end", () => {
-                point.cx = graph.axes.xScale(xPos);
-                point.cy = graph.axes.yScale(graph.func(xPos));
+                point.position.x = xPos;
+                point.position.y = graph.func(xPos);
             });
 
         point.elapsedTime += this.duration + sleepTime;
@@ -68,25 +66,23 @@ export class PtAlongGraph extends Animation {
             .duration(this.duration)
             .attrTween("x1", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
-                    return graph.axes.xScale(
-                        t * deltaX + point.cx / graph.axes.xLength
-                    );
+                    const deltaX = xPos - point.position.x;
+                    return graph.axes.xScale(t * deltaX + point.position.x);
                 };
             })
             .attrTween("y1", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
+                    const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.cx / graph.axes.xLength)
+                        graph.func(t * deltaX + point.position.x)
                     );
                 };
             })
             .attrTween("y2", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
+                    const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.cx / graph.axes.xLength)
+                        graph.func(t * deltaX + point.position.x)
                     );
                 };
             })
@@ -105,26 +101,22 @@ export class PtAlongGraph extends Animation {
             .duration(this.duration)
             .attrTween("x1", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
-                    return graph.axes.xScale(
-                        t * deltaX + point.cx / graph.axes.xLength
-                    );
+                    const deltaX = xPos - point.position.x;
+                    return graph.axes.xScale(t * deltaX + point.position.x);
                 };
             })
             .attrTween("y1", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
+                    const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.cx / graph.axes.xLength)
+                        graph.func(t * deltaX + point.position.x)
                     );
                 };
             })
             .attrTween("x2", () => {
                 return (t) => {
-                    const deltaX = xPos - point.cx / graph.axes.xLength;
-                    return graph.axes.xScale(
-                        t * deltaX + point.cx / graph.axes.xLength
-                    );
+                    const deltaX = xPos - point.position.x;
+                    return graph.axes.xScale(t * deltaX + point.position.x);
                 };
             })
             .on("end", () => {

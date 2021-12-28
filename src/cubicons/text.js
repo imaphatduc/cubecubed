@@ -24,9 +24,9 @@ export class MathText extends Cubicon {
         /// this.stroke is a d3 selection of HTML <text />
         this.stroke = this.svg
             .append("foreignObject")
-            .attr("x", this.position.x)
+            .attr("x", xGtoW(this.position.x))
             /// When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
-            .attr("y", -this.position.y)
+            .attr("y", -yGtoW(this.position.y))
             .attr("width", svgWidth)
             .attr("height", svgHeight)
             .attr("transform", "scale(1, -1)")

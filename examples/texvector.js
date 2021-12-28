@@ -41,8 +41,8 @@ function renderVector() {
 
     const vectCoor = new MathText({
         group: group,
-        position: vector.gEndPoint,
-        text: `\\begin{bmatrix} ${vector.gEndPoint.y} \\\\ ${vector.gEndPoint.x} \\end{bmatrix}`,
+        position: vector.endPoint,
+        text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,
         color: vector.vectColor,
         fontSize: 11,
     });

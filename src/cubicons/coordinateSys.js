@@ -237,6 +237,9 @@ class Graph extends Cubicon {
 }
 
 class Point extends Cubicon {
+    #Wposition;
+    #Wradius;
+
     constructor({
         projectorGroup,
         axes,
@@ -247,15 +250,21 @@ class Point extends Cubicon {
         strokeColor = "#fff",
         strokeWidth = 2,
     }) {
-        super({ group: axes.group, position: position });
+        super({
+            group: axes.group,
+            position: position,
+        });
 
         this.projectorGroup = projectorGroup;
         this.axes = axes;
 
-        this.cx = axes.xScale(this.position.x);
-        this.cy = axes.yScale(this.position.y);
+        this.#Wposition = new Vector2(
+            axes.xScale(position.x),
+            axes.yScale(position.y)
+        );
 
-        this.radius = axes.xScale(radius);
+        this.radius = radius;
+        this.#Wradius = axes.xScale(radius);
 
         this.strokeColor = strokeColor;
         this.strokeWidth = strokeWidth;
@@ -270,9 +279,9 @@ class Point extends Cubicon {
         this.stroke = this.projectorGroup
             .append("circle")
             .attr("class", "point")
-            .attr("cx", this.cx)
-            .attr("cy", this.cy)
-            .attr("r", this.radius)
+            .attr("cx", this.#Wposition.x)
+            .attr("cy", this.#Wposition.y)
+            .attr("r", this.#Wradius)
             .attr("fill", this.fillColor)
             .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
@@ -284,6 +293,9 @@ class Point extends Cubicon {
 }
 
 class ProjectLine extends Cubicon {
+    #WstartPoint;
+    #WendPoint;
+
     constructor({
         projectorGroup,
         axes,
@@ -297,14 +309,17 @@ class ProjectLine extends Cubicon {
         this.projectorGroup = projectorGroup;
         this.axes = axes;
 
-        this.startPoint = {
-            x: axes.xScale(startPoint.x),
-            y: axes.yScale(startPoint.y),
-        };
-        this.endPoint = {
-            x: axes.xScale(endPoint.x),
-            y: axes.yScale(endPoint.y),
-        };
+        this.startPoint = startPoint;
+        this.#WstartPoint = new Vector2(
+            axes.xScale(startPoint.x),
+            axes.yScale(startPoint.y)
+        );
+
+        this.endPoint = endPoint;
+        this.#WendPoint = new Vector2(
+            axes.xScale(endPoint.x),
+            axes.yScale(endPoint.y)
+        );
 
         this.lineColor = lineColor;
         this.lineWidth = lineWidth;
@@ -319,11 +334,18 @@ class ProjectLine extends Cubicon {
         this.lineStroke = this.projectorGroup
             .append("line")
             .attr("class", "project-line")
-            .attr("x1", this.startPoint.x)
-            .attr("y1", this.startPoint.y)
-            .attr("x2", this.endPoint.x)
-            .attr("y2", this.endPoint.y)
+            .attr("x1", this.#WstartPoint.x)
+            .attr("y1", this.#WstartPoint.y)
+            .attr("x2", this.#WendPoint.x)
+            .attr("y2", this.#WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
+    }
+
+    get WstartPoint() {
+        return this.#WstartPoint;
+    }
+    get WendPoint() {
+        return this.#WendPoint;
     }
 }
