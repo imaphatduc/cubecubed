@@ -18,7 +18,7 @@ let elapsed = 0;
 
 function graphingFunctions() {
     const scene = new Scene("graphing-functions");
-    const gr = new Group("graphing-group", scene);
+    const gr = new Group("graphing-group", scene, "Graphing");
 
     // const grid = new Grid({ group: gr });
     // gr.play([new DrawGridFromOrigin(grid)]);

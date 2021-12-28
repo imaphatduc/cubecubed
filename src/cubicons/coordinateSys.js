@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { Cubicon } from "./cubicon";
-import { MathText } from "./text";
+import { svgWidth, svgHeight } from "./constants";
 import { Vector2 } from "../math/vector";
 
 export class Axes extends Cubicon {
@@ -149,7 +149,7 @@ export class Axes extends Cubicon {
     }
 
     addGraphLabel(graph, text, xPos = graph.xRange[1]) {
-        return new MathText({
+        return new Label({
             group: graph.axes.group,
             position: new Vector2(
                 this.xScale(xPos),
@@ -233,6 +233,43 @@ class Graph extends Cubicon {
 
         this.func = func;
         this.points = points;
+    }
+}
+
+/// Defining Label class here is a bad practice,
+// but I don't know any better way to make graph coords and 2D space coords work together properly.
+// (Note the difference between Label's position property and MathText's one)
+export class Label extends Cubicon {
+    constructor({
+        group,
+        position = new Vector2(0, 0),
+        text = "",
+        color = "#fff",
+        fontSize = 13,
+    }) {
+        super({ group: group, position: position });
+
+        this.text = text;
+        this.color = color;
+        this.fontSize = fontSize;
+
+        this.#draw();
+    }
+
+    #draw() {
+        /// this.stroke is a d3 selection of HTML <text />
+        this.stroke = this.svg
+            .append("foreignObject")
+            .attr("x", this.position.x)
+            /// When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
+            .attr("y", -this.position.y)
+            .attr("width", svgWidth)
+            .attr("height", svgHeight)
+            .attr("transform", "scale(1, -1)")
+            .append("xhtml:text")
+            .style("font-size", `${this.fontSize}pt`)
+            .style("color", this.color);
+        this.stroke.node().innerHTML = katex.renderToString(this.text);
     }
 }
 
