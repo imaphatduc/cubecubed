@@ -16,7 +16,7 @@ export class Create extends Animation {
         if (
             cubicon.constructor.name === "Vector" ||
             cubicon.constructor.name === "Line" ||
-            cubicon.constructor.name === "ProjectLine"
+            cubicon.constructor.name === "AxisProjector"
         ) {
             cubicon.lineStroke
                 .attr("x2", cubicon.WstartPoint.x)

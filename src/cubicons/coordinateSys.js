@@ -234,7 +234,7 @@ export class Axes extends Cubicon {
     pointToCoords(graph, xPos) {
         const pos = new Vector2(xPos, graph.func(xPos));
 
-        let horizontalLine = new ProjectLine({
+        let horizontalLine = new AxisProjector({
             projectorGroup: graph.projectorGroup,
             axes: graph.axes,
             startPoint: pos,
@@ -243,7 +243,7 @@ export class Axes extends Cubicon {
         });
         horizontalLine.lineStroke.style("shape-rendering", "crispEdges");
 
-        let verticalLine = new ProjectLine({
+        let verticalLine = new AxisProjector({
             projectorGroup: graph.projectorGroup,
             axes: graph.axes,
             startPoint: pos,
@@ -380,7 +380,7 @@ class Point extends Cubicon {
     }
 }
 
-class ProjectLine extends Cubicon {
+class AxisProjector extends Cubicon {
     #WstartPoint;
     #WendPoint;
 
