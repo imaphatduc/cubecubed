@@ -1,6 +1,7 @@
 <!-- docs/_sidebar.md -->
 
 -   [Quick Start](/quickstart.md)
+-   [Showcase](/showcase.md)
 -   [Reference](/reference/reference.md)
     -   [Scene](/reference/scene/scene.md)
     -   [Group](/reference/scene/group.md)

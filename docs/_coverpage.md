@@ -1,7 +1,7 @@
 <p align="center">
   <img
     width="500"
-    src="./_media/cubed-horizontal.svg"
+    src="./_media/svgs/cubed-horizontal.svg"
     align="center" hspace="12"
     alt="Cubecubed - A Math Visualization Engine"
   />
