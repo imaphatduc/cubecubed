@@ -9,6 +9,14 @@ npm i cubecubed --save
 ```
 ## Initialize Project
 
+Run either
+
+```sh
+npx cubecubed
+```
+
+or
+
 ```sh
 npx ccw
 ```
