@@ -39,6 +39,7 @@ inquirer
             }
 
             const json = JSON.parse(raw);
+            if (!json.hasOwnProperty("scripts")) json.scripts = {};
             json.scripts.dev = "vite";
             json.scripts.build = "vite build";
             json.scripts.serve = "vite preview";
