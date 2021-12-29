@@ -64,7 +64,7 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     #placeXAxisNums(grid, sleepTime) {
-        const xNumWidth = 30;
+        const xNumWidth = 50;
         const xNumHeight = 20;
 
         const offsetX = xNumWidth / 2;
@@ -126,7 +126,7 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     #placeYAxisNums(grid, sleepTime) {
-        const yNumWidth = 30;
+        const yNumWidth = 50;
         const yNumHeight = 20;
 
         const offsetY = yNumHeight / 2;
