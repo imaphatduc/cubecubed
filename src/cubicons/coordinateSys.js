@@ -52,13 +52,18 @@ export class Axes extends Cubicon {
             );
         this.axes = this.coordinate.append("g").attr("class", "axes");
 
+        const halfArrowBase = 7;
+        const axisStrokeWidth = 1;
+        const tickOffset = 5;
+
         let xAxis = d3
             .axisBottom(this.xScale)
             .tickValues(
                 d3
                     .range(this.xRange[0], this.xRange[1] + 1, 1)
                     .filter((t) => t !== 0)
-            );
+            )
+            .tickSizeOuter(0);
         this.xAxes = this.axes
             .append("g")
             .attr("transform", "scale(1, -1)")
@@ -66,25 +71,34 @@ export class Axes extends Cubicon {
             .style("color", "#fff")
             .style("stroke", "none")
             .call(xAxis);
+        this.xAxes.select("path.domain").attr("transform", "scale(1.05)");
         this.xAxes
             .append("defs")
             .append("marker")
             .attr("id", "arrowhead-x")
-            .attr("refX", 0)
-            .attr("refY", 10.5)
-            .attr("markerWidth", 10)
-            .attr("markerHeight", 10)
+            .attr("refX", axisStrokeWidth)
+            .attr("refY", halfArrowBase)
+            .attr("markerWidth", 20)
+            .attr("markerHeight", 20)
             .append("path")
-            .attr("d", "M 0,0 L 10,5 L 0,10 z")
+            .attr(
+                "d",
+                `M 0,0 L ${halfArrowBase * 2},${halfArrowBase} L 0,${
+                    halfArrowBase * 2
+                } z`
+            )
             .attr("stroke", "none")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", axisStrokeWidth)
             .attr("fill", "#fff");
         this.xAxes
             .select("path.domain")
             .attr("marker-end", "url(#arrowhead-x)");
 
         this.xAxes.selectAll(".tick text").style("font-family", "KaTeX_Main");
-        this.xAxes.selectAll(".tick line").attr("y1", -5).attr("y2", 5);
+        this.xAxes
+            .selectAll(".tick line")
+            .attr("y1", -tickOffset)
+            .attr("y2", tickOffset);
 
         let yAxis = d3
             .axisRight(this.yScale)
@@ -93,7 +107,8 @@ export class Axes extends Cubicon {
                     .range(this.yRange[0], this.yRange[1] + 1, 1)
                     .filter((t) => t !== 0)
             )
-            .tickFormat(d3.format("0"));
+            .tickFormat(d3.format("0"))
+            .tickSizeOuter(0);
 
         this.yAxes = this.axes
             .append("g")
@@ -101,18 +116,24 @@ export class Axes extends Cubicon {
             .style("color", "#fff")
             .style("stroke", "none")
             .call(yAxis);
+        this.yAxes.select("path.domain").attr("transform", "scale(1.05)");
         this.yAxes
             .append("defs")
             .append("marker")
             .attr("id", "arrowhead-y")
-            .attr("refX", 10.5)
-            .attr("refY", 0)
-            .attr("markerWidth", 10)
-            .attr("markerHeight", 10)
+            .attr("refX", halfArrowBase)
+            .attr("refY", axisStrokeWidth)
+            .attr("markerWidth", 20)
+            .attr("markerHeight", 20)
             .append("path")
-            .attr("d", "M 0,0 L 10,0 L 5,10 z")
+            .attr(
+                "d",
+                `M 0,0 L ${halfArrowBase * 2},0 L ${halfArrowBase},${
+                    halfArrowBase * 2
+                } z`
+            )
             .attr("stroke", "none")
-            .attr("stroke-width", 1)
+            .attr("stroke-width", axisStrokeWidth)
             .attr("fill", "#fff");
         this.yAxes
             .select("path.domain")
@@ -122,7 +143,10 @@ export class Axes extends Cubicon {
             .selectAll(".tick text")
             .attr("transform", "scale(1, -1)")
             .style("font-family", "KaTeX_Main");
-        this.yAxes.selectAll(".tick line").attr("x1", -5).attr("x2", 5);
+        this.yAxes
+            .selectAll(".tick line")
+            .attr("x1", -tickOffset)
+            .attr("x2", tickOffset);
 
         if (!this.hasNums) {
             this.xAxes.selectAll(".tick text").remove();
@@ -164,7 +188,7 @@ export class Axes extends Cubicon {
             .attr("class", "graph")
             .style("fill", "none")
             .style("stroke", color)
-            .style("stroke-width", 1.5)
+            .style("stroke-width", 1.2)
             .attr("d", pathData);
         const projectorGroup = graphGroup
             .append("g")

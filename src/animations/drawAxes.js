@@ -41,7 +41,7 @@ export class DrawAxes extends Animation {
         axis.select("defs marker path")
             .attr("opacity", 0)
             .transition()
-            .delay(this.cubicon.elapsedTime + sleepTime + 200)
+            .delay(this.cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .attr("opacity", 1);
     }
