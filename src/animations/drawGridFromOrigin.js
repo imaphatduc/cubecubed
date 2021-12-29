@@ -30,15 +30,15 @@ export class DrawGridFromOrigin extends Animation {
         this.hasNums = grid.hasNums;
     }
 
-    play(waitTime) {
-        this.#drawHorizontalLines(this.cubicon, this.hasNums, waitTime);
-        this.#drawVerticalLines(this.cubicon, this.hasNums, waitTime);
-        this.#drawOrigin(this.cubicon, waitTime);
+    play(sleepTime) {
+        this.#drawHorizontalLines(this.cubicon, this.hasNums, sleepTime);
+        this.#drawVerticalLines(this.cubicon, this.hasNums, sleepTime);
+        this.#drawOrigin(this.cubicon, sleepTime);
 
-        this.cubicon.elapsedTime += this.duration + waitTime;
+        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
-    #drawHorizontalLines(grid, hasNums, waitTime) {
+    #drawHorizontalLines(grid, hasNums, sleepTime) {
         const horizontalLines = grid.horizontal
             .append("g")
             .attr("id", "horizontal-lines");
@@ -48,7 +48,7 @@ export class DrawGridFromOrigin extends Animation {
             .enter()
             .append("line")
             .transition()
-            .delay(grid.elapsedTime + waitTime)
+            .delay(grid.elapsedTime + sleepTime)
             .duration(this.drawX)
             .attr("x1", xGtoW(xBound[0] - 1))
             .attr("y1", (d) => yGtoW(d))
@@ -60,10 +60,10 @@ export class DrawGridFromOrigin extends Animation {
             .attr("stroke-width", (d) => (xGtoW(d) === 0 ? 2 : 1))
             .style("stroke-opacity", (d) => (d % 2 === 0 ? 1 : 0.2));
 
-        if (hasNums) this.#placeXAxisNums(grid, waitTime);
+        if (hasNums) this.#placeXAxisNums(grid, sleepTime);
     }
 
-    #placeXAxisNums(grid, waitTime) {
+    #placeXAxisNums(grid, sleepTime) {
         const xNumWidth = 30;
         const xNumHeight = 20;
 
@@ -96,11 +96,11 @@ export class DrawGridFromOrigin extends Animation {
             .selectAll("foreignObject.x-axis-number")
             .transition()
             .duration(this.drawXNums)
-            .delay(grid.elapsedTime + this.drawXNumsDelay + waitTime)
+            .delay(grid.elapsedTime + this.drawXNumsDelay + sleepTime)
             .attr("opacity", 1);
     }
 
-    #drawVerticalLines(grid, hasNums, waitTime) {
+    #drawVerticalLines(grid, hasNums, sleepTime) {
         const verticalLines = grid.vertical
             .append("g")
             .attr("id", "vertical-lines");
@@ -110,7 +110,7 @@ export class DrawGridFromOrigin extends Animation {
             .enter()
             .append("line")
             .transition()
-            .delay(grid.elapsedTime + this.drawYDelay + waitTime)
+            .delay(grid.elapsedTime + this.drawYDelay + sleepTime)
             .duration(this.drawY)
             .attr("x1", (d) => xGtoW(d))
             .attr("y1", yGtoW(yBound[0]))
@@ -122,10 +122,10 @@ export class DrawGridFromOrigin extends Animation {
             .attr("stroke-width", (d) => (yGtoW(d) === 0 ? 2 : 1))
             .style("stroke-opacity", (d) => (d % 2 === 0 ? 1 : 0.2));
 
-        if (hasNums) this.#placeYAxisNums(grid, waitTime);
+        if (hasNums) this.#placeYAxisNums(grid, sleepTime);
     }
 
-    #placeYAxisNums(grid, waitTime) {
+    #placeYAxisNums(grid, sleepTime) {
         const yNumWidth = 30;
         const yNumHeight = 20;
 
@@ -158,7 +158,7 @@ export class DrawGridFromOrigin extends Animation {
             .selectAll("foreignObject.y-axis-number")
             .transition()
             .duration(this.drawYNums)
-            .delay(grid.elapsedTime + this.drawYNumsDelay + waitTime)
+            .delay(grid.elapsedTime + this.drawYNumsDelay + sleepTime)
             .attr("opacity", 1);
     }
 

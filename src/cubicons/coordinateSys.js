@@ -66,6 +66,23 @@ export class Axes extends Cubicon {
             .style("color", "#fff")
             .style("stroke", "none")
             .call(xAxis);
+        this.xAxes
+            .append("defs")
+            .append("marker")
+            .attr("id", "arrowhead-x")
+            .attr("refX", 0)
+            .attr("refY", 10.5)
+            .attr("markerWidth", 10)
+            .attr("markerHeight", 10)
+            .append("path")
+            .attr("d", "M 0,0 L 10,5 L 0,10 z")
+            .attr("stroke", "none")
+            .attr("stroke-width", 1)
+            .attr("fill", "#fff");
+        this.xAxes
+            .select("path.domain")
+            .attr("marker-end", "url(#arrowhead-x)");
+
         this.xAxes.selectAll(".tick text").style("font-family", "KaTeX_Main");
         this.xAxes.selectAll(".tick line").attr("y1", -5).attr("y2", 5);
 
@@ -84,6 +101,23 @@ export class Axes extends Cubicon {
             .style("color", "#fff")
             .style("stroke", "none")
             .call(yAxis);
+        this.yAxes
+            .append("defs")
+            .append("marker")
+            .attr("id", "arrowhead-y")
+            .attr("refX", 10.5)
+            .attr("refY", 0)
+            .attr("markerWidth", 10)
+            .attr("markerHeight", 10)
+            .append("path")
+            .attr("d", "M 0,0 L 10,0 L 5,10 z")
+            .attr("stroke", "none")
+            .attr("stroke-width", 1)
+            .attr("fill", "#fff");
+        this.yAxes
+            .select("path.domain")
+            .attr("marker-end", "url(#arrowhead-y)");
+
         this.yAxes
             .selectAll(".tick text")
             .attr("transform", "scale(1, -1)")
@@ -130,6 +164,7 @@ export class Axes extends Cubicon {
             .attr("class", "graph")
             .style("fill", "none")
             .style("stroke", color)
+            .style("stroke-width", 1.5)
             .attr("d", pathData);
         const projectorGroup = graphGroup
             .append("g")
@@ -141,9 +176,7 @@ export class Axes extends Cubicon {
             axes: this,
             path: path,
             func: func,
-            points: points,
             xRange: xRange,
-            xScale: xScale,
             createDuration: createDuration,
         });
     }
@@ -185,7 +218,6 @@ export class Axes extends Cubicon {
             lineWidth: 1,
         });
         horizontalLine.lineStroke.style("shape-rendering", "crispEdges");
-        // .style("stroke-dasharray", 5);
 
         let verticalLine = new ProjectLine({
             projectorGroup: graph.projectorGroup,
@@ -195,7 +227,6 @@ export class Axes extends Cubicon {
             lineWidth: 1,
         });
         verticalLine.lineStroke.style("shape-rendering", "crispEdges");
-        // .style("stroke-dasharray", 3);
 
         const point = this.pointOnGraph(graph, xPos).point;
 
@@ -214,9 +245,7 @@ class Graph extends Cubicon {
         axes,
         path,
         func,
-        points,
         xRange,
-        xScale,
         createDuration,
     }) {
         super({ group: axes.group, position: position });
@@ -229,10 +258,8 @@ class Graph extends Cubicon {
         this.createDuration = createDuration;
 
         this.xRange = xRange;
-        this.xScale = xScale;
 
         this.func = func;
-        this.points = points;
     }
 }
 
