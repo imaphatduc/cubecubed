@@ -1,6 +1,6 @@
 # Square
 
-extends from Cubicon.
+extends from Geometry.
 
 ## Constructor
 

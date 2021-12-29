@@ -1,6 +1,6 @@
 # Rectangle
 
-extends from Cubicon.
+extends from Geometry.
 
 ## Child classes
 
@@ -47,14 +47,6 @@ Stroke color of the rectangle.
 > #### .strokeWidth: Number
 
 Stroke width of the rectangle.
-
-<!-- > #### .X: Number -->
-
-<!-- x position of the rectangle's draw origin (the point from which the rectangle is created [if using Create() animation]). -->
-
-<!-- > #### .Y: Number -->
-
-<!-- y position of the rectangle's draw origin (the point from which the rectangle is created [if using Create() animation]). -->
 
 ## Methods
 

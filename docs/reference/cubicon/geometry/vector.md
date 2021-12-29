@@ -1,6 +1,6 @@
 # Vector
 
-extends from Cubicon.
+extends from Geometry.
 
 ## Constructor
 
@@ -33,6 +33,20 @@ Color of the vector shape.
 > #### .vectStrokeWidth: Number
 
 Line width of the vector shape.
+
+> #### .theta: Number
+
+Angle (in degrees) between the vector's arrow and its line.
+
+## Getters
+
+> #### .WstartPoint: Number
+
+Tail of the line (in SVG-Cartesian coordinates system).
+
+> #### .WendPoint: Number
+
+Head of the line (in SVG-Cartesian coordinates system).
 
 ## Methods
 

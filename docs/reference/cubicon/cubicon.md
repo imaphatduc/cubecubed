@@ -4,23 +4,21 @@
 
 ## Child Classes
 
-### Geometry
+### [Geometry](/reference/cubicon/geometry/geometry.md)
 
-(not a real class)
+### [Grid](/reference/cubicon/grid.md)
 
-### Grid
+A grid on the screen. (commonly used as vector space)
 
-Draw a grid on the screen. (commonly used as vector space)
+### [Axes](/reference/cubicon/coordinatesSys/axes.md)
 
-### Axes
+Axes in Cartesian coordinate system.
 
-Draw xy axes in Cartesian coordinate system.
+### [Graph](/reference/cubicon/coordinatesSys/graph.md)
 
-### Graph
+A graph plotted by a function.
 
-A graph.
-
-### MathText
+### [MathText](/reference/cubicon/mathtext.md)
 
 Math texts rendered by KaTeX.
 
@@ -28,7 +26,7 @@ Math texts rendered by KaTeX.
 
 > #### .group: Group
 
-The group that the cubicon belongs to. (in other words, the svg that the cubicon path belongs to)
+The group that the cubicon belongs to. (In other words, the svg that the cubicon path belongs to)
 
 > #### .position: Vector2
 

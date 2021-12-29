@@ -1,6 +1,6 @@
 # Line
 
-extends from Cubicon.
+extends from Geometry.
 
 ## Constructor
 
@@ -33,6 +33,16 @@ Color of the line.
 > #### .lineWidth: Number
 
 Width of the line.
+
+## Getters
+
+> #### .WstartPoint: Number
+
+Tail of the line (in SVG-Cartesian coordinates system).
+
+> #### .WendPoint: Number
+
+Head of the line (in SVG-Cartesian coordinates system).
 
 ## Methods
 

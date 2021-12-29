@@ -1,6 +1,6 @@
 # Circle
 
-extends from Cubicon.
+extends from Geometry.
 
 ## Constructor
 
@@ -19,14 +19,6 @@ new Circle({
 ## Properties
 
 See [Cubicon()](./reference/cubicon/cubicon.md) properties.
-
-> #### .cx: Number
-
-x position of the circle.
-
-> #### .cy: Number
-
-y position of the circle.
 
 > #### .radius: Number
 

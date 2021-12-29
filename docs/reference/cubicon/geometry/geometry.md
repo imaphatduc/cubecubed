@@ -1,13 +1,25 @@
 # Geometry
 
-!> Note: Geometry here is a term, not a class.
+!> Note: Geometry cannot be used directly.
 
-### Rectangle
+## Child Classes
 
-(Square included)
+### [Rectangle](/reference/cubicon/geometry/rectangle.md)
 
-### Circle
+([Square](/reference/cubicon/geometry/square.md) included)
 
-### Line
+### [Circle](/reference/cubicon/geometry/circle.md)
 
-### Vector
+### [Line](/reference/cubicon/geometry/line.md)
+
+### [Vector](/reference/cubicon/geometry/vector.md)
+
+## Properties
+
+> #### .group: Group
+
+The group that the geometry shape belongs to. (In other words, the svg that the cubicon path belongs to)
+
+> #### .Wposition: Vector2
+
+The position of the geometry shape (in SVG-Cartesian coordinates system).

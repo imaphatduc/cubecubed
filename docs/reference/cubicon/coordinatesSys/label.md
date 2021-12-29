@@ -1,11 +1,11 @@
-# MathText
+# Label
 
 extends from Cubicon.
 
 ## Constructor
 
 ```js
-new MathText({
+new Label({
     group: Group,
     position: Vector2 = new Vector2(0, 0),
     text: String = "",
@@ -13,22 +13,21 @@ new MathText({
     fontSize: Number = 13,
 });
 ```
-
 ## Properties
 
 See [Cubicon()](./reference/cubicon/cubicon.md) properties.
 
 > #### .text: String
 
-LaTeX-syntax string for the text.
+LaTeX-syntax string for the label.
 
 > #### .color: String
 
-Color of the text.
+Color of the label.
 
 > #### .fontSize: Number
 
-Font size of the text (in points).
+Font size of the label (in points).
 
 ## Methods
 

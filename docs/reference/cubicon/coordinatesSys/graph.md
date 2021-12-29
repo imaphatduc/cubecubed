@@ -8,8 +8,10 @@ extends from Cubicon.
 
 ```js
 new Graph({
-    group: Group,
+    graphGroup: d3 Selector,
+    projectorGroup: d3 Selector,
     position: Vector2,
+    axes: Axes,
     path: d3 Selector,
     func: Function,
     xRange: Array,
@@ -21,9 +23,21 @@ new Graph({
 
 See [Cubicon()](./reference/cubicon/cubicon.md) properties.
 
+> #### .graphGroup: d3 Selector
+
+d3 Selector of the `<svg />` tag that contains the graph's <path />.
+
+> #### .projectorGroup: d3 Selector
+
+d3 Selector of the `<g />` tag that contains points' projectors on the graph.
+
+> #### .axes: Axes
+
+The Axes object that the graph belongs to.
+
 > #### .stroke: d3 Selector
 
-This will override Cubicon().stroke.
+d3 Selector of the `<path />` tag.
 
 > #### .createDuration: Number
 
