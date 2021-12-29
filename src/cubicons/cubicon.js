@@ -5,10 +5,7 @@ export class Cubicon {
     constructor({ group, position }) {
         this.group = group;
 
-        this.position = {
-            x: position.x,
-            y: position.y,
-        };
+        this.position = position;
 
         /// This property keeps track of the total vector a cubicon has moved
         this.moveVector = new Vector2(0, 0);
