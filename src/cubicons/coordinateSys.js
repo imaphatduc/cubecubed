@@ -64,15 +64,15 @@ export class Axes extends Cubicon {
                     .filter((t) => t !== 0)
             )
             .tickSizeOuter(0);
-        this.xAxes = this.axes
+        this.xAxis = this.axes
             .append("g")
             .attr("transform", "scale(1, -1)")
             .style("font-size", "inherit")
             .style("color", "#fff")
             .style("stroke", "none")
             .call(xAxis);
-        this.xAxes.select("path.domain").attr("transform", "scale(1.05)");
-        this.xAxes
+        this.xAxis.select("path.domain").attr("transform", "scale(1.05)");
+        this.xAxis
             .append("defs")
             .append("marker")
             .attr("id", "arrowhead-x")
@@ -90,12 +90,12 @@ export class Axes extends Cubicon {
             .attr("stroke", "none")
             .attr("stroke-width", axisStrokeWidth)
             .attr("fill", "#fff");
-        this.xAxes
+        this.xAxis
             .select("path.domain")
             .attr("marker-end", "url(#arrowhead-x)");
 
-        this.xAxes.selectAll(".tick text").style("font-family", "KaTeX_Main");
-        this.xAxes
+        this.xAxis.selectAll(".tick text").style("font-family", "KaTeX_Main");
+        this.xAxis
             .selectAll(".tick line")
             .attr("y1", -tickOffset)
             .attr("y2", tickOffset);
@@ -110,14 +110,14 @@ export class Axes extends Cubicon {
             .tickFormat(d3.format("0"))
             .tickSizeOuter(0);
 
-        this.yAxes = this.axes
+        this.yAxis = this.axes
             .append("g")
             .style("font-size", "inherit")
             .style("color", "#fff")
             .style("stroke", "none")
             .call(yAxis);
-        this.yAxes.select("path.domain").attr("transform", "scale(1.05)");
-        this.yAxes
+        this.yAxis.select("path.domain").attr("transform", "scale(1.05)");
+        this.yAxis
             .append("defs")
             .append("marker")
             .attr("id", "arrowhead-y")
@@ -135,22 +135,22 @@ export class Axes extends Cubicon {
             .attr("stroke", "none")
             .attr("stroke-width", axisStrokeWidth)
             .attr("fill", "#fff");
-        this.yAxes
+        this.yAxis
             .select("path.domain")
             .attr("marker-end", "url(#arrowhead-y)");
 
-        this.yAxes
+        this.yAxis
             .selectAll(".tick text")
             .attr("transform", "scale(1, -1)")
             .style("font-family", "KaTeX_Main");
-        this.yAxes
+        this.yAxis
             .selectAll(".tick line")
             .attr("x1", -tickOffset)
             .attr("x2", tickOffset);
 
         if (!this.hasNums) {
-            this.xAxes.selectAll(".tick text").remove();
-            this.yAxes.selectAll(".tick text").remove();
+            this.xAxis.selectAll(".tick text").remove();
+            this.yAxis.selectAll(".tick text").remove();
         }
 
         this.graphs = this.coordinate.append("g").attr("class", "graphs");

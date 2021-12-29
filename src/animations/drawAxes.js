@@ -9,8 +9,8 @@ export class DrawAxes extends Animation {
     }
 
     play(sleepTime) {
-        this.#drawAxis(this.cubicon.xAxes, sleepTime);
-        this.#drawAxis(this.cubicon.yAxes, sleepTime);
+        this.#drawAxis(this.cubicon.xAxis, sleepTime);
+        this.#drawAxis(this.cubicon.yAxis, sleepTime);
 
         this.cubicon.elapsedTime += this.duration + sleepTime;
     }
