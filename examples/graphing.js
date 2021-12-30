@@ -10,6 +10,7 @@ import {
     PtAlongGraph,
     PtToCoords,
     DrawAxes,
+    DrawGridFromScreenSides,
 } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
@@ -21,8 +22,8 @@ function graphingFunctions() {
     const scene = new Scene("graphing-functions");
     const gr = new Group("graphing-group", scene, "Graphing");
 
-    // const grid = new Grid({ group: gr });
-    // gr.play([new DrawGridFromOrigin(grid)]);
+    const grid = new Grid({ group: gr });
+    gr.play([new DrawGridFromScreenSides(grid)]);
 
     const a = new Axes({
         group: gr,
@@ -71,7 +72,6 @@ function graphingFunctions() {
     /// Plotting cubic graph
     const cubic = a.graph({
         func: (x) => x * x * x + 2 * x * x,
-        xRange: [-2, 1],
         color: COLOR.RED_2,
         createDuration: 2000,
     });

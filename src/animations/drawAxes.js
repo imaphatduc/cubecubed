@@ -1,11 +1,25 @@
+import * as d3 from "d3";
 import { Animation } from "./animation";
 
 export class DrawAxes extends Animation {
+    #xNums;
+    #yNums;
+    #delayEach;
+
     constructor(axes) {
         super();
 
         this.cubicon = axes;
-        this.duration = 800;
+
+        this.#xNums = -this.cubicon.xRange[0] + this.cubicon.xRange[1];
+        this.#yNums = -this.cubicon.yRange[0] + this.cubicon.yRange[1];
+
+        this.#delayEach = 100;
+
+        this.duration = Math.max(
+            (this.#xNums + 2) * this.#delayEach,
+            (this.#yNums + 2) * this.#delayEach
+        );
     }
 
     play(sleepTime) {
@@ -32,16 +46,24 @@ export class DrawAxes extends Animation {
         /// Mark ticks
         axis.selectAll("g.tick")
             .attr("opacity", 0)
+            .data(d3.range(0, this.#xNums + 1, 1))
             .transition()
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(
+                (d) =>
+                    this.cubicon.elapsedTime + sleepTime + this.#delayEach * d
+            )
             .duration(this.duration)
             .attr("opacity", 1);
 
         /// Fade in axes' arrows
         axis.select("defs marker path")
             .attr("opacity", 0)
+            .data(d3.range(0, this.#yNums + 1, 1))
             .transition()
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(
+                (d) =>
+                    this.cubicon.elapsedTime + sleepTime + this.#delayEach * d
+            )
             .duration(this.duration)
             .attr("opacity", 1);
     }
