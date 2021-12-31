@@ -16,8 +16,8 @@ import {
 /// In this example, the scene has only one group, so we don't need `elapsed`
 let elapsed = 0;
 
-function arithmeticInGeometry() {
-    const scene = new Scene("arithmetic-in-geometry");
+function sumOfSequenceProof() {
+    const scene = new Scene("sum-of-sequence-proof");
     const gr = new Group("graphing-group", scene);
 
     const grid = new Grid({ group: gr });
@@ -39,4 +39,4 @@ function arithmeticInGeometry() {
     gr.play([new PointToSides(linesData)]);
 }
 
-arithmeticInGeometry();
+sumOfSequenceProof();
