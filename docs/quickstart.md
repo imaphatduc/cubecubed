@@ -27,11 +27,11 @@ To set a scene in Cubecubed, we need to understand some terms first.
 
 ### Cubicons
 
-`Cubicons` are nuclear objects of a scene, such as geometry shapes (squares and circles). Don't misunderstand them with 3d cubes, which are things that cubecubed has not applied to its functionality.
+`Cubicon`s are nuclear objects of a scene, such as geometry shapes (squares and circles). Don't misunderstand them with 3d cubes, which are things that cubecubed has not applied to its functionality.
 
 ### Scenes and Groups
 
-View `Scenes` and `Groups` like so: an animation video is made up of scenes, each scene includes different groups.
+View `Scene`s and `Group`s like so: an animation video is made up of scenes, each scene includes different groups.
 
 To make it easier to understand, consider this example: you solved some math problems, and you want to make a video to explain all your solutions to others. In `scene`#1, you proved "square root of 2 is irrational", `scene`#2 is the solution of a logarithm equation, and so on. In scene#1, there are two groups: `group` problem ("prove square root of 2 is irrational") and `group` solution (steps to solve it), each stands separately to the other.
 
