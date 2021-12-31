@@ -27,7 +27,7 @@ To set a scene in Cubecubed, we need to understand some terms first.
 
 ### Cubicons
 
-`Cubicons` are nuclear objects of a scene, such as squares and circles. Don't misunderstand them with 3d cubes, which are things that cubecubed has not applied to its functionality.
+`Cubicons` are nuclear objects of a scene, such as geometry shapes (squares and circles). Don't misunderstand them with 3d cubes, which are things that cubecubed has not applied to its functionality.
 
 ### Scenes and Groups
 
