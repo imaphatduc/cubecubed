@@ -12,6 +12,7 @@ export class Cubicon {
 
         // and this keeps track of the angle between the cubicon and the x axis
         this.angle = 0;
+        this.moveAngle = 0;
 
         this.svg = group.svg;
 

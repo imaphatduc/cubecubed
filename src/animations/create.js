@@ -22,15 +22,14 @@ export class Create extends Animation {
                 .attr("x2", cubicon.WstartPoint.x)
                 .attr("y2", cubicon.WstartPoint.y);
 
-            const drawLineAnimTime = 1500;
             cubicon.lineStroke
                 .transition()
                 .delay(cubicon.elapsedTime + sleepTime)
-                .duration(drawLineAnimTime)
+                .duration(this.duration)
                 .attr("x2", cubicon.WendPoint.x)
                 .attr("y2", cubicon.WendPoint.y);
 
-            cubicon.elapsedTime += drawLineAnimTime + sleepTime;
+            cubicon.elapsedTime += this.duration + sleepTime;
 
             if (cubicon.constructor.name === "Vector") {
                 const drawArrowHeadAnimTime = 1500;

@@ -16,10 +16,12 @@ export class DrawAxes extends Animation {
 
         this.#delayEach = 100;
 
-        this.duration = Math.max(
-            (this.#xNums + 2) * this.#delayEach,
-            (this.#yNums + 2) * this.#delayEach
-        );
+        this.arrowDuration = 600;
+        this.duration =
+            Math.max(
+                (this.#xNums + 2) * this.#delayEach,
+                (this.#yNums + 2) * this.#delayEach
+            ) + this.arrowDuration;
     }
 
     play(sleepTime) {
@@ -61,10 +63,11 @@ export class DrawAxes extends Animation {
             .data(d3.range(0, this.#yNums + 1, 1))
             .transition()
             .delay(
-                (d) =>
-                    this.cubicon.elapsedTime + sleepTime + this.#delayEach * d
+                this.cubicon.elapsedTime +
+                    sleepTime +
+                    this.#delayEach * this.#xNums
             )
-            .duration(this.duration)
+            .duration(this.arrowDuration)
             .attr("opacity", 1);
     }
 }

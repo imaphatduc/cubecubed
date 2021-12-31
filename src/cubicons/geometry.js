@@ -1,3 +1,4 @@
+import * as d3 from "d3";
 import { Cubicon } from "./cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG, yWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
@@ -94,6 +95,51 @@ export class Rectangle extends Geometry {
 
         return path;
     }
+
+    pointToSides(pos, sidesIndex) {
+        const g = this.svg.append("g").attr("class", "lines-to-side");
+        g.attr(
+            "transform",
+            `translate(${this.moveVector.x}, ${this.moveVector.y}) rotate(${this.moveAngle})`
+        );
+
+        const hors = [],
+            vers = [];
+        pos.forEach((p) => {
+            hors.push(
+                new Line({
+                    group: this.group,
+                    parentGTag: g,
+                    startPoint: p,
+                    endPoint: new Vector2(
+                        ((sidesIndex[0] >= 0 ? 1 : -1) * this.width) / 2,
+                        p.y
+                    ),
+                    lineColor: this.strokeColor,
+                    lineWidth: this.strokeWidth,
+                })
+            );
+            vers.push(
+                new Line({
+                    group: this.group,
+                    parentGTag: g,
+                    startPoint: p,
+                    endPoint: new Vector2(
+                        p.x,
+                        ((sidesIndex[1] >= 0 ? 1 : -1) * this.height) / 2
+                    ),
+                    lineColor: this.strokeColor,
+                    lineWidth: this.strokeWidth,
+                })
+            );
+        });
+        const linesData = {
+            cubicon: this,
+            horizontalLines: hors,
+            verticalLines: vers,
+        };
+        return linesData;
+    }
 }
 
 export class Square extends Rectangle {
@@ -187,12 +233,15 @@ export class Line extends Geometry {
 
     constructor({
         group,
+        parentGTag,
         startPoint = { x: 0, y: 0 },
         endPoint,
         lineColor = "#fff",
         lineWidth = 2,
     }) {
         super({ group: group, position: startPoint });
+
+        this.parentGTag = parentGTag;
 
         this.id = `line${lineKey++}`;
 
@@ -212,7 +261,7 @@ export class Line extends Geometry {
     }
 
     #draw() {
-        this.svg
+        (typeof this.parentGTag !== "undefined" ? this.parentGTag : this.svg)
             .append("line")
             .attr("id", this.id)
             .attr("class", "line")

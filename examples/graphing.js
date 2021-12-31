@@ -1,8 +1,6 @@
 import {
     Axes,
     Group,
-    Grid,
-    DrawGridFromOrigin,
     Scene,
     COLOR,
     Create,
@@ -10,7 +8,6 @@ import {
     PtAlongGraph,
     PtToCoords,
     DrawAxes,
-    DrawGridFromScreenSides,
 } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
@@ -20,10 +17,7 @@ let elapsed = 0;
 
 function graphingFunctions() {
     const scene = new Scene("graphing-functions");
-    const gr = new Group("graphing-group", scene, "Graphing");
-
-    const grid = new Grid({ group: gr });
-    gr.play([new DrawGridFromScreenSides(grid)]);
+    const gr = new Group("graphing-group", scene);
 
     const a = new Axes({
         group: gr,

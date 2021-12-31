@@ -1,3 +1,4 @@
+import * as d3 from "d3";
 import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 
@@ -20,7 +21,7 @@ export class Rotate extends Animation {
         ) {
             this.duration = 2000;
         }
-        // cubicon.angle += degree;
+        cubicon.moveAngle += degree;
         cubicon.stroke
             .transition()
             .delay(cubicon.elapsedTime + sleepTime)

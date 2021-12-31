@@ -35,7 +35,10 @@ export class Translate extends Animation {
             .attr(
                 "transform",
                 `translate(${cubicon.moveVector.x}, ${cubicon.moveVector.y}) rotate(${cubicon.angle})`
-            );
+            )
+            .on("end", () => {
+                cubicon.position = cubicon.position.add(vector);
+            });
 
         cubicon.elapsedTime += this.duration + sleepTime;
     }

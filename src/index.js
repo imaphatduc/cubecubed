@@ -15,10 +15,11 @@ export * from "./animations/translate";
 export * from "./animations/rotate";
 export * from "./animations/fadeIn";
 export * from "./animations/fadeOut";
-export * from "./animations/drawGridFromOrigin";
+export * from "./animations/drawGrid";
 export * from "./animations/drawAxes";
 export * from "./animations/ptToCoords";
 export * from "./animations/ptAlongGraph";
+export * from "./animations/pointToSides";
 
 export * from "./math/convertUnit";
 export * from "./math/vector";
