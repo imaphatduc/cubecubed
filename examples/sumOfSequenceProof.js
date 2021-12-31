@@ -29,6 +29,7 @@ function sumOfSequenceProof() {
         sideLength: 8,
         strokeColor: COLOR.PINK_1,
     });
+    gr.play([new Translate({ cubicon: square, vector: new Vector2(6, 2) })]);
 
     const points = [];
     for (let i = -3; i <= 3; i++) {
