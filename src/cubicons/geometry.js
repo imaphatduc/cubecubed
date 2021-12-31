@@ -100,7 +100,9 @@ export class Rectangle extends Geometry {
         const g = this.svg.append("g").attr("class", "lines-to-side");
         g.attr(
             "transform",
-            `translate(${this.moveVector.x}, ${this.moveVector.y}) rotate(${this.moveAngle})`
+            ` translate(${this.Wposition.x + this.moveVector.x}, ${
+                this.Wposition.y + this.moveVector.y
+            }) rotate(${this.moveAngle})`
         );
 
         const hors = [],

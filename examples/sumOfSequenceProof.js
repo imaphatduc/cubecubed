@@ -25,11 +25,10 @@ function sumOfSequenceProof() {
 
     const square = new Square({
         group: gr,
+        position: new Vector2(-3, 2),
         sideLength: 8,
         strokeColor: COLOR.PINK_1,
     });
-    gr.play([new Translate({ cubicon: square, vector: new Vector2(6, 2) })]);
-    gr.play([new Rotate({ cubicon: square, degree: 60 })]);
 
     const points = [];
     for (let i = -3; i <= 3; i++) {
