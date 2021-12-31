@@ -15,15 +15,8 @@ export class Translate extends Animation {
     }
 
     #translateByVector(cubicon, vector, sleepTime) {
-        /// These x and y position attributes do not exist in most SVG elements,
-        // except for closed shapes (such as square, circle).
-        /// I created these property for the sake of translation tracking.
-        cubicon.x += xGtoW(vector.x);
-        cubicon.y += xGtoW(vector.y);
-
         /// Calculate the sum of all translation vectors
-        cubicon.moveVector.x += xGtoW(vector.x);
-        cubicon.moveVector.y += yGtoW(vector.y);
+        cubicon.moveVector = cubicon.moveVector.add(vector);
 
         cubicon.stroke
             .transition()
@@ -34,7 +27,9 @@ export class Translate extends Animation {
             // the previous position and rotation.
             .attr(
                 "transform",
-                `translate(${cubicon.moveVector.x}, ${cubicon.moveVector.y}) rotate(${cubicon.angle})`
+                `translate(${xGtoW(cubicon.moveVector.x)}, ${yGtoW(
+                    cubicon.moveVector.y
+                )}) rotate(${cubicon.angle})`
             )
             .on("end", () => {
                 cubicon.position = cubicon.position.add(vector);
