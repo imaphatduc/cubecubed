@@ -116,7 +116,10 @@ export class Rectangle extends Geometry {
                 new Line({
                     group: this.group,
                     parentGTag: g,
-                    startPoint: p,
+                    startPoint: new Vector2(
+                        p.x + xWtoG(this.strokeWidth / 2),
+                        p.y + yWtoG(this.strokeWidth / 2)
+                    ),
                     endPoint: new Vector2(
                         ((sidesIndex[0] >= 0 ? 1 : -1) * this.width) / 2,
                         p.y
@@ -267,7 +270,9 @@ export class Line extends Geometry {
     }
 
     #draw() {
-        (typeof this.parentGTag !== "undefined" ? this.parentGTag : this.svg)
+        this.lineStroke = (
+            typeof this.parentGTag !== "undefined" ? this.parentGTag : this.svg
+        )
             .append("line")
             .attr("id", this.id)
             .attr("class", "line")
@@ -277,7 +282,6 @@ export class Line extends Geometry {
             .attr("y2", this.#WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
-        this.lineStroke = this.svg.select(`svg #${this.id}`);
     }
 
     get WstartPoint() {
