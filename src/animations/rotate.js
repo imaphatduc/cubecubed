@@ -41,12 +41,6 @@ export class Rotate extends Animation {
                     })`
                 )
             )
-            // .attr(
-            //     "transform",
-            //     `translate(${xGtoW(cubicon.moveVector.x)}, ${yGtoW(
-            //         cubicon.moveVector.y
-            //     )}) rotate(${cubicon.moveAngle})`
-            // )
             .on("end", () => (cubicon.angle += degree));
 
         cubicon.elapsedTime += this.duration + sleepTime;
