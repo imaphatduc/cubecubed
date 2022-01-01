@@ -25,11 +25,12 @@ function sumOfSequenceProof() {
 
     const square = new Square({
         group: gr,
-        position: new Vector2(-3, 2),
-        sideLength: 8,
+        position: new Vector2(-6, 2),
+        sideLength: 5,
         strokeColor: COLOR.PINK_1,
     });
-    gr.play([new Translate({ cubicon: square, vector: new Vector2(6, 2) })]);
+    gr.play([new Translate({ cubicon: square, vector: new Vector2(2, -2) })]);
+    gr.play([new Rotate({ cubicon: square, degree: 90 })]);
 
     const points = [];
     for (let i = -3; i <= 3; i++) {
@@ -37,6 +38,10 @@ function sumOfSequenceProof() {
     }
     const linesData = square.pointToSides(points, [-2, 1]);
     gr.play([new PointToSides(linesData)]);
+    gr.play([new Translate({ cubicon: square, vector: new Vector2(5, -2) })]);
+    // gr.play([new Translate({ cubicon: square, vector: new Vector2(6, -2) })]);
+    gr.play([new Rotate({ cubicon: square, degree: 45 })]);
+    // gr.play([new Translate({ cubicon: square, vector: new Vector2(6, -2) })]);
 }
 
 sumOfSequenceProof();

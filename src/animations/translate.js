@@ -18,18 +18,18 @@ export class Translate extends Animation {
         /// Calculate the sum of all translation vectors
         cubicon.moveVector = cubicon.moveVector.add(vector);
 
-        cubicon.stroke
+        cubicon.svgWrapper
             .transition()
             .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
-            /// `moveVector` and `angle` is very useful here.
+            /// `moveVector` and `angle` are very useful here.
             /// We must have these properties, otherwise our cubicons will return to
             // the previous position and rotation.
             .attr(
                 "transform",
                 `translate(${xGtoW(cubicon.moveVector.x)}, ${yGtoW(
                     cubicon.moveVector.y
-                )}) rotate(${cubicon.angle})`
+                )}) rotate(${cubicon.moveAngle})`
             )
             .on("end", () => {
                 cubicon.position = cubicon.position.add(vector);

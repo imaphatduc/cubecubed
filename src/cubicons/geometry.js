@@ -15,6 +15,7 @@ export class Geometry extends Cubicon {
         super({ group: group, position: position });
 
         this.group = group;
+        this.svgWrapper;
 
         this.id = "";
 
@@ -58,6 +59,12 @@ export class Rectangle extends Geometry {
 
         this.id = `rect${rectKey++}`;
 
+        this.svgWrapper = this.svg
+            .append("g")
+            .attr("class", `${this.id}-wrapper`)
+            .style("transform-box", "fill-box")
+            .style("transform-origin", `center`);
+
         this.#add();
     }
 
@@ -67,14 +74,13 @@ export class Rectangle extends Geometry {
     /// this.stroke is equivalent to the d3's selection of its HTML (SVG) tag
     #add() {
         const path = this.#draw();
-        this.svg
+        this.stroke = this.svgWrapper
             .append("path")
             .attr("id", `${this.id}`)
             .attr("class", "rectangle")
             .attr("d", path.toString())
             .attr("stroke", this.strokeColor)
             .attr("stroke-width", this.strokeWidth);
-        this.stroke = this.svg.select(`svg #${this.id}`);
         this.stroke
             .style("fill", this.fillColor)
             .style("fill-opacity", this.fillOpacity)
@@ -97,12 +103,10 @@ export class Rectangle extends Geometry {
     }
 
     pointToSides(pos, sidesIndex) {
-        const g = this.svg.append("g").attr("class", "lines-to-side");
+        const g = this.svgWrapper.append("g").attr("class", "lines-to-side");
         g.attr(
             "transform",
-            ` translate(${this.Wposition.x + xGtoW(this.moveVector.x)}, ${
-                this.Wposition.y + yGtoW(this.moveVector.y)
-            }) rotate(${this.moveAngle})`
+            `translate(${this.Wposition.x}, ${this.Wposition.y})`
         );
 
         const hors = [],
