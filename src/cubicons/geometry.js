@@ -109,6 +109,7 @@ export class Rectangle extends Geometry {
             `translate(${this.Wposition.x}, ${this.Wposition.y})`
         );
 
+        const endPoint_x = ((sidesIndex[0] >= 0 ? 1 : -1) * this.width) / 2;
         const hors = [],
             vers = [];
         pos.forEach((p) => {
@@ -117,13 +118,12 @@ export class Rectangle extends Geometry {
                     group: this.group,
                     parentGTag: g,
                     startPoint: new Vector2(
-                        p.x + xWtoG(this.strokeWidth / 2),
-                        p.y + yWtoG(this.strokeWidth / 2)
-                    ),
-                    endPoint: new Vector2(
-                        ((sidesIndex[0] >= 0 ? 1 : -1) * this.width) / 2,
+                        p.x +
+                            (p.x >= endPoint_x ? 1 : -1) *
+                                xWtoG(this.strokeWidth / 2),
                         p.y
                     ),
+                    endPoint: new Vector2(endPoint_x, p.y),
                     lineColor: this.strokeColor,
                     lineWidth: this.strokeWidth,
                 })
