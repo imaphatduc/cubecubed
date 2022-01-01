@@ -20,8 +20,8 @@ function sumOfSequenceProof() {
     const scene = new Scene("sum-of-sequence-proof");
     const gr = new Group("graphing-group", scene);
 
-    const grid = new Grid({ group: gr });
-    gr.play([new DrawGridFromScreenSides(grid)]);
+    // const grid = new Grid({ group: gr });
+    // gr.play([new DrawGridFromScreenSides(grid)]);
 
     const square = new Square({
         group: gr,
@@ -40,7 +40,7 @@ function sumOfSequenceProof() {
     gr.play([new PointToSides(linesData)]);
     gr.play([new Translate({ cubicon: square, vector: new Vector2(5, -2) })]);
     // gr.play([new Translate({ cubicon: square, vector: new Vector2(6, -2) })]);
-    gr.play([new Rotate({ cubicon: square, degree: 45 })]);
+    // gr.play([new Rotate({ cubicon: square, degree: 45 })]);
     // gr.play([new Translate({ cubicon: square, vector: new Vector2(6, -2) })]);
 }
 
