@@ -2,6 +2,7 @@ import * as d3 from "d3";
 import { Cubicon } from "./cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG, yWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
+import { COLOR } from "./constants";
 
 /// When any of the cubicon instance is created,
 // these keys will keep track of that object's own id key
@@ -148,6 +149,47 @@ export class Rectangle extends Geometry {
             verticalLines: vers,
         };
         return linesData;
+    }
+
+    drawInnerGrid() {
+        const g = this.svgWrapper.append("g").attr("class", "rect-inner-grid");
+        g.attr(
+            "transform",
+            `translate(${this.Wposition.x}, ${this.Wposition.y})`
+        );
+
+        const hors = [],
+            vers = [];
+        for (let i of d3.range(-this.width / 2 + 1, this.width / 2, 1)) {
+            vers.push(
+                new Line({
+                    group: this.group,
+                    parentGTag: g,
+                    startPoint: new Vector2(i, -this.height / 2),
+                    endPoint: new Vector2(i, this.height / 2),
+                    lineColor: COLOR.BLUE_1,
+                    lineWidth: 1,
+                })
+            );
+        }
+        for (let i of d3.range(-this.height / 2 + 1, this.height / 2, 1)) {
+            hors.push(
+                new Line({
+                    group: this.group,
+                    parentGTag: g,
+                    startPoint: new Vector2(-this.width / 2, i),
+                    endPoint: new Vector2(this.width / 2, i),
+                    lineColor: COLOR.BLUE_1,
+                    lineWidth: 1,
+                })
+            );
+        }
+        const gridData = {
+            cubicon: this,
+            horizontalLines: hors,
+            verticalLines: vers,
+        };
+        return gridData;
     }
 }
 
