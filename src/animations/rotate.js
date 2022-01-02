@@ -4,11 +4,9 @@ import { ANIME } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class Rotate extends Animation {
-    constructor({ cubicon, degree, duration = ANIME.ROTATE }) {
-        super();
-        this.cubicon = cubicon;
+    constructor(cubicon, degree, duration = ANIME.ROTATE, ease) {
+        super({ cubicon: cubicon, duration: duration, ease: ease });
         this.degree = degree;
-        this.duration = duration;
     }
 
     play(sleepTime) {
@@ -28,6 +26,7 @@ export class Rotate extends Animation {
         const v = cubicon.moveVector;
         cubicon.svgWrapper
             .transition()
+            .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             /// d3 normalize the rotation vector, so we must use attrTween method here

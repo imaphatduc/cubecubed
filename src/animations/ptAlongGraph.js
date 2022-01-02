@@ -2,14 +2,12 @@ import { ANIME } from "../cubicons/constants";
 import { Animation } from "./animation";
 
 export class PtAlongGraph extends Animation {
-    constructor({ point, graph, xPos, duration = ANIME.CREATE }) {
-        super();
+    constructor({ point, graph, xPos, duration = ANIME.CREATE, ease }) {
+        super({ cubicon: point.point, duration: duration, ease: ease });
 
-        this.cubicon = point.point;
         this.lines = point.lines;
         this.graph = graph;
         this.xPos = xPos;
-        this.duration = duration;
     }
 
     play(sleepTime) {
@@ -35,6 +33,7 @@ export class PtAlongGraph extends Animation {
     #ptAlongGraph(point, graph, xPos, sleepTime) {
         point.stroke
             .transition()
+            .ease(this.ease)
             .delay(point.elapsedTime + sleepTime)
             .duration(this.duration)
             .attrTween("cx", () => {
@@ -62,6 +61,7 @@ export class PtAlongGraph extends Animation {
     #horLineAlongGraph(point, line, graph, xPos, sleepTime) {
         line.lineStroke
             .transition()
+            .ease(this.ease)
             .delay(line.elapsedTime + sleepTime)
             .duration(this.duration)
             .attrTween("x1", () => {
@@ -97,6 +97,7 @@ export class PtAlongGraph extends Animation {
     #verLineAlongGraph(point, line, graph, xPos, sleepTime) {
         line.lineStroke
             .transition()
+            .ease(this.ease)
             .delay(line.elapsedTime + sleepTime)
             .duration(this.duration)
             .attrTween("x1", () => {

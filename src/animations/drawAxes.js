@@ -7,9 +7,7 @@ export class DrawAxes extends Animation {
     #delayEach;
 
     constructor(axes) {
-        super();
-
-        this.cubicon = axes;
+        super({ cubicon: axes });
 
         this.#xNums = -this.cubicon.xRange[0] + this.cubicon.xRange[1];
         this.#yNums = -this.cubicon.yRange[0] + this.cubicon.yRange[1];
@@ -41,6 +39,7 @@ export class DrawAxes extends Animation {
             l
         );
         path.transition()
+            .ease(this.ease)
             .delay(this.cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .attr("stroke-dashoffset", 0);
@@ -50,6 +49,7 @@ export class DrawAxes extends Animation {
             .attr("opacity", 0)
             .data(d3.range(0, this.#xNums + 1, 1))
             .transition()
+            .ease(this.ease)
             .delay(
                 (d) =>
                     this.cubicon.elapsedTime + sleepTime + this.#delayEach * d
@@ -62,6 +62,7 @@ export class DrawAxes extends Animation {
             .attr("opacity", 0)
             .data(d3.range(0, this.#yNums + 1, 1))
             .transition()
+            .ease(this.ease)
             .delay(
                 this.cubicon.elapsedTime +
                     sleepTime +

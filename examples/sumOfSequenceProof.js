@@ -9,6 +9,7 @@ import {
     PointToSides,
     Translate,
     Rotate,
+    Create,
 } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
@@ -25,23 +26,19 @@ function sumOfSequenceProof() {
 
     const square = new Square({
         group: gr,
-        position: new Vector2(-6, 2),
-        sideLength: 5,
+        sideLength: 8,
         strokeColor: COLOR.PINK_1,
     });
-    gr.play([new Translate({ cubicon: square, vector: new Vector2(2, -2) })]);
-    gr.play([new Rotate({ cubicon: square, degree: 90 })]);
+    gr.play([new Create(square)]);
+
+    square.drawInnerGrid();
 
     const points = [];
     for (let i = -3; i <= 3; i++) {
         points.push(new Vector2(i, i));
     }
-    const linesData = square.pointToSides(points, [-2, 1]);
+    const linesData = square.pointToSides(points, [1, 1]);
     gr.play([new PointToSides(linesData)]);
-    gr.play([new Translate({ cubicon: square, vector: new Vector2(5, -2) })]);
-    // gr.play([new Translate({ cubicon: square, vector: new Vector2(6, -2) })]);
-    // gr.play([new Rotate({ cubicon: square, degree: 45 })]);
-    // gr.play([new Translate({ cubicon: square, vector: new Vector2(6, -2) })]);
 }
 
 sumOfSequenceProof();

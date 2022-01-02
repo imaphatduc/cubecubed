@@ -2,10 +2,8 @@ import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 
 export class Create extends Animation {
-    constructor({ cubicon, duration = ANIME.CREATE }) {
-        super();
-        this.cubicon = cubicon;
-        this.duration = duration;
+    constructor(cubicon, duration = ANIME.CREATE, ease) {
+        super({ cubicon: cubicon, duration: duration, ease: ease });
     }
 
     play(sleepTime) {
@@ -24,6 +22,7 @@ export class Create extends Animation {
 
             cubicon.lineStroke
                 .transition()
+                .ease(this.ease)
                 .delay(cubicon.elapsedTime + sleepTime)
                 .duration(this.duration)
                 .attr("x2", cubicon.WendPoint.x)
@@ -36,6 +35,7 @@ export class Create extends Animation {
                 cubicon.arrowHead
                     .style("opacity", 0)
                     .transition()
+                    .ease(this.ease)
                     .delay(cubicon.elapsedTime - 500)
                     .duration(drawArrowHeadAnimTime)
                     .style("opacity", 1);
@@ -53,6 +53,7 @@ export class Create extends Animation {
             if (cubicon.fillColor !== undefined && cubicon.fillColor !== null) {
                 cubicon.stroke
                     .transition()
+                    .ease(this.ease)
                     .delay(cubicon.elapsedTime + sleepTime)
                     .duration(this.duration)
                     .attr("stroke-dashoffset", 0)
@@ -61,6 +62,7 @@ export class Create extends Animation {
             } else {
                 cubicon.stroke
                     .transition()
+                    .ease(this.ease)
                     .delay(cubicon.elapsedTime + sleepTime)
                     .duration(this.duration)
                     .attr("stroke-dashoffset", 0);

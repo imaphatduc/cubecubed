@@ -6,7 +6,7 @@ import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class DrawGridFromOrigin extends Animation {
     constructor(grid) {
-        super();
+        super({ cubicon: grid });
 
         this.drawX = 1000;
         this.drawXNums = 500;
@@ -24,8 +24,6 @@ export class DrawGridFromOrigin extends Animation {
                 this.drawYNums + this.drawYNumsDelay
             )
         );
-
-        this.cubicon = grid;
 
         this.hasNums = grid.hasNums;
     }
@@ -48,6 +46,7 @@ export class DrawGridFromOrigin extends Animation {
             .enter()
             .append("line")
             .transition()
+            .ease(this.ease)
             .delay(grid.elapsedTime + sleepTime)
             .duration(this.drawX)
             .attr("x1", xGtoW(xBound[0] - 1))
@@ -95,6 +94,7 @@ export class DrawGridFromOrigin extends Animation {
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
             .transition()
+            .ease(this.ease)
             .duration(this.drawXNums)
             .delay(grid.elapsedTime + this.drawXNumsDelay + sleepTime)
             .attr("opacity", 1);
@@ -110,6 +110,7 @@ export class DrawGridFromOrigin extends Animation {
             .enter()
             .append("line")
             .transition()
+            .ease(this.ease)
             .delay(grid.elapsedTime + this.drawYDelay + sleepTime)
             .duration(this.drawY)
             .attr("x1", (d) => xGtoW(d))
@@ -157,6 +158,7 @@ export class DrawGridFromOrigin extends Animation {
         yAxisNumbers
             .selectAll("foreignObject.y-axis-number")
             .transition()
+            .ease(this.ease)
             .duration(this.drawYNums)
             .delay(grid.elapsedTime + this.drawYNumsDelay + sleepTime)
             .attr("opacity", 1);
@@ -164,11 +166,11 @@ export class DrawGridFromOrigin extends Animation {
 
     #drawOrigin(grid) {
         grid.group.play([
-            new Create({
-                cubicon: new GridOrigin({
+            new Create(
+                new GridOrigin({
                     group: grid.group,
-                }),
-            }),
+                })
+            ),
         ]);
     }
 }
@@ -178,7 +180,7 @@ export class DrawGridFromScreenSides extends Animation {
     #yDelayEach;
 
     constructor(grid) {
-        super();
+        super({ cubicon: grid });
 
         this.drawX = 1000;
         this.drawXNums = 500;
@@ -202,8 +204,6 @@ export class DrawGridFromScreenSides extends Animation {
                 this.drawYNums + this.drawYNumsDelay
             )
         );
-
-        this.cubicon = grid;
 
         this.hasNums = grid.hasNums;
     }
@@ -230,6 +230,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("x2", xGtoW(xBound[0] - 1))
             .attr("y2", (d) => yGtoW(d))
             .transition()
+            .ease(this.ease)
             .delay(
                 (d) =>
                     grid.elapsedTime +
@@ -279,6 +280,7 @@ export class DrawGridFromScreenSides extends Animation {
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
             .transition()
+            .ease(this.ease)
             .duration(this.drawXNums)
             .delay(grid.elapsedTime + this.drawXNumsDelay + sleepTime)
             .attr("opacity", 1);
@@ -298,6 +300,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("x2", (d) => xGtoW(d))
             .attr("y2", yGtoW(yBound[0]))
             .transition()
+            .ease(this.ease)
             .delay(
                 (d) =>
                     grid.elapsedTime +
@@ -351,6 +354,7 @@ export class DrawGridFromScreenSides extends Animation {
         yAxisNumbers
             .selectAll("foreignObject.y-axis-number")
             .transition()
+            .ease(this.ease)
             .duration(this.drawYNums)
             .delay(grid.elapsedTime + this.drawYNumsDelay + sleepTime)
             .attr("opacity", 1);
@@ -358,11 +362,11 @@ export class DrawGridFromScreenSides extends Animation {
 
     #drawOrigin(grid) {
         grid.group.play([
-            new Create({
-                cubicon: new GridOrigin({
+            new Create(
+                new GridOrigin({
                     group: grid.group,
-                }),
-            }),
+                })
+            ),
         ]);
     }
 }

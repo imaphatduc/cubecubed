@@ -2,14 +2,11 @@ import { Animation } from "./animation";
 import { Create } from "./create";
 
 export class PointToSides extends Animation {
-    constructor(linesData, duration = 1000) {
-        super();
+    constructor(linesData, duration = 1000, ease) {
+        super({ cubicon: linesData.cubicon, duration: duration, ease: ease });
 
-        this.cubicon = linesData.cubicon;
         this.horizontalLines = linesData.horizontalLines;
         this.verticalLines = linesData.verticalLines;
-
-        this.duration = duration;
     }
 
     play() {
@@ -21,8 +18,8 @@ export class PointToSides extends Animation {
     #pointToSides(hors, vers) {
         const anims = [];
         for (let i = 0; i < hors.length; i++) {
-            anims.push(new Create({ cubicon: hors[i], duration: 1000 }));
-            anims.push(new Create({ cubicon: vers[i], duration: 1000 }));
+            anims.push(new Create(hors[i], 1000));
+            anims.push(new Create(vers[i], 1000));
         }
         this.cubicon.group.play(anims);
     }

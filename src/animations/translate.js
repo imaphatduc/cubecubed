@@ -3,11 +3,10 @@ import { ANIME } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class Translate extends Animation {
-    constructor({ cubicon, vector, duration = ANIME.TRANSLATE }) {
-        super();
-        this.cubicon = cubicon;
+    constructor(cubicon, vector, duration = ANIME.TRANSLATE, ease) {
+        super({ cubicon: cubicon, duration: duration, ease: ease });
+
         this.vector = vector;
-        this.duration = duration;
     }
 
     play(sleepTime) {
@@ -20,6 +19,7 @@ export class Translate extends Animation {
 
         cubicon.svgWrapper
             .transition()
+            .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             /// `moveVector` and `angle` are very useful here.

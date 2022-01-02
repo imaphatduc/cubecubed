@@ -2,10 +2,8 @@ import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 
 export class FadeOut extends Animation {
-    constructor({ cubicon, duration = ANIME.FADEOUT }) {
-        super();
-        this.cubicon = cubicon;
-        this.duration = duration;
+    constructor(cubicon, duration = ANIME.FADEOUT, ease) {
+        super({ cubicon: cubicon, duration: duration, ease: ease });
     }
 
     play(sleepTime) {
@@ -15,6 +13,7 @@ export class FadeOut extends Animation {
     #fadeOut(cubicon, sleepTime) {
         cubicon.stroke
             .transition()
+            .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .style("opacity", 0);
