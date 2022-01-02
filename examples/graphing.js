@@ -8,7 +8,7 @@ import {
     PtAlongGraph,
     PtToCoords,
     DrawAxes,
-} from "../dist/index";
+} from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code
