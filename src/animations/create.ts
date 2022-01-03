@@ -1,11 +1,8 @@
 import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
-import { Circle, Line, Rectangle, Square, Vector } from "../cubicons/geometry";
-import { AxisProjector, Point } from "../cubicons/coordinateSys";
+import { CREATE_TYPES } from "../cubicons/constants";
 
-type CREATE_TYPES =
-    | (Rectangle | Square | Circle | Line | Vector)
-    | (Point | AxisProjector);
+type Ease<T> = (x: number) => number;
 
 export class Create extends Animation {
     constructor({

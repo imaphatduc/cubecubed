@@ -4,6 +4,7 @@ export const svg = select("#viz");
 export const svgWidth = parseInt(svg.attr("width"));
 export const svgHeight = parseInt(svg.attr("height"));
 
+// Constant colors
 export const COLOR = {
     WHITE: "#ffffff",
     RED_1: "#ff5370",
@@ -22,6 +23,21 @@ export const COLOR = {
     PINK_2: "#ff39b3",
 };
 
+// Useful trigonometry constants
+export const PI = Math.PI;
+export const TAU = 2 * Math.PI;
+
+/// Animation constants
+
+import { easeCubic } from "d3-ease";
+import { Geometry, Rectangle, Square, Circle, Line, Vector } from "./geometry";
+import {
+    CoordinatesSystem,
+    Label,
+    Point,
+    AxisProjector,
+} from "./coordinateSys";
+import { MathText } from "./text";
 // ANIME is just an abbreviation for ANImation tiME :)
 export const ANIME = {
     CREATE: 1500,
@@ -32,5 +48,28 @@ export const ANIME = {
     DRAWGRID: 1300,
 };
 
-export const PI = Math.PI;
-export const TAU = 2 * Math.PI;
+export const DEFAULT_EASE = easeCubic;
+
+export type TYPES = CoordinatesSystem | Geometry | MathText;
+
+// Animation Types
+export type CREATE_TYPES =
+    | (Rectangle | Square | Circle | Line | Vector)
+    | (Point | AxisProjector);
+
+export type FADE_TYPES = MathText | Label | Geometry;
+
+/// Complex data for Rectangle and Square
+
+// pointToSides
+export type PT_TO_SIDES_DATA = {
+    cubicon: Rectangle | Square;
+    horizontalLines: Line[];
+    verticalLines: Line[];
+};
+
+export type RECT_GRID_DATA = {
+    cubicon: Rectangle | Square;
+    horizontalLines: Line[];
+    verticalLines: Line[];
+};

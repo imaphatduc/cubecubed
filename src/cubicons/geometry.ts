@@ -3,7 +3,7 @@ import { Group } from "../scene/group";
 import { Cubicon } from "./cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
-import { COLOR } from "./constants";
+import { COLOR, PT_TO_SIDES_DATA, RECT_GRID_DATA } from "./constants";
 
 export interface SHAPE_CONFIG {
     fillColor?: string;
@@ -207,7 +207,7 @@ export class Rectangle extends Geometry {
                 })
             );
         });
-        const linesData = {
+        const linesData: PT_TO_SIDES_DATA = {
             cubicon: this,
             horizontalLines: hors,
             verticalLines: vers,
@@ -256,7 +256,7 @@ export class Rectangle extends Geometry {
                 })
             );
         }
-        const gridData = {
+        const gridData: RECT_GRID_DATA = {
             cubicon: this,
             horizontalLines: hors,
             verticalLines: vers,

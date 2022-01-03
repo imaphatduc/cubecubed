@@ -25,7 +25,7 @@ export class Grid extends Geometry {
         hasNums = false,
     }: {
         group: Group;
-        hasNums: boolean;
+        hasNums?: boolean;
     }) {
         super({ group: group, position: new Vector2(0, 0) });
 

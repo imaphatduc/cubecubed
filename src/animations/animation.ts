@@ -1,11 +1,4 @@
-import * as d3 from "d3";
-import { CoordinatesSystem } from "../cubicons/coordinateSys";
-import { Geometry } from "../cubicons/geometry";
-import { MathText } from "../cubicons/text";
-
-export const DEFAULT_EASE = d3.easeCubic;
-
-type TYPES = CoordinatesSystem | Geometry | MathText;
+import { TYPES, DEFAULT_EASE } from "../cubicons/constants";
 
 export class Animation {
     cubicon: any;

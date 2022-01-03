@@ -1,7 +1,6 @@
 import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
-import { Cubicon } from "../cubicons/cubicon";
 import { Vector2 } from "../math/vector";
 import { Geometry } from "../cubicons/geometry";
 

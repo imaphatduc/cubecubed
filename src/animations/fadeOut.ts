@@ -1,10 +1,6 @@
 import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
-import { Label } from "../cubicons/coordinateSys";
-import { Geometry } from "../cubicons/geometry";
-import { MathText } from "../cubicons/text";
-
-type FADE_TYPES = MathText | Label | Geometry;
+import { FADE_TYPES } from "../cubicons/constants";
 
 export class FadeOut extends Animation {
     constructor({
