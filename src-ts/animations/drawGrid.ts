@@ -1,3 +1,5 @@
+import katex from "katex";
+
 import { Animation } from "./animation";
 import { xBound, yBound } from "../cubecubed";
 import { Create } from "./create";

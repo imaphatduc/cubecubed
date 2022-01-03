@@ -1,3 +1,5 @@
+import katex from "katex";
+
 import { Cubicon } from "./cubicon";
 import { svgWidth, svgHeight } from "./constants";
 import { Vector2 } from "../math/vector";

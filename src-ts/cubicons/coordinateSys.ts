@@ -1,10 +1,11 @@
 import * as d3 from "d3";
-// import * as katex from "katex";
+import { ScaleLinear } from "d3";
+import katex from "katex";
+
 import { Cubicon } from "./cubicon";
 import { svgWidth, svgHeight } from "./constants";
 import { Vector2 } from "../math/vector";
 import { Group } from "../scene/group";
-import { ScaleLinear } from "d3";
 import {
     LINE_CONFIG,
     LINE_DEFAULT_CONFIG,
