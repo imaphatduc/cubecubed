@@ -1,5 +1,5 @@
 import { Animation } from "./animation";
-import { ANIME } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
 import { Geometry } from "../cubicons/geometry";
@@ -16,7 +16,7 @@ export class Translate extends Animation {
         cubicon: Geometry;
         vector: Vector2;
         duration?: number;
-        ease?: Function;
+        ease?: EASE_TYPE;
     }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
 

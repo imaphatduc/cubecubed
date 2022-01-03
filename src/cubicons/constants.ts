@@ -48,6 +48,7 @@ export const ANIME = {
     DRAWGRID: 1300,
 };
 
+export type EASE_TYPE = (x: number) => number;
 export const DEFAULT_EASE = easeCubic;
 
 export type TYPES = CoordinatesSystem | Geometry | MathText;
@@ -59,8 +60,19 @@ export type CREATE_TYPES =
 
 export type FADE_TYPES = MathText | Label | Geometry;
 
-/// Complex data for Rectangle and Square
+//// Complex data
 
+/// Axes in Coordinate System
+export type PT_ON_GRAPH_DATA = {
+    point: Point;
+};
+
+export type PT_TO_COORDS_DATA = {
+    point: Point;
+    lines: [AxisProjector, AxisProjector];
+};
+
+/// Rectangle and Square
 // pointToSides
 export type PT_TO_SIDES_DATA = {
     cubicon: Rectangle | Square;

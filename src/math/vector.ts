@@ -1,3 +1,5 @@
+type MAP_FUNC = (x: number) => number;
+
 export class Vector2 {
     x: number;
     y: number;
@@ -23,7 +25,7 @@ export class Vector2 {
         return this.x * vect.x + this.y * vect.y;
     }
 
-    apply(func: Function) {
+    apply(func: MAP_FUNC) {
         return new Vector2(func(this.x), func(this.y));
     }
 }
@@ -55,7 +57,7 @@ export class Vector3 {
         return this.x * vect.x + this.y * vect.y + this.z * vect.z;
     }
 
-    apply(func: Function) {
+    apply(func: MAP_FUNC) {
         return new Vector3(func(this.x), func(this.y), func(this.z));
     }
 }

@@ -1,5 +1,5 @@
 import { Animation } from "./animation";
-import { ANIME } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { FADE_TYPES } from "../cubicons/constants";
 
 export class FadeIn extends Animation {
@@ -10,7 +10,7 @@ export class FadeIn extends Animation {
     }: {
         cubicon: FADE_TYPES;
         duration?: number;
-        ease?: Function;
+        ease?: EASE_TYPE;
     }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
     }

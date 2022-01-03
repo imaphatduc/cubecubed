@@ -1,5 +1,6 @@
-import { ANIME } from "../cubicons/constants";
-import { pointCoords, Graph, AxisProjector } from "../cubicons/coordinateSys";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
+import { Graph, AxisProjector, Point } from "../cubicons/coordinateSys";
+import { PT_TO_COORDS_DATA } from "../cubicons/constants";
 import { Cubicon } from "../cubicons/cubicon";
 import { Animation } from "./animation";
 import { Create } from "./create";
@@ -14,10 +15,10 @@ export class PtToCoords extends Animation {
         duration = ANIME.CREATE,
         ease,
     }: {
-        point: pointCoords;
+        point: PT_TO_COORDS_DATA;
         graph: Graph;
         duration?: number;
-        ease?: Function;
+        ease?: EASE_TYPE;
     }) {
         super({ cubicon: point.point, duration: duration, ease: ease });
 
@@ -30,7 +31,7 @@ export class PtToCoords extends Animation {
     }
 
     #ptToCoords(
-        point: Cubicon,
+        point: Point,
         lines: [AxisProjector, AxisProjector],
         graph: Graph
     ) {

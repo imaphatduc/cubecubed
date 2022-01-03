@@ -21,8 +21,10 @@ function graphingFunctions() {
 
     const a = new Axes({
         group: gr,
-        xRange: [-4, 6],
-        yRange: [-3, 3],
+        CONFIG: {
+            xRange: [-4, 6],
+            yRange: [-3, 3],
+        },
     });
     gr.play([new DrawAxes(a)]);
 

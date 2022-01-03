@@ -1,4 +1,4 @@
-import { TYPES, DEFAULT_EASE } from "../cubicons/constants";
+import { TYPES, DEFAULT_EASE, EASE_TYPE } from "../cubicons/constants";
 
 export class Animation {
     cubicon: any;
@@ -12,7 +12,7 @@ export class Animation {
     }: {
         cubicon: TYPES;
         duration?: number;
-        ease?: Function;
+        ease?: EASE_TYPE;
     }) {
         this.cubicon = cubicon;
         this.duration = duration || 0;

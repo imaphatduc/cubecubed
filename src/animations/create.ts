@@ -1,8 +1,6 @@
 import { Animation } from "./animation";
-import { ANIME } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { CREATE_TYPES } from "../cubicons/constants";
-
-type Ease<T> = (x: number) => number;
 
 export class Create extends Animation {
     constructor({
@@ -12,7 +10,7 @@ export class Create extends Animation {
     }: {
         cubicon: CREATE_TYPES;
         duration?: number;
-        ease?: Function;
+        ease?: EASE_TYPE;
     }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
     }

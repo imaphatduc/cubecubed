@@ -1,7 +1,11 @@
 import * as d3 from "d3";
-// import * as katex from "katex";
 import { Cubicon } from "./cubicon";
-import { svgWidth, svgHeight } from "./constants";
+import {
+    svgWidth,
+    svgHeight,
+    PT_ON_GRAPH_DATA,
+    PT_TO_COORDS_DATA,
+} from "./constants";
 import { Vector2 } from "../math/vector";
 import { Group } from "../scene/group";
 import { ScaleLinear } from "d3";
@@ -49,10 +53,6 @@ interface AXES_CONSTRUCTOR {
     position: Vector2;
     CONFIG: AXES_CONFIG;
 }
-export type pointCoords = {
-    point: Point;
-    lines: [AxisProjector, AxisProjector];
-};
 export class Axes extends CoordinatesSystem {
     readonly coordSysObjType = "axes";
 
@@ -130,7 +130,7 @@ export class Axes extends CoordinatesSystem {
             .tickValues(
                 d3
                     .range(this.xRange[0], this.xRange[1] + 1, 1)
-                    .filter((t) => t !== 0)
+                    .filter((t: number) => t !== 0)
             )
             .tickSizeOuter(0);
         this.xAxis = this.axes
@@ -174,7 +174,7 @@ export class Axes extends CoordinatesSystem {
             .tickValues(
                 d3
                     .range(this.yRange[0], this.yRange[1] + 1, 1)
-                    .filter((t) => t !== 0)
+                    .filter((t: number) => t !== 0)
             )
             .tickFormat(d3.format("0"))
             .tickSizeOuter(0);
@@ -244,8 +244,8 @@ export class Axes extends CoordinatesSystem {
         const lineGenerator = d3
             .line()
             .curve(d3.curveNatural)
-            .x((d) => xScale(d[0]))
-            .y((d) => this.yScale(d[1]));
+            .x((d: [number, number]) => xScale(d[0]))
+            .y((d: [number, number]) => this.yScale(d[1]));
 
         const points: [number, number][] = [];
         for (let x = xRange[0]; x <= xRange[1]; x += 0.01) {
@@ -306,7 +306,8 @@ export class Axes extends CoordinatesSystem {
             },
         });
 
-        return { point: point };
+        const pointGraph: PT_ON_GRAPH_DATA = { point: point };
+        return pointGraph;
     }
 
     pointToCoords(graph: Graph, xPos = 1) {
@@ -336,7 +337,7 @@ export class Axes extends CoordinatesSystem {
 
         const point = this.pointOnGraph(graph, xPos).point;
 
-        const pointCoords: pointCoords = {
+        const pointCoords: PT_TO_COORDS_DATA = {
             point: point,
             lines: [horizontalLine, verticalLine],
         };

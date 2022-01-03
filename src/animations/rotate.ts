@@ -1,6 +1,6 @@
 import * as d3 from "d3";
 import { Animation } from "./animation";
-import { ANIME } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 import { Geometry } from "../cubicons/geometry";
 
@@ -16,7 +16,7 @@ export class Rotate extends Animation {
         cubicon: Geometry;
         degree: number;
         duration: number;
-        ease?: Function;
+        ease?: EASE_TYPE;
     }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
         this.degree = degree;
