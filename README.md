@@ -50,7 +50,7 @@ Cubecubed is currently just a work in progress. Any contribution is appreciated.
 
 -   [ ] Input & error handling.
 -   [x] Use [KaTeX](https://github.com/KaTeX/KaTeX) for rendering math text.
--   [x] Implement sleep medthod (apply sleep times between animations).
+-   [x] Implement sleep method (apply sleep times between animations).
 -   [ ] Write a documentation page.
 -   [x] Vector visualization.
 -   [ ] Matrix transformation.
