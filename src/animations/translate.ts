@@ -24,10 +24,14 @@ export class Translate extends Animation {
     }
 
     play(sleepTime: number) {
-        this.#translateByVector(this.cubicon, this.vector, sleepTime);
+        this.translateByVector(this.cubicon, this.vector, sleepTime);
     }
 
-    #translateByVector(cubicon: Geometry, vector: Vector2, sleepTime: number) {
+    private translateByVector(
+        cubicon: Geometry,
+        vector: Vector2,
+        sleepTime: number
+    ) {
         /// Calculate the sum of all translation vectors
         cubicon.moveVector = cubicon.moveVector.add(vector);
 

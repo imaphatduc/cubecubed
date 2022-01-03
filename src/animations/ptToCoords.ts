@@ -27,10 +27,10 @@ export class PtToCoords extends Animation {
     }
 
     play() {
-        this.#ptToCoords(this.cubicon, this.lines, this.graph);
+        this.ptToCoords(this.cubicon, this.lines, this.graph);
     }
 
-    #ptToCoords(
+    private ptToCoords(
         point: Point,
         lines: [AxisProjector, AxisProjector],
         graph: Graph

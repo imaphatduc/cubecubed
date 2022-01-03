@@ -25,13 +25,13 @@ export class DrawAxes extends Animation {
     }
 
     play(sleepTime: number) {
-        this.#drawAxis(this.cubicon.xAxis, sleepTime);
-        this.#drawAxis(this.cubicon.yAxis, sleepTime);
+        this.drawAxis(this.cubicon.xAxis, sleepTime);
+        this.drawAxis(this.cubicon.yAxis, sleepTime);
 
         this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
-    #drawAxis(axis: any, sleepTime: number) {
+    private drawAxis(axis: any, sleepTime: number) {
         /// Draw axis
         const path = axis.select("path.domain");
         const l = path.node().getTotalLength();

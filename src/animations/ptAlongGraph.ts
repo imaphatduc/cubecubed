@@ -30,16 +30,16 @@ export class PtAlongGraph extends Animation {
     }
 
     play(sleepTime: number) {
-        this.#ptAlongGraph(this.cubicon, this.graph, this.xPos, sleepTime);
+        this.ptAlongGraph(this.cubicon, this.graph, this.xPos, sleepTime);
         if (typeof this.lines !== "undefined") {
-            this.#horLineAlongGraph(
+            this.horLineAlongGraph(
                 this.cubicon,
                 this.lines[0],
                 this.graph,
                 this.xPos,
                 sleepTime
             );
-            this.#verLineAlongGraph(
+            this.verLineAlongGraph(
                 this.cubicon,
                 this.lines[1],
                 this.graph,
@@ -49,7 +49,7 @@ export class PtAlongGraph extends Animation {
         }
     }
 
-    #ptAlongGraph(
+    private ptAlongGraph(
         point: Cubicon,
         graph: Graph,
         xPos: number,
@@ -82,7 +82,7 @@ export class PtAlongGraph extends Animation {
         point.elapsedTime += this.duration + sleepTime;
     }
 
-    #horLineAlongGraph(
+    horLineAlongGraph(
         point: Cubicon,
         line: AxisProjector,
         graph: Graph,
@@ -124,7 +124,7 @@ export class PtAlongGraph extends Animation {
         line.elapsedTime += this.duration + sleepTime;
     }
 
-    #verLineAlongGraph(
+    private verLineAlongGraph(
         point: Cubicon,
         line: AxisProjector,
         graph: Graph,

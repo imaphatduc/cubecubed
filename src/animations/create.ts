@@ -16,10 +16,10 @@ export class Create extends Animation {
     }
 
     play(sleepTime: number) {
-        this.#create(this.cubicon, sleepTime);
+        this.create(this.cubicon, sleepTime);
     }
 
-    #create(cubicon: CREATE_TYPES, sleepTime: number) {
+    private create(cubicon: CREATE_TYPES, sleepTime: number) {
         switch (cubicon.cubType) {
             case "geometry": {
                 switch (cubicon.geoType) {

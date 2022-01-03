@@ -16,22 +16,22 @@ export class FadeIn extends Animation {
     }
 
     play(sleepTime: number) {
-        this.#fadeIn(this.cubicon, sleepTime);
+        this.fadeIn(this.cubicon, sleepTime);
     }
 
-    #fadeIn(cubicon: FADE_TYPES, sleepTime: number) {
+    private fadeIn(cubicon: FADE_TYPES, sleepTime: number) {
         if (cubicon.cubType === "geometry") {
-            this.#geometryFadeIn(sleepTime);
+            this.geometryFadeIn(sleepTime);
         } else {
             if (
                 cubicon.cubType === "math-text" ||
                 cubicon.coordSysObjType === "label"
             )
-                this.#texFadeIn(sleepTime);
+                this.texFadeIn(sleepTime);
         }
     }
 
-    #geometryFadeIn(sleepTime: number) {
+    private geometryFadeIn(sleepTime: number) {
         this.cubicon.stroke.style("opacity", 0);
         this.cubicon.stroke
             .transition()
@@ -46,7 +46,7 @@ export class FadeIn extends Animation {
         this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
-    #texFadeIn(sleepTime: number) {
+    private texFadeIn(sleepTime: number) {
         this.cubicon.stroke.style("opacity", 0);
         this.cubicon.stroke
             .transition()

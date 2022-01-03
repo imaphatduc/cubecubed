@@ -10,6 +10,7 @@ export class Grid extends Geometry {
     originColor: string;
     xAxesColor: string;
     yAxesColor: string;
+    lineColor: string;
 
     xs: number[];
     ys: number[];

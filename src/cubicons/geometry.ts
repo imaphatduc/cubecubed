@@ -28,31 +28,29 @@ export const LINE_DEFAULT_CONFIG = {
 };
 
 export abstract class Geometry extends Cubicon {
-    // For geometry (Geometry)
-    fillColor: any;
-    fillOpacity: any;
-    strokeColor: any;
-    strokeWidth: any;
-
-    /// For line-like objects (Line | Vector | AxisProjector)
-    lineStroke: any;
-    lineColor: any;
-    lineWidth: any;
-
-    WstartPoint: any;
-    WendPoint: any;
-
-    //// For vector (Vector)
-    arrowHead: any;
-
-    vectColor: any;
-    vectStrokeWidth: any;
-
     readonly cubType = "geometry";
     abstract readonly geoType: string;
 
-    svgWrapper: any;
-    Wposition: Vector2;
+    // For geometry (Geometry)
+    protected fillColor: any;
+    protected fillOpacity: any;
+    protected strokeColor: any;
+    protected strokeWidth: any;
+
+    /// For line-like objects (Line | Vector | AxisProjector)
+    protected lineStroke: any;
+    protected lineColor: any;
+    protected lineWidth: any;
+
+    readonly WstartPoint: any;
+    readonly WendPoint: any;
+
+    //// For vector (Vector)
+    arrowHead: any;
+    protected vectColor: any;
+    protected vectStrokeWidth: any;
+
+    readonly Wposition: Vector2;
 
     constructor({
         group,
@@ -80,13 +78,13 @@ interface RECT_CONSTRUCT {
 export class Rectangle extends Geometry {
     readonly geoType = "rectangle";
 
-    #Wwidth;
-    #Wheight;
-    #X;
-    #Y;
+    private Wwidth: number;
+    private Wheight: number;
+    private readonly X: number;
+    private readonly Y: number;
 
-    width: number;
-    height: number;
+    readonly width: number;
+    readonly height: number;
 
     constructor({
         group,
@@ -103,10 +101,10 @@ export class Rectangle extends Geometry {
         super({ group: group, position: position });
 
         this.width = width;
-        this.#Wwidth = xGtoW(width);
+        this.Wwidth = xGtoW(width);
 
         this.height = height;
-        this.#Wheight = xGtoW(height);
+        this.Wheight = xGtoW(height);
 
         this.fillColor = fillColor;
         this.fillOpacity = fillOpacity;
@@ -115,8 +113,8 @@ export class Rectangle extends Geometry {
         this.strokeWidth = strokeWidth;
 
         // These are the coordinate of the draw origin
-        this.#X = -this.#Wwidth / 2 + this.Wposition.x;
-        this.#Y = this.#Wheight / 2 + this.Wposition.y;
+        this.X = -this.Wwidth / 2 + this.Wposition.x;
+        this.Y = this.Wheight / 2 + this.Wposition.y;
 
         this.svgWrapper = this.svg
             .append("g")
@@ -124,15 +122,15 @@ export class Rectangle extends Geometry {
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
-        this.#add();
+        this.add();
     }
 
     ////////////////////////////////
     // APPEND TAGS TO Group'S SVG //
     ////////////////////////////////
     /// this.stroke is equivalent to the d3's selection of its HTML (SVG) tag
-    #add() {
-        const path = this.#draw();
+    private add() {
+        const path = this.draw();
         this.stroke = this.svgWrapper
             .append("path")
             .attr("class", "rectangle")
@@ -149,13 +147,13 @@ export class Rectangle extends Geometry {
     ////////////////////////////////////////////////////////
     // DRAW (NOT RENDER) A RECTANGULAR PATH ON THE WINDOW //
     ////////////////////////////////////////////////////////
-    #draw() {
+    private draw() {
         const path = d3.path();
-        path.moveTo(this.#X, this.#Y);
-        path.lineTo(this.#X + this.#Wwidth, this.#Y);
-        path.lineTo(this.#X + this.#Wwidth, this.#Y - this.#Wheight);
-        path.lineTo(this.#X, this.#Y - this.#Wheight);
-        path.lineTo(this.#X, this.#Y + (this.strokeWidth ?? 0) / 2);
+        path.moveTo(this.X, this.Y);
+        path.lineTo(this.X + this.Wwidth, this.Y);
+        path.lineTo(this.X + this.Wwidth, this.Y - this.Wheight);
+        path.lineTo(this.X, this.Y - this.Wheight);
+        path.lineTo(this.X, this.Y + (this.strokeWidth ?? 0) / 2);
 
         return path;
     }
@@ -297,8 +295,8 @@ interface CIRC_CONSTRUCT {
 export class Circle extends Geometry {
     readonly geoType = "circle";
 
-    radius: number;
-    #Wradius: number;
+    readonly radius: number;
+    private readonly Wradius: number;
 
     constructor({
         group,
@@ -314,7 +312,7 @@ export class Circle extends Geometry {
         super({ group: group, position: position });
 
         this.radius = radius;
-        this.#Wradius = xGtoW(radius);
+        this.Wradius = xGtoW(radius);
 
         this.strokeColor = strokeColor;
         this.strokeWidth = strokeWidth;
@@ -322,16 +320,16 @@ export class Circle extends Geometry {
         this.fillColor = fillColor;
         this.fillOpacity = fillOpacity;
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         this.stroke = this.svg
             .append("circle")
             .attr("class", "circle")
             .attr("cx", this.Wposition.x)
             .attr("cy", this.Wposition.y)
-            .attr("r", this.#Wradius)
+            .attr("r", this.Wradius)
             .attr("fill", this.fillColor)
             .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
@@ -368,17 +366,11 @@ interface LINE_CONSTRUCT {
 export class Line extends Geometry {
     readonly geoType = "line";
 
+    /// These have to be public to use in Create animations
     readonly WstartPoint: Vector2;
     readonly WendPoint: Vector2;
 
-    parentGTag: any;
-    startPoint: Vector2;
-    endPoint: Vector2;
-
-    lineColor: string;
-    lineWidth: number;
-
-    lineStroke: any;
+    private readonly parentGTag: any;
 
     constructor({
         group,
@@ -394,22 +386,20 @@ export class Line extends Geometry {
 
         this.parentGTag = parentGTag;
 
-        this.startPoint = startPoint;
         this.WstartPoint = new Vector2(
             xGtoW(startPoint.x),
             yGtoW(startPoint.y)
         );
 
-        this.endPoint = endPoint;
         this.WendPoint = new Vector2(xGtoW(endPoint.x), yGtoW(endPoint.y));
 
         this.lineColor = lineColor;
         this.lineWidth = lineWidth;
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         this.lineStroke = (
             typeof this.parentGTag !== "undefined" ? this.parentGTag : this.svg
         )
@@ -433,11 +423,9 @@ interface VECT_CONSTRUCT {
 export class Vector extends Geometry {
     readonly geoType = "vector";
 
+    /// These have to be public to use in Create animations
     readonly WstartPoint: Vector2;
     readonly WendPoint: Vector2;
-
-    startPoint: Vector2;
-    endPoint: Vector2;
 
     vectColor: string;
     vectStrokeWidth: number;
@@ -460,13 +448,11 @@ export class Vector extends Geometry {
             position: startPoint,
         });
 
-        this.startPoint = startPoint;
         this.WstartPoint = new Vector2(
             xGtoW(startPoint.x),
             yGtoW(startPoint.y)
         );
 
-        this.endPoint = endPoint;
         this.WendPoint = new Vector2(xGtoW(endPoint.x), yGtoW(endPoint.y));
 
         this.vectColor = lineColor;
@@ -474,16 +460,13 @@ export class Vector extends Geometry {
 
         // this.theta determines the angle between vector's arrow and its line.
         this.theta = rToD(
-            Math.atan2(
-                this.endPoint.y - this.startPoint.y,
-                this.endPoint.x - this.startPoint.x
-            )
+            Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x)
         );
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         this.stroke = this.svg
             .append("g")
             .attr("class", "vector-group")

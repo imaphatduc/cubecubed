@@ -1,7 +1,6 @@
 import * as d3 from "d3";
 import { Vector2 } from "../math/vector";
 import { Group } from "../scene/group";
-import { SHAPE_DEFAULT_CONFIG, LINE_DEFAULT_CONFIG } from "./geometry";
 
 export abstract class Cubicon {
     abstract readonly cubType: string;

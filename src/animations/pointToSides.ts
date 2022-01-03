@@ -15,12 +15,12 @@ export class PointToSides extends Animation {
     }
 
     play() {
-        this.#pointToSides(this.horizontalLines, this.verticalLines);
+        this.pointToSides(this.horizontalLines, this.verticalLines);
 
         this.cubicon.elapsedTime += this.duration;
     }
 
-    #pointToSides(hors: Line[], vers: Line[]) {
+    private pointToSides(hors: Line[], vers: Line[]) {
         const anims = [];
         for (let i = 0; i < hors.length; i++) {
             anims.push(new Create({ cubicon: hors[i], duration: 1000 }));

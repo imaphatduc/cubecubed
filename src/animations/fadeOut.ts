@@ -16,10 +16,10 @@ export class FadeOut extends Animation {
     }
 
     play(sleepTime: number) {
-        this.#fadeOut(this.cubicon, sleepTime);
+        this.fadeOut(this.cubicon, sleepTime);
     }
 
-    #fadeOut(cubicon: FADE_TYPES, sleepTime: number) {
+    private fadeOut(cubicon: FADE_TYPES, sleepTime: number) {
         cubicon.stroke
             .transition()
             .ease(this.ease)

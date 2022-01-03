@@ -23,10 +23,10 @@ export class Rotate extends Animation {
     }
 
     play(sleepTime: number) {
-        this.#rotate(this.cubicon, this.degree, sleepTime);
+        this.rotate(this.cubicon, this.degree, sleepTime);
     }
 
-    #rotate(cubicon: Geometry, degree: number, sleepTime: number) {
+    private rotate(cubicon: Geometry, degree: number, sleepTime: number) {
         if (
             cubicon.constructor.name === "Vector" ||
             cubicon.constructor.name === "Line"
