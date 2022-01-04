@@ -1,6 +1,6 @@
 import { Animation } from "../animations/animation";
 import { FadeOut } from "../animations/fadeOut";
-import { svgWidth, svgHeight } from "../cubicons/constants";
+import { svgWidth, svgHeight, TYPES } from "../cubicons/constants";
 import { Cubicon } from "../cubicons/cubicon";
 import { Scene } from "./scene";
 
@@ -83,8 +83,10 @@ export class Group {
         this.cubicons.push(cubicon);
     }
 
-    remove(cubicon: Cubicon) {
-        cubicon.group.play([new FadeOut(cubicon)]);
+    remove(cubicon: TYPES) {
+        if (cubicon.cubType === "geometry") {
+            cubicon.group.play([new FadeOut({ cubicon: cubicon })]);
+        }
         cubicon.stroke
             .transition()
             .delay(cubicon.elapsedTime + this.groupElapsed)
