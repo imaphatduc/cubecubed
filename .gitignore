@@ -4,3 +4,4 @@ dist
 dist-ssr
 types
 *.local
+.nyc_output
