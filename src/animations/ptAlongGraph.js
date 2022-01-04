@@ -1,8 +1,15 @@
+import { easeCubic } from "d3";
 import { ANIME } from "../cubicons/constants";
 import { Animation } from "./animation";
 
 export class PtAlongGraph extends Animation {
-    constructor({ point, graph, xPos, duration = ANIME.CREATE, ease }) {
+    constructor({
+        point,
+        graph,
+        xPos,
+        duration = ANIME.CREATE,
+        ease = easeCubic,
+    }) {
         super({ cubicon: point.point, duration: duration, ease: ease });
 
         this.lines = point.lines;

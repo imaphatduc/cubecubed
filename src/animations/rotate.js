@@ -4,7 +4,7 @@ import { ANIME } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class Rotate extends Animation {
-    constructor(cubicon, degree, duration = ANIME.ROTATE, ease) {
+    constructor({ cubicon, degree, duration = ANIME.ROTATE, ease }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
         this.degree = degree;
     }

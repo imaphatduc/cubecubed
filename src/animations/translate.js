@@ -1,9 +1,15 @@
+import { easeCubic } from "d3-ease";
 import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 
 export class Translate extends Animation {
-    constructor(cubicon, vector, duration = ANIME.TRANSLATE, ease) {
+    constructor({
+        cubicon,
+        vector,
+        duration = ANIME.TRANSLATE,
+        ease = easeCubic,
+    }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
 
         this.vector = vector;

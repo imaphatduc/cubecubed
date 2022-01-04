@@ -1,7 +1,7 @@
-import * as d3 from "d3";
+import { easeCubic } from "d3-ease";
 
 export class Animation {
-    constructor({ cubicon, duration, ease = d3.easeCubic }) {
+    constructor({ cubicon, duration, ease = easeCubic }) {
         this.cubicon = cubicon;
         this.duration = duration;
         this.ease = ease;

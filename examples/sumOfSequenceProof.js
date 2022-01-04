@@ -29,7 +29,7 @@ function sumOfSequenceProof() {
         sideLength: 8,
         strokeColor: COLOR.PINK_1,
     });
-    gr.play([new Create(square)]);
+    gr.play([new Create({ cubicon: square })]);
 
     square.drawInnerGrid();
 

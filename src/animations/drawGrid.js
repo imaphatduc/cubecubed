@@ -166,11 +166,11 @@ export class DrawGridFromOrigin extends Animation {
 
     #drawOrigin(grid) {
         grid.group.play([
-            new Create(
-                new GridOrigin({
+            new Create({
+                cubicon: new GridOrigin({
                     group: grid.group,
-                })
-            ),
+                }),
+            }),
         ]);
     }
 }
@@ -362,11 +362,11 @@ export class DrawGridFromScreenSides extends Animation {
 
     #drawOrigin(grid) {
         grid.group.play([
-            new Create(
-                new GridOrigin({
+            new Create({
+                cubicon: new GridOrigin({
                     group: grid.group,
-                })
-            ),
+                }),
+            }),
         ]);
     }
 }

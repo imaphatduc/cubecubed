@@ -1,8 +1,9 @@
+import { easeCubic } from "d3-ease";
 import { Animation } from "./animation";
 import { ANIME } from "../cubicons/constants";
 
 export class Create extends Animation {
-    constructor(cubicon, duration = ANIME.CREATE, ease) {
+    constructor({ cubicon, duration = ANIME.CREATE, ease = easeCubic }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
     }
 
