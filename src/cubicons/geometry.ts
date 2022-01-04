@@ -49,8 +49,6 @@ export abstract class Geometry extends Cubicon {
 
     //// For vector (Vector)
     arrowHead: any;
-    protected vectColor: any;
-    protected vectStrokeWidth: any;
 
     readonly Wposition: Vector2;
 
@@ -429,8 +427,11 @@ export class Vector extends Geometry {
     readonly WstartPoint: Vector2;
     readonly WendPoint: Vector2;
 
-    vectColor: string;
-    vectStrokeWidth: number;
+    readonly startPoint: Vector2;
+    readonly endPoint: Vector2;
+
+    lineColor: string;
+    lineWidth: number;
     theta: number;
 
     lineStroke: any;
@@ -450,15 +451,17 @@ export class Vector extends Geometry {
             position: startPoint,
         });
 
+        this.startPoint = startPoint;
         this.WstartPoint = new Vector2(
             xGtoW(startPoint.x),
             yGtoW(startPoint.y)
         );
 
+        this.endPoint = endPoint;
         this.WendPoint = new Vector2(xGtoW(endPoint.x), yGtoW(endPoint.y));
 
-        this.vectColor = lineColor;
-        this.vectStrokeWidth = lineWidth;
+        this.lineColor = lineColor;
+        this.lineWidth = lineWidth;
 
         // this.theta determines the angle between vector's arrow and its line.
         this.theta = rToD(
@@ -485,8 +488,8 @@ export class Vector extends Geometry {
             .attr("y1", this.WstartPoint.y)
             .attr("x2", this.WendPoint.x)
             .attr("y2", this.WendPoint.y)
-            .attr("stroke", this.vectColor)
-            .attr("stroke-width", this.vectStrokeWidth);
+            .attr("stroke", this.lineColor)
+            .attr("stroke-width", this.lineWidth);
         this.stroke
             .append("polygon")
             .attr(
@@ -495,7 +498,7 @@ export class Vector extends Geometry {
                     -0.25
                 )}`
             )
-            .attr("fill", this.vectColor)
+            .attr("fill", this.lineColor)
             .attr("stroke", "none")
             .attr(
                 "transform",

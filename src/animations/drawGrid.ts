@@ -1,4 +1,3 @@
-import { renderToString } from "katex";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Animation } from "./animation";
 import { xBound, yBound } from "../cubecubed";
@@ -99,7 +98,8 @@ export class DrawGridFromOrigin extends Animation {
                     .style("text-align", "center")
                     .append("xhtml:text")
                     .style("color", "#fff")
-                    .node().innerHTML = d !== 0 ? renderToString(`${d}`) : "";
+                    .node().innerHTML =
+                    d !== 0 ? katex.renderToString(`${d}`) : "";
             });
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
@@ -162,7 +162,8 @@ export class DrawGridFromOrigin extends Animation {
                     .style("text-align", "center")
                     .append("xhtml:text")
                     .style("color", "#fff")
-                    .node().innerHTML = d !== 0 ? renderToString(`${d}`) : "";
+                    .node().innerHTML =
+                    d !== 0 ? katex.renderToString(`${d}`) : "";
             });
         yAxisNumbers
             .selectAll("foreignObject.y-axis-number")
@@ -294,7 +295,8 @@ export class DrawGridFromScreenSides extends Animation {
                     .style("text-align", "center")
                     .append("xhtml:text")
                     .style("color", "#fff")
-                    .node().innerHTML = d !== 0 ? renderToString(`${d}`) : "";
+                    .node().innerHTML =
+                    d !== 0 ? katex.renderToString(`${d}`) : "";
             });
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
@@ -367,7 +369,8 @@ export class DrawGridFromScreenSides extends Animation {
                     .style("text-align", "center")
                     .append("xhtml:text")
                     .style("color", "#fff")
-                    .node().innerHTML = d !== 0 ? renderToString(`${d}`) : "";
+                    .node().innerHTML =
+                    d !== 0 ? katex.renderToString(`${d}`) : "";
             });
         yAxisNumbers
             .selectAll("foreignObject.y-axis-number")

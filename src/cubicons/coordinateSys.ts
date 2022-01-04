@@ -3,8 +3,6 @@ import { format } from "d3-format";
 import { line, curveNatural } from "d3-shape";
 import { axisBottom, axisRight } from "d3-axis";
 import { ScaleLinear, scaleLinear } from "d3-scale";
-
-import { renderToString } from "katex";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Cubicon } from "./cubicon";
 import {
@@ -113,10 +111,10 @@ export class Axes extends CoordinatesSystem {
 
         this.hasNums = hasNums;
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         this.coordinate = this.svg
             .append("g")
             .attr("class", "xy-coordinate")
@@ -415,10 +413,10 @@ export class Label extends CoordinatesSystem {
         this.color = color;
         this.fontSize = fontSize;
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         /// this.stroke is a d3 selection of HTML <text />
         this.stroke = this.svg
             .append("foreignObject")
@@ -431,7 +429,7 @@ export class Label extends CoordinatesSystem {
             .append("xhtml:text")
             .style("font-size", `${this.fontSize}pt`)
             .style("color", this.color);
-        this.stroke.node().innerHTML = renderToString(this.text);
+        this.stroke.node().innerHTML = katex.renderToString(this.text);
     }
 }
 
@@ -445,8 +443,8 @@ interface POINT_CONSTRUCTOR {
 export class Point extends CoordinatesSystem {
     readonly coordSysObjType = "point";
 
-    #Wposition;
-    #Wradius;
+    private Wposition: Vector2;
+    private Wradius: number;
 
     projectorGroup: any;
     axes: Axes;
@@ -477,13 +475,13 @@ export class Point extends CoordinatesSystem {
         this.projectorGroup = projectorGroup;
         this.axes = axes;
 
-        this.#Wposition = new Vector2(
+        this.Wposition = new Vector2(
             axes.xScale(position.x),
             axes.yScale(position.y)
         );
 
         this.radius = radius;
-        this.#Wradius = axes.xScale(radius);
+        this.Wradius = axes.xScale(radius);
 
         this.strokeColor = strokeColor;
         this.strokeWidth = strokeWidth;
@@ -491,16 +489,16 @@ export class Point extends CoordinatesSystem {
         this.fillColor = fillColor;
         this.fillOpacity = fillOpacity;
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         this.stroke = this.projectorGroup
             .append("circle")
             .attr("class", "point")
-            .attr("cx", this.#Wposition.x)
-            .attr("cy", this.#Wposition.y)
-            .attr("r", this.#Wradius)
+            .attr("cx", this.Wposition.x)
+            .attr("cy", this.Wposition.y)
+            .attr("r", this.Wradius)
             .attr("fill", this.fillColor)
             .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
@@ -521,8 +519,8 @@ interface PROJ_CONSTRUCTOR {
 export class AxisProjector extends CoordinatesSystem {
     readonly coordSysObjType = "axis-projector";
 
-    #WstartPoint;
-    #WendPoint;
+    readonly WstartPoint: Vector2;
+    readonly WendPoint: Vector2;
 
     projectorGroup: any;
     axes: Axes;
@@ -549,13 +547,13 @@ export class AxisProjector extends CoordinatesSystem {
         this.axes = axes;
 
         this.startPoint = startPoint;
-        this.#WstartPoint = new Vector2(
+        this.WstartPoint = new Vector2(
             axes.xScale(startPoint.x),
             axes.yScale(startPoint.y)
         );
 
         this.endPoint = endPoint;
-        this.#WendPoint = new Vector2(
+        this.WendPoint = new Vector2(
             axes.xScale(endPoint.x),
             axes.yScale(endPoint.y)
         );
@@ -563,17 +561,17 @@ export class AxisProjector extends CoordinatesSystem {
         this.lineColor = lineColor;
         this.lineWidth = lineWidth;
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         this.lineStroke = this.projectorGroup
             .append("line")
             .attr("class", "project-line")
-            .attr("x1", this.#WstartPoint.x)
-            .attr("y1", this.#WstartPoint.y)
-            .attr("x2", this.#WendPoint.x)
-            .attr("y2", this.#WendPoint.y)
+            .attr("x1", this.WstartPoint.x)
+            .attr("y1", this.WstartPoint.y)
+            .attr("x2", this.WendPoint.x)
+            .attr("y2", this.WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
     }

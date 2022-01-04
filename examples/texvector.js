@@ -27,7 +27,9 @@ function renderVector() {
     const vector = new Vector({
         group: group,
         endPoint: new Vector2(3, 2),
-        vectColor: COLOR.TEAL_1,
+        CONFIG: {
+            lineColor: COLOR.TEAL_1,
+        },
     });
 
     group.play([new Create({ cubicon: vector })]);

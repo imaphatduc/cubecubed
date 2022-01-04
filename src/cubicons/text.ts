@@ -47,6 +47,6 @@ export class MathText extends Cubicon {
             .append("xhtml:text")
             .style("font-size", `${this.fontSize}pt`)
             .style("color", this.color);
-        // this.stroke.node().innerHTML = katex.renderToString(this.text);
+        this.stroke.node().innerHTML = katex.renderToString(this.text);
     }
 }

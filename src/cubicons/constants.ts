@@ -33,6 +33,7 @@ import { easeCubic } from "d3-ease";
 import { Geometry, Rectangle, Square, Circle, Line, Vector } from "./geometry";
 import {
     CoordinatesSystem,
+    Graph,
     Label,
     Point,
     AxisProjector,
@@ -56,7 +57,7 @@ export type TYPES = CoordinatesSystem | Geometry | MathText;
 // Animation Types
 export type CREATE_TYPES =
     | (Rectangle | Square | Circle | Line | Vector)
-    | (Point | AxisProjector);
+    | (Graph | Point | AxisProjector);
 
 export type FADE_TYPES = MathText | Label | Geometry;
 
