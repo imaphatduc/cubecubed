@@ -1,4 +1,5 @@
-import * as d3 from "d3";
+import { range } from "d3-array";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Axes } from "../cubicons/coordinateSys";
 import { Animation } from "./animation";
 
@@ -49,7 +50,7 @@ export class DrawAxes extends Animation {
         /// Mark ticks
         axis.selectAll("g.tick")
             .attr("opacity", 0)
-            .data(d3.range(0, this.xNums + 1, 1))
+            .data(range(0, this.xNums + 1, 1))
             .transition()
             .ease(this.ease)
             .delay(
@@ -62,7 +63,7 @@ export class DrawAxes extends Animation {
         /// Fade in axes' arrows
         axis.select("defs marker path")
             .attr("opacity", 0)
-            .data(d3.range(0, this.yNums + 1, 1))
+            .data(range(0, this.yNums + 1, 1))
             .transition()
             .ease(this.ease)
             .delay(

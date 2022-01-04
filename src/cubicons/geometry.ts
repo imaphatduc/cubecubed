@@ -1,4 +1,6 @@
-import * as d3 from "d3";
+import { path } from "d3-path";
+import { range } from "d3-array";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Group } from "../scene/group";
 import { Cubicon } from "./cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG } from "../math/convertUnit";
@@ -148,14 +150,14 @@ export class Rectangle extends Geometry {
     // DRAW (NOT RENDER) A RECTANGULAR PATH ON THE WINDOW //
     ////////////////////////////////////////////////////////
     private draw() {
-        const path = d3.path();
-        path.moveTo(this.X, this.Y);
-        path.lineTo(this.X + this.Wwidth, this.Y);
-        path.lineTo(this.X + this.Wwidth, this.Y - this.Wheight);
-        path.lineTo(this.X, this.Y - this.Wheight);
-        path.lineTo(this.X, this.Y + (this.strokeWidth ?? 0) / 2);
+        const rectPath = path();
+        rectPath.moveTo(this.X, this.Y);
+        rectPath.lineTo(this.X + this.Wwidth, this.Y);
+        rectPath.lineTo(this.X + this.Wwidth, this.Y - this.Wheight);
+        rectPath.lineTo(this.X, this.Y - this.Wheight);
+        rectPath.lineTo(this.X, this.Y + (this.strokeWidth ?? 0) / 2);
 
-        return path;
+        return rectPath;
     }
 
     pointToSides(
@@ -226,7 +228,7 @@ export class Rectangle extends Geometry {
 
         const hors = [],
             vers = [];
-        for (let i of d3.range(-this.width / 2 + 1, this.width / 2, 1)) {
+        for (let i of range(-this.width / 2 + 1, this.width / 2, 1)) {
             vers.push(
                 new Line({
                     group: this.group,
@@ -240,7 +242,7 @@ export class Rectangle extends Geometry {
                 })
             );
         }
-        for (let i of d3.range(-this.height / 2 + 1, this.height / 2, 1)) {
+        for (let i of range(-this.height / 2 + 1, this.height / 2, 1)) {
             hors.push(
                 new Line({
                     group: this.group,

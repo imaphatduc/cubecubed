@@ -1,4 +1,5 @@
-import * as d3 from "d3";
+import { interpolate } from "d3-interpolate";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Animation } from "./animation";
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
@@ -44,7 +45,7 @@ export class Rotate extends Animation {
             .duration(this.duration)
             /// d3 normalize the rotation vector, so we must use attrTween method here
             .attrTween("transform", () =>
-                d3.interpolate(
+                interpolate(
                     `translate(${xGtoW(v.x)}, ${yGtoW(v.y)}) rotate(${
                         cubicon.angle
                     })`,

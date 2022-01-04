@@ -1,4 +1,11 @@
-import * as d3 from "d3";
+import { range } from "d3-array";
+import { format } from "d3-format";
+import { line, curveNatural } from "d3-shape";
+import { axisBottom, axisRight } from "d3-axis";
+import { ScaleLinear, scaleLinear } from "d3-scale";
+
+import { renderToString } from "katex";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Cubicon } from "./cubicon";
 import {
     svgWidth,
@@ -8,13 +15,13 @@ import {
 } from "./constants";
 import { Vector2 } from "../math/vector";
 import { Group } from "../scene/group";
-import { ScaleLinear } from "d3";
 import {
     LINE_CONFIG,
     LINE_DEFAULT_CONFIG,
     SHAPE_CONFIG,
     SHAPE_DEFAULT_CONFIG,
 } from "./geometry";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 interface AXES_CONFIG {
     xRange: [number, number];
@@ -91,15 +98,13 @@ export class Axes extends CoordinatesSystem {
 
         this.func = [];
 
-        this.xScale = d3
-            .scaleLinear()
+        this.xScale = scaleLinear()
             .domain(this.xRange)
             .range([
                 this.xLength * this.xRange[0],
                 this.xLength * this.xRange[1],
             ]);
-        this.yScale = d3
-            .scaleLinear()
+        this.yScale = scaleLinear()
             .domain(this.yRange)
             .range([
                 this.yLength * this.yRange[0],
@@ -125,12 +130,11 @@ export class Axes extends CoordinatesSystem {
         const axisStrokeWidth = 1;
         const tickOffset = 5;
 
-        let xAxis = d3
-            .axisBottom(this.xScale)
+        let xAxis = axisBottom(this.xScale)
             .tickValues(
-                d3
-                    .range(this.xRange[0], this.xRange[1] + 1, 1)
-                    .filter((t: number) => t !== 0)
+                range(this.xRange[0], this.xRange[1] + 1, 1).filter(
+                    (t: number) => t !== 0
+                )
             )
             .tickSizeOuter(0);
         this.xAxis = this.axes
@@ -169,14 +173,13 @@ export class Axes extends CoordinatesSystem {
             .attr("y1", -tickOffset)
             .attr("y2", tickOffset);
 
-        let yAxis = d3
-            .axisRight(this.yScale)
+        let yAxis = axisRight(this.yScale)
             .tickValues(
-                d3
-                    .range(this.yRange[0], this.yRange[1] + 1, 1)
-                    .filter((t: number) => t !== 0)
+                range(this.yRange[0], this.yRange[1] + 1, 1).filter(
+                    (t: number) => t !== 0
+                )
             )
-            .tickFormat(d3.format("0"))
+            .tickFormat(format("0"))
             .tickSizeOuter(0);
 
         this.yAxis = this.axes
@@ -236,14 +239,12 @@ export class Axes extends CoordinatesSystem {
     }) {
         this.func.push(func);
 
-        const xScale = d3
-            .scaleLinear()
+        const xScale = scaleLinear()
             .domain(xRange)
             .range([this.xLength * xRange[0], this.xLength * xRange[1]]);
 
-        const lineGenerator = d3
-            .line()
-            .curve(d3.curveNatural)
+        const lineGenerator = line()
+            .curve(curveNatural)
             .x((d: [number, number]) => xScale(d[0]))
             .y((d: [number, number]) => this.yScale(d[1]));
 
@@ -430,7 +431,7 @@ export class Label extends CoordinatesSystem {
             .append("xhtml:text")
             .style("font-size", `${this.fontSize}pt`)
             .style("color", this.color);
-        this.stroke.node().innerHTML = katex.renderToString(this.text);
+        this.stroke.node().innerHTML = renderToString(this.text);
     }
 }
 
