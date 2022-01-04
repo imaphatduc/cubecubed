@@ -1,25 +1,38 @@
 import { easeCubic } from "d3-ease";
 import { Animation } from "./animation";
-import { ANIME } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
+import { Vector2 } from "../math/vector";
+import { Geometry } from "../cubicons/geometry";
 
 export class Translate extends Animation {
+    vector: Vector2;
+
     constructor({
         cubicon,
         vector,
         duration = ANIME.TRANSLATE,
-        ease = easeCubic,
+        ease,
+    }: {
+        cubicon: Geometry;
+        vector: Vector2;
+        duration?: number;
+        ease?: EASE_TYPE;
     }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
 
         this.vector = vector;
     }
 
-    play(sleepTime) {
-        this.#translateByVector(this.cubicon, this.vector, sleepTime);
+    play(sleepTime: number) {
+        this.translateByVector(this.cubicon, this.vector, sleepTime);
     }
 
-    #translateByVector(cubicon, vector, sleepTime) {
+    private translateByVector(
+        cubicon: Geometry,
+        vector: Vector2,
+        sleepTime: number
+    ) {
         /// Calculate the sum of all translation vectors
         cubicon.moveVector = cubicon.moveVector.add(vector);
 

@@ -1,14 +1,26 @@
-import { easeCubic } from "d3";
-import { ANIME } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { Animation } from "./animation";
+import { Graph, AxisProjector } from "../cubicons/coordinateSys";
+import { PT_TO_COORDS_DATA } from "../cubicons/constants";
+import { Cubicon } from "../cubicons/cubicon";
 
 export class PtAlongGraph extends Animation {
+    lines: [AxisProjector, AxisProjector];
+    graph: Graph;
+    xPos: number;
+
     constructor({
         point,
         graph,
         xPos,
         duration = ANIME.CREATE,
-        ease = easeCubic,
+        ease,
+    }: {
+        point: PT_TO_COORDS_DATA;
+        graph: Graph;
+        xPos: number;
+        duration?: number;
+        ease?: EASE_TYPE;
     }) {
         super({ cubicon: point.point, duration: duration, ease: ease });
 
@@ -17,17 +29,17 @@ export class PtAlongGraph extends Animation {
         this.xPos = xPos;
     }
 
-    play(sleepTime) {
-        this.#ptAlongGraph(this.cubicon, this.graph, this.xPos, sleepTime);
+    play(sleepTime: number) {
+        this.ptAlongGraph(this.cubicon, this.graph, this.xPos, sleepTime);
         if (typeof this.lines !== "undefined") {
-            this.#horLineAlongGraph(
+            this.horLineAlongGraph(
                 this.cubicon,
                 this.lines[0],
                 this.graph,
                 this.xPos,
                 sleepTime
             );
-            this.#verLineAlongGraph(
+            this.verLineAlongGraph(
                 this.cubicon,
                 this.lines[1],
                 this.graph,
@@ -37,20 +49,25 @@ export class PtAlongGraph extends Animation {
         }
     }
 
-    #ptAlongGraph(point, graph, xPos, sleepTime) {
+    private ptAlongGraph(
+        point: Cubicon,
+        graph: Graph,
+        xPos: number,
+        sleepTime: number
+    ) {
         point.stroke
             .transition()
             .ease(this.ease)
             .delay(point.elapsedTime + sleepTime)
             .duration(this.duration)
             .attrTween("cx", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.xScale(t * deltaX + point.position.x);
                 };
             })
             .attrTween("cy", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
                         graph.func(t * deltaX + point.position.x)
@@ -65,20 +82,26 @@ export class PtAlongGraph extends Animation {
         point.elapsedTime += this.duration + sleepTime;
     }
 
-    #horLineAlongGraph(point, line, graph, xPos, sleepTime) {
+    horLineAlongGraph(
+        point: Cubicon,
+        line: AxisProjector,
+        graph: Graph,
+        xPos: number,
+        sleepTime: number
+    ) {
         line.lineStroke
             .transition()
             .ease(this.ease)
             .delay(line.elapsedTime + sleepTime)
             .duration(this.duration)
             .attrTween("x1", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.xScale(t * deltaX + point.position.x);
                 };
             })
             .attrTween("y1", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
                         graph.func(t * deltaX + point.position.x)
@@ -86,7 +109,7 @@ export class PtAlongGraph extends Animation {
                 };
             })
             .attrTween("y2", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
                         graph.func(t * deltaX + point.position.x)
@@ -101,20 +124,26 @@ export class PtAlongGraph extends Animation {
         line.elapsedTime += this.duration + sleepTime;
     }
 
-    #verLineAlongGraph(point, line, graph, xPos, sleepTime) {
+    private verLineAlongGraph(
+        point: Cubicon,
+        line: AxisProjector,
+        graph: Graph,
+        xPos: number,
+        sleepTime: number
+    ) {
         line.lineStroke
             .transition()
             .ease(this.ease)
             .delay(line.elapsedTime + sleepTime)
             .duration(this.duration)
             .attrTween("x1", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.xScale(t * deltaX + point.position.x);
                 };
             })
             .attrTween("y1", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
                         graph.func(t * deltaX + point.position.x)
@@ -122,7 +151,7 @@ export class PtAlongGraph extends Animation {
                 };
             })
             .attrTween("x2", () => {
-                return (t) => {
+                return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.xScale(t * deltaX + point.position.x);
                 };

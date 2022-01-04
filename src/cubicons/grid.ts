@@ -2,20 +2,40 @@ import { xBound, yBound } from "../cubecubed";
 import { Geometry } from "./geometry";
 import { COLOR } from "./constants";
 import { Vector2 } from "../math/vector";
+import { Group } from "../scene/group";
 
 export class Grid extends Geometry {
-    constructor({ group, hasNums = false }) {
+    readonly geoType = "grid";
+
+    originColor: string;
+    xAxesColor: string;
+    yAxesColor: string;
+    lineColor: string;
+
+    xs: number[];
+    ys: number[];
+
+    planeGrid: any;
+    horizontal: any;
+    vertical: any;
+
+    hasNums: boolean;
+
+    constructor({
+        group,
+        hasNums = false,
+    }: {
+        group: Group;
+        hasNums?: boolean;
+    }) {
         super({ group: group, position: new Vector2(0, 0) });
 
         this.group = group;
-
-        this.id = "plane-grid";
 
         this.lineColor = COLOR.BLUE_2;
         this.originColor = COLOR.WHITE;
         this.xAxesColor = COLOR.RED_2;
         this.yAxesColor = COLOR.GREEN_1;
-        this.zAxesColor = COLOR.BLUE_1;
 
         this.xs = [];
         this.ys = [];
@@ -35,14 +55,6 @@ export class Grid extends Geometry {
         this.vertical = this.planeGrid.append("g").attr("id", "vertical");
 
         this.elapsedTime = 0;
-
-        this.drawTime = Math.max(
-            Math.max(this.drawX, this.drawXNums + this.drawXNumsDelay),
-            Math.max(
-                this.drawY + this.drawYDelay,
-                this.drawYNums + this.drawYNumsDelay
-            )
-        );
 
         this.hasNums = hasNums;
     }

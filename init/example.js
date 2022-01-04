@@ -26,7 +26,9 @@ function drawShapes() {
         const square1 = new Square({
             group: squares,
             sideLength: 2,
-            strokeColor: COLOR.PINK_1,
+            CONFIG: {
+                strokeColor: COLOR.PINK_1,
+            },
         });
 
         squares.play([new Create({ cubicon: square1 })]);
@@ -34,7 +36,9 @@ function drawShapes() {
         const square2 = new Square({
             group: squares,
             sideLength: 2,
-            strokeColor: COLOR.PINK_1,
+            CONFIG: {
+                strokeColor: COLOR.PINK_1,
+            },
         });
 
         squares.play([
@@ -52,7 +56,9 @@ function drawShapes() {
         const vector = new Vector({
             group: vectors,
             endPoint: new Vector2(2, 3),
-            vectColor: COLOR.TEAL_1,
+            CONFIG: {
+                lineColor: COLOR.TEAL_1,
+            },
         });
 
         /// wait for the previous group's animations to complete, then start this group's ones

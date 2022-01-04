@@ -1,17 +1,25 @@
-import { easeCubic } from "d3-ease";
 import { Animation } from "./animation";
-import { ANIME } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../cubicons/constants";
+import { FADE_TYPES } from "../cubicons/constants";
 
 export class FadeOut extends Animation {
-    constructor({ cubicon, duration = ANIME.FADEOUT, ease = easeCubic }) {
+    constructor({
+        cubicon,
+        duration = ANIME.FADEIN,
+        ease,
+    }: {
+        cubicon: FADE_TYPES;
+        duration?: number;
+        ease?: EASE_TYPE;
+    }) {
         super({ cubicon: cubicon, duration: duration, ease: ease });
     }
 
-    play(sleepTime) {
-        this.#fadeOut(this.cubicon, sleepTime);
+    play(sleepTime: number) {
+        this.fadeOut(this.cubicon, sleepTime);
     }
 
-    #fadeOut(cubicon, sleepTime) {
+    private fadeOut(cubicon: FADE_TYPES, sleepTime: number) {
         cubicon.stroke
             .transition()
             .ease(this.ease)

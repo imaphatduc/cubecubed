@@ -2,15 +2,29 @@ import { Cubicon } from "./cubicon";
 import { svgWidth, svgHeight } from "./constants";
 import { Vector2 } from "../math/vector";
 import { xGtoW, yGtoW } from "../math/convertUnit";
+import { Group } from "../scene/group";
 
+interface MATHTEXT_CONSTRUCTOR {
+    group: Group;
+    position?: Vector2;
+    text?: string;
+    color?: string;
+    fontSize?: number;
+}
 export class MathText extends Cubicon {
+    readonly cubType = "math-text";
+
+    text: string;
+    color: string;
+    fontSize: number;
+
     constructor({
         group,
         position = new Vector2(0, 0),
         text = "",
         color = "#fff",
         fontSize = 13,
-    }) {
+    }: MATHTEXT_CONSTRUCTOR) {
         super({ group: group, position: position });
 
         this.text = text;

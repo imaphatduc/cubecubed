@@ -1,8 +1,29 @@
 import * as d3 from "d3";
 import { Vector2 } from "../math/vector";
+import { Group } from "../scene/group";
 
-export class Cubicon {
-    constructor({ group, position }) {
+export abstract class Cubicon {
+    abstract readonly cubType: string;
+
+    // General fields for cubicon (Cubicon)
+    group: Group;
+    position: Vector2;
+
+    moveVector: any;
+    angle: any;
+    moveAngle: any;
+    svg: any;
+    elapsedTime: any;
+    stroke: any;
+    svgWrapper: any;
+
+    constructor({
+        group,
+        position = new Vector2(0, 0),
+    }: {
+        group: Group;
+        position: Vector2;
+    }) {
         this.group = group;
 
         this.position = position;
@@ -21,7 +42,7 @@ export class Cubicon {
 
         /// This is the main stroke (or shape) of the cubicon.
         /// Initially, we set it to nothing.
-        this.stroke = d3.select();
+        this.stroke = d3.select(null);
 
         /// Add this to the target group
         this.group.add(this);

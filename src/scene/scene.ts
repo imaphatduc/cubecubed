@@ -1,7 +1,10 @@
 import { svg } from "../cubicons/constants";
 
 export class Scene {
-    constructor(sceneName) {
+    svg: any;
+    name: string;
+
+    constructor(sceneName: string) {
         this.svg = !svg.select(`#${sceneName}`).empty()
             ? svg.select(`#${sceneName}`)
             : svg
@@ -11,7 +14,7 @@ export class Scene {
         this.name = sceneName;
     }
 
-    destroy(delay) {
+    destroy(delay: number) {
         this.svg
             .transition()
             .delay(delay)

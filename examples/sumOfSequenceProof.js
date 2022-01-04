@@ -10,6 +10,9 @@ import {
     Translate,
     Rotate,
     Create,
+    FadeIn,
+    MathText,
+    FadeOut,
 } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
@@ -26,8 +29,8 @@ function sumOfSequenceProof() {
 
     const square = new Square({
         group: gr,
-        sideLength: 8,
-        strokeColor: COLOR.PINK_1,
+        sideLength: 5,
+        CONFIG: { strokeColor: COLOR.PINK_1 },
     });
     gr.play([new Create({ cubicon: square })]);
 
@@ -37,8 +40,15 @@ function sumOfSequenceProof() {
     for (let i = -3; i <= 3; i++) {
         points.push(new Vector2(i, i));
     }
-    const linesData = square.pointToSides(points, [1, 1]);
-    gr.play([new PointToSides(linesData)]);
+    gr.play([new Translate({ cubicon: square, vector: new Vector2(1, 3) })]);
+    const tex = new MathText({
+        group: gr,
+        position: new Vector2(2, 3),
+        text: "f(x) = x^2",
+    });
+    gr.play([new FadeOut({ cubicon: tex })]);
+    // const linesData = square.pointToSides(points, [1, 1]);
+    // gr.play([new PointToSides(linesData)]);
 }
 
 sumOfSequenceProof();

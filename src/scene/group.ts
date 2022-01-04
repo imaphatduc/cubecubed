@@ -1,8 +1,20 @@
+import { Animation } from "../animations/animation";
 import { FadeOut } from "../animations/fadeOut";
-import { svgWidth, svgHeight } from "../cubicons/constants";
+import { svgWidth, svgHeight, TYPES } from "../cubicons/constants";
+import { Cubicon } from "../cubicons/cubicon";
+import { Scene } from "./scene";
 
 export class Group {
-    constructor(groupName, scene) {
+    scene: Scene;
+    svg: any;
+    name: string;
+    cubicons: Cubicon[];
+    animations: Animation[];
+    queueElapsed: number;
+    groupElapsed: number;
+    sleepTime: number;
+
+    constructor(groupName: string, scene: Scene) {
         this.scene = scene;
         this.svg = !scene.svg.select(`#${groupName}`).empty()
             ? scene.svg.select(`#${groupName}`)
@@ -30,11 +42,13 @@ export class Group {
         this.sleepTime = 0;
     }
 
-    play(anims) {
+    play(anims: any[]) {
         anims.forEach((anim) => {
             anim.cubicon.elapsedTime = this.queueElapsed;
             if (typeof anim.lines !== "undefined") {
-                anim.lines.forEach((l) => (l.elapsedTime = this.queueElapsed));
+                anim.lines.forEach(
+                    (l: any) => (l.elapsedTime = this.queueElapsed)
+                );
             }
         });
 
@@ -57,20 +71,22 @@ export class Group {
         this.groupElapsed = this.queueElapsed;
     }
 
-    sleep(milliseconds) {
+    sleep(milliseconds: number) {
         this.sleepTime = milliseconds;
     }
 
-    #addAnimation(anim) {
+    #addAnimation(anim: Animation) {
         this.animations.push(anim);
     }
 
-    add(cubicon) {
+    add(cubicon: Cubicon) {
         this.cubicons.push(cubicon);
     }
 
-    remove(cubicon) {
-        cubicon.group.play([new FadeOut({ cubicon: cubicon })]);
+    remove(cubicon: TYPES) {
+        if (cubicon.cubType === "geometry") {
+            cubicon.group.play([new FadeOut({ cubicon: cubicon })]);
+        }
         cubicon.stroke
             .transition()
             .delay(cubicon.elapsedTime + this.groupElapsed)
@@ -78,7 +94,7 @@ export class Group {
             .remove();
     }
 
-    destroy(delay) {
+    destroy(delay: number) {
         this.svg
             .transition()
             .delay(this.groupElapsed + delay)
