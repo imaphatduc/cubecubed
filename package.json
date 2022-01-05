@@ -1,6 +1,6 @@
 {
     "name": "cubecubed",
-    "version": "1.0.8",
+    "version": "1.0.8-dev",
     "scripts": {
         "dev": "vite",
         "tsc": "tsc",
