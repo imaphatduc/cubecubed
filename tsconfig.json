@@ -1,11 +1,10 @@
 {
     "compilerOptions": {
         "target": "es2016",
-        "module": "ES2015",
+        "module": "commonJS",
         "rootDir": "./src",
         "allowJs": true,
         "outDir": "./compile",
-        "declarationDir": "./types",
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
         "strict": true,

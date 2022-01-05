@@ -16,5 +16,5 @@ export default {
             name: "cubed",
         },
     ],
-    plugins: [typescript(), commonjs(), nodeResolve()],
+    plugins: [typescript({ module: "esnext" }), commonjs(), nodeResolve()],
 };

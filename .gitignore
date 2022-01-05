@@ -5,3 +5,4 @@ dist-ssr
 compile
 types
 *.local
+.nyc_output
