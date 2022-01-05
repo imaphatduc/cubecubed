@@ -3,7 +3,8 @@
     "version": "1.0.8",
     "scripts": {
         "dev": "vite",
-        "build": "tsc"
+        "build": "tsc",
+        "watch": "tsc --watch"
     },
     "bin": {
         "cubecubed": "./ccw.js",
