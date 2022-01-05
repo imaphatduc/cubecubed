@@ -1,10 +1,10 @@
 /// This magic line helps my dummy computer recognize the correct MIME type of this index.js
 import { Square } from "./cubicons/geometry";
 
-export * from "./cubicons/geometry";
+export { Rectangle, Square, Circle, Line, Vector } from "./cubicons/geometry";
 export * from "./cubicons/grid";
-export * from "./cubicons/constants";
-export * from "./cubicons/coordinateSys";
+export { COLOR, PI, TAU } from "./cubicons/constants";
+export { Axes } from "./cubicons/coordinateSys";
 export * from "./cubicons/text";
 
 export * from "./scene/scene";
@@ -21,5 +21,5 @@ export * from "./animations/ptToCoords";
 export * from "./animations/ptAlongGraph";
 export * from "./animations/pointToSides";
 
-export * from "./math/convertUnit";
+export { rToD, dToR } from "./math/convertUnit";
 export * from "./math/vector";
