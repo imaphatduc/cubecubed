@@ -6,8 +6,8 @@ const { exec } = require("child_process");
 const { readFileSync, writeFile } = require("fs");
 
 exec("cp ./node_modules/cubecubed/init/index.html ./");
-exec("cp ./node_modules/cubecubed/style.css ./");
-exec("cp ./node_modules/cubecubed/graphics/svg/favicon.svg ./");
+exec("cp ./node_modules/cubecubed/init/style.css ./");
+exec("cp ./node_modules/cubecubed/init/favicon.svg ./");
 
 inquirer
     .prompt([
