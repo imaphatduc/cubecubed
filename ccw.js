@@ -51,8 +51,9 @@ inquirer
 
             exec("npm i vite");
             console.log(
-                "Execute `npm run dev` to run a local dev server. Finishing..."
+                "Tip: Execute `npm run dev` to run a local dev server."
             );
+            console.log("Installing vite...");
         }
 
         if (answers["example"]) {
