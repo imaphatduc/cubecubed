@@ -1,3 +1,5 @@
+import katex from "katex";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Cubicon } from "./cubicon";
 import { svgWidth, svgHeight } from "./constants";
 import { Vector2 } from "../math/vector";
@@ -31,10 +33,10 @@ export class MathText extends Cubicon {
         this.color = color;
         this.fontSize = fontSize;
 
-        this.#draw();
+        this.draw();
     }
 
-    #draw() {
+    private draw() {
         /// this.stroke is a d3 selection of HTML <text />
         this.stroke = this.svg
             .append("foreignObject")

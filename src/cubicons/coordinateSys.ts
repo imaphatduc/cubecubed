@@ -1,3 +1,4 @@
+import katex from "katex";
 import { range } from "d3-array";
 import { format } from "d3-format";
 import { line, curveNatural } from "d3-shape";
