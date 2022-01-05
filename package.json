@@ -21,11 +21,12 @@
         "vite": "^2.7.4"
     },
     "description": "Play eye-catching math visualization on the web using SVG",
-    "module": "src/index.d.ts",
-    "main": "src/index.d.ts",
     "files": [
         "dist/**/*"
     ],
+    "types": "dist/index.d.ts",
+    "module": "dist/index.js",
+    "main": "dist/index.js",
     "repository": {
         "type": "git",
         "url": "git+https://github.com/imaphatduc/cubecubed.git"
