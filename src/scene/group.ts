@@ -53,7 +53,7 @@ export class Group {
         });
 
         anims.forEach((anim) => {
-            this.#addAnimation(anim);
+            this.addAnimation(anim);
 
             anim.play(this.sleepTime);
 
@@ -75,7 +75,7 @@ export class Group {
         this.sleepTime = milliseconds;
     }
 
-    #addAnimation(anim: Animation) {
+    private addAnimation(anim: Animation) {
         this.animations.push(anim);
     }
 
