@@ -491,8 +491,8 @@ export class Vector extends Geometry {
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
 
-        const headWidth = 0.25;
-        const headHeight = 0.4;
+        const headWidth = 0.3;
+        const headHeight = 0.5;
         this.stroke
             .append("polygon")
             .attr(
