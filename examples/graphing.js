@@ -69,7 +69,6 @@ function graphingFunctions() {
     const cubic = a.graph({
         func: (x) => x * x * x + 2 * x * x,
         color: COLOR.RED_2,
-        createDuration: 2000,
     });
     // a.addGraphLabel(cubic, "x^3 + 2x^2", 1.1);
     gr.play([new Create({ cubicon: cubic })]);
