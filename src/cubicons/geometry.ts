@@ -33,6 +33,8 @@ export abstract class Geometry extends Cubicon {
     readonly cubType = "geometry";
     abstract readonly geoType: string;
 
+    svgWrapper: any;
+
     // For geometry (Geometry)
     protected fillColor: any;
     protected fillOpacity: any;
@@ -62,7 +64,6 @@ export abstract class Geometry extends Cubicon {
         super({ group: group, position: position });
 
         this.group = group;
-        this.svgWrapper;
 
         this.Wposition = new Vector2(xGtoW(position.x), yGtoW(position.y));
     }
@@ -320,11 +321,17 @@ export class Circle extends Geometry {
         this.fillColor = fillColor;
         this.fillOpacity = fillOpacity;
 
+        this.svgWrapper = this.svg
+            .append("g")
+            .attr("class", `circle-wrapper`)
+            .style("transform-box", "fill-box")
+            .style("transform-origin", `center`);
+
         this.draw();
     }
 
     private draw() {
-        this.stroke = this.svg
+        this.stroke = this.svgWrapper
             .append("circle")
             .attr("class", "circle")
             .attr("cx", this.Wposition.x)
@@ -353,6 +360,8 @@ export class GridOrigin extends Circle {
                 strokeWidth: 2,
             },
         });
+        this.svgWrapper.attr("id", "grid-origin-wrapper");
+        this.stroke.attr("id", "grid-origin");
     }
 }
 
@@ -396,12 +405,20 @@ export class Line extends Geometry {
         this.lineColor = lineColor;
         this.lineWidth = lineWidth;
 
+        this.svgWrapper = this.svg
+            .append("g")
+            .attr("class", `line-wrapper`)
+            .style("transform-box", "fill-box")
+            .style("transform-origin", `center`);
+
         this.draw();
     }
 
     private draw() {
         this.lineStroke = (
-            typeof this.parentGTag !== "undefined" ? this.parentGTag : this.svg
+            typeof this.parentGTag !== "undefined"
+                ? this.parentGTag
+                : this.svgWrapper
         )
             .append("line")
             .attr("class", "line")
@@ -468,11 +485,17 @@ export class Vector extends Geometry {
             Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x)
         );
 
+        this.svgWrapper = this.svg
+            .append("g")
+            .attr("class", `vector-wrapper`)
+            .style("transform-box", "fill-box")
+            .style("transform-origin", `center`);
+
         this.draw();
     }
 
     private draw() {
-        this.stroke = this.svg
+        this.stroke = this.svgWrapper
             .append("g")
             .attr("class", "vector-group")
             .attr("transform-box", "fill-box")

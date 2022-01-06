@@ -15,7 +15,6 @@ export abstract class Cubicon {
     svg: any;
     elapsedTime: any;
     stroke: any;
-    svgWrapper: any;
 
     constructor({
         group,
