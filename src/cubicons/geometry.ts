@@ -490,13 +490,16 @@ export class Vector extends Geometry {
             .attr("y2", this.WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
+
+        const headWidth = 0.3;
+        const headHeight = 0.5;
         this.stroke
             .append("polygon")
             .attr(
                 "points",
-                `${xGtoW(-0.25)}, ${yGtoW(-0.25)} 0, 0 ${xGtoW(0.25)}, ${yGtoW(
-                    -0.25
-                )}`
+                `${xGtoW(-headWidth)}, ${yGtoW(-headHeight)} 0, 0 ${xGtoW(
+                    headWidth
+                )}, ${yGtoW(-headHeight)}`
             )
             .attr("fill", this.lineColor)
             .attr("stroke", "none")
