@@ -1,7 +1,7 @@
 import {
     COLOR,
     Create,
-    DrawGridFromOrigin,
+    DrawGridFromScreenSides,
     FadeIn,
     Grid,
     Group,
@@ -22,7 +22,7 @@ function renderVector() {
     const group = new Group("tex", scene);
 
     const grid = new Grid({ group: group });
-    group.play([new DrawGridFromOrigin(grid)]);
+    group.play([new DrawGridFromScreenSides(grid)]);
 
     const vector = new Vector({
         group: group,
@@ -45,7 +45,7 @@ function renderVector() {
         group: group,
         position: vector.endPoint,
         text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,
-        color: vector.vectColor,
+        color: vector.lineColor,
         fontSize: 11,
     });
 
