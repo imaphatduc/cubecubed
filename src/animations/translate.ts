@@ -1,4 +1,3 @@
-import { easeCubic } from "d3-ease";
 import { Animation } from "./animation";
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
