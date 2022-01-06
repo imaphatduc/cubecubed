@@ -1,12 +1,24 @@
-/**
- * SVG constants
- */
+//*****************//
+// 1. SVG constants
+//*****************//
 import { select } from "d3-selection";
+
+/**
+ * d3 Selection of `svg#viz` element
+ */
 export const svg = select("#viz");
 
+/**
+ * width attribute of `svg#viz` element
+ */
 export const svgWidth = parseInt(svg.attr("width"));
+
+/**
+ * height attribute of `svg#viz` element
+ */
 export const svgHeight = parseInt(svg.attr("height"));
 
+//*** 2. COLORS ***//
 /**
  * Color constants
  */
@@ -28,14 +40,19 @@ export const COLOR = {
     PINK_2: "#ff39b3",
 };
 
-/**
- * Math constants
- */
+//********************//
+// 3. Math constants
+//********************//
 export const PI = Math.PI;
 export const TAU = 2 * Math.PI;
 
+//************************************************//
+// 4. Animation time and ease function constants
+//************************************************//
+
 /**
- * Animation duration constants (ANIME is just an abbreviation for ANImation tiME :))
+ * Animation duration constants
+ * (ANIME is just an abbreviation for ANImation tiME :))
  */
 export const ANIME = {
     CREATE: 1500,
@@ -47,15 +64,13 @@ export const ANIME = {
 };
 
 /**
- * Ease functions constants
+ * Type of the user-custom ease function
+ *
+ * - Form: f(x) = y
+ * - Requirement: both x and y are in range [0, 1]
  */
-
-/// Let the user customize their ease function
-// Form: f(x) = y
-// Requirement: both x and y are in range [0, 1]
 export type EASE_TYPE = (x: number) => number;
 
-/// Default ease functions
 import {
     easeBack,
     easeBackIn,
@@ -70,8 +85,8 @@ import {
     easeCubicIn,
     easeCubicOut,
     easeElasticIn,
-    easeElasticInOut,
     easeElasticOut,
+    easeElasticInOut,
     easeExp,
     easeExpIn,
     easeExpOut,
@@ -87,6 +102,24 @@ import {
     easeSinOut,
 } from "d3";
 
+/**
+ * Default ease functions
+ * - Form: <name>_<option>
+ * - Available options:
+ *   . IN
+ *   . OUT
+ * - Available names:
+ *   . POLY
+ *   . QUAD
+ *   . CUBIC
+ *   . SIN
+ *   . EXP
+ *   . CIRCLE
+ *   . ELASTIC
+ *   . BACK
+ *   . BOUNCE
+ * - Examples: POLY_IN
+ */
 export const EASE = {
     LINEAR: easeLinear,
 
@@ -127,17 +160,17 @@ export const EASE = {
     BOUNCE_INOUT: easeBounceInOut,
 };
 
-//+++++++++++++++++++++//
-// Types constants
-//+++++++++++++++++++++//
+//*********************//
+// 5. Types constants
+//*********************//
 
-/*
- * Cubicon types
+/**
+ * Classes which directly inherit from `Cubicon`
  */
 export type TYPES = CoordinatesSystem | Geometry | MathText;
 
-/*
- * Animation types
+/************************
+ * 5.0. Animation types
  */
 import { Geometry, Rectangle, Square, Circle, Line, Vector } from "./geometry";
 import {
@@ -149,30 +182,40 @@ import {
 } from "./coordinateSys";
 import { MathText } from "./text";
 
+/**
+ * Types available for Create animation
+ */
 export type CREATE_TYPES =
     | (Rectangle | Square | Circle | Line | Vector)
     | (Graph | Point | AxisProjector);
 
+/**
+ * Types available for Fade (FadeIn & FadeOut) animation
+ */
 export type FADE_TYPES = MathText | Label | Geometry;
 
-//+++++++++++++++++++//
-// Complex data
-//+++++++++++++++++++//
+/***************************
+ * 5.1. Complex data types
+ */
 
 /**
- * Axes in Coordinate System
+ * Return data type when calling Axes().pointOnGraph() method
  */
 export type PT_ON_GRAPH_DATA = {
     point: Point;
 };
 
+/**
+ * Return data type when calling Axes().pointToCoords() method
+ */
 export type PT_TO_COORDS_DATA = {
     point: Point;
     lines: [AxisProjector, AxisProjector];
 };
 
 /**
- * Rectangle and Square
+ * Return data type when calling Rectangle().pointToSides()
+ * or Square().pointToSides() method
  */
 export type PT_TO_SIDES_DATA = {
     cubicon: Rectangle | Square;
@@ -180,6 +223,10 @@ export type PT_TO_SIDES_DATA = {
     verticalLines: Line[];
 };
 
+/**
+ * Return data when calling Rectangle().drawInnerGrid()
+ * or Square().drawInnerGrid() method
+ */
 export type RECT_GRID_DATA = {
     cubicon: Rectangle | Square;
     horizontalLines: Line[];
