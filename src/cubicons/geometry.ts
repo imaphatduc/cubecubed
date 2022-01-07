@@ -7,10 +7,27 @@ import { rToD, xGtoW, yGtoW, xWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
 import { COLOR, PT_TO_SIDES_DATA, RECT_GRID_DATA } from "./constants";
 
+/**
+ * Configuration structure of basic shapes (Rectangle, Square and Circle).
+ *
+ * If this is not specified, then fall back to all of the default values.
+ */
 export interface SHAPE_CONFIG {
+    /**
+     * @default "none"
+     */
     fillColor?: string;
+    /**
+     * @default 1
+     */
     fillOpacity?: number;
+    /**
+     * @default "#fff"
+     */
     strokeColor?: string;
+    /**
+     * @default 2
+     */
     strokeWidth?: number;
 }
 export const SHAPE_DEFAULT_CONFIG = {
@@ -20,8 +37,19 @@ export const SHAPE_DEFAULT_CONFIG = {
     strokeWidth: 2,
 };
 
+/**
+ * Configuration structure of line-like shapes (Line and Vector).
+ *
+ * If this is not specified, then fall back to all of the default values.
+ */
 export interface LINE_CONFIG {
+    /**
+     * @default "#fff"
+     */
     lineColor?: string;
+    /**
+     * @default 2
+     */
     lineWidth?: number;
 }
 export const LINE_DEFAULT_CONFIG = {
@@ -69,24 +97,64 @@ export abstract class Geometry extends Cubicon {
     }
 }
 
-interface RECT_CONSTRUCT {
+/**
+ * Constructor structure of the rectangle shape.
+ */
+export interface RECT_CONSTRUCT {
+    /**
+     * The group that the rectangle belongs to.
+     */
     group: Group;
+    /**
+     * Position of the rectangle.
+     */
     position: Vector2;
+    /**
+     * Width of the rectangle.
+     */
     width: number;
+    /**
+     * Height of the rectangle.
+     */
     height: number;
+    /**
+     * Config options of the rectangle.
+     */
     CONFIG: SHAPE_CONFIG;
 }
+/**
+ * Return the barebone of a rectangle shape.
+ */
 export class Rectangle extends Geometry {
+    /**
+     * Geometry type of the rectangle.
+     */
     readonly geoType = "rectangle";
 
+    /**
+     * Width of the rectangle (in SVG-Cartesian coordinate system).
+     */
     private Wwidth: number;
+    /**
+     * Height of the rectangle (in SVG-Cartesian coordinate system).
+     */
     private Wheight: number;
+
     private readonly X: number;
     private readonly Y: number;
 
+    /**
+     * Width of the rectangle (in grid coordinate system).
+     */
     readonly width: number;
+    /**
+     * Height of the rectangle (in grid coordinate system).
+     */
     readonly height: number;
 
+    /**
+     * @param [] Options to form the rectangle.
+     */
     constructor({
         group,
         position,
@@ -126,10 +194,9 @@ export class Rectangle extends Geometry {
         this.add();
     }
 
-    ////////////////////////////////
-    // APPEND TAGS TO Group'S SVG //
-    ////////////////////////////////
-    /// this.stroke is equivalent to the d3's selection of its HTML (SVG) tag
+    /**
+     * Add the shape of this rectangle onto SVG.
+     */
     private add() {
         const path = this.draw();
         this.stroke = this.svgWrapper
@@ -145,9 +212,9 @@ export class Rectangle extends Geometry {
             .style("transform-origin", "center");
     }
 
-    ////////////////////////////////////////////////////////
-    // DRAW (NOT RENDER) A RECTANGULAR PATH ON THE WINDOW //
-    ////////////////////////////////////////////////////////
+    /**
+     * Draw (not render) a rectangular stroke path.
+     */
     private draw() {
         const rectPath = path();
         rectPath.moveTo(this.X, this.Y);
@@ -159,6 +226,19 @@ export class Rectangle extends Geometry {
         return rectPath;
     }
 
+    /**
+     * Add lines from the specified point to the rectangle's sides based on x and y directions.
+     *
+     * @param pos Position of the point.
+     *
+     * @param sidesIndex An array that includes two direction values.
+     * If positive (+), then the line moves right (or up), and left (or down) for negative (-).
+     *
+     * - *Example*: `pointToSides(new Vector2(0, 0), [-2, 5])` will draw two lines from point (0, 0) to the rectangle's sides by two directions:
+     *   negatively parallel to x axis (left) and positively parallel to y axis (up).
+     *
+     * @returns A complex data type to specify in PointToSides() animation.
+     */
     pointToSides(
         pos: Vector2[],
         sidesIndex: [number, number]
@@ -214,6 +294,11 @@ export class Rectangle extends Geometry {
         return linesData;
     }
 
+    /**
+     * Draw a grid inside the rectangle.
+     *
+     * @returns A complex data type to specify in DrawInnerGrid() animation.
+     */
     drawInnerGrid(): {
         cubicon: Geometry;
         horizontalLines: Line[];
@@ -264,13 +349,34 @@ export class Rectangle extends Geometry {
     }
 }
 
-interface SQR_CONSTRUCT {
+/**
+ * Constructor structure of the square shape.
+ */
+export interface SQR_CONSTRUCT {
+    /**
+     * The group that the square belongs to.
+     */
     group: Group;
+    /**
+     * Position of the square.
+     */
     position: Vector2;
+    /**
+     * Side length of the square.
+     */
     sideLength: number;
+    /**
+     * Config options of the square.
+     */
     CONFIG: SHAPE_CONFIG;
 }
+/**
+ * Return the barebone of a square shape.
+ */
 export class Square extends Rectangle {
+    /**
+     * @param [] An object that contains options to form the square.
+     */
     constructor({
         group,
         position,
@@ -287,18 +393,48 @@ export class Square extends Rectangle {
     }
 }
 
-interface CIRC_CONSTRUCT {
+/**
+ * Constructor structure of the circle shape.
+ */
+export interface CIRC_CONSTRUCT {
+    /**
+     * The group that the circle belongs to.
+     */
     group: Group;
+    /**
+     * Position of the circle.
+     */
     position: Vector2;
+    /**
+     * Radius of the rectangle.
+     */
     radius: number;
+    /**
+     * Config options of the circle.
+     */
     CONFIG: SHAPE_CONFIG;
 }
+/**
+ * Return the barebone of a circle shape.
+ */
 export class Circle extends Geometry {
+    /**
+     * Geometry type of the circle.
+     */
     readonly geoType = "circle";
 
+    /**
+     * Radius of the rectangle (in grid coordinate system).
+     */
     readonly radius: number;
+    /**
+     * Radius of the rectangle (in SVG-Cartesian coordinate system).
+     */
     private readonly Wradius: number;
 
+    /**
+     * @param - An object that contains options to form the circle.
+     */
     constructor({
         group,
         position,
@@ -330,6 +466,9 @@ export class Circle extends Geometry {
         this.draw();
     }
 
+    /**
+     * Draw (and render) the shape of this circle onto SVG.
+     */
     private draw() {
         this.stroke = this.svgWrapper
             .append("circle")
@@ -365,18 +504,45 @@ export class GridOrigin extends Circle {
     }
 }
 
-interface LINE_CONSTRUCT {
+/**
+ * Constructor structure of the line shape.
+ */
+export interface LINE_CONSTRUCT {
+    /**
+     * The group that the line belongs to.
+     */
     group: Group;
     parentGTag: any;
+    /**
+     * Start point (tail) of the line.
+     */
     startPoint: Vector2;
+    /**
+     * End point (head) of the line.
+     */
     endPoint: Vector2;
+    /**
+     * Config options of the line.
+     */
     CONFIG: LINE_CONFIG;
 }
+/**
+ * Return the barebone of a line shape.
+ */
 export class Line extends Geometry {
+    /**
+     * Geometry type of the line.
+     */
     readonly geoType = "line";
 
     /// These have to be public to use in Create animations
+    /**
+     * Start point (tail) of the line (in SVG-Cartesian coordinate system).
+     */
     readonly WstartPoint: Vector2;
+    /**
+     * End point (head) of the line (in SVG-Cartesian coordinate system).
+     */
     readonly WendPoint: Vector2;
 
     private readonly parentGTag: any;
@@ -414,6 +580,9 @@ export class Line extends Geometry {
         this.draw();
     }
 
+    /**
+     * Draw (and render) the shape of this line onto SVG.
+     */
     private draw() {
         this.lineStroke = (
             typeof this.parentGTag !== "undefined"
@@ -431,24 +600,63 @@ export class Line extends Geometry {
     }
 }
 
-interface VECT_CONSTRUCT {
+/**
+ * Constructor structure of the vector shape.
+ */
+export interface VECT_CONSTRUCT {
+    /**
+     * The group that the vector belongs to.
+     */
     group: Group;
+    /**
+     * Start point (tail) of the vector.
+     */
     startPoint: Vector2;
+    /**
+     * End point (head) of the vector.
+     */
     endPoint: Vector2;
+    /**
+     * Config options of the vector line.
+     */
     CONFIG: LINE_CONFIG;
 }
 export class Vector extends Geometry {
+    /**
+     * Geometry type of the vector.
+     */
     readonly geoType = "vector";
 
     /// These have to be public to use in Create animations
+    /**
+     * Start point (tail) of the vector (in SVG-Cartesian coordinate system).
+     */
     readonly WstartPoint: Vector2;
+    /**
+     * End point (head) of the vector (in SVG-Cartesian coordinate system).
+     */
     readonly WendPoint: Vector2;
 
+    /**
+     * Start point (tail) of the vector (in grid coordinate system).
+     */
     readonly startPoint: Vector2;
+    /**
+     * End point (head) of the vector (in grid coordinate system).
+     */
     readonly endPoint: Vector2;
 
+    /**
+     * Color of the vector line.
+     */
     lineColor: string;
+    /**
+     * Width of the vector line.
+     */
     lineWidth: number;
+    /**
+     * The smaller angle (in degree) between the vector and the x axis.
+     */
     theta: number;
 
     lineStroke: any;
