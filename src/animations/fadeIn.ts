@@ -32,8 +32,8 @@ export class FadeIn extends Animation {
     }
 
     private geometryFadeIn(sleepTime: number) {
-        this.cubicon.stroke.style("opacity", 0);
-        this.cubicon.stroke
+        this.cubicon.def_cubiconBase.style("opacity", 0);
+        this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(this.cubicon.elapsedTime + sleepTime)
@@ -47,8 +47,8 @@ export class FadeIn extends Animation {
     }
 
     private texFadeIn(sleepTime: number) {
-        this.cubicon.stroke.style("opacity", 0);
-        this.cubicon.stroke
+        this.cubicon.def_cubiconBase.style("opacity", 0);
+        this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(this.cubicon.elapsedTime + sleepTime)

@@ -82,14 +82,14 @@ export class Create extends Animation {
     }
 
     private shapeCreation(sleepTime: number) {
-        this.cubicon.stroke.style("fill-opacity", 0);
+        this.cubicon.def_cubiconBase.style("fill-opacity", 0);
 
-        const lineLen = this.cubicon.stroke.node().getTotalLength();
-        this.cubicon.stroke
+        const lineLen = this.cubicon.def_cubiconBase.node().getTotalLength();
+        this.cubicon.def_cubiconBase
             .attr("stroke-dasharray", lineLen + ", " + lineLen)
             .attr("stroke-dashoffset", lineLen);
 
-        this.cubicon.stroke
+        this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(this.cubicon.elapsedTime + sleepTime)
