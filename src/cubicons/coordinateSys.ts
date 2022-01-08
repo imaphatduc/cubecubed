@@ -221,9 +221,9 @@ export class Axes extends CoordinatesSystem {
                 // Add arrow marker to the axis
                 axis.append("defs")
                     .append("marker")
+                    .attr("id", `arrowhead-${options[i][0]}`)
                     .attr("markerWidth", 20)
                     .attr("markerHeight", 20)
-                    .attr("id", `arrowhead-${options[i][0]}`)
                     .attr(`ref${options[i][3]}`, axisStrokeWidth)
                     .attr(`ref${options[i][4]}`, halfArrowBase)
                     .append("path")
@@ -307,24 +307,16 @@ export class Axes extends CoordinatesSystem {
         const pathData = lineGenerator(points);
 
         const graphGroup = this.graphs.append("g").attr("class", "graph-group");
-        const path = graphGroup
-            .append("path")
-            .attr("class", "graph")
-            .style("fill", "none")
-            .style("stroke", color)
-            .style("stroke-width", 1.2)
-            .attr("d", pathData);
-        const projectorGroup = graphGroup
-            .append("g")
-            .attr("class", "projector-group");
 
         return new Graph({
             graphGroup: graphGroup,
-            projectorGroup: projectorGroup,
             axes: this,
-            path: path,
+            data: pathData,
             functionDef: func,
             xRange: xRange,
+            CONFIG: {
+                graphColor: color,
+            },
         });
     }
 
@@ -436,6 +428,11 @@ export class Graph extends CoordinatesSystem {
     axes: any;
 
     /**
+     *
+     */
+    graphData: any;
+
+    /**
      * x range of this graph.
      */
     xRange: [number, number];
@@ -445,23 +442,28 @@ export class Graph extends CoordinatesSystem {
      */
     functionDef: Function;
 
+    /**
+     * Color of this graph.
+     */
+    graphColor: any;
+    /**
+     * Width of this graph.
+     */
+    graphWidth: any;
+
     constructor(params: {
         /**
          * The `<svg/>` element of the graph wrapper.
          */
         graphGroup: any;
         /**
-         * The `<svg/>` element that contains two axis projectors' `<svg/>` (if Axes().pointToCoords(...) was called).
-         */
-        projectorGroup: any;
-        /**
          * The `</svg>` element that wraps the two axes' `</svg>`.
          */
         axes: Axes;
         /**
-         * The `</svg>` element that wraps this graph's `<svg/>` path.
+         * SVG path data of this graph.
          */
-        path: any;
+        data: any;
         /**
          * The function of this graph.
          */
@@ -470,18 +472,47 @@ export class Graph extends CoordinatesSystem {
          * x range of this graph.
          */
         xRange: [number, number];
+        /**
+         * Config options of this graph.
+         */
+        CONFIG?: {
+            graphColor?: string;
+            graphWidth?: number;
+        };
     }) {
         super({ group: params.axes.group, position: params.axes.position });
 
         this.graphGroup = params.graphGroup;
-        this.projectorGroup = params.projectorGroup;
         this.axes = params.axes;
 
-        this.stroke = params.path;
-
-        this.xRange = params.xRange;
+        this.graphData = params.data;
 
         this.functionDef = params.functionDef;
+        this.xRange = params.xRange;
+
+        ({
+            graphColor: this.graphColor = "#fff",
+            graphWidth: this.graphWidth = 1.5,
+        } = params.CONFIG ?? {
+            graphColor: "#fff",
+            graphWidth: 1.5,
+        });
+
+        this.draw();
+    }
+
+    private draw() {
+        this.stroke = this.graphGroup
+            .append("path")
+            .attr("class", "graph")
+            .attr("d", this.graphData)
+            .attr("fill", "none")
+            .attr("stroke", this.graphColor)
+            .attr("stroke-width", 1.2);
+
+        this.projectorGroup = this.graphGroup
+            .append("g")
+            .attr("class", "projector-group");
     }
 }
 
