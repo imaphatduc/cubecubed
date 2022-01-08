@@ -5,8 +5,8 @@ import {
     COLOR,
     Create,
     FadeIn,
-    PtAlongGraph,
-    PtToCoords,
+    PointAlongGraph,
+    PointToCoords,
     DrawAxes,
 } from "../src/index";
 
@@ -24,26 +24,27 @@ function graphingFunctions() {
         CONFIG: {
             xRange: [-4, 6],
             yRange: [-3, 3],
+            hasNums: true,
         },
     });
     gr.play([new DrawAxes(a)]);
 
     /// Plotting cosine graph
     const cos = a.graph({
-        func: (x) => Math.cos(x),
+        functionDef: (x) => Math.cos(x),
         color: COLOR.CYAN,
     });
     const tex = a.addGraphLabel(cos, "cos(x)");
     const pt = a.pointToCoords(cos, 2);
     gr.play([new Create({ cubicon: cos }), new FadeIn({ cubicon: tex })]);
     gr.play([
-        new PtToCoords({
+        new PointToCoords({
             point: pt,
             graph: cos,
         }),
     ]);
     gr.play([
-        new PtAlongGraph({
+        new PointAlongGraph({
             point: pt,
             graph: cos,
             xPos: -3,
@@ -52,13 +53,13 @@ function graphingFunctions() {
 
     /// Plotting natural logarithm graph
     const ln = a.graph({
-        func: (x) => Math.log(x),
+        functionDef: (x) => Math.log(x),
         color: COLOR.GREEN_1,
     });
     // a.addGraphLabel(ln, "ln(x)");
     gr.play([new Create({ cubicon: ln })]);
     gr.play([
-        new PtAlongGraph({
+        new PointAlongGraph({
             point: pt,
             graph: cos,
             xPos: 5,
@@ -67,7 +68,7 @@ function graphingFunctions() {
 
     /// Plotting cubic graph
     const cubic = a.graph({
-        func: (x) => x * x * x + 2 * x * x,
+        functionDef: (x) => x * x * x + 2 * x * x,
         color: COLOR.RED_2,
     });
     // a.addGraphLabel(cubic, "x^3 + 2x^2", 1.1);
