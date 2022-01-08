@@ -87,7 +87,7 @@ export abstract class Geometry extends Cubicon {
         position = new Vector2(0, 0),
     }: {
         group: Group;
-        position: Vector2;
+        position?: Vector2 | undefined;
     }) {
         super({ group: group, position: position });
 
@@ -97,31 +97,6 @@ export abstract class Geometry extends Cubicon {
     }
 }
 
-/**
- * Constructor structure of the rectangle shape.
- */
-export interface RECT_CONSTRUCT {
-    /**
-     * The group that the rectangle belongs to.
-     */
-    group: Group;
-    /**
-     * Position of the rectangle.
-     */
-    position: Vector2;
-    /**
-     * Width of the rectangle.
-     */
-    width: number;
-    /**
-     * Height of the rectangle.
-     */
-    height: number;
-    /**
-     * Config options of the rectangle.
-     */
-    CONFIG: SHAPE_CONFIG;
-}
 /**
  * Return the barebone of a rectangle shape.
  */
@@ -153,33 +128,44 @@ export class Rectangle extends Geometry {
     readonly height: number;
 
     /**
-     * @param [] Options to form the rectangle.
+     * @param params Options to form the rectangle.
      */
-    constructor({
-        group,
-        position,
-        width,
-        height,
-        CONFIG: {
-            fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
-            fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
-            strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
-            strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
-        } = SHAPE_DEFAULT_CONFIG,
-    }: RECT_CONSTRUCT) {
-        super({ group: group, position: position });
+    constructor(params: {
+        /**
+         * The group that the rectangle belongs to.
+         */
+        group: Group;
+        /**
+         * Position of the rectangle.
+         */
+        position?: Vector2 | undefined;
+        /**
+         * Width of the rectangle.
+         */
+        width: number;
+        /**
+         * Height of the rectangle.
+         */
+        height: number;
+        /**
+         * Config options of the rectangle.
+         */
+        CONFIG?: SHAPE_CONFIG | undefined;
+    }) {
+        super({ group: params.group, position: params.position });
 
-        this.width = width;
-        this.Wwidth = xGtoW(width);
+        this.width = params.width;
+        this.Wwidth = xGtoW(params.width);
 
-        this.height = height;
-        this.Wheight = xGtoW(height);
+        this.height = params.height;
+        this.Wheight = xGtoW(params.height);
 
-        this.fillColor = fillColor;
-        this.fillOpacity = fillOpacity;
-
-        this.strokeColor = strokeColor;
-        this.strokeWidth = strokeWidth;
+        ({
+            fillColor: this.fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
+            fillOpacity: this.fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
+            strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
+            strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
+        } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
 
         // These are the coordinate of the draw origin
         this.X = -this.Wwidth / 2 + this.Wposition.x;
@@ -350,70 +336,40 @@ export class Rectangle extends Geometry {
 }
 
 /**
- * Constructor structure of the square shape.
- */
-export interface SQR_CONSTRUCT {
-    /**
-     * The group that the square belongs to.
-     */
-    group: Group;
-    /**
-     * Position of the square.
-     */
-    position: Vector2;
-    /**
-     * Side length of the square.
-     */
-    sideLength: number;
-    /**
-     * Config options of the square.
-     */
-    CONFIG: SHAPE_CONFIG;
-}
-/**
  * Return the barebone of a square shape.
  */
 export class Square extends Rectangle {
     /**
-     * @param [] An object that contains options to form the square.
+     * @param params An object that contains options to form the square.
      */
-    constructor({
-        group,
-        position,
-        sideLength,
-        CONFIG = SHAPE_DEFAULT_CONFIG,
-    }: SQR_CONSTRUCT) {
+    constructor(params: {
+        /**
+         * The group that the square belongs to.
+         */
+        group: Group;
+        /**
+         * Position of the square.
+         */
+        position?: Vector2;
+        /**
+         * Side length of the square.
+         */
+        sideLength: number;
+        /**
+         * Config options of the square.
+         */
+        CONFIG?: SHAPE_CONFIG;
+    }) {
         super({
-            group: group,
-            position: position,
-            width: sideLength,
-            height: sideLength,
-            CONFIG: CONFIG,
+            group: params.group,
+            position: params.position,
+            width: params.sideLength,
+            height: params.sideLength,
+            CONFIG: params.CONFIG,
         });
     }
 }
 
-/**
- * Constructor structure of the circle shape.
- */
-export interface CIRC_CONSTRUCT {
-    /**
-     * The group that the circle belongs to.
-     */
-    group: Group;
-    /**
-     * Position of the circle.
-     */
-    position: Vector2;
-    /**
-     * Radius of the rectangle.
-     */
-    radius: number;
-    /**
-     * Config options of the circle.
-     */
-    CONFIG: SHAPE_CONFIG;
-}
 /**
  * Return the barebone of a circle shape.
  */
@@ -433,29 +389,37 @@ export class Circle extends Geometry {
     private readonly Wradius: number;
 
     /**
-     * @param - An object that contains options to form the circle.
+     * @param params An object that contains options to form the circle.
      */
-    constructor({
-        group,
-        position,
-        radius,
-        CONFIG: {
-            fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
-            fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
-            strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
-            strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
-        } = SHAPE_DEFAULT_CONFIG,
-    }: CIRC_CONSTRUCT) {
-        super({ group: group, position: position });
+    constructor(params: {
+        /**
+         * The group that the circle belongs to.
+         */
+        group: Group;
+        /**
+         * Position of the circle.
+         */
+        position?: Vector2;
+        /**
+         * Radius of the rectangle.
+         */
+        radius: number;
+        /**
+         * Config options of the circle.
+         */
+        CONFIG?: SHAPE_CONFIG;
+    }) {
+        super({ group: params.group, position: params.position });
 
-        this.radius = radius;
-        this.Wradius = xGtoW(radius);
+        this.radius = params.radius;
+        this.Wradius = xGtoW(params.radius);
 
-        this.strokeColor = strokeColor;
-        this.strokeWidth = strokeWidth;
-
-        this.fillColor = fillColor;
-        this.fillOpacity = fillOpacity;
+        ({
+            fillColor: this.fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
+            fillOpacity: this.fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
+            strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
+            strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
+        } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
 
         this.svgWrapper = this.svg
             .append("g")
@@ -490,42 +454,13 @@ export class GridOrigin extends Circle {
     constructor(group: Group) {
         super({
             group: group,
-            position: new Vector2(0, 0),
             radius: xWtoG(2.2),
-            CONFIG: {
-                fillColor: "",
-                fillOpacity: 0,
-                strokeColor: "#fff",
-                strokeWidth: 2,
-            },
         });
         this.svgWrapper.attr("id", "grid-origin-wrapper");
         this.stroke.attr("id", "grid-origin");
     }
 }
 
-/**
- * Constructor structure of the line shape.
- */
-export interface LINE_CONSTRUCT {
-    /**
-     * The group that the line belongs to.
-     */
-    group: Group;
-    parentGTag: any;
-    /**
-     * Start point (tail) of the line.
-     */
-    startPoint: Vector2;
-    /**
-     * End point (head) of the line.
-     */
-    endPoint: Vector2;
-    /**
-     * Config options of the line.
-     */
-    CONFIG: LINE_CONFIG;
-}
 /**
  * Return the barebone of a line shape.
  */
@@ -547,29 +482,46 @@ export class Line extends Geometry {
 
     private readonly parentGTag: any;
 
-    constructor({
-        group,
-        parentGTag,
-        startPoint = new Vector2(0, 0),
-        endPoint,
-        CONFIG: {
-            lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-        } = LINE_DEFAULT_CONFIG,
-    }: LINE_CONSTRUCT) {
-        super({ group: group, position: startPoint });
+    constructor(params: {
+        /**
+         * The group that the line belongs to.
+         */
+        group: Group;
+        parentGTag?: any;
+        /**
+         * Start point (tail) of the line.
+         */
+        startPoint?: Vector2;
+        /**
+         * End point (head) of the line.
+         */
+        endPoint: Vector2;
+        /**
+         * Config options of the line.
+         */
+        CONFIG?: LINE_CONFIG;
+    }) {
+        super({ group: params.group, position: params.startPoint });
 
-        this.parentGTag = parentGTag;
+        this.parentGTag = params.parentGTag;
 
-        this.WstartPoint = new Vector2(
-            xGtoW(startPoint.x),
-            yGtoW(startPoint.y)
+        this.WstartPoint =
+            typeof params.startPoint !== "undefined"
+                ? new Vector2(
+                      xGtoW(params.startPoint.x),
+                      yGtoW(params.startPoint.y)
+                  )
+                : new Vector2(0, 0);
+
+        this.WendPoint = new Vector2(
+            xGtoW(params.endPoint.x),
+            yGtoW(params.endPoint.y)
         );
 
-        this.WendPoint = new Vector2(xGtoW(endPoint.x), yGtoW(endPoint.y));
-
-        this.lineColor = lineColor;
-        this.lineWidth = lineWidth;
+        ({
+            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
+        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
 
         this.svgWrapper = this.svg
             .append("g")
@@ -603,24 +555,7 @@ export class Line extends Geometry {
 /**
  * Constructor structure of the vector shape.
  */
-export interface VECT_CONSTRUCT {
-    /**
-     * The group that the vector belongs to.
-     */
-    group: Group;
-    /**
-     * Start point (tail) of the vector.
-     */
-    startPoint: Vector2;
-    /**
-     * End point (head) of the vector.
-     */
-    endPoint: Vector2;
-    /**
-     * Config options of the vector line.
-     */
-    CONFIG: LINE_CONFIG;
-}
+export interface VECT_CONSTRUCT {}
 export class Vector extends Geometry {
     /**
      * Geometry type of the vector.
@@ -647,14 +582,6 @@ export class Vector extends Geometry {
     readonly endPoint: Vector2;
 
     /**
-     * Color of the vector line.
-     */
-    lineColor: string;
-    /**
-     * Width of the vector line.
-     */
-    lineWidth: number;
-    /**
      * The smaller angle (in degree) between the vector and the x axis.
      */
     theta: number;
@@ -662,35 +589,57 @@ export class Vector extends Geometry {
     lineStroke: any;
     arrowHead: any;
 
-    constructor({
-        group,
-        startPoint = new Vector2(0, 0),
-        endPoint,
-        CONFIG: {
-            lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-        } = LINE_DEFAULT_CONFIG,
-    }: VECT_CONSTRUCT) {
+    constructor(params: {
+        /**
+         * The group that the vector belongs to.
+         */
+        group: Group;
+        /**
+         * Start point (tail) of the vector.
+         */
+        startPoint?: Vector2;
+        /**
+         * End point (head) of the vector.
+         */
+        endPoint: Vector2;
+        /**
+         * Config options of the vector line.
+         */
+        CONFIG?: LINE_CONFIG;
+    }) {
         super({
-            group: group,
-            position: startPoint,
+            group: params.group,
+            position: params.startPoint,
         });
 
-        this.startPoint = startPoint;
-        this.WstartPoint = new Vector2(
-            xGtoW(startPoint.x),
-            yGtoW(startPoint.y)
+        [this.startPoint, this.WstartPoint] =
+            typeof params.startPoint !== "undefined"
+                ? [
+                      params.startPoint,
+                      new Vector2(
+                          xGtoW(params.startPoint.x),
+                          yGtoW(params.startPoint.y)
+                      ),
+                  ]
+                : [new Vector2(0, 0), new Vector2(0, 0)];
+
+        this.endPoint = params.endPoint;
+        this.WendPoint = new Vector2(
+            xGtoW(params.endPoint.x),
+            yGtoW(params.endPoint.y)
         );
 
-        this.endPoint = endPoint;
-        this.WendPoint = new Vector2(xGtoW(endPoint.x), yGtoW(endPoint.y));
-
-        this.lineColor = lineColor;
-        this.lineWidth = lineWidth;
+        ({
+            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
+        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
 
         // this.theta determines the angle between vector's arrow and its line.
         this.theta = rToD(
-            Math.atan2(endPoint.y - startPoint.y, endPoint.x - startPoint.x)
+            Math.atan2(
+                this.endPoint.y - this.startPoint.y,
+                this.endPoint.x - this.startPoint.x
+            )
         );
 
         this.svgWrapper = this.svg
