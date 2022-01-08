@@ -154,7 +154,7 @@ export class Axes extends CoordinateSystem {
      * Draw (and render) the axes onto SVG.
      */
     private draw() {
-        this.coordinate = this.svg
+        this.coordinate = this.svg_group
             .append("g")
             .attr("class", "xy-coordinate")
             .attr(
@@ -555,15 +555,16 @@ export class Label extends CoordinateSystem {
      * Draw (and render) the label onto SVG.
      */
     private draw() {
-        /// this.stroke is a d3 selection of HTML <text />
-        this.def_cubiconBase = this.svg
+        this.def_cubiconBase = this.svg_group
             .append("foreignObject")
             .attr("x", this.position.x)
-            /// When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
+            // When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
             .attr("y", -this.position.y)
             .attr("width", svgWidth)
             .attr("height", svgHeight)
-            .attr("transform", "scale(1, -1)")
+            .attr("transform", "scale(1, -1)");
+
+        this.def_cubiconBase
             .append("xhtml:text")
             .style("font-size", `${this.fontSize}pt`)
             .style("color", this.color);

@@ -6,7 +6,7 @@ import { Scene } from "./scene";
 
 export class Group {
     scene: Scene;
-    svg: any;
+    svg_group: any;
     name: string;
     cubicons: Cubicon[];
     animations: Animation[];
@@ -16,7 +16,7 @@ export class Group {
 
     constructor(groupName: string, scene: Scene) {
         this.scene = scene;
-        this.svg = !scene.svg.select(`#${groupName}`).empty()
+        this.svg_group = !scene.svg.select(`#${groupName}`).empty()
             ? scene.svg.select(`#${groupName}`)
             : scene.svg
                   .append("svg")
@@ -87,7 +87,7 @@ export class Group {
         if (cubicon.cubType === "geometry") {
             cubicon.group.play([new FadeOut({ cubicon: cubicon })]);
         }
-        cubicon.stroke
+        cubicon.def_cubiconBase
             .transition()
             .delay(cubicon.elapsedTime + this.groupElapsed)
             .duration(0)
@@ -95,7 +95,7 @@ export class Group {
     }
 
     destroy(delay: number) {
-        this.svg
+        this.svg_group
             .transition()
             .delay(this.groupElapsed + delay)
             .duration(500)

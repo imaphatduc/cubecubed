@@ -20,7 +20,7 @@ export class FadeOut extends Animation {
     }
 
     private fadeOut(cubicon: FADE_TYPES, sleepTime: number) {
-        cubicon.stroke
+        cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)

@@ -12,9 +12,9 @@ export abstract class Cubicon {
     moveVector: any;
     angle: any;
     moveAngle: any;
-    svg: any;
+    svg_group: any;
     elapsedTime: any;
-    stroke: any;
+    def_cubiconBase: any;
 
     constructor({
         group,
@@ -34,14 +34,14 @@ export abstract class Cubicon {
         this.angle = 0;
         this.moveAngle = 0;
 
-        this.svg = group.svg;
+        this.svg_group = group.svg_group;
 
         /// this.elapsedTime keeps track of the time passed by during the animations of this cubicon
         this.elapsedTime = 0;
 
         /// This is the main stroke (or shape) of the cubicon.
         /// Initially, we set it to nothing.
-        this.stroke = d3.select(null);
+        this.def_cubiconBase = d3.select(null);
 
         /// Add this to the target group
         this.group.add(this);

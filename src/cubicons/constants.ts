@@ -167,19 +167,19 @@ export const EASE = {
 /**
  * Classes which directly inherit from `Cubicon`
  */
-export type TYPES = CoordinatesSystem | Geometry | MathText;
+export type TYPES = CoordinateSystem | Geometry | MathText;
 
 /************************
  * 5.0. Animation types
  */
 import { Geometry, Rectangle, Square, Circle, Line, Vector } from "./geometry";
 import {
-    CoordinatesSystem,
+    CoordinateSystem,
     Graph,
     Label,
     Point,
     AxisProjector,
-} from "./coordinateSys";
+} from "./coordinateSystem";
 import { MathText } from "./text";
 
 /**

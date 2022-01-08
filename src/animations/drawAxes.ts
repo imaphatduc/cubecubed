@@ -1,6 +1,6 @@
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Axes } from "../cubicons/coordinateSys";
+import { Axes } from "../cubicons/coordinateSystem";
 import { Animation } from "./animation";
 
 export class DrawAxes extends Animation {

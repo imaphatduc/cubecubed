@@ -47,7 +47,7 @@ export class DrawGridFromOrigin extends Animation {
         hasNums: boolean,
         sleepTime: number
     ) {
-        const horizontalLines = grid.horizontal
+        const horizontalLines = grid.g_horizontal
             .append("g")
             .attr("id", "horizontal-lines");
         horizontalLines
@@ -78,7 +78,7 @@ export class DrawGridFromOrigin extends Animation {
 
         const offsetX = xNumWidth / 2;
 
-        const xAxisNumbers = grid.horizontal
+        const xAxisNumbers = grid.g_horizontal
             .append("g")
             .attr("id", "x-axis-numbers");
         xAxisNumbers
@@ -111,7 +111,7 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     private drawVerticalLines(grid: Grid, hasNums: boolean, sleepTime: number) {
-        const verticalLines = grid.vertical
+        const verticalLines = grid.g_vertical
             .append("g")
             .attr("id", "vertical-lines");
         verticalLines
@@ -142,7 +142,7 @@ export class DrawGridFromOrigin extends Animation {
 
         const offsetY = yNumHeight / 2;
 
-        const yAxisNumbers = grid.vertical
+        const yAxisNumbers = grid.g_vertical
             .append("g")
             .attr("id", "y-axis-numbers");
         yAxisNumbers
@@ -240,7 +240,7 @@ export class DrawGridFromScreenSides extends Animation {
         hasNums: boolean,
         sleepTime: number
     ) {
-        const horizontalLines = grid.horizontal
+        const horizontalLines = grid.g_horizontal
             .append("g")
             .attr("id", "horizontal-lines");
         horizontalLines
@@ -275,7 +275,7 @@ export class DrawGridFromScreenSides extends Animation {
 
         const offsetX = xNumWidth / 2;
 
-        const xAxisNumbers = grid.horizontal
+        const xAxisNumbers = grid.g_horizontal
             .append("g")
             .attr("id", "x-axis-numbers");
         xAxisNumbers
@@ -308,7 +308,7 @@ export class DrawGridFromScreenSides extends Animation {
     }
 
     private drawVerticalLines(grid: Grid, hasNums: boolean, sleepTime: number) {
-        const verticalLines = grid.vertical
+        const verticalLines = grid.g_vertical
             .append("g")
             .attr("id", "vertical-lines");
         verticalLines
@@ -349,7 +349,7 @@ export class DrawGridFromScreenSides extends Animation {
 
         const offsetY = yNumHeight / 2;
 
-        const yAxisNumbers = grid.vertical
+        const yAxisNumbers = grid.g_vertical
             .append("g")
             .attr("id", "y-axis-numbers");
         yAxisNumbers

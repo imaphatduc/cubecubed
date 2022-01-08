@@ -7,17 +7,47 @@ import { Group } from "../scene/group";
 export class Grid extends Geometry {
     readonly geoType = "grid";
 
+    /**
+     * Color of the grid origin.
+     */
     originColor: string;
+
+    /**
+     * Color of the x axis.
+     */
     xAxesColor: string;
+    /**
+     * Color of the y axis.
+     */
     yAxesColor: string;
+
+    /**
+     * Color of the grid lines.
+     */
     lineColor: string;
 
+    /**
+     * Array of integer x values.
+     */
     xs: number[];
+    /**
+     * Array of integer y values.
+     */
     ys: number[];
 
-    planeGrid: any;
-    horizontal: any;
-    vertical: any;
+    /**
+     * The `<g/>` tag that contains all horizontal and vertical lines.
+     */
+    private g_planeGrid: any;
+
+    /**
+     * The `<g/>` tag that contains all horizontal lines.
+     */
+    g_horizontal: any;
+    /**
+     * The `<g/>` tag that contains all vertical lines.
+     */
+    g_vertical: any;
 
     hasNums: boolean;
 
@@ -25,7 +55,13 @@ export class Grid extends Geometry {
         group,
         hasNums = false,
     }: {
+        /**
+         * The group that the grid belongs to.
+         */
         group: Group;
+        /**
+         * Whether or not to include numbers onto axes.
+         */
         hasNums?: boolean;
     }) {
         super({ group: group, position: new Vector2(0, 0) });
@@ -46,16 +82,19 @@ export class Grid extends Geometry {
             this.ys.push(i);
         }
 
-        this.svg = group.svg;
-        this.planeGrid = this.svg
-            .append("g")
-            .attr("id", "plane-grid")
-            .style("position", "absolute");
-        this.horizontal = this.planeGrid.append("g").attr("id", "horizontal");
-        this.vertical = this.planeGrid.append("g").attr("id", "vertical");
-
         this.elapsedTime = 0;
 
         this.hasNums = hasNums;
+
+        this.draw();
+    }
+
+    private draw() {
+        this.g_planeGrid = this.svg_group.append("g").attr("id", "plane-grid");
+
+        this.g_horizontal = this.g_planeGrid
+            .append("g")
+            .attr("id", "horizontal");
+        this.g_vertical = this.g_planeGrid.append("g").attr("id", "vertical");
     }
 }
