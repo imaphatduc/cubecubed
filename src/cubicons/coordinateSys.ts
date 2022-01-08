@@ -48,52 +48,93 @@ export abstract class CoordinatesSystem extends Cubicon {
         position = new Vector2(0, 0),
     }: {
         group: Group;
-        position: Vector2;
+        position?: Vector2 | undefined;
     }) {
         super({ group: group, position: position });
     }
 }
 
-interface AXES_CONSTRUCTOR {
-    group: Group;
-    position: Vector2;
-    CONFIG: AXES_CONFIG;
-}
+/**
+ * Return the axes in coordinate system.
+ */
 export class Axes extends CoordinatesSystem {
     readonly coordSysObjType = "axes";
 
+    /**
+     * Range of the x axis.
+     */
     xRange: [number, number];
+    /**
+     * Length of the x axis.
+     */
     xLength: number;
+    /**
+     * Range of the y axis.
+     */
     yRange: [number, number];
+    /**
+     * Length of the y axis.
+     */
     yLength: number;
+    /**
+     * Whether the axes include numbers
+     */
     hasNums: boolean;
+
+    /**
+     * The array functions that determine the shape of the graphs included in the coordinate system.
+     */
     func: Function[];
+
+    /**
+     * Scale function of the x axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
+     */
     xScale: ScaleLinear<number, number, never>;
+    /**
+     * Scale function of the y axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
+     */
     yScale: ScaleLinear<number, number, never>;
 
+    /**
+     * The `<svg/>` element that contains the whole coordinate system and everything included in it.
+     */
     coordinate: any;
+
+    /**
+     * The `<svg/>` element that contains the axes.
+     */
     axes: any;
+    /**
+     * The `<svg/>` element that contains the x axis.
+     */
     xAxis: any;
+    /**
+     * The `<svg/>` element that contains the y axis.
+     */
     yAxis: any;
+
+    /**
+     * The `<svg/>` element (inside .axes) that contains all the graphs inside a pair of axes.
+     */
     graphs: any;
 
-    constructor({
-        group,
-        position = new Vector2(0, 0),
-        CONFIG: {
-            xRange = DEFAULT_AXES_CONFIG.xRange,
-            xLength = DEFAULT_AXES_CONFIG.xLength,
-            yRange = DEFAULT_AXES_CONFIG.yRange,
-            yLength = DEFAULT_AXES_CONFIG.yLength,
-            hasNums = false,
-        } = DEFAULT_AXES_CONFIG,
-    }: AXES_CONSTRUCTOR) {
-        super({ group: group, position: position });
+    /**
+     * @param params Options to form the axes.
+     */
+    constructor(params: {
+        group: Group;
+        position?: Vector2;
+        CONFIG?: AXES_CONFIG;
+    }) {
+        super({ group: params.group, position: params.position });
 
-        this.xRange = xRange;
-        this.xLength = xLength;
-        this.yRange = yRange;
-        this.yLength = yLength;
+        ({
+            xRange: this.xRange = DEFAULT_AXES_CONFIG.xRange,
+            xLength: this.xLength = DEFAULT_AXES_CONFIG.xLength,
+            yRange: this.yRange = DEFAULT_AXES_CONFIG.yRange,
+            yLength: this.yLength = DEFAULT_AXES_CONFIG.yLength,
+            hasNums: this.hasNums = DEFAULT_AXES_CONFIG.hasNums,
+        } = params.CONFIG ?? DEFAULT_AXES_CONFIG);
 
         this.func = [];
 
@@ -110,11 +151,12 @@ export class Axes extends CoordinatesSystem {
                 this.yLength * this.yRange[1],
             ]);
 
-        this.hasNums = hasNums;
-
         this.draw();
     }
 
+    /**
+     * Draw (and render) the axes onto SVG.
+     */
     private draw() {
         this.coordinate = this.svg
             .append("g")
@@ -227,15 +269,31 @@ export class Axes extends CoordinatesSystem {
         this.graphs = this.coordinate.append("g").attr("class", "graphs");
     }
 
-    graph({
-        func,
-        xRange = this.xRange,
-        color = "#fff",
-    }: {
+    /**
+     * Graph a function onto the axes.
+     *
+     * @param params Options to form the graph.
+     *
+     * @returns A plotted graph.
+     */
+    graph(params: {
+        /**
+         * Function of the graph.
+         */
         func: Function;
-        xRange: [number, number];
-        color: string;
+        /**
+         * x range of the graph.
+         */
+        xRange?: [number, number];
+        /**
+         * Color of the graph.
+         */
+        color?: string;
     }) {
+        const func = params.func;
+        const xRange = params.xRange ?? this.xRange;
+        const color = params.color ?? "#fff";
+
         this.func.push(func);
 
         const xScale = scaleLinear()
@@ -281,6 +339,15 @@ export class Axes extends CoordinatesSystem {
         });
     }
 
+    /**
+     * Add label onto a graph.
+     *
+     * @param graph The graph to put the label on.
+     * @param text Content of the label.
+     * @param xPos x position of the label. Default is .xRange[1].
+     *
+     * @returns A label.
+     */
     addGraphLabel(graph: Graph, text: string, xPos = graph.xRange[1]) {
         return new Label({
             group: graph.axes.group,
@@ -292,6 +359,14 @@ export class Axes extends CoordinatesSystem {
         });
     }
 
+    /**
+     * Add a point at the specified x position on the graph.
+     *
+     * @param graph The graph to put the point on.
+     * @param xPos The x position of the point. Default is 1.
+     *
+     * @returns A complex data object that contains the point.
+     */
     pointOnGraph(graph: Graph, xPos = 1) {
         const pos = new Vector2(xPos, graph.func(xPos));
 
@@ -310,6 +385,14 @@ export class Axes extends CoordinatesSystem {
         return pointGraph;
     }
 
+    /**
+     * Add a point at the specified x position on the graph, along with two axis projectors of it.
+     *
+     * @param graph The graph to put the point on.
+     * @param xPos The x position of the point. Default is 1.
+     *
+     * @returns A complex data object that contains the point and an array of the two axis projectors.
+     */
     pointToCoords(graph: Graph, xPos = 1) {
         const pos = new Vector2(xPos, graph.func(xPos));
 
@@ -345,78 +428,112 @@ export class Axes extends CoordinatesSystem {
     }
 }
 
-interface GRAPH_CONSTRUCTOR {
-    graphGroup: any;
-    projectorGroup: any;
-    axes: Axes;
-    path: any;
-    func: Function;
-    xRange: [number, number];
-}
 export class Graph extends CoordinatesSystem {
     readonly coordSysObjType = "graph";
 
+    /**
+     * The `<svg/>` element of the graph wrapper.
+     */
     graphGroup: any;
+
+    /**
+     * The `<svg/>` element that contains two axis projectors' `<svg/>` (if Axes().pointToCoords(...) was called).
+     */
     projectorGroup: any;
+
+    /**
+     * The `</svg>` element that wraps the two axes' `</svg>`.
+     */
     axes: any;
+
+    /**
+     * x range of this graph.
+     */
     xRange: [number, number];
+
+    /**
+     * The function of this graph.
+     */
     func: Function;
 
-    constructor({
-        graphGroup,
-        projectorGroup,
-        axes,
-        path,
-        func,
-        xRange,
-    }: GRAPH_CONSTRUCTOR) {
-        super({ group: axes.group, position: axes.position });
+    constructor(params: {
+        /**
+         * The `<svg/>` element of the graph wrapper.
+         */
+        graphGroup: any;
+        /**
+         * The `<svg/>` element that contains two axis projectors' `<svg/>` (if Axes().pointToCoords(...) was called).
+         */
+        projectorGroup: any;
+        /**
+         * The `</svg>` element that wraps the two axes' `</svg>`.
+         */
+        axes: Axes;
+        /**
+         * The `</svg>` element that wraps this graph's `<svg/>` path.
+         */
+        path: any;
+        /**
+         * The function of this graph.
+         */
+        func: Function;
+        /**
+         * x range of this graph.
+         */
+        xRange: [number, number];
+    }) {
+        super({ group: params.axes.group, position: params.axes.position });
 
-        this.graphGroup = graphGroup;
-        this.projectorGroup = projectorGroup;
-        this.axes = axes;
+        this.graphGroup = params.graphGroup;
+        this.projectorGroup = params.projectorGroup;
+        this.axes = params.axes;
 
-        this.stroke = path;
+        this.stroke = params.path;
 
-        this.xRange = xRange;
+        this.xRange = params.xRange;
 
-        this.func = func;
+        this.func = params.func;
     }
 }
 
-interface LABEL_CONSTRUCTOR {
-    group: Group;
-    position: Vector2;
-    text: string;
-    color?: string;
-    fontSize?: number;
-}
 /// Defining Label class here is a bad practice,
 // but I don't know any better way to make graph coords and 2D space coords work together properly.
 // (Note the difference between Label's position property and MathText's one)
 export class Label extends CoordinatesSystem {
     readonly coordSysObjType = "label";
 
+    /**
+     * The content of this label.
+     */
     text: string;
+    /**
+     * The color of this label.
+     */
     color: string;
+    /**
+     * Font size of this label.
+     */
     fontSize: number;
 
-    constructor({
-        group,
-        position = new Vector2(0, 0),
-        text = "",
-        color = "#fff",
-        fontSize = 13,
-    }: LABEL_CONSTRUCTOR) {
-        super({ group: group, position: position });
+    constructor(params: {
+        group: Group;
+        position: Vector2;
+        text?: string;
+        color?: string;
+        fontSize?: number;
+    }) {
+        super({ group: params.group, position: params.position });
 
-        this.text = text;
-        this.color = color;
-        this.fontSize = fontSize;
+        this.text = params.text ?? "";
+        this.color = params.color ?? "#fff";
+        this.fontSize = params.fontSize ?? 13;
 
         this.draw();
     }
 
+    /**
+     * Draw (and render) the label onto SVG.
+     */
     private draw() {
         /// this.stroke is a d3 selection of HTML <text />
         this.stroke = this.svg
@@ -434,65 +551,83 @@ export class Label extends CoordinatesSystem {
     }
 }
 
-interface POINT_CONSTRUCTOR {
-    projectorGroup: any;
-    axes: Axes;
-    position: Vector2;
-    radius: number;
-    CONFIG: SHAPE_CONFIG;
-}
 export class Point extends CoordinatesSystem {
     readonly coordSysObjType = "point";
 
     private Wposition: Vector2;
     private Wradius: number;
 
+    /**
+     * The `<svg/>` element that contains two axis projectors' `<svg/>` (if Axes().pointToCoords(...) was called).
+     */
     projectorGroup: any;
+
+    /**
+     * The `</svg>` element that wraps the two axes' `</svg>`.
+     */
     axes: Axes;
+
+    /**
+     * Radius of this point.
+     */
     radius: number;
 
-    fillColor: string;
-    fillOpacity: number;
-    strokeColor: string;
-    strokeWidth: number;
+    fillColor: string | undefined;
+    fillOpacity: number | undefined;
+    strokeColor: string | undefined;
+    strokeWidth: number | undefined;
 
-    constructor({
-        projectorGroup,
-        axes,
-        position = new Vector2(0, 0),
-        radius,
-        CONFIG: {
-            fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
-            fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
-            strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
-            strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
-        } = SHAPE_DEFAULT_CONFIG,
-    }: POINT_CONSTRUCTOR) {
+    constructor(params: {
+        /**
+         * The `<svg/>` element that contains two axis projectors' `<svg/>` (if Axes().pointToCoords(...) was called).
+         */
+        projectorGroup: any;
+        /**
+         * The `</svg>` element that wraps the two axes' `</svg>`.
+         */
+        axes: Axes;
+        /**
+         * Position of the point.
+         */
+        position: Vector2;
+        /**
+         * Radius of the point.
+         */
+        radius: number;
+        /**
+         * Config options of the point.
+         */
+        CONFIG?: SHAPE_CONFIG;
+    }) {
         super({
-            group: axes.group,
-            position: position,
+            group: params.axes.group,
+            position: params.position,
         });
 
-        this.projectorGroup = projectorGroup;
-        this.axes = axes;
+        this.projectorGroup = params.projectorGroup;
+        this.axes = params.axes;
 
         this.Wposition = new Vector2(
-            axes.xScale(position.x),
-            axes.yScale(position.y)
+            params.axes.xScale(params.position.x),
+            params.axes.yScale(params.position.y)
         );
 
-        this.radius = radius;
-        this.Wradius = axes.xScale(radius);
+        this.radius = params.radius;
+        this.Wradius = params.axes.xScale(params.radius);
 
-        this.strokeColor = strokeColor;
-        this.strokeWidth = strokeWidth;
-
-        this.fillColor = fillColor;
-        this.fillOpacity = fillOpacity;
+        ({
+            fillColor: this.fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
+            fillOpacity: this.fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
+            strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
+            strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
+        } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
 
         this.draw();
     }
 
+    /**
+     * Draw (and render) the point onto SVG.
+     */
     private draw() {
         this.stroke = this.projectorGroup
             .append("circle")
@@ -510,61 +645,95 @@ export class Point extends CoordinatesSystem {
     }
 }
 
-interface PROJ_CONSTRUCTOR {
-    projectorGroup: any;
-    axes: Axes;
-    startPoint: Vector2;
-    endPoint: Vector2;
-    CONFIG: LINE_CONFIG;
-}
 export class AxisProjector extends CoordinatesSystem {
     readonly coordSysObjType = "axis-projector";
 
+    /**
+     * Start point (tail) of the projector (in SVG-Cartesian coordinate system).
+     */
     readonly WstartPoint: Vector2;
+    /**
+     * End point (head) of the projector (in SVG-Cartesian coordinate system).
+     */
     readonly WendPoint: Vector2;
 
-    projectorGroup: any;
-    axes: Axes;
+    /**
+     * Start point (tail) of the projector (in grid coordinate system).
+     */
     startPoint: Vector2;
+    /**
+     * End point (head) of the projector (in grid coordinate system).
+     */
     endPoint: Vector2;
 
-    lineColor: string;
-    lineWidth: number;
+    /**
+     * The `<svg/>` element that contains two axis projectors' `<svg/>` (if Axes().pointToCoords(...) was called).
+     */
+    projectorGroup: any;
+
+    /**
+     * The `</svg>` element that wraps the two axes' `</svg>`.
+     */
+    axes: Axes;
+
+    lineColor: string | undefined;
+    lineWidth: number | undefined;
+
+    /**
+     * The `<svg/>` element that represents this projector's path.
+     */
     lineStroke: any;
 
-    constructor({
-        projectorGroup,
-        axes,
-        startPoint = new Vector2(0, 0),
-        endPoint,
-        CONFIG: {
-            lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-        } = LINE_DEFAULT_CONFIG,
-    }: PROJ_CONSTRUCTOR) {
-        super({ group: axes.group, position: startPoint });
+    constructor(params: {
+        /**
+         * The `<svg/>` element that contains two axis projectors' `<svg/>` (if Axes().pointToCoords(...) was called).
+         */
+        projectorGroup: any;
+        /**
+         * The `</svg>` element that wraps the two axes' `</svg>`.
+         */
+        axes: Axes;
+        /**
+         * Start point of the projector.
+         */
+        startPoint: Vector2;
+        /**
+         * End point of the projector.
+         */
+        endPoint: Vector2;
+        /**
+         * Config options of the projector.
+         */
+        CONFIG?: LINE_CONFIG;
+    }) {
+        super({ group: params.axes.group, position: params.startPoint });
 
-        this.projectorGroup = projectorGroup;
-        this.axes = axes;
+        this.projectorGroup = params.projectorGroup;
+        this.axes = params.axes;
 
-        this.startPoint = startPoint;
+        this.startPoint = params.startPoint;
         this.WstartPoint = new Vector2(
-            axes.xScale(startPoint.x),
-            axes.yScale(startPoint.y)
+            params.axes.xScale(params.startPoint.x),
+            params.axes.yScale(params.startPoint.y)
         );
 
-        this.endPoint = endPoint;
+        this.endPoint = params.endPoint;
         this.WendPoint = new Vector2(
-            axes.xScale(endPoint.x),
-            axes.yScale(endPoint.y)
+            params.axes.xScale(params.endPoint.x),
+            params.axes.yScale(params.endPoint.y)
         );
 
-        this.lineColor = lineColor;
-        this.lineWidth = lineWidth;
+        ({
+            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
+        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
 
         this.draw();
     }
 
+    /**
+     * Draw (and render) the axis projectors onto SVG.
+     */
     private draw() {
         this.lineStroke = this.projectorGroup
             .append("line")
