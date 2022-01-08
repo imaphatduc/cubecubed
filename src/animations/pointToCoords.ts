@@ -1,10 +1,10 @@
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { Graph, AxisProjector, Point } from "../cubicons/coordinateSys";
+import { Graph, AxisProjector, Point } from "../cubicons/coordinateSystem";
 import { PT_TO_COORDS_DATA } from "../cubicons/constants";
 import { Animation } from "./animation";
 import { Create } from "./create";
 
-export class PtToCoords extends Animation {
+export class PointToCoords extends Animation {
     lines: [AxisProjector, AxisProjector];
     graph: Graph;
 

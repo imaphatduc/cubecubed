@@ -1,10 +1,10 @@
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { Animation } from "./animation";
-import { Graph, AxisProjector } from "../cubicons/coordinateSys";
+import { Graph, AxisProjector } from "../cubicons/coordinateSystem";
 import { PT_TO_COORDS_DATA } from "../cubicons/constants";
 import { Cubicon } from "../cubicons/cubicon";
 
-export class PtAlongGraph extends Animation {
+export class PointAlongGraph extends Animation {
     lines: [AxisProjector, AxisProjector];
     graph: Graph;
     xPos: number;
@@ -55,7 +55,7 @@ export class PtAlongGraph extends Animation {
         xPos: number,
         sleepTime: number
     ) {
-        point.stroke
+        point.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(point.elapsedTime + sleepTime)
@@ -70,13 +70,13 @@ export class PtAlongGraph extends Animation {
                 return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.position.x)
+                        graph.functionDef(t * deltaX + point.position.x)
                     );
                 };
             })
             .on("end", () => {
                 point.position.x = xPos;
-                point.position.y = graph.func(xPos);
+                point.position.y = graph.functionDef(xPos);
             });
 
         point.elapsedTime += this.duration + sleepTime;
@@ -104,7 +104,7 @@ export class PtAlongGraph extends Animation {
                 return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.position.x)
+                        graph.functionDef(t * deltaX + point.position.x)
                     );
                 };
             })
@@ -112,13 +112,13 @@ export class PtAlongGraph extends Animation {
                 return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.position.x)
+                        graph.functionDef(t * deltaX + point.position.x)
                     );
                 };
             })
             .on("end", () => {
                 line.startPoint.x = graph.axes.xScale(xPos);
-                line.startPoint.y = graph.axes.yScale(graph.func(xPos));
+                line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
             });
 
         line.elapsedTime += this.duration + sleepTime;
@@ -146,7 +146,7 @@ export class PtAlongGraph extends Animation {
                 return (t: number) => {
                     const deltaX = xPos - point.position.x;
                     return graph.axes.yScale(
-                        graph.func(t * deltaX + point.position.x)
+                        graph.functionDef(t * deltaX + point.position.x)
                     );
                 };
             })
@@ -158,7 +158,7 @@ export class PtAlongGraph extends Animation {
             })
             .on("end", () => {
                 line.startPoint.x = graph.axes.xScale(xPos);
-                line.startPoint.y = graph.axes.yScale(graph.func(xPos));
+                line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
             });
 
         line.elapsedTime += this.duration + sleepTime;

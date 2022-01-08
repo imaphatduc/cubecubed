@@ -37,7 +37,7 @@ const DEFAULT_AXES_CONFIG: AXES_CONFIG = {
     hasNums: false,
 };
 
-export abstract class CoordinatesSystem extends Cubicon {
+export abstract class CoordinateSystem extends Cubicon {
     readonly cubType = "coordinate-system";
     abstract readonly coordSysObjType: string;
 
@@ -65,7 +65,7 @@ export abstract class CoordinatesSystem extends Cubicon {
 /**
  * Return the axes in coordinate system.
  */
-export class Axes extends CoordinatesSystem {
+export class Axes extends CoordinateSystem {
     readonly coordSysObjType = "axes";
 
     /**
@@ -409,7 +409,7 @@ export class Axes extends CoordinatesSystem {
     }
 }
 
-export class Graph extends CoordinatesSystem {
+export class Graph extends CoordinateSystem {
     readonly coordSysObjType = "graph";
 
     /**
@@ -502,7 +502,7 @@ export class Graph extends CoordinatesSystem {
     }
 
     private draw() {
-        this.stroke = this.graphGroup
+        this.def_cubiconBase = this.graphGroup
             .append("path")
             .attr("class", "graph")
             .attr("d", this.graphData)
@@ -519,7 +519,7 @@ export class Graph extends CoordinatesSystem {
 /// Defining Label class here is a bad practice,
 // but I don't know any better way to make graph coords and 2D space coords work together properly.
 // (Note the difference between Label's position property and MathText's one)
-export class Label extends CoordinatesSystem {
+export class Label extends CoordinateSystem {
     readonly coordSysObjType = "label";
 
     /**
@@ -556,7 +556,7 @@ export class Label extends CoordinatesSystem {
      */
     private draw() {
         /// this.stroke is a d3 selection of HTML <text />
-        this.stroke = this.svg
+        this.def_cubiconBase = this.svg
             .append("foreignObject")
             .attr("x", this.position.x)
             /// When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
@@ -567,11 +567,11 @@ export class Label extends CoordinatesSystem {
             .append("xhtml:text")
             .style("font-size", `${this.fontSize}pt`)
             .style("color", this.color);
-        this.stroke.node().innerHTML = katex.renderToString(this.text);
+        this.def_cubiconBase.node().innerHTML = katex.renderToString(this.text);
     }
 }
 
-export class Point extends CoordinatesSystem {
+export class Point extends CoordinateSystem {
     readonly coordSysObjType = "point";
 
     private Wposition: Vector2;
@@ -649,7 +649,7 @@ export class Point extends CoordinatesSystem {
      * Draw (and render) the point onto SVG.
      */
     private draw() {
-        this.stroke = this.projectorGroup
+        this.def_cubiconBase = this.projectorGroup
             .append("circle")
             .attr("class", "point")
             .attr("cx", this.Wposition.x)
@@ -659,13 +659,13 @@ export class Point extends CoordinatesSystem {
             .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
             .attr("stroke-width", this.strokeWidth);
-        this.stroke
+        this.def_cubiconBase
             .style("transform-box", "fill-box")
             .style("transform-origin", "center");
     }
 }
 
-export class AxisProjector extends CoordinatesSystem {
+export class AxisProjector extends CoordinateSystem {
     readonly coordSysObjType = "axis-projector";
 
     /**
