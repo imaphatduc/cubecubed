@@ -226,11 +226,13 @@ export class Rectangle extends Geometry {
         direction: [number, number]
     ): PT_TO_SIDES_DATA {
         // Create a <g/> element to hold the result lines.
-        const g = this.svgWrapper.append("g");
-        g.attr("class", "lines-to-side").attr(
-            "transform",
-            `translate(${this.Wposition.x}, ${this.Wposition.y})`
-        );
+        const parentGroupTag = this.svgWrapper.append("g");
+        parentGroupTag
+            .attr("class", "lines-to-side")
+            .attr(
+                "transform",
+                `translate(${this.Wposition.x}, ${this.Wposition.y})`
+            );
 
         const horizontalLines: Line[] = [];
         const verticalLines: Line[] = [];
@@ -240,7 +242,6 @@ export class Rectangle extends Geometry {
             horizontalLines.push(
                 new Line({
                     group: this.group,
-                    parentGTag: g,
                     startPoint: new Vector2(
                         p.x +
                             (p.x >= endPoint_x ? 1 : -1) *
@@ -252,12 +253,11 @@ export class Rectangle extends Geometry {
                         lineColor: this.strokeColor,
                         lineWidth: this.strokeWidth,
                     },
-                })
+                }).setParentHTMLTag(parentGroupTag)
             );
             verticalLines.push(
                 new Line({
                     group: this.group,
-                    parentGTag: g,
                     startPoint: p,
                     endPoint: new Vector2(
                         p.x,
@@ -267,7 +267,7 @@ export class Rectangle extends Geometry {
                         lineColor: this.strokeColor,
                         lineWidth: this.strokeWidth,
                     },
-                })
+                }).setParentHTMLTag(parentGroupTag)
             );
         });
 
@@ -285,11 +285,13 @@ export class Rectangle extends Geometry {
      */
     drawInnerGrid(): RECT_GRID_DATA {
         // Create a <g/> element to hold the result grid.
-        const g = this.svgWrapper.append("g");
-        g.attr("class", "rect-inner-grid").attr(
-            "transform",
-            `translate(${this.Wposition.x}, ${this.Wposition.y})`
-        );
+        const parentGroupTag = this.svgWrapper.append("g");
+        parentGroupTag
+            .attr("class", "rect-inner-grid")
+            .attr(
+                "transform",
+                `translate(${this.Wposition.x}, ${this.Wposition.y})`
+            );
 
         const horizontalLines: Line[] = [];
         const verticalLines: Line[] = [];
@@ -298,28 +300,26 @@ export class Rectangle extends Geometry {
             verticalLines.push(
                 new Line({
                     group: this.group,
-                    parentGTag: g,
                     startPoint: new Vector2(i, -this.height / 2),
                     endPoint: new Vector2(i, this.height / 2),
                     CONFIG: {
                         lineColor: COLOR.BLUE_1,
                         lineWidth: 1,
                     },
-                })
+                }).setParentHTMLTag(parentGroupTag)
             );
         }
         for (let i of range(-this.height / 2 + 1, this.height / 2, 1)) {
             horizontalLines.push(
                 new Line({
                     group: this.group,
-                    parentGTag: g,
                     startPoint: new Vector2(-this.width / 2, i),
                     endPoint: new Vector2(this.width / 2, i),
                     CONFIG: {
                         lineColor: COLOR.BLUE_1,
                         lineWidth: 1,
                     },
-                })
+                }).setParentHTMLTag(parentGroupTag)
             );
         }
 
@@ -479,14 +479,13 @@ export class Line extends Geometry {
      */
     readonly WendPoint: Vector2;
 
-    private readonly parentGTag: any;
+    private parentGroupTag = this.svg;
 
     constructor(params: {
         /**
          * The group that the line belongs to.
          */
         group: Group;
-        parentGTag?: any;
         /**
          * Start point (tail) of the line.
          */
@@ -501,8 +500,6 @@ export class Line extends Geometry {
         CONFIG?: LINE_CONFIG;
     }) {
         super({ group: params.group, position: params.startPoint });
-
-        this.parentGTag = params.parentGTag;
 
         this.WstartPoint =
             typeof params.startPoint !== "undefined"
@@ -529,17 +526,13 @@ export class Line extends Geometry {
      * Draw (and render) the shape of this line onto SVG.
      */
     private draw() {
-        this.svgWrapper = this.svg
+        this.svgWrapper = this.parentGroupTag
             .append("g")
             .attr("class", `line-wrapper`)
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
-        this.lineStroke = (
-            typeof this.parentGTag !== "undefined"
-                ? this.parentGTag
-                : this.svgWrapper
-        )
+        this.lineStroke = this.svgWrapper
             .append("line")
             .attr("class", "line")
             .attr("x1", this.WstartPoint.x)
@@ -548,6 +541,14 @@ export class Line extends Geometry {
             .attr("y2", this.WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
+    }
+
+    setParentHTMLTag(parentGroupTag: any) {
+        this.svgWrapper.remove();
+        this.parentGroupTag = parentGroupTag;
+        this.draw();
+
+        return this;
     }
 }
 
