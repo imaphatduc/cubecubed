@@ -41,6 +41,14 @@ export abstract class CoordinatesSystem extends Cubicon {
     readonly cubType = "coordinate-system";
     abstract readonly coordSysObjType: string;
 
+    /**
+     * The `<svg/>` element that contains the whole coordinate system and everything included in it.
+     */
+    coordinate: any;
+
+    /**
+     * The `<svg/>` element that contains the Axes.
+     */
     svgWrapper: any;
 
     constructor({
@@ -82,11 +90,6 @@ export class Axes extends CoordinatesSystem {
     hasNums: boolean;
 
     /**
-     * The array functions that determine the shape of the graphs included in the coordinate system.
-     */
-    func: Function[];
-
-    /**
      * Scale function of the x axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
      */
     xScale: ScaleLinear<number, number, never>;
@@ -94,11 +97,6 @@ export class Axes extends CoordinatesSystem {
      * Scale function of the y axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
      */
     yScale: ScaleLinear<number, number, never>;
-
-    /**
-     * The `<svg/>` element that contains the whole coordinate system and everything included in it.
-     */
-    coordinate: any;
 
     /**
      * The `<svg/>` element that contains the axes.
@@ -136,8 +134,6 @@ export class Axes extends CoordinatesSystem {
             hasNums: this.hasNums = DEFAULT_AXES_CONFIG.hasNums,
         } = params.CONFIG ?? DEFAULT_AXES_CONFIG);
 
-        this.func = [];
-
         this.xScale = scaleLinear()
             .domain(this.xRange)
             .range([
@@ -167,10 +163,7 @@ export class Axes extends CoordinatesSystem {
             );
         this.axes = this.coordinate.append("g").attr("class", "axes");
 
-        const halfArrowBase = 7;
-        const axisStrokeWidth = 1;
-        const tickOffset = 5;
-
+        // x axis data
         let xAxis = axisBottom(this.xScale)
             .tickValues(
                 range(this.xRange[0], this.xRange[1] + 1, 1).filter(
@@ -178,42 +171,9 @@ export class Axes extends CoordinatesSystem {
                 )
             )
             .tickSizeOuter(0);
-        this.xAxis = this.axes
-            .append("g")
-            .attr("transform", "scale(1, -1)")
-            .style("font-size", "inherit")
-            .style("color", "#fff")
-            .style("stroke", "none")
-            .call(xAxis);
-        this.xAxis.select("path.domain").attr("transform", "scale(1.05)");
-        this.xAxis
-            .append("defs")
-            .append("marker")
-            .attr("id", "arrowhead-x")
-            .attr("refX", axisStrokeWidth)
-            .attr("refY", halfArrowBase)
-            .attr("markerWidth", 20)
-            .attr("markerHeight", 20)
-            .append("path")
-            .attr(
-                "d",
-                `M 0,0 L ${halfArrowBase * 2},${halfArrowBase} L 0,${
-                    halfArrowBase * 2
-                } z`
-            )
-            .attr("stroke", "none")
-            .attr("stroke-width", axisStrokeWidth)
-            .attr("fill", "#fff");
-        this.xAxis
-            .select("path.domain")
-            .attr("marker-end", "url(#arrowhead-x)");
+        this.xAxis = this.axes.append("g").call(xAxis);
 
-        this.xAxis.selectAll(".tick text").style("font-family", "KaTeX_Main");
-        this.xAxis
-            .selectAll(".tick line")
-            .attr("y1", -tickOffset)
-            .attr("y2", tickOffset);
-
+        // y axis data
         let yAxis = axisRight(this.yScale)
             .tickValues(
                 range(this.yRange[0], this.yRange[1] + 1, 1).filter(
@@ -222,45 +182,76 @@ export class Axes extends CoordinatesSystem {
             )
             .tickFormat(format("0"))
             .tickSizeOuter(0);
+        this.yAxis = this.axes.append("g").call(yAxis);
 
-        this.yAxis = this.axes
-            .append("g")
-            .style("font-size", "inherit")
-            .style("color", "#fff")
-            .style("stroke", "none")
-            .call(yAxis);
-        this.yAxis.select("path.domain").attr("transform", "scale(1.05)");
-        this.yAxis
-            .append("defs")
-            .append("marker")
-            .attr("id", "arrowhead-y")
-            .attr("refX", halfArrowBase)
-            .attr("refY", axisStrokeWidth)
-            .attr("markerWidth", 20)
-            .attr("markerHeight", 20)
-            .append("path")
-            .attr(
-                "d",
-                `M 0,0 L ${halfArrowBase * 2},0 L ${halfArrowBase},${
-                    halfArrowBase * 2
-                } z`
-            )
-            .attr("stroke", "none")
-            .attr("stroke-width", axisStrokeWidth)
-            .attr("fill", "#fff");
-        this.yAxis
-            .select("path.domain")
-            .attr("marker-end", "url(#arrowhead-y)");
+        function applySettings(axes: any[]) {
+            const halfArrowBase = 7;
+            const axisStrokeWidth = 1;
+            const tickOffset = 5;
 
-        this.yAxis
-            .selectAll(".tick text")
-            .attr("transform", "scale(1, -1)")
-            .style("font-family", "KaTeX_Main");
-        this.yAxis
-            .selectAll(".tick line")
-            .attr("x1", -tickOffset)
-            .attr("x2", tickOffset);
+            const options = [
+                [
+                    "x", // this axis label
+                    "y", // the other axis label
+                    `M 0,0 L ${halfArrowBase * 2},${halfArrowBase} L 0,${
+                        halfArrowBase * 2
+                    } z`,
+                    "X",
+                    "Y",
+                ],
+                [
+                    "y", // this axis label
+                    "x", // the other axis label
+                    `M 0,0 L ${halfArrowBase * 2},0 L ${halfArrowBase},${
+                        halfArrowBase * 2
+                    } z`,
+                    "Y",
+                    "X",
+                ],
+            ];
 
+            return axes.forEach((axis, i) => {
+                // Basic stylings for the axis
+                axis.style("font-size", "inherit")
+                    .style("color", "#fff")
+                    .style("stroke", "none");
+
+                axis.select("path.domain").attr("transform", "scale(1.05)");
+
+                // Add arrow marker to the axis
+                axis.append("defs")
+                    .append("marker")
+                    .attr("markerWidth", 20)
+                    .attr("markerHeight", 20)
+                    .attr("id", `arrowhead-${options[i][0]}`)
+                    .attr(`ref${options[i][3]}`, axisStrokeWidth)
+                    .attr(`ref${options[i][4]}`, halfArrowBase)
+                    .append("path")
+                    .attr("d", options[i][2])
+                    .attr("stroke", "none")
+                    .attr("stroke-width", axisStrokeWidth)
+                    .attr("fill", "#fff");
+
+                axis.select("path.domain").attr(
+                    "marker-end",
+                    `url(#arrowhead-${options[i][0]})`
+                );
+
+                // Basic stylings for the numbers
+                axis.selectAll(".tick text")
+                    .attr("transform", "scale(1, -1)")
+                    .style("font-family", "KaTeX_Main");
+
+                // Define tick lines' appearance
+                axis.selectAll(".tick line")
+                    .attr(`${options[i][1]}1`, -tickOffset)
+                    .attr(`${options[i][1]}2`, tickOffset);
+            });
+        }
+
+        applySettings([this.xAxis, this.yAxis]);
+
+        // Remove numbers on axes if hasNums is false
         if (!this.hasNums) {
             this.xAxis.selectAll(".tick text").remove();
             this.yAxis.selectAll(".tick text").remove();
@@ -280,7 +271,7 @@ export class Axes extends CoordinatesSystem {
         /**
          * Function of the graph.
          */
-        func: Function;
+        functionDef: Function;
         /**
          * x range of the graph.
          */
@@ -290,11 +281,9 @@ export class Axes extends CoordinatesSystem {
          */
         color?: string;
     }) {
-        const func = params.func;
+        const func = params.functionDef;
         const xRange = params.xRange ?? this.xRange;
         const color = params.color ?? "#fff";
-
-        this.func.push(func);
 
         const xScale = scaleLinear()
             .domain(xRange)
@@ -334,7 +323,7 @@ export class Axes extends CoordinatesSystem {
             projectorGroup: projectorGroup,
             axes: this,
             path: path,
-            func: func,
+            functionDef: func,
             xRange: xRange,
         });
     }
@@ -353,7 +342,7 @@ export class Axes extends CoordinatesSystem {
             group: graph.axes.group,
             position: new Vector2(
                 this.xScale(xPos),
-                this.yScale(graph.func(xPos))
+                this.yScale(graph.functionDef(xPos))
             ),
             text: text,
         });
@@ -368,7 +357,7 @@ export class Axes extends CoordinatesSystem {
      * @returns A complex data object that contains the point.
      */
     pointOnGraph(graph: Graph, xPos = 1) {
-        const pos = new Vector2(xPos, graph.func(xPos));
+        const pos = new Vector2(xPos, graph.functionDef(xPos));
 
         const point = new Point({
             projectorGroup: graph.projectorGroup,
@@ -394,7 +383,7 @@ export class Axes extends CoordinatesSystem {
      * @returns A complex data object that contains the point and an array of the two axis projectors.
      */
     pointToCoords(graph: Graph, xPos = 1) {
-        const pos = new Vector2(xPos, graph.func(xPos));
+        const pos = new Vector2(xPos, graph.functionDef(xPos));
 
         let horizontalLine = new AxisProjector({
             projectorGroup: graph.projectorGroup,
@@ -454,7 +443,7 @@ export class Graph extends CoordinatesSystem {
     /**
      * The function of this graph.
      */
-    func: Function;
+    functionDef: Function;
 
     constructor(params: {
         /**
@@ -476,7 +465,7 @@ export class Graph extends CoordinatesSystem {
         /**
          * The function of this graph.
          */
-        func: Function;
+        functionDef: Function;
         /**
          * x range of this graph.
          */
@@ -492,7 +481,7 @@ export class Graph extends CoordinatesSystem {
 
         this.xRange = params.xRange;
 
-        this.func = params.func;
+        this.functionDef = params.functionDef;
     }
 }
 
