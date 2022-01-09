@@ -5,16 +5,44 @@ import { Group } from "../scene/group";
 export abstract class Cubicon {
     abstract readonly cubType: string;
 
-    // General fields for cubicon (Cubicon)
+    /// General fields for cubicon (Cubicon)
+    /**
+     * The group that this cubicon belongs to.
+     */
     group: Group;
+    /**
+     * Position of this cubicon.
+     * This property changed after finishing animations (in real time).
+     */
     position: Vector2;
-
-    moveVector: any;
+    /**
+     * The angle between this cubicon and the x axis.
+     * This property changed after finishing animations (in real time).
+     */
     angle: any;
+
+    /**
+     * The sum vector of all translate vectors (if invoking translate animation).
+     */
+    moveVector: any;
+    /**
+     * The sum of all rotate angles (if invoking rotate animation).
+     */
     moveAngle: any;
+
+    /**
+     * The `<svg/>` tag of this cubicon's group.
+     */
     svg_group: any;
-    elapsedTime: any;
+    /**
+     * The HTML tag that represents this cubicon.
+     */
     def_cubiconBase: any;
+
+    /**
+     * Total time of all called animations (in milliseconds).
+     */
+    elapsedTime: any;
 
     constructor({
         group,
