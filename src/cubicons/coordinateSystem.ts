@@ -260,6 +260,10 @@ export class Axes extends CoordinateSystem {
         this.graphs = this.coordinate.append("g").attr("class", "graphs");
     }
 
+    coordsGtoW(point: Vector2) {
+        return new Vector2(this.xScale(point.x), this.yScale(point.y));
+    }
+
     /**
      * Graph a function onto the axes.
      *
@@ -670,15 +674,6 @@ export class AxisProjector extends CoordinateSystem {
     readonly coordSysObjType = "axis-projector";
 
     /**
-     * Start point (tail) of the projector (in SVG-Cartesian coordinate system).
-     */
-    readonly WstartPoint: Vector2;
-    /**
-     * End point (head) of the projector (in SVG-Cartesian coordinate system).
-     */
-    readonly WendPoint: Vector2;
-
-    /**
      * Start point (tail) of the projector (in grid coordinate system).
      */
     startPoint: Vector2;
@@ -733,16 +728,8 @@ export class AxisProjector extends CoordinateSystem {
         this.axes = params.axes;
 
         this.startPoint = params.startPoint;
-        this.WstartPoint = new Vector2(
-            params.axes.xScale(params.startPoint.x),
-            params.axes.yScale(params.startPoint.y)
-        );
 
         this.endPoint = params.endPoint;
-        this.WendPoint = new Vector2(
-            params.axes.xScale(params.endPoint.x),
-            params.axes.yScale(params.endPoint.y)
-        );
 
         ({
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
@@ -756,14 +743,21 @@ export class AxisProjector extends CoordinateSystem {
      * Draw (and render) the axis projectors onto SVG.
      */
     private draw() {
+        const WstartPoint = this.axes.coordsGtoW(this.startPoint);
+        const WendPoint = this.axes.coordsGtoW(this.endPoint);
+
         this.lineStroke = this.projectorGroup
             .append("line")
             .attr("class", "project-line")
-            .attr("x1", this.WstartPoint.x)
-            .attr("y1", this.WstartPoint.y)
-            .attr("x2", this.WendPoint.x)
-            .attr("y2", this.WendPoint.y)
+            .attr("x1", WstartPoint.x)
+            .attr("y1", WstartPoint.y)
+            .attr("x2", WendPoint.x)
+            .attr("y2", WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
+    }
+
+    getWpoint(point: Vector2) {
+        return this.axes.coordsGtoW(point);
     }
 }

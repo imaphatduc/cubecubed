@@ -92,6 +92,10 @@ export abstract class Geometry extends Cubicon {
 
         this.Wposition = new Vector2(xGtoW(position.x), yGtoW(position.y));
     }
+
+    coordsGtoW(point: Vector2) {
+        return new Vector2(xGtoW(point.x), yGtoW(point.y));
+    }
 }
 
 /**
@@ -104,20 +108,13 @@ export class Rectangle extends Geometry {
     readonly geoType = "rectangle";
 
     /**
-     * Width of the rectangle (in SVG-Cartesian coordinate system).
-     */
-    private Wwidth: number;
-    /**
-     * Height of the rectangle (in SVG-Cartesian coordinate system).
-     */
-    private Wheight: number;
-
-    /**
      * Width of the rectangle (in grid coordinate system).
      */
     readonly width: number;
     /**
      * Height of the rectangle (in grid coordinate system).
+     *
+     * @internal
      */
     readonly height: number;
 
@@ -149,10 +146,8 @@ export class Rectangle extends Geometry {
         super({ group: params.group, position: params.position });
 
         this.width = params.width;
-        this.Wwidth = xGtoW(params.width);
 
         this.height = params.height;
-        this.Wheight = xGtoW(params.height);
 
         ({
             fillColor: this.fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
@@ -194,15 +189,18 @@ export class Rectangle extends Geometry {
      * Draw (not render) a rectangular stroke path.
      */
     private definePath() {
+        const Wwidth = xGtoW(this.width);
+        const Wheight = xGtoW(this.height);
+
         // These are the coordinate of the draw origin
-        const X = -this.Wwidth / 2 + this.Wposition.x;
-        const Y = this.Wheight / 2 + this.Wposition.y;
+        const X = -Wwidth / 2 + this.Wposition.x;
+        const Y = Wheight / 2 + this.Wposition.y;
 
         const rectPath = path();
         rectPath.moveTo(X, Y);
-        rectPath.lineTo(X + this.Wwidth, Y);
-        rectPath.lineTo(X + this.Wwidth, Y - this.Wheight);
-        rectPath.lineTo(X, Y - this.Wheight);
+        rectPath.lineTo(X + Wwidth, Y);
+        rectPath.lineTo(X + Wwidth, Y - Wheight);
+        rectPath.lineTo(X, Y - Wheight);
         rectPath.lineTo(X, Y + (this.strokeWidth ?? 0) / 2);
 
         return rectPath;
@@ -379,10 +377,6 @@ export class Circle extends Geometry {
      * Radius of the rectangle (in grid coordinate system).
      */
     readonly radius: number;
-    /**
-     * Radius of the rectangle (in SVG-Cartesian coordinate system).
-     */
-    private readonly Wradius: number;
 
     /**
      * @param params An object that contains options to form the circle.
@@ -408,7 +402,6 @@ export class Circle extends Geometry {
         super({ group: params.group, position: params.position });
 
         this.radius = params.radius;
-        this.Wradius = xGtoW(params.radius);
 
         ({
             fillColor: this.fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
@@ -424,6 +417,8 @@ export class Circle extends Geometry {
      * Draw (and render) the shape of this circle onto SVG.
      */
     private draw() {
+        const Wradius = xGtoW(this.radius);
+
         this.g_shapeWrapper = this.svg_group
             .append("g")
             .attr("class", `circle-wrapper`)
@@ -435,7 +430,7 @@ export class Circle extends Geometry {
             .attr("class", "circle")
             .attr("cx", this.Wposition.x)
             .attr("cy", this.Wposition.y)
-            .attr("r", this.Wradius)
+            .attr("r", Wradius)
             .attr("fill", this.fillColor)
             .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
@@ -469,15 +464,14 @@ export class Line extends Geometry {
      */
     readonly geoType = "line";
 
-    /// These have to be public to use in Create animations
     /**
-     * Start point (tail) of the line (in SVG-Cartesian coordinate system).
+     * Start point (tail) of the line.
      */
-    readonly WstartPoint: Vector2;
+    readonly startPoint: Vector2;
     /**
-     * End point (head) of the line (in SVG-Cartesian coordinate system).
+     * End point (head) of the line.
      */
-    readonly WendPoint: Vector2;
+    readonly endPoint: Vector2;
 
     private parentGroupTag = this.svg_group;
 
@@ -501,18 +495,12 @@ export class Line extends Geometry {
     }) {
         super({ group: params.group, position: params.startPoint });
 
-        this.WstartPoint =
+        this.startPoint =
             typeof params.startPoint !== "undefined"
-                ? new Vector2(
-                      xGtoW(params.startPoint.x),
-                      yGtoW(params.startPoint.y)
-                  )
+                ? new Vector2(params.startPoint.x, params.startPoint.y)
                 : new Vector2(0, 0);
 
-        this.WendPoint = new Vector2(
-            xGtoW(params.endPoint.x),
-            yGtoW(params.endPoint.y)
-        );
+        this.endPoint = new Vector2(params.endPoint.x, params.endPoint.y);
 
         ({
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
@@ -526,6 +514,9 @@ export class Line extends Geometry {
      * Draw (and render) the shape of this line onto SVG.
      */
     private draw() {
+        const WstartPoint = this.coordsGtoW(this.startPoint);
+        const WendPoint = this.coordsGtoW(this.endPoint);
+
         this.g_shapeWrapper = this.parentGroupTag
             .append("g")
             .attr("class", `line-wrapper`)
@@ -535,12 +526,16 @@ export class Line extends Geometry {
         this.lineStroke = this.g_shapeWrapper
             .append("line")
             .attr("class", "line")
-            .attr("x1", this.WstartPoint.x)
-            .attr("y1", this.WstartPoint.y)
-            .attr("x2", this.WendPoint.x)
-            .attr("y2", this.WendPoint.y)
+            .attr("x1", WstartPoint.x)
+            .attr("y1", WstartPoint.y)
+            .attr("x2", WendPoint.x)
+            .attr("y2", WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
+    }
+
+    getWpoint(point: Vector2) {
+        return this.coordsGtoW(point);
     }
 
     setParentHTMLTag(parentGroupTag: any) {
@@ -550,12 +545,16 @@ export class Line extends Geometry {
 
         return this;
     }
+
+    setParent(parent: Geometry) {
+        this.g_shapeWrapper.remove();
+        this.parentGroupTag = parent.g_shapeWrapper;
+        this.draw();
+
+        return this;
+    }
 }
 
-/**
- * Constructor structure of the vector shape.
- */
-export interface VECT_CONSTRUCT {}
 export class Vector extends Geometry {
     /**
      * Geometry type of the vector.
@@ -564,20 +563,11 @@ export class Vector extends Geometry {
 
     /// These have to be public to use in Create animations
     /**
-     * Start point (tail) of the vector (in SVG-Cartesian coordinate system).
-     */
-    readonly WstartPoint: Vector2;
-    /**
-     * End point (head) of the vector (in SVG-Cartesian coordinate system).
-     */
-    readonly WendPoint: Vector2;
-
-    /**
-     * Start point (tail) of the vector (in grid coordinate system).
+     * Start point (tail) of the vector.
      */
     readonly startPoint: Vector2;
     /**
-     * End point (head) of the vector (in grid coordinate system).
+     * End point (head) of the vector.
      */
     readonly endPoint: Vector2;
 
@@ -612,22 +602,12 @@ export class Vector extends Geometry {
             position: params.startPoint,
         });
 
-        [this.startPoint, this.WstartPoint] =
+        this.startPoint =
             typeof params.startPoint !== "undefined"
-                ? [
-                      params.startPoint,
-                      new Vector2(
-                          xGtoW(params.startPoint.x),
-                          yGtoW(params.startPoint.y)
-                      ),
-                  ]
-                : [new Vector2(0, 0), new Vector2(0, 0)];
+                ? params.startPoint
+                : new Vector2(0, 0);
 
         this.endPoint = params.endPoint;
-        this.WendPoint = new Vector2(
-            xGtoW(params.endPoint.x),
-            yGtoW(params.endPoint.y)
-        );
 
         ({
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
@@ -645,7 +625,13 @@ export class Vector extends Geometry {
         this.draw();
     }
 
+    getWpoint(point: Vector2) {
+        return this.coordsGtoW(point);
+    }
+
     private draw() {
+        const WstartPoint = this.coordsGtoW(this.startPoint);
+
         this.g_shapeWrapper = this.svg_group
             .append("g")
             .attr("class", `vector-wrapper`)
@@ -656,28 +642,30 @@ export class Vector extends Geometry {
             .append("g")
             .attr("class", "vector-group")
             .attr("transform-box", "fill-box")
-            .attr(
-                "transform-origin",
-                `${this.WstartPoint.x} ${this.WstartPoint.y}`
-            );
+            .attr("transform-origin", `${WstartPoint.x} ${WstartPoint.y}`);
 
         this.drawVectorLine();
         this.drawVectorArrowHead();
     }
 
     private drawVectorLine() {
+        const WstartPoint = this.coordsGtoW(this.startPoint);
+        const WendPoint = this.coordsGtoW(this.endPoint);
+
         this.lineStroke = this.def_cubiconBase
             .append("line")
             .attr("class", "line")
-            .attr("x1", this.WstartPoint.x)
-            .attr("y1", this.WstartPoint.y)
-            .attr("x2", this.WendPoint.x)
-            .attr("y2", this.WendPoint.y)
+            .attr("x1", WstartPoint.x)
+            .attr("y1", WstartPoint.y)
+            .attr("x2", WendPoint.x)
+            .attr("y2", WendPoint.y)
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
     }
 
     private drawVectorArrowHead() {
+        const WendPoint = this.coordsGtoW(this.endPoint);
+
         const headWidth = 0.3;
         const headHeight = 0.5;
 
@@ -693,7 +681,7 @@ export class Vector extends Geometry {
             .attr("stroke", "none")
             .attr(
                 "transform",
-                `translate(${this.WendPoint.x} ${this.WendPoint.y}) rotate(${
+                `translate(${WendPoint.x} ${WendPoint.y}) rotate(${
                     this.theta - 90
                 })`
             );
