@@ -77,8 +77,6 @@ export abstract class Geometry extends Cubicon {
     // For vector (Vector)
     arrowHead: any;
 
-    readonly Wposition: Vector2;
-
     constructor({
         group,
         position = new Vector2(0, 0),
@@ -89,8 +87,6 @@ export abstract class Geometry extends Cubicon {
         super({ group: group, position: position });
 
         this.group = group;
-
-        this.Wposition = new Vector2(xGtoW(position.x), yGtoW(position.y));
     }
 
     coordsGtoW(point: Vector2) {
@@ -156,13 +152,13 @@ export class Rectangle extends Geometry {
             strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
         } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
 
-        this.draw();
+        this.render();
     }
 
     /**
      * Add the shape of this rectangle onto SVG.
      */
-    private draw() {
+    private render() {
         this.g_shapeWrapper = this.svg_group
             .append("g")
             .attr("class", `rectangle-wrapper`)
@@ -189,12 +185,13 @@ export class Rectangle extends Geometry {
      * Draw (not render) a rectangular stroke path.
      */
     private definePath() {
+        const Wposition = this.coordsGtoW(this.position);
         const Wwidth = xGtoW(this.width);
         const Wheight = xGtoW(this.height);
 
         // These are the coordinate of the draw origin
-        const X = -Wwidth / 2 + this.Wposition.x;
-        const Y = Wheight / 2 + this.Wposition.y;
+        const X = -Wwidth / 2 + Wposition.x;
+        const Y = Wheight / 2 + Wposition.y;
 
         const rectPath = path();
         rectPath.moveTo(X, Y);
@@ -225,12 +222,11 @@ export class Rectangle extends Geometry {
     ): PT_TO_SIDES_DATA {
         // Create a <g/> element to hold the result lines.
         const g_pointToSides = this.g_shapeWrapper.append("g");
+
+        const Wposition = this.coordsGtoW(this.position);
         g_pointToSides
             .attr("class", "lines-to-side")
-            .attr(
-                "transform",
-                `translate(${this.Wposition.x}, ${this.Wposition.y})`
-            );
+            .attr("transform", `translate(${Wposition.x}, ${Wposition.y})`);
 
         const horizontalLines: Line[] = [];
         const verticalLines: Line[] = [];
@@ -284,12 +280,11 @@ export class Rectangle extends Geometry {
     drawInnerGrid(): RECT_GRID_DATA {
         // Create a <g/> element to hold the result grid.
         const g_drawInnerGrid = this.g_shapeWrapper.append("g");
+
+        const Wposition = this.coordsGtoW(this.position);
         g_drawInnerGrid
             .attr("class", "rect-inner-grid")
-            .attr(
-                "transform",
-                `translate(${this.Wposition.x}, ${this.Wposition.y})`
-            );
+            .attr("transform", `translate(${Wposition.x}, ${Wposition.y})`);
 
         const horizontalLines: Line[] = [];
         const verticalLines: Line[] = [];
@@ -410,26 +405,27 @@ export class Circle extends Geometry {
             strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
         } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
 
-        this.draw();
+        this.render();
     }
 
     /**
      * Draw (and render) the shape of this circle onto SVG.
      */
-    private draw() {
-        const Wradius = xGtoW(this.radius);
-
+    private render() {
         this.g_shapeWrapper = this.svg_group
             .append("g")
             .attr("class", `circle-wrapper`)
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
+        const Wposition = this.coordsGtoW(this.position);
+        const Wradius = xGtoW(this.radius);
+
         this.def_cubiconBase = this.g_shapeWrapper
             .append("circle")
             .attr("class", "circle")
-            .attr("cx", this.Wposition.x)
-            .attr("cy", this.Wposition.y)
+            .attr("cx", Wposition.x)
+            .attr("cy", Wposition.y)
             .attr("r", Wradius)
             .attr("fill", this.fillColor)
             .attr("fill-opacity", this.fillOpacity)
@@ -507,13 +503,13 @@ export class Line extends Geometry {
             lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
         } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
 
-        this.draw();
+        this.render();
     }
 
     /**
      * Draw (and render) the shape of this line onto SVG.
      */
-    private draw() {
+    private render() {
         const WstartPoint = this.coordsGtoW(this.startPoint);
         const WendPoint = this.coordsGtoW(this.endPoint);
 
@@ -541,7 +537,7 @@ export class Line extends Geometry {
     setParentHTMLTag(parentGroupTag: any) {
         this.g_shapeWrapper.remove();
         this.parentGroupTag = parentGroupTag;
-        this.draw();
+        this.render();
 
         return this;
     }
@@ -549,7 +545,7 @@ export class Line extends Geometry {
     setParent(parent: Geometry) {
         this.g_shapeWrapper.remove();
         this.parentGroupTag = parent.g_shapeWrapper;
-        this.draw();
+        this.render();
 
         return this;
     }
@@ -622,14 +618,14 @@ export class Vector extends Geometry {
             )
         );
 
-        this.draw();
+        this.render();
     }
 
     getWpoint(point: Vector2) {
         return this.coordsGtoW(point);
     }
 
-    private draw() {
+    private render() {
         const WstartPoint = this.coordsGtoW(this.startPoint);
 
         this.g_shapeWrapper = this.svg_group
