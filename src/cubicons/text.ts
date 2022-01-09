@@ -67,9 +67,7 @@ export class MathText extends Cubicon {
             .attr("y", -yGtoW(this.position.y))
             .attr("width", svgWidth)
             .attr("height", svgHeight)
-            .attr("transform", "scale(1, -1)");
-
-        this.def_cubiconBase
+            .attr("transform", "scale(1, -1)")
             .append("xhtml:text")
             .style("font-size", `${this.fontSize}pt`)
             .style("color", this.color);
