@@ -1,4 +1,3 @@
-import katex from "katex";
 import { range } from "d3-array";
 import { format } from "d3-format";
 import { line, curveNatural } from "d3-shape";
@@ -6,12 +5,7 @@ import { axisBottom, axisRight } from "d3-axis";
 import { ScaleLinear, scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Cubicon } from "./cubicon";
-import {
-    svgWidth,
-    svgHeight,
-    PT_ON_GRAPH_DATA,
-    PT_TO_COORDS_DATA,
-} from "./constants";
+import { PT_ON_GRAPH_DATA, PT_TO_COORDS_DATA } from "./constants";
 import { Vector2 } from "../math/vector";
 import { Group } from "../scene/group";
 import {
@@ -20,6 +14,7 @@ import {
     SHAPE_CONFIG,
     SHAPE_DEFAULT_CONFIG,
 } from "./geometry";
+import { MathText } from "./text";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 interface AXES_CONFIG {
@@ -44,12 +39,12 @@ export abstract class CoordinateSystem extends Cubicon {
     /**
      * The `<svg/>` element that contains the whole coordinate system and everything included in it.
      */
-    coordinate: any;
+    g_coordinate: any;
 
     /**
      * The `<svg/>` element that contains the Axes.
      */
-    svgWrapper: any;
+    g_objectWrapper: any;
 
     constructor({
         group,
@@ -101,7 +96,7 @@ export class Axes extends CoordinateSystem {
     /**
      * The `<svg/>` element that contains the axes.
      */
-    axes: any;
+    g_axes: any;
     /**
      * The `<svg/>` element that contains the x axis.
      */
@@ -114,7 +109,7 @@ export class Axes extends CoordinateSystem {
     /**
      * The `<svg/>` element (inside .axes) that contains all the graphs inside a pair of axes.
      */
-    graphs: any;
+    g_graphs: any;
 
     /**
      * @param params Options to form the axes.
@@ -147,21 +142,21 @@ export class Axes extends CoordinateSystem {
                 this.yLength * this.yRange[1],
             ]);
 
-        this.draw();
+        this.render();
     }
 
     /**
      * Draw (and render) the axes onto SVG.
      */
-    private draw() {
-        this.coordinate = this.svg_group
+    private render() {
+        this.g_coordinate = this.svg_group
             .append("g")
             .attr("class", "xy-coordinate")
             .attr(
                 "transform",
                 `translate(${this.position.x}, ${this.position.y})`
             );
-        this.axes = this.coordinate.append("g").attr("class", "axes");
+        this.g_axes = this.g_coordinate.append("g").attr("class", "axes");
 
         // x axis data
         let xAxis = axisBottom(this.xScale)
@@ -171,7 +166,7 @@ export class Axes extends CoordinateSystem {
                 )
             )
             .tickSizeOuter(0);
-        this.xAxis = this.axes.append("g").call(xAxis);
+        this.xAxis = this.g_axes.append("g").call(xAxis);
 
         // y axis data
         let yAxis = axisRight(this.yScale)
@@ -182,7 +177,7 @@ export class Axes extends CoordinateSystem {
             )
             .tickFormat(format("0"))
             .tickSizeOuter(0);
-        this.yAxis = this.axes.append("g").call(yAxis);
+        this.yAxis = this.g_axes.append("g").call(yAxis);
 
         function applySettings(axes: any[]) {
             const halfArrowBase = 7;
@@ -257,7 +252,7 @@ export class Axes extends CoordinateSystem {
             this.yAxis.selectAll(".tick text").remove();
         }
 
-        this.graphs = this.coordinate.append("g").attr("class", "graphs");
+        this.g_graphs = this.g_coordinate.append("g").attr("class", "graphs");
     }
 
     coordsGtoW(point: Vector2) {
@@ -310,7 +305,9 @@ export class Axes extends CoordinateSystem {
 
         const pathData = lineGenerator(points);
 
-        const graphGroup = this.graphs.append("g").attr("class", "graph-group");
+        const graphGroup = this.g_graphs
+            .append("g")
+            .attr("class", "graph-group");
 
         return new Graph({
             graphGroup: graphGroup,
@@ -329,19 +326,20 @@ export class Axes extends CoordinateSystem {
      *
      * @param graph The graph to put the label on.
      * @param text Content of the label.
-     * @param xPos x position of the label. Default is .xRange[1].
+     * @param xPos x position of the label. Default is the rightmost value on the x axis.
      *
      * @returns A label.
      */
     addGraphLabel(graph: Graph, text: string, xPos = graph.xRange[1]) {
-        return new Label({
-            group: graph.axes.group,
-            position: new Vector2(
-                this.xScale(xPos),
-                this.yScale(graph.functionDef(xPos))
-            ),
+        const label = new Label({
+            axes: this,
+            position: new Vector2(xPos, graph.functionDef(xPos)),
             text: text,
         });
+
+        label.render();
+
+        return label;
     }
 
     /**
@@ -502,10 +500,10 @@ export class Graph extends CoordinateSystem {
             graphWidth: 1.5,
         });
 
-        this.draw();
+        this.render();
     }
 
-    private draw() {
+    private render() {
         this.def_cubiconBase = this.graphGroup
             .append("path")
             .attr("class", "graph")
@@ -520,59 +518,45 @@ export class Graph extends CoordinateSystem {
     }
 }
 
-/// Defining Label class here is a bad practice,
-// but I don't know any better way to make graph coords and 2D space coords work together properly.
-// (Note the difference between Label's position property and MathText's one)
-export class Label extends CoordinateSystem {
+export class Label extends MathText {
     readonly coordSysObjType = "label";
 
     /**
-     * The content of this label.
+     * The axes that this label belongs to.
      */
-    text: string;
-    /**
-     * The color of this label.
-     */
-    color: string;
-    /**
-     * Font size of this label.
-     */
-    fontSize: number;
+    axes: Axes;
 
     constructor(params: {
-        group: Group;
+        axes: Axes;
         position: Vector2;
-        text?: string;
+        text: string;
         color?: string;
         fontSize?: number;
     }) {
-        super({ group: params.group, position: params.position });
+        super({
+            group: params.axes.group,
+            position: params.position,
+            text: params.text,
+            color: (params.color = "#fff"),
+            fontSize: (params.fontSize = 13),
+        });
 
-        this.text = params.text ?? "";
-        this.color = params.color ?? "#fff";
-        this.fontSize = params.fontSize ?? 13;
-
-        this.draw();
+        this.axes = params.axes;
     }
 
     /**
      * Draw (and render) the label onto SVG.
      */
-    private draw() {
-        this.def_cubiconBase = this.svg_group
-            .append("foreignObject")
-            .attr("x", this.position.x)
-            // When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
-            .attr("y", -this.position.y)
-            .attr("width", svgWidth)
-            .attr("height", svgHeight)
-            .attr("transform", "scale(1, -1)");
+    render() {
+        super.render();
+        this.setLabelPosition();
+    }
 
+    private setLabelPosition() {
         this.def_cubiconBase
-            .append("xhtml:text")
-            .style("font-size", `${this.fontSize}pt`)
-            .style("color", this.color);
-        this.def_cubiconBase.node().innerHTML = katex.renderToString(this.text);
+            .attr("x", this.axes.xScale(this.position.x))
+            // When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
+            .attr("y", -this.axes.yScale(this.position.y));
     }
 }
 
@@ -647,13 +631,13 @@ export class Point extends CoordinateSystem {
             strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
         } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
 
-        this.draw();
+        this.render();
     }
 
     /**
      * Draw (and render) the point onto SVG.
      */
-    private draw() {
+    private render() {
         this.def_cubiconBase = this.projectorGroup
             .append("circle")
             .attr("class", "point")
@@ -736,13 +720,13 @@ export class AxisProjector extends CoordinateSystem {
             lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
         } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
 
-        this.draw();
+        this.render();
     }
 
     /**
      * Draw (and render) the axis projectors onto SVG.
      */
-    private draw() {
+    private render() {
         const WstartPoint = this.axes.coordsGtoW(this.startPoint);
         const WendPoint = this.axes.coordsGtoW(this.endPoint);
 

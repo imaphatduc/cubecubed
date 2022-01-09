@@ -24,6 +24,11 @@ export class MathText extends Cubicon {
      */
     fontSize: number;
 
+    /**
+     * The SVG element that represents this text.
+     */
+    def_text: any;
+
     constructor(params: {
         /**
          * The group that the text belongs to.
@@ -54,11 +59,9 @@ export class MathText extends Cubicon {
         this.text = params.text;
         this.color = params.color ?? "#fff";
         this.fontSize = params.fontSize ?? 13;
-
-        this.draw();
     }
 
-    private draw() {
+    render() {
         // this.stroke is a d3 selection of HTML <text />
         this.def_cubiconBase = this.svg_group
             .append("foreignObject")
@@ -68,9 +71,10 @@ export class MathText extends Cubicon {
             .attr("width", svgWidth)
             .attr("height", svgHeight)
             .attr("transform", "scale(1, -1)")
-            .append("xhtml:text")
             .style("font-size", `${this.fontSize}pt`)
             .style("color", this.color);
+
+        this.def_text = this.def_cubiconBase.append("xhtml:text");
         this.def_cubiconBase.node().innerHTML = katex.renderToString(this.text);
     }
 }

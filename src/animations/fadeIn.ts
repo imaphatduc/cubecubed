@@ -23,11 +23,7 @@ export class FadeIn extends Animation {
         if (cubicon.cubType === "geometry") {
             this.geometryFadeIn(sleepTime);
         } else {
-            if (
-                cubicon.cubType === "math-text" ||
-                cubicon.coordSysObjType === "label"
-            )
-                this.texFadeIn(sleepTime);
+            if (cubicon.cubType === "math-text") this.texFadeIn(sleepTime);
         }
     }
 
