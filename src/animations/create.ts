@@ -1,6 +1,10 @@
 import { Animation } from "./animation";
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { CREATE_TYPES } from "../cubicons/constants";
+import {
+    CREATE_TYPES,
+    CREATE_SHAPE_TYPES,
+    CREATE_LINE_TYPES,
+} from "../cubicons/constants";
 
 export class Create extends Animation {
     constructor({
@@ -25,11 +29,11 @@ export class Create extends Animation {
                 switch (cubicon.geoType) {
                     case "line":
                     case "vector": {
-                        this.lineCreation(sleepTime);
+                        this.lineCreation(cubicon, sleepTime);
                         break;
                     }
                     default: {
-                        this.shapeCreation(sleepTime);
+                        this.shapeCreation(cubicon, sleepTime);
                         break;
                     }
                 }
@@ -38,12 +42,12 @@ export class Create extends Animation {
             case "coordinate-system": {
                 switch (cubicon.coordSysObjType) {
                     case "axis-projector": {
-                        this.lineCreation(sleepTime);
+                        this.lineCreation(cubicon, sleepTime);
                         break;
                     }
                     case "point":
                     case "graph": {
-                        this.shapeCreation(sleepTime);
+                        this.shapeCreation(cubicon, sleepTime);
                         break;
                     }
                 }
@@ -52,24 +56,29 @@ export class Create extends Animation {
         }
     }
 
-    private lineCreation(sleepTime: number) {
+    private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
+        const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
+        const WendPoint = cubicon.getWpoint(cubicon.endPoint);
+
         this.cubicon.lineStroke
-            .attr("x2", this.cubicon.WstartPoint.x)
-            .attr("y2", this.cubicon.WstartPoint.y);
+            .attr("x2", WstartPoint.x)
+            .attr("y2", WstartPoint.y);
 
         this.cubicon.lineStroke
             .transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
-            .attr("x2", this.cubicon.WendPoint.x)
-            .attr("y2", this.cubicon.WendPoint.y);
+            .attr("x2", WendPoint.x)
+            .attr("y2", WendPoint.y);
 
         this.cubicon.elapsedTime += this.duration + sleepTime;
 
-        if (this.cubicon.constructor.name === "Vector") {
+        // Applied for vector shape
+        if (cubicon.cubType === "geometry" && cubicon.geoType === "vector") {
             const drawArrowHeadAnimTime = 1500;
-            this.cubicon.arrowHead
+
+            cubicon.arrowHead
                 .style("opacity", 0)
                 .transition()
                 .ease(this.ease)
@@ -81,23 +90,23 @@ export class Create extends Animation {
         }
     }
 
-    private shapeCreation(sleepTime: number) {
-        this.cubicon.def_cubiconBase.style("fill-opacity", 0);
+    private shapeCreation(cubicon: CREATE_SHAPE_TYPES, sleepTime: number) {
+        cubicon.def_cubiconBase.style("fill-opacity", 0);
 
         const lineLen = this.cubicon.def_cubiconBase.node().getTotalLength();
-        this.cubicon.def_cubiconBase
+        cubicon.def_cubiconBase
             .attr("stroke-dasharray", lineLen + ", " + lineLen)
             .attr("stroke-dashoffset", lineLen);
 
-        this.cubicon.def_cubiconBase
+        cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .attr("stroke-dashoffset", 0)
-            .style("fill", this.cubicon.fillColor || "none") // Graph don't have fill
-            .style("fill-opacity", this.cubicon.fillOpacity || "none");
+            .style("fill", cubicon.fillColor || "none") // Graph don't have fill
+            .style("fill-opacity", cubicon.fillOpacity || "none");
 
-        this.cubicon.elapsedTime += this.duration + sleepTime;
+        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

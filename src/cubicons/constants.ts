@@ -185,9 +185,10 @@ import { MathText } from "./text";
 /**
  * Types available for Create animation
  */
-export type CREATE_TYPES =
-    | (Rectangle | Square | Circle | Line | Vector)
-    | (Graph | Point | AxisProjector);
+export type CREATE_SHAPE_TYPES = Rectangle | Square | Circle | Graph | Point;
+export type CREATE_LINE_TYPES = Line | Vector | AxisProjector;
+
+export type CREATE_TYPES = CREATE_SHAPE_TYPES | CREATE_LINE_TYPES;
 
 /**
  * Types available for Fade (FadeIn & FadeOut) animation
