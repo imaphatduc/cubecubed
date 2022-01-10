@@ -684,7 +684,7 @@ export class Vector extends Geometry {
 
         this.def_lineStroke = this.def_cubiconBase
             .append("line")
-            .attr("class", "line")
+            .attr("class", "vector-line")
             .attr("x1", WstartPoint.x)
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)
@@ -701,6 +701,7 @@ export class Vector extends Geometry {
 
         this.def_arrowHead = this.def_cubiconBase
             .append("polygon")
+            .attr("class", "vector-arrow-head")
             .attr(
                 "points",
                 `${xGtoW(-headWidth)}, ${yGtoW(-headHeight)} 0, 0 ${xGtoW(

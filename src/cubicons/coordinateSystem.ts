@@ -163,7 +163,10 @@ export class Axes extends CoordinateSystem {
                 )
             )
             .tickSizeOuter(0);
-        this.xAxis = this.g_axes.append("g").call(xAxis);
+        this.xAxis = this.g_axes
+            .append("g")
+            .attr("class", "x-axis")
+            .call(xAxis);
 
         // y axis data
         let yAxis = axisRight(this.yScale)
@@ -174,7 +177,10 @@ export class Axes extends CoordinateSystem {
             )
             .tickFormat(format("0"))
             .tickSizeOuter(0);
-        this.yAxis = this.g_axes.append("g").call(yAxis);
+        this.yAxis = this.g_axes
+            .append("g")
+            .attr("class", "y-axis")
+            .call(yAxis);
 
         function applySettings(axes: any[]) {
             const halfArrowBase = 7;
@@ -363,7 +369,6 @@ export class Axes extends CoordinateSystem {
                 lineWidth: 1,
             },
         }).render();
-        horizontalLine.lineStroke.style("shape-rendering", "crispEdges");
 
         let verticalLine = new AxisProjector({
             type: "vertical",
@@ -373,7 +378,6 @@ export class Axes extends CoordinateSystem {
                 lineWidth: 1,
             },
         }).render();
-        verticalLine.lineStroke.style("shape-rendering", "crispEdges");
 
         point.render();
 
@@ -544,6 +548,8 @@ export class Label extends MathText {
         super.applyToHTMLFlow(this.g_cubiconWrapper);
         this.setPosition();
 
+        this.def_cubiconBase.attr("class", "graph-label");
+
         return this;
     }
 
@@ -629,10 +635,6 @@ export class AxisProjector extends Line {
     axes: Axes;
 
     protected parentGroupTag: any;
-    /**
-     * The `<svg/>` element that represents this projector's path.
-     */
-    lineStroke: any;
 
     constructor(params: {
         type: "horizontal" | "vertical";
@@ -685,7 +687,9 @@ export class AxisProjector extends Line {
         this.applyToHTMLFlow(this.parentGroupTag, WstartPoint, WendPoint);
 
         this.g_cubiconWrapper.attr("class", `${this.type}-projector-wrapper`);
-        this.lineStroke.attr("class", `${this.type}-projector-line`);
+        this.def_cubiconBase
+            .attr("class", `${this.type}-projector-line`)
+            .style("shape-rendering", "crispEdges");
 
         return this;
     }
