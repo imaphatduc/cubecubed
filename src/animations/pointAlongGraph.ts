@@ -89,7 +89,7 @@ export class PointAlongGraph extends Animation {
         xPos: number,
         sleepTime: number
     ) {
-        line.lineStroke
+        line.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(line.elapsedTime + sleepTime)
@@ -131,7 +131,7 @@ export class PointAlongGraph extends Animation {
         xPos: number,
         sleepTime: number
     ) {
-        line.lineStroke
+        line.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(line.elapsedTime + sleepTime)

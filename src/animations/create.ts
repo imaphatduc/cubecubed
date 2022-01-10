@@ -61,11 +61,11 @@ export class Create extends Animation {
         const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
         const WendPoint = cubicon.getWpoint(cubicon.endPoint);
 
-        this.cubicon.lineStroke
+        this.cubicon.def_cubiconBase
             .attr("x2", WstartPoint.x)
             .attr("y2", WstartPoint.y);
 
-        this.cubicon.lineStroke
+        this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)
