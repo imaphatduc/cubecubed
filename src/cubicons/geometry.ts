@@ -68,12 +68,8 @@ export abstract class Geometry extends Cubicon {
     protected strokeWidth: any;
 
     // For line-like objects (Line | Vector | AxisProjector)
-    protected lineStroke: any;
     protected lineColor: any;
     protected lineWidth: any;
-
-    // For vector (Vector)
-    arrowHead: any;
 
     constructor({
         group,
@@ -539,7 +535,7 @@ export class Line extends Geometry {
         this.applyToHTMLFlow(this.parentGroupTag, WstartPoint, WendPoint);
 
         this.g_cubiconWrapper.attr("class", `line-wrapper`);
-        this.lineStroke.attr("class", "line");
+        this.def_cubiconBase.attr("class", "line");
 
         return this;
     }
@@ -554,7 +550,7 @@ export class Line extends Geometry {
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
-        this.lineStroke = this.g_cubiconWrapper
+        this.def_cubiconBase = this.g_cubiconWrapper
             .append("line")
             .attr("x1", WstartPoint.x)
             .attr("y1", WstartPoint.y)
@@ -607,8 +603,8 @@ export class Vector extends Geometry {
      */
     theta: number;
 
-    lineStroke: any;
-    arrowHead: any;
+    def_lineStroke: any;
+    def_arrowHead: any;
 
     constructor(params: {
         /**
@@ -686,7 +682,7 @@ export class Vector extends Geometry {
         const WstartPoint = this.coordsGtoW(this.startPoint);
         const WendPoint = this.coordsGtoW(this.endPoint);
 
-        this.lineStroke = this.def_cubiconBase
+        this.def_lineStroke = this.def_cubiconBase
             .append("line")
             .attr("class", "line")
             .attr("x1", WstartPoint.x)
@@ -703,7 +699,7 @@ export class Vector extends Geometry {
         const headWidth = 0.3;
         const headHeight = 0.5;
 
-        this.arrowHead = this.def_cubiconBase
+        this.def_arrowHead = this.def_cubiconBase
             .append("polygon")
             .attr(
                 "points",
