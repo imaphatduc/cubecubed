@@ -35,7 +35,7 @@ export class Translate extends Animation {
         /// Calculate the sum of all translation vectors
         cubicon.moveVector = cubicon.moveVector.add(vector);
 
-        cubicon.g_shapeWrapper
+        cubicon.g_cubiconWrapper
             .transition()
             .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)

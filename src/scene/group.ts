@@ -42,6 +42,12 @@ export class Group {
         this.sleepTime = 0;
     }
 
+    render(...cubicons: any[]) {
+        cubicons.forEach((cubicon) => {
+            cubicon.render();
+        });
+    }
+
     play(anims: any[]) {
         anims.forEach((anim) => {
             anim.cubicon.elapsedTime = this.queueElapsed;
@@ -55,7 +61,14 @@ export class Group {
         anims.forEach((anim) => {
             this.addAnimation(anim);
 
-            anim.play(this.sleepTime);
+            try {
+                anim.play(this.sleepTime);
+            } catch (err) {
+                throw new Error(
+                    anim.cubicon.constructor.name +
+                        "() haven't been rendered on the screen. Please call render() on the cubicon you're invoking with the `new` keyword."
+                );
+            }
 
             this.sleepTime = 0;
         });

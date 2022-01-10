@@ -117,8 +117,8 @@ export class PointAlongGraph extends Animation {
                 };
             })
             .on("end", () => {
-                line.startPoint.x = graph.axes.xScale(xPos);
-                line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
+                // line.startPoint.x = graph.axes.xScale(xPos);
+                // line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
             });
 
         line.elapsedTime += this.duration + sleepTime;
@@ -157,8 +157,8 @@ export class PointAlongGraph extends Animation {
                 };
             })
             .on("end", () => {
-                line.startPoint.x = graph.axes.xScale(xPos);
-                line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
+                // line.startPoint.x = graph.axes.xScale(xPos);
+                // line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
             });
 
         line.elapsedTime += this.duration + sleepTime;

@@ -62,12 +62,16 @@ export class MathText extends Cubicon {
     }
 
     render() {
-        // this.stroke is a d3 selection of HTML <text />
-        this.def_cubiconBase = this.svg_group
+        this.checkIfRendered();
+        this.isRendered = true;
+
+        this.applyToHTMLFlow(this.svg_group);
+        this.setSVGPosition();
+    }
+
+    protected applyToHTMLFlow(g_cubiconWrapper: any) {
+        this.def_cubiconBase = g_cubiconWrapper
             .append("foreignObject")
-            .attr("x", xGtoW(this.position.x))
-            // When flipping the y axis (scale(1, -1)), we add minus (-) before y coordinate
-            .attr("y", -yGtoW(this.position.y))
             .attr("width", svgWidth)
             .attr("height", svgHeight)
             .attr("transform", "scale(1, -1)")
@@ -76,5 +80,11 @@ export class MathText extends Cubicon {
 
         this.def_text = this.def_cubiconBase.append("xhtml:text");
         this.def_cubiconBase.node().innerHTML = katex.renderToString(this.text);
+    }
+
+    private setSVGPosition() {
+        this.def_cubiconBase
+            .attr("x", xGtoW(this.position.x))
+            .attr("y", -yGtoW(this.position.y));
     }
 }

@@ -61,8 +61,6 @@ export abstract class Geometry extends Cubicon {
     readonly cubType = "geometry";
     abstract readonly geoType: string;
 
-    g_shapeWrapper: any;
-
     // For geometry (Geometry)
     protected fillColor: any;
     protected fillOpacity: any;
@@ -151,22 +149,23 @@ export class Rectangle extends Geometry {
             strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
             strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
         } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
-
-        this.render();
     }
 
     /**
      * Add the shape of this rectangle onto SVG.
      */
-    private render() {
-        this.g_shapeWrapper = this.svg_group
+    render() {
+        if (this.isRendered) return this;
+        this.isRendered = true;
+
+        this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", `rectangle-wrapper`)
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
         const path = this.definePath();
-        this.def_cubiconBase = this.g_shapeWrapper.append("path");
+        this.def_cubiconBase = this.g_cubiconWrapper.append("path");
 
         this.def_cubiconBase
             .attr("class", "rectangle")
@@ -179,6 +178,8 @@ export class Rectangle extends Geometry {
         this.def_cubiconBase
             .style("transform-box", "fill-box")
             .style("transform-origin", "center");
+
+        return this;
     }
 
     /**
@@ -221,7 +222,7 @@ export class Rectangle extends Geometry {
         direction: [number, number]
     ): PT_TO_SIDES_DATA {
         // Create a <g/> element to hold the result lines.
-        const g_pointToSides = this.g_shapeWrapper.append("g");
+        const g_pointToSides = this.g_cubiconWrapper.append("g");
 
         const Wposition = this.coordsGtoW(this.position);
         g_pointToSides
@@ -231,11 +232,19 @@ export class Rectangle extends Geometry {
         const horizontalLines: Line[] = [];
         const verticalLines: Line[] = [];
 
+        const generalParams = {
+            group: this.group,
+            CONFIG: {
+                lineColor: this.strokeColor,
+                lineWidth: this.strokeWidth,
+            },
+        };
+
         const endPoint_x = ((direction[0] >= 0 ? 1 : -1) * this.width) / 2;
         ptPositions.forEach((p) => {
             horizontalLines.push(
                 new Line({
-                    group: this.group,
+                    ...generalParams,
                     startPoint: new Vector2(
                         p.x +
                             (p.x >= endPoint_x ? 1 : -1) *
@@ -243,25 +252,22 @@ export class Rectangle extends Geometry {
                         p.y
                     ),
                     endPoint: new Vector2(endPoint_x, p.y),
-                    CONFIG: {
-                        lineColor: this.strokeColor,
-                        lineWidth: this.strokeWidth,
-                    },
-                }).setParentHTMLTag(g_pointToSides)
+                })
+                    .render()
+                    .setParentHTMLTag(g_pointToSides)
             );
+
             verticalLines.push(
                 new Line({
-                    group: this.group,
+                    ...generalParams,
                     startPoint: p,
                     endPoint: new Vector2(
                         p.x,
                         ((direction[1] >= 0 ? 1 : -1) * this.height) / 2
                     ),
-                    CONFIG: {
-                        lineColor: this.strokeColor,
-                        lineWidth: this.strokeWidth,
-                    },
-                }).setParentHTMLTag(g_pointToSides)
+                })
+                    .render()
+                    .setParentHTMLTag(g_pointToSides)
             );
         });
 
@@ -279,40 +285,44 @@ export class Rectangle extends Geometry {
      */
     drawInnerGrid(): RECT_GRID_DATA {
         // Create a <g/> element to hold the result grid.
-        const g_drawInnerGrid = this.g_shapeWrapper.append("g");
+        const g_drawInnerGrid = this.g_cubiconWrapper.append("g");
 
         const Wposition = this.coordsGtoW(this.position);
         g_drawInnerGrid
             .attr("class", "rect-inner-grid")
             .attr("transform", `translate(${Wposition.x}, ${Wposition.y})`);
 
-        const horizontalLines: Line[] = [];
-        const verticalLines: Line[] = [];
+        const generalParams = {
+            group: this.group,
+            CONFIG: {
+                lineColor: COLOR.BLUE_1,
+                lineWidth: 1,
+            },
+        };
 
-        for (let i of range(-this.width / 2 + 1, this.width / 2, 1)) {
-            verticalLines.push(
-                new Line({
-                    group: this.group,
-                    startPoint: new Vector2(i, -this.height / 2),
-                    endPoint: new Vector2(i, this.height / 2),
-                    CONFIG: {
-                        lineColor: COLOR.BLUE_1,
-                        lineWidth: 1,
-                    },
-                }).setParentHTMLTag(g_drawInnerGrid)
-            );
-        }
+        const horizontalLines: Line[] = [];
         for (let i of range(-this.height / 2 + 1, this.height / 2, 1)) {
             horizontalLines.push(
                 new Line({
-                    group: this.group,
+                    ...generalParams,
                     startPoint: new Vector2(-this.width / 2, i),
                     endPoint: new Vector2(this.width / 2, i),
-                    CONFIG: {
-                        lineColor: COLOR.BLUE_1,
-                        lineWidth: 1,
-                    },
-                }).setParentHTMLTag(g_drawInnerGrid)
+                })
+                    .render()
+                    .setParentHTMLTag(g_drawInnerGrid)
+            );
+        }
+
+        const verticalLines: Line[] = [];
+        for (let i of range(-this.width / 2 + 1, this.width / 2, 1)) {
+            verticalLines.push(
+                new Line({
+                    ...generalParams,
+                    startPoint: new Vector2(i, -this.height / 2),
+                    endPoint: new Vector2(i, this.height / 2),
+                })
+                    .render()
+                    .setParentHTMLTag(g_drawInnerGrid)
             );
         }
 
@@ -392,7 +402,7 @@ export class Circle extends Geometry {
         /**
          * Config options of the circle.
          */
-        CONFIG?: SHAPE_CONFIG;
+        CONFIG?: SHAPE_CONFIG | undefined;
     }) {
         super({ group: params.group, position: params.position });
 
@@ -404,15 +414,16 @@ export class Circle extends Geometry {
             strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
             strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
         } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
-
-        this.render();
     }
 
     /**
      * Draw (and render) the shape of this circle onto SVG.
      */
-    private render() {
-        this.g_shapeWrapper = this.svg_group
+    render() {
+        if (this.isRendered) return this;
+        this.isRendered = true;
+
+        this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", `circle-wrapper`)
             .style("transform-box", "fill-box")
@@ -421,9 +432,20 @@ export class Circle extends Geometry {
         const Wposition = this.coordsGtoW(this.position);
         const Wradius = xGtoW(this.radius);
 
-        this.def_cubiconBase = this.g_shapeWrapper
+        this.applyToHTMLFlow(this.g_cubiconWrapper, Wposition, Wradius);
+
+        this.def_cubiconBase.attr("class", "circle");
+
+        return this;
+    }
+
+    protected applyToHTMLFlow(
+        g_cubiconWrapper: any,
+        Wposition: Vector2,
+        Wradius: number
+    ) {
+        this.def_cubiconBase = g_cubiconWrapper
             .append("circle")
-            .attr("class", "circle")
             .attr("cx", Wposition.x)
             .attr("cy", Wposition.y)
             .attr("r", Wradius)
@@ -445,7 +467,7 @@ export class GridOrigin extends Circle {
             radius: xWtoG(2.2),
         });
 
-        this.g_shapeWrapper.attr("id", "grid-origin-wrapper");
+        this.g_cubiconWrapper.attr("id", "grid-origin-wrapper");
 
         this.def_cubiconBase.attr("id", "grid-origin");
     }
@@ -469,7 +491,7 @@ export class Line extends Geometry {
      */
     readonly endPoint: Vector2;
 
-    private parentGroupTag = this.svg_group;
+    protected parentGroupTag = this.svg_group;
 
     constructor(params: {
         /**
@@ -487,7 +509,7 @@ export class Line extends Geometry {
         /**
          * Config options of the line.
          */
-        CONFIG?: LINE_CONFIG;
+        CONFIG?: LINE_CONFIG | undefined;
     }) {
         super({ group: params.group, position: params.startPoint });
 
@@ -502,26 +524,38 @@ export class Line extends Geometry {
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
             lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
         } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
-
-        this.render();
     }
 
     /**
      * Draw (and render) the shape of this line onto SVG.
      */
-    private render() {
+    render() {
+        if (this.isRendered) return this;
+        this.isRendered = true;
+
         const WstartPoint = this.coordsGtoW(this.startPoint);
         const WendPoint = this.coordsGtoW(this.endPoint);
 
-        this.g_shapeWrapper = this.parentGroupTag
+        this.applyToHTMLFlow(this.parentGroupTag, WstartPoint, WendPoint);
+
+        this.g_cubiconWrapper.attr("class", `line-wrapper`);
+        this.lineStroke.attr("class", "line");
+
+        return this;
+    }
+
+    protected applyToHTMLFlow(
+        parentGroupTag: any,
+        WstartPoint: Vector2,
+        WendPoint: Vector2
+    ) {
+        this.g_cubiconWrapper = parentGroupTag
             .append("g")
-            .attr("class", `line-wrapper`)
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
-        this.lineStroke = this.g_shapeWrapper
+        this.lineStroke = this.g_cubiconWrapper
             .append("line")
-            .attr("class", "line")
             .attr("x1", WstartPoint.x)
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)
@@ -535,16 +569,17 @@ export class Line extends Geometry {
     }
 
     setParentHTMLTag(parentGroupTag: any) {
-        this.g_shapeWrapper.remove();
+        this.g_cubiconWrapper.remove();
         this.parentGroupTag = parentGroupTag;
+        this.isRendered = false;
         this.render();
 
         return this;
     }
 
     setParent(parent: Geometry) {
-        this.g_shapeWrapper.remove();
-        this.parentGroupTag = parent.g_shapeWrapper;
+        this.g_cubiconWrapper.remove();
+        this.parentGroupTag = parent.g_cubiconWrapper;
         this.render();
 
         return this;
@@ -617,24 +652,25 @@ export class Vector extends Geometry {
                 this.endPoint.x - this.startPoint.x
             )
         );
-
-        this.render();
     }
 
     getWpoint(point: Vector2) {
         return this.coordsGtoW(point);
     }
 
-    private render() {
+    render() {
+        if (this.isRendered) return this;
+        this.isRendered = true;
+
         const WstartPoint = this.coordsGtoW(this.startPoint);
 
-        this.g_shapeWrapper = this.svg_group
+        this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", `vector-wrapper`)
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
-        this.def_cubiconBase = this.g_shapeWrapper
+        this.def_cubiconBase = this.g_cubiconWrapper
             .append("g")
             .attr("class", "vector-group")
             .attr("transform-box", "fill-box")
@@ -642,6 +678,8 @@ export class Vector extends Geometry {
 
         this.drawVectorLine();
         this.drawVectorArrowHead();
+
+        return this;
     }
 
     private drawVectorLine() {

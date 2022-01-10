@@ -38,7 +38,7 @@ export class Rotate extends Animation {
 
         /// Important!
         const v = cubicon.moveVector;
-        cubicon.g_shapeWrapper
+        cubicon.g_cubiconWrapper
             .transition()
             .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)

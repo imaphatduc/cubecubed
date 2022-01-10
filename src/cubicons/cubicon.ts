@@ -35,6 +35,10 @@ export abstract class Cubicon {
      */
     svg_group: any;
     /**
+     * The `<g/>` tag that holds this cubicon.
+     */
+    g_cubiconWrapper: any;
+    /**
      * The HTML tag that represents this cubicon.
      */
     def_cubiconBase: any;
@@ -43,6 +47,8 @@ export abstract class Cubicon {
      * Total time of all called animations (in milliseconds).
      */
     elapsedTime: any;
+
+    isRendered = false;
 
     constructor({
         group,
@@ -73,5 +79,13 @@ export abstract class Cubicon {
 
         /// Add this to the target group
         this.group.add(this);
+    }
+
+    checkIfRendered() {
+        if (this.isRendered) {
+            throw new Error(
+                "Warning: render() shouldn't be called more than once. Returned nothing."
+            );
+        }
     }
 }

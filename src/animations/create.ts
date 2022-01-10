@@ -5,6 +5,7 @@ import {
     CREATE_SHAPE_TYPES,
     CREATE_LINE_TYPES,
 } from "../cubicons/constants";
+import { Vector2 } from "../math/vector";
 
 export class Create extends Animation {
     constructor({
@@ -57,8 +58,21 @@ export class Create extends Animation {
     }
 
     private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
-        const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
-        const WendPoint = cubicon.getWpoint(cubicon.endPoint);
+        let WstartPoint, WendPoint;
+        if (cubicon.cubType === "geometry") {
+            WstartPoint = cubicon.getWpoint(cubicon.startPoint);
+            WendPoint = cubicon.getWpoint(cubicon.endPoint);
+        } else {
+            WstartPoint = cubicon.getWpoint(cubicon.position);
+            WendPoint =
+                cubicon.type === "horizontal"
+                    ? cubicon.axes.coordsGtoW(
+                          new Vector2(0, cubicon.position.y)
+                      )
+                    : cubicon.axes.coordsGtoW(
+                          new Vector2(cubicon.position.x, 0)
+                      );
+        }
 
         this.cubicon.lineStroke
             .attr("x2", WstartPoint.x)
