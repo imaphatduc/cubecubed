@@ -155,7 +155,7 @@ export class Rectangle extends Geometry {
      * Add the shape of this rectangle onto SVG.
      */
     render() {
-        if (this.isRendered) return this;
+        this.checkIfRendered();
         this.isRendered = true;
 
         this.g_cubiconWrapper = this.svg_group
@@ -420,7 +420,7 @@ export class Circle extends Geometry {
      * Draw (and render) the shape of this circle onto SVG.
      */
     render() {
-        if (this.isRendered) return this;
+        this.checkIfRendered();
         this.isRendered = true;
 
         this.g_cubiconWrapper = this.svg_group
@@ -530,7 +530,7 @@ export class Line extends Geometry {
      * Draw (and render) the shape of this line onto SVG.
      */
     render() {
-        if (this.isRendered) return this;
+        this.checkIfRendered();
         this.isRendered = true;
 
         const WstartPoint = this.coordsGtoW(this.startPoint);
@@ -659,7 +659,7 @@ export class Vector extends Geometry {
     }
 
     render() {
-        if (this.isRendered) return this;
+        this.checkIfRendered();
         this.isRendered = true;
 
         const WstartPoint = this.coordsGtoW(this.startPoint);
