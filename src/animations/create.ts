@@ -5,7 +5,6 @@ import {
     CREATE_SHAPE_TYPES,
     CREATE_LINE_TYPES,
 } from "../cubicons/constants";
-import { Vector2 } from "../math/vector";
 
 export class Create extends Animation {
     constructor({
@@ -42,14 +41,14 @@ export class Create extends Animation {
             }
             case "coordinate-system": {
                 switch (cubicon.coordSysObjType) {
-                    case "axis-projector": {
-                        this.lineCreation(cubicon, sleepTime);
-                        break;
-                    }
-                    case "point":
                     case "graph": {
                         this.shapeCreation(cubicon, sleepTime);
                         break;
+                    }
+                    default: {
+                        console.warn(
+                            "This cubicon is not defined in CREATE_TYPES."
+                        );
                     }
                 }
                 break;
@@ -57,22 +56,10 @@ export class Create extends Animation {
         }
     }
 
+    // Applied for SVG `<line/>`
     private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
-        let WstartPoint, WendPoint;
-        if (cubicon.cubType === "geometry") {
-            WstartPoint = cubicon.getWpoint(cubicon.startPoint);
-            WendPoint = cubicon.getWpoint(cubicon.endPoint);
-        } else {
-            WstartPoint = cubicon.getWpoint(cubicon.position);
-            WendPoint =
-                cubicon.type === "horizontal"
-                    ? cubicon.axes.coordsGtoW(
-                          new Vector2(0, cubicon.position.y)
-                      )
-                    : cubicon.axes.coordsGtoW(
-                          new Vector2(cubicon.position.x, 0)
-                      );
-        }
+        const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
+        const WendPoint = cubicon.getWpoint(cubicon.endPoint);
 
         this.cubicon.lineStroke
             .attr("x2", WstartPoint.x)
@@ -92,7 +79,7 @@ export class Create extends Animation {
         if (cubicon.cubType === "geometry" && cubicon.geoType === "vector") {
             const drawArrowHeadAnimTime = 1500;
 
-            cubicon.arrowHead
+            cubicon.def_arrowHead
                 .style("opacity", 0)
                 .transition()
                 .ease(this.ease)
@@ -104,22 +91,40 @@ export class Create extends Animation {
         }
     }
 
+    /**
+     * Applied for all of SVG tags except `<line/>`
+     *
+     * Legal cubicon types:
+     *
+     * - Geometry(): Rectangle, Square, Circle, GridOrigin.
+     * - CoordinateSystem(): Point, Graph.
+     */
     private shapeCreation(cubicon: CREATE_SHAPE_TYPES, sleepTime: number) {
         cubicon.def_cubiconBase.style("fill-opacity", 0);
 
+        //
         const lineLen = this.cubicon.def_cubiconBase.node().getTotalLength();
         cubicon.def_cubiconBase
             .attr("stroke-dasharray", lineLen + ", " + lineLen)
             .attr("stroke-dashoffset", lineLen);
 
+        // Drawing animation and fade in fill
         cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .attr("stroke-dashoffset", 0)
-            .style("fill", cubicon.fillColor || "none") // Graph don't have fill
-            .style("fill-opacity", cubicon.fillOpacity || "none");
+            .style(
+                "fill",
+                cubicon.cubType === "coordinate-system"
+                    ? "none" // Graph doesn't have fill
+                    : cubicon.fillColor
+            )
+            .style(
+                "fill-opacity",
+                cubicon.cubType === "geometry" ? cubicon.fillOpacity : 1
+            );
 
         cubicon.elapsedTime += this.duration + sleepTime;
     }

@@ -62,14 +62,14 @@ export abstract class Geometry extends Cubicon {
     abstract readonly geoType: string;
 
     // For geometry (Geometry)
-    protected fillColor: any;
-    protected fillOpacity: any;
-    protected strokeColor: any;
-    protected strokeWidth: any;
+    fillColor: any;
+    fillOpacity: any;
+    strokeColor: any;
+    strokeWidth: any;
 
     // For line-like objects (Line | Vector | AxisProjector)
-    protected lineColor: any;
-    protected lineWidth: any;
+    lineColor: any;
+    lineWidth: any;
 
     constructor({
         group,
