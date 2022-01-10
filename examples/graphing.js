@@ -26,7 +26,7 @@ function graphingFunctions() {
             yRange: [-3, 3],
             hasNums: true,
         },
-    });
+    }).render();
     gr.play([new DrawAxes(a)]);
 
     /// Plotting cosine graph

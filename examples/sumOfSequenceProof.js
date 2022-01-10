@@ -31,7 +31,7 @@ function sumOfSequenceProof() {
         group: gr,
         sideLength: 5,
         CONFIG: { strokeColor: COLOR.PINK_1 },
-    });
+    }).render();
     gr.play([new Create({ cubicon: square })]);
 
     square.drawInnerGrid();
@@ -41,14 +41,14 @@ function sumOfSequenceProof() {
         points.push(new Vector2(i, i));
     }
     gr.play([new Translate({ cubicon: square, vector: new Vector2(1, 3) })]);
-    const tex = new MathText({
-        group: gr,
-        position: new Vector2(2, 3),
-        text: "f(x) = x^2",
-    });
-    gr.play([new FadeOut({ cubicon: tex })]);
-    // const linesData = square.pointToSides(points, [1, 1]);
-    // gr.play([new PointToSides(linesData)]);
+    // const tex = new MathText({
+    //     group: gr,
+    //     position: new Vector2(2, 3),
+    //     text: "f(x) = x^2",
+    // }).render();
+    // gr.play([new FadeOut({ cubicon: tex })]);
+    const linesData = square.pointToSides(points, [1, 1]);
+    gr.play([new PointToSides(linesData)]);
 }
 
 sumOfSequenceProof();
