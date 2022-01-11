@@ -1,0 +1,6 @@
+{
+    "entryPoints": ["src/index.ts"],
+    "out": "docs/wiki",
+    "excludePrivate": true,
+    "excludeProtected": true
+}
