@@ -6,17 +6,29 @@ import {
     CREATE_LINE_TYPES,
 } from "../cubicons/constants";
 
+/**
+ * Play animated creation on the screen.
+ */
 export class Create extends Animation {
-    constructor({
-        cubicon,
-        duration = ANIME.CREATE,
-        ease,
-    }: {
+    constructor(params: {
+        /**
+         * The target cubicon to play this animation.
+         */
         cubicon: CREATE_TYPES;
+        /**
+         * Time to play this animation. (in milliseconds)
+         */
         duration?: number;
+        /**
+         * Custom easing function for smooth animation.
+         */
         ease?: EASE_TYPE;
     }) {
-        super({ cubicon: cubicon, duration: duration, ease: ease });
+        super({
+            cubicon: params.cubicon,
+            duration: params.duration ?? ANIME.CREATE,
+            ease: params.ease,
+        });
     }
 
     play(sleepTime: number) {

@@ -57,6 +57,11 @@ export const LINE_DEFAULT_CONFIG = {
     lineWidth: 2,
 };
 
+/**
+ * Base class of all geometric cubicon shape.
+ *
+ * Child classes: Rectangle, Square, Circle, Line, Vector (shape).
+ */
 export abstract class Geometry extends Cubicon {
     readonly cubType = "geometry";
     abstract readonly geoType: string;

@@ -183,11 +183,18 @@ import {
 import { MathText } from "./text";
 
 /**
- * Types available for Create animation
+ * Legal shape types to play Create() animation.
  */
 export type CREATE_SHAPE_TYPES = Rectangle | Square | Circle | Graph | Point;
+
+/**
+ * Legal line-like types to play Create() animation.
+ */
 export type CREATE_LINE_TYPES = Line | Vector | AxisProjector;
 
+/**
+ * Legal cubicon types to play Create() animation.
+ */
 export type CREATE_TYPES = CREATE_SHAPE_TYPES | CREATE_LINE_TYPES;
 
 /**

@@ -4,29 +4,49 @@ import { Graph, AxisProjector } from "../cubicons/coordinateSystem";
 import { PT_TO_COORDS_DATA } from "../cubicons/constants";
 import { Cubicon } from "../cubicons/cubicon";
 
+/**
+ * Animate the smooth motion of a point along a graph.
+ *
+ * **Note** that you have to call either of Axes().pointOnGraph(args) or Axes().pointToCoords(args) to play this animation.
+ */
 export class PointAlongGraph extends Animation {
-    lines: [AxisProjector, AxisProjector];
-    graph: Graph;
-    xPos: number;
+    private lines: [AxisProjector, AxisProjector];
+    private graph: Graph;
+    private xPos: number;
 
-    constructor({
-        point,
-        graph,
-        xPos,
-        duration = ANIME.CREATE,
-        ease,
-    }: {
+    constructor(params: {
+        /**
+         * The target point object for this animation.
+         *
+         * This is the result point after calling Axes().pointOnGraph(args) or Axes().pointToCoords(args).
+         */
         point: PT_TO_COORDS_DATA;
+        /**
+         * Which graph should the point moving along?
+         */
         graph: Graph;
+        /**
+         * x coordinate of the point's target position.
+         */
         xPos: number;
+        /**
+         * Time to play this animation. (in milliseconds)
+         */
         duration?: number;
+        /**
+         * Custom easing function for smooth animation.
+         */
         ease?: EASE_TYPE;
     }) {
-        super({ cubicon: point.point, duration: duration, ease: ease });
+        super({
+            cubicon: params.point.point,
+            duration: params.duration ?? ANIME.CREATE,
+            ease: params.ease,
+        });
 
-        this.lines = point.lines;
-        this.graph = graph;
-        this.xPos = xPos;
+        this.lines = params.point.lines;
+        this.graph = params.graph;
+        this.xPos = params.xPos;
     }
 
     play(sleepTime: number) {

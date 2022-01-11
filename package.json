@@ -4,7 +4,8 @@
     "scripts": {
         "dev": "vite",
         "tsc": "tsc",
-        "tsc-watch": "tsc --watch",
+        "tsc:watch": "tsc --watch",
+        "docs": "typedoc",
         "build": "tsc --declaration && rollup -c",
         "test": "tap test/**/*.test.ts --node-arg=--require=ts-node/register"
     },

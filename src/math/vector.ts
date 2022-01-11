@@ -27,6 +27,9 @@ interface IVector {
     apply(func: ElementMapFunction): IVector;
 }
 
+/**
+ * Specify a mathematical Vector2D.
+ */
 export class Vector2 implements IVector {
     x: number;
     y: number;
@@ -52,11 +55,17 @@ export class Vector2 implements IVector {
         return this.x * vect.x + this.y * vect.y;
     }
 
+    /**
+     * Apply the same function to both coordinates of this vector.
+     */
     apply(func: ElementMapFunction): Vector2 {
         return new Vector2(func(this.x), func(this.y));
     }
 }
 
+/**
+ * Specify a mathematical Vector3D.
+ */
 export class Vector3 implements IVector {
     x: number;
     y: number;
@@ -84,6 +93,9 @@ export class Vector3 implements IVector {
         return this.x * vect.x + this.y * vect.y + this.z * vect.z;
     }
 
+    /**
+     * Apply the same function to all three coordinates of this vector.
+     */
     apply(func: ElementMapFunction): Vector3 {
         return new Vector3(func(this.x), func(this.y), func(this.z));
     }

@@ -3,6 +3,9 @@ import { range } from "d3-array";
 import { Axes } from "../cubicons/coordinateSystem";
 import { Animation } from "./animation";
 
+/**
+ * Animated drawing process of x and y axes on the screen.
+ */
 export class DrawAxes extends Animation {
     private xNums;
     private yNums;
@@ -10,6 +13,9 @@ export class DrawAxes extends Animation {
 
     private arrowDuration = 600;
 
+    /**
+     * @param axes The target axes object to play this animation.
+     */
     constructor(axes: Axes) {
         super({ cubicon: axes });
 

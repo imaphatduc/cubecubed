@@ -11,7 +11,7 @@ export class Animation {
         ease,
     }: {
         cubicon: TYPES;
-        duration?: number;
+        duration?: number | undefined;
         ease?: EASE_TYPE | undefined;
     }) {
         this.cubicon = cubicon;

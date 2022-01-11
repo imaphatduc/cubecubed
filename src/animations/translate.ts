@@ -4,23 +4,37 @@ import { xGtoW, yGtoW } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
 import { Geometry } from "../cubicons/geometry";
 
+/**
+ * Translate a geometric cubicon by a specified vector.
+ */
 export class Translate extends Animation {
     vector: Vector2;
 
-    constructor({
-        cubicon,
-        vector,
-        duration = ANIME.TRANSLATE,
-        ease,
-    }: {
+    constructor(params: {
+        /**
+         * The target cubicon to play this animation.
+         */
         cubicon: Geometry;
+        /**
+         * Translation vector.
+         */
         vector: Vector2;
+        /**
+         * Time to play this animation. (in milliseconds)
+         */
         duration?: number;
+        /**
+         * Custom easing function for smooth animation.
+         */
         ease?: EASE_TYPE;
     }) {
-        super({ cubicon: cubicon, duration: duration, ease: ease });
+        super({
+            cubicon: params.cubicon,
+            duration: params.duration ?? ANIME.TRANSLATE,
+            ease: params.ease,
+        });
 
-        this.vector = vector;
+        this.vector = params.vector;
     }
 
     play(sleepTime: number) {

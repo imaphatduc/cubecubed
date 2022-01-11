@@ -2,17 +2,29 @@ import { Animation } from "./animation";
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { FADE_TYPES } from "../cubicons/constants";
 
+/**
+ * Fade in a cubicon on the screen.
+ */
 export class FadeIn extends Animation {
-    constructor({
-        cubicon,
-        duration = ANIME.FADEIN,
-        ease,
-    }: {
+    constructor(params: {
+        /**
+         * The target cubicon to play this animation.
+         */
         cubicon: FADE_TYPES;
+        /**
+         * Time to play this animation. (in milliseconds)
+         */
         duration?: number;
+        /**
+         * Custom easing function for smooth animation.
+         */
         ease?: EASE_TYPE;
     }) {
-        super({ cubicon: cubicon, duration: duration, ease: ease });
+        super({
+            cubicon: params.cubicon,
+            duration: params.duration ?? ANIME.FADEIN,
+            ease: params.ease,
+        });
     }
 
     play(sleepTime: number) {

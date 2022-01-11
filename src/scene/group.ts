@@ -4,21 +4,67 @@ import { svgWidth, svgHeight, TYPES } from "../cubicons/constants";
 import { Cubicon } from "../cubicons/cubicon";
 import { Scene } from "./scene";
 
+/**
+ * The dad/mom object of every pack of objects in the visualization.
+ *
+ * Please see the Quick Start page in official documentation for clearer understanding about this `Group` term.
+ */
 export class Group {
+    /**
+     * The scene that this group belongs to.
+     */
     scene: Scene;
+
+    /**
+     * The `<svg/>` element that represents this group.
+     */
     svg_group: any;
+
+    /**
+     * Name of this group.
+     */
     name: string;
+
+    /**
+     * Cubicons included in this group.
+     */
     cubicons: Cubicon[];
+
+    /**
+     * Animations played in this group.
+     */
     animations: Animation[];
+
+    /**
+     * The total time to finish playing all animations in the current queue (will be override when the next queue is called). (in milliseconds)
+     */
     queueElapsed: number;
+    /**
+     * The time passed by since this group was created. (in milliseconds)
+     *
+     * > (aka the total time of all the animations **called** in this group)
+     */
     groupElapsed: number;
+
+    /**
+     * The total time before this group is created. (in milliseconds)
+     *
+     * > (aka the total time of all the animations **called** in **other** groups in the same scene)
+     */
     sleepTime: number;
 
+    /**
+     * Include this group to HTML flow.
+     *
+     * @param groupName Name of the group.
+     *
+     * @param scene The scene that the group belongs to.
+     */
     constructor(groupName: string, scene: Scene) {
         this.scene = scene;
-        this.svg_group = !scene.svg.select(`#${groupName}`).empty()
-            ? scene.svg.select(`#${groupName}`)
-            : scene.svg
+        this.svg_group = !scene.svg_scene.select(`#${groupName}`).empty()
+            ? scene.svg_scene.select(`#${groupName}`)
+            : scene.svg_scene
                   .append("svg")
                   .attr("id", `${groupName}`)
                   .attr("class", "group")
@@ -30,10 +76,8 @@ export class Group {
                   );
         this.name = groupName;
 
-        /// List of all cubicons in this group
         this.cubicons = [];
 
-        /// List of the animations used in this group
         this.animations = [];
 
         this.queueElapsed = 0;
@@ -42,12 +86,22 @@ export class Group {
         this.sleepTime = 0;
     }
 
+    /**
+     * Render all the specified cubicons on the screen (instead of calling `.render()` for each of the cubicon).
+     *
+     * @param cubicons Comma-separated cubicons to render.
+     */
     render(...cubicons: any[]) {
         cubicons.forEach((cubicon) => {
             cubicon.render();
         });
     }
 
+    /**
+     * Play all the animations included in a queue.
+     *
+     * @param anims Array (Queue) of animations to play.
+     */
     play(anims: any[]) {
         anims.forEach((anim) => {
             anim.cubicon.elapsedTime = this.queueElapsed;
@@ -84,6 +138,11 @@ export class Group {
         this.groupElapsed = this.queueElapsed;
     }
 
+    /**
+     * Sleep this group for an amount of time.
+     *
+     * @param milliseconds The time to sleep.
+     */
     sleep(milliseconds: number) {
         this.sleepTime = milliseconds;
     }
@@ -92,10 +151,20 @@ export class Group {
         this.animations.push(anim);
     }
 
+    /**
+     * @deprecated
+     *
+     * Add a cubicon to this group.
+     */
     add(cubicon: Cubicon) {
         this.cubicons.push(cubicon);
     }
 
+    /**
+     * Remove a cubicon from this group.
+     *
+     * @param cubicon The cubicon to remove.
+     */
     remove(cubicon: TYPES) {
         if (cubicon.cubType === "geometry") {
             cubicon.group.play([new FadeOut({ cubicon: cubicon })]);
@@ -107,6 +176,12 @@ export class Group {
             .remove();
     }
 
+    /**
+     * Fade out and destroy this group from the HTML flow.
+     * That means, everything in the scene will be removed, too.
+     *
+     * @param delay Delay (in milliseconds) before destroying this scene.
+     */
     destroy(delay: number) {
         this.svg_group
             .transition()

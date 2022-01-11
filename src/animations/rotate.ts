@@ -5,22 +5,36 @@ import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 import { Geometry } from "../cubicons/geometry";
 
+/**
+ * Rotate a geometric cubicon by a specified angle.
+ */
 export class Rotate extends Animation {
     degree: number;
 
-    constructor({
-        cubicon,
-        degree,
-        duration = ANIME.ROTATE,
-        ease,
-    }: {
+    constructor(params: {
+        /**
+         * The target cubicon to play this animation.
+         */
         cubicon: Geometry;
+        /**
+         * Angle (in degrees) for rotating.
+         */
         degree: number;
+        /**
+         * Time to play this animation. (in milliseconds)
+         */
         duration: number;
+        /**
+         * Custom easing function for smooth animation.
+         */
         ease?: EASE_TYPE;
     }) {
-        super({ cubicon: cubicon, duration: duration, ease: ease });
-        this.degree = degree;
+        super({
+            cubicon: params.cubicon,
+            duration: params.duration ?? ANIME.ROTATE,
+            ease: params.ease,
+        });
+        this.degree = params.degree;
     }
 
     play(sleepTime: number) {
