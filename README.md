@@ -28,7 +28,7 @@ npm i cubecubed --save
 
 ## Quick Start
 
-See this [Quick Start](./docs/quickstart.md) page.
+See this [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart) page.
 
 ## Documentation
 
