@@ -104,7 +104,7 @@ import {
 
 /**
  * Default ease functions
- * - Form: <name>_<option>
+ * - Form: `<name>_<option>`
  * - Available options:
  *   . IN
  *   . OUT
@@ -118,7 +118,8 @@ import {
  *   . ELASTIC
  *   . BACK
  *   . BOUNCE
- * - Examples: POLY_IN
+ *
+ * Example Usage: EASE.POLY_IN
  */
 export const EASE = {
     LINEAR: easeLinear,

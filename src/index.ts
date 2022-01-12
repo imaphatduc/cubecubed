@@ -1,6 +1,6 @@
 export { Rectangle, Square, Circle, Line, Vector } from "./cubicons/geometry";
 export * from "./cubicons/grid";
-export { COLOR, PI, TAU } from "./cubicons/constants";
+export { COLOR, PI, TAU, EASE } from "./cubicons/constants";
 export { Axes } from "./cubicons/coordinateSystem";
 export * from "./cubicons/text";
 

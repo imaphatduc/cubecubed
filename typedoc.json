@@ -1,6 +1,7 @@
 {
     "entryPoints": ["src/index.ts"],
-    "out": "docs/wiki",
+    "out": "docs/reference",
     "excludePrivate": true,
-    "excludeProtected": true
+    "excludeProtected": true,
+    "publicPath": "/wiki/"
 }

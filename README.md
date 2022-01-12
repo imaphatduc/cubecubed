@@ -32,7 +32,7 @@ See this [Quick Start](./docs/quickstart.md) page.
 
 ## Documentation
 
-Documentation website is coming soon...
+Documentation website is [here](https://imaphatduc.github.io/cubecubed). (finally!)
 
 ## Credits
 
