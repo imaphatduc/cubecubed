@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Vector2
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Vector2
 
 # Class: Vector2
 
@@ -23,7 +23,7 @@ Specify a mathematical Vector2D.
 
 #### Defined in
 
-[src/math/vector.ts:37](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L37)
+[src/math/vector.ts:37](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L37)
 
 ## Properties
 
@@ -33,7 +33,7 @@ Specify a mathematical Vector2D.
 
 #### Defined in
 
-[src/math/vector.ts:34](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L34)
+[src/math/vector.ts:34](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L34)
 
 ___
 
@@ -43,23 +43,23 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:35](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L35)
+[src/math/vector.ts:35](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L35)
 
 ## Methods
 
 ### add
 
-▸ **add**(`vect`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **add**(`vect`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vect` | [`Vector2`](/wiki/classes/Vector2.md) |
+| `vect` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Implementation of
 
@@ -67,13 +67,13 @@ IVector.add
 
 #### Defined in
 
-[src/math/vector.ts:42](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L42)
+[src/math/vector.ts:42](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L42)
 
 ___
 
 ### apply
 
-▸ **apply**(`func`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **apply**(`func`): [`Vector2`](/reference/classes/Vector2.md)
 
 Apply the same function to both coordinates of this vector.
 
@@ -85,7 +85,7 @@ Apply the same function to both coordinates of this vector.
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Implementation of
 
@@ -93,7 +93,7 @@ IVector.apply
 
 #### Defined in
 
-[src/math/vector.ts:61](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L61)
+[src/math/vector.ts:61](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L61)
 
 ___
 
@@ -105,7 +105,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `vect` | [`Vector2`](/wiki/classes/Vector2.md) |
+| `vect` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
@@ -117,13 +117,13 @@ IVector.dot
 
 #### Defined in
 
-[src/math/vector.ts:54](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L54)
+[src/math/vector.ts:54](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L54)
 
 ___
 
 ### scale
 
-▸ **scale**(`scalar`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **scale**(`scalar`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
@@ -133,7 +133,7 @@ ___
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Implementation of
 
@@ -141,23 +141,23 @@ IVector.scale
 
 #### Defined in
 
-[src/math/vector.ts:50](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L50)
+[src/math/vector.ts:50](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L50)
 
 ___
 
 ### subtract
 
-▸ **subtract**(`vect`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **subtract**(`vect`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vect` | [`Vector2`](/wiki/classes/Vector2.md) |
+| `vect` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Implementation of
 
@@ -165,4 +165,4 @@ IVector.subtract
 
 #### Defined in
 
-[src/math/vector.ts:46](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L46)
+[src/math/vector.ts:46](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L46)

@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Vector3
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Vector3
 
 # Class: Vector3
 
@@ -24,7 +24,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:74](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L74)
+[src/math/vector.ts:74](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L74)
 
 ## Properties
 
@@ -34,7 +34,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:70](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L70)
+[src/math/vector.ts:70](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L70)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:71](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L71)
+[src/math/vector.ts:71](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L71)
 
 ___
 
@@ -54,23 +54,23 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:72](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L72)
+[src/math/vector.ts:72](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L72)
 
 ## Methods
 
 ### add
 
-▸ **add**(`vect`): [`Vector3`](/wiki/classes/Vector3.md)
+▸ **add**(`vect`): [`Vector3`](/reference/classes/Vector3.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vect` | [`Vector3`](/wiki/classes/Vector3.md) |
+| `vect` | [`Vector3`](/reference/classes/Vector3.md) |
 
 #### Returns
 
-[`Vector3`](/wiki/classes/Vector3.md)
+[`Vector3`](/reference/classes/Vector3.md)
 
 #### Implementation of
 
@@ -78,13 +78,13 @@ IVector.add
 
 #### Defined in
 
-[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L80)
+[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L80)
 
 ___
 
 ### apply
 
-▸ **apply**(`func`): [`Vector3`](/wiki/classes/Vector3.md)
+▸ **apply**(`func`): [`Vector3`](/reference/classes/Vector3.md)
 
 Apply the same function to all three coordinates of this vector.
 
@@ -96,7 +96,7 @@ Apply the same function to all three coordinates of this vector.
 
 #### Returns
 
-[`Vector3`](/wiki/classes/Vector3.md)
+[`Vector3`](/reference/classes/Vector3.md)
 
 #### Implementation of
 
@@ -104,7 +104,7 @@ IVector.apply
 
 #### Defined in
 
-[src/math/vector.ts:99](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L99)
+[src/math/vector.ts:99](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L99)
 
 ___
 
@@ -116,7 +116,7 @@ ___
 
 | Name | Type |
 | :------ | :------ |
-| `vect` | [`Vector3`](/wiki/classes/Vector3.md) |
+| `vect` | [`Vector3`](/reference/classes/Vector3.md) |
 
 #### Returns
 
@@ -128,13 +128,13 @@ IVector.dot
 
 #### Defined in
 
-[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L92)
+[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L92)
 
 ___
 
 ### scale
 
-▸ **scale**(`scalar`): [`Vector3`](/wiki/classes/Vector3.md)
+▸ **scale**(`scalar`): [`Vector3`](/reference/classes/Vector3.md)
 
 #### Parameters
 
@@ -144,7 +144,7 @@ ___
 
 #### Returns
 
-[`Vector3`](/wiki/classes/Vector3.md)
+[`Vector3`](/reference/classes/Vector3.md)
 
 #### Implementation of
 
@@ -152,23 +152,23 @@ IVector.scale
 
 #### Defined in
 
-[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L88)
+[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L88)
 
 ___
 
 ### subtract
 
-▸ **subtract**(`vect`): [`Vector3`](/wiki/classes/Vector3.md)
+▸ **subtract**(`vect`): [`Vector3`](/reference/classes/Vector3.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `vect` | [`Vector3`](/wiki/classes/Vector3.md) |
+| `vect` | [`Vector3`](/reference/classes/Vector3.md) |
 
 #### Returns
 
-[`Vector3`](/wiki/classes/Vector3.md)
+[`Vector3`](/reference/classes/Vector3.md)
 
 #### Implementation of
 
@@ -176,4 +176,4 @@ IVector.subtract
 
 #### Defined in
 
-[src/math/vector.ts:84](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/vector.ts#L84)
+[src/math/vector.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L84)

@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / COLOR
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / COLOR
 
 # Variable: COLOR
 
@@ -28,4 +28,4 @@ Color constants
 
 #### Defined in
 
-[src/cubicons/constants.ts:25](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/constants.ts#L25)
+[src/cubicons/constants.ts:25](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/constants.ts#L25)

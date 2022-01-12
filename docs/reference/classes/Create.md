@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Create
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Create
 
 # Class: Create
 
@@ -31,7 +31,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/create.ts:13](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/create.ts#L13)
+[src/animations/create.ts:13](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/create.ts#L13)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L4)
+[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
 
 ___
 
@@ -59,7 +59,7 @@ Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L5)
+[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
 
 ___
 
@@ -73,7 +73,7 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L6)
+[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
 
 ## Methods
 
@@ -93,4 +93,4 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/create.ts:34](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/create.ts#L34)
+[src/animations/create.ts:34](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/create.ts#L34)

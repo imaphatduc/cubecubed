@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / PointAlongGraph
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / PointAlongGraph
 
 # Class: PointAlongGraph
 
@@ -35,7 +35,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/pointAlongGraph.ts:17](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/pointAlongGraph.ts#L17)
+[src/animations/pointAlongGraph.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/pointAlongGraph.ts#L17)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L4)
+[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
 
 ___
 
@@ -63,7 +63,7 @@ Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L5)
+[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
 
 ___
 
@@ -77,7 +77,7 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L6)
+[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
 
 ## Methods
 
@@ -101,7 +101,7 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/pointAlongGraph.ts:105](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/pointAlongGraph.ts#L105)
+[src/animations/pointAlongGraph.ts:105](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/pointAlongGraph.ts#L105)
 
 ___
 
@@ -121,4 +121,4 @@ ___
 
 #### Defined in
 
-[src/animations/pointAlongGraph.ts:52](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/pointAlongGraph.ts#L52)
+[src/animations/pointAlongGraph.ts:52](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/pointAlongGraph.ts#L52)

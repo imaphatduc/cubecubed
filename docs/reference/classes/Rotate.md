@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Rotate
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Rotate
 
 # Class: Rotate
 
@@ -32,7 +32,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/rotate.ts#L14)
+[src/animations/rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/rotate.ts#L14)
 
 ## Properties
 
@@ -46,7 +46,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L4)
+[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
 
 ___
 
@@ -56,7 +56,7 @@ ___
 
 #### Defined in
 
-[src/animations/rotate.ts:12](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/rotate.ts#L12)
+[src/animations/rotate.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/rotate.ts#L12)
 
 ___
 
@@ -70,7 +70,7 @@ Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L5)
+[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
 
 ___
 
@@ -84,7 +84,7 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L6)
+[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
 
 ## Methods
 
@@ -104,4 +104,4 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/rotate.ts:40](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/rotate.ts#L40)
+[src/animations/rotate.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/rotate.ts#L40)

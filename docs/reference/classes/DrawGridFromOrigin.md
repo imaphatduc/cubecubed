@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / DrawGridFromOrigin
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / DrawGridFromOrigin
 
 # Class: DrawGridFromOrigin
 
@@ -18,7 +18,7 @@
 
 | Name | Type |
 | :------ | :------ |
-| `grid` | [`Grid`](/wiki/classes/Grid.md) |
+| `grid` | [`Grid`](/reference/classes/Grid.md) |
 
 #### Overrides
 
@@ -26,7 +26,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/drawGrid.ts:21](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/drawGrid.ts#L21)
+[src/animations/drawGrid.ts:21](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/drawGrid.ts#L21)
 
 ## Properties
 
@@ -40,7 +40,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L4)
+[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
 
 ___
 
@@ -54,7 +54,7 @@ Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L5)
+[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
 
 ___
 
@@ -68,7 +68,7 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L6)
+[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
 
 ## Methods
 
@@ -88,4 +88,4 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/drawGrid.ts:37](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/drawGrid.ts#L37)
+[src/animations/drawGrid.ts:37](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/drawGrid.ts#L37)

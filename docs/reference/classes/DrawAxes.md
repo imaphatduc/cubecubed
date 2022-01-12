@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / DrawAxes
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / DrawAxes
 
 # Class: DrawAxes
 
@@ -20,7 +20,7 @@ Animated drawing process of x and y axes on the screen.
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `axes` | [`Axes`](/wiki/classes/Axes.md) | The target axes object to play this animation. |
+| `axes` | [`Axes`](/reference/classes/Axes.md) | The target axes object to play this animation. |
 
 #### Overrides
 
@@ -28,7 +28,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/drawAxes.ts:19](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/drawAxes.ts#L19)
+[src/animations/drawAxes.ts:19](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/drawAxes.ts#L19)
 
 ## Properties
 
@@ -42,7 +42,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L4)
+[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
 
 ___
 
@@ -56,7 +56,7 @@ Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L5)
+[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
 
 ___
 
@@ -70,7 +70,7 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/animation.ts#L6)
+[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
 
 ## Methods
 
@@ -90,4 +90,4 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/drawAxes.ts:34](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/animations/drawAxes.ts#L34)
+[src/animations/drawAxes.ts:34](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/drawAxes.ts#L34)

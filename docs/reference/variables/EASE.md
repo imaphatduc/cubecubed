@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / EASE
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / EASE
 
 # Variable: EASE
 
@@ -57,4 +57,4 @@ Example Usage: EASE.POLY_IN
 
 #### Defined in
 
-[src/cubicons/constants.ts:124](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/constants.ts#L124)
+[src/cubicons/constants.ts:124](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/constants.ts#L124)

@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Group
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Group
 
 # Class: Group
 
@@ -19,11 +19,11 @@ Include this group to HTML flow.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `groupName` | `string` | Name of the group. |
-| `scene` | [`Scene`](/wiki/classes/Scene.md) | The scene that the group belongs to. |
+| `scene` | [`Scene`](/reference/classes/Scene.md) | The scene that the group belongs to. |
 
 #### Defined in
 
-[src/scene/group.ts:63](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L63)
+[src/scene/group.ts:63](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L63)
 
 ## Properties
 
@@ -35,7 +35,7 @@ Animations played in this group.
 
 #### Defined in
 
-[src/scene/group.ts:36](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L36)
+[src/scene/group.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L36)
 
 ___
 
@@ -47,7 +47,7 @@ Cubicons included in this group.
 
 #### Defined in
 
-[src/scene/group.ts:31](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L31)
+[src/scene/group.ts:31](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L31)
 
 ___
 
@@ -61,7 +61,7 @@ The time passed by since this group was created. (in milliseconds)
 
 #### Defined in
 
-[src/scene/group.ts:47](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L47)
+[src/scene/group.ts:47](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L47)
 
 ___
 
@@ -73,7 +73,7 @@ Name of this group.
 
 #### Defined in
 
-[src/scene/group.ts:26](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L26)
+[src/scene/group.ts:26](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L26)
 
 ___
 
@@ -85,19 +85,19 @@ The total time to finish playing all animations in the current queue (will be ov
 
 #### Defined in
 
-[src/scene/group.ts:41](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L41)
+[src/scene/group.ts:41](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L41)
 
 ___
 
 ### scene
 
-• **scene**: [`Scene`](/wiki/classes/Scene.md)
+• **scene**: [`Scene`](/reference/classes/Scene.md)
 
 The scene that this group belongs to.
 
 #### Defined in
 
-[src/scene/group.ts:16](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L16)
+[src/scene/group.ts:16](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L16)
 
 ___
 
@@ -111,7 +111,7 @@ The total time before this group is created. (in milliseconds)
 
 #### Defined in
 
-[src/scene/group.ts:54](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L54)
+[src/scene/group.ts:54](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L54)
 
 ___
 
@@ -123,7 +123,7 @@ The `<svg/>` element that represents this group.
 
 #### Defined in
 
-[src/scene/group.ts:21](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L21)
+[src/scene/group.ts:21](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L21)
 
 ## Methods
 
@@ -147,7 +147,7 @@ Add a cubicon to this group.
 
 #### Defined in
 
-[src/scene/group.ts:159](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L159)
+[src/scene/group.ts:159](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L159)
 
 ___
 
@@ -170,7 +170,7 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/scene/group.ts:185](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L185)
+[src/scene/group.ts:185](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L185)
 
 ___
 
@@ -192,7 +192,7 @@ Play all the animations included in a queue.
 
 #### Defined in
 
-[src/scene/group.ts:105](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L105)
+[src/scene/group.ts:105](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L105)
 
 ___
 
@@ -214,7 +214,7 @@ Remove a cubicon from this group.
 
 #### Defined in
 
-[src/scene/group.ts:168](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L168)
+[src/scene/group.ts:168](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L168)
 
 ___
 
@@ -236,7 +236,7 @@ Render all the specified cubicons on the screen (instead of calling `.render()` 
 
 #### Defined in
 
-[src/scene/group.ts:94](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L94)
+[src/scene/group.ts:94](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L94)
 
 ___
 
@@ -258,4 +258,4 @@ Sleep this group for an amount of time.
 
 #### Defined in
 
-[src/scene/group.ts:146](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/group.ts#L146)
+[src/scene/group.ts:146](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/group.ts#L146)

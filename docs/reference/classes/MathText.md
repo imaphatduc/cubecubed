@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / MathText
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / MathText
 
 # Class: MathText
 
@@ -21,8 +21,8 @@
 | `params` | `Object` | - |
 | `params.color?` | `string` | Color of the text. |
 | `params.fontSize?` | `number` | Font size of the text. |
-| `params.group` | [`Group`](/wiki/classes/Group.md) | The group that the text belongs to. |
-| `params.position?` | [`Vector2`](/wiki/classes/Vector2.md) | Position of the text. |
+| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the text belongs to. |
+| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the text. |
 | `params.text` | `string` | Content of the text. |
 
 #### Overrides
@@ -31,7 +31,7 @@ Cubicon.constructor
 
 #### Defined in
 
-[src/cubicons/text.ts:32](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/text.ts#L32)
+[src/cubicons/text.ts:32](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/text.ts#L32)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Cubicon.angle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L22)
+[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L22)
 
 ___
 
@@ -60,7 +60,7 @@ Color of this text.
 
 #### Defined in
 
-[src/cubicons/text.ts:20](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/text.ts#L20)
+[src/cubicons/text.ts:20](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/text.ts#L20)
 
 ___
 
@@ -74,7 +74,7 @@ Cubicon.cubType
 
 #### Defined in
 
-[src/cubicons/text.ts:10](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/text.ts#L10)
+[src/cubicons/text.ts:10](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/text.ts#L10)
 
 ___
 
@@ -90,7 +90,7 @@ Cubicon.def\_cubiconBase
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L44)
+[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L44)
 
 ___
 
@@ -102,7 +102,7 @@ The SVG element that represents this text.
 
 #### Defined in
 
-[src/cubicons/text.ts:30](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/text.ts#L30)
+[src/cubicons/text.ts:30](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/text.ts#L30)
 
 ___
 
@@ -118,7 +118,7 @@ Cubicon.elapsedTime
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L49)
+[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L49)
 
 ___
 
@@ -130,7 +130,7 @@ Font size of this text (in points).
 
 #### Defined in
 
-[src/cubicons/text.ts:25](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/text.ts#L25)
+[src/cubicons/text.ts:25](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/text.ts#L25)
 
 ___
 
@@ -146,13 +146,13 @@ Cubicon.g\_cubiconWrapper
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L40)
+[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L40)
 
 ___
 
 ### group
 
-• **group**: [`Group`](/wiki/classes/Group.md)
+• **group**: [`Group`](/reference/classes/Group.md)
 
 The group that this cubicon belongs to.
 
@@ -162,7 +162,7 @@ Cubicon.group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L12)
+[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L12)
 
 ___
 
@@ -176,7 +176,7 @@ Cubicon.isRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L51)
+[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L51)
 
 ___
 
@@ -192,7 +192,7 @@ Cubicon.moveAngle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L31)
+[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L31)
 
 ___
 
@@ -208,13 +208,13 @@ Cubicon.moveVector
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L27)
+[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L27)
 
 ___
 
 ### position
 
-• **position**: [`Vector2`](/wiki/classes/Vector2.md)
+• **position**: [`Vector2`](/reference/classes/Vector2.md)
 
 Position of this cubicon.
 This property changed after finishing animations (in real time).
@@ -225,7 +225,7 @@ Cubicon.position
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L17)
+[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L17)
 
 ___
 
@@ -241,7 +241,7 @@ Cubicon.svg\_group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L36)
+[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L36)
 
 ___
 
@@ -253,7 +253,7 @@ Content of this text.
 
 #### Defined in
 
-[src/cubicons/text.ts:15](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/text.ts#L15)
+[src/cubicons/text.ts:15](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/text.ts#L15)
 
 ## Methods
 
@@ -271,7 +271,7 @@ Cubicon.checkIfRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L84)
+[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L84)
 
 ___
 
@@ -285,4 +285,4 @@ ___
 
 #### Defined in
 
-[src/cubicons/text.ts:64](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/text.ts#L64)
+[src/cubicons/text.ts:64](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/text.ts#L64)

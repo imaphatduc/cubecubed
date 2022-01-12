@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Grid
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Grid
 
 # Class: Grid
 
@@ -19,7 +19,7 @@
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `__namedParameters` | `Object` | - |
-| `__namedParameters.group` | [`Group`](/wiki/classes/Group.md) | The group that the grid belongs to. |
+| `__namedParameters.group` | [`Group`](/reference/classes/Group.md) | The group that the grid belongs to. |
 | `__namedParameters.hasNums?` | `boolean` | Whether or not to include numbers onto axes. |
 
 #### Overrides
@@ -28,7 +28,7 @@ Geometry.constructor
 
 #### Defined in
 
-[src/cubicons/grid.ts:54](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L54)
+[src/cubicons/grid.ts:54](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L54)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Geometry.angle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L22)
+[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L22)
 
 ___
 
@@ -59,7 +59,7 @@ Geometry.cubType
 
 #### Defined in
 
-[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L66)
+[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L66)
 
 ___
 
@@ -75,7 +75,7 @@ Geometry.def\_cubiconBase
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L44)
+[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L44)
 
 ___
 
@@ -91,7 +91,7 @@ Geometry.elapsedTime
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L49)
+[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L49)
 
 ___
 
@@ -105,7 +105,7 @@ Geometry.fillColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L70)
+[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L70)
 
 ___
 
@@ -119,7 +119,7 @@ Geometry.fillOpacity
 
 #### Defined in
 
-[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L71)
+[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L71)
 
 ___
 
@@ -135,7 +135,7 @@ Geometry.g\_cubiconWrapper
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L40)
+[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L40)
 
 ___
 
@@ -147,7 +147,7 @@ The `<g/>` tag that contains all horizontal lines.
 
 #### Defined in
 
-[src/cubicons/grid.ts:46](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L46)
+[src/cubicons/grid.ts:46](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L46)
 
 ___
 
@@ -159,7 +159,7 @@ The `<g/>` tag that contains all vertical lines.
 
 #### Defined in
 
-[src/cubicons/grid.ts:50](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L50)
+[src/cubicons/grid.ts:50](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L50)
 
 ___
 
@@ -173,13 +173,13 @@ Geometry.geoType
 
 #### Defined in
 
-[src/cubicons/grid.ts:8](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L8)
+[src/cubicons/grid.ts:8](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L8)
 
 ___
 
 ### group
 
-• **group**: [`Group`](/wiki/classes/Group.md)
+• **group**: [`Group`](/reference/classes/Group.md)
 
 The group that this cubicon belongs to.
 
@@ -189,7 +189,7 @@ Geometry.group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L12)
+[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L12)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/cubicons/grid.ts:52](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L52)
+[src/cubicons/grid.ts:52](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L52)
 
 ___
 
@@ -213,7 +213,7 @@ Geometry.isRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L51)
+[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L51)
 
 ___
 
@@ -229,7 +229,7 @@ Geometry.lineColor
 
 #### Defined in
 
-[src/cubicons/grid.ts:27](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L27)
+[src/cubicons/grid.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L27)
 
 ___
 
@@ -243,7 +243,7 @@ Geometry.lineWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L77)
+[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L77)
 
 ___
 
@@ -259,7 +259,7 @@ Geometry.moveAngle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L31)
+[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L31)
 
 ___
 
@@ -275,7 +275,7 @@ Geometry.moveVector
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L27)
+[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L27)
 
 ___
 
@@ -287,13 +287,13 @@ Color of the grid origin.
 
 #### Defined in
 
-[src/cubicons/grid.ts:13](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L13)
+[src/cubicons/grid.ts:13](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L13)
 
 ___
 
 ### position
 
-• **position**: [`Vector2`](/wiki/classes/Vector2.md)
+• **position**: [`Vector2`](/reference/classes/Vector2.md)
 
 Position of this cubicon.
 This property changed after finishing animations (in real time).
@@ -304,7 +304,7 @@ Geometry.position
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L17)
+[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L17)
 
 ___
 
@@ -318,7 +318,7 @@ Geometry.strokeColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L72)
+[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L72)
 
 ___
 
@@ -332,7 +332,7 @@ Geometry.strokeWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L73)
+[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L73)
 
 ___
 
@@ -348,7 +348,7 @@ Geometry.svg\_group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L36)
+[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L36)
 
 ___
 
@@ -360,7 +360,7 @@ Color of the x axis.
 
 #### Defined in
 
-[src/cubicons/grid.ts:18](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L18)
+[src/cubicons/grid.ts:18](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L18)
 
 ___
 
@@ -372,7 +372,7 @@ Array of integer x values.
 
 #### Defined in
 
-[src/cubicons/grid.ts:32](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L32)
+[src/cubicons/grid.ts:32](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L32)
 
 ___
 
@@ -384,7 +384,7 @@ Color of the y axis.
 
 #### Defined in
 
-[src/cubicons/grid.ts:22](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L22)
+[src/cubicons/grid.ts:22](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L22)
 
 ___
 
@@ -396,7 +396,7 @@ Array of integer y values.
 
 #### Defined in
 
-[src/cubicons/grid.ts:36](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/grid.ts#L36)
+[src/cubicons/grid.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/grid.ts#L36)
 
 ## Methods
 
@@ -414,23 +414,23 @@ Geometry.checkIfRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L84)
+[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L84)
 
 ___
 
 ### coordsGtoW
 
-▸ **coordsGtoW**(`point`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `point` | [`Vector2`](/wiki/classes/Vector2.md) |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Inherited from
 
@@ -438,4 +438,4 @@ Geometry.coordsGtoW
 
 #### Defined in
 
-[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L91)
+[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L91)

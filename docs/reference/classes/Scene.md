@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Scene
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Scene
 
 # Class: Scene
 
@@ -25,7 +25,7 @@ Include this scene to HTML flow.
 
 #### Defined in
 
-[src/scene/scene.ts:27](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/scene.ts#L27)
+[src/scene/scene.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L27)
 
 ## Properties
 
@@ -37,7 +37,7 @@ Name of this scene.
 
 #### Defined in
 
-[src/scene/scene.ts:20](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/scene.ts#L20)
+[src/scene/scene.ts:20](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L20)
 
 ___
 
@@ -49,7 +49,7 @@ The `<svg/>` element that represents this scene.
 
 #### Defined in
 
-[src/scene/scene.ts:15](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/scene.ts#L15)
+[src/scene/scene.ts:15](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L15)
 
 ## Methods
 
@@ -72,4 +72,4 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/scene/scene.ts:44](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/scene/scene.ts#L44)
+[src/scene/scene.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L44)

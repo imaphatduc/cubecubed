@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / dToR
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / dToR
 
 # Variable: dToR
 
@@ -8,4 +8,4 @@ One-param function to convert degrees value to radians one.
 
 #### Defined in
 
-[src/math/convertUnit.ts:44](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/math/convertUnit.ts#L44)
+[src/math/convertUnit.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/convertUnit.ts#L44)

@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Vector
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Vector
 
 # Class: Vector
 
@@ -20,9 +20,9 @@
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
 | `params.CONFIG?` | `LINE_CONFIG` | Config options of the vector line. |
-| `params.endPoint` | [`Vector2`](/wiki/classes/Vector2.md) | End point (head) of the vector. |
-| `params.group` | [`Group`](/wiki/classes/Group.md) | The group that the vector belongs to. |
-| `params.startPoint?` | [`Vector2`](/wiki/classes/Vector2.md) | Start point (tail) of the vector. |
+| `params.endPoint` | [`Vector2`](/reference/classes/Vector2.md) | End point (head) of the vector. |
+| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the vector belongs to. |
+| `params.startPoint?` | [`Vector2`](/reference/classes/Vector2.md) | Start point (tail) of the vector. |
 
 #### Overrides
 
@@ -30,7 +30,7 @@ Geometry.constructor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:614](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L614)
+[src/cubicons/geometry.ts:614](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L614)
 
 ## Properties
 
@@ -47,7 +47,7 @@ Geometry.angle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L22)
+[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L22)
 
 ___
 
@@ -61,7 +61,7 @@ Geometry.cubType
 
 #### Defined in
 
-[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L66)
+[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L66)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:612](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L612)
+[src/cubicons/geometry.ts:612](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L612)
 
 ___
 
@@ -87,7 +87,7 @@ Geometry.def\_cubiconBase
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L44)
+[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L44)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:611](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L611)
+[src/cubicons/geometry.ts:611](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L611)
 
 ___
 
@@ -113,19 +113,19 @@ Geometry.elapsedTime
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L49)
+[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L49)
 
 ___
 
 ### endPoint
 
-• `Readonly` **endPoint**: [`Vector2`](/wiki/classes/Vector2.md)
+• `Readonly` **endPoint**: [`Vector2`](/reference/classes/Vector2.md)
 
 End point (head) of the vector.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:604](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L604)
+[src/cubicons/geometry.ts:604](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L604)
 
 ___
 
@@ -139,7 +139,7 @@ Geometry.fillColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L70)
+[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L70)
 
 ___
 
@@ -153,7 +153,7 @@ Geometry.fillOpacity
 
 #### Defined in
 
-[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L71)
+[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L71)
 
 ___
 
@@ -169,7 +169,7 @@ Geometry.g\_cubiconWrapper
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L40)
+[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L40)
 
 ___
 
@@ -185,13 +185,13 @@ Geometry.geoType
 
 #### Defined in
 
-[src/cubicons/geometry.ts:594](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L594)
+[src/cubicons/geometry.ts:594](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L594)
 
 ___
 
 ### group
 
-• **group**: [`Group`](/wiki/classes/Group.md)
+• **group**: [`Group`](/reference/classes/Group.md)
 
 The group that this cubicon belongs to.
 
@@ -201,7 +201,7 @@ Geometry.group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L12)
+[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L12)
 
 ___
 
@@ -215,7 +215,7 @@ Geometry.isRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L51)
+[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L51)
 
 ___
 
@@ -229,7 +229,7 @@ Geometry.lineColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:76](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L76)
+[src/cubicons/geometry.ts:76](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L76)
 
 ___
 
@@ -243,7 +243,7 @@ Geometry.lineWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L77)
+[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L77)
 
 ___
 
@@ -259,7 +259,7 @@ Geometry.moveAngle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L31)
+[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L31)
 
 ___
 
@@ -275,13 +275,13 @@ Geometry.moveVector
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L27)
+[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L27)
 
 ___
 
 ### position
 
-• **position**: [`Vector2`](/wiki/classes/Vector2.md)
+• **position**: [`Vector2`](/reference/classes/Vector2.md)
 
 Position of this cubicon.
 This property changed after finishing animations (in real time).
@@ -292,19 +292,19 @@ Geometry.position
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L17)
+[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L17)
 
 ___
 
 ### startPoint
 
-• `Readonly` **startPoint**: [`Vector2`](/wiki/classes/Vector2.md)
+• `Readonly` **startPoint**: [`Vector2`](/reference/classes/Vector2.md)
 
 Start point (tail) of the vector.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:600](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L600)
+[src/cubicons/geometry.ts:600](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L600)
 
 ___
 
@@ -318,7 +318,7 @@ Geometry.strokeColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L72)
+[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L72)
 
 ___
 
@@ -332,7 +332,7 @@ Geometry.strokeWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L73)
+[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L73)
 
 ___
 
@@ -348,7 +348,7 @@ Geometry.svg\_group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L36)
+[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L36)
 
 ___
 
@@ -360,7 +360,7 @@ The smaller angle (in degree) between the vector and the x axis.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:609](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L609)
+[src/cubicons/geometry.ts:609](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L609)
 
 ## Methods
 
@@ -378,23 +378,23 @@ Geometry.checkIfRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L84)
+[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L84)
 
 ___
 
 ### coordsGtoW
 
-▸ **coordsGtoW**(`point`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `point` | [`Vector2`](/wiki/classes/Vector2.md) |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Inherited from
 
@@ -402,38 +402,38 @@ Geometry.coordsGtoW
 
 #### Defined in
 
-[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L91)
+[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L91)
 
 ___
 
 ### getWpoint
 
-▸ **getWpoint**(`point`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **getWpoint**(`point`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `point` | [`Vector2`](/wiki/classes/Vector2.md) |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:658](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L658)
+[src/cubicons/geometry.ts:658](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L658)
 
 ___
 
 ### render
 
-▸ **render**(): [`Vector`](/wiki/classes/Vector.md)
+▸ **render**(): [`Vector`](/reference/classes/Vector.md)
 
 #### Returns
 
-[`Vector`](/wiki/classes/Vector.md)
+[`Vector`](/reference/classes/Vector.md)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:662](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L662)
+[src/cubicons/geometry.ts:662](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L662)

@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / TAU
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / TAU
 
 # Variable: TAU
 
@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/cubicons/constants.ts:47](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/constants.ts#L47)
+[src/cubicons/constants.ts:47](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/constants.ts#L47)

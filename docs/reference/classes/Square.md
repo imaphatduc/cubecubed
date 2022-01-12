@@ -1,4 +1,4 @@
-[cubecubed](/wiki/README.md) / [Exports](/wiki/modules.md) / Square
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Square
 
 # Class: Square
 
@@ -6,7 +6,7 @@ Return the barebone of a square shape.
 
 ## Hierarchy
 
-- [`Rectangle`](/wiki/classes/Rectangle.md)
+- [`Rectangle`](/reference/classes/Rectangle.md)
 
   ↳ **`Square`**
 
@@ -22,17 +22,17 @@ Return the barebone of a square shape.
 | :------ | :------ | :------ |
 | `params` | `Object` | An object that contains options to form the square. |
 | `params.CONFIG?` | `SHAPE_CONFIG` | Config options of the square. |
-| `params.group` | [`Group`](/wiki/classes/Group.md) | The group that the square belongs to. |
-| `params.position?` | [`Vector2`](/wiki/classes/Vector2.md) | Position of the square. |
+| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the square belongs to. |
+| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the square. |
 | `params.sideLength` | `number` | Side length of the square. |
 
 #### Overrides
 
-[Rectangle](/wiki/classes/Rectangle.md).[constructor](/wiki/classes/Rectangle.md#constructor)
+[Rectangle](/reference/classes/Rectangle.md).[constructor](/reference/classes/Rectangle.md#constructor)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:345](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L345)
+[src/cubicons/geometry.ts:345](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L345)
 
 ## Properties
 
@@ -45,11 +45,11 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[angle](/wiki/classes/Rectangle.md#angle)
+[Rectangle](/reference/classes/Rectangle.md).[angle](/reference/classes/Rectangle.md#angle)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L22)
+[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L22)
 
 ___
 
@@ -59,11 +59,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[cubType](/wiki/classes/Rectangle.md#cubtype)
+[Rectangle](/reference/classes/Rectangle.md).[cubType](/reference/classes/Rectangle.md#cubtype)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L66)
+[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L66)
 
 ___
 
@@ -75,11 +75,11 @@ The HTML tag that represents this cubicon.
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[def_cubiconBase](/wiki/classes/Rectangle.md#def_cubiconbase)
+[Rectangle](/reference/classes/Rectangle.md).[def_cubiconBase](/reference/classes/Rectangle.md#def_cubiconbase)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L44)
+[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L44)
 
 ___
 
@@ -91,11 +91,11 @@ Total time of all called animations (in milliseconds).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[elapsedTime](/wiki/classes/Rectangle.md#elapsedtime)
+[Rectangle](/reference/classes/Rectangle.md).[elapsedTime](/reference/classes/Rectangle.md#elapsedtime)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L49)
+[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L49)
 
 ___
 
@@ -105,11 +105,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[fillColor](/wiki/classes/Rectangle.md#fillcolor)
+[Rectangle](/reference/classes/Rectangle.md).[fillColor](/reference/classes/Rectangle.md#fillcolor)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L70)
+[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L70)
 
 ___
 
@@ -119,11 +119,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[fillOpacity](/wiki/classes/Rectangle.md#fillopacity)
+[Rectangle](/reference/classes/Rectangle.md).[fillOpacity](/reference/classes/Rectangle.md#fillopacity)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L71)
+[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L71)
 
 ___
 
@@ -135,11 +135,11 @@ The `<g/>` tag that holds this cubicon.
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[g_cubiconWrapper](/wiki/classes/Rectangle.md#g_cubiconwrapper)
+[Rectangle](/reference/classes/Rectangle.md).[g_cubiconWrapper](/reference/classes/Rectangle.md#g_cubiconwrapper)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L40)
+[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L40)
 
 ___
 
@@ -151,27 +151,27 @@ Geometry type of the rectangle.
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[geoType](/wiki/classes/Rectangle.md#geotype)
+[Rectangle](/reference/classes/Rectangle.md).[geoType](/reference/classes/Rectangle.md#geotype)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:103](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L103)
+[src/cubicons/geometry.ts:103](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L103)
 
 ___
 
 ### group
 
-• **group**: [`Group`](/wiki/classes/Group.md)
+• **group**: [`Group`](/reference/classes/Group.md)
 
 The group that this cubicon belongs to.
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[group](/wiki/classes/Rectangle.md#group)
+[Rectangle](/reference/classes/Rectangle.md).[group](/reference/classes/Rectangle.md#group)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L12)
+[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L12)
 
 ___
 
@@ -185,11 +185,11 @@ Height of the rectangle (in grid coordinate system).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[height](/wiki/classes/Rectangle.md#height)
+[Rectangle](/reference/classes/Rectangle.md).[height](/reference/classes/Rectangle.md#height)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:114](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L114)
+[src/cubicons/geometry.ts:114](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L114)
 
 ___
 
@@ -199,11 +199,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[isRendered](/wiki/classes/Rectangle.md#isrendered)
+[Rectangle](/reference/classes/Rectangle.md).[isRendered](/reference/classes/Rectangle.md#isrendered)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L51)
+[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L51)
 
 ___
 
@@ -213,11 +213,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[lineColor](/wiki/classes/Rectangle.md#linecolor)
+[Rectangle](/reference/classes/Rectangle.md).[lineColor](/reference/classes/Rectangle.md#linecolor)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:76](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L76)
+[src/cubicons/geometry.ts:76](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L76)
 
 ___
 
@@ -227,11 +227,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[lineWidth](/wiki/classes/Rectangle.md#linewidth)
+[Rectangle](/reference/classes/Rectangle.md).[lineWidth](/reference/classes/Rectangle.md#linewidth)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L77)
+[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L77)
 
 ___
 
@@ -243,11 +243,11 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[moveAngle](/wiki/classes/Rectangle.md#moveangle)
+[Rectangle](/reference/classes/Rectangle.md).[moveAngle](/reference/classes/Rectangle.md#moveangle)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L31)
+[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L31)
 
 ___
 
@@ -259,28 +259,28 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[moveVector](/wiki/classes/Rectangle.md#movevector)
+[Rectangle](/reference/classes/Rectangle.md).[moveVector](/reference/classes/Rectangle.md#movevector)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L27)
+[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L27)
 
 ___
 
 ### position
 
-• **position**: [`Vector2`](/wiki/classes/Vector2.md)
+• **position**: [`Vector2`](/reference/classes/Vector2.md)
 
 Position of this cubicon.
 This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[position](/wiki/classes/Rectangle.md#position)
+[Rectangle](/reference/classes/Rectangle.md).[position](/reference/classes/Rectangle.md#position)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L17)
+[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L17)
 
 ___
 
@@ -290,11 +290,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[strokeColor](/wiki/classes/Rectangle.md#strokecolor)
+[Rectangle](/reference/classes/Rectangle.md).[strokeColor](/reference/classes/Rectangle.md#strokecolor)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L72)
+[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L72)
 
 ___
 
@@ -304,11 +304,11 @@ ___
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[strokeWidth](/wiki/classes/Rectangle.md#strokewidth)
+[Rectangle](/reference/classes/Rectangle.md).[strokeWidth](/reference/classes/Rectangle.md#strokewidth)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L73)
+[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L73)
 
 ___
 
@@ -320,11 +320,11 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[svg_group](/wiki/classes/Rectangle.md#svg_group)
+[Rectangle](/reference/classes/Rectangle.md).[svg_group](/reference/classes/Rectangle.md#svg_group)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L36)
+[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L36)
 
 ___
 
@@ -336,11 +336,11 @@ Width of the rectangle (in grid coordinate system).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[width](/wiki/classes/Rectangle.md#width)
+[Rectangle](/reference/classes/Rectangle.md).[width](/reference/classes/Rectangle.md#width)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:108](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L108)
+[src/cubicons/geometry.ts:108](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L108)
 
 ## Methods
 
@@ -354,35 +354,35 @@ Width of the rectangle (in grid coordinate system).
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[checkIfRendered](/wiki/classes/Rectangle.md#checkifrendered)
+[Rectangle](/reference/classes/Rectangle.md).[checkIfRendered](/reference/classes/Rectangle.md#checkifrendered)
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/cubicon.ts#L84)
+[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L84)
 
 ___
 
 ### coordsGtoW
 
-▸ **coordsGtoW**(`point`): [`Vector2`](/wiki/classes/Vector2.md)
+▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `point` | [`Vector2`](/wiki/classes/Vector2.md) |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
-[`Vector2`](/wiki/classes/Vector2.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[coordsGtoW](/wiki/classes/Rectangle.md#coordsgtow)
+[Rectangle](/reference/classes/Rectangle.md).[coordsGtoW](/reference/classes/Rectangle.md#coordsgtow)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L91)
+[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L91)
 
 ___
 
@@ -400,11 +400,11 @@ A complex data type to specify in DrawInnerGrid() animation.
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[drawInnerGrid](/wiki/classes/Rectangle.md#drawinnergrid)
+[Rectangle](/reference/classes/Rectangle.md).[drawInnerGrid](/reference/classes/Rectangle.md#drawinnergrid)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:287](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L287)
+[src/cubicons/geometry.ts:287](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L287)
 
 ___
 
@@ -418,7 +418,7 @@ Add lines from the specified point to the rectangle's sides based on x and y dir
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
-| `ptPositions` | [`Vector2`](/wiki/classes/Vector2.md)[] | Position of the point. |
+| `ptPositions` | [`Vector2`](/reference/classes/Vector2.md)[] | Position of the point. |
 | `direction` | [`number`, `number`] | An array that includes two direction values. If positive (+), then the line moves right (or up), and left (or down) for negative (-).  - *Example*: `pointToSides(new Vector2(0, 0), [-1, 1])` will draw two lines from point (0, 0) to the rectangle's sides by two directions:   negatively parallel to x axis (left) and positively parallel to y axis (up). |
 
 #### Returns
@@ -429,28 +429,28 @@ A complex data type to specify in PointToSides() animation.
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[pointToSides](/wiki/classes/Rectangle.md#pointtosides)
+[Rectangle](/reference/classes/Rectangle.md).[pointToSides](/reference/classes/Rectangle.md#pointtosides)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:221](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L221)
+[src/cubicons/geometry.ts:221](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L221)
 
 ___
 
 ### render
 
-▸ **render**(): [`Square`](/wiki/classes/Square.md)
+▸ **render**(): [`Square`](/reference/classes/Square.md)
 
 Add the shape of this rectangle onto SVG.
 
 #### Returns
 
-[`Square`](/wiki/classes/Square.md)
+[`Square`](/reference/classes/Square.md)
 
 #### Inherited from
 
-[Rectangle](/wiki/classes/Rectangle.md).[render](/wiki/classes/Rectangle.md#render)
+[Rectangle](/reference/classes/Rectangle.md).[render](/reference/classes/Rectangle.md#render)
 
 #### Defined in
 
-[src/cubicons/geometry.ts:158](https://github.com/imaphatduc/cubecubed/blob/26131ac/src/cubicons/geometry.ts#L158)
+[src/cubicons/geometry.ts:158](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L158)
