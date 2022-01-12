@@ -39,11 +39,14 @@ export class PointToCoords extends Animation {
         this.ptToCoords(this.cubicon, this.projectors);
     }
 
-    private ptToCoords(point: Point, lines: [AxisProjector, AxisProjector]) {
+    private ptToCoords(
+        point: Point,
+        projectors: [AxisProjector, AxisProjector]
+    ) {
         point.group.play([
             new Create({ cubicon: point }),
-            new Create({ cubicon: lines[0] }),
-            new Create({ cubicon: lines[1] }),
+            new Create({ cubicon: projectors[0] }),
+            new Create({ cubicon: projectors[1] }),
         ]);
     }
 }
