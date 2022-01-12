@@ -3,5 +3,5 @@
     "out": "docs/reference",
     "excludePrivate": true,
     "excludeProtected": true,
-    "publicPath": "/wiki/"
+    "publicPath": "/reference/"
 }
