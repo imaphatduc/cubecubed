@@ -2,7 +2,6 @@ import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { Animation } from "./animation";
 import { Graph, AxisProjector } from "../cubicons/coordinateSystem";
 import { PT_TO_COORDS_DATA } from "../cubicons/constants";
-import { Cubicon } from "../cubicons/cubicon";
 
 /**
  * Animate the smooth motion of a point along a graph.
@@ -10,9 +9,21 @@ import { Cubicon } from "../cubicons/cubicon";
  * **Note** that you have to call either of Axes().pointOnGraph(args) or Axes().pointToCoords(args) to play this animation.
  */
 export class PointAlongGraph extends Animation {
-    private lines: [AxisProjector, AxisProjector];
+    private projectors: [AxisProjector, AxisProjector];
     private graph: Graph;
     private xPos: number;
+
+    private tweenX = (t: number) => {
+        const deltaX = this.xPos - this.cubicon.position.x;
+        return this.graph.axes.xScale(t * deltaX + this.cubicon.position.x);
+    };
+
+    private tweenY = (t: number) => {
+        const deltaX = this.xPos - this.cubicon.position.x;
+        return this.graph.axes.yScale(
+            this.graph.functionDef(t * deltaX + this.cubicon.position.x)
+        );
+    };
 
     constructor(params: {
         /**
@@ -44,143 +55,59 @@ export class PointAlongGraph extends Animation {
             ease: params.ease,
         });
 
-        this.lines = params.point.lines;
+        this.projectors = params.point.projectors;
         this.graph = params.graph;
         this.xPos = params.xPos;
     }
 
     play(sleepTime: number) {
-        this.ptAlongGraph(this.cubicon, this.graph, this.xPos, sleepTime);
-        if (typeof this.lines !== "undefined") {
-            this.horLineAlongGraph(
-                this.cubicon,
-                this.lines[0],
-                this.graph,
-                this.xPos,
-                sleepTime
-            );
-            this.verLineAlongGraph(
-                this.cubicon,
-                this.lines[1],
-                this.graph,
-                this.xPos,
-                sleepTime
-            );
+        this.pointAlongGraph(sleepTime);
+        if (typeof this.projectors !== "undefined") {
+            this.animateProjectors(sleepTime);
         }
     }
 
-    private ptAlongGraph(
-        point: Cubicon,
-        graph: Graph,
-        xPos: number,
-        sleepTime: number
-    ) {
-        point.def_cubiconBase
+    private pointAlongGraph(sleepTime: number) {
+        this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(point.elapsedTime + sleepTime)
+            .delay(this.cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
-            .attrTween("cx", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.xScale(t * deltaX + point.position.x);
-                };
-            })
-            .attrTween("cy", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.yScale(
-                        graph.functionDef(t * deltaX + point.position.x)
-                    );
-                };
-            })
+            .attrTween("cx", () => this.tweenX)
+            .attrTween("cy", () => this.tweenY)
             .on("end", () => {
-                point.position.x = xPos;
-                point.position.y = graph.functionDef(xPos);
+                this.cubicon.position.x = this.xPos;
+                this.cubicon.position.y = this.graph.functionDef(this.xPos);
             });
 
-        point.elapsedTime += this.duration + sleepTime;
+        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
-    horLineAlongGraph(
-        point: Cubicon,
-        line: AxisProjector,
-        graph: Graph,
-        xPos: number,
-        sleepTime: number
-    ) {
-        line.def_cubiconBase
-            .transition()
-            .ease(this.ease)
-            .delay(line.elapsedTime + sleepTime)
-            .duration(this.duration)
-            .attrTween("x1", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.xScale(t * deltaX + point.position.x);
-                };
-            })
-            .attrTween("y1", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.yScale(
-                        graph.functionDef(t * deltaX + point.position.x)
-                    );
-                };
-            })
-            .attrTween("y2", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.yScale(
-                        graph.functionDef(t * deltaX + point.position.x)
-                    );
-                };
-            })
-            .on("end", () => {
-                // line.startPoint.x = graph.axes.xScale(xPos);
-                // line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
-            });
+    private animateProjectors(sleepTime: number) {
+        const data = [
+            {
+                projector: this.projectors[0],
+                attr: "y2",
+                tween: this.tweenY,
+            },
+            {
+                projector: this.projectors[1],
+                attr: "x2",
+                tween: this.tweenX,
+            },
+        ];
 
-        line.elapsedTime += this.duration + sleepTime;
-    }
+        data.forEach((d: any) => {
+            d.projector.def_cubiconBase
+                .transition()
+                .ease(this.ease)
+                .delay(d.projector.elapsedTime + sleepTime)
+                .duration(this.duration)
+                .attrTween("x1", () => this.tweenX)
+                .attrTween("y1", () => this.tweenY)
+                .attrTween(d.attr, () => d.tween);
 
-    private verLineAlongGraph(
-        point: Cubicon,
-        line: AxisProjector,
-        graph: Graph,
-        xPos: number,
-        sleepTime: number
-    ) {
-        line.def_cubiconBase
-            .transition()
-            .ease(this.ease)
-            .delay(line.elapsedTime + sleepTime)
-            .duration(this.duration)
-            .attrTween("x1", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.xScale(t * deltaX + point.position.x);
-                };
-            })
-            .attrTween("y1", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.yScale(
-                        graph.functionDef(t * deltaX + point.position.x)
-                    );
-                };
-            })
-            .attrTween("x2", () => {
-                return (t: number) => {
-                    const deltaX = xPos - point.position.x;
-                    return graph.axes.xScale(t * deltaX + point.position.x);
-                };
-            })
-            .on("end", () => {
-                // line.startPoint.x = graph.axes.xScale(xPos);
-                // line.startPoint.y = graph.axes.yScale(graph.functionDef(xPos));
-            });
-
-        line.elapsedTime += this.duration + sleepTime;
+            d.projector.elapsedTime += this.duration + sleepTime;
+        });
     }
 }
