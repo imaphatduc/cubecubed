@@ -8,7 +8,7 @@ import { Create } from "./create";
  * The creation of a point and its two axis projectors.
  */
 export class PointToCoords extends Animation {
-    private lines: [AxisProjector, AxisProjector];
+    private projectors: [AxisProjector, AxisProjector];
 
     constructor(params: {
         /**
@@ -32,11 +32,11 @@ export class PointToCoords extends Animation {
             ease: params.ease,
         });
 
-        this.lines = params.point.lines;
+        this.projectors = params.point.projectors;
     }
 
     play() {
-        this.ptToCoords(this.cubicon, this.lines);
+        this.ptToCoords(this.cubicon, this.projectors);
     }
 
     private ptToCoords(point: Point, lines: [AxisProjector, AxisProjector]) {

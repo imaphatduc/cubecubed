@@ -260,6 +260,11 @@ export class Axes extends CoordinateSystem {
         return this;
     }
 
+    /**
+     * Convert axes coordinates to SVG-Cartesian coordinates.
+     *
+     * @internal
+     */
     coordsGtoW(point: Vector2) {
         return new Vector2(this.xScale(point.x), this.yScale(point.y));
     }
@@ -383,7 +388,7 @@ export class Axes extends CoordinateSystem {
 
         const pointCoords: PT_TO_COORDS_DATA = {
             point: point,
-            lines: [horizontalLine, verticalLine],
+            projectors: [horizontalLine, verticalLine],
         };
         return pointCoords;
     }

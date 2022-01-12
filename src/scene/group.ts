@@ -105,9 +105,9 @@ export class Group {
     play(anims: any[]) {
         anims.forEach((anim) => {
             anim.cubicon.elapsedTime = this.queueElapsed;
-            if (typeof anim.lines !== "undefined") {
-                anim.lines.forEach(
-                    (l: any) => (l.elapsedTime = this.queueElapsed)
+            if (typeof anim.projectors !== "undefined") {
+                anim.projectors.forEach(
+                    (p: any) => (p.elapsedTime = this.queueElapsed)
                 );
             }
         });

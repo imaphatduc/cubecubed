@@ -219,7 +219,7 @@ export type PT_ON_GRAPH_DATA = {
  */
 export type PT_TO_COORDS_DATA = {
     point: Point;
-    lines: [AxisProjector, AxisProjector];
+    projectors: [AxisProjector, AxisProjector];
 };
 
 /**
