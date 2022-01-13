@@ -83,7 +83,9 @@ export class MathText extends Cubicon {
 
     protected applyToHTMLFlow(g_cubiconWrapper: any) {
         const htmlString = this.initData();
-        this.def_cubiconBase = g_cubiconWrapper.append("svg");
+        this.def_cubiconBase = g_cubiconWrapper
+            .append("svg")
+            .attr("font-size", this.fontSize);
         this.def_cubiconBase.node().innerHTML = htmlString;
         this.def_cubiconBase.selectAll("g").attr("fill", this.color);
     }
