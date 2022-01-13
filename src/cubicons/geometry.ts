@@ -467,10 +467,6 @@ export class GridOrigin extends Circle {
             group: group,
             radius: xWtoG(2.2),
         });
-
-        this.g_cubiconWrapper.attr("id", "grid-origin-wrapper");
-
-        this.def_cubiconBase.attr("id", "grid-origin");
     }
 }
 

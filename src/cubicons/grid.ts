@@ -77,16 +77,19 @@ export class Grid extends Geometry {
         this.elapsedTime = 0;
 
         this.hasNums = hasNums;
-
-        this.draw();
     }
 
-    private draw() {
+    render() {
+        this.checkIfRendered();
+        this.isRendered = true;
+
         this.g_planeGrid = this.svg_group.append("g").attr("id", "plane-grid");
 
         this.g_horizontal = this.g_planeGrid
             .append("g")
             .attr("id", "horizontal");
         this.g_vertical = this.g_planeGrid.append("g").attr("id", "vertical");
+
+        return this;
     }
 }

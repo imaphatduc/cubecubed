@@ -177,7 +177,7 @@ export class DrawGridFromOrigin extends Animation {
     private drawOrigin(grid: Grid) {
         grid.group.play([
             new Create({
-                cubicon: new GridOrigin(grid.group),
+                cubicon: new GridOrigin(grid.group).render(),
             }),
         ]);
     }
@@ -384,7 +384,7 @@ export class DrawGridFromScreenSides extends Animation {
     drawOrigin(grid: Grid) {
         grid.group.play([
             new Create({
-                cubicon: new GridOrigin(grid.group),
+                cubicon: new GridOrigin(grid.group).render(),
             }),
         ]);
     }

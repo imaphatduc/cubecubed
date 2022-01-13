@@ -21,7 +21,7 @@ function renderVector() {
 
     const group = new Group("tex", scene);
 
-    const grid = new Grid({ group: group });
+    const grid = new Grid({ group: group }).render();
     group.play([new DrawGridFromScreenSides(grid)]);
 
     const vector = new Vector({
@@ -30,7 +30,7 @@ function renderVector() {
         CONFIG: {
             lineColor: COLOR.TEAL_1,
         },
-    });
+    }).render();
 
     group.play([new Create({ cubicon: vector })]);
 
@@ -39,7 +39,7 @@ function renderVector() {
         position: new Vector2(-8, 4),
         text: "\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}",
         fontSize: 15,
-    });
+    }).render();
 
     const vectCoor = new MathText({
         group: group,
@@ -47,7 +47,7 @@ function renderVector() {
         text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,
         color: vector.lineColor,
         fontSize: 11,
-    });
+    }).render();
 
     group.play([
         new FadeIn({ cubicon: formula }),
