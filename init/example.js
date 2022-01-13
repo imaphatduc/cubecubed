@@ -9,7 +9,7 @@ import {
     Square,
     Vector,
     Vector2,
-} from "cubecubed";
+} from "../src/index.ts";
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code
@@ -29,7 +29,7 @@ function drawShapes() {
             CONFIG: {
                 strokeColor: COLOR.PINK_1,
             },
-        });
+        }).render();
 
         squares.play([new Create({ cubicon: square1 })]);
 
@@ -39,7 +39,7 @@ function drawShapes() {
             CONFIG: {
                 strokeColor: COLOR.PINK_1,
             },
-        });
+        }).render();
 
         squares.play([
             new Create({ cubicon: square2 }),
@@ -59,7 +59,7 @@ function drawShapes() {
             CONFIG: {
                 lineColor: COLOR.TEAL_1,
             },
-        });
+        }).render();
 
         /// wait for the previous group's animations to complete, then start this group's ones
         vectors.sleep(elapsed);
@@ -78,7 +78,7 @@ function animatePlaneGrid() {
 
     const planeGridGroup = new Group("plane-grid-group", scene);
 
-    const grid = new Grid({ group: planeGridGroup, hasNums: true });
+    const grid = new Grid({ group: planeGridGroup, hasNums: true }).render();
 
     planeGridGroup.sleep(elapsed - 2000);
     planeGridGroup.play([new DrawGridFromOrigin(grid)]);
