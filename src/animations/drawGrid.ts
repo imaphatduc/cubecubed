@@ -317,9 +317,9 @@ export class DrawGridFromScreenSides extends Animation {
             .enter()
             .append("line")
             .attr("x1", (d: number) => xGtoW(d))
-            .attr("y1", yGtoW(yBound[0]))
+            .attr("y1", yGtoW(yBound[0] - 1))
             .attr("x2", (d: number) => xGtoW(d))
-            .attr("y2", yGtoW(yBound[0]))
+            .attr("y2", yGtoW(yBound[0] - 1))
             .transition()
             .ease(this.ease)
             .delay(
@@ -330,10 +330,7 @@ export class DrawGridFromScreenSides extends Animation {
                     this.yDelayEach * Math.abs(d)
             )
             .duration(this.drawY)
-            .attr("x1", (d: number) => xGtoW(d))
-            .attr("y1", yGtoW(yBound[0]))
-            .attr("x2", (d: number) => xGtoW(d))
-            .attr("y2", yGtoW(yBound[1]))
+            .attr("y2", yGtoW(yBound[1] + 1))
             .attr("stroke", (d: number) =>
                 yGtoW(d) === 0 ? grid.yAxesColor : grid.lineColor
             )
