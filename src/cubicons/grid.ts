@@ -1,3 +1,4 @@
+import { range } from "d3-array";
 import { xBound, yBound } from "../cubecubed";
 import { Geometry } from "./geometry";
 import { COLOR } from "./constants";
@@ -27,13 +28,13 @@ export class Grid extends Geometry {
     lineColor: string;
 
     /**
-     * Array of integer x values.
+     * Numbers marked on the x axis.
      */
-    xs: number[];
+    xNumberRange = range(xBound[0] - 1, xBound[1] + 2, 1);
     /**
-     * Array of integer y values.
+     * Numbers marked on the y axis.
      */
-    ys: number[];
+    yNumberRange = range(yBound[0], yBound[1] + 1, 1);
 
     /**
      * The `<g/>` tag that contains all horizontal and vertical lines.
@@ -73,28 +74,22 @@ export class Grid extends Geometry {
         this.xAxesColor = COLOR.RED_2;
         this.yAxesColor = COLOR.GREEN_1;
 
-        this.xs = [];
-        this.ys = [];
-        for (let i = xBound[0] - 1; i <= xBound[1] + 1; i++) {
-            this.xs.push(i);
-        }
-        for (let i = yBound[0]; i <= yBound[1]; i++) {
-            this.ys.push(i);
-        }
-
         this.elapsedTime = 0;
 
         this.hasNums = hasNums;
-
-        this.draw();
     }
 
-    private draw() {
+    render() {
+        this.checkIfRendered();
+        this.isRendered = true;
+
         this.g_planeGrid = this.svg_group.append("g").attr("id", "plane-grid");
 
         this.g_horizontal = this.g_planeGrid
             .append("g")
             .attr("id", "horizontal");
         this.g_vertical = this.g_planeGrid.append("g").attr("id", "vertical");
+
+        return this;
     }
 }

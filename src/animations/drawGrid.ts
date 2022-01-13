@@ -52,7 +52,7 @@ export class DrawGridFromOrigin extends Animation {
             .attr("id", "horizontal-lines");
         horizontalLines
             .selectAll(".line-horizontal")
-            .data(grid.ys)
+            .data(grid.yNumberRange)
             .enter()
             .append("line")
             .transition()
@@ -83,7 +83,7 @@ export class DrawGridFromOrigin extends Animation {
             .attr("id", "x-axis-numbers");
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
-            .data(grid.xs.slice(2, grid.xs.length - 2))
+            .data(grid.xNumberRange.slice(2, grid.xNumberRange.length - 2))
             .enter()
             .each((d: number) => {
                 xAxisNumbers
@@ -116,7 +116,7 @@ export class DrawGridFromOrigin extends Animation {
             .attr("id", "vertical-lines");
         verticalLines
             .selectAll(".line-vertical")
-            .data(grid.xs)
+            .data(grid.xNumberRange)
             .enter()
             .append("line")
             .transition()
@@ -147,7 +147,7 @@ export class DrawGridFromOrigin extends Animation {
             .attr("id", "y-axis-numbers");
         yAxisNumbers
             .selectAll("foreignObject.y-axis-number")
-            .data(grid.ys.slice(1, grid.ys.length - 1))
+            .data(grid.yNumberRange.slice(1, grid.yNumberRange.length - 1))
             .enter()
             .each((d: number) => {
                 yAxisNumbers
@@ -177,7 +177,7 @@ export class DrawGridFromOrigin extends Animation {
     private drawOrigin(grid: Grid) {
         grid.group.play([
             new Create({
-                cubicon: new GridOrigin(grid.group),
+                cubicon: new GridOrigin(grid.group).render(),
             }),
         ]);
     }
@@ -245,7 +245,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("id", "horizontal-lines");
         horizontalLines
             .selectAll(".line-horizontal")
-            .data(grid.ys)
+            .data(grid.yNumberRange)
             .enter()
             .append("line")
             .attr("x1", xGtoW(xBound[0] - 1))
@@ -280,7 +280,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("id", "x-axis-numbers");
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
-            .data(grid.xs.slice(2, grid.xs.length - 2))
+            .data(grid.xNumberRange.slice(2, grid.xNumberRange.length - 2))
             .enter()
             .each((d: number) => {
                 xAxisNumbers
@@ -313,7 +313,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("id", "vertical-lines");
         verticalLines
             .selectAll(".line-vertical")
-            .data(grid.xs)
+            .data(grid.xNumberRange)
             .enter()
             .append("line")
             .attr("x1", (d: number) => xGtoW(d))
@@ -354,7 +354,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("id", "y-axis-numbers");
         yAxisNumbers
             .selectAll("foreignObject.y-axis-number")
-            .data(grid.ys.slice(1, grid.ys.length - 1))
+            .data(grid.yNumberRange.slice(1, grid.yNumberRange.length - 1))
             .enter()
             .each((d: number) => {
                 yAxisNumbers
@@ -384,7 +384,7 @@ export class DrawGridFromScreenSides extends Animation {
     drawOrigin(grid: Grid) {
         grid.group.play([
             new Create({
-                cubicon: new GridOrigin(grid.group),
+                cubicon: new GridOrigin(grid.group).render(),
             }),
         ]);
     }

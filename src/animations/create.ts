@@ -68,27 +68,35 @@ export class Create extends Animation {
         }
     }
 
-    // Applied for SVG `<line/>`
-    private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
+    private applyLineCreation(selection: any, cubicon: any, sleepTime: number) {
         const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
         const WendPoint = cubicon.getWpoint(cubicon.endPoint);
 
-        this.cubicon.def_cubiconBase
-            .attr("x2", WstartPoint.x)
-            .attr("y2", WstartPoint.y);
+        selection.attr("x2", WstartPoint.x).attr("y2", WstartPoint.y);
 
-        this.cubicon.def_cubiconBase
+        selection
             .transition()
             .ease(this.ease)
             .delay(cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
             .attr("x2", WendPoint.x)
             .attr("y2", WendPoint.y);
+    }
 
-        this.cubicon.elapsedTime += this.duration + sleepTime;
+    // Applied for SVG `<line/>`
+    private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
+        this.applyLineCreation(
+            cubicon.geoType === "line"
+                ? cubicon.def_cubiconBase
+                : cubicon.def_lineStroke,
+            cubicon,
+            sleepTime
+        );
+
+        cubicon.elapsedTime += this.duration + sleepTime;
 
         // Applied for vector shape
-        if (cubicon.cubType === "geometry" && cubicon.geoType === "vector") {
+        if (cubicon.geoType === "vector") {
             const drawArrowHeadAnimTime = 1500;
 
             cubicon.def_arrowHead
@@ -99,7 +107,7 @@ export class Create extends Animation {
                 .duration(drawArrowHeadAnimTime)
                 .style("opacity", 1);
 
-            this.cubicon.elapsedTime += drawArrowHeadAnimTime - 500;
+            cubicon.elapsedTime += drawArrowHeadAnimTime - 500;
         }
     }
 

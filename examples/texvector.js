@@ -21,7 +21,7 @@ function renderVector() {
 
     const group = new Group("tex", scene);
 
-    const grid = new Grid({ group: group });
+    const grid = new Grid({ group: group }).render();
     group.play([new DrawGridFromScreenSides(grid)]);
 
     const vector = new Vector({
