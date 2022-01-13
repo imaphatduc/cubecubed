@@ -118,10 +118,10 @@ export class Group {
             try {
                 anim.play(this.sleepTime);
             } catch (err) {
-                throw new Error(
-                    anim.cubicon.constructor.name +
-                        "() haven't been rendered on the screen. Please call render() on the cubicon you're invoking with the `new` keyword."
-                );
+                // throw new Error(
+                //     anim.cubicon.constructor.name +
+                //         "() haven't been rendered on the screen. Please call render() on the cubicon you're invoking with the `new` keyword."
+                // );
             }
 
             this.sleepTime = 0;

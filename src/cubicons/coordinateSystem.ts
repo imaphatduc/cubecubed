@@ -559,9 +559,12 @@ export class Label extends MathText {
     }
 
     private setPosition() {
-        this.def_cubiconBase
-            .attr("x", this.axes.xScale(this.position.x))
-            .attr("y", -this.axes.yScale(this.position.y));
+        this.def_cubiconBase.attr(
+            "transform",
+            `translate(${
+                this.axes.xScale(this.position.x) + 0.2
+            }, ${this.axes.yScale(this.position.y + 0.2)})`
+        );
     }
 }
 

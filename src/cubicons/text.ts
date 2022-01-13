@@ -1,7 +1,6 @@
-import katex from "katex";
+import TeXToSVG from "tex-to-svg";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Cubicon } from "./cubicon";
-import { svgWidth, svgHeight } from "./constants";
 import { Vector2 } from "../math/vector";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 import { Group } from "../scene/group";
@@ -61,6 +60,17 @@ export class MathText extends Cubicon {
         this.fontSize = params.fontSize ?? 13;
     }
 
+    private initData() {
+        const SVGEquation = TeXToSVG(this.text);
+
+        var parser = new DOMParser();
+        var htmlDoc = parser.parseFromString(SVGEquation, "text/html");
+
+        const pathTags = htmlDoc.querySelectorAll("path");
+
+        return pathTags;
+    }
+
     render() {
         this.checkIfRendered();
         this.isRendered = true;
@@ -70,21 +80,46 @@ export class MathText extends Cubicon {
     }
 
     protected applyToHTMLFlow(g_cubiconWrapper: any) {
-        this.def_cubiconBase = g_cubiconWrapper
-            .append("foreignObject")
-            .attr("width", svgWidth)
-            .attr("height", svgHeight)
-            .attr("transform", "scale(1, -1)")
-            .style("font-size", `${this.fontSize}pt`)
-            .style("color", this.color);
+        const path_texts = this.initData();
+        const dData = [];
+        for (let i = 0; i < path_texts.length; i++) {
+            dData.push(path_texts[i].getAttribute("d"));
+        }
 
-        this.def_text = this.def_cubiconBase.append("xhtml:text");
-        this.def_cubiconBase.node().innerHTML = katex.renderToString(this.text);
+        const scaleRatio = 0.025;
+        this.def_cubiconBase = g_cubiconWrapper.append("g");
+        this.def_cubiconBase
+            .selectAll("path")
+            .data(path_texts)
+            .enter()
+            .append("path")
+            .attr("d", (d: any) => d.getAttribute("d"))
+            .attr("stroke", "#fff")
+            .attr("stroke-width", 20);
+
+        const pathsDOM = this.def_cubiconBase.selectAll("path").nodes();
+        const widths = pathsDOM.map((dom: any) => dom.getBBox().width);
+        widths.unshift(0);
+
+        let prev = 0;
+        this.def_cubiconBase
+            .selectAll("path")
+            .data(widths)
+            .attr("transform", (d: number) => {
+                const str = `translate(${
+                    (d + prev) * scaleRatio
+                }, 0) scale(${scaleRatio})`;
+                prev += d;
+                return str;
+            });
     }
 
     private setSVGPosition() {
-        this.def_cubiconBase
-            .attr("x", xGtoW(this.position.x))
-            .attr("y", -yGtoW(this.position.y));
+        this.def_cubiconBase.attr(
+            "transform",
+            `translate(${xGtoW(this.position.x + 0.2)}, ${yGtoW(
+                this.position.y + 0.2
+            )})`
+        );
     }
 }
