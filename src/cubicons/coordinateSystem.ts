@@ -561,9 +561,9 @@ export class Label extends MathText {
     private setPosition() {
         this.def_cubiconBase.attr(
             "transform",
-            `translate(${
-                this.axes.xScale(this.position.x) + 0.2
-            }, ${this.axes.yScale(this.position.y + 0.2)})`
+            `translate(${this.axes.xScale(this.position.x)}, ${this.axes.yScale(
+                this.position.y
+            )}) scale(1, -1)`
         );
     }
 }
