@@ -62,12 +62,6 @@ export class MathText extends Cubicon {
 
     private initData() {
         const SVGEquation = TeXToSVG(this.text);
-
-        var parser = new DOMParser();
-        var htmlDoc = parser.parseFromString(SVGEquation, "text/html");
-
-        const pathTags = htmlDoc.querySelectorAll("path");
-
         return SVGEquation;
     }
 
