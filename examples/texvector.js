@@ -46,7 +46,6 @@ function renderVector() {
         position: vector.endPoint,
         text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,
         color: vector.lineColor,
-        fontSize: 11,
     }).render();
 
     group.play([

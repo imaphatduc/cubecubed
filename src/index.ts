@@ -17,6 +17,7 @@ export * from "./animations/drawAxes";
 export * from "./animations/pointToCoords";
 export * from "./animations/pointAlongGraph";
 export * from "./animations/pointToSides";
+export * from "./animations/write";
 
 export { rToD, dToR } from "./math/convertUnit";
 export * from "./math/vector";
