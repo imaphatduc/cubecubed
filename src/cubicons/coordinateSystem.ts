@@ -309,11 +309,19 @@ export class Axes extends CoordinateSystem {
      *
      * @returns A label.
      */
-    addGraphLabel(graph: Graph, text: string, xPos = graph.xRange[1]) {
+    addGraphLabel(
+        graph: Graph,
+        text: string,
+        xPos = graph.xRange[1],
+        color = graph.graphColor,
+        fontSize = 18
+    ) {
         const label = new Label({
             parent: graph,
             position: new Vector2(xPos, graph.functionDef(xPos)),
             text: text,
+            color: color,
+            fontSize: fontSize,
         }).render();
 
         return label;
@@ -535,8 +543,8 @@ export class Label extends MathText {
             group: params.parent.axes.group,
             position: params.position,
             text: params.text,
-            color: (params.color = "#fff"),
-            fontSize: (params.fontSize = 13),
+            color: params.color ?? "#fff",
+            fontSize: params.fontSize ?? 18,
         });
 
         this.g_cubiconWrapper = params.parent.g_cubiconWrapper;

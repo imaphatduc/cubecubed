@@ -8,6 +8,7 @@ import {
     PointAlongGraph,
     PointToCoords,
     DrawAxes,
+    Write,
 } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
@@ -36,7 +37,7 @@ function graphingFunctions() {
     });
     const tex = a.addGraphLabel(cos, "cos(x)");
     const pt = a.pointToCoords(cos, 2);
-    gr.play([new Create({ cubicon: cos }), new FadeIn({ cubicon: tex })]);
+    gr.play([new Create({ cubicon: cos }), new Write({ cubicon: tex })]);
     gr.play([
         new PointToCoords({
             point: pt,
