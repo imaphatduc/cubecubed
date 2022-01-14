@@ -15,6 +15,11 @@ export default {
             format: "esm",
             name: "cubed",
         },
+        {
+            file: "dist/cubecubed.cjs.js",
+            format: "cjs",
+            name: "cubed",
+        },
     ],
-    plugins: [typescript({ module: "esnext" }), commonjs(), nodeResolve()],
+    plugins: [typescript({ module: "es2015" }), commonjs(), nodeResolve()],
 };
