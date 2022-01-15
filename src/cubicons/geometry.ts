@@ -664,14 +664,12 @@ export class Vector extends Geometry {
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", `vector-wrapper`)
-            .style("transform-box", "fill-box")
-            .style("transform-origin", `center`);
+            .attr("transform-box", "fill-box")
+            .attr("transform-origin", `${WstartPoint.x} ${WstartPoint.y}`);
 
         this.def_cubiconBase = this.g_cubiconWrapper
             .append("g")
-            .attr("class", "vector-group")
-            .attr("transform-box", "fill-box")
-            .attr("transform-origin", `${WstartPoint.x} ${WstartPoint.y}`);
+            .attr("class", "vector-group");
 
         this.drawVectorLine();
         this.drawVectorArrowHead();
