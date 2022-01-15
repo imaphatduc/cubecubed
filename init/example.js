@@ -1,7 +1,7 @@
 import {
     COLOR,
     Create,
-    DrawGridFromOrigin,
+    DrawGridFromScreenSides,
     Grid,
     Group,
     Rotate,
@@ -9,7 +9,7 @@ import {
     Square,
     Vector,
     Vector2,
-} from "../src/index.ts";
+} from "cubecubed";
 
 /// This variable keeps track of the time goes by during the animations
 /// We'll use this to control time, so don't forget to include it to your code
@@ -55,7 +55,7 @@ function drawShapes() {
 
         const vector = new Vector({
             group: vectors,
-            endPoint: new Vector2(2, 3),
+            endPoint: new Vector2(4, 4),
             CONFIG: {
                 lineColor: COLOR.TEAL_1,
             },
@@ -78,10 +78,10 @@ function animatePlaneGrid() {
 
     const planeGridGroup = new Group("plane-grid-group", scene);
 
-    const grid = new Grid({ group: planeGridGroup, hasNums: true }).render();
+    const grid = new Grid({ group: planeGridGroup }).render();
 
     planeGridGroup.sleep(elapsed - 2000);
-    planeGridGroup.play([new DrawGridFromOrigin(grid)]);
+    planeGridGroup.play([new DrawGridFromScreenSides(grid)]);
 
     elapsed = planeGridGroup.groupElapsed;
 }
