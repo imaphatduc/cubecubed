@@ -1,6 +1,7 @@
 import {
     COLOR,
     Create,
+    Write,
     DrawGridFromScreenSides,
     FadeIn,
     Grid,
@@ -38,7 +39,6 @@ function renderVector() {
         group: group,
         position: new Vector2(-8, 4),
         text: "\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}",
-        fontSize: 15,
     }).render();
 
     const vectCoor = new MathText({
@@ -49,7 +49,7 @@ function renderVector() {
     }).render();
 
     group.play([
-        new FadeIn({ cubicon: formula }),
+        new Write({ cubicon: formula }),
         new FadeIn({ cubicon: vectCoor }),
     ]);
 }
