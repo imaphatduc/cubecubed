@@ -55,14 +55,14 @@ export class FadeIn extends Animation {
     }
 
     private texFadeIn(sleepTime: number) {
-        this.cubicon.def_cubiconBase.style("opacity", 0);
+        this.cubicon.def_cubiconBase.attr("opacity", 0);
         this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(this.cubicon.elapsedTime + sleepTime)
             .duration(this.duration)
-            .style("stroke-opacity", 1)
-            .style("opacity", 1);
+            .attr("stroke-opacity", 1)
+            .attr("opacity", 1);
 
         this.cubicon.elapsedTime += this.duration + sleepTime;
     }
