@@ -31,27 +31,51 @@ export class Write extends Animation {
     }
 
     private writeText(cubicon: MathText, sleepTime: number) {
-        const lengths = cubicon.def_cubiconBase
+        const options = [cubicon, this.duration, this.ease, sleepTime];
+
+        // <path> elements
+        const pathLengths = cubicon.def_cubiconBase
+            .select("defs")
             .selectAll("path")
             .nodes()
             .map((d: any) => d.getTotalLength());
 
-        cubicon.def_cubiconBase
-            .selectAll("path")
+        const paths = cubicon.def_cubiconBase.select("defs").selectAll("path");
+
+        paths.call(this.applyWriteAnimation, pathLengths, ...options);
+
+        // <rect> elements
+        const shapeLengths = cubicon.def_cubiconBase
+            .selectAll("rect")
+            .nodes()
+            .map((d: any) => d.getTotalLength());
+
+        const rects = cubicon.def_cubiconBase.selectAll("rect");
+
+        rects.call(this.applyWriteAnimation, shapeLengths, ...options);
+    }
+
+    private applyWriteAnimation(
+        selection: any,
+        lengths: number[],
+        cubicon: MathText,
+        duration: number,
+        ease: any,
+        sleepTime: number
+    ) {
+        selection
             .attr("stroke", cubicon.color)
             .attr("stroke-width", 20)
-            .attr("fill", "none")
+            .attr("fill", cubicon.color)
             .data(lengths)
-            .style("fill-opacity", 0)
+            .attr("fill-opacity", 0)
             .attr("stroke-dasharray", (d: number) => d + ", " + d)
             .attr("stroke-dashoffset", (d: number) => d)
             .transition()
-            .ease(this.ease)
-            .delay(this.cubicon.elapsedTime + sleepTime)
-            .duration(this.duration)
+            .ease(ease)
+            .delay((d, i: number) => 100 * i + cubicon.elapsedTime + sleepTime)
+            .duration(duration)
             .attr("stroke-dashoffset", 0)
-            .style("fill", this.cubicon.color)
-            .style("fill-opacity", 1)
-            .style("maskUnits", "userSpaceOnUse");
+            .attr("fill-opacity", 1);
     }
 }

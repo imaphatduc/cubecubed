@@ -57,7 +57,7 @@ export class MathText extends Cubicon {
 
         this.text = params.text;
         this.color = params.color ?? "#fff";
-        this.fontSize = params.fontSize ?? 13;
+        this.fontSize = params.fontSize ?? 16;
     }
 
     private initData() {
@@ -77,11 +77,30 @@ export class MathText extends Cubicon {
 
     protected applyToHTMLFlow(g_cubiconWrapper: any) {
         const htmlString = this.initData();
+        const idKey = (Math.random() + 1)
+            .toString(36)
+            .substring(7)
+            .toUpperCase();
         this.def_cubiconBase = g_cubiconWrapper
             .append("svg")
             .attr("font-size", this.fontSize);
         this.def_cubiconBase.node().innerHTML = htmlString;
-        this.def_cubiconBase.selectAll("g").attr("fill", this.color);
+        this.def_cubiconBase
+            .select("defs")
+            .selectAll("path")
+            .attr(
+                "id",
+                (d, i, nodes: any) => nodes[i].getAttribute("id") + "-" + idKey
+            )
+            .attr("fill", this.color);
+
+        this.def_cubiconBase
+            .selectAll("use")
+            .attr(
+                "xlink:href",
+                (d, i, nodes: any) =>
+                    nodes[i].getAttribute("xlink:href") + "-" + idKey
+            );
     }
 
     private setSVGPosition() {
