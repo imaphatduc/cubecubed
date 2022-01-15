@@ -1,4 +1,11 @@
-export { Rectangle, Square, Circle, Line, Vector } from "./cubicons/geometry";
+export {
+    Rectangle,
+    Square,
+    Circle,
+    Line,
+    Vector,
+    Arc,
+} from "./cubicons/geometry";
 export * from "./cubicons/grid";
 export { COLOR, PI, TAU, EASE } from "./cubicons/constants";
 export { Axes } from "./cubicons/coordinateSystem";

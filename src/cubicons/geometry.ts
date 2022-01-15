@@ -6,6 +6,7 @@ import { Cubicon } from "./cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
 import { COLOR, PT_TO_SIDES_DATA, RECT_GRID_DATA } from "./constants";
+import { curveNatural, line } from "d3";
 
 /**
  * Configuration structure of basic shapes (Rectangle, Square and Circle).
@@ -715,5 +716,61 @@ export class Vector extends Geometry {
                     this.theta - 90
                 })`
             );
+    }
+}
+
+export class Arc extends Geometry {
+    readonly geoType = "arc";
+
+    points: Vector2[];
+
+    constructor(params: {
+        group: Group;
+        points: Vector2[];
+        CONFIG: LINE_CONFIG;
+    }) {
+        super({ group: params.group });
+
+        this.points = params.points;
+
+        ({
+            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
+        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
+    }
+
+    render() {
+        this.checkIfRendered();
+        this.isRendered = true;
+
+        this.g_cubiconWrapper = this.svg_group
+            .append("g")
+            .attr("class", `arc-wrapper`)
+            .style("transform-box", "fill-box")
+            .style("transform-origin", `center`);
+
+        this.def_cubiconBase = this.g_cubiconWrapper
+            .append("path")
+            .attr("class", "arc")
+            .attr("d", this.getData())
+            .attr("fill", "none")
+            .attr("stroke", this.lineColor)
+            .attr("stroke-width", this.lineWidth);
+
+        return this;
+    }
+
+    private getData() {
+        const points: [number, number][] = this.points.map((pt: Vector2) => [
+            pt.x,
+            pt.y,
+        ]);
+
+        const arcGenerator = line()
+            .curve(curveNatural)
+            .x((d: [number, number]) => xGtoW(d[0]))
+            .y((d: [number, number]) => yGtoW(d[1]));
+
+        return arcGenerator(points);
     }
 }
