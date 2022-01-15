@@ -173,7 +173,15 @@ export type TYPES = CoordinateSystem | Geometry | MathText;
 /************************
  * 5.0. Animation types
  */
-import { Geometry, Rectangle, Square, Circle, Line, Vector } from "./geometry";
+import {
+    Geometry,
+    Rectangle,
+    Square,
+    Circle,
+    Line,
+    Vector,
+    Arc,
+} from "./geometry";
 import {
     CoordinateSystem,
     Graph,
@@ -191,7 +199,7 @@ export type CREATE_SHAPE_TYPES = Rectangle | Square | Circle | Graph | Point;
 /**
  * Legal line-like types to play Create() animation.
  */
-export type CREATE_LINE_TYPES = Line | Vector | AxisProjector;
+export type CREATE_LINE_TYPES = Line | Vector | AxisProjector | Arc;
 
 /**
  * Legal cubicon types to play Create() animation.
