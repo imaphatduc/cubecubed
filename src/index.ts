@@ -4,7 +4,7 @@ export {
     Circle,
     Line,
     Vector,
-    Arc,
+    ParamatricCurve,
 } from "./cubicons/geometry";
 export * from "./cubicons/grid";
 export { COLOR, PI, TAU, EASE } from "./cubicons/constants";
@@ -25,6 +25,7 @@ export * from "./animations/pointToCoords";
 export * from "./animations/pointAlongGraph";
 export * from "./animations/pointToSides";
 export * from "./animations/write";
+export * from "./animations/trace";
 
 export { rToD, dToR } from "./math/convertUnit";
 export * from "./math/vector";
