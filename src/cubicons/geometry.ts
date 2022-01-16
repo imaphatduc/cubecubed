@@ -719,19 +719,33 @@ export class Vector extends Geometry {
     }
 }
 
-export class Arc extends Geometry {
-    readonly geoType = "arc";
+/**
+ * Generate a 2d curve.
+ */
+export class ParamatricCurve extends Geometry {
+    readonly geoType = "parametric-curve";
 
     points: Vector2[];
+    functionDef: (t: number) => Vector2;
+    tRange: [number, number];
 
     constructor(params: {
         group: Group;
-        points: Vector2[];
+        tRange: [number, number];
+        dt?: number;
+        functionDef: (t: number) => Vector2;
         CONFIG: LINE_CONFIG;
     }) {
         super({ group: params.group });
 
-        this.points = params.points;
+        this.points = range(
+            params.tRange[0],
+            params.tRange[1] + (params.dt || 0.02),
+            params.dt || 0.02
+        ).map((t: number) => params.functionDef(t));
+
+        this.functionDef = params.functionDef;
+        this.tRange = params.tRange;
 
         ({
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
@@ -751,7 +765,7 @@ export class Arc extends Geometry {
 
         this.def_cubiconBase = this.g_cubiconWrapper
             .append("path")
-            .attr("class", "arc")
+            .attr("class", "parametric-curve")
             .attr("d", this.getData())
             .attr("fill", "none")
             .attr("stroke", this.lineColor)
@@ -766,11 +780,22 @@ export class Arc extends Geometry {
             pt.y,
         ]);
 
-        const arcGenerator = line()
+        const curveGenerator = line()
             .curve(curveNatural)
             .x((d: [number, number]) => xGtoW(d[0]))
             .y((d: [number, number]) => yGtoW(d[1]));
 
-        return arcGenerator(points);
+        return curveGenerator(points);
+    }
+
+    getOutputVector(t: number) {
+        return this.functionDef(t);
+    }
+
+    getFirstOutputPoint() {
+        return this.functionDef(this.tRange[0]);
+    }
+    getLastOutputPoint() {
+        return this.functionDef(this.tRange[1]);
     }
 }
