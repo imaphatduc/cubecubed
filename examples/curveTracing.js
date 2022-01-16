@@ -9,6 +9,8 @@ import {
     ParamatricCurve,
     Trace,
     Line,
+    MathText,
+    Write,
 } from "../src/index";
 
 const scene = new Scene("playground");
@@ -19,7 +21,7 @@ group.play([new DrawGridFromScreenSides(grid)]);
 
 const curve = new ParamatricCurve({
     group: group,
-    tRange: [-6, 6],
+    tRange: [0, 10],
     functionDef: (t) => new Vector2(t * Math.cos(t), t * Math.sin(t)),
     CONFIG: {
         lineColor: COLOR.CYAN,
@@ -36,10 +38,17 @@ const drawer = new Line({
 }).render();
 
 group.play([
-    new Create({ cubicon: drawer }),
     new Trace({
         cubicon: drawer,
         curve: curve,
         duration: 5000,
     }),
 ]);
+
+const tex = new MathText({
+    group: group,
+    position: new Vector2(8, 5),
+    text: "f(t) = \\begin{bmatrix} t \\cos(t) \\\\ t \\sin(t) \\end{bmatrix}",
+}).render();
+
+group.play([new Write({ cubicon: tex })]);
