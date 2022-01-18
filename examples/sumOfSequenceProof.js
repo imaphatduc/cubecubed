@@ -1,18 +1,12 @@
 import {
     Scene,
     Group,
-    Grid,
-    DrawGridFromScreenSides,
     Square,
     COLOR,
     Vector2,
     PointToSides,
     Translate,
-    Rotate,
     Create,
-    FadeIn,
-    MathText,
-    FadeOut,
 } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
@@ -22,17 +16,14 @@ let elapsed = 0;
 
 function sumOfSequenceProof() {
     const scene = new Scene("sum-of-sequence-proof");
-    const gr = new Group("graphing-group", scene);
-
-    // const grid = new Grid({ group: gr });
-    // gr.play([new DrawGridFromScreenSides(grid)]);
+    const group = new Group("graphing-group", scene);
 
     const square = new Square({
-        group: gr,
+        group: group,
         sideLength: 5,
         CONFIG: { strokeColor: COLOR.PINK_1 },
     }).render();
-    gr.play([new Create({ cubicon: square })]);
+    group.play([new Create({ cubicon: square })]);
 
     square.drawInnerGrid();
 
@@ -40,15 +31,10 @@ function sumOfSequenceProof() {
     for (let i = -3; i <= 3; i++) {
         points.push(new Vector2(i, i));
     }
-    gr.play([new Translate({ cubicon: square, vector: new Vector2(1, 3) })]);
-    // const tex = new MathText({
-    //     group: gr,
-    //     position: new Vector2(2, 3),
-    //     text: "f(x) = x^2",
-    // }).render();
-    // gr.play([new FadeOut({ cubicon: tex })]);
+    group.play([new Translate({ cubicon: square, vector: new Vector2(1, 3) })]);
+
     const linesData = square.pointToSides(points, [1, 1]);
-    gr.play([new PointToSides(linesData)]);
+    group.play([new PointToSides(linesData)]);
 }
 
 sumOfSequenceProof();
