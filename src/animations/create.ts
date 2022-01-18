@@ -121,8 +121,7 @@ export class Create extends Animation {
             .duration(drawArrowHeadAnimTime)
             .attr("opacity", 1);
 
-        cubicon.elapsedTime +=
-            drawArrowHeadAnimTime + (drawArrowHeadAnimTime - precedingTime);
+        cubicon.elapsedTime += drawArrowHeadAnimTime - precedingTime;
     }
 
     /**
