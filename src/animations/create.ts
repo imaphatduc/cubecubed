@@ -111,16 +111,18 @@ export class Create extends Animation {
 
     private applyArrowCreation(selection: any, cubicon: Vector) {
         const drawArrowHeadAnimTime = 1500;
+        const precedingTime = 500;
 
         selection
             .attr("opacity", 0)
             .transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime - 500)
+            .delay(this.cubicon.elapsedTime - precedingTime)
             .duration(drawArrowHeadAnimTime)
             .attr("opacity", 1);
 
-        cubicon.elapsedTime += drawArrowHeadAnimTime - 500;
+        cubicon.elapsedTime +=
+            drawArrowHeadAnimTime + (drawArrowHeadAnimTime - precedingTime);
     }
 
     /**
