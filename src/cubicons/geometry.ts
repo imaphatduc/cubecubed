@@ -710,6 +710,8 @@ export class Vector extends Geometry {
     private drawVectorArrowHead() {
         const WendPoint = this.coordsGtoW(this.endPoint);
 
+        const offsetY = 2;
+
         this.def_arrowHead = this.def_cubiconBase
             .append("polygon")
             .attr("class", "vector-arrow-head")
@@ -717,7 +719,9 @@ export class Vector extends Geometry {
                 "points",
                 `${xGtoW(-this.arrowWidth)}, ${yGtoW(
                     -this.arrowHeight
-                )} 0, 0 ${xGtoW(this.arrowWidth)}, ${yGtoW(-this.arrowHeight)}`
+                )} 0, ${offsetY} ${xGtoW(this.arrowWidth)}, ${yGtoW(
+                    -this.arrowHeight
+                )}`
             )
             .attr("fill", this.lineColor)
             .attr("stroke", "none")
