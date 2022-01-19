@@ -7,6 +7,7 @@ export {
     ParamatricCurve,
 } from "./cubicons/geometry";
 export * from "./cubicons/grid";
+export * from "./cubicons/vectorField";
 export { COLOR, PI, TAU, EASE } from "./cubicons/constants";
 export { Axes } from "./cubicons/coordinateSystem";
 export * from "./cubicons/text";
