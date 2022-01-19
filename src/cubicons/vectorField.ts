@@ -90,7 +90,7 @@ export class VectorField extends Cubicon {
                 const scalar = magnitude / maxMagnitude;
 
                 /// Render vector shapes
-                if (vector.x !== 0 && vector.y !== 0) {
+                if (vector.x !== 0 || vector.y !== 0) {
                     const hslUpperLimitAngle = 290;
 
                     const reverseHslAngle = scaleLinear()
