@@ -87,9 +87,6 @@ export class VectorField extends Cubicon {
 
                 const magnitude = vector.magnitude();
 
-                /// Scale the result scalar by 0.85 to avoid overlapping between adjacent vectors
-                const scalar = (magnitude / maxMagnitude) * 0.85;
-
                 /// Render vector shapes
                 if (vector.x !== 0 || vector.y !== 0) {
                     const hslUpperLimitAngle = 290;
@@ -102,9 +99,11 @@ export class VectorField extends Cubicon {
                         group: this.group,
 
                         startPoint: startPoint,
+                        /// Scale the result scalar by 0.85 to avoid overlapping between adjacent vectors
+                        /// If users don't want to scale based on the longest vector, change `maxMagnitude` to `magnitude`
                         endPoint: new Vector2(
-                            (vector.x / magnitude) * scalar + x,
-                            (vector.y / magnitude) * scalar + y
+                            (vector.x / maxMagnitude) * 0.85 + startPoint.x,
+                            (vector.y / maxMagnitude) * 0.85 + startPoint.y
                         ),
 
                         CONFIG: {
