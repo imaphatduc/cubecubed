@@ -65,7 +65,7 @@ export class VectorField extends Cubicon {
         xRange.forEach((x: number) => {
             yRange.forEach((y: number) => {
                 const startPoint = new Vector2(x, y);
-                const endPoint = this.functionDef(startPoint);
+                const endPoint = this.functionDef(startPoint).add(startPoint);
                 const vector = endPoint.subtract(startPoint);
 
                 magnitudes.push(vector.magnitude());
@@ -82,7 +82,7 @@ export class VectorField extends Cubicon {
         xRange.forEach((x: number) => {
             yRange.forEach((y: number) => {
                 const startPoint = new Vector2(x, y);
-                const endPoint = this.functionDef(startPoint);
+                const endPoint = this.functionDef(startPoint).add(startPoint);
                 const vector = endPoint.subtract(startPoint);
 
                 const magnitude = vector.magnitude();
