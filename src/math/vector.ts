@@ -2,6 +2,10 @@ type ElementMapFunction = (x: number) => number;
 
 interface IVector {
     /**
+     * Calculate magnitude of vector
+     */
+    magnitude(): number;
+    /**
      * Immutable element-wise addition
      */
     add(vect: IVector): IVector;
@@ -37,6 +41,10 @@ export class Vector2 implements IVector {
     constructor(x: number, y: number) {
         this.x = x;
         this.y = y;
+    }
+
+    magnitude(): number {
+        return Math.sqrt(this.x * this.x + this.y * this.y);
     }
 
     add(vect: Vector2): Vector2 {
@@ -75,6 +83,10 @@ export class Vector3 implements IVector {
         this.x = x;
         this.y = y;
         this.z = z;
+    }
+
+    magnitude(): number {
+        return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
     }
 
     add(vect: Vector3): Vector3 {
