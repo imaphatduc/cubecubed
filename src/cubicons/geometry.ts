@@ -617,8 +617,8 @@ export class Vector extends Geometry {
     def_lineStroke: any;
     def_arrowHead: any;
 
-    private arrowWidth: any;
-    private arrowHeight: any;
+    readonly arrowWidth: any;
+    readonly arrowHeight: any;
 
     constructor(params: {
         /**

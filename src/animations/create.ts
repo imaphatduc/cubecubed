@@ -94,9 +94,31 @@ export class Create extends Animation {
         sleepTime: number
     ) {
         const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
-        const WendPoint = cubicon.getWpoint(cubicon.endPoint);
+        const WendPoint =
+            cubicon.geoType === "vector"
+                ? getVectorLineEndPoint(cubicon)
+                : cubicon.getWpoint(cubicon.endPoint);
 
         selection.attr("x2", WstartPoint.x).attr("y2", WstartPoint.y);
+
+        function getVectorLineEndPoint(vectorShape: Vector) {
+            const vector = vectorShape.endPoint.subtract(
+                vectorShape.startPoint
+            );
+            const magnitude = vector.magnitude();
+
+            /// Make end point of vector's rendered line touch exactly at 10% height of its arrow
+            const resultVector = vector.scale(
+                (magnitude -
+                    vectorShape.arrowHeight +
+                    vectorShape.arrowHeight * 0.1) /
+                    magnitude
+            );
+
+            return vectorShape.coordsGtoW(
+                resultVector.add(vectorShape.startPoint)
+            );
+        }
 
         selection
             .transition()
