@@ -115,6 +115,8 @@ export class VectorField extends Cubicon {
                                 1,
                                 0.5
                             ).formatHsl(),
+                            arrowWidth: 0.1,
+                            arrowHeight: 0.2,
                         },
                     }).render();
 
