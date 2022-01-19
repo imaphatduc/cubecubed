@@ -53,11 +53,20 @@ export interface LINE_CONFIG {
      */
     lineWidth?: number;
 }
+export interface VECTOR_CONFIG extends LINE_CONFIG {
+    arrowWidth?: number;
+    arrowHeight?: number;
+}
 export const LINE_DEFAULT_CONFIG = {
     lineColor: "#fff",
     lineWidth: 2,
 };
 
+export const VECTOR_DEFAULT_CONFIG = {
+    ...LINE_DEFAULT_CONFIG,
+    arrowWidth: 0.3,
+    arrowHeight: 0.5,
+};
 /**
  * Base class of all geometric cubicon shape.
  *
@@ -608,6 +617,9 @@ export class Vector extends Geometry {
     def_lineStroke: any;
     def_arrowHead: any;
 
+    private arrowWidth: any;
+    private arrowHeight: any;
+
     constructor(params: {
         /**
          * The group that the vector belongs to.
@@ -624,7 +636,7 @@ export class Vector extends Geometry {
         /**
          * Config options of the vector line.
          */
-        CONFIG?: LINE_CONFIG;
+        CONFIG?: VECTOR_CONFIG;
     }) {
         super({
             group: params.group,
@@ -641,7 +653,9 @@ export class Vector extends Geometry {
         ({
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
             lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
+            arrowWidth: this.arrowWidth = VECTOR_DEFAULT_CONFIG.arrowWidth,
+            arrowHeight: this.arrowHeight = VECTOR_DEFAULT_CONFIG.arrowHeight,
+        } = params.CONFIG ?? VECTOR_DEFAULT_CONFIG);
 
         // this.theta determines the angle between vector's arrow and its line.
         this.theta = rToD(
@@ -696,17 +710,14 @@ export class Vector extends Geometry {
     private drawVectorArrowHead() {
         const WendPoint = this.coordsGtoW(this.endPoint);
 
-        const headWidth = 0.3;
-        const headHeight = 0.5;
-
         this.def_arrowHead = this.def_cubiconBase
             .append("polygon")
             .attr("class", "vector-arrow-head")
             .attr(
                 "points",
-                `${xGtoW(-headWidth)}, ${yGtoW(-headHeight)} 0, 0 ${xGtoW(
-                    headWidth
-                )}, ${yGtoW(-headHeight)}`
+                `${xGtoW(-this.arrowWidth)}, ${yGtoW(
+                    -this.arrowHeight
+                )} 0, 0 ${xGtoW(this.arrowWidth)}, ${yGtoW(-this.arrowHeight)}`
             )
             .attr("fill", this.lineColor)
             .attr("stroke", "none")
