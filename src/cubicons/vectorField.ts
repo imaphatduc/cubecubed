@@ -87,7 +87,8 @@ export class VectorField extends Cubicon {
 
                 const magnitude = vector.magnitude();
 
-                const scalar = magnitude / maxMagnitude;
+                /// Scale the result scalar by 0.85 to avoid overlapping between adjacent vectors
+                const scalar = (magnitude / maxMagnitude) * 0.85;
 
                 /// Render vector shapes
                 if (vector.x !== 0 || vector.y !== 0) {
