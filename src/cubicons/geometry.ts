@@ -693,8 +693,16 @@ export class Vector extends Geometry {
     }
 
     private drawVectorLine() {
+        const vector = this.endPoint.subtract(this.startPoint);
+        const magnitude = vector.magnitude();
+
+        /// Make end point of vector's rendered line touch exactly at 10% height of its arrow
+        const resultVector = vector.scale(
+            (magnitude - this.arrowHeight + this.arrowHeight * 0.1) / magnitude
+        );
+
         const WstartPoint = this.coordsGtoW(this.startPoint);
-        const WendPoint = this.coordsGtoW(this.endPoint);
+        const WendPoint = this.coordsGtoW(resultVector.add(this.startPoint));
 
         this.def_lineStroke = this.def_cubiconBase
             .append("line")
@@ -710,8 +718,6 @@ export class Vector extends Geometry {
     private drawVectorArrowHead() {
         const WendPoint = this.coordsGtoW(this.endPoint);
 
-        const offsetY = 2;
-
         this.def_arrowHead = this.def_cubiconBase
             .append("polygon")
             .attr("class", "vector-arrow-head")
@@ -719,9 +725,7 @@ export class Vector extends Geometry {
                 "points",
                 `${xGtoW(-this.arrowWidth)}, ${yGtoW(
                     -this.arrowHeight
-                )} 0, ${offsetY} ${xGtoW(this.arrowWidth)}, ${yGtoW(
-                    -this.arrowHeight
-                )}`
+                )} 0, 0 ${xGtoW(this.arrowWidth)}, ${yGtoW(-this.arrowHeight)}`
             )
             .attr("fill", this.lineColor)
             .attr("stroke", "none")
