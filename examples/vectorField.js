@@ -18,6 +18,10 @@ function vectorField() {
     const vectorField = new VectorField({
         group: group,
         functionDef: (pos) => new Vector2(Math.sin(pos.y), Math.sin(pos.x)),
+        CONFIG: {
+            isColored: true,
+            isScaled: true,
+        },
     });
 
     vectorField.createVectors();

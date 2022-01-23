@@ -9,6 +9,11 @@ import { ANIME } from "./constants";
 import { Create } from "../animations/create";
 import { hsl, scaleLinear } from "d3";
 
+interface VECTOR_FIELD_CONFIG {
+    isScaled?: boolean;
+    isColored?: boolean;
+}
+
 export class VectorField extends Cubicon {
     readonly cubType = "vector-field";
 
@@ -31,15 +36,28 @@ export class VectorField extends Cubicon {
          * Multivariable function that produces 2d vector field.
          */
         functionDef: (pos: Vector2) => Vector2;
+        CONFIG?: VECTOR_FIELD_CONFIG;
     }) {
         super({ group: params.group, position: new Vector2(0, 0) });
 
         this.functionDef = params.functionDef;
 
-        this.render();
+        const DEFAULT_CONFIG = {
+            isScaled: false,
+            isColored: false,
+        };
+
+        const {
+            isScaled = DEFAULT_CONFIG.isScaled,
+            isColored = DEFAULT_CONFIG.isColored,
+        } = params.CONFIG || DEFAULT_CONFIG;
+
+        const CONFIG = { isScaled, isColored };
+
+        this.render(CONFIG);
     }
 
-    private render() {
+    private render(CONFIG: VECTOR_FIELD_CONFIG) {
         this.checkIfRendered();
         this.isRendered = true;
 
@@ -52,7 +70,7 @@ export class VectorField extends Cubicon {
             .attr("class", "vector-field-base");
 
         const maxMagnitude = Math.max(...this.computeMagnitudes());
-        this.renderField(maxMagnitude);
+        this.renderField(maxMagnitude, CONFIG);
     }
 
     private computeMagnitudes() {
@@ -75,7 +93,7 @@ export class VectorField extends Cubicon {
         return magnitudes;
     }
 
-    private renderField(maxMagnitude: number) {
+    private renderField(maxMagnitude: number, CONFIG: VECTOR_FIELD_CONFIG) {
         const xRange = range(xBound[0], xBound[1] + 1, 1);
         const yRange = range(yBound[0], yBound[1] + 1, 1);
 
@@ -102,19 +120,27 @@ export class VectorField extends Cubicon {
                         /// Scale the result scalar by 0.85 to avoid overlapping between adjacent vectors
                         /// If users don't want to scale based on the longest vector, change `maxMagnitude` to `magnitude`
                         endPoint: new Vector2(
-                            (vector.x / maxMagnitude) * 0.85 + startPoint.x,
-                            (vector.y / maxMagnitude) * 0.85 + startPoint.y
+                            (vector.x /
+                                (CONFIG.isScaled ? maxMagnitude : magnitude)) *
+                                0.85 +
+                                startPoint.x,
+                            (vector.y /
+                                (CONFIG.isScaled ? maxMagnitude : magnitude)) *
+                                0.85 +
+                                startPoint.y
                         ),
 
                         CONFIG: {
-                            lineColor: hsl(
-                                reverseHslAngle(
-                                    (magnitude / maxMagnitude) *
-                                        hslUpperLimitAngle
-                                ),
-                                1,
-                                0.5
-                            ).formatHsl(),
+                            lineColor: CONFIG.isColored
+                                ? hsl(
+                                      reverseHslAngle(
+                                          (magnitude / maxMagnitude) *
+                                              hslUpperLimitAngle
+                                      ),
+                                      1,
+                                      0.5
+                                  ).formatHsl()
+                                : "#fff",
                             arrowWidth: 0.1,
                             arrowHeight: 0.2,
                         },
