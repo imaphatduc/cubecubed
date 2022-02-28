@@ -11,3 +11,7 @@
 ## Curve Tracing
 
 ![](./_media/videos/curveTracing.mp4 ':include :type=video controls width=100% autoplay loop')
+
+## Vector Field
+
+![](./_media/videos/vectorField.mp4 ':include :type=video controls width=100% autoplay loop')
