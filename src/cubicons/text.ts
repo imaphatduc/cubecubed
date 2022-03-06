@@ -90,7 +90,7 @@ export class MathText extends Cubicon {
             .selectAll("path")
             .attr(
                 "id",
-                (d, i, nodes: any) => nodes[i].getAttribute("id") + "-" + idKey
+                (d: any, i: number, nodes: any) => nodes[i].getAttribute("id") + "-" + idKey
             )
             .attr("fill", this.color);
 
@@ -98,7 +98,7 @@ export class MathText extends Cubicon {
             .selectAll("use")
             .attr(
                 "xlink:href",
-                (d, i, nodes: any) =>
+                (d: any, i: number, nodes: any) =>
                     nodes[i].getAttribute("xlink:href") + "-" + idKey
             );
     }

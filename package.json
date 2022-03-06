@@ -6,7 +6,7 @@
         "tsc": "tsc",
         "tsc:watch": "tsc --watch",
         "docs": "typedoc --hideInPageTOC --allReflectionsHaveOwnDocument && cp -rf ./docs/README.md ./docs/reference/",
-        "build": "tsc --declaration && rollup -c",
+        "build": "rollup -c",
         "test": "tap test/**/*.test.ts --node-arg=--require=ts-node/register"
     },
     "bin": {

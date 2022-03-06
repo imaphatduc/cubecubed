@@ -73,7 +73,7 @@ export class Write extends Animation {
             .attr("stroke-dashoffset", (d: number) => d)
             .transition()
             .ease(ease)
-            .delay((d, i: number) => 100 * i + cubicon.elapsedTime + sleepTime)
+            .delay((d: any, i: number) => 100 * i + cubicon.elapsedTime + sleepTime)
             .duration(duration)
             .attr("stroke-dashoffset", 0)
             .attr("fill-opacity", 1);

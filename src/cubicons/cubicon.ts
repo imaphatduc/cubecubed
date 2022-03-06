@@ -1,4 +1,4 @@
-import * as d3 from "d3";
+import { select } from "d3-selection";
 import { Vector2 } from "../math/vector";
 import { Group } from "../scene/group";
 
@@ -75,7 +75,7 @@ export abstract class Cubicon {
 
         /// This is the main stroke (or shape) of the cubicon.
         /// Initially, we set it to nothing.
-        this.def_cubiconBase = d3.select(null);
+        this.def_cubiconBase = select(null);
 
         /// Add this to the target group
         this.group.add(this);

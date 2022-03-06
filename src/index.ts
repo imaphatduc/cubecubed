@@ -24,7 +24,6 @@ export * from "./animations/drawGrid";
 export * from "./animations/drawAxes";
 export * from "./animations/pointToCoords";
 export * from "./animations/pointAlongGraph";
-export * from "./animations/pointToSides";
 export * from "./animations/write";
 export * from "./animations/trace";
 
