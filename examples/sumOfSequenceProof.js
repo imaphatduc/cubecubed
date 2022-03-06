@@ -7,6 +7,7 @@ import {
     PointToSides,
     Translate,
     Create,
+    Line,
 } from "../src/index";
 
 /// This variable keeps track of the time goes by during the animations
@@ -20,21 +21,35 @@ function sumOfSequenceProof() {
 
     const square = new Square({
         group: group,
-        sideLength: 5,
+        sideLength: 6,
         CONFIG: { strokeColor: COLOR.PINK_1 },
     }).render();
     group.play([new Create({ cubicon: square })]);
 
     square.drawInnerGrid();
 
-    const points = [];
-    for (let i = -3; i <= 3; i++) {
-        points.push(new Vector2(i, i));
-    }
-    group.play([new Translate({ cubicon: square, vector: new Vector2(1, 3) })]);
+    const anims = [];
 
-    const linesData = square.pointToSides(points, [1, 1]);
-    group.play([new PointToSides(linesData)]);
+    for (let i = -square.sideLength / 2 + 1; i < square.sideLength / 2; i++) {
+        const horizontalLine = new Line({
+            group: group,
+            startPoint: new Vector2(i, i),
+            endPoint: new Vector2(-square.sideLength / 2, i),
+        }).render();
+
+        const verticalLine = new Line({
+            group: group,
+            startPoint: new Vector2(i, i),
+            endPoint: new Vector2(i, -square.sideLength / 2),
+        }).render();
+
+        anims.push(
+            new Create({ cubicon: horizontalLine }),
+            new Create({ cubicon: verticalLine })
+        );
+    }
+
+    group.play(anims);
 }
 
 sumOfSequenceProof();
