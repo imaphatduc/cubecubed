@@ -5,7 +5,7 @@ import { Group } from "../scene/group";
 import { Cubicon } from "./cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
-import { COLOR, PT_TO_SIDES_DATA, RECT_GRID_DATA } from "./constants";
+import { COLOR, RECT_GRID_DATA } from "./constants";
 import { curveNatural, line } from "d3";
 
 /**
@@ -213,80 +213,6 @@ export class Rectangle extends Geometry {
         rectPath.lineTo(X, Y + (this.strokeWidth ?? 0) / 2);
 
         return rectPath;
-    }
-
-    /**
-     * Add lines from the specified point to the rectangle's sides based on x and y directions.
-     *
-     * @param ptPositions Position of the point.
-     *
-     * @param direction An array that includes two direction values.
-     * If positive (+), then the line moves right (or up), and left (or down) for negative (-).
-     *
-     * - *Example*: `pointToSides(new Vector2(0, 0), [-1, 1])` will draw two lines from point (0, 0) to the rectangle's sides by two directions:
-     *   negatively parallel to x axis (left) and positively parallel to y axis (up).
-     *
-     * @returns A complex data type to specify in PointToSides() animation.
-     */
-    pointToSides(
-        ptPositions: Vector2[],
-        direction: [number, number]
-    ): PT_TO_SIDES_DATA {
-        // Create a <g/> element to hold the result lines.
-        const g_pointToSides = this.g_cubiconWrapper.append("g");
-
-        const Wposition = this.coordsGtoW(this.position);
-        g_pointToSides
-            .attr("class", "lines-to-side")
-            .attr("transform", `translate(${Wposition.x}, ${Wposition.y})`);
-
-        const horizontalLines: Line[] = [];
-        const verticalLines: Line[] = [];
-
-        const generalParams = {
-            group: this.group,
-            CONFIG: {
-                lineColor: this.strokeColor,
-                lineWidth: this.strokeWidth,
-            },
-        };
-
-        const endPoint_x = ((direction[0] >= 0 ? 1 : -1) * this.width) / 2;
-        ptPositions.forEach((p) => {
-            horizontalLines.push(
-                new Line({
-                    ...generalParams,
-                    startPoint: new Vector2(
-                        p.x +
-                            (p.x >= endPoint_x ? 1 : -1) *
-                                xWtoG(this.strokeWidth / 2),
-                        p.y
-                    ),
-                    endPoint: new Vector2(endPoint_x, p.y),
-                })
-                    .render()
-                    .setParentHTMLTag(g_pointToSides)
-            );
-
-            verticalLines.push(
-                new Line({
-                    ...generalParams,
-                    startPoint: p,
-                    endPoint: new Vector2(
-                        p.x,
-                        ((direction[1] >= 0 ? 1 : -1) * this.height) / 2
-                    ),
-                })
-                    .render()
-                    .setParentHTMLTag(g_pointToSides)
-            );
-        });
-
-        return {
-            cubicon: this,
-            horizontalLines: horizontalLines,
-            verticalLines: verticalLines,
-        };
     }
 
     /**

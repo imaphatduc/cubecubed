@@ -223,16 +223,6 @@ export type PT_TO_COORDS_DATA = {
 };
 
 /**
- * Return data type when calling Rectangle().pointToSides()
- * or Square().pointToSides() method
- */
-export type PT_TO_SIDES_DATA = {
-    cubicon: Rectangle | Square;
-    horizontalLines: Line[];
-    verticalLines: Line[];
-};
-
-/**
  * Return data when calling Rectangle().drawInnerGrid()
  * or Square().drawInnerGrid() method
  */
