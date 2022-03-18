@@ -22,6 +22,7 @@ export * from "./animations/fadeIn";
 export * from "./animations/fadeOut";
 export * from "./animations/drawGrid";
 export * from "./animations/drawAxes";
+export * from './animations/drawVectorField';
 export * from "./animations/pointToCoords";
 export * from "./animations/pointAlongGraph";
 export * from "./animations/write";

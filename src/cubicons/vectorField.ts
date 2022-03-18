@@ -151,15 +151,4 @@ export class VectorField extends Cubicon {
             });
         });
     }
-
-    createVectors() {
-        const anims: any[] = [];
-        this.vectorShapes.forEach((vectorShape: Vector) =>
-            anims.push(new Create({ cubicon: vectorShape }))
-        );
-
-        this.group.play(anims);
-
-        this.elapsedTime += ANIME.CREATE;
-    }
 }
