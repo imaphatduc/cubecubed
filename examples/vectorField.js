@@ -5,12 +5,13 @@ import {
     VectorField,
     Grid,
     DrawGridFromScreenSides,
-} from "../src/index";
+    DrawVectorField,
+} from '../src/index';
 
 function vectorField() {
-    const scene = new Scene("visualize-2d-vector-field");
+    const scene = new Scene('visualize-2d-vector-field');
 
-    const group = new Group("vector-field", scene);
+    const group = new Group('vector-field', scene);
 
     const grid = new Grid({ group: group }).render();
     group.play([new DrawGridFromScreenSides(grid)]);
@@ -24,7 +25,7 @@ function vectorField() {
         },
     });
 
-    vectorField.createVectors();
+    group.play([new DrawVectorField({ cubicon: vectorField })]);
 }
 
 vectorField();
