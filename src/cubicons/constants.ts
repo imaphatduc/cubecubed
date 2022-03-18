@@ -168,7 +168,7 @@ export const EASE = {
 /**
  * Classes which directly inherit from `Cubicon`
  */
-export type TYPES = CoordinateSystem | Geometry | MathText;
+export type TYPES = CoordinateSystem | Geometry | MathText | VectorField;
 
 /************************
  * 5.0. Animation types
@@ -182,6 +182,7 @@ import {
     AxisProjector,
 } from "./coordinateSystem";
 import { MathText } from "./text";
+import { VectorField } from "./vectorField";
 
 /**
  * Legal shape types to play Create() animation.
