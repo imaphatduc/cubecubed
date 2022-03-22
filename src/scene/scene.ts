@@ -1,4 +1,4 @@
-import { svg } from "../cubicons/constants";
+import { select } from "d3";
 
 /**
  * The granddad/grandma object of everything in the visualization.
@@ -25,12 +25,17 @@ export class Scene {
      * @param sceneName Name of the scene.
      */
     constructor(sceneName: string) {
-        this.svg_scene = !svg.select(`#${sceneName}`).empty()
-            ? svg.select(`#${sceneName}`)
-            : svg
-                  .append("svg")
-                  .attr("id", `${sceneName}`)
-                  .attr("class", "scene");
+        this.svg_scene = select('#cubecubed')
+            .append('svg')
+            .attr('id', sceneName)
+            .attr('class', 'scene')
+            .attr('xmlns', 'http://www.w3.org/2000/svg')
+            .attr('width', window.innerWidth)
+            .attr('height', window.innerHeight)
+            .attr('transform', 'scale(1, -1)')
+
+        this.svg_scene.style('position', 'absolute');
+
         this.name = sceneName;
     }
 
