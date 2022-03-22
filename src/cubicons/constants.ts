@@ -4,9 +4,14 @@
 import { select } from "d3-selection";
 
 /**
- * d3 Selection of `svg#viz` element
+ * d3 Selection of `svg#svg-viz` element
  */
-export const svg = select("#viz");
+export const svg = select("#cubecubed").select("#svg-viz");
+
+/**
+ * d3 Selection of `canvas#canvas-viz` element
+ */
+export const canvas = svg.select("#cubecubed").select('#canvas-viz');
 
 /**
  * width attribute of `svg#viz` element
