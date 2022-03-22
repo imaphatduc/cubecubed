@@ -16,12 +16,12 @@ export const canvas = svg.select("#cubecubed").select('#canvas-viz');
 /**
  * width attribute of `svg#viz` element
  */
-export const svgWidth = parseInt(svg.attr("width"));
+export const svgWidth = window.innerWidth;
 
 /**
  * height attribute of `svg#viz` element
  */
-export const svgHeight = parseInt(svg.attr("height"));
+export const svgHeight = window.innerHeight;
 
 //*** 2. COLORS ***//
 /**
