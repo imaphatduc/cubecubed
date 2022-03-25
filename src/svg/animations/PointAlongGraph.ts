@@ -1,7 +1,7 @@
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../../constants";
 import { Animation } from "./Animation";
-import { Graph, AxisProjector } from "../svg/cubicons/CoordinateSystem";
-import { PT_TO_COORDS_DATA } from "../cubicons/constants";
+import { Graph, AxisProjector } from "../cubicons/CoordinateSystem";
+import { PT_TO_COORDS_DATA } from "../../constants";
 
 /**
  * Animate the smooth motion of a point along a graph.

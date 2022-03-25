@@ -1,7 +1,7 @@
 import { Animation } from "./Animation";
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { xGtoW, yGtoW } from "../math/convertUnit";
-import { Vector2 } from "../math/vector";
+import { ANIME, EASE_TYPE } from "../../constants";
+import { xGtoW, yGtoW } from "../../math/convertUnit";
+import { Vector2 } from "../../math/vector";
 import { Geometry } from "../cubicons/Geometry";
 
 /**

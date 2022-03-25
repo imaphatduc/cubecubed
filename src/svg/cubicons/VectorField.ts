@@ -1,9 +1,9 @@
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Cubicon } from "./Cubicon";
-import { Vector2 } from "../math/vector";
-import { Group } from "../scene/Group";
-import { xBound, yBound } from "../cubecubed";
+import { Vector2 } from "../../math/vector";
+import { Group } from "../group/Group";
+import { xBound, yBound } from "../../cubecubed";
 import { Vector } from "./Geometry";
 import { hsl, scaleLinear } from "d3";
 

@@ -1,4 +1,4 @@
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../../constants";
 import { MathText } from "../cubicons/MathText";
 import { Animation } from "./Animation";
 

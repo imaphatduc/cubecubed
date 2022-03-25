@@ -1,4 +1,4 @@
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../../constants";
 import { Vector } from "../cubicons/Geometry";
 import { VectorField } from "../cubicons/VectorField";
 import { Animation } from "./Animation";

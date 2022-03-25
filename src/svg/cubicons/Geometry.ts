@@ -1,11 +1,11 @@
 import { path } from "d3-path";
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Group } from "../scene/Group";
+import { Group } from "../group/Group";
 import { Cubicon } from "./Cubicon";
-import { rToD, xGtoW, yGtoW, xWtoG } from "../math/convertUnit";
-import { Vector2 } from "../math/vector";
-import { COLOR, RECT_GRID_DATA } from "./constants";
+import { rToD, xGtoW, yGtoW, xWtoG } from "../../math/convertUnit";
+import { Vector2 } from "../../math/vector";
+import { COLOR, RECT_GRID_DATA } from "../../constants";
 import { curveNatural, line } from "d3";
 
 /**

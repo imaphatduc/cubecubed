@@ -1,6 +1,5 @@
 import { Animation } from "./Animation";
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { FADE_TYPES } from "../cubicons/constants";
+import { ANIME, EASE_TYPE, FADE_TYPES } from "../../constants";
 
 /**
  * Fade in a cubicon on the screen.

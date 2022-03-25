@@ -1,9 +1,9 @@
 import { range } from "d3-array";
-import { xBound, yBound } from "../cubecubed";
+import { xBound, yBound } from "../../cubecubed";
 import { Geometry } from "./Geometry";
-import { COLOR } from "./constants";
-import { Vector2 } from "../math/vector";
-import { Group } from "../scene/Group";
+import { COLOR } from "../../constants";
+import { Vector2 } from "../../math/vector";
+import { Group } from "../group/Group";
 
 export class Grid extends Geometry {
     readonly geoType = "grid";

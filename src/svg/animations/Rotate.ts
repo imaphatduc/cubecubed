@@ -1,8 +1,8 @@
 import { interpolate } from "d3-interpolate";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Animation } from "./Animation";
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { xGtoW, yGtoW } from "../math/convertUnit";
+import { ANIME, EASE_TYPE } from "../../constants";
+import { xGtoW, yGtoW } from "../../math/convertUnit";
 import { Geometry } from "../cubicons/Geometry";
 
 /**

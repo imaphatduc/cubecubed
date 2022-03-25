@@ -1,6 +1,6 @@
 import { interpolateNumber } from "d3-interpolate";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../../constants";
 import { ParamatricCurve, Line } from "../cubicons/Geometry";
 import { Animation } from "./Animation";
 

@@ -1,10 +1,10 @@
 import { Animation } from "./Animation";
-import { ANIME, EASE_TYPE } from "../cubicons/constants";
+import { ANIME, EASE_TYPE } from "../../constants";
 import {
     CREATE_TYPES,
     CREATE_SHAPE_TYPES,
     CREATE_LINE_TYPES,
-} from "../cubicons/constants";
+} from "../../constants";
 import { Vector } from "../cubicons/Geometry";
 
 /**
