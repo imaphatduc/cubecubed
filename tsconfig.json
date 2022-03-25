@@ -2,6 +2,7 @@
     "compilerOptions": {
         "target": "es2015",
         "module": "commonjs",
+        "types": ["p5/global"],
         "rootDir": "./src",
         "allowJs": true,
         "outDir": "./compile",
@@ -15,7 +16,7 @@
         "strictNullChecks": true,
         "strictFunctionTypes": true,
         "strictBindCallApply": true,
-        "strictPropertyInitialization": true,
+        "strictPropertyInitialization": false,
         "noImplicitAny": true,
         "noImplicitThis": true,
         "alwaysStrict": true,
