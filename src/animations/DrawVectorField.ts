@@ -1,8 +1,8 @@
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { Vector } from "../cubicons/geometry";
-import { VectorField } from "../cubicons/vectorField";
-import { Animation } from "./animation";
-import { Create } from "./create";
+import { Vector } from "../cubicons/Geometry";
+import { VectorField } from "../cubicons/VectorField";
+import { Animation } from "./Animation";
+import { Create } from "./Create";
 
 /**
  * Play vector field drawing animation on the screen.

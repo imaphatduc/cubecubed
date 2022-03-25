@@ -1,6 +1,6 @@
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { MathText } from "../cubicons/text";
-import { Animation } from "./animation";
+import { MathText } from "../cubicons/MathText";
+import { Animation } from "./Animation";
 
 export class Write extends Animation {
     constructor(params: {
@@ -73,7 +73,9 @@ export class Write extends Animation {
             .attr("stroke-dashoffset", (d: number) => d)
             .transition()
             .ease(ease)
-            .delay((d: any, i: number) => 100 * i + cubicon.elapsedTime + sleepTime)
+            .delay(
+                (d: any, i: number) => 100 * i + cubicon.elapsedTime + sleepTime
+            )
             .duration(duration)
             .attr("stroke-dashoffset", 0)
             .attr("fill-opacity", 1);

@@ -1,11 +1,11 @@
-import { Animation } from "./animation";
+import { Animation } from "./Animation";
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import {
     CREATE_TYPES,
     CREATE_SHAPE_TYPES,
     CREATE_LINE_TYPES,
 } from "../cubicons/constants";
-import { Vector } from "../cubicons/geometry";
+import { Vector } from "../cubicons/Geometry";
 
 /**
  * Play animated creation on the screen.

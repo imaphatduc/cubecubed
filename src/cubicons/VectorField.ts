@@ -1,12 +1,10 @@
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Cubicon } from "./cubicon";
+import { Cubicon } from "./Cubicon";
 import { Vector2 } from "../math/vector";
-import { Group } from "../scene/group";
+import { Group } from "../scene/Group";
 import { xBound, yBound } from "../cubecubed";
-import { Vector } from "./geometry";
-import { ANIME } from "./constants";
-import { Create } from "../animations/create";
+import { Vector } from "./Geometry";
 import { hsl, scaleLinear } from "d3";
 
 interface VECTOR_FIELD_CONFIG {

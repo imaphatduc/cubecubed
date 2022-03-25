@@ -1,8 +1,8 @@
-import { Animation } from "./animation";
+import { Animation } from "./Animation";
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
 import { xGtoW, yGtoW } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
-import { Geometry } from "../cubicons/geometry";
+import { Geometry } from "../cubicons/Geometry";
 
 /**
  * Translate a geometric cubicon by a specified vector.

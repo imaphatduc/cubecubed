@@ -1,7 +1,7 @@
 import p5, { Renderer } from "p5";
 import { CanvasAnimation } from "../animations/CanvasAnimation";
 import { CanvasCubicon } from "../cubicons/CanvasCubicon";
-import { Scene } from "./scene";
+import { Scene } from "./Scene";
 
 /**
  * The dad/mom object of every pack of objects in the visualization.

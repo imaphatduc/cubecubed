@@ -1,6 +1,6 @@
 import { select } from "d3-selection";
 import { Vector2 } from "../math/vector";
-import { Group } from "../scene/group";
+import { Group } from "../scene/Group";
 
 export abstract class Cubicon {
     abstract readonly cubType: string;

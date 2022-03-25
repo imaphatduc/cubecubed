@@ -1,8 +1,8 @@
 import { path } from "d3-path";
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Group } from "../scene/group";
-import { Cubicon } from "./cubicon";
+import { Group } from "../scene/Group";
+import { Cubicon } from "./Cubicon";
 import { rToD, xGtoW, yGtoW, xWtoG } from "../math/convertUnit";
 import { Vector2 } from "../math/vector";
 import { COLOR, RECT_GRID_DATA } from "./constants";

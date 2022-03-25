@@ -1,6 +1,6 @@
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { Animation } from "./animation";
-import { Graph, AxisProjector } from "../cubicons/coordinateSystem";
+import { Animation } from "./Animation";
+import { Graph, AxisProjector } from "../cubicons/CoordinateSystem";
 import { PT_TO_COORDS_DATA } from "../cubicons/constants";
 
 /**

@@ -1,10 +1,10 @@
 import katex from "katex";
-import { Animation } from "./animation";
+import { Animation } from "./Animation";
 import { xBound, yBound } from "../cubecubed";
-import { Create } from "./create";
-import { GridOrigin } from "../cubicons/geometry";
+import { Create } from "./Create";
+import { GridOrigin } from "../cubicons/Geometry";
+import { Grid } from "../cubicons/Grid";
 import { xGtoW, yGtoW } from "../math/convertUnit";
-import { Grid } from "../cubicons/grid";
 
 export class DrawGridFromOrigin extends Animation {
     private drawX = 1000;

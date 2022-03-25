@@ -1,9 +1,9 @@
 import TeXToSVG from "tex-to-svg";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Cubicon } from "./cubicon";
+import { Cubicon } from "./Cubicon";
 import { Vector2 } from "../math/vector";
 import { xGtoW, yGtoW } from "../math/convertUnit";
-import { Group } from "../scene/group";
+import { Group } from "../scene/Group";
 
 export class MathText extends Cubicon {
     readonly cubType = "math-text";
@@ -90,7 +90,8 @@ export class MathText extends Cubicon {
             .selectAll("path")
             .attr(
                 "id",
-                (d: any, i: number, nodes: any) => nodes[i].getAttribute("id") + "-" + idKey
+                (d: any, i: number, nodes: any) =>
+                    nodes[i].getAttribute("id") + "-" + idKey
             )
             .attr("fill", this.color);
 

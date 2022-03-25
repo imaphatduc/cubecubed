@@ -5,28 +5,28 @@ export {
     Line,
     Vector,
     ParamatricCurve,
-} from "./cubicons/geometry";
-export * from "./cubicons/grid";
-export * from "./cubicons/vectorField";
+} from "./cubicons/Geometry";
+export * from "./cubicons/Grid";
+export * from "./cubicons/VectorField";
 export { COLOR, PI, TAU, EASE } from "./cubicons/constants";
-export { Axes } from "./cubicons/coordinateSystem";
-export * from "./cubicons/text";
+export { Axes } from "./cubicons/CoordinateSystem";
+export * from "./cubicons/MathText";
 
-export * from "./scene/scene";
-export * from "./scene/group";
+export * from "./scene/Scene";
+export * from "./scene/Group";
 
-export * from "./animations/create";
-export * from "./animations/translate";
-export * from "./animations/rotate";
-export * from "./animations/fadeIn";
-export * from "./animations/fadeOut";
-export * from "./animations/drawGrid";
-export * from "./animations/drawAxes";
-export * from './animations/drawVectorField';
-export * from "./animations/pointToCoords";
-export * from "./animations/pointAlongGraph";
-export * from "./animations/write";
-export * from "./animations/trace";
+export * from "./animations/Create";
+export * from "./animations/Translate";
+export * from "./animations/Rotate";
+export * from "./animations/FadeIn";
+export * from "./animations/FadeOut";
+export * from "./animations/DrawGrid";
+export * from "./animations/DrawAxes";
+export * from "./animations/DrawVectorField";
+export * from "./animations/PointToCoords";
+export * from "./animations/PointAlongGraph";
+export * from "./animations/Write";
+export * from "./animations/Trace";
 
 export { rToD, dToR } from "./math/convertUnit";
 export * from "./math/vector";

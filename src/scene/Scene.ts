@@ -1,5 +1,5 @@
 import { select, Selection } from "d3";
-import { Group } from "./group";
+import { Group } from "./Group";
 
 /**
  * The granddad/grandma object of everything in the visualization.

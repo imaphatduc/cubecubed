@@ -4,18 +4,18 @@ import { line, curveNatural } from "d3-shape";
 import { axisBottom, axisRight } from "d3-axis";
 import { ScaleLinear, scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Cubicon } from "./cubicon";
+import { Cubicon } from "./Cubicon";
 import { PT_ON_GRAPH_DATA, PT_TO_COORDS_DATA } from "./constants";
 import { Vector2 } from "../math/vector";
-import { Group } from "../scene/group";
+import { Group } from "../scene/Group";
 import {
     Circle,
     Line,
     LINE_CONFIG,
     LINE_DEFAULT_CONFIG,
     SHAPE_CONFIG,
-} from "./geometry";
-import { MathText } from "./text";
+} from "./Geometry";
+import { MathText } from "./MathText";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 interface AXES_CONFIG {

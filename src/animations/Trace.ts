@@ -1,8 +1,8 @@
 import { interpolateNumber } from "d3-interpolate";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { ANIME, EASE_TYPE } from "../cubicons/constants";
-import { ParamatricCurve, Line } from "../cubicons/geometry";
-import { Animation } from "./animation";
+import { ParamatricCurve, Line } from "../cubicons/Geometry";
+import { Animation } from "./Animation";
 
 /**
  * Let a line trace a curve.
