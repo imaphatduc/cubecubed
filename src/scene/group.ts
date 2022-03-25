@@ -1,3 +1,4 @@
+import { Selection, select } from "d3";
 import { Animation } from "../animations/animation";
 import { FadeOut } from "../animations/fadeOut";
 import { svgWidth, svgHeight, TYPES } from "../cubicons/constants";
@@ -18,7 +19,7 @@ export class Group {
     /**
      * The `<svg/>` element that represents this group.
      */
-    svg_group: any;
+    svg_group: Selection<SVGSVGElement, unknown, HTMLElement, any>;
 
     /**
      * Name of this group.
@@ -62,18 +63,22 @@ export class Group {
      */
     constructor(groupName: string, scene: Scene) {
         this.scene = scene;
-        this.svg_group = !scene.svg_scene.select(`#${groupName}`).empty()
-            ? scene.svg_scene.select(`#${groupName}`)
-            : scene.svg_scene
-                  .append("svg")
-                  .attr("id", `${groupName}`)
-                  .attr("class", "group")
-                  .attr(
-                      "viewBox",
-                      `${-svgWidth / 2} ${
-                          -svgHeight / 2
-                      } ${svgWidth} ${svgHeight}`
-                  );
+
+        this.svg_group = select("#cubecubed")
+            .append("svg")
+            .attr("id", groupName)
+            .attr("class", "group")
+            .attr("xmlns", "http://www.w3.org/2000/svg")
+            .attr("width", window.innerWidth)
+            .attr("height", window.innerHeight)
+            .attr(
+                "viewBox",
+                `${-svgWidth / 2} ${-svgHeight / 2} ${svgWidth} ${svgHeight}`
+            )
+            .attr("transform", "scale(1, -1)");
+
+        this.svg_group.style("position", "absolute");
+
         this.name = groupName;
 
         this.cubicons = [];
@@ -84,6 +89,8 @@ export class Group {
         this.groupElapsed = 0;
 
         this.sleepTime = 0;
+
+        this.scene.groups.push(this);
     }
 
     /**
