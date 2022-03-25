@@ -1,9 +1,9 @@
 import { Selection, select } from "d3";
 import { Animation } from "../animations/Animation";
 import { FadeOut } from "../animations/FadeOut";
-import { svgWidth, svgHeight, TYPES } from "../cubicons/constants";
+import { svgWidth, svgHeight, TYPES } from "../../constants";
 import { Cubicon } from "../cubicons/Cubicon";
-import { Scene } from "./Scene";
+import { Scene } from "../../scene/Scene";
 
 /**
  * The dad/mom object of every pack of objects in the visualization.

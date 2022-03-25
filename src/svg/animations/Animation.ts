@@ -1,4 +1,4 @@
-import { TYPES, EASE_TYPE, EASE } from "../cubicons/constants";
+import { TYPES, EASE_TYPE, EASE } from "../../constants";
 
 export class Animation {
     /**

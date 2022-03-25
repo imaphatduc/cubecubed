@@ -1,5 +1,5 @@
-import { Vector2 } from "../math/vector";
-import { CanvasGroup } from "../scene/CanvasGroup";
+import { Vector2 } from "../../math/vector";
+import { CanvasGroup } from "../group/CanvasGroup";
 
 export abstract class CanvasCubicon {
     abstract readonly cubType: string;

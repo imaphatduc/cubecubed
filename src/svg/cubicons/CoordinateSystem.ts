@@ -5,9 +5,9 @@ import { axisBottom, axisRight } from "d3-axis";
 import { ScaleLinear, scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 import { Cubicon } from "./Cubicon";
-import { PT_ON_GRAPH_DATA, PT_TO_COORDS_DATA } from "./constants";
-import { Vector2 } from "../math/vector";
-import { Group } from "../scene/Group";
+import { PT_ON_GRAPH_DATA, PT_TO_COORDS_DATA } from "../../constants";
+import { Vector2 } from "../../math/vector";
+import { Group } from "../group/Group";
 import {
     Circle,
     Line,

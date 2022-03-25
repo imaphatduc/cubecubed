@@ -11,7 +11,7 @@ export const svg = select("#cubecubed").select("#svg-viz");
 /**
  * d3 Selection of `canvas#canvas-viz` element
  */
-export const canvas = svg.select("#cubecubed").select('#canvas-viz');
+export const canvas = svg.select("#cubecubed").select("#canvas-viz");
 
 /**
  * width attribute of `svg#viz` element
@@ -178,16 +178,23 @@ export type TYPES = CoordinateSystem | Geometry | MathText | VectorField;
 /************************
  * 5.0. Animation types
  */
-import { Geometry, Rectangle, Square, Circle, Line, Vector } from "./geometry";
+import {
+    Geometry,
+    Rectangle,
+    Square,
+    Circle,
+    Line,
+    Vector,
+} from "./svg/cubicons/Geometry";
 import {
     CoordinateSystem,
     Graph,
     Label,
     Point,
     AxisProjector,
-} from "./coordinateSystem";
-import { MathText } from "./text";
-import { VectorField } from "./vectorField";
+} from "./svg/cubicons/CoordinateSystem";
+import { MathText } from "./svg/cubicons/MathText";
+import { VectorField } from "./svg/cubicons/VectorField";
 
 /**
  * Legal shape types to play Create() animation.

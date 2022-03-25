@@ -1,6 +1,6 @@
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Axes } from "../cubicons/CoordinateSystem";
+import { Axes } from "../svg/cubicons/CoordinateSystem";
 import { Animation } from "./Animation";
 
 /**
