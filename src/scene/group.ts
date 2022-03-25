@@ -8,6 +8,11 @@ import { Scene } from "./scene";
 /**
  * The dad/mom object of every pack of objects in the visualization.
  *
+ * A group must belong to a scene.
+ *
+ * Group is classified in terms of its purpose.
+ * Below `Group()` is a SVG group to render SVG objects.
+ *
  * Please see the Quick Start page in official documentation for clearer understanding about this `Group` term.
  */
 export class Group {

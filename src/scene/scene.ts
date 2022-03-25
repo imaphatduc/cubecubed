@@ -5,10 +5,6 @@ import { Group } from "./group";
  * The granddad/grandma object of everything in the visualization.
  * Scene() here is a must in every result math videos.
  *
- * Each scene must include at least one group.
- *
- * Scene is classified in terms of its purpose. Below `Scene()` is a SVG scene to render SVG objects.
- *
  * Please see the Quick Start page in official documentation for clearer understanding about this `Scene` term.
  */
 export class Scene {
