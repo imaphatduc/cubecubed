@@ -144,7 +144,7 @@ export class Group {
 
         this.animations = [];
 
-        this.defineScreenBounds();
+        this.defineBoundsAndSquares();
 
         this.defineCovertFunctions();
 
@@ -167,7 +167,7 @@ export class Group {
         });
     }
 
-    private defineScreenBounds() {
+    private defineBoundsAndSquares() {
         const { sceneWidth, sceneHeight } = this.scene;
 
         const larger = Math.max(sceneWidth, sceneHeight);

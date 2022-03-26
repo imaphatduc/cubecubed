@@ -4,7 +4,6 @@ import {
     Scene,
     COLOR,
     Create,
-    FadeIn,
     PointAlongGraph,
     PointToCoords,
     DrawAxes,
