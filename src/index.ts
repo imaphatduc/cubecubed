@@ -1,27 +1,27 @@
-export { COLOR, PI, TAU, EASE } from "@consts";
+export { COLOR, PI, TAU, EASE } from "./constants";
 
-export { rToD, dToR } from "@math/convertUnit";
-export { Vector2, Vector3 } from "@math/vector";
+export { rToD, dToR } from "./math/convertUnit";
+export { Vector2, Vector3 } from "./math/vector";
 
-export { Scene } from "@scene/Scene";
+export { Scene } from "./scene/Scene";
 
 // SVG group
-export { Group } from "@group/Group";
+export { Group } from "./svg/group/Group";
 
 // SVG cubicons
-export { VectorField } from "@cubicons/VectorField";
-export { MathText } from "@cubicons/MathText";
+export { VectorField } from "./svg/cubicons/VectorField";
+export { MathText } from "./svg/cubicons/MathText";
 
 // SVG geometry cubicons
-export { Grid } from "@cubicons/geometry/Grid";
-export { Rectangle } from "@cubicons/geometry/Rectangle";
-export { Square } from "@cubicons/geometry/Square";
-export { Circle } from "@cubicons/geometry/Circle";
-export { Line } from "@cubicons/geometry/Line";
-export { Vector } from "@cubicons/geometry/Vector";
-export { ParametricCurve } from "@cubicons/geometry/ParametricCurve";
+export { Grid } from "./svg/cubicons/geometry/Grid";
+export { Rectangle } from "./svg/cubicons/geometry/Rectangle";
+export { Square } from "./svg/cubicons/geometry/Square";
+export { Circle } from "./svg/cubicons/geometry/Circle";
+export { Line } from "./svg/cubicons/geometry/Line";
+export { Vector } from "./svg/cubicons/geometry/Vector";
+export { ParametricCurve } from "./svg/cubicons/geometry/ParametricCurve";
 
-export { Axes } from "@cubicons/coordinate-system/Axes";
+export { Axes } from "./svg/cubicons/coordinate-system/Axes";
 
 // SVG animations
 export { Create } from "./svg/animations/Create";
