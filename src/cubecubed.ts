@@ -1,4 +1,4 @@
-import { svgWidth, svgHeight } from "./cubicons/constants";
+import { svgWidth, svgHeight } from "./constants";
 
 ////////////////////////////////////////////////////////////////////
 /// Compute the x and y boundary on the grid plane                //

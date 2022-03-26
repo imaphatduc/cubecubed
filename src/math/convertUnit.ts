@@ -1,5 +1,5 @@
 import { scaleLinear } from "d3-scale";
-import { svgWidth, svgHeight } from "../cubicons/constants";
+import { svgWidth, svgHeight } from "../constants";
 import { xBound, yBound, sqrLength, largerDirSquareNums } from "../cubecubed";
 
 /**

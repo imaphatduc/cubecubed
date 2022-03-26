@@ -2,7 +2,17 @@
     "compilerOptions": {
         "target": "es2015",
         "module": "commonjs",
+        "baseUrl": ".",
         "types": ["p5/global"],
+        "moduleResolution": "node",
+        "paths": {
+            "@consts": ["src/constants.ts"],
+            "@math/*": ["src/math/*"],
+            "@scene/*": ["src/scene/*"],
+            "@group/*": ["src/svg/group/*", "src/canvas/group/*"],
+            "@cubicons/*": ["src/svg/cubicons/*", "src/canvas/cubicons/*"],
+            "@animations/*": ["src/svg/animations/*", "src/canvas/animations/*"]
+        },
         "rootDir": "./src",
         "allowJs": true,
         "outDir": "./compile",

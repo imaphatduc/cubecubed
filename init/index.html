@@ -2,7 +2,11 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+        <link
+            rel="icon"
+            type="image/svg+xml"
+            href="/graphics/svg/favicon.svg"
+        />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Cubecubed Example</title>
         <link rel="stylesheet" href="style.css" />
@@ -42,22 +46,19 @@
             integrity="sha384-lhN3C1JSmmvbT89RGOy6nC8qFBS8X/PLsBWIqiNdD4WGNsYOWpS2Il0x4TBrK8E2"
             crossorigin="anonymous"
         ></script>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.1.1/d3.min.js"></script>
     </head>
     <body>
-        <div id="site-wrapper">
-            <div id="svg-render">
-                <svg
-                    xmlns="http://w3.org/2000/svg"
-                    id="viz"
-                    width="1000"
-                    height="600"
-                    transform="scale(1, -1)"
-                    style="background-color: #000; position: absolute"
-                ></svg>
-            </div>
-        </div>
-        <script type="module" src="/example.js"></script>
+        <div
+            id="cubecubed"
+            style="
+                background-color: #000;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+            "
+        ></div>
+        <script type="module" src="./example.js"></script>
     </body>
 </html>
