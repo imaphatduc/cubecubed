@@ -6,12 +6,12 @@ import {
     Grid,
     DrawGridFromScreenSides,
     DrawVectorField,
-} from '../src/index';
+} from "../src/index";
 
 function vectorField() {
-    const scene = new Scene('visualize-2d-vector-field');
+    const scene = new Scene("visualize-2d-vector-field");
 
-    const group = new Group('vector-field', scene);
+    const group = new Group("vector-field", scene);
 
     const grid = new Grid({ group: group }).render();
     group.play([new DrawGridFromScreenSides(grid)]);

@@ -2,7 +2,7 @@ import { ScaleLinear, scaleLinear } from "d3-scale";
 import { Selection, select } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { svgWidth, svgHeight, TYPES } from "@consts";
+import { TYPES } from "@consts";
 
 import { Scene } from "@scene/Scene";
 
@@ -101,11 +101,13 @@ export class Group {
             .attr("id", groupName)
             .attr("class", "group")
             .attr("xmlns", "http://www.w3.org/2000/svg")
-            .attr("width", window.innerWidth)
-            .attr("height", window.innerHeight)
+            .attr("width", scene.sceneWidth)
+            .attr("height", scene.sceneHeight)
             .attr(
                 "viewBox",
-                `${-svgWidth / 2} ${-svgHeight / 2} ${svgWidth} ${svgHeight}`
+                `${-scene.sceneWidth / 2} ${-scene.sceneHeight / 2} ${
+                    scene.sceneWidth
+                } ${scene.sceneHeight}`
             )
             .attr("transform", "scale(1, -1)");
 
@@ -139,7 +141,14 @@ export class Group {
     }
 
     private defineCovertFunctions() {
-        const { xBound, yBound, xSquareNums, squareLength } = this.scene;
+        const {
+            xBound,
+            yBound,
+            sceneWidth,
+            sceneHeight,
+            xSquareNums,
+            squareLength,
+        } = this.scene;
 
         this.xGtoW = scaleLinear()
             .domain(xBound)
@@ -150,14 +159,14 @@ export class Group {
 
         this.yGtoW = scaleLinear()
             .domain(yBound)
-            .range([-svgHeight / 2, svgHeight / 2]);
+            .range([-sceneHeight / 2, sceneHeight / 2]);
 
         this.xWtoG = scaleLinear()
-            .domain([-svgWidth / 2, svgWidth / 2])
+            .domain([-sceneWidth / 2, sceneWidth / 2])
             .range(xBound);
 
         this.yWtoG = scaleLinear()
-            .domain([-svgHeight / 2, svgHeight / 2])
+            .domain([-sceneHeight / 2, sceneWidth / 2])
             .range(yBound);
     }
 

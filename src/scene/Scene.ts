@@ -1,9 +1,16 @@
 import { select } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { svgWidth, svgHeight } from "@consts";
-
 import { Group } from "@group/Group";
+
+interface SCENE_CONFIG {
+    sceneWidth: number;
+    sceneHeight: number;
+}
+const SCENE_DEFAULT_CONFIG = {
+    sceneWidth: window.innerWidth,
+    sceneHeight: window.innerHeight,
+};
 
 /**
  * The granddad/grandma object of everything in the visualization.
@@ -20,17 +27,26 @@ export class Scene {
     /**
      * Width of this scene.
      */
-    width: number;
+    sceneWidth: number;
 
     /**
      * Height of this scene.
      */
-    height: number;
+    sceneHeight: number;
 
+    /**
+     * Number of squares in the x direction.
+     */
     xSquareNums: number;
 
+    /**
+     * Number of squares in the x direction.
+     */
     ySquareNums: number;
 
+    /**
+     * Length of a square in this scene.
+     */
     squareLength: number;
 
     /**
@@ -53,15 +69,20 @@ export class Scene {
      *
      * @param sceneName Name of the scene.
      */
-    constructor(sceneName: string) {
+    constructor(sceneName: string, CONFIG?: SCENE_CONFIG) {
         this.name = sceneName;
+
+        ({
+            sceneWidth: this.sceneWidth = SCENE_DEFAULT_CONFIG.sceneWidth,
+            sceneHeight: this.sceneHeight = SCENE_DEFAULT_CONFIG.sceneHeight,
+        } = CONFIG ?? SCENE_DEFAULT_CONFIG);
 
         this.defineScreenBounds();
     }
 
     private defineScreenBounds() {
-        const larger = Math.max(svgWidth, svgHeight);
-        const smaller = Math.min(svgWidth, svgHeight);
+        const larger = Math.max(this.sceneWidth, this.sceneHeight);
+        const smaller = Math.min(this.sceneWidth, this.sceneHeight);
 
         const smSquareNums = 14;
 
@@ -80,12 +101,12 @@ export class Scene {
         ];
 
         [this.xBound, this.yBound] =
-            svgWidth >= svgHeight
+            this.sceneWidth >= this.sceneHeight
                 ? [largerBound, smallerBound]
                 : [smallerBound, largerBound];
 
         [this.xSquareNums, this.ySquareNums] =
-            svgWidth >= svgHeight
+            this.sceneWidth >= this.sceneHeight
                 ? [lgSquareNums, smSquareNums]
                 : [smSquareNums, lgSquareNums];
 

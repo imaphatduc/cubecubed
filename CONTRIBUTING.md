@@ -30,27 +30,27 @@ You can open an issue with `code typo` label for code typos.
 
 #### But wait, here are some important notes
 
-- Please read `STRUCTURE.md` carefully before making any changes in the code.
+-   Please read `STRUCTURE.md` carefully before making any changes in the code.
 
-- If you create (a) new `Cubicon()` type(s): Before making a pull request, add the result HTML structure (after running your code) to both Tree View and Plain HTML View in `STRUCTURE.md`, then include the new `STRUCTURE.md` to your pull request.
+-   If you create (a) new `Cubicon()` type(s): Before making a pull request, add the result HTML structure (after running your code) to both Tree View and Plain HTML View in `STRUCTURE.md`, then include the new `STRUCTURE.md` to your pull request.
 
 ##### Naming Conventions
 
-- Please avoid abbreviations for all names related to classes (class names, properties, parameters for constructor).
+-   Please avoid abbreviations for all names related to classes (class names, properties, parameters for constructor).
 
-- For naming rule of d3 selections, check out `d3 Selection Prefixes` part below.
+-   For naming rule of d3 selections, check out `d3 Selection Prefixes` part below.
 
 ###### d3 Selection Prefixes
 
-> svg_
+> svg\_
 
 Element that represents an `<svg>` tag.
 
-> g_
+> g\_
 
 Element that represents a `<g>` tag.
 
-> def_
+> def\_
 
 Element that represents the SVG tag of a cubicon. (e.g. `<path/>`, `<circle/>`)
 
@@ -82,8 +82,8 @@ If you're not familiar with Git, watch this [quick](https://www.youtube.com/watc
 
 ## Open a Pull Request
 
-- Choose your target template...
+-   Choose your target template...
 
-- ...and you're good to go!
+-   ...and you're good to go!
 
 And that's it. You are one of the contributors of Cubecubed!
