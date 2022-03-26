@@ -1,6 +1,5 @@
 import { ANIME, EASE_TYPE } from "@consts";
 
-import { xGtoW, yGtoW } from "@math/convertUnit";
 import { Vector2 } from "@math/vector";
 
 import { Animation } from "./Animation";
@@ -49,6 +48,8 @@ export class Translate extends Animation {
         vector: Vector2,
         sleepTime: number
     ) {
+        const { xGtoW, yGtoW } = cubicon.group;
+
         /// Calculate the sum of all translation vectors
         cubicon.moveVector = cubicon.moveVector.add(vector);
 

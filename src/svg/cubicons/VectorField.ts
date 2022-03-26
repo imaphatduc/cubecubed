@@ -3,8 +3,6 @@ import { hsl } from "d3-color";
 import { scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { xBound, yBound } from "../../cubecubed";
-
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
@@ -76,6 +74,8 @@ export class VectorField extends Cubicon {
     }
 
     private computeMagnitudes() {
+        const { xBound, yBound } = this.group.scene;
+
         const xRange = range(xBound[0], xBound[1] + 1, 1);
         const yRange = range(yBound[0], yBound[1] + 1, 1);
 
@@ -96,6 +96,8 @@ export class VectorField extends Cubicon {
     }
 
     private renderField(maxMagnitude: number, CONFIG: VECTOR_FIELD_CONFIG) {
+        const { xBound, yBound } = this.group.scene;
+
         const xRange = range(xBound[0], xBound[1] + 1, 1);
         const yRange = range(yBound[0], yBound[1] + 1, 1);
 

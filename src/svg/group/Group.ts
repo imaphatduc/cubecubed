@@ -1,9 +1,15 @@
-import { Selection, select } from "d3";
-import { Animation } from "../animations/Animation";
-import { FadeOut } from "../animations/FadeOut";
-import { svgWidth, svgHeight, TYPES } from "../../constants";
-import { Cubicon } from "../cubicons/Cubicon";
-import { Scene } from "../../scene/Scene";
+import { ScaleLinear, scaleLinear } from "d3-scale";
+import { Selection, select } from "d3-selection";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+import { svgWidth, svgHeight, TYPES } from "@consts";
+
+import { Scene } from "@scene/Scene";
+
+import { Cubicon } from "@cubicons/Cubicon";
+
+import { Animation } from "@animations/Animation";
+import { FadeOut } from "@animations/FadeOut";
 
 /**
  * The dad/mom object of every pack of objects in the visualization.
@@ -42,9 +48,30 @@ export class Group {
     animations: Animation[];
 
     /**
+     * Convert x value of grid coordinates to real-world coordinates.
+     */
+    xGtoW: ScaleLinear<number, number, never>;
+
+    /**
+     * Convert y value of grid coordinates to real-world coordinates.
+     */
+    yGtoW: ScaleLinear<number, number, never>;
+
+    /**
+     * Convert x value of real-world coordinates to grid coordinates.
+     */
+    xWtoG: ScaleLinear<number, number, never>;
+
+    /**
+     * Convert y value of real-world coordinates to grid coordinates.
+     */
+    yWtoG: ScaleLinear<number, number, never>;
+
+    /**
      * The total time to finish playing all animations in the current queue (will be override when the next queue is called). (in milliseconds)
      */
     queueElapsed: number;
+
     /**
      * The time passed by since this group was created. (in milliseconds)
      *
@@ -90,6 +117,8 @@ export class Group {
 
         this.animations = [];
 
+        this.defineCovertFunctions();
+
         this.queueElapsed = 0;
         this.groupElapsed = 0;
 
@@ -107,6 +136,29 @@ export class Group {
         cubicons.forEach((cubicon) => {
             cubicon.render();
         });
+    }
+
+    private defineCovertFunctions() {
+        const { xBound, yBound, xSquareNums, squareLength } = this.scene;
+
+        this.xGtoW = scaleLinear()
+            .domain(xBound)
+            .range([
+                -squareLength * (xSquareNums / 2),
+                squareLength * (xSquareNums / 2),
+            ]);
+
+        this.yGtoW = scaleLinear()
+            .domain(yBound)
+            .range([-svgHeight / 2, svgHeight / 2]);
+
+        this.xWtoG = scaleLinear()
+            .domain([-svgWidth / 2, svgWidth / 2])
+            .range(xBound);
+
+        this.yWtoG = scaleLinear()
+            .domain([-svgHeight / 2, svgHeight / 2])
+            .range(yBound);
     }
 
     /**

@@ -4,7 +4,6 @@ import { curveNatural, line } from "d3-shape";
 
 import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "./Geometry";
 
-import { xGtoW, yGtoW } from "../../../math/convertUnit";
 import { Vector2 } from "../../../math/vector";
 
 import { Group } from "../../group/Group";
@@ -66,6 +65,8 @@ export class ParametricCurve extends Geometry {
     }
 
     private getData() {
+        const { xGtoW, yGtoW } = this.group;
+
         const points: [number, number][] = this.points.map((pt: Vector2) => [
             pt.x,
             pt.y,

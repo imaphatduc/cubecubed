@@ -1,8 +1,6 @@
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { xBound, yBound } from "../../../cubecubed";
-
 import { COLOR } from "@consts";
 import { Vector2 } from "@math/vector";
 
@@ -34,11 +32,19 @@ export class Grid extends Geometry {
     /**
      * Numbers marked on the x axis.
      */
-    xNumberRange = range(xBound[0] - 1, xBound[1] + 2, 1);
+    xNumberRange = range(
+        this.group.scene.xBound[0] - 1,
+        this.group.scene.xBound[1] + 2,
+        1
+    );
     /**
      * Numbers marked on the y axis.
      */
-    yNumberRange = range(yBound[0], yBound[1] + 1, 1);
+    yNumberRange = range(
+        this.group.scene.yBound[0],
+        this.group.scene.yBound[1] + 1,
+        1
+    );
 
     /**
      * The `<g/>` tag that contains all horizontal and vertical lines.

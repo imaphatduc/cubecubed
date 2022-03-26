@@ -1,6 +1,5 @@
 import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
 
-import { xGtoW, xWtoG } from "../../../math/convertUnit";
 import { Vector2 } from "../../../math/vector";
 
 import { Group } from "../../group/Group";
@@ -57,6 +56,8 @@ export class Circle extends Geometry {
      * Draw (and render) the shape of this circle onto SVG.
      */
     render() {
+        const { xGtoW } = this.group;
+
         this.checkIfRendered();
         this.isRendered = true;
 
@@ -101,7 +102,7 @@ export class GridOrigin extends Circle {
     constructor(group: Group) {
         super({
             group: group,
-            radius: xWtoG(2.2),
+            radius: group.xWtoG(2.2),
         });
     }
 }

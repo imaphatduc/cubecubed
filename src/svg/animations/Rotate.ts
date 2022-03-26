@@ -3,8 +3,6 @@ import { interpolate } from "d3-interpolate";
 
 import { ANIME, EASE_TYPE } from "@consts";
 
-import { xGtoW, yGtoW } from "@math/convertUnit";
-
 import { Animation } from "./Animation";
 
 import { Geometry } from "@cubicons/geometry/Geometry";
@@ -46,6 +44,8 @@ export class Rotate extends Animation {
     }
 
     private rotate(cubicon: Geometry, degree: number, sleepTime: number) {
+        const { xGtoW, yGtoW } = cubicon.group;
+
         if (
             cubicon.constructor.name === "Vector" ||
             cubicon.constructor.name === "Line"

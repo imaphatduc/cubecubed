@@ -5,7 +5,6 @@ import { path } from "d3-path";
 import { COLOR, RECT_GRID_DATA } from "../../../constants";
 import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
 
-import { xGtoW, yGtoW } from "../../../math/convertUnit";
 import { Vector2 } from "../../../math/vector";
 
 import { Group } from "../../group/Group";
@@ -106,6 +105,8 @@ export class Rectangle extends Geometry {
      * Draw (not render) a rectangular stroke path.
      */
     private definePath() {
+        const { xGtoW, yGtoW } = this.group;
+
         const Wposition = this.coordsGtoW(this.position);
         const Wwidth = xGtoW(this.width);
         const Wheight = yGtoW(this.height);
@@ -147,7 +148,7 @@ export class Rectangle extends Geometry {
         };
 
         const horizontalLines: Line[] = [];
-        for (let i of range(-this.height / 2 + 1, this.height / 2, 1)) {
+        for (const i of range(-this.height / 2 + 1, this.height / 2, 1)) {
             horizontalLines.push(
                 new Line({
                     ...generalParams,
@@ -160,7 +161,7 @@ export class Rectangle extends Geometry {
         }
 
         const verticalLines: Line[] = [];
-        for (let i of range(-this.width / 2 + 1, this.width / 2, 1)) {
+        for (const i of range(-this.width / 2 + 1, this.width / 2, 1)) {
             verticalLines.push(
                 new Line({
                     ...generalParams,

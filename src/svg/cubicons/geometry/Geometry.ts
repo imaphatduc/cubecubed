@@ -1,4 +1,3 @@
-import { xGtoW, yGtoW } from "../../../math/convertUnit";
 import { Vector2 } from "../../../math/vector";
 
 import { Group } from "../../group/Group";
@@ -101,6 +100,8 @@ export abstract class Geometry extends Cubicon {
     }
 
     coordsGtoW(point: Vector2) {
+        const { xGtoW, yGtoW } = this.group;
+
         return new Vector2(xGtoW(point.x), yGtoW(point.y));
     }
 }

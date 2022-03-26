@@ -1,10 +1,6 @@
 import katex from "katex";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { xBound, yBound } from "../../cubecubed";
-
-import { xGtoW, yGtoW } from "@math/convertUnit";
-
 import { Animation } from "./Animation";
 import { Create } from "./Create";
 
@@ -52,6 +48,9 @@ export class DrawGridFromOrigin extends Animation {
         hasNums: boolean,
         sleepTime: number
     ) {
+        const { xBound } = grid.group.scene;
+        const { xGtoW, yGtoW } = grid.group;
+
         const horizontalLines = grid.g_horizontal
             .append("g")
             .attr("id", "horizontal-lines");
@@ -78,6 +77,8 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     private placeXAxisNums(grid: Grid, sleepTime: number) {
+        const { xGtoW } = grid.group;
+
         const xNumWidth = 50;
         const xNumHeight = 20;
 
@@ -116,6 +117,9 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     private drawVerticalLines(grid: Grid, hasNums: boolean, sleepTime: number) {
+        const { yBound } = grid.group.scene;
+        const { xGtoW, yGtoW } = grid.group;
+
         const verticalLines = grid.g_vertical
             .append("g")
             .attr("id", "vertical-lines");
@@ -142,6 +146,8 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     private placeYAxisNums(grid: Grid, sleepTime: number) {
+        const { yGtoW } = grid.group;
+
         const yNumWidth = 50;
         const yNumHeight = 20;
 
@@ -218,6 +224,8 @@ export class DrawGridFromScreenSides extends Animation {
         this.xDelayEach = 50;
         this.yDelayEach = 20;
 
+        const { xBound, yBound } = grid.group.scene;
+
         this.duration = Math.max(
             Math.max(
                 this.drawX + this.xDelayEach * xBound[1],
@@ -245,6 +253,9 @@ export class DrawGridFromScreenSides extends Animation {
         hasNums: boolean,
         sleepTime: number
     ) {
+        const { xBound } = grid.group.scene;
+        const { xGtoW, yGtoW } = grid.group;
+
         const horizontalLines = grid.g_horizontal
             .append("g")
             .attr("id", "horizontal-lines");
@@ -275,6 +286,8 @@ export class DrawGridFromScreenSides extends Animation {
     }
 
     private placeXAxisNums(grid: Grid, sleepTime: number) {
+        const { xGtoW } = grid.group;
+
         const xNumWidth = 50;
         const xNumHeight = 20;
 
@@ -313,6 +326,9 @@ export class DrawGridFromScreenSides extends Animation {
     }
 
     private drawVerticalLines(grid: Grid, hasNums: boolean, sleepTime: number) {
+        const { yBound } = grid.group.scene;
+        const { xGtoW, yGtoW } = grid.group;
+
         const verticalLines = grid.g_vertical
             .append("g")
             .attr("id", "vertical-lines");
@@ -346,6 +362,8 @@ export class DrawGridFromScreenSides extends Animation {
     }
 
     private placeYAxisNums(grid: Grid, sleepTime: number) {
+        const { yGtoW } = grid.group;
+
         const yNumWidth = 50;
         const yNumHeight = 20;
 

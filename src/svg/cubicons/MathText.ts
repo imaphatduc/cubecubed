@@ -1,7 +1,6 @@
 import TeXToSVG from "tex-to-svg";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { xGtoW, yGtoW } from "@math/convertUnit";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
@@ -107,6 +106,8 @@ export class MathText extends Cubicon {
     }
 
     private setSVGPosition() {
+        const { xGtoW, yGtoW } = this.group;
+
         this.def_cubiconBase.attr(
             "transform",
             `translate(${xGtoW(this.position.x)}, ${yGtoW(

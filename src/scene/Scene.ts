@@ -1,5 +1,9 @@
-import { select, Selection } from "d3";
-import { Group } from "../svg/group/Group";
+import { select } from "d3-selection";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+import { svgWidth, svgHeight } from "@consts";
+
+import { Group } from "@group/Group";
 
 /**
  * The granddad/grandma object of everything in the visualization.
@@ -14,6 +18,32 @@ export class Scene {
     name: string;
 
     /**
+     * Width of this scene.
+     */
+    width: number;
+
+    /**
+     * Height of this scene.
+     */
+    height: number;
+
+    xSquareNums: number;
+
+    ySquareNums: number;
+
+    squareLength: number;
+
+    /**
+     * x coordinate bound values of this scene.
+     */
+    xBound: [number, number];
+
+    /**
+     * y coordinate bound values of this scene.
+     */
+    yBound: [number, number];
+
+    /**
      * List of group included in this scene.
      */
     groups: Group[] = [];
@@ -25,6 +55,41 @@ export class Scene {
      */
     constructor(sceneName: string) {
         this.name = sceneName;
+
+        this.defineScreenBounds();
+    }
+
+    private defineScreenBounds() {
+        const larger = Math.max(svgWidth, svgHeight);
+        const smaller = Math.min(svgWidth, svgHeight);
+
+        const smSquareNums = 14;
+
+        const smallerBound: [number, number] = [
+            Math.floor(-smSquareNums / 2),
+            Math.floor(smSquareNums / 2),
+        ];
+
+        const squareLength = smaller / smSquareNums;
+
+        const lgSquareNums = Math.floor(larger / 2 / squareLength) * 2;
+
+        const largerBound: [number, number] = [
+            Math.floor(-lgSquareNums / 2),
+            Math.floor(lgSquareNums / 2),
+        ];
+
+        [this.xBound, this.yBound] =
+            svgWidth >= svgHeight
+                ? [largerBound, smallerBound]
+                : [smallerBound, largerBound];
+
+        [this.xSquareNums, this.ySquareNums] =
+            svgWidth >= svgHeight
+                ? [lgSquareNums, smSquareNums]
+                : [smSquareNums, lgSquareNums];
+
+        this.squareLength = squareLength;
     }
 
     /**

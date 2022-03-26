@@ -4,7 +4,7 @@ import {
     VECTOR_DEFAULT_CONFIG,
 } from "./Geometry";
 
-import { rToD, xGtoW, yGtoW } from "../../../math/convertUnit";
+import { rToD } from "../../../math/convertUnit";
 import { Vector2 } from "../../../math/vector";
 
 import { Group } from "../../group/Group";
@@ -133,6 +133,8 @@ export class Vector extends Geometry {
     }
 
     private drawVectorArrowHead() {
+        const { xGtoW, yGtoW } = this.group;
+
         const WendPoint = this.coordsGtoW(this.endPoint);
 
         this.def_arrowHead = this.def_cubiconBase
