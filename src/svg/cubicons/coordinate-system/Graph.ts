@@ -4,6 +4,7 @@ import { curveNatural, line } from "d3-shape";
 
 import { CoordinateSystem } from "./CoordinateSystem";
 import { Axes } from "./Axes";
+import { range } from "d3";
 
 export class Graph extends CoordinateSystem {
     readonly coordSysObjType = "graph";
@@ -32,6 +33,7 @@ export class Graph extends CoordinateSystem {
      * Color of this graph.
      */
     graphColor: any;
+
     /**
      * Width of this graph.
      */
@@ -99,11 +101,13 @@ export class Graph extends CoordinateSystem {
     }
 
     getData() {
+        const { squareLength } = this.group;
+
         const xScale = scaleLinear()
             .domain(this.xRange)
             .range([
-                this.axes.xLength * this.xRange[0],
-                this.axes.xLength * this.xRange[1],
+                squareLength * this.xRange[0],
+                squareLength * this.xRange[1],
             ]);
 
         const lineGenerator = line()
@@ -112,7 +116,8 @@ export class Graph extends CoordinateSystem {
             .y((d: [number, number]) => this.axes.yScale(d[1]));
 
         const points: [number, number][] = [];
-        for (let x = this.xRange[0]; x <= this.xRange[1]; x += 0.01) {
+
+        for (const x of range(this.xRange[0], this.xRange[1] + 1, 0.01)) {
             if (
                 this.axes.yScale(this.functionDef(x)) <
                     this.axes.yScale(this.axes.yRange[1] + 1) &&
