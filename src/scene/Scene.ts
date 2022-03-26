@@ -7,7 +7,7 @@ interface SCENE_CONFIG {
     sceneWidth: number;
     sceneHeight: number;
 }
-const SCENE_DEFAULT_CONFIG = {
+const SCENE_DEFAULT_CONFIG: SCENE_CONFIG = {
     sceneWidth: window.innerWidth,
     sceneHeight: window.innerHeight,
 };
