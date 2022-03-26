@@ -1,7 +1,10 @@
-import { ANIME, EASE_TYPE, PT_TO_COORDS_DATA } from "../../constants";
-import { AxisProjector, Point } from "../cubicons/CoordinateSystem";
+import { ANIME, EASE_TYPE, PT_TO_COORDS_DATA } from "@consts";
+
 import { Animation } from "./Animation";
 import { Create } from "./Create";
+
+import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
+import { Point } from "@cubicons/coordinate-system/Point";
 
 /**
  * The creation of a point and its two axis projectors.

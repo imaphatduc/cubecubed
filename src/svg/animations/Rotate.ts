@@ -1,9 +1,13 @@
 import { interpolate } from "d3-interpolate";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+import { ANIME, EASE_TYPE } from "@consts";
+
+import { xGtoW, yGtoW } from "@math/convertUnit";
+
 import { Animation } from "./Animation";
-import { ANIME, EASE_TYPE } from "../../constants";
-import { xGtoW, yGtoW } from "../../math/convertUnit";
-import { Geometry } from "../cubicons/Geometry";
+
+import { Geometry } from "@cubicons/geometry/Geometry";
 
 /**
  * Rotate a geometric cubicon by a specified angle.

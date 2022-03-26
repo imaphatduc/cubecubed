@@ -178,23 +178,21 @@ export type TYPES = CoordinateSystem | Geometry | MathText | VectorField;
 /************************
  * 5.0. Animation types
  */
-import {
-    Geometry,
-    Rectangle,
-    Square,
-    Circle,
-    Line,
-    Vector,
-} from "./svg/cubicons/Geometry";
-import {
-    CoordinateSystem,
-    Graph,
-    Label,
-    Point,
-    AxisProjector,
-} from "./svg/cubicons/CoordinateSystem";
-import { MathText } from "./svg/cubicons/MathText";
-import { VectorField } from "./svg/cubicons/VectorField";
+import { Geometry } from "@cubicons/geometry/Geometry";
+import { Rectangle } from "@cubicons/geometry/Rectangle";
+import { Square } from "@cubicons/geometry/Square";
+import { Circle } from "@cubicons/geometry/Circle";
+import { Line } from "@cubicons/geometry/Line";
+import { Vector } from "@cubicons/geometry/Vector";
+
+import { CoordinateSystem } from "@cubicons/coordinate-system/CoordinateSystem";
+import { Graph } from "@cubicons/coordinate-system/Graph";
+import { Label } from "@cubicons/coordinate-system/Label";
+import { Point } from "@cubicons/coordinate-system/Point";
+import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
+
+import { MathText } from "@cubicons/MathText";
+import { VectorField } from "@cubicons/VectorField";
 
 /**
  * Legal shape types to play Create() animation.

@@ -1,5 +1,6 @@
+import { ANIME, EASE_TYPE, FADE_TYPES } from "@consts";
+
 import { Animation } from "./Animation";
-import { ANIME, EASE_TYPE, FADE_TYPES } from "../../constants";
 
 /**
  * Fade in a cubicon on the screen.

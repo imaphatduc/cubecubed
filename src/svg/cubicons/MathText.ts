@@ -1,9 +1,11 @@
 import TeXToSVG from "tex-to-svg";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+import { xGtoW, yGtoW } from "@math/convertUnit";
+import { Vector2 } from "@math/vector";
+
+import { Group } from "@group/Group";
 import { Cubicon } from "./Cubicon";
-import { Vector2 } from "../../math/vector";
-import { xGtoW, yGtoW } from "../../math/convertUnit";
-import { Group } from "../group/Group";
 
 export class MathText extends Cubicon {
     readonly cubType = "math-text";

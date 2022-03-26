@@ -1,8 +1,12 @@
 import { interpolateNumber } from "d3-interpolate";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { ANIME, EASE_TYPE } from "../../constants";
-import { ParamatricCurve, Line } from "../cubicons/Geometry";
+
+import { ANIME, EASE_TYPE } from "@consts";
+
 import { Animation } from "./Animation";
+
+import { Line } from "@cubicons/geometry/Line";
+import { ParametricCurve } from "@cubicons/geometry/ParametricCurve";
 
 /**
  * Let a line trace a curve.
@@ -11,7 +15,7 @@ export class Trace extends Animation {
     /**
      * The curve.
      */
-    private curve: ParamatricCurve;
+    private curve: ParametricCurve;
 
     constructor(params: {
         /**
@@ -21,7 +25,7 @@ export class Trace extends Animation {
         /**
          * The curve.
          */
-        curve: ParamatricCurve;
+        curve: ParametricCurve;
         /**
          * Time to play this animation. (in milliseconds)
          */

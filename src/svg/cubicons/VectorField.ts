@@ -1,11 +1,15 @@
 import { range } from "d3-array";
+import { hsl } from "d3-color";
+import { scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Cubicon } from "./Cubicon";
-import { Vector2 } from "../../math/vector";
-import { Group } from "../group/Group";
+
 import { xBound, yBound } from "../../cubecubed";
-import { Vector } from "./Geometry";
-import { hsl, scaleLinear } from "d3";
+
+import { Vector2 } from "@math/vector";
+
+import { Group } from "@group/Group";
+import { Cubicon } from "./Cubicon";
+import { Vector } from "@cubicons/geometry/Vector";
 
 interface VECTOR_FIELD_CONFIG {
     isScaled?: boolean;

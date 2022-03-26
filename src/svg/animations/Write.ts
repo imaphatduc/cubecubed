@@ -1,6 +1,8 @@
-import { ANIME, EASE_TYPE } from "../../constants";
-import { MathText } from "../cubicons/MathText";
+import { ANIME, EASE_TYPE } from "@consts";
+
 import { Animation } from "./Animation";
+
+import { MathText } from "@cubicons/MathText";
 
 export class Write extends Animation {
     constructor(params: {

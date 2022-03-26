@@ -1,4 +1,4 @@
-import { TYPES, EASE_TYPE, EASE } from "../../constants";
+import { TYPES, EASE_TYPE, EASE } from "@consts";
 
 export class Animation {
     /**

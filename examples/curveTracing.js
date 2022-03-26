@@ -5,7 +5,7 @@ import {
     COLOR,
     Grid,
     DrawGridFromScreenSides,
-    ParamatricCurve,
+    ParametricCurve,
     Trace,
     Line,
     MathText,
@@ -24,7 +24,7 @@ function curveTracing() {
     const grid = new Grid({ group: group }).render();
     group.play([new DrawGridFromScreenSides(grid)]);
 
-    const curve = new ParamatricCurve({
+    const curve = new ParametricCurve({
         group: group,
         tRange: [0, 10],
         functionDef: (t) => new Vector2(t * Math.cos(t), t * Math.sin(t)),

@@ -1,7 +1,9 @@
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-import { Axes } from "../cubicons/CoordinateSystem";
+
 import { Animation } from "./Animation";
+
+import { Axes } from "@cubicons/coordinate-system/Axes";
 
 /**
  * Animated drawing process of x and y axes on the screen.
