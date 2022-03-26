@@ -4,9 +4,9 @@ import { curveNatural, line } from "d3-shape";
 
 import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "./Geometry";
 
-import { Vector2 } from "../../../math/vector";
+import { Vector2 } from "@math/vector";
 
-import { Group } from "../../group/Group";
+import { Group } from "@group/Group";
 import { Geometry } from "./Geometry";
 
 /**

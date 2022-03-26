@@ -2,12 +2,12 @@ import { range } from "d3-array";
 import { path } from "d3-path";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { COLOR, RECT_GRID_DATA } from "../../../constants";
+import { COLOR, RECT_GRID_DATA } from "@consts";
 import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
 
-import { Vector2 } from "../../../math/vector";
+import { Vector2 } from "@math/vector";
 
-import { Group } from "../../group/Group";
+import { Group } from "@group/Group";
 import { Geometry } from "./Geometry";
 import { Line } from "./Line";
 

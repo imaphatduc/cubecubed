@@ -4,10 +4,10 @@ import {
     VECTOR_DEFAULT_CONFIG,
 } from "./Geometry";
 
-import { rToD } from "../../../math/convertUnit";
-import { Vector2 } from "../../../math/vector";
+import { rToD } from "@math/convertUnit";
+import { Vector2 } from "@math/vector";
 
-import { Group } from "../../group/Group";
+import { Group } from "@group/Group";
 import { Geometry } from "./Geometry";
 
 export class Vector extends Geometry {

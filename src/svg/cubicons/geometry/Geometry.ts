@@ -1,7 +1,7 @@
 import { Vector2 } from "../../../math/vector";
 
-import { Group } from "../../group/Group";
-import { Cubicon } from "../Cubicon";
+import { Group } from "@group/Group";
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Configuration structure of basic shapes (Rectangle, Square and Circle).
