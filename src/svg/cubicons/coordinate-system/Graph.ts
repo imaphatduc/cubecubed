@@ -1,10 +1,10 @@
+import { range } from "d3-array";
 import { scaleLinear } from "d3-scale";
 import { curveNatural, line } from "d3-shape";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { CoordinateSystem } from "./CoordinateSystem";
 import { Axes } from "./Axes";
-import { range } from "d3";
 
 export class Graph extends CoordinateSystem {
     readonly coordSysObjType = "graph";
