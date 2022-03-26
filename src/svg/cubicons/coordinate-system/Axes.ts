@@ -17,14 +17,12 @@ import { Point } from "./Point";
 
 interface AXES_CONFIG {
     xRange: [number, number];
-    xLength: number;
     yRange: [number, number];
     yLength: number;
     hasNums: boolean;
 }
 const DEFAULT_AXES_CONFIG: AXES_CONFIG = {
     xRange: [0, 0],
-    xLength: 50,
     yRange: [0, 0],
     yLength: 50,
     hasNums: false,
@@ -41,17 +39,9 @@ export class Axes extends CoordinateSystem {
      */
     xRange: [number, number];
     /**
-     * Length of the x axis.
-     */
-    xLength: number;
-    /**
      * Range of the y axis.
      */
     yRange: [number, number];
-    /**
-     * Length of the y axis.
-     */
-    yLength: number;
     /**
      * Whether the axes include numbers
      */
@@ -96,23 +86,24 @@ export class Axes extends CoordinateSystem {
 
         ({
             xRange: this.xRange = DEFAULT_AXES_CONFIG.xRange,
-            xLength: this.xLength = DEFAULT_AXES_CONFIG.xLength,
             yRange: this.yRange = DEFAULT_AXES_CONFIG.yRange,
-            yLength: this.yLength = DEFAULT_AXES_CONFIG.yLength,
             hasNums: this.hasNums = DEFAULT_AXES_CONFIG.hasNums,
         } = params.CONFIG ?? DEFAULT_AXES_CONFIG);
+
+        const { squareLength } = this.group;
 
         this.xScale = scaleLinear()
             .domain(this.xRange)
             .range([
-                this.xLength * this.xRange[0],
-                this.xLength * this.xRange[1],
+                squareLength * this.xRange[0],
+                squareLength * this.xRange[1],
             ]);
+
         this.yScale = scaleLinear()
             .domain(this.yRange)
             .range([
-                this.yLength * this.yRange[0],
-                this.yLength * this.yRange[1],
+                squareLength * this.yRange[0],
+                squareLength * this.yRange[1],
             ]);
     }
 
