@@ -133,7 +133,7 @@ export class Axes extends CoordinateSystem {
         this.g_axes = this.g_coordinate.append("g").attr("class", "axes");
 
         // x axis data
-        let xAxis = axisBottom(this.xScale)
+        const xAxis = axisBottom(this.xScale)
             .tickValues(
                 range(this.xRange[0], this.xRange[1] + 1, 1).filter(
                     (t: number) => t !== 0
@@ -146,7 +146,7 @@ export class Axes extends CoordinateSystem {
             .call(xAxis);
 
         // y axis data
-        let yAxis = axisRight(this.yScale)
+        const yAxis = axisRight(this.yScale)
             .tickValues(
                 range(this.yRange[0], this.yRange[1] + 1, 1).filter(
                     (t: number) => t !== 0
@@ -257,7 +257,7 @@ export class Axes extends CoordinateSystem {
         /**
          * Function of the graph.
          */
-        functionDef: Function;
+        functionDef: (x: number) => number;
         /**
          * x range of the graph.
          */
@@ -351,7 +351,7 @@ export class Axes extends CoordinateSystem {
             },
         });
 
-        let horizontalLine = new AxisProjector({
+        const horizontalLine = new AxisProjector({
             type: "horizontal",
             point: point,
             axes: graph.axes,
@@ -360,7 +360,7 @@ export class Axes extends CoordinateSystem {
             },
         }).render();
 
-        let verticalLine = new AxisProjector({
+        const verticalLine = new AxisProjector({
             type: "vertical",
             point: point,
             axes: graph.axes,

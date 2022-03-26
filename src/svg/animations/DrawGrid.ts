@@ -48,8 +48,7 @@ export class DrawGridFromOrigin extends Animation {
         hasNums: boolean,
         sleepTime: number
     ) {
-        const { xBound } = grid.group.scene;
-        const { xGtoW, yGtoW } = grid.group;
+        const { xBound, xGtoW, yGtoW } = grid.group;
 
         const horizontalLines = grid.g_horizontal
             .append("g")
@@ -117,8 +116,7 @@ export class DrawGridFromOrigin extends Animation {
     }
 
     private drawVerticalLines(grid: Grid, hasNums: boolean, sleepTime: number) {
-        const { yBound } = grid.group.scene;
-        const { xGtoW, yGtoW } = grid.group;
+        const { yBound, xGtoW, yGtoW } = grid.group;
 
         const verticalLines = grid.g_vertical
             .append("g")
@@ -224,7 +222,7 @@ export class DrawGridFromScreenSides extends Animation {
         this.xDelayEach = 50;
         this.yDelayEach = 20;
 
-        const { xBound, yBound } = grid.group.scene;
+        const { xBound, yBound } = grid.group;
 
         this.duration = Math.max(
             Math.max(
@@ -253,8 +251,7 @@ export class DrawGridFromScreenSides extends Animation {
         hasNums: boolean,
         sleepTime: number
     ) {
-        const { xBound } = grid.group.scene;
-        const { xGtoW, yGtoW } = grid.group;
+        const { xBound, xGtoW, yGtoW } = grid.group;
 
         const horizontalLines = grid.g_horizontal
             .append("g")
@@ -326,8 +323,7 @@ export class DrawGridFromScreenSides extends Animation {
     }
 
     private drawVerticalLines(grid: Grid, hasNums: boolean, sleepTime: number) {
-        const { yBound } = grid.group.scene;
-        const { xGtoW, yGtoW } = grid.group;
+        const { yBound, xGtoW, yGtoW } = grid.group;
 
         const verticalLines = grid.g_vertical
             .append("g")

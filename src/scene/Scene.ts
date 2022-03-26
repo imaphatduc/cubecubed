@@ -35,31 +35,6 @@ export class Scene {
     sceneHeight: number;
 
     /**
-     * Number of squares in the x direction.
-     */
-    xSquareNums: number;
-
-    /**
-     * Number of squares in the x direction.
-     */
-    ySquareNums: number;
-
-    /**
-     * Length of a square in this scene.
-     */
-    squareLength: number;
-
-    /**
-     * x coordinate bound values of this scene.
-     */
-    xBound: [number, number];
-
-    /**
-     * y coordinate bound values of this scene.
-     */
-    yBound: [number, number];
-
-    /**
      * List of group included in this scene.
      */
     groups: Group[] = [];
@@ -76,41 +51,6 @@ export class Scene {
             sceneWidth: this.sceneWidth = SCENE_DEFAULT_CONFIG.sceneWidth,
             sceneHeight: this.sceneHeight = SCENE_DEFAULT_CONFIG.sceneHeight,
         } = CONFIG ?? SCENE_DEFAULT_CONFIG);
-
-        this.defineScreenBounds();
-    }
-
-    private defineScreenBounds() {
-        const larger = Math.max(this.sceneWidth, this.sceneHeight);
-        const smaller = Math.min(this.sceneWidth, this.sceneHeight);
-
-        const smSquareNums = 14;
-
-        const smallerBound: [number, number] = [
-            Math.floor(-smSquareNums / 2),
-            Math.floor(smSquareNums / 2),
-        ];
-
-        const squareLength = smaller / smSquareNums;
-
-        const lgSquareNums = Math.floor(larger / 2 / squareLength) * 2;
-
-        const largerBound: [number, number] = [
-            Math.floor(-lgSquareNums / 2),
-            Math.floor(lgSquareNums / 2),
-        ];
-
-        [this.xBound, this.yBound] =
-            this.sceneWidth >= this.sceneHeight
-                ? [largerBound, smallerBound]
-                : [smallerBound, largerBound];
-
-        [this.xSquareNums, this.ySquareNums] =
-            this.sceneWidth >= this.sceneHeight
-                ? [lgSquareNums, smSquareNums]
-                : [smSquareNums, lgSquareNums];
-
-        this.squareLength = squareLength;
     }
 
     /**

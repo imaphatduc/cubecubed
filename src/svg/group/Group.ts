@@ -48,6 +48,31 @@ export class Group {
     animations: Animation[];
 
     /**
+     * Number of squares in the x direction.
+     */
+    xSquareNums: number;
+
+    /**
+     * Number of squares in the x direction.
+     */
+    ySquareNums: number;
+
+    /**
+     * Length of a square in this scene.
+     */
+    squareLength: number;
+
+    /**
+     * x coordinate bound values of this scene.
+     */
+    xBound: [number, number];
+
+    /**
+     * y coordinate bound values of this scene.
+     */
+    yBound: [number, number];
+
+    /**
      * Convert x value of grid coordinates to real-world coordinates.
      */
     xGtoW: ScaleLinear<number, number, never>;
@@ -119,6 +144,8 @@ export class Group {
 
         this.animations = [];
 
+        this.defineScreenBounds();
+
         this.defineCovertFunctions();
 
         this.queueElapsed = 0;
@@ -140,34 +167,65 @@ export class Group {
         });
     }
 
+    private defineScreenBounds() {
+        const { sceneWidth, sceneHeight } = this.scene;
+
+        const larger = Math.max(sceneWidth, sceneHeight);
+        const smaller = Math.min(sceneWidth, sceneHeight);
+
+        const smSquareNums = 14;
+
+        const smallerBound: [number, number] = [
+            Math.floor(-smSquareNums / 2),
+            Math.floor(smSquareNums / 2),
+        ];
+
+        const squareLength = smaller / smSquareNums;
+
+        const lgSquareNums = Math.floor(larger / 2 / squareLength) * 2;
+
+        const largerBound: [number, number] = [
+            Math.floor(-lgSquareNums / 2),
+            Math.floor(lgSquareNums / 2),
+        ];
+
+        [this.xBound, this.yBound] =
+            sceneWidth >= sceneHeight
+                ? [largerBound, smallerBound]
+                : [smallerBound, largerBound];
+
+        [this.xSquareNums, this.ySquareNums] =
+            sceneWidth >= sceneHeight
+                ? [lgSquareNums, smSquareNums]
+                : [smSquareNums, lgSquareNums];
+
+        this.squareLength = squareLength;
+    }
+
     private defineCovertFunctions() {
-        const {
-            xBound,
-            yBound,
-            sceneWidth,
-            sceneHeight,
-            xSquareNums,
-            squareLength,
-        } = this.scene;
+        const { sceneWidth, sceneHeight } = this.scene;
 
         this.xGtoW = scaleLinear()
-            .domain(xBound)
+            .domain(this.xBound)
             .range([
-                -squareLength * (xSquareNums / 2),
-                squareLength * (xSquareNums / 2),
+                -this.squareLength * (this.xSquareNums / 2),
+                this.squareLength * (this.xSquareNums / 2),
             ]);
 
         this.yGtoW = scaleLinear()
-            .domain(yBound)
+            .domain(this.yBound)
             .range([-sceneHeight / 2, sceneHeight / 2]);
 
         this.xWtoG = scaleLinear()
-            .domain([-sceneWidth / 2, sceneWidth / 2])
-            .range(xBound);
+            .domain([
+                -this.squareLength * (this.xSquareNums / 2),
+                this.squareLength * (this.xSquareNums / 2),
+            ])
+            .range(this.xBound);
 
         this.yWtoG = scaleLinear()
             .domain([-sceneHeight / 2, sceneWidth / 2])
-            .range(yBound);
+            .range(this.yBound);
     }
 
     /**

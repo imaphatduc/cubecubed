@@ -75,6 +75,7 @@ export const VECTOR_DEFAULT_CONFIG = {
  */
 export abstract class Geometry extends Cubicon {
     readonly cubType = "geometry";
+
     abstract readonly geoType: string;
 
     // For geometry (Geometry)

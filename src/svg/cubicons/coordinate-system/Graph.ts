@@ -21,7 +21,7 @@ export class Graph extends CoordinateSystem {
     /**
      * The function of this graph.
      */
-    functionDef: Function;
+    functionDef: (x: number) => number;
 
     /**
      * The `<g/>` element that contains two axis projectors' tags (if Axes().pointToCoords(...) was called).
@@ -45,7 +45,7 @@ export class Graph extends CoordinateSystem {
         /**
          * The function of this graph.
          */
-        functionDef: Function;
+        functionDef: (x: number) => number;
         /**
          * x range of this graph.
          */
