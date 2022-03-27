@@ -38,7 +38,7 @@
         "tsc:watch": "tsc --watch",
         "docs": "typedoc --hideInPageTOC --allReflectionsHaveOwnDocument && cp -rf ./docs/README.md ./docs/reference/",
         "build": "vite build",
-        "test": "tap test/**/*.test.ts --node-arg=--require=ts-node/register"
+        "test": "tap test/**/*.test.ts --node-arg=--require=ts-node/register --no-coverage"
     },
     "dependencies": {
         "d3": "^7.1.1",
