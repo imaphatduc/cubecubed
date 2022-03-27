@@ -3,9 +3,11 @@
     "version": "1.0.9",
     "description": "Play eye-catching math visualization on the web using SVG",
     "keywords": [
+        "visualization",
+        "svg",
+        "canvas",
         "math",
         "animation",
-        "svg",
         "graphics"
     ],
     "homepage": "https://imaphatduc.github.io/cubecubed/#/",
