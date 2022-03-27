@@ -153,8 +153,6 @@ export class Group {
 
         this.defineCovertFunctions(this.ratio);
 
-        console.log(this.xBound);
-
         this.queueElapsed = 0;
         this.groupElapsed = 0;
 
