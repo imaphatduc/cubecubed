@@ -24,7 +24,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:74](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L74)
+[src/math/vector.ts:82](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L82)
 
 ## Properties
 
@@ -34,7 +34,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:70](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L70)
+[src/math/vector.ts:78](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L78)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:71](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L71)
+[src/math/vector.ts:79](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L79)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:72](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L72)
+[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L80)
 
 ## Methods
 
@@ -78,7 +78,7 @@ IVector.add
 
 #### Defined in
 
-[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L80)
+[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L92)
 
 ___
 
@@ -104,7 +104,7 @@ IVector.apply
 
 #### Defined in
 
-[src/math/vector.ts:99](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L99)
+[src/math/vector.ts:111](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L111)
 
 ___
 
@@ -128,7 +128,25 @@ IVector.dot
 
 #### Defined in
 
-[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L92)
+[src/math/vector.ts:104](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L104)
+
+___
+
+### magnitude
+
+▸ **magnitude**(): `number`
+
+#### Returns
+
+`number`
+
+#### Implementation of
+
+IVector.magnitude
+
+#### Defined in
+
+[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L88)
 
 ___
 
@@ -152,7 +170,7 @@ IVector.scale
 
 #### Defined in
 
-[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L88)
+[src/math/vector.ts:100](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L100)
 
 ___
 
@@ -176,4 +194,4 @@ IVector.subtract
 
 #### Defined in
 
-[src/math/vector.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/vector.ts#L84)
+[src/math/vector.ts:96](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/vector.ts#L96)

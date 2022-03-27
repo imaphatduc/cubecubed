@@ -1,29 +1,27 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / PointToCoords
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Write
 
-# Class: PointToCoords
-
-The creation of a point and its two axis projectors.
+# Class: Write
 
 ## Hierarchy
 
 - `Animation`
 
-  ↳ **`PointToCoords`**
+  ↳ **`Write`**
 
 ## Constructors
 
 ### constructor
 
-• **new PointToCoords**(`params`)
+• **new Write**(`params`)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
+| `params.cubicon` | [`MathText`](/reference/classes/MathText.md) | The target cubicon to play this animation. |
 | `params.duration?` | `number` | Time to play this animation. (in milliseconds) |
 | `params.ease?` | `EASE_TYPE` | Custom easing function for smooth animation. |
-| `params.point` | `PT_TO_COORDS_DATA` | The target point object for this animation.  This is the result point after calling Axes().pointToCoords(args). |
 
 #### Overrides
 
@@ -31,7 +29,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:15](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointToCoords.ts#L15)
+[src/svg/animations/Write.ts:8](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Write.ts#L8)
 
 ## Properties
 
@@ -85,7 +83,13 @@ Animation.ease
 
 ### play
 
-▸ **play**(): `void`
+▸ **play**(`sleepTime`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `sleepTime` | `number` |
 
 #### Returns
 
@@ -93,4 +97,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:40](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointToCoords.ts#L40)
+[src/svg/animations/Write.ts:29](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Write.ts#L29)

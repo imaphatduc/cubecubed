@@ -19,7 +19,7 @@
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
-| `params.CONFIG?` | `LINE_CONFIG` | Config options of the vector line. |
+| `params.CONFIG?` | `VECTOR_CONFIG` | Config options of the vector line. |
 | `params.endPoint` | [`Vector2`](/reference/classes/Vector2.md) | End point (head) of the vector. |
 | `params.group` | [`Group`](/reference/classes/Group.md) | The group that the vector belongs to. |
 | `params.startPoint?` | [`Vector2`](/reference/classes/Vector2.md) | Start point (tail) of the vector. |
@@ -30,13 +30,13 @@ Geometry.constructor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:614](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L614)
+[src/svg/cubicons/geometry/Vector.ts:40](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L40)
 
 ## Properties
 
 ### angle
 
-• **angle**: `any`
+• **angle**: `number` = `0`
 
 The angle between this cubicon and the x axis.
 This property changed after finishing animations (in real time).
@@ -47,7 +47,27 @@ Geometry.angle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L22)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L26)
+
+___
+
+### arrowHeight
+
+• `Readonly` **arrowHeight**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Vector.ts:38](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L38)
+
+___
+
+### arrowWidth
+
+• `Readonly` **arrowWidth**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Vector.ts:37](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L37)
 
 ___
 
@@ -61,7 +81,7 @@ Geometry.cubType
 
 #### Defined in
 
-[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L66)
+[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L77)
 
 ___
 
@@ -71,7 +91,7 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:612](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L612)
+[src/svg/cubicons/geometry/Vector.ts:35](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L35)
 
 ___
 
@@ -87,7 +107,7 @@ Geometry.def\_cubiconBase
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L44)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -97,13 +117,13 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:611](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L611)
+[src/svg/cubicons/geometry/Vector.ts:34](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L34)
 
 ___
 
 ### elapsedTime
 
-• **elapsedTime**: `any`
+• **elapsedTime**: `number` = `0`
 
 Total time of all called animations (in milliseconds).
 
@@ -113,7 +133,7 @@ Geometry.elapsedTime
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L49)
+[src/svg/cubicons/Cubicon.ts:56](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L56)
 
 ___
 
@@ -125,7 +145,7 @@ End point (head) of the vector.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:604](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L604)
+[src/svg/cubicons/geometry/Vector.ts:27](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L27)
 
 ___
 
@@ -139,7 +159,7 @@ Geometry.fillColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L70)
+[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L82)
 
 ___
 
@@ -153,7 +173,7 @@ Geometry.fillOpacity
 
 #### Defined in
 
-[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L71)
+[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L83)
 
 ___
 
@@ -169,7 +189,7 @@ Geometry.g\_cubiconWrapper
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L40)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -185,7 +205,7 @@ Geometry.geoType
 
 #### Defined in
 
-[src/cubicons/geometry.ts:594](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L594)
+[src/svg/cubicons/geometry/Vector.ts:17](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L17)
 
 ___
 
@@ -201,7 +221,7 @@ Geometry.group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -215,7 +235,7 @@ Geometry.isRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:58](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L58)
 
 ___
 
@@ -229,7 +249,7 @@ Geometry.lineColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:76](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L76)
+[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L88)
 
 ___
 
@@ -243,13 +263,13 @@ Geometry.lineWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L77)
+[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L89)
 
 ___
 
 ### moveAngle
 
-• **moveAngle**: `any`
+• **moveAngle**: `number` = `0`
 
 The sum of all rotate angles (if invoking rotate animation).
 
@@ -259,13 +279,13 @@ Geometry.moveAngle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
 ### moveVector
 
-• **moveVector**: `any`
+• **moveVector**: [`Vector2`](/reference/classes/Vector2.md)
 
 The sum vector of all translate vectors (if invoking translate animation).
 
@@ -275,7 +295,7 @@ Geometry.moveVector
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L27)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -292,7 +312,7 @@ Geometry.position
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -304,7 +324,7 @@ Start point (tail) of the vector.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:600](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L600)
+[src/svg/cubicons/geometry/Vector.ts:23](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L23)
 
 ___
 
@@ -318,7 +338,7 @@ Geometry.strokeColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L72)
+[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L84)
 
 ___
 
@@ -332,7 +352,7 @@ Geometry.strokeWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L73)
+[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L85)
 
 ___
 
@@ -348,7 +368,7 @@ Geometry.svg\_group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L41)
 
 ___
 
@@ -360,7 +380,7 @@ The smaller angle (in degree) between the vector and the x axis.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:609](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L609)
+[src/svg/cubicons/geometry/Vector.ts:32](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L32)
 
 ## Methods
 
@@ -378,7 +398,7 @@ Geometry.checkIfRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L84)
+[src/svg/cubicons/Cubicon.ts:78](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L78)
 
 ___
 
@@ -402,7 +422,7 @@ Geometry.coordsGtoW
 
 #### Defined in
 
-[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L91)
+[src/svg/cubicons/geometry/Geometry.ts:103](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L103)
 
 ___
 
@@ -422,7 +442,7 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:658](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L658)
+[src/svg/cubicons/geometry/Vector.ts:86](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L86)
 
 ___
 
@@ -436,4 +456,4 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:662](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L662)
+[src/svg/cubicons/geometry/Vector.ts:90](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Vector.ts#L90)

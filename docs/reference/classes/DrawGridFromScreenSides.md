@@ -26,7 +26,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/drawGrid.ts:201](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/drawGrid.ts#L201)
+[src/svg/animations/DrawGrid.ts:210](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawGrid.ts#L210)
 
 ## Properties
 
@@ -34,13 +34,15 @@ Animation.constructor
 
 • **cubicon**: `any`
 
+The target cubicon of this animation.
+
 #### Inherited from
 
 Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
+[src/svg/animations/Animation.ts:7](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L7)
 
 ___
 
@@ -48,13 +50,15 @@ ___
 
 • **duration**: `number`
 
+Time to play this animation (in milliseconds).
+
 #### Inherited from
 
 Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
+[src/svg/animations/Animation.ts:12](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L12)
 
 ___
 
@@ -62,13 +66,15 @@ ___
 
 • **ease**: `EASE_TYPE`
 
+The easing function to use.
+
 #### Inherited from
 
 Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
+[src/svg/animations/Animation.ts:17](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L17)
 
 ## Methods
 
@@ -88,7 +94,7 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/drawGrid.ts:384](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/drawGrid.ts#L384)
+[src/svg/animations/DrawGrid.ts:400](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawGrid.ts#L400)
 
 ___
 
@@ -108,4 +114,4 @@ ___
 
 #### Defined in
 
-[src/animations/drawGrid.ts:230](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/drawGrid.ts#L230)
+[src/svg/animations/DrawGrid.ts:241](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawGrid.ts#L241)

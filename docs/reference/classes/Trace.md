@@ -1,29 +1,30 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / PointToCoords
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Trace
 
-# Class: PointToCoords
+# Class: Trace
 
-The creation of a point and its two axis projectors.
+Let a line trace a curve.
 
 ## Hierarchy
 
 - `Animation`
 
-  ↳ **`PointToCoords`**
+  ↳ **`Trace`**
 
 ## Constructors
 
 ### constructor
 
-• **new PointToCoords**(`params`)
+• **new Trace**(`params`)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
-| `params.duration?` | `number` | Time to play this animation. (in milliseconds) |
-| `params.ease?` | `EASE_TYPE` | Custom easing function for smooth animation. |
-| `params.point` | `PT_TO_COORDS_DATA` | The target point object for this animation.  This is the result point after calling Axes().pointToCoords(args). |
+| `params.cubicon` | [`Line`](/reference/classes/Line.md) | The target line for tracing. |
+| `params.curve` | [`ParametricCurve`](/reference/classes/ParametricCurve.md) | The curve. |
+| `params.duration` | `number` | Time to play this animation. (in milliseconds) |
+| `params.ease` | `EASE_TYPE` | Custom easing function for smooth animation. |
 
 #### Overrides
 
@@ -31,7 +32,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:15](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointToCoords.ts#L15)
+[src/svg/animations/Trace.ts:20](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Trace.ts#L20)
 
 ## Properties
 
@@ -85,7 +86,13 @@ Animation.ease
 
 ### play
 
-▸ **play**(): `void`
+▸ **play**(`sleepTime`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `sleepTime` | `number` |
 
 #### Returns
 
@@ -93,4 +100,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:40](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointToCoords.ts#L40)
+[src/svg/animations/Trace.ts:47](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Trace.ts#L47)

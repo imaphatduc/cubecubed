@@ -1,26 +1,31 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Grid
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / ParametricCurve
 
-# Class: Grid
+# Class: ParametricCurve
+
+Generate a 2d curve.
 
 ## Hierarchy
 
 - `Geometry`
 
-  ↳ **`Grid`**
+  ↳ **`ParametricCurve`**
 
 ## Constructors
 
 ### constructor
 
-• **new Grid**(`__namedParameters`)
+• **new ParametricCurve**(`params`)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `__namedParameters` | `Object` | - |
-| `__namedParameters.group` | [`Group`](/reference/classes/Group.md) | The group that the grid belongs to. |
-| `__namedParameters.hasNums?` | `boolean` | Whether or not to include numbers onto axes. |
+| Name | Type |
+| :------ | :------ |
+| `params` | `Object` |
+| `params.CONFIG` | `LINE_CONFIG` |
+| `params.dt?` | `number` |
+| `params.group` | [`Group`](/reference/classes/Group.md) |
+| `params.tRange` | [`number`, `number`] |
+| `params.functionDef` | (`t`: `number`) => [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Overrides
 
@@ -28,7 +33,7 @@ Geometry.constructor
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:57](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L57)
+[src/svg/cubicons/geometry/ParametricCurve.ts:22](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L22)
 
 ## Properties
 
@@ -123,6 +128,30 @@ Geometry.fillOpacity
 
 ___
 
+### functionDef
+
+• **functionDef**: (`t`: `number`) => [`Vector2`](/reference/classes/Vector2.md)
+
+#### Type declaration
+
+▸ (`t`): [`Vector2`](/reference/classes/Vector2.md)
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `t` | `number` |
+
+##### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/cubicons/geometry/ParametricCurve.ts:19](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L19)
+
+___
+
 ### g\_cubiconWrapper
 
 • **g\_cubiconWrapper**: `any`
@@ -139,33 +168,9 @@ Geometry.g\_cubiconWrapper
 
 ___
 
-### g\_horizontal
-
-• **g\_horizontal**: `any`
-
-The `<g/>` tag that contains all horizontal lines.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:49](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L49)
-
-___
-
-### g\_vertical
-
-• **g\_vertical**: `any`
-
-The `<g/>` tag that contains all vertical lines.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:53](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L53)
-
-___
-
 ### geoType
 
-• `Readonly` **geoType**: ``"grid"``
+• `Readonly` **geoType**: ``"parametric-curve"``
 
 #### Overrides
 
@@ -173,7 +178,7 @@ Geometry.geoType
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:11](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L11)
+[src/svg/cubicons/geometry/ParametricCurve.ts:16](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L16)
 
 ___
 
@@ -193,16 +198,6 @@ Geometry.group
 
 ___
 
-### hasNums
-
-• **hasNums**: `boolean`
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:55](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L55)
-
-___
-
 ### isRendered
 
 • **isRendered**: `boolean` = `false`
@@ -219,17 +214,15 @@ ___
 
 ### lineColor
 
-• **lineColor**: `string`
+• **lineColor**: `any`
 
-Color of the grid lines.
-
-#### Overrides
+#### Inherited from
 
 Geometry.lineColor
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:30](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L30)
+[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L88)
 
 ___
 
@@ -279,15 +272,13 @@ Geometry.moveVector
 
 ___
 
-### originColor
+### points
 
-• **originColor**: `string`
-
-Color of the grid origin.
+• **points**: [`Vector2`](/reference/classes/Vector2.md)[]
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:16](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L16)
+[src/svg/cubicons/geometry/ParametricCurve.ts:18](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L18)
 
 ___
 
@@ -352,51 +343,13 @@ Geometry.svg\_group
 
 ___
 
-### xAxesColor
+### tRange
 
-• **xAxesColor**: `string`
-
-Color of the x axis.
+• **tRange**: [`number`, `number`]
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:21](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L21)
-
-___
-
-### xNumberRange
-
-• **xNumberRange**: `number`[]
-
-Numbers marked on the x axis.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:35](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L35)
-
-___
-
-### yAxesColor
-
-• **yAxesColor**: `string`
-
-Color of the y axis.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:25](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L25)
-
-___
-
-### yNumberRange
-
-• **yNumberRange**: `number`[]
-
-Numbers marked on the y axis.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:39](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L39)
+[src/svg/cubicons/geometry/ParametricCurve.ts:20](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L20)
 
 ## Methods
 
@@ -442,14 +395,62 @@ Geometry.coordsGtoW
 
 ___
 
-### render
+### getFirstOutputPoint
 
-▸ **render**(): [`Grid`](/reference/classes/Grid.md)
+▸ **getFirstOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Returns
 
-[`Grid`](/reference/classes/Grid.md)
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:84](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Grid.ts#L84)
+[src/svg/cubicons/geometry/ParametricCurve.ts:87](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L87)
+
+___
+
+### getLastOutputPoint
+
+▸ **getLastOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/cubicons/geometry/ParametricCurve.ts:90](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L90)
+
+___
+
+### getOutputVector
+
+▸ **getOutputVector**(`t`): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `t` | `number` |
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/cubicons/geometry/ParametricCurve.ts:83](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L83)
+
+___
+
+### render
+
+▸ **render**(): [`ParametricCurve`](/reference/classes/ParametricCurve.md)
+
+#### Returns
+
+[`ParametricCurve`](/reference/classes/ParametricCurve.md)
+
+#### Defined in
+
+[src/svg/cubicons/geometry/ParametricCurve.ts:46](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/ParametricCurve.ts#L46)

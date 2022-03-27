@@ -32,7 +32,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/rotate.ts#L14)
+[src/svg/animations/Rotate.ts:16](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Rotate.ts#L16)
 
 ## Properties
 
@@ -40,13 +40,15 @@ Animation.constructor
 
 • **cubicon**: `any`
 
+The target cubicon of this animation.
+
 #### Inherited from
 
 Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
+[src/svg/animations/Animation.ts:7](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L7)
 
 ___
 
@@ -56,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/animations/rotate.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/rotate.ts#L12)
+[src/svg/animations/Rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Rotate.ts#L14)
 
 ___
 
@@ -64,13 +66,15 @@ ___
 
 • **duration**: `number`
 
+Time to play this animation (in milliseconds).
+
 #### Inherited from
 
 Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
+[src/svg/animations/Animation.ts:12](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L12)
 
 ___
 
@@ -78,13 +82,15 @@ ___
 
 • **ease**: `EASE_TYPE`
 
+The easing function to use.
+
 #### Inherited from
 
 Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
+[src/svg/animations/Animation.ts:17](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L17)
 
 ## Methods
 
@@ -104,4 +110,4 @@ Animation.ease
 
 #### Defined in
 
-[src/animations/rotate.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/rotate.ts#L40)
+[src/svg/animations/Rotate.ts:42](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Rotate.ts#L42)

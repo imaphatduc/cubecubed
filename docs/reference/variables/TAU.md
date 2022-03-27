@@ -2,8 +2,8 @@
 
 # Variable: TAU
 
-• **TAU**: `number`
+• `Const` **TAU**: `number`
 
 #### Defined in
 
-[src/cubicons/constants.ts:47](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/constants.ts#L47)
+[src/constants.ts:27](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/constants.ts#L27)

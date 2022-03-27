@@ -5,15 +5,13 @@
 The granddad/grandma object of everything in the visualization.
 Scene() here is a must in every result math videos.
 
-Each scene must include at least one group.
-
 Please see the Quick Start page in official documentation for clearer understanding about this `Scene` term.
 
 ## Constructors
 
 ### constructor
 
-• **new Scene**(`sceneName`)
+• **new Scene**(`sceneName`, `CONFIG?`)
 
 Include this scene to HTML flow.
 
@@ -22,12 +20,25 @@ Include this scene to HTML flow.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `sceneName` | `string` | Name of the scene. |
+| `CONFIG?` | `SCENE_CONFIG` | - |
 
 #### Defined in
 
-[src/scene/scene.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L27)
+[src/scene/Scene.ts:47](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L47)
 
 ## Properties
+
+### groups
+
+• **groups**: [`Group`](/reference/classes/Group.md)[] = `[]`
+
+List of group included in this scene.
+
+#### Defined in
+
+[src/scene/Scene.ts:40](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L40)
+
+___
 
 ### name
 
@@ -37,19 +48,31 @@ Name of this scene.
 
 #### Defined in
 
-[src/scene/scene.ts:20](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L20)
+[src/scene/Scene.ts:25](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L25)
 
 ___
 
-### svg\_scene
+### sceneHeight
 
-• **svg\_scene**: `any`
+• **sceneHeight**: `number`
 
-The `<svg/>` element that represents this scene.
+Height of this scene.
 
 #### Defined in
 
-[src/scene/scene.ts:15](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L15)
+[src/scene/Scene.ts:35](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L35)
+
+___
+
+### sceneWidth
+
+• **sceneWidth**: `number`
+
+Width of this scene.
+
+#### Defined in
+
+[src/scene/Scene.ts:30](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L30)
 
 ## Methods
 
@@ -72,4 +95,4 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/scene/scene.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/scene/scene.ts#L44)
+[src/scene/Scene.ts:63](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L63)

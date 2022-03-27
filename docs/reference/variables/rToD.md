@@ -2,10 +2,10 @@
 
 # Variable: rToD
 
-• **rToD**: `ScaleLinear`<`number`, `number`, `never`\>
+• `Const` **rToD**: `ScaleLinear`<`number`, `number`, `never`\>
 
 One-param function to convert radians value to degrees one.
 
 #### Defined in
 
-[src/math/convertUnit.ts:37](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/math/convertUnit.ts#L37)
+[src/math/convertUnit.ts:6](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/math/convertUnit.ts#L6)

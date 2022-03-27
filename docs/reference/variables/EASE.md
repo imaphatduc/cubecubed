@@ -2,7 +2,7 @@
 
 # Variable: EASE
 
-• **EASE**: `Object`
+• `Const` **EASE**: `Object`
 
 Default ease functions
 - Form: `<name>_<option>`
@@ -57,4 +57,4 @@ Example Usage: EASE.POLY_IN
 
 #### Defined in
 
-[src/cubicons/constants.ts:124](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/constants.ts#L124)
+[src/constants.ts:104](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/constants.ts#L104)

@@ -2,7 +2,7 @@
 
 # Variable: COLOR
 
-• **COLOR**: `Object`
+• `Const` **COLOR**: `Object`
 
 Color constants
 
@@ -28,4 +28,4 @@ Color constants
 
 #### Defined in
 
-[src/cubicons/constants.ts:25](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/constants.ts#L25)
+[src/constants.ts:5](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/constants.ts#L5)

@@ -35,7 +35,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/animations/pointAlongGraph.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/pointAlongGraph.ts#L17)
+[src/svg/animations/PointAlongGraph.ts:30](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointAlongGraph.ts#L30)
 
 ## Properties
 
@@ -43,13 +43,15 @@ Animation.constructor
 
 • **cubicon**: `any`
 
+The target cubicon of this animation.
+
 #### Inherited from
 
 Animation.cubicon
 
 #### Defined in
 
-[src/animations/animation.ts:4](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L4)
+[src/svg/animations/Animation.ts:7](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L7)
 
 ___
 
@@ -57,13 +59,15 @@ ___
 
 • **duration**: `number`
 
+Time to play this animation (in milliseconds).
+
 #### Inherited from
 
 Animation.duration
 
 #### Defined in
 
-[src/animations/animation.ts:5](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L5)
+[src/svg/animations/Animation.ts:12](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L12)
 
 ___
 
@@ -71,39 +75,17 @@ ___
 
 • **ease**: `EASE_TYPE`
 
+The easing function to use.
+
 #### Inherited from
 
 Animation.ease
 
 #### Defined in
 
-[src/animations/animation.ts:6](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/animation.ts#L6)
+[src/svg/animations/Animation.ts:17](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L17)
 
 ## Methods
-
-### horLineAlongGraph
-
-▸ **horLineAlongGraph**(`point`, `line`, `graph`, `xPos`, `sleepTime`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `point` | `Cubicon` |
-| `line` | `AxisProjector` |
-| `graph` | `Graph` |
-| `xPos` | `number` |
-| `sleepTime` | `number` |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/animations/pointAlongGraph.ts:105](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/pointAlongGraph.ts#L105)
-
-___
 
 ### play
 
@@ -121,4 +103,4 @@ ___
 
 #### Defined in
 
-[src/animations/pointAlongGraph.ts:52](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/animations/pointAlongGraph.ts#L52)
+[src/svg/animations/PointAlongGraph.ts:65](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointAlongGraph.ts#L65)

@@ -2,8 +2,8 @@
 
 # Variable: PI
 
-• **PI**: `number` = `Math.PI`
+• `Const` **PI**: `number` = `Math.PI`
 
 #### Defined in
 
-[src/cubicons/constants.ts:46](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/constants.ts#L46)
+[src/constants.ts:26](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/constants.ts#L26)

@@ -32,13 +32,13 @@ Geometry.constructor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:497](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L497)
+[src/svg/cubicons/geometry/Line.ts:28](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L28)
 
 ## Properties
 
 ### angle
 
-• **angle**: `any`
+• **angle**: `number` = `0`
 
 The angle between this cubicon and the x axis.
 This property changed after finishing animations (in real time).
@@ -49,7 +49,7 @@ Geometry.angle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L22)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
@@ -63,7 +63,7 @@ Geometry.cubType
 
 #### Defined in
 
-[src/cubicons/geometry.ts:66](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L66)
+[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L77)
 
 ___
 
@@ -79,13 +79,13 @@ Geometry.def\_cubiconBase
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:44](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L44)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
 ### elapsedTime
 
-• **elapsedTime**: `any`
+• **elapsedTime**: `number` = `0`
 
 Total time of all called animations (in milliseconds).
 
@@ -95,7 +95,7 @@ Geometry.elapsedTime
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:49](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L49)
+[src/svg/cubicons/Cubicon.ts:56](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L56)
 
 ___
 
@@ -107,7 +107,7 @@ End point (head) of the line.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:493](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L493)
+[src/svg/cubicons/geometry/Line.ts:24](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L24)
 
 ___
 
@@ -121,7 +121,7 @@ Geometry.fillColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:70](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L70)
+[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L82)
 
 ___
 
@@ -135,7 +135,7 @@ Geometry.fillOpacity
 
 #### Defined in
 
-[src/cubicons/geometry.ts:71](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L71)
+[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L83)
 
 ___
 
@@ -151,7 +151,7 @@ Geometry.g\_cubiconWrapper
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L40)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -167,7 +167,7 @@ Geometry.geoType
 
 #### Defined in
 
-[src/cubicons/geometry.ts:484](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L484)
+[src/svg/cubicons/geometry/Line.ts:15](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L15)
 
 ___
 
@@ -183,7 +183,7 @@ Geometry.group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -197,7 +197,7 @@ Geometry.isRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:58](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L58)
 
 ___
 
@@ -211,7 +211,7 @@ Geometry.lineColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:76](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L76)
+[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L88)
 
 ___
 
@@ -225,13 +225,13 @@ Geometry.lineWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L77)
+[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L89)
 
 ___
 
 ### moveAngle
 
-• **moveAngle**: `any`
+• **moveAngle**: `number` = `0`
 
 The sum of all rotate angles (if invoking rotate animation).
 
@@ -241,13 +241,13 @@ Geometry.moveAngle
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
 ### moveVector
 
-• **moveVector**: `any`
+• **moveVector**: [`Vector2`](/reference/classes/Vector2.md)
 
 The sum vector of all translate vectors (if invoking translate animation).
 
@@ -257,7 +257,7 @@ Geometry.moveVector
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L27)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -274,7 +274,7 @@ Geometry.position
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -286,7 +286,7 @@ Start point (tail) of the line.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:489](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L489)
+[src/svg/cubicons/geometry/Line.ts:20](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L20)
 
 ___
 
@@ -300,7 +300,7 @@ Geometry.strokeColor
 
 #### Defined in
 
-[src/cubicons/geometry.ts:72](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L72)
+[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L84)
 
 ___
 
@@ -314,7 +314,7 @@ Geometry.strokeWidth
 
 #### Defined in
 
-[src/cubicons/geometry.ts:73](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L73)
+[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L85)
 
 ___
 
@@ -330,7 +330,7 @@ Geometry.svg\_group
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L41)
 
 ## Methods
 
@@ -348,7 +348,7 @@ Geometry.checkIfRendered
 
 #### Defined in
 
-[src/cubicons/cubicon.ts:84](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/cubicon.ts#L84)
+[src/svg/cubicons/Cubicon.ts:78](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L78)
 
 ___
 
@@ -372,7 +372,7 @@ Geometry.coordsGtoW
 
 #### Defined in
 
-[src/cubicons/geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L91)
+[src/svg/cubicons/geometry/Geometry.ts:103](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Geometry.ts#L103)
 
 ___
 
@@ -392,7 +392,7 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:568](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L568)
+[src/svg/cubicons/geometry/Line.ts:99](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L99)
 
 ___
 
@@ -408,7 +408,7 @@ Draw (and render) the shape of this line onto SVG.
 
 #### Defined in
 
-[src/cubicons/geometry.ts:533](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L533)
+[src/svg/cubicons/geometry/Line.ts:64](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L64)
 
 ___
 
@@ -428,7 +428,7 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:581](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L581)
+[src/svg/cubicons/geometry/Line.ts:112](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L112)
 
 ___
 
@@ -448,4 +448,4 @@ ___
 
 #### Defined in
 
-[src/cubicons/geometry.ts:572](https://github.com/imaphatduc/cubecubed/blob/dfe7a5d/src/cubicons/geometry.ts#L572)
+[src/svg/cubicons/geometry/Line.ts:103](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/geometry/Line.ts#L103)

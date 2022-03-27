@@ -1,29 +1,29 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / PointToCoords
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / DrawVectorField
 
-# Class: PointToCoords
+# Class: DrawVectorField
 
-The creation of a point and its two axis projectors.
+Play vector field drawing animation on the screen.
 
 ## Hierarchy
 
 - `Animation`
 
-  ↳ **`PointToCoords`**
+  ↳ **`DrawVectorField`**
 
 ## Constructors
 
 ### constructor
 
-• **new PointToCoords**(`params`)
+• **new DrawVectorField**(`params`)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
+| `params.cubicon` | [`VectorField`](/reference/classes/VectorField.md) | The target cubicon to play this animation. |
 | `params.duration?` | `number` | Time to play this animation. (in milliseconds) |
 | `params.ease?` | `EASE_TYPE` | Custom easing function for smooth animation. |
-| `params.point` | `PT_TO_COORDS_DATA` | The target point object for this animation.  This is the result point after calling Axes().pointToCoords(args). |
 
 #### Overrides
 
@@ -31,7 +31,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:15](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointToCoords.ts#L15)
+[src/svg/animations/DrawVectorField.ts:13](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawVectorField.ts#L13)
 
 ## Properties
 
@@ -85,7 +85,13 @@ Animation.ease
 
 ### play
 
-▸ **play**(): `void`
+▸ **play**(`sleepTime`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `sleepTime` | `number` |
 
 #### Returns
 
@@ -93,4 +99,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:40](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointToCoords.ts#L40)
+[src/svg/animations/DrawVectorField.ts:34](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawVectorField.ts#L34)

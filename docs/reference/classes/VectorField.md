@@ -1,29 +1,27 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / MathText
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / VectorField
 
-# Class: MathText
+# Class: VectorField
 
 ## Hierarchy
 
 - `Cubicon`
 
-  ↳ **`MathText`**
+  ↳ **`VectorField`**
 
 ## Constructors
 
 ### constructor
 
-• **new MathText**(`params`)
+• **new VectorField**(`params`)
 
 #### Parameters
 
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
-| `params.color?` | `string` | Color of the text. |
-| `params.fontSize?` | `number` | Font size of the text. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the text belongs to. |
-| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the text. |
-| `params.text` | `string` | Content of the text. |
+| `params.CONFIG?` | `VECTOR_FIELD_CONFIG` | - |
+| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the cubicon belongs to. |
+| `params.functionDef` | (`pos`: [`Vector2`](/reference/classes/Vector2.md)) => [`Vector2`](/reference/classes/Vector2.md) | - |
 
 #### Overrides
 
@@ -31,7 +29,7 @@ Cubicon.constructor
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:32](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/MathText.ts#L32)
+[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/VectorField.ts#L30)
 
 ## Properties
 
@@ -52,21 +50,9 @@ Cubicon.angle
 
 ___
 
-### color
-
-• **color**: `string`
-
-Color of this text.
-
-#### Defined in
-
-[src/svg/cubicons/MathText.ts:20](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/MathText.ts#L20)
-
-___
-
 ### cubType
 
-• `Readonly` **cubType**: ``"math-text"``
+• `Readonly` **cubType**: ``"vector-field"``
 
 #### Overrides
 
@@ -74,7 +60,7 @@ Cubicon.cubType
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:10](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/MathText.ts#L10)
+[src/svg/cubicons/VectorField.ts:18](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/VectorField.ts#L18)
 
 ___
 
@@ -94,18 +80,6 @@ Cubicon.def\_cubiconBase
 
 ___
 
-### def\_text
-
-• **def\_text**: `any`
-
-The SVG element that represents this text.
-
-#### Defined in
-
-[src/svg/cubicons/MathText.ts:30](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/MathText.ts#L30)
-
-___
-
 ### elapsedTime
 
 • **elapsedTime**: `number` = `0`
@@ -122,15 +96,29 @@ Cubicon.elapsedTime
 
 ___
 
-### fontSize
+### functionDef
 
-• **fontSize**: `number`
+• **functionDef**: (`pos`: [`Vector2`](/reference/classes/Vector2.md)) => [`Vector2`](/reference/classes/Vector2.md)
 
-Font size of this text (in points).
+#### Type declaration
+
+▸ (`pos`): [`Vector2`](/reference/classes/Vector2.md)
+
+Multivariable function that produces 2d vector field.
+
+##### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `pos` | [`Vector2`](/reference/classes/Vector2.md) |
+
+##### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:25](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/MathText.ts#L25)
+[src/svg/cubicons/VectorField.ts:23](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/VectorField.ts#L23)
 
 ___
 
@@ -245,15 +233,15 @@ Cubicon.svg\_group
 
 ___
 
-### text
+### vectorShapes
 
-• **text**: `string`
+• **vectorShapes**: [`Vector`](/reference/classes/Vector.md)[] = `[]`
 
-Content of this text.
+Vector shapes included in the scene.
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:15](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/MathText.ts#L15)
+[src/svg/cubicons/VectorField.ts:28](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/VectorField.ts#L28)
 
 ## Methods
 
@@ -272,17 +260,3 @@ Cubicon.checkIfRendered
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:78](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/Cubicon.ts#L78)
-
-___
-
-### render
-
-▸ **render**(): [`MathText`](/reference/classes/MathText.md)
-
-#### Returns
-
-[`MathText`](/reference/classes/MathText.md)
-
-#### Defined in
-
-[src/svg/cubicons/MathText.ts:69](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/cubicons/MathText.ts#L69)
