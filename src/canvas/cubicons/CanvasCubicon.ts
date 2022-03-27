@@ -1,4 +1,4 @@
-import { Vector2 } from "../../math/vector";
+import { Vector3 } from "../../math/vector";
 import { CanvasGroup } from "../group/CanvasGroup";
 
 export abstract class CanvasCubicon {
@@ -13,7 +13,7 @@ export abstract class CanvasCubicon {
      * Position of this cubicon.
      * This property changed after finishing animations (in real time).
      */
-    position: Vector2;
+    position: Vector3;
 
     /**
      * Total time of all called animations (in milliseconds).
@@ -22,13 +22,15 @@ export abstract class CanvasCubicon {
 
     constructor({
         group,
-        position = new Vector2(0, 0),
+        position = new Vector3(0, 0, 0),
     }: {
         group: CanvasGroup;
-        position: Vector2;
+        position: Vector3;
     }) {
         this.group = group;
 
         this.position = position;
+
+        this.group.cubicons.push(this);
     }
 }
