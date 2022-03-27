@@ -46,6 +46,16 @@ Cubecubed is deeply inspired by [3b1b/manim](https://github.com/3b1b/manim) - _a
 
 Cubecubed is currently just a work in progress. Any contribution is appreciated.
 
+## Contributors
+
+Big thanks to all of these awesome people.
+
+<a href="https://github.com/imaphatduc/cubecubed/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=imaphatduc/cubecubed" />
+</a>
+
+Made with [contrib.rocks](https://contrib.rocks).
+
 ## TODO
 
 -   [ ] Input & error handling.
