@@ -2,6 +2,36 @@
     "name": "cubecubed",
     "version": "1.0.9",
     "description": "Play eye-catching math visualization on the web using SVG",
+    "keywords": [
+        "math",
+        "animation",
+        "svg",
+        "graphics"
+    ],
+    "homepage": "https://imaphatduc.github.io/cubecubed/#/",
+    "bugs": {
+        "url": "https://github.com/imaphatduc/cubecubed/issues"
+    },
+    "license": "MIT",
+    "author": "imaphatduc",
+    "files": [
+        "dist/**/*",
+        "src/**/*",
+        "init/",
+        "ccw.js",
+        "package.json",
+        "README.md"
+    ],
+    "main": "dist/cubecubed.js",
+    "module": "dist/cubecubed.module.js",
+    "bin": {
+        "cubecubed": "./ccw.js",
+        "ccw": "./ccw.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/imaphatduc/cubecubed.git"
+    },
     "scripts": {
         "dev": "vite",
         "tsc": "tsc",
@@ -9,10 +39,6 @@
         "docs": "typedoc --hideInPageTOC --allReflectionsHaveOwnDocument && cp -rf ./docs/README.md ./docs/reference/",
         "build": "vite build",
         "test": "tap test/**/*.test.ts --node-arg=--require=ts-node/register"
-    },
-    "bin": {
-        "cubecubed": "./ccw.js",
-        "ccw": "./ccw.js"
     },
     "dependencies": {
         "d3": "^7.1.1",
@@ -40,32 +66,5 @@
         "typescript": "^4.5.4",
         "vite": "^2.7.4",
         "vite-tsconfig-paths": "^3.4.1"
-    },
-    "files": [
-        "dist/**/*",
-        "src/**/*",
-        "init/",
-        "ccw.js",
-        "package.json",
-        "README.md"
-    ],
-    "module": "dist/cubecubed.module.js",
-    "main": "dist/cubecubed.js",
-    "types": "dist/types/index.d.ts",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/imaphatduc/cubecubed.git"
-    },
-    "keywords": [
-        "math",
-        "animation",
-        "svg",
-        "graphics"
-    ],
-    "author": "imaphatduc",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/imaphatduc/cubecubed/issues"
-    },
-    "homepage": "https://imaphatduc.github.io/cubecubed/#/"
+    }
 }
