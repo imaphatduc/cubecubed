@@ -60,7 +60,12 @@ export class Group {
     /**
      * Length of a square in this scene.
      */
-    squareLength: number;
+    squareLength = 40;
+
+    /**
+     * Ratio between square length in x direction and y direction.
+     */
+    ratio: [number, number] = [1, 1];
 
     /**
      * x coordinate bound values of this scene.
@@ -144,9 +149,11 @@ export class Group {
 
         this.animations = [];
 
-        this.defineBoundsAndSquares();
+        this.defineBoundsAndSquares(this.ratio);
 
-        this.defineCovertFunctions();
+        this.defineCovertFunctions(this.ratio);
+
+        console.log(this.xBound);
 
         this.queueElapsed = 0;
         this.groupElapsed = 0;
@@ -167,64 +174,52 @@ export class Group {
         });
     }
 
-    private defineBoundsAndSquares() {
+    private defineBoundsAndSquares(ratio: [number, number]) {
         const { sceneWidth, sceneHeight } = this.scene;
 
-        const larger = Math.max(sceneWidth, sceneHeight);
-        const smaller = Math.min(sceneWidth, sceneHeight);
+        const xSquareLength = ratio[0] * this.squareLength;
+        const ySquareLength = ratio[1] * this.squareLength;
 
-        const smSquareNums = 14;
+        this.xSquareNums = Math.floor(sceneWidth / xSquareLength);
+        this.ySquareNums = Math.floor(sceneHeight / ySquareLength);
 
-        const smallerBound: [number, number] = [
-            Math.floor(-smSquareNums / 2),
-            Math.floor(smSquareNums / 2),
+        this.xBound = [
+            Math.floor(-this.xSquareNums / 2),
+            -Math.floor(-this.xSquareNums / 2),
         ];
-
-        const squareLength = smaller / smSquareNums;
-
-        const lgSquareNums = Math.floor(larger / 2 / squareLength) * 2;
-
-        const largerBound: [number, number] = [
-            Math.floor(-lgSquareNums / 2),
-            Math.floor(lgSquareNums / 2),
+        this.yBound = [
+            Math.floor(-this.ySquareNums / 2),
+            -Math.floor(-this.ySquareNums / 2),
         ];
-
-        [this.xBound, this.yBound] =
-            sceneWidth >= sceneHeight
-                ? [largerBound, smallerBound]
-                : [smallerBound, largerBound];
-
-        [this.xSquareNums, this.ySquareNums] =
-            sceneWidth >= sceneHeight
-                ? [lgSquareNums, smSquareNums]
-                : [smSquareNums, lgSquareNums];
-
-        this.squareLength = squareLength;
     }
 
-    private defineCovertFunctions() {
+    private defineCovertFunctions(ratio: [number, number]) {
         const { sceneWidth, sceneHeight } = this.scene;
 
+        const xBound = [
+            -sceneWidth / (this.squareLength * ratio[0]),
+            sceneWidth / (this.squareLength * ratio[0]),
+        ];
+
+        const yBound = [
+            -sceneHeight / (this.squareLength * ratio[1]),
+            sceneHeight / (this.squareLength * ratio[1]),
+        ];
+
         this.xGtoW = scaleLinear()
-            .domain(this.xBound)
-            .range([
-                -this.squareLength * (this.xSquareNums / 2),
-                this.squareLength * (this.xSquareNums / 2),
-            ]);
+            .domain(xBound)
+            .range([-sceneWidth, sceneWidth]);
 
         this.yGtoW = scaleLinear()
-            .domain(this.yBound)
-            .range([-sceneHeight / 2, sceneHeight / 2]);
+            .domain(yBound)
+            .range([-sceneHeight, sceneHeight]);
 
         this.xWtoG = scaleLinear()
-            .domain([
-                -this.squareLength * (this.xSquareNums / 2),
-                this.squareLength * (this.xSquareNums / 2),
-            ])
+            .domain([-sceneWidth, sceneWidth])
             .range(this.xBound);
 
         this.yWtoG = scaleLinear()
-            .domain([-sceneHeight / 2, sceneWidth / 2])
+            .domain([-sceneHeight, sceneHeight])
             .range(this.yBound);
     }
 
