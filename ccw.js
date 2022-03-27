@@ -6,18 +6,6 @@ const { exec } = require("child_process");
 const { readFileSync, writeFile, existsSync } = require("fs");
 const colors = require("colors");
 
-if (!existsSync("package.json")) {
-    console.log("package.json file not detected. Creating...".yellow);
-
-    exec("npm init -y", () => {
-        console.log("Done.".green);
-
-        prompt();
-    });
-} else {
-    prompt();
-}
-
 const prompt = () => {
     inquirer
         .prompt([
@@ -67,6 +55,18 @@ const prompt = () => {
             }
         });
 };
+
+if (!existsSync("package.json")) {
+    console.log("package.json file not detected. Creating...".yellow);
+
+    exec("npm init -y", () => {
+        console.log("Done.".green);
+
+        prompt();
+    });
+} else {
+    prompt();
+}
 
 exec("cp ./node_modules/cubecubed/init/index.html ./");
 exec("cp ./node_modules/cubecubed/init/style.css ./");
