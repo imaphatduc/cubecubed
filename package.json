@@ -43,7 +43,9 @@
         "test": "tap test/**/*.test.ts --node-arg=--require=ts-node/register --no-coverage"
     },
     "dependencies": {
+        "colors": "^1.4.0",
         "d3": "^7.1.1",
+        "inquirer": "^8.2.2",
         "katex": "^0.15.1",
         "p5": "^1.4.1",
         "tex-to-svg": "^0.2.0"
@@ -55,11 +57,9 @@
         "@types/tap": "^15.0.5",
         "@typescript-eslint/eslint-plugin": "^5.16.0",
         "@typescript-eslint/parser": "^5.16.0",
-        "colors": "^1.4.0",
         "eslint": "^8.12.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
-        "inquirer": "^8.2.2",
         "prettier": "^2.6.1",
         "tap": "^15.1.6",
         "ts-node": "^10.4.0",
