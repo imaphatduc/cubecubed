@@ -21,6 +21,7 @@ export { Line } from "./svg/cubicons/geometry/Line";
 export { Vector } from "./svg/cubicons/geometry/Vector";
 export { ParametricCurve } from "./svg/cubicons/geometry/ParametricCurve";
 
+// SVG coordinate system cubicons
 export { Axes } from "./svg/cubicons/coordinate-system/Axes";
 
 // SVG animations
@@ -39,3 +40,12 @@ export { PointToCoords } from "./svg/animations/PointToCoords";
 export { PointAlongGraph } from "./svg/animations/PointAlongGraph";
 export { Write } from "./svg/animations/Write";
 export { Trace } from "./svg/animations/Trace";
+
+// Canvas group
+export { CanvasGroup } from "./canvas/group/CanvasGroup";
+
+// Canvas cubicons
+export { Particle } from "./canvas/cubicons/Particle";
+
+// Canvas animations
+export { ApplyDifferential } from "./canvas/animations/ApplyDifferential";
