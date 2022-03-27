@@ -9,9 +9,19 @@
   />
   <h1 align="center">Cubecubed - A Math Visualization Engine</h1>
   <p align="center">
-   <a href="https://www.npmjs.com/package/cubecubed">
-        <img src="https://img.shields.io/npm/v/cubecubed?style=flat-square&logo=npm" />
-   </a>
+    <a href="https://www.npmjs.com/package/cubecubed">
+          <img src="https://img.shields.io/npm/v/cubecubed?style=for-the-badge&logo=npm" />
+    </a>
+  </p>
+  <p align="center">
+    <a href="https://www.npmjs.com/package/cubecubed">
+      <img src="https://img.shields.io/badge/d3.js-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white" />
+      <img src="https://img.shields.io/badge/p5.js-DE235B?style=for-the-badge&logo=p5.js&logoColor=white" />
+      <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
+      <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" />
+      <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" />
+      <img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" />
+    </a>
   </p>
 
 </p>
