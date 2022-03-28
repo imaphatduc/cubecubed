@@ -1,10 +1,60 @@
 #!/usr/bin/env node
 
-// Create Cubecubed workspace
-const inquirer = require("inquirer");
-const { exec } = require("child_process");
 const { readFileSync, writeFile, existsSync } = require("fs");
-const colors = require("colors");
+const { exec, execSync } = require("child_process");
+const inquirer = require("inquirer");
+
+const repo = "https://github.com/imaphatduc/cubecubed.git";
+const project = "cubecubed";
+const initFolder = "cubecubed/init";
+
+/**
+ * Example prop object:
+ *
+ * prop = {
+ *   key: "scripts",
+ *   value: {
+ *     dev: "vite",
+ *     build: "vite build",
+ *     serve: "vite preview"
+ *   }
+ * }
+ */
+const writePackageJson = (raw, prop) => {
+    const json = JSON.parse(raw);
+
+    if (!json.hasOwnProperty(prop)) json[`${prop.key}`] = {};
+
+    json[`${prop.key}`] = {
+        ...json[`${prop.key}`],
+        ...prop.value,
+    };
+
+    const data = JSON.stringify(json, null, 2);
+
+    writeFile("package.json", data, (err) => {
+        if (err) throw err;
+    });
+};
+
+/**
+ * Clone Cubecubed repo.
+ */
+const clone = (haveExample) => {
+    console.log("Initializing Cubecubed workspace...");
+
+    exec(`git clone --depth 1 ${repo}`, () => {
+        execSync(`cp ${initFolder}/index.html ./`);
+        execSync(`cp ${initFolder}/style.css ./`);
+        execSync(`cp ${initFolder}/favicon.svg ./`);
+
+        if (haveExample) {
+            execSync(`cp ${initFolder}/example.js ./`);
+        }
+
+        execSync(`rm -rf ${project}`);
+    });
+};
 
 const prompt = () => {
     inquirer
@@ -13,7 +63,7 @@ const prompt = () => {
                 type: "confirm",
                 name: "vite",
                 message: "Do you want to install vite to run local server?",
-                default: false,
+                default: true,
             },
             {
                 type: "confirm",
@@ -23,51 +73,50 @@ const prompt = () => {
             },
         ])
         .then((answers) => {
-            if (answers["vite"]) {
-                let raw;
+            console.log("Installing Cubecubed...");
+            exec(`npm i ${project}`);
 
-                try {
-                    raw = readFileSync("package.json");
-                } catch (err) {
-                    throw err;
-                }
+            let raw;
 
-                const json = JSON.parse(raw);
-                if (!json.hasOwnProperty("scripts")) json.scripts = {};
-                json.scripts.dev = "vite";
-                json.scripts.build = "vite build";
-                json.scripts.serve = "vite preview";
-
-                const data = JSON.stringify(json, null, 2);
-                writeFile("package.json", data, (err) => {
-                    if (err) throw err;
-                });
-
-                exec("npm i vite", () => console.log("Done.".green));
-                console.log(
-                    "Tip: Execute `npm run dev` to run a local dev server.".cyan
-                );
-                console.log("Installing vite...".yellow);
+            try {
+                raw = readFileSync("package.json");
+            } catch (err) {
+                throw err;
             }
 
-            if (answers["example"]) {
-                exec("cp ./node_modules/cubecubed/init/example.js ./");
+            clone(answers["example"]);
+
+            if (answers["vite"]) {
+                console.log("Installing vite...");
+
+                exec("npm i vite", () => {
+                    writePackageJson(raw, {
+                        key: "scripts",
+                        value: {
+                            dev: "vite",
+                            build: "vite build",
+                            serve: "vite preview",
+                        },
+                    });
+                });
+
+                console.log(
+                    "Tip: Execute `npm run dev` to run a local dev server."
+                );
             }
         });
 };
 
-if (!existsSync("package.json")) {
-    console.log("package.json file not detected. Creating...".yellow);
+function init() {
+    if (!existsSync("package.json")) {
+        console.log("package.json file not detected. Creating...");
 
-    exec("npm init -y", () => {
-        console.log("Done.".green);
-
+        exec("npm init -y", () => {
+            prompt();
+        });
+    } else {
         prompt();
-    });
-} else {
-    prompt();
+    }
 }
 
-exec("cp ./node_modules/cubecubed/init/index.html ./");
-exec("cp ./node_modules/cubecubed/init/style.css ./");
-exec("cp ./node_modules/cubecubed/init/favicon.svg ./");
+init();
