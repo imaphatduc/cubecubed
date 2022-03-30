@@ -4,10 +4,13 @@ import { CanvasAnimation } from "./CanvasAnimation";
 
 import { Particle } from "@cubicons/Particle";
 
-type DifferentialEquation = (position: Vector3) => Vector3;
+type TransformationFunction = (position: Vector3) => Vector3;
 
-export class ApplyDifferential extends CanvasAnimation {
-    functionDef: DifferentialEquation;
+export class Flow extends CanvasAnimation {
+    /**
+     * Transformation function for the cubicon's position.
+     */
+    functionDef: TransformationFunction;
 
     constructor(params: {
         /**
@@ -17,7 +20,7 @@ export class ApplyDifferential extends CanvasAnimation {
         /**
          * The differential equation to be applied.
          */
-        functionDef: DifferentialEquation;
+        functionDef: TransformationFunction;
         /**
          * Time to play this animation. (in milliseconds)
          */
@@ -32,16 +35,12 @@ export class ApplyDifferential extends CanvasAnimation {
     }
 
     play() {
-        this.applyDifferential(this.cubicon.position);
+        this.flow(this.cubicon);
     }
 
-    private applyDifferential(position: Vector3) {
-        const dt = 0.01;
-
-        position.x += this.functionDef(position).x * dt;
-
-        position.y += this.functionDef(position).y * dt;
-
-        position.z += this.functionDef(position).z * dt;
+    private flow(cubicon: Particle) {
+        cubicon.position.x = this.functionDef(cubicon.position).x;
+        cubicon.position.y = this.functionDef(cubicon.position).y;
+        cubicon.position.z = this.functionDef(cubicon.position).z;
     }
 }
