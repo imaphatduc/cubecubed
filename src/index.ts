@@ -48,4 +48,4 @@ export { CanvasGroup } from "./canvas/group/CanvasGroup";
 export { Particle } from "./canvas/cubicons/Particle";
 
 // Canvas animations
-export { ApplyDifferential } from "./canvas/animations/ApplyDifferential";
+export { Flow } from "./canvas/animations/Flow";
