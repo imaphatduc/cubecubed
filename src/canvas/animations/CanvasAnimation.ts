@@ -12,7 +12,5 @@ export class CanvasAnimation {
     constructor(params: { cubicon: any; duration?: number | undefined }) {
         this.cubicon = params.cubicon;
         this.duration = params.duration || 0;
-
-        this.cubicon.group.animations.push(this);
     }
 }
