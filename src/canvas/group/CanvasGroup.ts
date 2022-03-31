@@ -216,8 +216,6 @@ export class CanvasGroup {
      * @param anims Array (Queue) of animations to play.
      */
     play(anims: any[]) {
-        anims.forEach((anim) => {
-            this.animations.push(anim);
-        });
+        this.animations.push(...anims);
     }
 }
