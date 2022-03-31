@@ -109,26 +109,29 @@ export class CanvasGroup {
 
         this.defineCovertFunctions(this.ratio);
 
-        const sketch = (p5: p5) => {
-            p5.setup = () => {
-                this.canvas_group = createCanvas(windowWidth, windowHeight)
+        this.name = groupName;
+
+        const sketch = (p: p5) => {
+            p.setup = () => {
+                this.canvas_group = p
+                    .createCanvas(p.windowWidth, p.windowHeight)
                     .parent("#cubecubed")
                     .attribute("id", "canvas-viz");
 
-                this.start();
+                p.noFill();
             };
 
-            p5.draw = () => {
-                translate(width / 2, height / 2);
-                scale(1, -1);
+            p.draw = () => {
+                p.translate(p.width / 2, p.height / 2);
+                p.scale(1, -1);
 
-                this.update(this.cubicons, this.animations);
+                p.background(0);
+
+                this.update(p, this.cubicons, this.animations);
             };
         };
 
         new p5(sketch);
-
-        this.name = groupName;
     }
 
     private defineBoundsAndSquares(ratio: [number, number]) {
@@ -181,22 +184,15 @@ export class CanvasGroup {
     }
 
     /**
-     * `start()` is called at the initialization of the group.
-     */
-    private start() {
-        noFill();
-    }
-
-    /**
      * `update()` is called every animation frame.
      *
      * @param cubicons Cubicons to be rendered every animation frame.
      *
      * @param animations Animations to be played every animation frame.
      */
-    private update(cubicons: any[], animations: any[]) {
+    private update(p: p5, cubicons: any[], animations: any[]) {
         cubicons.forEach((cubicon) => {
-            cubicon.render();
+            cubicon.render(p);
         });
 
         animations.forEach((anim) => {
