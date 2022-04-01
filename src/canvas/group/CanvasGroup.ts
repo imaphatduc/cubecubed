@@ -51,29 +51,39 @@ export class CanvasGroup {
     xSquareNums: number;
 
     /**
-     * Number of squares in the x direction.
+     * Number of squares in the y direction.
      */
     ySquareNums: number;
 
     /**
-     * Length of a square in this scene.
+     * Number of squares in the z direction.
+     */
+    zSquareNums: number;
+
+    /**
+     * Length of a square in this group.
      */
     squareLength = 40;
 
     /**
-     * Ratio between square length in x direction and y direction.
+     * Ratio between square length in x, y and z direction.
      */
-    ratio: [number, number] = [1, 1];
+    ratio: [number, number, number] = [1, 1, 1];
 
     /**
-     * x coordinate bound values of this scene.
+     * x coordinate bound values of this group.
      */
     xBound: [number, number];
 
     /**
-     * y coordinate bound values of this scene.
+     * y coordinate bound values of this group.
      */
     yBound: [number, number];
+
+    /**
+     * z coordinate bound values of this group.
+     */
+    zBound: [number, number];
 
     /**
      * Convert x value of grid coordinates to real-world coordinates.
@@ -86,6 +96,11 @@ export class CanvasGroup {
     yGtoW: ScaleLinear<number, number, never>;
 
     /**
+     * Convert z value of grid coordinates to real-world coordinates.
+     */
+    zGtoW: ScaleLinear<number, number, never>;
+
+    /**
      * Convert x value of real-world coordinates to grid coordinates.
      */
     xWtoG: ScaleLinear<number, number, never>;
@@ -94,6 +109,11 @@ export class CanvasGroup {
      * Convert y value of real-world coordinates to grid coordinates.
      */
     yWtoG: ScaleLinear<number, number, never>;
+
+    /**
+     * Convert z value of real-world coordinates to grid coordinates.
+     */
+    zWtoG: ScaleLinear<number, number, never>;
 
     /**
      * Include this group to HTML flow.
@@ -134,14 +154,18 @@ export class CanvasGroup {
         new p5(sketch);
     }
 
-    private defineBoundsAndSquares(ratio: [number, number]) {
+    private defineBoundsAndSquares(ratio: [number, number, number]) {
         const { sceneWidth, sceneHeight } = this.scene;
+
+        const sceneDepth = Math.min(sceneWidth, sceneHeight);
 
         const xSquareLength = ratio[0] * this.squareLength;
         const ySquareLength = ratio[1] * this.squareLength;
+        const zSquareLength = ratio[2] * this.squareLength;
 
         this.xSquareNums = Math.floor(sceneWidth / xSquareLength);
         this.ySquareNums = Math.floor(sceneHeight / ySquareLength);
+        this.zSquareNums = Math.floor(sceneDepth / zSquareLength);
 
         this.xBound = [
             Math.floor(-this.xSquareNums / 2),
@@ -151,10 +175,16 @@ export class CanvasGroup {
             Math.floor(-this.ySquareNums / 2),
             -Math.floor(-this.ySquareNums / 2),
         ];
+        this.zBound = [
+            Math.floor(-this.zSquareNums / 2),
+            -Math.floor(-this.zSquareNums / 2),
+        ];
     }
 
-    private defineCovertFunctions(ratio: [number, number]) {
+    private defineCovertFunctions(ratio: [number, number, number]) {
         const { sceneWidth, sceneHeight } = this.scene;
+
+        const sceneDepth = Math.min(sceneWidth, sceneHeight);
 
         const xBound = [
             -sceneWidth / (this.squareLength * ratio[0]),
@@ -166,6 +196,11 @@ export class CanvasGroup {
             sceneHeight / (this.squareLength * ratio[1]),
         ];
 
+        const zBound = [
+            -sceneDepth / (this.squareLength * ratio[2]),
+            sceneDepth / (this.squareLength * ratio[2]),
+        ];
+
         this.xGtoW = scaleLinear()
             .domain(xBound)
             .range([-sceneWidth, sceneWidth]);
@@ -174,6 +209,10 @@ export class CanvasGroup {
             .domain(yBound)
             .range([-sceneHeight, sceneHeight]);
 
+        this.zGtoW = scaleLinear()
+            .domain(zBound)
+            .range([-sceneDepth, sceneDepth]);
+
         this.xWtoG = scaleLinear()
             .domain([-sceneWidth, sceneWidth])
             .range(this.xBound);
@@ -181,6 +220,10 @@ export class CanvasGroup {
         this.yWtoG = scaleLinear()
             .domain([-sceneHeight, sceneHeight])
             .range(this.yBound);
+
+        this.zWtoG = scaleLinear()
+            .domain([-sceneDepth, sceneDepth])
+            .range(this.zBound);
     }
 
     /**
