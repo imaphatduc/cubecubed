@@ -19,7 +19,7 @@ export class Particle extends CanvasCubicon {
     }
 
     render(p: any) {
-        const { xGtoW, yGtoW } = this.group;
+        const { xGtoW, yGtoW, zGtoW } = this.group;
 
         p.stroke(255);
         p.strokeWeight(3);
@@ -27,7 +27,7 @@ export class Particle extends CanvasCubicon {
         p.point(
             xGtoW(this.position.x) * this.scaleFactor,
             yGtoW(this.position.y) * this.scaleFactor,
-            this.position.z
+            zGtoW(this.position.z) * this.scaleFactor
         );
     }
 }
