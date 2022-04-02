@@ -21,6 +21,9 @@
                 -   [Axes](/reference/classes/Axes.md)
             -   [Grid](/reference/classes/Grid.md)
             -   [Math Text](/reference/classes/MathText.md)
+        -   Canvas
+            -   [Particle](/reference/classes/Particle.md)
+            -   [StreamLine](/reference/classes/StreamLine.md)
     -   Animation
         -   SVG
             -   [Create](/reference/classes/Create.md)
@@ -36,6 +39,9 @@
             -   [PointToSides](/reference/classes/PointToSides.md)
             -   [Trace](/reference/classes/Trace.md)
             -   [Write](/reference/classes/Write.md)
+        -   Canvas
+            -   [Flow](/reference/classes/Flow.md)
+            -   [SimulateStream](/reference/classes/SimulateStream.md)
     -   Math
         -   Math Vector
             -   [Vector2](/reference/classes/Vector2.md)
