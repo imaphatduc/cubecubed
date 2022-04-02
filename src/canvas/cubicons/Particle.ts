@@ -29,8 +29,6 @@ export const PARTICLE_DEFAULT_CONFIG: PARTICLE_CONFIG = {
  * not a flow or anything like that.
  */
 export class Particle extends CanvasCubicon {
-    readonly cubType = "particle";
-
     /**
      * Config options of the particle.
      */
