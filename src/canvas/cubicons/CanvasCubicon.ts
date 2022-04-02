@@ -3,8 +3,6 @@ import { Vector3 } from "@math/vector";
 import { CanvasGroup } from "@group/CanvasGroup";
 
 export abstract class CanvasCubicon {
-    abstract readonly cubType: string;
-
     /**
      * The group that this cubicon belongs to.
      */
