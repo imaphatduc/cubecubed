@@ -47,7 +47,7 @@ export class Flow extends CanvasAnimation {
          */
         cubicon: FLOW_TYPES;
         /**
-         * The differential equation to be applied.
+         * The function to change the cubicon's position at each frame.
          */
         functionDef: TransformationFunction;
         /**
@@ -67,7 +67,7 @@ export class Flow extends CanvasAnimation {
         this.flow(this.cubicon);
     }
 
-    private flow(cubicon: Particle) {
+    private flow(cubicon: FLOW_TYPES) {
         cubicon.position.x = this.functionDef(cubicon.position).x;
         cubicon.position.y = this.functionDef(cubicon.position).y;
         cubicon.position.z = this.functionDef(cubicon.position).z;
