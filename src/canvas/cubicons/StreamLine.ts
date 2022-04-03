@@ -40,6 +40,10 @@ export class StreamLine extends CanvasCubicon {
          */
         position?: Vector3;
         /**
+         * Scale the position vector of the particle by this number.
+         */
+        scaleFactor?: number;
+        /**
          * The function to change the cubicon's position at each frame.
          */
         functionDef: TransformationFunction;
@@ -55,6 +59,7 @@ export class StreamLine extends CanvasCubicon {
         super({
             group: params.group,
             position: params.position ?? new Vector3(0, 0, 0),
+            scaleFactor: params.scaleFactor ?? 1,
         });
 
         this.functionDef = params.functionDef;
@@ -89,7 +94,10 @@ export class StreamLine extends CanvasCubicon {
 
         p.beginShape();
         this.vertices.forEach((vertex) => {
-            p.curveVertex(xGtoW(vertex.x), yGtoW(vertex.y));
+            p.curveVertex(
+                xGtoW(vertex.x) * this.scaleFactor,
+                yGtoW(vertex.y) * this.scaleFactor
+            );
         });
         p.endShape();
     }
