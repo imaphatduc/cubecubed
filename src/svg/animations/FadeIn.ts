@@ -1,6 +1,6 @@
-import { ANIME, EASE_TYPE, FADE_TYPES } from "@consts";
+import { ANIME, EASE_TYPE } from "@consts";
 
-import { Animation } from "./Animation";
+import { Animation, FADE_TYPES } from "./Animation";
 
 /**
  * Fade in a cubicon on the screen.

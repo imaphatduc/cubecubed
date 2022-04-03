@@ -1,12 +1,11 @@
+import { ANIME, EASE_TYPE } from "@consts";
+
 import {
-    ANIME,
-    EASE_TYPE,
+    Animation,
     CREATE_TYPES,
     CREATE_SHAPE_TYPES,
     CREATE_LINE_TYPES,
-} from "@consts";
-
-import { Animation } from "./Animation";
+} from "./Animation";
 
 import { Vector } from "@cubicons/geometry/Vector";
 

@@ -2,13 +2,11 @@ import { ScaleLinear, scaleLinear } from "d3-scale";
 import { Selection, select } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { TYPES } from "@consts";
-
 import { Scene } from "@scene/Scene";
 
 import { Cubicon } from "@cubicons/Cubicon";
 
-import { Animation } from "@animations/Animation";
+import { Animation, TYPES } from "@animations/Animation";
 import { FadeOut } from "@animations/FadeOut";
 
 /**

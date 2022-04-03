@@ -1,4 +1,6 @@
-import { ANIME, EASE_TYPE, PT_TO_COORDS_DATA } from "@consts";
+import { ANIME, EASE_TYPE } from "@consts";
+
+import { PT_TO_COORDS_DATA } from "@cubicons/coordinate-system/Axes";
 
 import { Animation } from "./Animation";
 import { Create } from "./Create";

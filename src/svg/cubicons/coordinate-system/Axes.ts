@@ -4,8 +4,6 @@ import { format } from "d3-format";
 import { ScaleLinear, scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { PT_ON_GRAPH_DATA, PT_TO_COORDS_DATA } from "@consts";
-
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
@@ -14,6 +12,21 @@ import { AxisProjector } from "./AxisProjector";
 import { Graph } from "./Graph";
 import { Label } from "./Label";
 import { Point } from "./Point";
+
+/**
+ * Return data type when calling Axes().pointOnGraph() method
+ */
+export type PT_ON_GRAPH_DATA = {
+    point: Point;
+};
+
+/**
+ * Return data type when calling Axes().pointToCoords() method
+ */
+export type PT_TO_COORDS_DATA = {
+    point: Point;
+    projectors: [AxisProjector, AxisProjector];
+};
 
 interface AXES_CONFIG {
     xRange: [number, number];

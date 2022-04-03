@@ -2,14 +2,25 @@ import { range } from "d3-array";
 import { path } from "d3-path";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { COLOR, RECT_GRID_DATA } from "@consts";
+import { COLOR } from "@consts";
 import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
 
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
 import { Geometry } from "./Geometry";
+import { Square } from "./Square";
 import { Line } from "./Line";
+
+/**
+ * Return data when calling Rectangle().drawInnerGrid()
+ * or Square().drawInnerGrid() method
+ */
+export type RECT_GRID_DATA = {
+    cubicon: Rectangle | Square;
+    horizontalLines: Line[];
+    verticalLines: Line[];
+};
 
 /**
  * Return the barebone of a rectangle shape.

@@ -1,4 +1,7 @@
-//*** 2. COLORS ***//
+//************//
+// 1. Colors
+//************//
+
 /**
  * Color constants
  */
@@ -21,13 +24,13 @@ export const COLOR = {
 };
 
 //********************//
-// 3. Math constants
+// 2. Math constants
 //********************//
 export const PI = Math.PI;
 export const TAU = 2 * Math.PI;
 
 //************************************************//
-// 4. Animation time and ease function constants
+// 3. Animation time and ease function constants
 //************************************************//
 
 /**
@@ -80,7 +83,7 @@ import {
     easeSin,
     easeSinIn,
     easeSinOut,
-} from "d3";
+} from "d3-ease";
 
 /**
  * Default ease functions
@@ -139,81 +142,4 @@ export const EASE = {
     BOUNCE_IN: easeBounceIn,
     BOUNCE_OUT: easeBounceOut,
     BOUNCE_INOUT: easeBounceInOut,
-};
-
-//*********************//
-// 5. Types constants
-//*********************//
-
-/**
- * Classes which directly inherit from `Cubicon`
- */
-export type TYPES = CoordinateSystem | Geometry | MathText | VectorField;
-
-/************************
- * 5.0. Animation types
- */
-import { Geometry } from "@cubicons/geometry/Geometry";
-import { Rectangle } from "@cubicons/geometry/Rectangle";
-import { Square } from "@cubicons/geometry/Square";
-import { Circle } from "@cubicons/geometry/Circle";
-import { Line } from "@cubicons/geometry/Line";
-import { Vector } from "@cubicons/geometry/Vector";
-
-import { CoordinateSystem } from "@cubicons/coordinate-system/CoordinateSystem";
-import { Graph } from "@cubicons/coordinate-system/Graph";
-import { Label } from "@cubicons/coordinate-system/Label";
-import { Point } from "@cubicons/coordinate-system/Point";
-import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
-
-import { MathText } from "@cubicons/MathText";
-import { VectorField } from "@cubicons/VectorField";
-
-/**
- * Legal shape types to play Create() animation.
- */
-export type CREATE_SHAPE_TYPES = Rectangle | Square | Circle | Graph | Point;
-
-/**
- * Legal line-like types to play Create() animation.
- */
-export type CREATE_LINE_TYPES = Line | Vector | AxisProjector;
-
-/**
- * Legal cubicon types to play Create() animation.
- */
-export type CREATE_TYPES = CREATE_SHAPE_TYPES | CREATE_LINE_TYPES;
-
-/**
- * Types available for Fade (FadeIn & FadeOut) animation
- */
-export type FADE_TYPES = MathText | Label | Geometry;
-
-/***************************
- * 5.1. Complex data types
- */
-
-/**
- * Return data type when calling Axes().pointOnGraph() method
- */
-export type PT_ON_GRAPH_DATA = {
-    point: Point;
-};
-
-/**
- * Return data type when calling Axes().pointToCoords() method
- */
-export type PT_TO_COORDS_DATA = {
-    point: Point;
-    projectors: [AxisProjector, AxisProjector];
-};
-
-/**
- * Return data when calling Rectangle().drawInnerGrid()
- * or Square().drawInnerGrid() method
- */
-export type RECT_GRID_DATA = {
-    cubicon: Rectangle | Square;
-    horizontalLines: Line[];
-    verticalLines: Line[];
 };
