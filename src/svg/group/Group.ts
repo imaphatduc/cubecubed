@@ -1,5 +1,5 @@
 import { ScaleLinear, scaleLinear } from "d3-scale";
-import { Selection, select } from "d3-selection";
+import { Selection, select } from "d3";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Scene } from "@scene/Scene";
