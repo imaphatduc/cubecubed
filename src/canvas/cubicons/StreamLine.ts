@@ -24,7 +24,7 @@ type TransformationFunction = (position: Vector3) => Vector3;
 export class StreamLine extends CanvasCubicon {
     functionDef: TransformationFunction;
 
-    vertices: Vector3[] = [];
+    vertices: Vector3[] = [this.position];
 
     maxVertices: number;
 
@@ -64,7 +64,7 @@ export class StreamLine extends CanvasCubicon {
         this.maxVertices = params.maxVertices ?? 0;
 
         if (this.maxVertices > 0) {
-            for (let i = 0; i < this.maxVertices; i++) {
+            for (let i = 1; i < this.maxVertices; i++) {
                 this.vertices.push(this.nextVertex());
             }
         }
