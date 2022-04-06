@@ -9,6 +9,12 @@ import { CanvasAnimation } from "@animations/CanvasAnimation";
 
 import { CanvasCubicon } from "@cubicons/CanvasCubicon";
 
+interface ANIMATIONS_INFO {
+    animation: CanvasAnimation;
+    start: number;
+    end: number;
+}
+
 /**
  * The dad/mom object of every pack of objects in the visualization.
  *
@@ -43,7 +49,7 @@ export class CanvasGroup {
     /**
      * List of animations played in this group.
      */
-    animations: CanvasAnimation[] = [];
+    animationsInfo: ANIMATIONS_INFO[] = [];
 
     /**
      * Number of squares in the x direction.
@@ -116,6 +122,13 @@ export class CanvasGroup {
     zWtoG: ScaleLinear<number, number, never>;
 
     /**
+     * The time passed by since this group was created. (in milliseconds)
+     *
+     * > (aka the total time of all the animations **called** in this group)
+     */
+    groupElapsed = 0;
+
+    /**
      * Include this group to HTML flow.
      *
      * @param groupName Name of the group.
@@ -147,7 +160,7 @@ export class CanvasGroup {
 
                 p.background(0);
 
-                this.update(p, this.cubicons, this.animations);
+                this.update(p, this.cubicons, this.animationsInfo);
             };
         };
 
@@ -233,18 +246,20 @@ export class CanvasGroup {
      *
      * @param animations Animations to be played every animation frame.
      */
-    private update(p: p5, cubicons: any[], animations: any[]) {
+    private update(p: p5, cubicons: any[], animationsInfo: any[]) {
         cubicons.forEach((cubicon) => {
             cubicon.render(p);
         });
 
-        animations.forEach((anim) => {
-            if (anim.duration > 0) {
-                if (millis() < anim.duration) {
-                    anim.play();
+        animationsInfo.forEach((animInfo) => {
+            if (p.millis() >= animInfo.start) {
+                if (animInfo.animation.duration > 0) {
+                    if (p.millis() <= animInfo.end) {
+                        animInfo.animation.play();
+                    }
+                } else {
+                    animInfo.animation.play();
                 }
-            } else {
-                anim.play();
             }
         });
     }
@@ -255,6 +270,16 @@ export class CanvasGroup {
      * @param anims Array (Queue) of animations to play.
      */
     play(anims: any[]) {
-        this.animations.push(...anims);
+        const queueElapsed = Math.max(...anims.map((anim) => anim.duration));
+
+        this.animationsInfo.push(
+            ...anims.map((anim) => ({
+                animation: anim,
+                start: this.groupElapsed,
+                end: this.groupElapsed + anim.duration,
+            }))
+        );
+
+        this.groupElapsed += queueElapsed;
     }
 }
