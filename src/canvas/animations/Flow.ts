@@ -6,22 +6,27 @@ import { Particle } from "@cubicons/Particle";
 
 export type FLOW_TYPES = Particle;
 
-type TransformationFunction = (position: Vector3) => Vector3;
+export type TransformationFunction = (position: Vector3) => Vector3;
 
 /**
- * Move a cubicon based on the specified function to create an invisible flow.
- * The image of the last animation frame's cubicon will be removed from the
+ * Move a cubicon based on the specified function to
+ * create an invisible flow. The image of the last
+ * animation frame's cubicon will be removed from the
  * scene.
  *
- * All images of the cubicon will be separated (not continuous).
+ * All images of the cubicon will be separated (not
+ * continuous). If you want to simulate the continuous
+ * flow, use `SimulateStream()` instead.
  */
 export class Flow extends CanvasAnimation {
     /**
-     * The function defining the position of the target cubicon.
-     * This function should take a `Vector3()` object as both input and output.
-     * The `Vector3()` output object is the cubicon's position at next frame.
+     * The function defining the position of the target
+     * cubicon. This function should take a `Vector3()`
+     * object as both input and output. The `Vector3()`
+     * output object is the cubicon's position at next frame.
      *
-     * Example of a function defining particle flow in a vector field:
+     * Example of a function defining particle flow in
+     * a vector field:
      *
      * ```
      * // Specific delta time
@@ -52,6 +57,8 @@ export class Flow extends CanvasAnimation {
         functionDef: TransformationFunction;
         /**
          * Time to play this animation. (in milliseconds)
+         *
+         * @default 0
          */
         duration?: number;
     }) {
@@ -63,6 +70,9 @@ export class Flow extends CanvasAnimation {
         this.functionDef = params.functionDef;
     }
 
+    /**
+     * @internal
+     */
     play() {
         this.flow(this.cubicon);
     }

@@ -12,6 +12,8 @@ export class SimulateStream extends CanvasAnimation {
         cubicon: SIMULATE_STREAM_TYPES;
         /**
          * Time to play this animation. (in milliseconds)
+         *
+         * @default 0
          */
         duration?: number;
     }) {
@@ -21,6 +23,9 @@ export class SimulateStream extends CanvasAnimation {
         });
     }
 
+    /**
+     * @internal
+     */
     play() {
         this.simulateStream(this.cubicon);
     }

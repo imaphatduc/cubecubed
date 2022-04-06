@@ -25,8 +25,7 @@ export const PARTICLE_DEFAULT_CONFIG: PARTICLE_CONFIG = {
  * directly on any instance of this class, as it is handled
  * automatically by the group object.
  *
- * Particle term here only represents a point (aka a dot),
- * not a flow or anything like that.
+ * Particle term here only represents a point (aka a dot).
  */
 export class Particle extends CanvasCubicon {
     /**
@@ -44,14 +43,20 @@ export class Particle extends CanvasCubicon {
         group: CanvasGroup;
         /**
          * Position of the particle.
+         *
+         * @default Vector3(0, 0, 0)
          */
         position?: Vector3;
         /**
          * Scale the position vector of the particle by this number.
+         *
+         * @default 1
          */
         scaleFactor?: number;
         /**
          * Config options of the particle.
+         *
+         * @default PARTICLE_DEFAULT_CONFIG
          */
         CONFIG?: PARTICLE_CONFIG;
     }) {
@@ -71,6 +76,9 @@ export class Particle extends CanvasCubicon {
         };
     }
 
+    /**
+     * @internal
+     */
     render(p: any) {
         const { xGtoW, yGtoW, zGtoW } = this.group;
 
