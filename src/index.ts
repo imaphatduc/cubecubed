@@ -30,10 +30,7 @@ export { Translate } from "./svg/animations/Translate";
 export { Rotate } from "./svg/animations/Rotate";
 export { FadeIn } from "./svg/animations/FadeIn";
 export { FadeOut } from "./svg/animations/FadeOut";
-export {
-    DrawGridFromOrigin,
-    DrawGridFromScreenSides,
-} from "./svg/animations/DrawGrid";
+export { DrawGridFromScreenSides } from "./svg/animations/DrawGrid";
 export { DrawAxes } from "./svg/animations/DrawAxes";
 export { DrawVectorField } from "./svg/animations/DrawVectorField";
 export { PointToCoords } from "./svg/animations/PointToCoords";
