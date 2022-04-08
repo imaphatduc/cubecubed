@@ -14,7 +14,7 @@ export interface STREAMLINE_CONFIG {
     strokeWidth: number;
 }
 
-export const STREAMLINE_DEFAULT_CONFIG: STREAMLINE_CONFIG = {
+const STREAMLINE_DEFAULT_CONFIG: STREAMLINE_CONFIG = {
     strokeColor: "#fff",
     strokeWidth: 2,
 };

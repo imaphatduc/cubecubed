@@ -14,7 +14,7 @@ export interface PARTICLE_CONFIG {
     strokeWidth: number;
 }
 
-export const PARTICLE_DEFAULT_CONFIG: PARTICLE_CONFIG = {
+const PARTICLE_DEFAULT_CONFIG: PARTICLE_CONFIG = {
     strokeColor: "#fff",
     strokeWidth: 2,
 };

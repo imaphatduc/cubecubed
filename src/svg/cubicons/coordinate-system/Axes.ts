@@ -28,7 +28,7 @@ export type PT_TO_COORDS_DATA = {
     projectors: [AxisProjector, AxisProjector];
 };
 
-interface AXES_CONFIG {
+export interface AXES_CONFIG {
     xRange: [number, number];
     yRange: [number, number];
     yLength: number;

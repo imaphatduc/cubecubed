@@ -3,10 +3,17 @@ import { select } from "d3-selection";
 
 import { Group } from "@group/Group";
 
-interface SCENE_CONFIG {
+export interface SCENE_CONFIG {
+    /**
+     * @default window.innerWidth
+     */
     sceneWidth: number;
+    /**
+     * @default window.innerHeight
+     */
     sceneHeight: number;
 }
+
 const SCENE_DEFAULT_CONFIG: SCENE_CONFIG = {
     sceneWidth: window.innerWidth,
     sceneHeight: window.innerHeight,

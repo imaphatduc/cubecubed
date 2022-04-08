@@ -9,10 +9,15 @@ import { Group } from "@group/Group";
 import { Cubicon } from "./Cubicon";
 import { Vector } from "@cubicons/geometry/Vector";
 
-interface VECTOR_FIELD_CONFIG {
+export interface VECTOR_FIELD_CONFIG {
     isScaled?: boolean;
     isColored?: boolean;
 }
+
+const VECTOR_FIELD_DEFAULT_CONFIG = {
+    isScaled: false,
+    isColored: false,
+};
 
 export class VectorField extends Cubicon {
     readonly cubType = "vector-field";
@@ -36,21 +41,19 @@ export class VectorField extends Cubicon {
          * Multivariable function that produces 2d vector field.
          */
         functionDef: (pos: Vector2) => Vector2;
+        /**
+         * Config options for the vector field.
+         */
         CONFIG?: VECTOR_FIELD_CONFIG;
     }) {
         super({ group: params.group, position: new Vector2(0, 0) });
 
         this.functionDef = params.functionDef;
 
-        const DEFAULT_CONFIG = {
-            isScaled: false,
-            isColored: false,
-        };
-
         const {
-            isScaled = DEFAULT_CONFIG.isScaled,
-            isColored = DEFAULT_CONFIG.isColored,
-        } = params.CONFIG || DEFAULT_CONFIG;
+            isScaled = VECTOR_FIELD_DEFAULT_CONFIG.isScaled,
+            isColored = VECTOR_FIELD_DEFAULT_CONFIG.isColored,
+        } = params.CONFIG || VECTOR_FIELD_DEFAULT_CONFIG;
 
         const CONFIG = { isScaled, isColored };
 

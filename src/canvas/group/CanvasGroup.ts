@@ -9,7 +9,7 @@ import { CanvasAnimation } from "@animations/CanvasAnimation";
 
 import { CanvasCubicon } from "@cubicons/CanvasCubicon";
 
-interface ANIMATIONS_INFO {
+export interface ANIMATIONS_INFO {
     animation: CanvasAnimation;
     start: number;
     end: number;
