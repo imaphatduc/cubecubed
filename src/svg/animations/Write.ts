@@ -28,8 +28,6 @@ export class Write extends Animation {
 
     play(sleepTime: number) {
         this.writeText(this.cubicon, sleepTime);
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
     private writeText(cubicon: MathText, sleepTime: number) {
@@ -75,9 +73,7 @@ export class Write extends Animation {
             .attr("stroke-dashoffset", (d: number) => d)
             .transition()
             .ease(ease)
-            .delay(
-                (d: any, i: number) => 100 * i + cubicon.elapsedTime + sleepTime
-            )
+            .delay((d: any, i: number) => 100 * i + sleepTime)
             .duration(duration)
             .attr("stroke-dashoffset", 0)
             .attr("fill-opacity", 1);

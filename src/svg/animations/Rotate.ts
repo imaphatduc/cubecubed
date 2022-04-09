@@ -59,7 +59,7 @@ export class Rotate extends Animation {
         cubicon.g_cubiconWrapper
             .transition()
             .ease(this.ease)
-            .delay(cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             /// d3 normalize the rotation vector, so we must use attrTween method here
             .attrTween("transform", () =>
@@ -73,7 +73,5 @@ export class Rotate extends Animation {
                 )
             )
             .on("end", () => (cubicon.angle += degree));
-
-        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

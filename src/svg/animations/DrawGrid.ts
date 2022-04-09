@@ -17,25 +17,13 @@ export class DrawGridFromScreenSides extends Animation {
     private drawYNums = 500;
     private drawYNumsDelay = 800;
 
-    private xDelayEach;
-    private yDelayEach;
+    private xDelayEach = 50;
+    private yDelayEach = 20;
 
     private hasNums: boolean;
 
     constructor(grid: Grid) {
         super({ cubicon: grid });
-
-        this.drawX = 1000;
-        this.drawXNums = 500;
-        this.drawXNumsDelay = 800;
-
-        this.drawY = 1000;
-        this.drawYDelay = 200;
-        this.drawYNums = 500;
-        this.drawYNumsDelay = 800;
-
-        this.xDelayEach = 50;
-        this.yDelayEach = 20;
 
         const { xBound, yBound } = grid.group;
 
@@ -57,8 +45,6 @@ export class DrawGridFromScreenSides extends Animation {
         this.drawHorizontalLines(this.cubicon, this.hasNums, sleepTime);
         this.drawVerticalLines(this.cubicon, this.hasNums, sleepTime);
         this.drawOrigin(this.cubicon);
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
     private drawHorizontalLines(
@@ -82,10 +68,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("y2", (d: number) => yGtoW(d))
             .transition()
             .ease(this.ease)
-            .delay(
-                (d: number) =>
-                    grid.elapsedTime + sleepTime + this.xDelayEach * Math.abs(d)
-            )
+            .delay((d: number) => sleepTime + this.xDelayEach * Math.abs(d))
             .duration(this.drawX)
             .attr("x2", xGtoW(xBound[1] + 1))
             .attr("stroke", (d: number) =>
@@ -133,7 +116,7 @@ export class DrawGridFromScreenSides extends Animation {
             .transition()
             .ease(this.ease)
             .duration(this.drawXNums)
-            .delay(grid.elapsedTime + this.drawXNumsDelay + sleepTime)
+            .delay(this.drawXNumsDelay + sleepTime)
             .attr("opacity", 1);
     }
 
@@ -156,10 +139,7 @@ export class DrawGridFromScreenSides extends Animation {
             .ease(this.ease)
             .delay(
                 (d: number) =>
-                    grid.elapsedTime +
-                    this.drawYDelay +
-                    sleepTime +
-                    this.yDelayEach * Math.abs(d)
+                    this.drawYDelay + sleepTime + this.yDelayEach * Math.abs(d)
             )
             .duration(this.drawY)
             .attr("y2", yGtoW(yBound[1] + 1))
@@ -208,15 +188,17 @@ export class DrawGridFromScreenSides extends Animation {
             .transition()
             .ease(this.ease)
             .duration(this.drawYNums)
-            .delay(grid.elapsedTime + this.drawYNumsDelay + sleepTime)
+            .delay(this.drawYNumsDelay + sleepTime)
             .attr("opacity", 1);
     }
 
     drawOrigin(grid: Grid) {
-        grid.group.play([
-            new Create({
-                cubicon: new GridOrigin(grid.group).render(),
-            }),
-        ]);
+        const drawOriginAnim = new Create({
+            cubicon: new GridOrigin(grid.group).render(),
+        });
+
+        grid.group.play([drawOriginAnim]);
+
+        grid.group.groupElapsed -= drawOriginAnim.duration;
     }
 }

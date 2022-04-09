@@ -47,10 +47,16 @@ export class PointToCoords extends Animation {
         point: Point,
         projectors: [AxisProjector, AxisProjector]
     ) {
-        point.group.play([
+        const anims = [
             new Create({ cubicon: point }),
             new Create({ cubicon: projectors[0] }),
             new Create({ cubicon: projectors[1] }),
-        ]);
+        ];
+
+        point.group.play(anims);
+
+        point.group.groupElapsed -= Math.max(
+            ...anims.map((anim) => anim.duration)
+        );
     }
 }

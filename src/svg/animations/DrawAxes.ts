@@ -36,8 +36,6 @@ export class DrawAxes extends Animation {
     play(sleepTime: number) {
         this.drawAxis(this.cubicon.xAxis, sleepTime);
         this.drawAxis(this.cubicon.yAxis, sleepTime);
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
     private drawAxis(axis: any, sleepTime: number) {
@@ -51,7 +49,7 @@ export class DrawAxes extends Animation {
         );
         path.transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .attr("stroke-dashoffset", 0);
 
@@ -61,10 +59,7 @@ export class DrawAxes extends Animation {
             .data(range(0, this.xNums + 1, 1))
             .transition()
             .ease(this.ease)
-            .delay(
-                (d: number) =>
-                    this.cubicon.elapsedTime + sleepTime + this.delayEach * d
-            )
+            .delay((d: number) => sleepTime + this.delayEach * d)
             .duration(this.duration)
             .attr("opacity", 1);
 
@@ -74,11 +69,7 @@ export class DrawAxes extends Animation {
             .data(range(0, this.yNums + 1, 1))
             .transition()
             .ease(this.ease)
-            .delay(
-                this.cubicon.elapsedTime +
-                    sleepTime +
-                    this.delayEach * this.xNums
-            )
+            .delay(sleepTime + this.delayEach * this.xNums)
             .duration(this.arrowDuration)
             .attr("opacity", 1);
     }

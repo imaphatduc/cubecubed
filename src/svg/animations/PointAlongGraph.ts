@@ -75,7 +75,7 @@ export class PointAlongGraph extends Animation {
         this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .attrTween("cx", () => this.tweenX)
             .attrTween("cy", () => this.tweenY)
@@ -83,8 +83,6 @@ export class PointAlongGraph extends Animation {
                 this.cubicon.position.x = this.xPos;
                 this.cubicon.position.y = this.graph.functionDef(this.xPos);
             });
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
     private animateProjectors(sleepTime: number) {
@@ -105,13 +103,11 @@ export class PointAlongGraph extends Animation {
             d.projector.def_cubiconBase
                 .transition()
                 .ease(this.ease)
-                .delay(d.projector.elapsedTime + sleepTime)
+                .delay(sleepTime)
                 .duration(this.duration)
                 .attrTween("x1", () => this.tweenX)
                 .attrTween("y1", () => this.tweenY)
                 .attrTween(d.attr, () => d.tween);
-
-            d.projector.elapsedTime += this.duration + sleepTime;
         });
     }
 }

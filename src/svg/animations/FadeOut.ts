@@ -35,10 +35,8 @@ export class FadeOut extends Animation {
         cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .style("opacity", 0);
-
-        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

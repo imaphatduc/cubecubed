@@ -86,7 +86,7 @@ export class Create extends Animation {
 
         // Applied for vector shape's arrow head
         if (cubicon.geoType === "vector") {
-            this.applyArrowCreation(cubicon.def_arrowHead, cubicon);
+            this.applyArrowCreation(cubicon.def_arrowHead, sleepTime);
         }
     }
 
@@ -125,27 +125,22 @@ export class Create extends Animation {
         selection
             .transition()
             .ease(this.ease)
-            .delay(cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .attr("x2", WendPoint.x)
             .attr("y2", WendPoint.y);
-
-        cubicon.elapsedTime += this.duration + sleepTime;
     }
 
-    private applyArrowCreation(selection: any, cubicon: Vector) {
-        const drawArrowHeadAnimTime = 1500;
-        const delayTime = this.duration * 0.65;
+    private applyArrowCreation(selection: any, sleepTime: number) {
+        const delayTime = this.duration * 0.45;
 
         selection
             .attr("opacity", 0)
             .transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime - delayTime)
-            .duration(drawArrowHeadAnimTime)
+            .delay(sleepTime + this.duration - delayTime)
+            .duration(delayTime)
             .attr("opacity", 1);
-
-        cubicon.elapsedTime += drawArrowHeadAnimTime - delayTime;
     }
 
     /**
@@ -175,12 +170,10 @@ export class Create extends Animation {
         cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .attr("stroke-dashoffset", 0)
             .attr("fill", fill)
             .attr("fill-opacity", fillOpacity);
-
-        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

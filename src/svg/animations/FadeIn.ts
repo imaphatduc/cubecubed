@@ -44,14 +44,12 @@ export class FadeIn extends Animation {
         this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .style("stroke-opacity", 1)
             .style("opacity", 1)
             .style("fill", this.cubicon.fillColor)
             .style("fill-opacity", this.cubicon.fillOpacity);
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
     private texFadeIn(sleepTime: number) {
@@ -59,11 +57,9 @@ export class FadeIn extends Animation {
         this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(this.cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .attr("stroke-opacity", 1)
             .attr("opacity", 1);
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 }

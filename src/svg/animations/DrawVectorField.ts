@@ -33,17 +33,17 @@ export class DrawVectorField extends Animation {
 
     play(sleepTime: number) {
         this.drawVectorField(this.cubicon);
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
     }
 
     private drawVectorField(cubicon: VectorField) {
-        const anims: any[] = [];
-
-        cubicon.vectorShapes.forEach((vectorShape: Vector) =>
-            anims.push(new Create({ cubicon: vectorShape }))
-        );
+        const anims = cubicon.vectorShapes.map((vectorShape: Vector) => {
+            return new Create({ cubicon: vectorShape });
+        });
 
         cubicon.group.play(anims);
+
+        cubicon.group.groupElapsed -= Math.max(
+            ...anims.map((anim) => anim.duration)
+        );
     }
 }

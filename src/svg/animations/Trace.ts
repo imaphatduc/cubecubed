@@ -46,9 +46,6 @@ export class Trace extends Animation {
 
     play(sleepTime: number) {
         this.tracing(this.cubicon, sleepTime);
-
-        this.cubicon.elapsedTime += this.duration + sleepTime;
-        this.curve.elapsedTime += this.duration + sleepTime;
     }
 
     private tracing(cubicon: Line, sleepTime: number) {
@@ -60,7 +57,7 @@ export class Trace extends Animation {
         this.curve.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             .attrTween("stroke-dashoffset", () => {
                 const interpolate = interpolateNumber(lineLen, 0);

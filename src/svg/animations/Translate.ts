@@ -56,7 +56,7 @@ export class Translate extends Animation {
         cubicon.g_cubiconWrapper
             .transition()
             .ease(this.ease)
-            .delay(cubicon.elapsedTime + sleepTime)
+            .delay(sleepTime)
             .duration(this.duration)
             /// `moveVector` and `angle` are very useful here.
             /// We must have these properties, otherwise our cubicons will return to
@@ -70,7 +70,5 @@ export class Translate extends Animation {
             .on("end", () => {
                 cubicon.position = cubicon.position.add(vector);
             });
-
-        cubicon.elapsedTime += this.duration + sleepTime;
     }
 }
