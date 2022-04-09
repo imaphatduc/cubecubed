@@ -32,7 +32,6 @@
         "alwaysStrict": true,
         "noUnusedLocals": false,
         "noUnusedParameters": false,
-        "exactOptionalPropertyTypes": true,
         "noFallthroughCasesInSwitch": true
     },
     "include": ["src/**/*"]
