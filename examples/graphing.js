@@ -10,11 +10,6 @@ import {
     Write,
 } from "../src/index";
 
-/// This variable keeps track of the time goes by during the animations
-/// We'll use this to control time, so don't forget to include it to your code
-/// In this example, the scene has only one group, so we don't need `elapsed`
-let elapsed = 0;
-
 function graphingFunctions() {
     const scene = new Scene("graphing-functions");
     const group = new Group("graphing-group", scene);
