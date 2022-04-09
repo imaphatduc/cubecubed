@@ -7,7 +7,7 @@ import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
 import { Cubicon } from "./Cubicon";
-import { Vector } from "@cubicons/geometry/Vector";
+import { VectorShape } from "@cubicons/geometry/VectorShape";
 
 export interface VECTOR_FIELD_CONFIG {
     isScaled?: boolean;
@@ -32,7 +32,7 @@ export class VectorField extends Cubicon {
     /**
      * Vector shapes included in the scene.
      */
-    vectorShapes: Vector[] = [];
+    vectorShapes: VectorShape[] = [];
 
     constructor(params: {
         /**
@@ -123,7 +123,7 @@ export class VectorField extends Cubicon {
                         .domain([0, hslUpperLimitAngle])
                         .range([hslUpperLimitAngle, 0]);
 
-                    const vectorShape = new Vector({
+                    const vectorShape = new VectorShape({
                         group: this.group,
 
                         startPoint: startPoint,

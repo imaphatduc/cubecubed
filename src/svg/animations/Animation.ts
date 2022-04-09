@@ -5,7 +5,7 @@ import { Rectangle } from "@cubicons/geometry/Rectangle";
 import { Square } from "@cubicons/geometry/Square";
 import { Circle } from "@cubicons/geometry/Circle";
 import { Line } from "@cubicons/geometry/Line";
-import { Vector } from "@cubicons/geometry/Vector";
+import { VectorShape } from "@cubicons/geometry/VectorShape";
 
 import { CoordinateSystem } from "@cubicons/coordinate-system/CoordinateSystem";
 import { Graph } from "@cubicons/coordinate-system/Graph";
@@ -29,7 +29,7 @@ export type CREATE_SHAPE_TYPES = Rectangle | Square | Circle | Graph | Point;
 /**
  * Legal line-like types to play Create() animation.
  */
-export type CREATE_LINE_TYPES = Line | Vector | AxisProjector;
+export type CREATE_LINE_TYPES = Line | VectorShape | AxisProjector;
 
 /**
  * Legal cubicon types to play Create() animation.

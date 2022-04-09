@@ -10,7 +10,7 @@ import { Vector2 } from "@math/vector";
 import { Group } from "@group/Group";
 import { Geometry } from "./Geometry";
 
-export class Vector extends Geometry {
+export class VectorShape extends Geometry {
     /**
      * Geometry type of the vector.
      */

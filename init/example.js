@@ -7,7 +7,7 @@ import {
     Rotate,
     Scene,
     Square,
-    Vector,
+    VectorShape,
     Vector2,
 } from "cubecubed";
 
@@ -46,7 +46,7 @@ function drawShapes() {
     function vectors() {
         const group = new Group("vectors", scene);
 
-        const vector = new Vector({
+        const vector = new VectorShape({
             group: group,
             endPoint: new Vector2(4, 4),
             CONFIG: {

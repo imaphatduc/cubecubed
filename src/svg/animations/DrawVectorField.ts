@@ -4,7 +4,7 @@ import { Animation } from "./Animation";
 import { Create } from "./Create";
 
 import { VectorField } from "@cubicons/VectorField";
-import { Vector } from "@cubicons/geometry/Vector";
+import { VectorShape } from "@cubicons/geometry/VectorShape";
 
 /**
  * Play vector field drawing animation on the screen.
@@ -36,7 +36,7 @@ export class DrawVectorField extends Animation {
     }
 
     private drawVectorField(cubicon: VectorField) {
-        const anims = cubicon.vectorShapes.map((vectorShape: Vector) => {
+        const anims = cubicon.vectorShapes.map((vectorShape: VectorShape) => {
             return new Create({ cubicon: vectorShape });
         });
 

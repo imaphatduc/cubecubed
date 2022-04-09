@@ -7,7 +7,7 @@ import {
     CREATE_LINE_TYPES,
 } from "./Animation";
 
-import { Vector } from "@cubicons/geometry/Vector";
+import { VectorShape } from "@cubicons/geometry/VectorShape";
 
 /**
  * Play animated creation on the screen.
@@ -103,7 +103,7 @@ export class Create extends Animation {
 
         selection.attr("x2", WstartPoint.x).attr("y2", WstartPoint.y);
 
-        function getVectorLineEndPoint(vectorShape: Vector) {
+        function getVectorLineEndPoint(vectorShape: VectorShape) {
             const vector = vectorShape.endPoint.subtract(
                 vectorShape.startPoint
             );

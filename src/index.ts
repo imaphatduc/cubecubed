@@ -18,7 +18,7 @@ export { Rectangle } from "./svg/cubicons/geometry/Rectangle";
 export { Square } from "./svg/cubicons/geometry/Square";
 export { Circle } from "./svg/cubicons/geometry/Circle";
 export { Line } from "./svg/cubicons/geometry/Line";
-export { Vector } from "./svg/cubicons/geometry/Vector";
+export { VectorShape } from "./svg/cubicons/geometry/VectorShape";
 export { ParametricCurve } from "./svg/cubicons/geometry/ParametricCurve";
 
 // SVG coordinate system cubicons

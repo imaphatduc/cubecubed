@@ -8,7 +8,7 @@ import {
     Group,
     MathText,
     Scene,
-    Vector,
+    VectorShape,
     Vector2,
 } from "../src/index";
 
@@ -20,7 +20,7 @@ function renderVector() {
     const grid = new Grid({ group: group }).render();
     group.play([new DrawGridFromScreenSides(grid)]);
 
-    const vector = new Vector({
+    const vector = new VectorShape({
         group: group,
         endPoint: new Vector2(3, 2),
         CONFIG: {
