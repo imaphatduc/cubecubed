@@ -76,8 +76,6 @@ export class Grid extends Geometry {
         this.xAxesColor = COLOR.RED_2;
         this.yAxesColor = COLOR.GREEN_1;
 
-        this.elapsedTime = 0;
-
         this.hasNums = hasNums;
     }
 
