@@ -50,11 +50,6 @@ export abstract class Cubicon {
      */
     def_cubiconBase: any;
 
-    /**
-     * Total time of all called animations (in milliseconds).
-     */
-    elapsedTime = 0;
-
     isRendered = false;
 
     constructor({
@@ -71,8 +66,6 @@ export abstract class Cubicon {
         this.svg_group = group.svg_group;
 
         this.def_cubiconBase = select(null);
-
-        this.group.add(this);
     }
 
     checkIfRendered() {
