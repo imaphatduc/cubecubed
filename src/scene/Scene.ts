@@ -46,6 +46,8 @@ export class Scene {
      */
     groups: Group[] = [];
 
+    sceneElapsed = 0;
+
     /**
      * Include this scene to HTML flow.
      *

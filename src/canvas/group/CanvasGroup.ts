@@ -142,6 +142,8 @@ export class CanvasGroup {
 
         this.defineCovertFunctions(this.ratio);
 
+        this.groupElapsed = scene.sceneElapsed;
+
         this.name = groupName;
 
         const sketch = (p: p5) => {
@@ -281,5 +283,7 @@ export class CanvasGroup {
         );
 
         this.groupElapsed += queueElapsed;
+
+        this.scene.sceneElapsed = this.groupElapsed;
     }
 }
