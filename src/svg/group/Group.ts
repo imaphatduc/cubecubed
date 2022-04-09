@@ -4,9 +4,7 @@ import { Selection, select } from "d3";
 
 import { Scene } from "@scene/Scene";
 
-import { Cubicon } from "@cubicons/Cubicon";
-
-import { Animation, TYPES } from "@animations/Animation";
+import { TYPES } from "@animations/Animation";
 import { FadeOut } from "@animations/FadeOut";
 
 /**
@@ -34,16 +32,6 @@ export class Group {
      * Name of this group.
      */
     name: string;
-
-    /**
-     * Cubicons included in this group.
-     */
-    cubicons: Cubicon[];
-
-    /**
-     * Animations played in this group.
-     */
-    animations: Animation[];
 
     /**
      * Number of squares in the x direction.
@@ -96,23 +84,11 @@ export class Group {
     yWtoG: ScaleLinear<number, number, never>;
 
     /**
-     * The total time to finish playing all animations in the current queue (will be override when the next queue is called). (in milliseconds)
-     */
-    queueElapsed: number;
-
-    /**
      * The time passed by since this group was created. (in milliseconds)
      *
      * > (aka the total time of all the animations **called** in this group)
      */
-    groupElapsed: number;
-
-    /**
-     * The total time before this group is created. (in milliseconds)
-     *
-     * > (aka the total time of all the animations **called** in **other** groups in the same scene)
-     */
-    sleepTime: number;
+    groupElapsed = 0;
 
     /**
      * Include this group to HTML flow.
@@ -143,18 +119,9 @@ export class Group {
 
         this.name = groupName;
 
-        this.cubicons = [];
-
-        this.animations = [];
-
         this.defineBoundsAndSquares(this.ratio);
 
         this.defineCovertFunctions(this.ratio);
-
-        this.queueElapsed = 0;
-        this.groupElapsed = 0;
-
-        this.sleepTime = 0;
 
         this.scene.groups.push(this);
     }
@@ -225,39 +192,13 @@ export class Group {
      * @param anims Array (Queue) of animations to play.
      */
     play(anims: any[]) {
-        anims.forEach((anim) => {
-            anim.cubicon.elapsedTime = this.queueElapsed;
-            if (typeof anim.projectors !== "undefined") {
-                anim.projectors.forEach(
-                    (p: any) => (p.elapsedTime = this.queueElapsed)
-                );
-            }
-        });
+        const queueElapsed = Math.max(...anims.map((anim) => anim.duration));
 
         anims.forEach((anim) => {
-            this.addAnimation(anim);
-
-            try {
-                anim.play(this.sleepTime);
-            } catch (err) {
-                // throw new Error(
-                //     anim.cubicon.constructor.name +
-                //         "() haven't been rendered on the screen. Please call render() on the cubicon you're invoking with the `new` keyword."
-                // );
-            }
-
-            this.sleepTime = 0;
+            anim.play(this.groupElapsed);
         });
 
-        this.queueElapsed = Math.max(
-            ...anims.map((anim) => anim.cubicon.elapsedTime)
-        );
-
-        anims.forEach((a) => {
-            a.cubicon.elapsedTime = this.queueElapsed;
-        });
-
-        this.groupElapsed = this.queueElapsed;
+        this.groupElapsed += queueElapsed;
     }
 
     /**
@@ -266,20 +207,7 @@ export class Group {
      * @param milliseconds The time to sleep.
      */
     sleep(milliseconds: number) {
-        this.sleepTime = milliseconds;
-    }
-
-    private addAnimation(anim: Animation) {
-        this.animations.push(anim);
-    }
-
-    /**
-     * @deprecated
-     *
-     * Add a cubicon to this group.
-     */
-    add(cubicon: Cubicon) {
-        this.cubicons.push(cubicon);
+        this.groupElapsed += milliseconds;
     }
 
     /**
@@ -293,7 +221,7 @@ export class Group {
         }
         cubicon.def_cubiconBase
             .transition()
-            .delay(cubicon.elapsedTime + this.groupElapsed)
+            .delay(this.groupElapsed)
             .duration(0)
             .remove();
     }
