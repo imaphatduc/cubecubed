@@ -88,16 +88,11 @@ export abstract class Geometry extends Cubicon {
     lineColor: any;
     lineWidth: any;
 
-    constructor({
-        group,
-        position = new Vector2(0, 0),
-    }: {
-        group: Group;
-        position?: Vector2 | undefined;
-    }) {
-        super({ group: group, position: position });
-
-        this.group = group;
+    constructor(params: { group: Group; position?: Vector2 }) {
+        super({
+            group: params.group,
+            position: params.position ?? new Vector2(0, 0),
+        });
     }
 
     coordsGtoW(point: Vector2) {

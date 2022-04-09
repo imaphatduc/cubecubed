@@ -38,7 +38,7 @@ export class Circle extends Geometry {
         /**
          * Config options of the circle.
          */
-        CONFIG?: SHAPE_CONFIG | undefined;
+        CONFIG?: SHAPE_CONFIG;
     }) {
         super({ group: params.group, position: params.position });
 

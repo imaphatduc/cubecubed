@@ -37,8 +37,6 @@ export class Rectangle extends Geometry {
     readonly width: number;
     /**
      * Height of the rectangle (in grid coordinate system).
-     *
-     * @internal
      */
     readonly height: number;
 
@@ -53,7 +51,7 @@ export class Rectangle extends Geometry {
         /**
          * Position of the rectangle.
          */
-        position?: Vector2 | undefined;
+        position?: Vector2;
         /**
          * Width of the rectangle.
          */
@@ -65,7 +63,7 @@ export class Rectangle extends Geometry {
         /**
          * Config options of the rectangle.
          */
-        CONFIG?: SHAPE_CONFIG | undefined;
+        CONFIG?: SHAPE_CONFIG;
     }) {
         super({ group: params.group, position: params.position });
 

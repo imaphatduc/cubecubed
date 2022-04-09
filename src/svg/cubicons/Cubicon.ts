@@ -50,20 +50,14 @@ export abstract class Cubicon {
      */
     def_cubiconBase: any;
 
-    isRendered = false;
+    protected isRendered = false;
 
-    constructor({
-        group,
-        position = new Vector2(0, 0),
-    }: {
-        group: Group;
-        position: Vector2;
-    }) {
-        this.group = group;
+    constructor(params: { group: Group; position: Vector2 }) {
+        this.group = params.group;
 
-        this.position = position;
+        this.position = params.position;
 
-        this.svg_group = group.svg_group;
+        this.svg_group = params.group.svg_group;
 
         this.def_cubiconBase = select(null);
     }

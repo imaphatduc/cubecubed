@@ -19,11 +19,6 @@ export abstract class CanvasCubicon {
      */
     scaleFactor: number;
 
-    /**
-     * Total time of all called animations (in milliseconds).
-     */
-    elapsedTime = 0;
-
     constructor(params: {
         group: CanvasGroup;
         position?: Vector3;

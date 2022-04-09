@@ -54,10 +54,7 @@ export class Grid extends Geometry {
 
     hasNums: boolean;
 
-    constructor({
-        group,
-        hasNums = false,
-    }: {
+    constructor(params: {
         /**
          * The group that the grid belongs to.
          */
@@ -67,16 +64,14 @@ export class Grid extends Geometry {
          */
         hasNums?: boolean;
     }) {
-        super({ group: group, position: new Vector2(0, 0) });
-
-        this.group = group;
+        super({ group: params.group, position: new Vector2(0, 0) });
 
         this.lineColor = COLOR.BLUE_2;
         this.originColor = COLOR.WHITE;
         this.xAxesColor = COLOR.RED_2;
         this.yAxesColor = COLOR.GREEN_1;
 
-        this.hasNums = hasNums;
+        this.hasNums = params.hasNums ?? false;
     }
 
     render() {

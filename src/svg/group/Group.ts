@@ -124,8 +124,6 @@ export class Group {
         this.defineCovertFunctions(this.ratio);
 
         this.groupElapsed = scene.sceneElapsed;
-
-        this.scene.groups.push(this);
     }
 
     /**

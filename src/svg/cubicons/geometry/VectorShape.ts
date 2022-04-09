@@ -67,20 +67,19 @@ export class VectorShape extends Geometry {
 
         this.endPoint = params.endPoint;
 
-        ({
-            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-            arrowWidth: this.arrowWidth = VECTOR_DEFAULT_CONFIG.arrowWidth,
-            arrowHeight: this.arrowHeight = VECTOR_DEFAULT_CONFIG.arrowHeight,
-        } = params.CONFIG ?? VECTOR_DEFAULT_CONFIG);
-
-        // this.theta determines the angle between vector's arrow and its line.
         this.theta = rToD(
             Math.atan2(
                 this.endPoint.y - this.startPoint.y,
                 this.endPoint.x - this.startPoint.x
             )
         );
+
+        ({
+            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
+            arrowWidth: this.arrowWidth = VECTOR_DEFAULT_CONFIG.arrowWidth,
+            arrowHeight: this.arrowHeight = VECTOR_DEFAULT_CONFIG.arrowHeight,
+        } = params.CONFIG ?? VECTOR_DEFAULT_CONFIG);
     }
 
     getWpoint(point: Vector2) {

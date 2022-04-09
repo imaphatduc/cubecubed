@@ -138,13 +138,13 @@ export class CanvasGroup {
     constructor(groupName: string, scene: Scene) {
         this.scene = scene;
 
+        this.name = groupName;
+
         this.defineBoundsAndSquares(this.ratio);
 
         this.defineCovertFunctions(this.ratio);
 
         this.groupElapsed = scene.sceneElapsed;
-
-        this.name = groupName;
 
         const sketch = (p: p5) => {
             p.setup = () => {

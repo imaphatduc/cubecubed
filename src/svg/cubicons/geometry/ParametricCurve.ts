@@ -16,7 +16,9 @@ export class ParametricCurve extends Geometry {
     readonly geoType = "parametric-curve";
 
     points: Vector2[];
+
     functionDef: (t: number) => Vector2;
+
     tRange: [number, number];
 
     constructor(params: {
@@ -87,6 +89,7 @@ export class ParametricCurve extends Geometry {
     getFirstOutputPoint() {
         return this.functionDef(this.tRange[0]);
     }
+
     getLastOutputPoint() {
         return this.functionDef(this.tRange[1]);
     }

@@ -63,8 +63,8 @@ export class Animation {
         ease,
     }: {
         cubicon: TYPES;
-        duration?: number | undefined;
-        ease?: EASE_TYPE | undefined;
+        duration?: number;
+        ease?: EASE_TYPE;
     }) {
         this.cubicon = cubicon;
         this.duration = duration ?? 0;

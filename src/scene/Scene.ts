@@ -42,10 +42,10 @@ export class Scene {
     sceneHeight: number;
 
     /**
-     * List of group included in this scene.
+     * The time passed by since this scene was created. (in milliseconds)
+     *
+     * > (aka the total time of all the animations of all groups included in this scene)
      */
-    groups: Group[] = [];
-
     sceneElapsed = 0;
 
     /**
