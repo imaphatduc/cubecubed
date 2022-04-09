@@ -11,12 +11,14 @@ import { Vector } from "@cubicons/geometry/Vector";
 
 export interface VECTOR_FIELD_CONFIG {
     isScaled?: boolean;
-    isColored?: boolean;
+    lineColor?: string | "scaled";
+    lineWidth?: number;
 }
 
-const VECTOR_FIELD_DEFAULT_CONFIG = {
+const VECTOR_FIELD_DEFAULT_CONFIG: VECTOR_FIELD_CONFIG = {
     isScaled: false,
-    isColored: false,
+    lineColor: "#fff",
+    lineWidth: 2,
 };
 
 export class VectorField extends Cubicon {
@@ -52,10 +54,11 @@ export class VectorField extends Cubicon {
 
         const {
             isScaled = VECTOR_FIELD_DEFAULT_CONFIG.isScaled,
-            isColored = VECTOR_FIELD_DEFAULT_CONFIG.isColored,
-        } = params.CONFIG || VECTOR_FIELD_DEFAULT_CONFIG;
+            lineColor = VECTOR_FIELD_DEFAULT_CONFIG.lineColor,
+            lineWidth = VECTOR_FIELD_DEFAULT_CONFIG.lineWidth,
+        } = params.CONFIG ?? VECTOR_FIELD_DEFAULT_CONFIG;
 
-        const CONFIG = { isScaled, isColored };
+        const CONFIG = { isScaled, lineColor, lineWidth };
 
         this.render(CONFIG);
     }
@@ -138,16 +141,18 @@ export class VectorField extends Cubicon {
                         ),
 
                         CONFIG: {
-                            lineColor: CONFIG.isColored
-                                ? hsl(
-                                      reverseHslAngle(
-                                          (magnitude / maxMagnitude) *
-                                              hslUpperLimitAngle
-                                      ),
-                                      1,
-                                      0.5
-                                  ).formatHsl()
-                                : "#fff",
+                            lineColor:
+                                CONFIG.lineColor === "scaled"
+                                    ? hsl(
+                                          reverseHslAngle(
+                                              (magnitude / maxMagnitude) *
+                                                  hslUpperLimitAngle
+                                          ),
+                                          1,
+                                          0.5
+                                      ).formatHsl()
+                                    : CONFIG.lineColor,
+                            lineWidth: CONFIG.lineWidth,
                             arrowWidth: 0.1,
                             arrowHeight: 0.2,
                         },
