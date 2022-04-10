@@ -29,7 +29,7 @@ function graphingFunctions() {
         functionDef: (x) => Math.cos(x),
         color: COLOR.CYAN,
     });
-    const tex = axes.addGraphLabel(cos, "cos(x)");
+    const tex = axes.addGraphLabel(cos, "cos(x)", 7);
     const pt = axes.pointToCoords(cos, 2);
     group.play([new Create({ cubicon: cos }), new Write({ cubicon: tex })]);
     group.play([
