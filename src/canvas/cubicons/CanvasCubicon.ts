@@ -1,3 +1,5 @@
+import generateToken from "@utils/generateToken";
+
 import { Vector3 } from "@math/vector";
 
 import { CanvasGroup } from "@group/CanvasGroup";
@@ -18,6 +20,11 @@ export abstract class CanvasCubicon {
      * Scale the position vector of this cubicon by this number.
      */
     scaleFactor: number;
+
+    /**
+     * Token string for this cubicon.
+     */
+    token = generateToken();
 
     constructor(params: {
         group: CanvasGroup;
