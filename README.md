@@ -26,37 +26,43 @@
 
 </p>
 
-### Name Explanation
+Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous graphical capabilities of [p5.js](https://github.com/processing/p5.js) library to create a visual representation of math concepts.
 
-Imagine that a 3d cube multiply by itself two times— That's it!
+Though Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_ written in Python, it's not a port or a re-implementation of the engine. Cubecubed specifically focuses on playing dynamic animations right on the browser, with the intensive use of SVG and HTML Canvas.
 
-## Installation
+Cubecubed believes the best way to learn and discover math is through the combining process of visualizations and deductive reasoning. If we write math on paper, why don't we write it on a computer?
+
+## 💤 Name Explanation
+
+Imagine that a 3d cube multiply by itself two times — That's it!
+
+## 💡 Initialize Project
+
+Getting started with Cubecubed is easily easy, you can run either
 
 ```sh
-npm i cubecubed --save
+npx cubecubed
 ```
 
-## Quick Start
+or
 
-See this [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart) page.
+```sh
+npx ccw # `ccw` stands for "create Cubecubed workspace".
+```
 
-## Documentation
+## 🚀 Quick Start
 
-Documentation website is [here](https://imaphatduc.github.io/cubecubed). (finally!)
+To get started with Cubecubed, see this [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart) page.
 
-## Credits
+## 🔎 Documentation
 
-Cubecubed is built on top of [D3](https://github.com/d3/d3), a marvelous data visualization library, using its powerful SVG manipulation system, along with some [Manim](https://github.com/3b1b/manim)'s animation concepts.
+Documentation website is [here](https://imaphatduc.github.io/cubecubed)!
 
-## Inspiration
+## ✨ Contributing
 
-Cubecubed is deeply inspired by [3b1b/manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_, as described on its GitHub repo.
+Whether you have great feature ideas in mind or recognize bugs, feel free to contribute to Cubecubed. Any contribution to the Cubecubed is appreciated. Please read [contributing guidelines](https://github.com/imaphatduc/cubecubed/blob/master/CONTRIBUTING.md) before raising an issue or submitting a pull request. With every contribution, we are striving to make Cubecubed better.
 
-## Contributing
-
-Cubecubed is currently just a work in progress. Any contribution is appreciated.
-
-## Contributors
+## 🥳 Stargazers
 
 Big thanks to all of these awesome people.
 
@@ -64,15 +70,6 @@ Big thanks to all of these awesome people.
   <img src="https://contrib.rocks/image?repo=imaphatduc/cubecubed" />
 </a>
 
-Made with [contrib.rocks](https://contrib.rocks).
+## ❄️ License
 
-## TODO
-
--   [ ] Input & error handling.
--   [x] Use [KaTeX](https://github.com/KaTeX/KaTeX) for rendering math text.
--   [x] Implement sleep method (apply sleep times between animations).
--   [ ] Write a documentation page.
--   [x] Vector visualization.
--   [ ] Matrix transformation.
--   [ ] Create 3d scene (a.k.a. projecting 3d scene into 2d SVG canvas).
--   [x] A way to let the users customize animation time
+This project falls under the [MIT license](https://github.com/imaphatduc/cubecubed/blob/master/LICENSE).
