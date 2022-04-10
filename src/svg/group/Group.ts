@@ -214,16 +214,18 @@ export class Group {
     }
 
     /**
-     * Remove a cubicon from this group.
+     * Remove cubicons from this group.
      *
-     * @param cubicon The cubicon to remove.
+     * @param cubicons An array of cubicons to remove.
      */
-    remove(cubicon: TYPES) {
-        cubicon.def_cubiconBase
-            .transition()
-            .delay(this.groupElapsed)
-            .duration(0)
-            .remove();
+    remove(cubicons: TYPES[]) {
+        cubicons.forEach((cubicon) => {
+            cubicon.def_cubiconBase
+                .transition()
+                .delay(this.groupElapsed)
+                .duration(0)
+                .remove();
+        });
     }
 
     /**
