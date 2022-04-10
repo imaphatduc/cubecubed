@@ -5,6 +5,8 @@ export { EASE_TYPE } from "@consts";
 export { SCENE_CONFIG } from "@scene/Scene";
 
 // Groups
+export { GROUP_MAKEUP_CONFIG } from "@group/Group";
+
 export { ANIMATIONS_INFO } from "@group/CanvasGroup";
 
 // Cubicons
