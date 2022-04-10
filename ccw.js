@@ -40,17 +40,14 @@ const writePackageJson = (raw, prop) => {
 /**
  * Clone Cubecubed repo.
  */
-const clone = (haveExample) => {
+const clone = () => {
     console.log("Initializing Cubecubed workspace...");
 
     exec(`git clone --depth 1 ${repo}`, () => {
+        execSync(`cp ${initFolder}/favicon.svg ./`);
         execSync(`cp ${initFolder}/index.html ./`);
         execSync(`cp ${initFolder}/style.css ./`);
-        execSync(`cp ${initFolder}/favicon.svg ./`);
-
-        if (haveExample) {
-            execSync(`cp ${initFolder}/example.js ./`);
-        }
+        execSync(`cp ${initFolder}/example.js ./`);
 
         execSync(`rm -rf ${project}`);
     });
@@ -65,15 +62,8 @@ const prompt = () => {
                 message: "Do you want to install vite to run local server?",
                 default: true,
             },
-            {
-                type: "confirm",
-                name: "example",
-                message: "Do you want to include the example scene?",
-                default: true,
-            },
         ])
         .then((answers) => {
-            console.log("Installing Cubecubed...");
             exec(`npm i ${project}`);
 
             let raw;
@@ -84,7 +74,7 @@ const prompt = () => {
                 throw err;
             }
 
-            clone(answers["example"]);
+            clone();
 
             if (answers["vite"]) {
                 console.log("Installing vite...");
