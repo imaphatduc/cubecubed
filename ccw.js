@@ -6,7 +6,9 @@ const inquirer = require("inquirer");
 
 const repo = "https://github.com/imaphatduc/cubecubed.git";
 const project = "cubecubed";
-const initFolder = "cubecubed/init";
+
+const initFolder = `${project}/init`;
+const assetsFolder = `${project}/assets`;
 
 /**
  * Example prop object:
@@ -44,9 +46,9 @@ const clone = () => {
     console.log("Initializing Cubecubed workspace...");
 
     exec(`git clone --depth 1 ${repo}`, () => {
-        execSync(`cp ${initFolder}/favicon.svg ./`);
+        execSync(`cp ${assetsFolder}/svg/favicon.svg ./`);
         execSync(`cp ${initFolder}/index.html ./`);
-        execSync(`cp ${initFolder}/style.css ./`);
+        execSync(`cp ${project}/style.css ./`);
         execSync(`cp ${initFolder}/example.js ./`);
 
         execSync(`rm -rf ${project}`);
