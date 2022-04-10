@@ -41,7 +41,7 @@ export type CREATE_TYPES = CREATE_SHAPE_TYPES | CREATE_LINE_TYPES;
  */
 export type FADE_TYPES = Label | Geometry | MathText;
 
-export class Animation {
+export abstract class Animation {
     /**
      * The target cubicon of this animation.
      */

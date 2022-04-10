@@ -1,4 +1,4 @@
-export class CanvasAnimation {
+export abstract class CanvasAnimation {
     /**
      * The target cubicon of this animation.
      */
