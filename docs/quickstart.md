@@ -105,7 +105,7 @@ const square2 = new Square({
 Whenever you want to play an animation, you need to call `play()` method on the `group` object. This method takes an array (known as a `queue`) as the animations to play. All the animations in the queue will be played asynchronously (in parallel), while the queues themselves are played sequentially.
 
 ```js
-group.play([new Create(square1)]);
+group.play([new Create({ cubicon: square1 })]);
 
 group.play([
     new Create({ cubicon: square2 }),
@@ -115,9 +115,15 @@ group.play([
 
 In the above code, the first queue including a `Create` animation finished before the second queue (`Create` and `Rotate` animations) is played.
 
-### 7. Did you forget something?
+### 7. Did we forget something?
 
-Yes, the imports! Replace the import lines at the top with the following:
+Yes, we have not call the `simpleScene()` function.
+
+```js
+simpleScene();
+```
+
+And the imports! Replace the import lines at the top with the following:
 
 ```js
 import {
@@ -127,10 +133,54 @@ import {
     Square,
     Create,
     Rotate,
-}
+} from "cubecubed";
 ```
 
-### 🍿 Result
+## All code
+
+```js
+import {
+    COLOR,
+    Scene,
+    Group,
+    Square,
+    Create,
+    Rotate,
+} from "cubecubed";
+
+function simpleScene() {
+    const scene = new Scene("simple-scene");
+
+    const group = new Group("squares", scene);
+
+    const square1 = new Square({
+        group: group,
+        sideLength: 2,
+        CONFIG: {
+            strokeColor: COLOR.PINK_1,
+        },
+    }).render();
+
+    const square2 = new Square({
+        group: group,
+        sideLength: 2,
+        CONFIG: {
+            strokeColor: COLOR.PINK_1,
+        },
+    }).render();
+
+    group.play([new Create({ cubicon: square1 })]);
+
+    group.play([
+        new Create({ cubicon: square2 }),
+        new Rotate({ cubicon: square1, degree: 45 }),
+    ]);
+}
+
+simpleScene();
+```
+
+## 🍿 Result
 
 If you followed the above steps, you should see the scene in action.
 
