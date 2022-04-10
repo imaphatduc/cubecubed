@@ -42,7 +42,7 @@ export class StreamLine extends CanvasCubicon {
      * Example of a function defining particle flow in
      * a vector field:
      *
-     * ```
+     * ```ts
      * // Specific delta time
      * const dt = 0.01;
      *
