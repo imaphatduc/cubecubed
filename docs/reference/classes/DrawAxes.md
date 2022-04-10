@@ -28,7 +28,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/DrawAxes.ts:21](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawAxes.ts#L21)
+[src/svg/animations/DrawAxes.ts:21](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/DrawAxes.ts#L21)
 
 ## Properties
 
@@ -44,7 +44,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:7](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L7)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -60,13 +60,13 @@ Animation.duration
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:12](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L12)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L53)
 
 ___
 
 ### ease
 
-• **ease**: `EASE_TYPE`
+• **ease**: [`EASE_TYPE`](/reference/types/EASE_TYPE.md)
 
 The easing function to use.
 
@@ -76,7 +76,7 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:17](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L17)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -96,4 +96,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/DrawAxes.ts:36](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawAxes.ts#L36)
+[src/svg/animations/DrawAxes.ts:36](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/DrawAxes.ts#L36)

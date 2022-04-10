@@ -24,9 +24,9 @@ Animate the smooth motion of a point along a graph.
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
 | `params.duration?` | `number` | Time to play this animation. (in milliseconds) |
-| `params.ease?` | `EASE_TYPE` | Custom easing function for smooth animation. |
+| `params.ease?` | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) | Custom easing function for smooth animation. |
 | `params.graph` | `Graph` | Which graph should the point moving along? |
-| `params.point` | `PT_TO_COORDS_DATA` | The target point object for this animation.  This is the result point after calling Axes().pointOnGraph(args) or Axes().pointToCoords(args). |
+| `params.point` | [`PT_TO_COORDS_DATA`](/reference/types/PT_TO_COORDS_DATA.md) | The target point object for this animation.  This is the result point after calling Axes().pointOnGraph(args) or Axes().pointToCoords(args). |
 | `params.xPos` | `number` | x coordinate of the point's target position. |
 
 #### Overrides
@@ -35,7 +35,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:30](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointAlongGraph.ts#L30)
+[src/svg/animations/PointAlongGraph.ts:32](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/PointAlongGraph.ts#L32)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:7](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L7)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -67,13 +67,13 @@ Animation.duration
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:12](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L12)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L53)
 
 ___
 
 ### ease
 
-• **ease**: `EASE_TYPE`
+• **ease**: [`EASE_TYPE`](/reference/types/EASE_TYPE.md)
 
 The easing function to use.
 
@@ -83,7 +83,7 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:17](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L17)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -103,4 +103,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:65](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/PointAlongGraph.ts#L65)
+[src/svg/animations/PointAlongGraph.ts:67](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/PointAlongGraph.ts#L67)

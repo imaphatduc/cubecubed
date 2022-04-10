@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/constants.ts:27](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/constants.ts#L27)
+[src/constants.ts:30](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/constants.ts#L30)

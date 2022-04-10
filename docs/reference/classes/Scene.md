@@ -20,25 +20,13 @@ Include this scene to HTML flow.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `sceneName` | `string` | Name of the scene. |
-| `CONFIG?` | `SCENE_CONFIG` | - |
+| `CONFIG?` | [`SCENE_CONFIG`](/reference/interfaces/SCENE_CONFIG.md) | - |
 
 #### Defined in
 
-[src/scene/Scene.ts:47](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L47)
+[src/scene/Scene.ts:54](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L54)
 
 ## Properties
-
-### groups
-
-• **groups**: [`Group`](/reference/classes/Group.md)[] = `[]`
-
-List of group included in this scene.
-
-#### Defined in
-
-[src/scene/Scene.ts:40](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L40)
-
-___
 
 ### name
 
@@ -48,7 +36,21 @@ Name of this scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:25](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L25)
+[src/scene/Scene.ts:30](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L30)
+
+___
+
+### sceneElapsed
+
+• **sceneElapsed**: `number` = `0`
+
+The time passed by since this scene was created. (in milliseconds)
+
+> (aka the total time of all the animations of all groups included in this scene)
+
+#### Defined in
+
+[src/scene/Scene.ts:47](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L47)
 
 ___
 
@@ -60,7 +62,7 @@ Height of this scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:35](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L35)
+[src/scene/Scene.ts:40](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L40)
 
 ___
 
@@ -72,22 +74,22 @@ Width of this scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:30](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L30)
+[src/scene/Scene.ts:35](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L35)
 
 ## Methods
 
 ### destroy
 
-▸ **destroy**(`delay`): `void`
+▸ **destroy**(`delay?`): `void`
 
 Fade out and remove this scene away from HTML flow.
 That means, everything in the scene will be removed, too.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `delay` | `number` | Delay (in milliseconds) before destroying this scene. > This delay variable should be tracked by summing all Group().groupElapsed properties of all `Group()`s in this scene. |
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `delay` | `number` | `0` | Delay (in milliseconds) before destroying this scene. > This delay variable should be tracked by summing all Group().groupElapsed properties of all `Group()`s in this scene. |
 
 #### Returns
 
@@ -95,4 +97,4 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/scene/Scene.ts:63](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/scene/Scene.ts#L63)
+[src/scene/Scene.ts:70](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L70)

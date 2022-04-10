@@ -1,31 +1,28 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / ParametricCurve
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / VectorShape
 
-# Class: ParametricCurve
-
-Generate a 2d curve.
+# Class: VectorShape
 
 ## Hierarchy
 
 - `Geometry`
 
-  ↳ **`ParametricCurve`**
+  ↳ **`VectorShape`**
 
 ## Constructors
 
 ### constructor
 
-• **new ParametricCurve**(`params`)
+• **new VectorShape**(`params`)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `params` | `Object` |
-| `params.CONFIG` | [`LINE_CONFIG`](/reference/interfaces/LINE_CONFIG.md) |
-| `params.dt?` | `number` |
-| `params.group` | [`Group`](/reference/classes/Group.md) |
-| `params.tRange` | [`number`, `number`] |
-| `params.functionDef` | (`t`: `number`) => [`Vector2`](/reference/classes/Vector2.md) |
+| Name | Type | Description |
+| :------ | :------ | :------ |
+| `params` | `Object` | - |
+| `params.CONFIG?` | [`VECTOR_CONFIG`](/reference/interfaces/VECTOR_CONFIG.md) | Config options of the vector line. |
+| `params.endPoint` | [`Vector2`](/reference/classes/Vector2.md) | End point (head) of the vector. |
+| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the vector belongs to. |
+| `params.startPoint?` | [`Vector2`](/reference/classes/Vector2.md) | Start point (tail) of the vector. |
 
 #### Overrides
 
@@ -33,7 +30,7 @@ Geometry.constructor
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:24](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L24)
+[src/svg/cubicons/geometry/VectorShape.ts:40](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L40)
 
 ## Properties
 
@@ -54,6 +51,26 @@ Geometry.angle
 
 ___
 
+### arrowHeight
+
+• `Readonly` **arrowHeight**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/VectorShape.ts:38](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L38)
+
+___
+
+### arrowWidth
+
+• `Readonly` **arrowWidth**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/VectorShape.ts:37](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L37)
+
+___
+
 ### cubType
 
 • `Readonly` **cubType**: ``"geometry"``
@@ -65,6 +82,16 @@ Geometry.cubType
 #### Defined in
 
 [src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L77)
+
+___
+
+### def\_arrowHead
+
+• **def\_arrowHead**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/VectorShape.ts:35](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L35)
 
 ___
 
@@ -81,6 +108,28 @@ Geometry.def\_cubiconBase
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L51)
+
+___
+
+### def\_lineStroke
+
+• **def\_lineStroke**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/VectorShape.ts:34](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L34)
+
+___
+
+### endPoint
+
+• `Readonly` **endPoint**: [`Vector2`](/reference/classes/Vector2.md)
+
+End point (head) of the vector.
+
+#### Defined in
+
+[src/svg/cubicons/geometry/VectorShape.ts:27](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L27)
 
 ___
 
@@ -112,30 +161,6 @@ Geometry.fillOpacity
 
 ___
 
-### functionDef
-
-• **functionDef**: (`t`: `number`) => [`Vector2`](/reference/classes/Vector2.md)
-
-#### Type declaration
-
-▸ (`t`): [`Vector2`](/reference/classes/Vector2.md)
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `t` | `number` |
-
-##### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:20](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L20)
-
-___
-
 ### g\_cubiconWrapper
 
 • **g\_cubiconWrapper**: `any`
@@ -154,7 +179,9 @@ ___
 
 ### geoType
 
-• `Readonly` **geoType**: ``"parametric-curve"``
+• `Readonly` **geoType**: ``"vector"``
+
+Geometry type of the vector.
 
 #### Overrides
 
@@ -162,7 +189,7 @@ Geometry.geoType
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:16](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L16)
+[src/svg/cubicons/geometry/VectorShape.ts:17](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L17)
 
 ___
 
@@ -242,16 +269,6 @@ Geometry.moveVector
 
 ___
 
-### points
-
-• **points**: [`Vector2`](/reference/classes/Vector2.md)[]
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:18](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L18)
-
-___
-
 ### position
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
@@ -266,6 +283,18 @@ Geometry.position
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L20)
+
+___
+
+### startPoint
+
+• `Readonly` **startPoint**: [`Vector2`](/reference/classes/Vector2.md)
+
+Start point (tail) of the vector.
+
+#### Defined in
+
+[src/svg/cubicons/geometry/VectorShape.ts:23](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L23)
 
 ___
 
@@ -313,13 +342,15 @@ Geometry.svg\_group
 
 ___
 
-### tRange
+### theta
 
-• **tRange**: [`number`, `number`]
+• **theta**: `number`
+
+The smaller angle (in degree) between the vector and the x axis.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:22](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L22)
+[src/svg/cubicons/geometry/VectorShape.ts:32](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L32)
 
 ## Methods
 
@@ -365,43 +396,15 @@ Geometry.coordsGtoW
 
 ___
 
-### getFirstOutputPoint
+### getWpoint
 
-▸ **getFirstOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
-
-#### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:89](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L89)
-
-___
-
-### getLastOutputPoint
-
-▸ **getLastOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
-
-#### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:93](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L93)
-
-___
-
-### getOutputVector
-
-▸ **getOutputVector**(`t`): [`Vector2`](/reference/classes/Vector2.md)
+▸ **getWpoint**(`point`): [`Vector2`](/reference/classes/Vector2.md)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `t` | `number` |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
 
@@ -409,18 +412,18 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:85](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L85)
+[src/svg/cubicons/geometry/VectorShape.ts:85](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L85)
 
 ___
 
 ### render
 
-▸ **render**(): [`ParametricCurve`](/reference/classes/ParametricCurve.md)
+▸ **render**(): [`VectorShape`](/reference/classes/VectorShape.md)
 
 #### Returns
 
-[`ParametricCurve`](/reference/classes/ParametricCurve.md)
+[`VectorShape`](/reference/classes/VectorShape.md)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L48)
+[src/svg/cubicons/geometry/VectorShape.ts:89](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/VectorShape.ts#L89)

@@ -57,4 +57,4 @@ Example Usage: EASE.POLY_IN
 
 #### Defined in
 
-[src/constants.ts:104](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/constants.ts#L104)
+[src/constants.ts:107](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/constants.ts#L107)

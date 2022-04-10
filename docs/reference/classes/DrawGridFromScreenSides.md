@@ -26,7 +26,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/DrawGrid.ts:210](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawGrid.ts#L210)
+[src/svg/animations/DrawGrid.ts:25](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/DrawGrid.ts#L25)
 
 ## Properties
 
@@ -42,7 +42,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:7](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L7)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -58,13 +58,13 @@ Animation.duration
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:12](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L12)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L53)
 
 ___
 
 ### ease
 
-• **ease**: `EASE_TYPE`
+• **ease**: [`EASE_TYPE`](/reference/types/EASE_TYPE.md)
 
 The easing function to use.
 
@@ -74,7 +74,7 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:17](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/Animation.ts#L17)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -94,7 +94,7 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/DrawGrid.ts:400](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawGrid.ts#L400)
+[src/svg/animations/DrawGrid.ts:195](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/DrawGrid.ts#L195)
 
 ___
 
@@ -114,4 +114,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/DrawGrid.ts:241](https://github.com/imaphatduc/cubecubed/blob/1251e31/src/svg/animations/DrawGrid.ts#L241)
+[src/svg/animations/DrawGrid.ts:44](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/DrawGrid.ts#L44)
