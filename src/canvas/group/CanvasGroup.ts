@@ -246,7 +246,7 @@ export class CanvasGroup {
      *
      * @param cubicons Cubicons to be rendered every animation frame.
      *
-     * @param animations Animations to be played every animation frame.
+     * @param animationsInfo Information about the animations to be played every animation frame.
      */
     private update(p: p5, cubicons: any[], animationsInfo: any[]) {
         cubicons.forEach((cubicon) => {
