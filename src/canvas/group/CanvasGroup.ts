@@ -297,4 +297,20 @@ export class CanvasGroup {
 
         this.scene.sceneElapsed = this.groupElapsed;
     }
+
+    /**
+     * Remove cubicons from this group.
+     *
+     * @param cubicons An array of cubicons to remove.
+     */
+    remove(cubicons: CanvasCubicon[]) {
+        setTimeout(() => {
+            cubicons.forEach((cubicon) => {
+                this.cubicons.splice(
+                    this.cubicons.findIndex((c) => c.token === cubicon.token),
+                    1
+                );
+            });
+        }, this.groupElapsed);
+    }
 }
