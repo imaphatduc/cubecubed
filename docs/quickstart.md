@@ -2,12 +2,7 @@
 
 # Quick Start
 
-## Installation
-
-```sh
-npm i cubecubed --save
-```
-## Initialize Project
+## 💡 Initialize Project
 
 Run either
 
@@ -18,190 +13,127 @@ npx cubecubed
 or
 
 ```sh
-npx ccw
+npx ccw # `ccw` stands for "create Cubecubed workspace".
 ```
 
-## Setting Scenes
+After running the above command, you need to follow the prompt instructions.
 
-To set a scene in Cubecubed, we need to understand some terms first.
+When the initialization process is complete, you should see a sample Cubecubed project with the following directory structure:
+
+```
+├── favicon.svg
+├── index.html
+├── style.css
+├── example.js
+```
+
+If you choose `Y (yes)` for the `vite` installation prompt, you just need to run `npm run dev` to preview the example scene. If not, you can use the development server of your choice.
+
+Next will be the tutorial to how scenes in a Cubecubed project is set. But before jumping right in, we need to understand some terms first.
 
 ### Cubicons
 
-`Cubicon`s are nuclear objects of a scene, such as geometry shapes (squares and circles). Don't misunderstand them with 3d cubes, which are things that cubecubed has not applied to its functionality.
+`Cubicon`s can be any math-related objects, such as geometry shapes (squares and circles) or math formulas. Don't misunderstand them with 3d cubes, which are things that Cubecubed has not applied to its functionality.
 
 ### Scenes and Groups
 
-View `Scene`s and `Group`s like so: an animation video is made up of scenes, each scene includes different groups.
+View `Scene`s and `Group`s like so: an animation video is made up of scenes, each scene includes different groups. It is recommended to have only one scene in a single file.
 
-To make it easier to understand, consider this example: you solved some math problems, and you want to make a video to explain all your solutions to others. In `scene`#1, you proved "square root of 2 is irrational", `scene`#2 is the solution of a logarithm equation, and so on. In scene#1, there are two groups: `group` problem ("prove square root of 2 is irrational") and `group` solution (steps to solve it), each stands separately to the other.
+To make it easier to understand, consider this example: you solved some math problems, and you want to make a video to explain all your solutions to others. In the first `scene`, you proved "square root of 2 is irrational", `scene` two is the solution of a logarithm equation, and so on.
+In `scene` one, there are two groups: `group` problem (prove square root of 2 is irrational) and `group` solution (steps to solve it), one stands separately to the other.
 
 There are two things to keep in mind:
 
 -   A cubicon must be in a group, and a group must belong to a scene.
--   Groups in the same scene animate asynchronously.
 
-### The Animation Engine
+-   Groups in the same scene animate synchronously, which means one after another.
 
-Below are the steps to set an animation scene:
+Now we are ready to move on to the fun part.
 
-#### 1. Import animation type and initialize the main scene (svg#viz):
+## 🚀 Setting Scenes
+
+### 1. Import `Scene` and `Group` objects from cubecubed:
 
 ```js
-import {
-    Scene,
-    Group,
-    Square,
-    Circle,
-    Vector2,
-    COLOR,
-    Create,
-    Translate,
-    Rotate,
-} from "cubecubed";
+import { Scene, Group } from "cubecubed";
 ```
 
-#### 2. By convention, each scene should be placed in a function for easier management:
+### 2. By convention, scenes should be placed in first-class functions for easier management:
 
 ```js
 function simpleScene() {}
 ```
 
-Codes in the following steps are in simpleScene().
+Codes in the following steps are in `simpleScene` function.
 
-#### 3. Create a scene (this scene will be the child of svg#viz):
+### 3. Create a scene (this scene will be the child of svg#viz):
 
 ```js
 const scene = new Scene("simple-scene");
 ```
 
-#### 4. Create a group and append that group to a scene:
+### 4. Create a group and attach that group to the initialized `scene`:
 
 ```js
-const group = new Group("shapes", scene);
+const group = new Group("squares", scene);
 ```
 
-#### 5. Create cubicon(s) in group:
+### 5. Create cubicon objects in `group`:
+
+As mentioned before, each cubicon must be in a group. When initializing a cubicon, you need to call `render()` method in order to render it on the screen.
 
 ```js
-/// Remember to initialize each cubicon with a group
-/// Cubicons append to the <svg id="viz"></svg> by default.
-const square = new Square({
+const square1 = new Square({
     group: group,
     sideLength: 2,
-});
+    CONFIG: {
+        strokeColor: COLOR.PINK_1,
+    },
+}).render();
 
-const circle = new Circle({
+const square2 = new Square({
     group: group,
-    position: new Vector2(1, 3),
-    radius: 1,
-    fillColor: COLOR.PURPLE_1,
-    fillOpacity: 0.5,
-    strokeColor: COLOR.PINK_1,
-    strokeWidth: 2,
-});
+    sideLength: 2,
+    CONFIG: {
+        strokeColor: COLOR.PINK_1,
+    },
+}).render();
 ```
 
-#### 6. Animate the cubicon(s)!
+### 6. Animate the cubicons!
+
+Whenever you want to play an animation, you need to call `play()` method on the `group` object. This method takes an array (known as a `queue`) as the animations to play. All the animations in the queue will be played asynchronously (in parallel), while the queues themselves are played sequentially.
 
 ```js
-/// group.play() method takes an array as the animation queue.
-/// The target cubicons will be animated concurrently.
-group.play([new Create(square), new Create(circle)]);
+group.play([new Create(square1)]);
 
-/// Note that when a cubicon appears multiple times in the same queue,
-// its animations will be applied synchronously.
-scene.play([new Translate(square), new Rotate(square, 45)]);
+group.play([
+    new Create({ cubicon: square2 }),
+    new Rotate({ cubicon: square1, degree: 45 }),
+]);
 ```
 
-### Example Scene
+In the above code, the first queue including a `Create` animation finished before the second queue (`Create` and `Rotate` animations) is played.
+
+### 7. Did you forget something?
+
+Yes, the imports! Replace the import lines at the top with the following:
 
 ```js
 import {
     COLOR,
-    Create,
-    DrawGridFromOrigin,
-    Grid,
-    Group,
-    Rotate,
     Scene,
+    Group,
     Square,
-    Vector,
-    Vector2,
-} from "cubecubed";
-
-/// This variable keeps track of the time goes by during the animations
-/// We'll use this to control time, so don't forget to include it to your code
-let elapsed = 0;
-
-/// By convention, each function implements the animations in each scene...
-function drawShapes() {
-    const scene = new Scene("draw-shapes");
-
-    /// ...And groups should be inside functions
-    function squares() {
-        const squares = new Group("squares", scene);
-
-        const square1 = new Square({
-            group: squares,
-            sideLength: 2,
-            strokeColor: COLOR.PINK_1,
-        });
-
-        squares.play([new Create({ cubicon: square1 })]);
-
-        const square2 = new Square({
-            group: squares,
-            sideLength: 2,
-            strokeColor: COLOR.PINK_1,
-        });
-
-        squares.play([
-            new Create({ cubicon: square2 }),
-            new Rotate({ cubicon: square1, degree: 45 }),
-        ]);
-
-        /// Set elapsed
-        elapsed = squares.groupElapsed;
-    }
-
-    function vectors() {
-        const vectors = new Group("vectors", scene);
-
-        const vector = new Vector({
-            group: vectors,
-            endPoint: new Vector2(2, 3),
-            vectColor: COLOR.TEAL_1,
-        });
-
-        /// wait for the previous group's animations to complete, then start this group's ones
-        vectors.sleep(elapsed);
-
-        vectors.play([new Create({ cubicon: vector })]);
-
-        elapsed = vectors.groupElapsed;
-    }
-
-    squares();
-    vectors();
+    Create,
+    Rotate,
 }
-
-function animatePlaneGrid() {
-    const scene = new Scene("animate-plane-grid");
-
-    const planeGridGroup = new Group("plane-grid-group", scene);
-
-    const grid = new Grid({ group: planeGridGroup, hasNums: true });
-
-    planeGridGroup.sleep(elapsed - 2000);
-    planeGridGroup.play([new DrawGridFromOrigin(grid)]);
-
-    elapsed = planeGridGroup.groupElapsed;
-}
-
-drawShapes();
-animatePlaneGrid();
 ```
 
-#### Result
+### 🍿 Result
 
-![](./_media/videos/output.mp4 ':include :type=video controls width=100% autoplay loop')
+If you followed the above steps, you should see the scene in action.
+
+![](./_media/videos/simpleScene.mp4 ":include :type=video controls width=100% autoplay loop")
+
+See [here](https://github.com/imaphatduc/cubecubed/blob/master/init/example.js) for an extended version of this example.
