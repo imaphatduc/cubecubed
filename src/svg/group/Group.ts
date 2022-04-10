@@ -210,6 +210,8 @@ export class Group {
      */
     sleep(milliseconds: number) {
         this.groupElapsed += milliseconds;
+
+        this.scene.sceneElapsed = this.groupElapsed;
     }
 
     /**

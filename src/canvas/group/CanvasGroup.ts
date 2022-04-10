@@ -286,4 +286,15 @@ export class CanvasGroup {
 
         this.scene.sceneElapsed = this.groupElapsed;
     }
+
+    /**
+     * Sleep this group for an amount of time.
+     *
+     * @param milliseconds The time to sleep.
+     */
+    sleep(milliseconds: number) {
+        this.groupElapsed += milliseconds;
+
+        this.scene.sceneElapsed = this.groupElapsed;
+    }
 }
