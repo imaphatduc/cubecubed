@@ -45,6 +45,10 @@ function vectorFieldSimulation() {
         });
 
         group.play([new DrawVectorField({ cubicon: vectorField })]);
+
+        group.makeup({ opacity: 0.5 }, 1000);
+
+        group.sleep(1000);
     }
 
     function flowField() {
@@ -64,7 +68,7 @@ function vectorFieldSimulation() {
                         maxVertices: 20,
                         CONFIG: {
                             strokeColor: "#5e2eff",
-                            strokeWidth: 2,
+                            strokeWidth: 1,
                         },
                     })
                 );
@@ -76,7 +80,6 @@ function vectorFieldSimulation() {
 
             return new SimulateStream({
                 cubicon: streamline,
-                duration: 10000,
             });
         });
 
