@@ -1,8 +1,8 @@
 # Showcase
 
-## Getting Started Scene
+## Example Scene
 
-![](./_media/videos/output.mp4 ':include :type=video controls width=100% autoplay loop')
+![](./_media/videos/example.mp4 ':include :type=video controls width=100% autoplay loop')
 
 ## Graphing
 
