@@ -151,7 +151,8 @@ export class CanvasGroup {
                 this.canvas_group = p
                     .createCanvas(p.windowWidth, p.windowHeight)
                     .parent("#cubecubed")
-                    .attribute("id", "canvas-viz");
+                    .attribute("id", this.name)
+                    .attribute("class", "group");
 
                 p.noFill();
             };
