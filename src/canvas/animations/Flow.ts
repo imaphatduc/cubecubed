@@ -10,7 +10,7 @@ export type TransformationFunction = (position: Vector3) => Vector3;
 
 /**
  * Move a cubicon based on the specified function to
- * create an invisible flow. The image of the last
+ * create an invisible flow. The instance of the last
  * animation frame's cubicon will be removed from the
  * scene.
  *
