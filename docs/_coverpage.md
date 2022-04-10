@@ -1,7 +1,7 @@
 <p align="center">
   <img
     width="500"
-    src="./_media/svgs/cubed-horizontal.svg"
+    src="./assets/svg/cubed-horizontal.svg"
     align="center" hspace="12"
     alt="Cubecubed - A Math Visualization Engine"
   />
@@ -16,4 +16,4 @@
 
 <!-- background color -->
 
-![color](linear-gradient(0.25turn,#d31dde99,#560bff99))
+![color](<linear-gradient(0.25turn,#d31dde99,#560bff99)>)

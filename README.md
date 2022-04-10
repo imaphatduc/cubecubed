@@ -3,7 +3,7 @@
 <p align="center">
   <img
     width="500"
-    src="./graphics/svg/cubed-horizontal.svg"
+    src="./assets/svg/cubed-horizontal.svg"
     align="center" hspace="12"
     alt="Cubecubed - A Math Visualization Engine"
   />
