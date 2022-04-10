@@ -6,6 +6,10 @@ import { Scene } from "@scene/Scene";
 
 import { TYPES } from "@animations/Animation";
 
+export interface GROUP_MAKEUP_CONFIG {
+    opacity: number;
+}
+
 /**
  * The dad/mom object of every pack of objects in the visualization.
  *
@@ -241,5 +245,18 @@ export class Group {
             .duration(500)
             .style("opacity", 0)
             .remove();
+    }
+
+    /**
+     * @param MAKEUP_CONFIG Config for the makeup function.
+     *
+     * @param duration Time to play the makeup animation. (in milliseconds)
+     */
+    makeup(MAKEUP_CONFIG: GROUP_MAKEUP_CONFIG, duration = 0) {
+        this.svg_group
+            .transition()
+            .delay(this.groupElapsed)
+            .duration(duration)
+            .style("opacity", MAKEUP_CONFIG.opacity);
     }
 }
