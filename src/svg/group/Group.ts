@@ -5,7 +5,6 @@ import { Selection, select } from "d3";
 import { Scene } from "@scene/Scene";
 
 import { TYPES } from "@animations/Animation";
-import { FadeOut } from "@animations/FadeOut";
 
 /**
  * The dad/mom object of every pack of objects in the visualization.
@@ -220,9 +219,6 @@ export class Group {
      * @param cubicon The cubicon to remove.
      */
     remove(cubicon: TYPES) {
-        if (cubicon.cubType === "geometry") {
-            cubicon.group.play([new FadeOut({ cubicon: cubicon })]);
-        }
         cubicon.def_cubiconBase
             .transition()
             .delay(this.groupElapsed)
@@ -236,7 +232,7 @@ export class Group {
      *
      * @param delay Delay (in milliseconds) before destroying this scene.
      */
-    destroy(delay: number) {
+    destroy(delay = 0) {
         this.svg_group
             .transition()
             .delay(this.groupElapsed + delay)

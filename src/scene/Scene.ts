@@ -1,8 +1,6 @@
 import { select } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Group } from "@group/Group";
-
 export interface SCENE_CONFIG {
     /**
      * @default window.innerWidth
@@ -69,11 +67,11 @@ export class Scene {
      * @param delay Delay (in milliseconds) before destroying this scene.
      * > This delay variable should be tracked by summing all Group().groupElapsed properties of all `Group()`s in this scene.
      */
-    destroy(delay: number) {
+    destroy(delay = 0) {
         select("#cubecubed")
             .selectAll(".group")
             .transition()
-            .delay(delay)
+            .delay(this.sceneElapsed + delay)
             .duration(500)
             .style("opacity", 0)
             .remove();
