@@ -58,7 +58,9 @@ Now we are ready to move on to the fun part.
 import { Scene, Group } from "cubecubed";
 ```
 
-### 2. By convention, scenes should be placed in first-class functions for easier management:
+### 2. Implement Cubecubed engine
+
+By convention, scenes should be placed in first-class functions for easier management:
 
 ```js
 function simpleScene() {}
@@ -66,13 +68,15 @@ function simpleScene() {}
 
 Codes in the following steps are in `simpleScene` function.
 
-### 3. Create a scene (this scene will be the child of svg#viz):
+### 3. Create a scene
 
 ```js
 const scene = new Scene("simple-scene");
 ```
 
-### 4. Create a group and attach that group to the initialized `scene`:
+### 4. Create a group
+
+Attach that group to the initialized `scene`:
 
 ```js
 const group = new Group("squares", scene);
@@ -117,13 +121,13 @@ In the above code, the first queue including a `Create` animation finished befor
 
 ### 7. Did we forget something?
 
-Yes, we have not call the `simpleScene()` function.
+Yes, we have not call the `simpleScene()` function...
 
 ```js
 simpleScene();
 ```
 
-And the imports! Replace the import lines at the top with the following:
+...and the imports! Replace the import lines at the top with the following:
 
 ```js
 import {
