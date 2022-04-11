@@ -19,7 +19,6 @@
     "files": [
         "dist/**/*",
         "src/**/*",
-        "init/",
         "ccw.js",
         "package.json",
         "README.md"
