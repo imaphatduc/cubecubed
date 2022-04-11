@@ -184,6 +184,6 @@ simpleScene();
 
 If you followed the above steps, you should see the scene in action.
 
-![](./_media/videos/simpleScene.mp4 ":include :type=video controls width=100% autoplay loop")
+![](./assets/videos/simpleScene.mp4 ":include :type=video controls width=100% autoplay loop")
 
 See [here](https://github.com/imaphatduc/cubecubed/blob/master/init/example.js) for an extended version of this example.
