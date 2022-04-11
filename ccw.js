@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 
-const { readFileSync, writeFile, existsSync } = require("fs");
+const { readFileSync, writeFile, existsSync, mkdirSync } = require("fs");
 const { exec, execSync } = require("child_process");
+const path = require("path");
 const inquirer = require("inquirer");
 
 const repo = "https://github.com/imaphatduc/cubecubed.git";
@@ -100,6 +101,37 @@ const prompt = () => {
 };
 
 function init() {
+    if (process.argv.length < 3) {
+        console.log("Please provide a project name.");
+        console.log("Example:");
+        console.log("   npx ccw my-workspace");
+        console.log("or");
+        console.log("   npx cubecubed my-workspace");
+
+        process.exit(1);
+    }
+
+    const projectName = process.argv[2];
+    const currentPath = process.cwd();
+
+    const projectPath = path.join(currentPath, projectName);
+
+    try {
+        mkdirSync(projectPath);
+    } catch (err) {
+        if (err.code === "EEXIST") {
+            console.log(
+                `The file ${projectName} already exist in the current directory, please give it another name.`
+            );
+        } else {
+            console.log(error);
+        }
+
+        process.exit(1);
+    }
+
+    process.chdir(projectPath);
+
     if (!existsSync("package.json")) {
         console.log("package.json file not detected. Creating...");
 
