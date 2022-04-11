@@ -10,11 +10,6 @@
   <h1 align="center">Cubecubed - A Math Visualization Engine</h1>
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
-          <img src="https://img.shields.io/npm/v/cubecubed?style=for-the-badge&logo=npm" />
-    </a>
-  </p>
-  <p align="center">
-    <a href="https://www.npmjs.com/package/cubecubed">
       <img src="https://img.shields.io/badge/d3.js-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white" />
       <img src="https://img.shields.io/badge/p5.js-DE235B?style=for-the-badge&logo=p5.js&logoColor=white" />
       <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
@@ -23,7 +18,11 @@
       <img src="https://img.shields.io/badge/prettier-1A2C34?style=for-the-badge&logo=prettier&logoColor=F7BA3E" />
     </a>
   </p>
-
+  <p align="center">
+    <a href="https://www.npmjs.com/package/cubecubed">
+          <img src="https://img.shields.io/npm/v/cubecubed?style=flat-square&logo=npm" />
+    </a>
+  </p>
 </p>
 
 Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous graphical capabilities of [p5.js](https://github.com/processing/p5.js) library to create a visual representation of math concepts.
