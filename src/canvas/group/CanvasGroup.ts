@@ -41,6 +41,8 @@ export class CanvasGroup {
      */
     name: string;
 
+    private type: "2d" | "3d" = "2d";
+
     /**
      * List of cubicons included in this group.
      */
@@ -135,10 +137,12 @@ export class CanvasGroup {
      *
      * @param scene The scene that the group belongs to.
      */
-    constructor(groupName: string, scene: Scene) {
+    constructor(groupName: string, scene: Scene, type: "2d" | "3d" = "2d") {
         this.scene = scene;
 
         this.name = groupName;
+
+        this.type = type;
 
         this.defineBoundsAndSquares(this.ratio);
 
@@ -149,7 +153,11 @@ export class CanvasGroup {
         const sketch = (p: p5) => {
             p.setup = () => {
                 this.canvas_group = p
-                    .createCanvas(p.windowWidth, p.windowHeight)
+                    .createCanvas(
+                        p.windowWidth,
+                        p.windowHeight,
+                        this.type === "3d" ? "webgl" : "p2d"
+                    )
                     .parent("#cubecubed")
                     .attribute("id", this.name)
                     .attribute("class", "group");
@@ -158,10 +166,16 @@ export class CanvasGroup {
             };
 
             p.draw = () => {
-                p.translate(p.width / 2, p.height / 2);
-                p.scale(1, -1);
-
                 p.background(0);
+
+                if (this.type === "2d") {
+                    p.translate(p.width / 2, p.height / 2);
+                    p.scale(1, -1);
+                }
+
+                if (this.type === "3d") {
+                    p.orbitControl();
+                }
 
                 this.update(p, this.cubicons, this.animationsInfo);
             };
