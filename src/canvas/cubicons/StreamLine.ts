@@ -19,7 +19,7 @@ const STREAMLINE_DEFAULT_CONFIG: STREAMLINE_CONFIG = {
     strokeWidth: 2,
 };
 
-export type TransformationFunction = (position: Vector3) => Vector3;
+export type VectorFunction = (position: Vector3) => Vector3;
 
 /**
  * Render a continuous flow based on mathematical function
@@ -39,26 +39,16 @@ export class StreamLine extends CanvasCubicon {
      * object as both input and output. The `Vector3()`
      * output object is the cubicon's position at next frame.
      *
-     * Example of a function defining particle flow in
-     * a vector field:
+     * Example of a function defining a vector field:
      *
      * ```ts
-     * // Specific delta time
-     * const dt = 0.01;
-     *
-     * const sineField = ({ x, y, z }: Vector3) => {
-     *     const dx = Math.sin(y);
-     *     const dy = Math.sin(x);
-     *
-     *     x += dx * dt;
-     *     y += dy * dt;
-     *
-     *     return new Vector3(x, y, z);
+     * const sineField = ({ x, y, z })
+     *     => new Vector3(Math.sin(y), Math.sin(x), z);
      * }
-     * ```
      *
+     * ```
      */
-    functionDef: TransformationFunction;
+    functionDef: VectorFunction;
 
     /**
      * `maxVertices` vertices of the stream line curve.
@@ -96,9 +86,15 @@ export class StreamLine extends CanvasCubicon {
          */
         scaleFactor?: number;
         /**
+         * Speed when changing the position of the stream line.
+         *
+         * @default 0.01
+         */
+        dt?: number;
+        /**
          * The function to change the cubicon's position at each frame.
          */
-        functionDef: TransformationFunction;
+        functionDef: VectorFunction;
         /**
          * Maximum number of vertices for the stream line.
          *
@@ -118,7 +114,21 @@ export class StreamLine extends CanvasCubicon {
             scaleFactor: params.scaleFactor ?? 1,
         });
 
-        this.functionDef = params.functionDef;
+        this.functionDef = ({ x, y, z }) => {
+            const dt = params.dt ?? 0.01;
+
+            const v = new Vector3(x, y, z);
+
+            const dx = params.functionDef(v).x;
+            const dy = params.functionDef(v).y;
+            const dz = params.functionDef(v).z;
+
+            x += dx * dt;
+            y += dy * dt;
+            z += dz * dt;
+
+            return new Vector3(x, y, z);
+        };
 
         this.vertices.push(this.position);
 

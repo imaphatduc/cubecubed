@@ -6,7 +6,7 @@ import { Particle } from "@cubicons/Particle";
 
 export type FLOW_TYPES = Particle;
 
-export type TransformationFunction = (position: Vector3) => Vector3;
+export type VectorFunction = (position: Vector3) => Vector3;
 
 /**
  * Move a cubicon based on the specified function to
@@ -29,22 +29,13 @@ export class Flow extends CanvasAnimation {
      * a vector field:
      *
      * ```ts
-     * // Specific delta time
-     * const dt = 0.01;
-     *
-     * const sineField = ({ x, y, z }: Vector3) => {
-     *     const dx = Math.sin(y);
-     *     const dy = Math.sin(x);
-     *
-     *     x += dx * dt;
-     *     y += dy * dt;
-     *
-     *     return new Vector3(x, y, z);
+     * const sineField = ({ x, y, z })
+     *     => new Vector3(Math.sin(y), Math.sin(x), z);
      * }
      * ```
      *
      */
-    functionDef: TransformationFunction;
+    functionDef: VectorFunction;
 
     constructor(params: {
         /**
@@ -52,9 +43,15 @@ export class Flow extends CanvasAnimation {
          */
         cubicon: FLOW_TYPES;
         /**
+         * Speed when changing the position of the stream line.
+         *
+         * @default 0.01
+         */
+        dt?: number;
+        /**
          * The function to change the cubicon's position at each frame.
          */
-        functionDef: TransformationFunction;
+        functionDef: VectorFunction;
         /**
          * Time to play this animation. (in milliseconds)
          *
@@ -67,7 +64,21 @@ export class Flow extends CanvasAnimation {
             duration: params.duration ?? 0,
         });
 
-        this.functionDef = params.functionDef;
+        this.functionDef = ({ x, y, z }) => {
+            const dt = params.dt ?? 0.01;
+
+            const v = new Vector3(x, y, z);
+
+            const dx = params.functionDef(v).x;
+            const dy = params.functionDef(v).y;
+            const dz = params.functionDef(v).z;
+
+            x += dx * dt;
+            y += dy * dt;
+            z += dz * dt;
+
+            return new Vector3(x, y, z);
+        };
     }
 
     /**
