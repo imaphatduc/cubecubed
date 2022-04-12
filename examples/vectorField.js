@@ -18,16 +18,6 @@ const dt = 0.1;
 function vectorFieldSimulation() {
     const scene = new Scene("visualize-2d-vector-field");
 
-    const sineField = ({ x, y, z }) => {
-        const dx = Math.sin(y);
-        const dy = Math.sin(x);
-
-        x += dx * dt;
-        y += dy * dt;
-
-        return new Vector3(x, y, z);
-    };
-
     function vectorField() {
         const group = new Group("vector-field", scene);
 
@@ -36,7 +26,7 @@ function vectorFieldSimulation() {
 
         const vectorField = new VectorField({
             group: group,
-            functionDef: (pos) => new Vector2(Math.sin(pos.y), Math.sin(pos.x)),
+            functionDef: ({ x, y }) => new Vector2(Math.sin(y), Math.sin(x)),
             CONFIG: {
                 isScaled: true,
                 lineColor: "scaled",
@@ -64,7 +54,9 @@ function vectorFieldSimulation() {
                     new StreamLine({
                         group: group,
                         position: new Vector3(x, y, 0),
-                        functionDef: sineField,
+                        dt: dt,
+                        functionDef: ({ x, y, z }) =>
+                            new Vector3(Math.sin(y), Math.sin(x), z),
                         maxVertices: 20,
                         CONFIG: {
                             strokeColor: "#5e2eff",
