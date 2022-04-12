@@ -154,7 +154,7 @@ export class StreamLine extends CanvasCubicon {
      * @internal
      */
     render(p: any) {
-        const { xGtoW, yGtoW } = this.group;
+        const { xGtoW, yGtoW, zGtoW } = this.group;
 
         const { strokeColor, strokeWidth } = this.CONFIG;
 
@@ -165,7 +165,8 @@ export class StreamLine extends CanvasCubicon {
         this.vertices.forEach((vertex) => {
             p.curveVertex(
                 xGtoW(vertex.x) * this.scaleFactor,
-                yGtoW(vertex.y) * this.scaleFactor
+                yGtoW(vertex.y) * this.scaleFactor,
+                zGtoW(vertex.z) * this.scaleFactor
             );
         });
         p.endShape();
