@@ -14,8 +14,6 @@ function lorenzAttractorSimulation() {
     const rho = 28;
     const beta = 8 / 3;
 
-    const dt = 0.01;
-
     const getRandomInt = (min, max) => {
         min = Math.ceil(min);
         max = Math.floor(max);
@@ -28,11 +26,7 @@ function lorenzAttractorSimulation() {
         const dy = x * (rho - z) - y;
         const dz = x * y - beta * z;
 
-        x += dx * dt;
-        y += dy * dt;
-        z += dz * dt;
-
-        return new Vector3(x, y, z);
+        return new Vector3(dx, dy, dz);
     };
 
     const lorenzSystemParticles = [...Array(1000)].map(
