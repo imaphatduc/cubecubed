@@ -44,6 +44,7 @@ export { CanvasGroup } from "./canvas/group/CanvasGroup";
 // Canvas cubicons
 export { Particle } from "./canvas/cubicons/Particle";
 export { StreamLine } from "./canvas/cubicons/StreamLine";
+export { Axes3D } from "./canvas/cubicons/Axes3D";
 
 // Canvas animations
 export { Flow } from "./canvas/animations/Flow";
