@@ -35,11 +35,6 @@ export class Axes3D extends CanvasCubicon {
      */
     zRange: [number, number];
 
-    /**
-     * Whether the axes include numbers
-     */
-    hasNums: boolean;
-
     constructor(params: {
         /**
          * The group that the stream line belongs to.
@@ -52,12 +47,6 @@ export class Axes3D extends CanvasCubicon {
          */
         position?: Vector3;
         /**
-         * Scale the position vector of the stream line by this number.
-         *
-         * @default 1
-         */
-        scaleFactor?: number;
-        /**
          * Config options for the axes.
          */
         CONFIG?: AXES3D_CONFIG;
@@ -65,7 +54,7 @@ export class Axes3D extends CanvasCubicon {
         super({
             group: params.group,
             position: params.position ?? new Vector3(0, 0, 0),
-            scaleFactor: params.scaleFactor ?? 1,
+            scaleFactor: 1,
         });
 
         ({
