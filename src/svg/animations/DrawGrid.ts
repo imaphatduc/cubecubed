@@ -62,15 +62,15 @@ export class DrawGridFromScreenSides extends Animation {
             .data(grid.yNumberRange)
             .enter()
             .append("line")
-            .attr("x1", xGtoW(xBound[0] - 1))
+            .attr("x1", xGtoW(xBound[0]))
             .attr("y1", (d: number) => yGtoW(d))
-            .attr("x2", xGtoW(xBound[0] - 1))
+            .attr("x2", xGtoW(xBound[0]))
             .attr("y2", (d: number) => yGtoW(d))
             .transition()
             .ease(this.ease)
             .delay((d: number) => sleepTime + this.xDelayEach * Math.abs(d))
             .duration(this.drawX)
-            .attr("x2", xGtoW(xBound[1] + 1))
+            .attr("x2", xGtoW(xBound[1]))
             .attr("stroke", (d: number) =>
                 xGtoW(d) === 0 ? grid.xAxesColor : grid.lineColor
             )
@@ -93,7 +93,7 @@ export class DrawGridFromScreenSides extends Animation {
             .attr("id", "x-axis-numbers");
         xAxisNumbers
             .selectAll("foreignObject.x-axis-number")
-            .data(grid.xNumberRange.slice(2, grid.xNumberRange.length - 2))
+            .data(grid.xNumberRange.slice(1, grid.xNumberRange.length - 1))
             .enter()
             .each((d: number) => {
                 xAxisNumbers
@@ -132,9 +132,9 @@ export class DrawGridFromScreenSides extends Animation {
             .enter()
             .append("line")
             .attr("x1", (d: number) => xGtoW(d))
-            .attr("y1", yGtoW(yBound[0] - 1))
+            .attr("y1", yGtoW(yBound[0]))
             .attr("x2", (d: number) => xGtoW(d))
-            .attr("y2", yGtoW(yBound[0] - 1))
+            .attr("y2", yGtoW(yBound[0]))
             .transition()
             .ease(this.ease)
             .delay(
@@ -142,7 +142,7 @@ export class DrawGridFromScreenSides extends Animation {
                     this.drawYDelay + sleepTime + this.yDelayEach * Math.abs(d)
             )
             .duration(this.drawY)
-            .attr("y2", yGtoW(yBound[1] + 1))
+            .attr("y2", yGtoW(yBound[1]))
             .attr("stroke", (d: number) =>
                 yGtoW(d) === 0 ? grid.yAxesColor : grid.lineColor
             )
