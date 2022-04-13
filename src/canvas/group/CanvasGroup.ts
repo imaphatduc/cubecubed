@@ -175,6 +175,7 @@ export class CanvasGroup {
 
                 if (this.type === "3d") {
                     p.orbitControl();
+                    p.rotateX(p.PI / 2);
                 }
 
                 this.update(p, this.cubicons, this.animationsInfo);
