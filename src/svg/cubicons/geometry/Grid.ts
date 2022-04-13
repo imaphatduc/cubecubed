@@ -32,7 +32,7 @@ export class Grid extends Geometry {
     /**
      * Numbers marked on the x axis.
      */
-    xNumberRange = range(this.group.xBound[0] - 1, this.group.xBound[1] + 2, 1);
+    xNumberRange = range(this.group.xBound[0], this.group.xBound[1] + 1, 1);
     /**
      * Numbers marked on the y axis.
      */
