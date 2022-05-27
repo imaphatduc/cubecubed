@@ -2,7 +2,7 @@
 
 If you find any of these section below hard to understand, feel free to start a conversation to Discussion GitHub section and I'll explain it for you.
 
-Many thanks to everyone who was or is contributing to Cubecubed. 🥳🎉
+Many thanks to everyone who was and is contributing to Cubecubed. 🥳🎉
 
 ### New Features
 
