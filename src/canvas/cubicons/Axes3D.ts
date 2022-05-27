@@ -5,18 +5,24 @@ import { Vector3 } from "@math/vector";
 
 import { CanvasGroup } from "@group/CanvasGroup";
 import { CanvasCubicon } from "./CanvasCubicon";
-import { COLOR } from "@consts";
+import { Graph3D } from "./Graph3D";
 
 export interface AXES3D_CONFIG {
     xRange: [number, number];
     yRange: [number, number];
     zRange: [number, number];
+    xAxisColor: string;
+    yAxisColor: string;
+    zAxisColor: string;
 }
 
 const DEFAULT_AXES3D_CONFIG: AXES3D_CONFIG = {
     xRange: [0, 0],
     yRange: [0, 0],
     zRange: [0, 0],
+    xAxisColor: "#fff",
+    yAxisColor: "#fff",
+    zAxisColor: "#fff",
 };
 
 export class Axes3D extends CanvasCubicon {
@@ -34,6 +40,21 @@ export class Axes3D extends CanvasCubicon {
      * Range of the z axis.
      */
     zRange: [number, number];
+
+    /**
+     * Color of the x axis.
+     */
+    xAxisColor: string;
+
+    /**
+     * Color of the y axis.
+     */
+    yAxisColor: string;
+
+    /**
+     * Color of the z axis.
+     */
+    zAxisColor: string;
 
     constructor(params: {
         /**
@@ -61,6 +82,9 @@ export class Axes3D extends CanvasCubicon {
             xRange: this.xRange = DEFAULT_AXES3D_CONFIG.xRange,
             yRange: this.yRange = DEFAULT_AXES3D_CONFIG.yRange,
             zRange: this.zRange = DEFAULT_AXES3D_CONFIG.zRange,
+            xAxisColor: this.xAxisColor = DEFAULT_AXES3D_CONFIG.xAxisColor,
+            yAxisColor: this.yAxisColor = DEFAULT_AXES3D_CONFIG.yAxisColor,
+            zAxisColor: this.zAxisColor = DEFAULT_AXES3D_CONFIG.zAxisColor,
         } = params.CONFIG ?? DEFAULT_AXES3D_CONFIG);
     }
 
@@ -71,6 +95,7 @@ export class Axes3D extends CanvasCubicon {
         const markerWidth = 8;
         const markerHeight = 15;
 
+        p.stroke("#fff");
         p.strokeWeight(1);
 
         this.drawXAxis(p, markerWidth, markerHeight);
@@ -83,7 +108,7 @@ export class Axes3D extends CanvasCubicon {
 
         const { xRange } = this;
 
-        p.stroke(COLOR.RED_1);
+        p.stroke(this.xAxisColor);
 
         p.beginShape();
         p.vertex(xGtoW(xRange[0] - 1), 0, 0);
@@ -113,7 +138,7 @@ export class Axes3D extends CanvasCubicon {
 
         const { yRange } = this;
 
-        p.stroke(COLOR.GREEN_1);
+        p.stroke(this.yAxisColor);
 
         p.beginShape();
         p.vertex(0, yGtoW(yRange[0] - 1), 0);
@@ -143,7 +168,7 @@ export class Axes3D extends CanvasCubicon {
 
         const { zRange } = this;
 
-        p.stroke(COLOR.BLUE_1);
+        p.stroke(this.zAxisColor);
 
         p.beginShape();
         p.vertex(0, 0, zGtoW(zRange[0] - 1));
@@ -166,5 +191,34 @@ export class Axes3D extends CanvasCubicon {
             p.vertex(0, 0, zGtoW(zRange[1] + 1) + markerHeight);
         }
         p.endShape();
+    }
+
+    graph(params: {
+        /**
+         * Function of the graph.
+         */
+        functionDef: (x: number, y: number) => number;
+        /**
+         * x range of the graph.
+         */
+        xRange?: [number, number];
+        /**
+         * x range of the graph.
+         */
+        yRange?: [number, number];
+        /**
+         * Color of the graph.
+         */
+        color?: string;
+    }) {
+        return new Graph3D({
+            axes: this,
+            functionDef: params.functionDef,
+            xRange: params.xRange ?? this.xRange,
+            yRange: params.yRange ?? this.yRange,
+            CONFIG: {
+                graphColor: params.color,
+            },
+        });
     }
 }
