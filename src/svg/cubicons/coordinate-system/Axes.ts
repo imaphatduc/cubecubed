@@ -31,13 +31,11 @@ export type PT_TO_COORDS_DATA = {
 export interface AXES_CONFIG {
     xRange: [number, number];
     yRange: [number, number];
-    yLength: number;
     hasNums: boolean;
 }
 const DEFAULT_AXES_CONFIG: AXES_CONFIG = {
     xRange: [0, 0],
     yRange: [0, 0],
-    yLength: 50,
     hasNums: false,
 };
 
@@ -51,10 +49,12 @@ export class Axes extends CoordinateSystem {
      * Range of the x axis.
      */
     xRange: [number, number];
+
     /**
      * Range of the y axis.
      */
     yRange: [number, number];
+
     /**
      * Whether the axes include numbers
      */
@@ -64,6 +64,7 @@ export class Axes extends CoordinateSystem {
      * Scale function of the x axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
      */
     xScale: ScaleLinear<number, number, never>;
+
     /**
      * Scale function of the y axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
      */
@@ -73,10 +74,12 @@ export class Axes extends CoordinateSystem {
      * The `<svg/>` element that contains the axes.
      */
     g_axes: any;
+
     /**
      * The `<svg/>` element that contains the x axis.
      */
     xAxis: any;
+
     /**
      * The `<svg/>` element that contains the y axis.
      */
