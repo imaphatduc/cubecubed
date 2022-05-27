@@ -83,7 +83,7 @@ export class MathText extends Cubicon {
             .substring(7)
             .toUpperCase();
         this.def_cubiconBase = g_cubiconWrapper
-            .append("svg")
+            .append("g")
             .attr("font-size", this.fontSize);
         this.def_cubiconBase.node().innerHTML = htmlString;
         this.def_cubiconBase
