@@ -5,6 +5,8 @@ export { Vector2, Vector3 } from "./math/vector";
 
 export { Scene } from "./scene/Scene";
 
+export { Recorder } from "./recorder/Recorder";
+
 // SVG group
 export { Group } from "./svg/group/Group";
 
