@@ -1,11 +1,16 @@
 import { select, Selection } from "d3-selection";
 
-export type VideoRecipe = () => void;
+type VideoRecipe = () => void;
 
 export class Recorder {
-    recipe: VideoRecipe;
+    private recipe: VideoRecipe;
 
-    videoElement: Selection<HTMLVideoElement, unknown, HTMLElement, any>;
+    private videoElement: Selection<
+        HTMLVideoElement,
+        unknown,
+        HTMLElement,
+        any
+    >;
 
     constructor(recipe: VideoRecipe) {
         this.recipe = recipe;
