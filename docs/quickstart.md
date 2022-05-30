@@ -190,4 +190,22 @@ If you followed the above steps, you should see the scene in action.
 
 ![](./assets/videos/simpleScene.mp4 ":include :type=video controls width=100% autoplay loop")
 
+## Video exports!
+
+Now you have a dynamic scene playing directly on the browser, but if you want to export it to a video file, what can you do? Well, you just need to create a `Recorder` object like so:
+
+```js
+import { Recorder } from "cubecubed"
+
+const recorder = new Recorder(simpleScene);
+```
+
+Then, call `start()` method on the recorder object to start recording.
+
+```js
+recorder.start();
+```
+
+Now, you can follow the browser instructions intuitively and it will automatically download the video file.
+
 See [here](https://github.com/imaphatduc/cubecubed/blob/master/init/example.js) for an extended version of this example.
