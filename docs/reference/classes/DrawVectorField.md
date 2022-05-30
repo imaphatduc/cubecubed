@@ -31,7 +31,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/DrawVectorField.ts:13](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/DrawVectorField.ts#L13)
+[src/svg/animations/DrawVectorField.ts:13](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/DrawVectorField.ts#L13)
 
 ## Properties
 
@@ -47,7 +47,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -63,7 +63,7 @@ Animation.duration
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -79,7 +79,7 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -99,4 +99,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/DrawVectorField.ts:34](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/DrawVectorField.ts#L34)
+[src/svg/animations/DrawVectorField.ts:34](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/DrawVectorField.ts#L34)

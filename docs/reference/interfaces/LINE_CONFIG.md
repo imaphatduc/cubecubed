@@ -22,7 +22,7 @@ If this is not specified, then fall back to all of the default values.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:45](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L45)
+[src/svg/cubicons/geometry/Geometry.ts:45](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L45)
 
 ___
 
@@ -34,4 +34,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:49](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L49)
+[src/svg/cubicons/geometry/Geometry.ts:49](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L49)

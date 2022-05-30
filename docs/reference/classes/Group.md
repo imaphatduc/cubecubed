@@ -28,7 +28,7 @@ Include this group to HTML flow.
 
 #### Defined in
 
-[src/svg/group/Group.ts:99](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L99)
+[src/svg/group/Group.ts:103](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L103)
 
 ## Properties
 
@@ -42,7 +42,7 @@ The time passed by since this group was created. (in milliseconds)
 
 #### Defined in
 
-[src/svg/group/Group.ts:90](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L90)
+[src/svg/group/Group.ts:94](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L94)
 
 ___
 
@@ -54,7 +54,7 @@ Name of this group.
 
 #### Defined in
 
-[src/svg/group/Group.ts:33](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L33)
+[src/svg/group/Group.ts:37](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L37)
 
 ___
 
@@ -66,7 +66,7 @@ Ratio between square length in x direction and y direction.
 
 #### Defined in
 
-[src/svg/group/Group.ts:53](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L53)
+[src/svg/group/Group.ts:57](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L57)
 
 ___
 
@@ -78,7 +78,7 @@ The scene that this group belongs to.
 
 #### Defined in
 
-[src/svg/group/Group.ts:23](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L23)
+[src/svg/group/Group.ts:27](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L27)
 
 ___
 
@@ -90,7 +90,7 @@ Length of a square in this scene.
 
 #### Defined in
 
-[src/svg/group/Group.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L48)
+[src/svg/group/Group.ts:52](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L52)
 
 ___
 
@@ -102,7 +102,7 @@ The `<svg/>` element that represents this group.
 
 #### Defined in
 
-[src/svg/group/Group.ts:28](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L28)
+[src/svg/group/Group.ts:32](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L32)
 
 ___
 
@@ -114,7 +114,7 @@ x coordinate bound values of this scene.
 
 #### Defined in
 
-[src/svg/group/Group.ts:58](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L58)
+[src/svg/group/Group.ts:62](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L62)
 
 ___
 
@@ -126,7 +126,7 @@ Convert x value of grid coordinates to real-world coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:68](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L68)
+[src/svg/group/Group.ts:72](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L72)
 
 ___
 
@@ -138,7 +138,7 @@ Number of squares in the x direction.
 
 #### Defined in
 
-[src/svg/group/Group.ts:38](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L38)
+[src/svg/group/Group.ts:42](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L42)
 
 ___
 
@@ -150,7 +150,7 @@ Convert x value of real-world coordinates to grid coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:78](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L78)
+[src/svg/group/Group.ts:82](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L82)
 
 ___
 
@@ -162,7 +162,7 @@ y coordinate bound values of this scene.
 
 #### Defined in
 
-[src/svg/group/Group.ts:63](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L63)
+[src/svg/group/Group.ts:67](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L67)
 
 ___
 
@@ -174,7 +174,7 @@ Convert y value of grid coordinates to real-world coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:73](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L73)
+[src/svg/group/Group.ts:77](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L77)
 
 ___
 
@@ -186,7 +186,7 @@ Number of squares in the x direction.
 
 #### Defined in
 
-[src/svg/group/Group.ts:43](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L43)
+[src/svg/group/Group.ts:47](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L47)
 
 ___
 
@@ -198,7 +198,7 @@ Convert y value of real-world coordinates to grid coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:83](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L83)
+[src/svg/group/Group.ts:87](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L87)
 
 ## Methods
 
@@ -221,7 +221,28 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/svg/group/Group.ts:237](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L237)
+[src/svg/group/Group.ts:241](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L241)
+
+___
+
+### makeup
+
+▸ **makeup**(`MAKEUP_CONFIG`, `duration?`): `void`
+
+#### Parameters
+
+| Name | Type | Default value | Description |
+| :------ | :------ | :------ | :------ |
+| `MAKEUP_CONFIG` | [`GROUP_MAKEUP_CONFIG`](/reference/interfaces/GROUP_MAKEUP_CONFIG.md) | `undefined` | Config for the makeup function. |
+| `duration` | `number` | `0` | Time to play the makeup animation. (in milliseconds) |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+[src/svg/group/Group.ts:255](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L255)
 
 ___
 
@@ -243,7 +264,7 @@ Play all the animations included in a queue.
 
 #### Defined in
 
-[src/svg/group/Group.ts:193](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L193)
+[src/svg/group/Group.ts:197](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L197)
 
 ___
 
@@ -265,7 +286,7 @@ Remove cubicons from this group.
 
 #### Defined in
 
-[src/svg/group/Group.ts:221](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L221)
+[src/svg/group/Group.ts:225](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L225)
 
 ___
 
@@ -287,7 +308,7 @@ Render all the specified cubicons on the screen (instead of calling `.render()` 
 
 #### Defined in
 
-[src/svg/group/Group.ts:133](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L133)
+[src/svg/group/Group.ts:137](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L137)
 
 ___
 
@@ -309,4 +330,4 @@ Sleep this group for an amount of time.
 
 #### Defined in
 
-[src/svg/group/Group.ts:210](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/group/Group.ts#L210)
+[src/svg/group/Group.ts:214](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/group/Group.ts#L214)

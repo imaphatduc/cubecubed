@@ -12,7 +12,7 @@
 
 #### Defined in
 
-[src/scene/Scene.ts:12](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L12)
+[src/scene/Scene.ts:12](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/scene/Scene.ts#L12)
 
 ___
 
@@ -24,4 +24,4 @@ ___
 
 #### Defined in
 
-[src/scene/Scene.ts:8](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/scene/Scene.ts#L8)
+[src/scene/Scene.ts:8](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/scene/Scene.ts#L8)

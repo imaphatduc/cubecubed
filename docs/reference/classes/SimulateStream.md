@@ -28,7 +28,7 @@ CanvasAnimation.constructor
 
 #### Defined in
 
-[src/canvas/animations/SimulateStream.ts:8](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/SimulateStream.ts#L8)
+[src/canvas/animations/SimulateStream.ts:8](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/SimulateStream.ts#L8)
 
 ## Properties
 
@@ -44,7 +44,7 @@ CanvasAnimation.cubicon
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/CanvasAnimation.ts#L5)
+[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/CanvasAnimation.ts#L5)
 
 ___
 
@@ -60,7 +60,7 @@ CanvasAnimation.duration
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/CanvasAnimation.ts#L10)
+[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/CanvasAnimation.ts#L10)
 
 ## Methods
 
@@ -76,4 +76,4 @@ CanvasAnimation.duration
 
 #### Defined in
 
-[src/canvas/animations/SimulateStream.ts:29](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/SimulateStream.ts#L29)
+[src/canvas/animations/SimulateStream.ts:29](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/SimulateStream.ts#L29)

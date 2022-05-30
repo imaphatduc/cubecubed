@@ -192,7 +192,7 @@ If you followed the above steps, you should see the scene in action.
 
 ## Video exports!
 
-Now you have a dynamic scene playing directly on the browser, but if you want to export it to a video file, what can you do? Well, you just need to create a `Recorder` object like so:
+Now you have a dynamic scene playing directly on the browser, but if you want to export it to a video file, what can you do? Well, you just need to create a `Recorder` object like so (but remember to remove the `simpleScene()` function call we have before):
 
 ```js
 import { Recorder } from "cubecubed"

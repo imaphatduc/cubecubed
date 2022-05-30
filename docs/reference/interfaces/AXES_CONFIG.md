@@ -10,7 +10,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:35](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/coordinate-system/Axes.ts#L35)
+[src/svg/cubicons/coordinate-system/Axes.ts:34](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/coordinate-system/Axes.ts#L34)
 
 ___
 
@@ -20,17 +20,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:32](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/coordinate-system/Axes.ts#L32)
-
-___
-
-### yLength
-
-• **yLength**: `number`
-
-#### Defined in
-
-[src/svg/cubicons/coordinate-system/Axes.ts:34](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/coordinate-system/Axes.ts#L34)
+[src/svg/cubicons/coordinate-system/Axes.ts:32](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/coordinate-system/Axes.ts#L32)
 
 ___
 
@@ -40,4 +30,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:33](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/coordinate-system/Axes.ts#L33)
+[src/svg/cubicons/coordinate-system/Axes.ts:33](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/coordinate-system/Axes.ts#L33)

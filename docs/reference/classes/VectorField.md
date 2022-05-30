@@ -29,7 +29,7 @@ Cubicon.constructor
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:37](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/VectorField.ts#L37)
+[src/svg/cubicons/VectorField.ts:37](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/VectorField.ts#L37)
 
 ## Properties
 
@@ -46,7 +46,7 @@ Cubicon.angle
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
@@ -60,7 +60,7 @@ Cubicon.cubType
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:25](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/VectorField.ts#L25)
+[src/svg/cubicons/VectorField.ts:25](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/VectorField.ts#L25)
 
 ___
 
@@ -76,7 +76,7 @@ Cubicon.def\_cubiconBase
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -102,7 +102,7 @@ Multivariable function that produces 2d vector field.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/VectorField.ts#L30)
+[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/VectorField.ts#L30)
 
 ___
 
@@ -118,7 +118,7 @@ Cubicon.g\_cubiconWrapper
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L46)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -134,7 +134,7 @@ Cubicon.group
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -150,7 +150,7 @@ Cubicon.moveAngle
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -166,7 +166,7 @@ Cubicon.moveVector
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -183,7 +183,7 @@ Cubicon.position
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L20)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -199,7 +199,7 @@ Cubicon.svg\_group
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L41)
 
 ___
 
@@ -211,7 +211,7 @@ Vector shapes included in the scene.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:35](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/VectorField.ts#L35)
+[src/svg/cubicons/VectorField.ts:35](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/VectorField.ts#L35)
 
 ## Methods
 
@@ -229,4 +229,4 @@ Cubicon.checkIfRendered
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L65)

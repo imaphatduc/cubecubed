@@ -33,7 +33,7 @@ Geometry.constructor
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:24](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L24)
+[src/svg/cubicons/geometry/ParametricCurve.ts:24](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L24)
 
 ## Properties
 
@@ -50,7 +50,7 @@ Geometry.angle
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
@@ -64,7 +64,7 @@ Geometry.cubType
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L77)
+[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L77)
 
 ___
 
@@ -80,7 +80,7 @@ Geometry.def\_cubiconBase
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -94,7 +94,7 @@ Geometry.fillColor
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L82)
+[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L82)
 
 ___
 
@@ -108,7 +108,7 @@ Geometry.fillOpacity
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L83)
+[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L83)
 
 ___
 
@@ -132,7 +132,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:20](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L20)
+[src/svg/cubicons/geometry/ParametricCurve.ts:20](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L20)
 
 ___
 
@@ -148,7 +148,7 @@ Geometry.g\_cubiconWrapper
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L46)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -162,7 +162,7 @@ Geometry.geoType
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:16](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L16)
+[src/svg/cubicons/geometry/ParametricCurve.ts:16](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L16)
 
 ___
 
@@ -178,7 +178,7 @@ Geometry.group
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -192,7 +192,7 @@ Geometry.lineColor
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L88)
+[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L88)
 
 ___
 
@@ -206,7 +206,7 @@ Geometry.lineWidth
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L89)
+[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L89)
 
 ___
 
@@ -222,7 +222,7 @@ Geometry.moveAngle
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -238,7 +238,7 @@ Geometry.moveVector
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -248,7 +248,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:18](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L18)
+[src/svg/cubicons/geometry/ParametricCurve.ts:18](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L18)
 
 ___
 
@@ -265,7 +265,7 @@ Geometry.position
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L20)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -279,7 +279,7 @@ Geometry.strokeColor
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L84)
+[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L84)
 
 ___
 
@@ -293,7 +293,7 @@ Geometry.strokeWidth
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L85)
+[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L85)
 
 ___
 
@@ -309,7 +309,7 @@ Geometry.svg\_group
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L41)
 
 ___
 
@@ -319,7 +319,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:22](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L22)
+[src/svg/cubicons/geometry/ParametricCurve.ts:22](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L22)
 
 ## Methods
 
@@ -337,7 +337,7 @@ Geometry.checkIfRendered
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L65)
 
 ___
 
@@ -361,7 +361,7 @@ Geometry.coordsGtoW
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:98](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/Geometry.ts#L98)
+[src/svg/cubicons/geometry/Geometry.ts:98](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L98)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:89](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L89)
+[src/svg/cubicons/geometry/ParametricCurve.ts:89](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L89)
 
 ___
 
@@ -389,7 +389,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:93](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L93)
+[src/svg/cubicons/geometry/ParametricCurve.ts:93](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L93)
 
 ___
 
@@ -409,7 +409,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:85](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L85)
+[src/svg/cubicons/geometry/ParametricCurve.ts:85](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L85)
 
 ___
 
@@ -423,4 +423,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/cubicons/geometry/ParametricCurve.ts#L48)
+[src/svg/cubicons/geometry/ParametricCurve.ts:48](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/ParametricCurve.ts#L48)

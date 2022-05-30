@@ -32,7 +32,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:16](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Rotate.ts#L16)
+[src/svg/animations/Rotate.ts:16](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Rotate.ts#L16)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Rotate.ts#L14)
+[src/svg/animations/Rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Rotate.ts#L14)
 
 ___
 
@@ -74,7 +74,7 @@ Animation.duration
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -90,7 +90,7 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -110,4 +110,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:42](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Rotate.ts#L42)
+[src/svg/animations/Rotate.ts:42](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Rotate.ts#L42)

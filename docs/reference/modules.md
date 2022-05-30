@@ -5,6 +5,7 @@
 ## Classes
 
 - [Axes](/reference/classes/Axes.md)
+- [Axes3D](/reference/classes/Axes3D.md)
 - [CanvasGroup](/reference/classes/CanvasGroup.md)
 - [Circle](/reference/classes/Circle.md)
 - [Create](/reference/classes/Create.md)
@@ -22,6 +23,7 @@
 - [Particle](/reference/classes/Particle.md)
 - [PointAlongGraph](/reference/classes/PointAlongGraph.md)
 - [PointToCoords](/reference/classes/PointToCoords.md)
+- [Recorder](/reference/classes/Recorder.md)
 - [Rectangle](/reference/classes/Rectangle.md)
 - [Rotate](/reference/classes/Rotate.md)
 - [Scene](/reference/classes/Scene.md)
@@ -39,7 +41,9 @@
 ## Interfaces
 
 - [ANIMATIONS\_INFO](/reference/interfaces/ANIMATIONS_INFO.md)
+- [AXES3D\_CONFIG](/reference/interfaces/AXES3D_CONFIG.md)
 - [AXES\_CONFIG](/reference/interfaces/AXES_CONFIG.md)
+- [GROUP\_MAKEUP\_CONFIG](/reference/interfaces/GROUP_MAKEUP_CONFIG.md)
 - [LINE\_CONFIG](/reference/interfaces/LINE_CONFIG.md)
 - [PARTICLE\_CONFIG](/reference/interfaces/PARTICLE_CONFIG.md)
 - [SCENE\_CONFIG](/reference/interfaces/SCENE_CONFIG.md)

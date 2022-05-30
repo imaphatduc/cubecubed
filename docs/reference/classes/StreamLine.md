@@ -30,7 +30,8 @@ interchangably.
 | :------ | :------ | :------ |
 | `params` | `Object` | An object that contains options to form the stream line. |
 | `params.CONFIG?` | [`STREAMLINE_CONFIG`](/reference/interfaces/STREAMLINE_CONFIG.md) | Config options of the stream line.  **`default`** STREAMLINE_DEFAULT_CONFIG |
-| `params.functionDef` | `TransformationFunction` | The function to change the cubicon's position at each frame. |
+| `params.dt?` | `number` | Speed when changing the position of the stream line.  **`default`** 0.01 |
+| `params.functionDef` | `VectorFunction` | The function to change the cubicon's position at each frame. |
 | `params.group` | [`CanvasGroup`](/reference/classes/CanvasGroup.md) | The group that the stream line belongs to. |
 | `params.maxVertices?` | `number` | Maximum number of vertices for the stream line.  **`default`** 0 |
 | `params.position?` | [`Vector3`](/reference/classes/Vector3.md) | Position of the stream line.  **`default`** Vector3(0, 0, 0) |
@@ -42,7 +43,7 @@ CanvasCubicon.constructor
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:81](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/StreamLine.ts#L81)
+[src/canvas/cubicons/StreamLine.ts:71](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/StreamLine.ts#L71)
 
 ## Properties
 
@@ -54,40 +55,31 @@ Config options of the stream line.
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:76](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/StreamLine.ts#L76)
+[src/canvas/cubicons/StreamLine.ts:66](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/StreamLine.ts#L66)
 
 ___
 
 ### functionDef
 
-• **functionDef**: `TransformationFunction`
+• **functionDef**: `VectorFunction`
 
 The function defining the position of the target
 cubicon. This function should take a `Vector3()`
 object as both input and output. The `Vector3()`
 output object is the cubicon's position at next frame.
 
-Example of a function defining particle flow in
-a vector field:
+Example of a function defining a vector field:
 
 ```ts
-// Specific delta time
-const dt = 0.01;
-
-const sineField = ({ x, y, z }: Vector3) => {
-    const dx = Math.sin(y);
-    const dy = Math.sin(x);
-
-    x += dx * dt;
-    y += dy * dt;
-
-    return new Vector3(x, y, z);
+const sineField = ({ x, y, z })
+    => new Vector3(Math.sin(y), Math.sin(x), z);
 }
+
 ```
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:61](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/StreamLine.ts#L61)
+[src/canvas/cubicons/StreamLine.ts:51](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/StreamLine.ts#L51)
 
 ___
 
@@ -103,7 +95,7 @@ CanvasCubicon.group
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:11](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L11)
+[src/canvas/cubicons/CanvasCubicon.ts:11](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L11)
 
 ___
 
@@ -115,7 +107,7 @@ Maximum number of vertices of the stream line.
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:71](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/StreamLine.ts#L71)
+[src/canvas/cubicons/StreamLine.ts:61](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/StreamLine.ts#L61)
 
 ___
 
@@ -132,7 +124,7 @@ CanvasCubicon.position
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L17)
+[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L17)
 
 ___
 
@@ -148,7 +140,7 @@ CanvasCubicon.scaleFactor
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L22)
+[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L22)
 
 ___
 
@@ -164,7 +156,7 @@ CanvasCubicon.token
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L27)
+[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L27)
 
 ___
 
@@ -176,7 +168,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:66](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/StreamLine.ts#L66)
+[src/canvas/cubicons/StreamLine.ts:56](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/StreamLine.ts#L56)
 
 ## Methods
 
@@ -198,4 +190,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:146](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/StreamLine.ts#L146)
+[src/canvas/cubicons/StreamLine.ts:156](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/StreamLine.ts#L156)

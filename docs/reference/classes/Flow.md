@@ -29,8 +29,9 @@ flow, use `SimulateStream()` instead.
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
 | `params.cubicon` | [`Particle`](/reference/classes/Particle.md) | The target cubicon to play this animation. |
+| `params.dt?` | `number` | Speed when changing the position of the stream line.  **`default`** 0.01 |
 | `params.duration?` | `number` | Time to play this animation. (in milliseconds)  **`default`** 0 |
-| `params.functionDef` | `TransformationFunction` | The function to change the cubicon's position at each frame. |
+| `params.functionDef` | `VectorFunction` | The function to change the cubicon's position at each frame. |
 
 #### Overrides
 
@@ -38,7 +39,7 @@ CanvasAnimation.constructor
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:49](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/Flow.ts#L49)
+[src/canvas/animations/Flow.ts:40](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/Flow.ts#L40)
 
 ## Properties
 
@@ -54,7 +55,7 @@ CanvasAnimation.cubicon
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/CanvasAnimation.ts#L5)
+[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/CanvasAnimation.ts#L5)
 
 ___
 
@@ -70,13 +71,13 @@ CanvasAnimation.duration
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/CanvasAnimation.ts#L10)
+[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/CanvasAnimation.ts#L10)
 
 ___
 
 ### functionDef
 
-• **functionDef**: `TransformationFunction`
+• **functionDef**: `VectorFunction`
 
 The function defining the position of the target
 cubicon. This function should take a `Vector3()`
@@ -87,23 +88,14 @@ Example of a function defining particle flow in
 a vector field:
 
 ```ts
-// Specific delta time
-const dt = 0.01;
-
-const sineField = ({ x, y, z }: Vector3) => {
-    const dx = Math.sin(y);
-    const dy = Math.sin(x);
-
-    x += dx * dt;
-    y += dy * dt;
-
-    return new Vector3(x, y, z);
+const sineField = ({ x, y, z })
+    => new Vector3(Math.sin(y), Math.sin(x), z);
 }
 ```
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:47](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/Flow.ts#L47)
+[src/canvas/animations/Flow.ts:38](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/Flow.ts#L38)
 
 ## Methods
 
@@ -119,4 +111,4 @@ const sineField = ({ x, y, z }: Vector3) => {
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:76](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/animations/Flow.ts#L76)
+[src/canvas/animations/Flow.ts:87](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/animations/Flow.ts#L87)

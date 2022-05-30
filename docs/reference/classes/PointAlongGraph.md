@@ -35,7 +35,7 @@ Animation.constructor
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:32](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/PointAlongGraph.ts#L32)
+[src/svg/animations/PointAlongGraph.ts:32](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/PointAlongGraph.ts#L32)
 
 ## Properties
 
@@ -51,7 +51,7 @@ Animation.cubicon
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -67,7 +67,7 @@ Animation.duration
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -83,7 +83,7 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -103,4 +103,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:67](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/svg/animations/PointAlongGraph.ts#L67)
+[src/svg/animations/PointAlongGraph.ts:67](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/PointAlongGraph.ts#L67)

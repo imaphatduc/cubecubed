@@ -37,7 +37,7 @@ CanvasCubicon.constructor
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:39](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/Particle.ts#L39)
+[src/canvas/cubicons/Particle.ts:39](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/Particle.ts#L39)
 
 ## Properties
 
@@ -49,7 +49,7 @@ Config options of the particle.
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:34](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/Particle.ts#L34)
+[src/canvas/cubicons/Particle.ts:34](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/Particle.ts#L34)
 
 ___
 
@@ -65,7 +65,7 @@ CanvasCubicon.group
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:11](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L11)
+[src/canvas/cubicons/CanvasCubicon.ts:11](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L11)
 
 ___
 
@@ -82,7 +82,7 @@ CanvasCubicon.position
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L17)
+[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L17)
 
 ___
 
@@ -98,7 +98,7 @@ CanvasCubicon.scaleFactor
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L22)
+[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L22)
 
 ___
 
@@ -114,7 +114,7 @@ CanvasCubicon.token
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/CanvasCubicon.ts#L27)
+[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/CanvasCubicon.ts#L27)
 
 ## Methods
 
@@ -136,4 +136,4 @@ CanvasCubicon.token
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:82](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/Particle.ts#L82)
+[src/canvas/cubicons/Particle.ts:82](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/Particle.ts#L82)

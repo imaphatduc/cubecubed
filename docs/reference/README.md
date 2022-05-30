@@ -1,3 +1,5 @@
+cubecubed / [Exports](/reference/modules.md)
+
 <!-- # Cubecubed - A Math Visualization Engine -->
 
 <p align="center">
@@ -27,7 +29,7 @@
 
 Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous graphical capabilities of [p5.js](https://github.com/processing/p5.js) library to create a visual representation of math concepts.
 
-Though Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_ written in Python, it's not a port or a re-implementation of the engine. Cubecubed specifically focuses on playing dynamic animations right on the browser, with the intensive use of SVG and HTML Canvas.
+Though Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_ written in Python, it's not a port or a re-implementation of the engine. Cubecubed specifically focuses on playing dynamic animations right on the browser, with the intensive use of SVG and HTML Canvas. However, you can also export the animations to a video file (head to the [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart?id=video-exports) page for more details).
 
 Cubecubed believes the best way to learn and discover math is through the combining process of visualizations and deductive reasoning. If we write math on paper, why don't we write it on a computer?
 

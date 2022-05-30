@@ -12,7 +12,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:10](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/Particle.ts#L10)
+[src/canvas/cubicons/Particle.ts:10](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/Particle.ts#L10)
 
 ___
 
@@ -24,4 +24,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:14](https://github.com/imaphatduc/cubecubed/blob/db7d6e8/src/canvas/cubicons/Particle.ts#L14)
+[src/canvas/cubicons/Particle.ts:14](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/cubicons/Particle.ts#L14)
