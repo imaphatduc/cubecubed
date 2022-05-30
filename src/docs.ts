@@ -16,6 +16,8 @@ export { PARTICLE_CONFIG } from "@cubicons/Particle";
 
 export { STREAMLINE_CONFIG } from "@cubicons/StreamLine";
 
+export { AXES3D_CONFIG } from "@cubicons/Axes3D";
+
 /// Geometry cubicons
 export {
     SHAPE_CONFIG,
