@@ -23,6 +23,7 @@
         "package.json",
         "README.md"
     ],
+    "types": "dist/index.d.ts",
     "main": "dist/cubecubed.js",
     "module": "dist/cubecubed.module.js",
     "bin": {
@@ -38,7 +39,7 @@
         "tsc": "tsc",
         "tsc:watch": "tsc --watch",
         "docs": "typedoc --hideInPageTOC --allReflectionsHaveOwnDocument && cp -rf ./README.md ./docs/",
-        "build": "vite build",
+        "build": "vite build && tsc",
         "test": "tap test/**/*.test.ts --node-arg=--require=ts-node/register --no-coverage"
     },
     "dependencies": {

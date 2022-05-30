@@ -18,7 +18,7 @@
         "allowJs": true,
         "outDir": "./compile",
         "declaration": true,
-        "declarationDir": "./dist/types",
+        "declarationDir": "./dist",
         "emitDeclarationOnly": true,
         "esModuleInterop": true,
         "forceConsistentCasingInFileNames": true,
