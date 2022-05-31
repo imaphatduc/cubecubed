@@ -30,9 +30,9 @@ You can open an issue with `code typo` label for code typos.
 
 #### But wait, here are some important notes
 
--   Please read `STRUCTURE.md` carefully before making any changes in the code.
+-   Please read [`STRUCTURE.md`](STRUCTURE.md) carefully before making any changes in the code.
 
--   If you create (a) new `Cubicon()` type(s): Before making a pull request, add the result HTML structure (after running your code) to both Tree View and Plain HTML View in `STRUCTURE.md`, then include the new `STRUCTURE.md` to your pull request.
+-   If you create (a) new `Cubicon()` type(s): Before making a pull request, add the result HTML structure (after running your code) to both Tree View and Plain HTML View in [`STRUCTURE.md`](STRUCTURE.md), then include the new [`STRUCTURE.md`](STRUCTURE.md) to your pull request.
 
 ##### Naming Conventions
 
