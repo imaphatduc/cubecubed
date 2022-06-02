@@ -1,6 +1,6 @@
 {
     "name": "cubecubed",
-    "version": "1.2.2",
+    "version": "1.2.3",
     "description": "Play eye-catching math visualization on the web using SVG and Canvas",
     "keywords": [
         "visualization",
