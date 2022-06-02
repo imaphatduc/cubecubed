@@ -6,7 +6,7 @@ import { Particle } from "@cubicons/Particle";
 
 export type FLOW_TYPES = Particle;
 
-export type VectorFunction = (position: Vector3) => Vector3;
+export type FlowVectorFunction = (position: Vector3) => Vector3;
 
 /**
  * Move a cubicon based on the specified function to
@@ -35,7 +35,7 @@ export class Flow extends CanvasAnimation {
      * ```
      *
      */
-    functionDef: VectorFunction;
+    functionDef: FlowVectorFunction;
 
     constructor(params: {
         /**
@@ -51,7 +51,7 @@ export class Flow extends CanvasAnimation {
         /**
          * The function to change the cubicon's position at each frame.
          */
-        functionDef: VectorFunction;
+        functionDef: FlowVectorFunction;
         /**
          * Time to play this animation. (in milliseconds)
          *

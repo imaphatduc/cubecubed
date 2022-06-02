@@ -19,7 +19,7 @@ const STREAMLINE_DEFAULT_CONFIG: STREAMLINE_CONFIG = {
     strokeWidth: 2,
 };
 
-export type VectorFunction = (position: Vector3) => Vector3;
+export type StreamVectorFunction = (position: Vector3) => Vector3;
 
 /**
  * Render a continuous flow based on mathematical function
@@ -48,7 +48,7 @@ export class StreamLine extends CanvasCubicon {
      *
      * ```
      */
-    functionDef: VectorFunction;
+    functionDef: StreamVectorFunction;
 
     /**
      * `maxVertices` vertices of the stream line curve.
@@ -94,7 +94,7 @@ export class StreamLine extends CanvasCubicon {
         /**
          * The function to change the cubicon's position at each frame.
          */
-        functionDef: VectorFunction;
+        functionDef: StreamVectorFunction;
         /**
          * Maximum number of vertices for the stream line.
          *
