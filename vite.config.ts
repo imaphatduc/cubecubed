@@ -20,5 +20,15 @@ export default defineConfig({
             },
             formats: ["cjs", "es", "iife", "umd"],
         },
+        rollupOptions: {
+            external: [
+                "d3",
+                "d3-simple-slider",
+                "inquirer",
+                "katex",
+                "p5",
+                "tex-to-svg",
+            ],
+        },
     },
 });
