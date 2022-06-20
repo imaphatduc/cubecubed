@@ -16,7 +16,7 @@ export default defineConfig({
                 if (format === "iife") return `${meta}.min.js`;
                 if (format === "umd") return `${meta}.js`;
 
-                return;
+                return `${meta}.js`;
             },
             formats: ["cjs", "es", "iife", "umd"],
         },
