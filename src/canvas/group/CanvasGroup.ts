@@ -1,6 +1,14 @@
 import { ScaleLinear, scaleLinear } from "d3-scale";
 
-import p5, { Renderer } from "p5";
+import {
+    AxesHelper,
+    Camera,
+    Clock,
+    PerspectiveCamera,
+    Scene as TScene,
+    WebGLRenderer,
+} from "three";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Scene } from "@scene/Scene";
@@ -32,16 +40,29 @@ export class CanvasGroup {
     scene: Scene;
 
     /**
-     * The `<canvas/>` element that represents this scene.
+     * Three.js Scene object
      */
-    canvas_group: Renderer;
+    threeScene: TScene;
+
+    /**
+     * Three.js Camera object
+     */
+    private camera: Camera;
+
+    /**
+     * Three.js Renderer object
+     */
+    private renderer: WebGLRenderer;
+
+    /**
+     * Three.js OrbitControls object
+     */
+    private controls: OrbitControls;
 
     /**
      * Name of this scene.
      */
     name: string;
-
-    private type: "2d" | "3d" = "2d";
 
     /**
      * List of cubicons included in this group.
@@ -137,12 +158,10 @@ export class CanvasGroup {
      *
      * @param scene The scene that the group belongs to.
      */
-    constructor(groupName: string, scene: Scene, type: "2d" | "3d" = "2d") {
+    constructor(groupName: string, scene: Scene) {
         this.scene = scene;
 
         this.name = groupName;
-
-        this.type = type;
 
         this.defineBoundsAndSquares(this.ratio);
 
@@ -150,39 +169,8 @@ export class CanvasGroup {
 
         this.groupElapsed = scene.sceneElapsed;
 
-        const sketch = (p: p5) => {
-            p.setup = () => {
-                this.canvas_group = p
-                    .createCanvas(
-                        p.windowWidth,
-                        p.windowHeight,
-                        this.type === "3d" ? "webgl" : "p2d"
-                    )
-                    .parent("#cubecubed")
-                    .attribute("id", this.name)
-                    .attribute("class", "group");
-
-                p.noFill();
-            };
-
-            p.draw = () => {
-                p.background(0);
-
-                if (this.type === "2d") {
-                    p.translate(p.width / 2, p.height / 2);
-                    p.scale(1, -1);
-                }
-
-                if (this.type === "3d") {
-                    p.orbitControl();
-                    p.rotateX(p.PI / 2);
-                }
-
-                this.update(p, this.cubicons, this.animationsInfo);
-            };
-        };
-
-        new p5(sketch);
+        this.start();
+        this.update();
     }
 
     private defineBoundsAndSquares(ratio: [number, number, number]) {
@@ -257,29 +245,80 @@ export class CanvasGroup {
             .range(this.zBound);
     }
 
+    private start() {
+        // set scene
+        (() => {
+            this.threeScene = new TScene();
+        })();
+
+        // set camera
+        (() => {
+            this.camera = new PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                1000
+            );
+
+            this.camera.position.z = 5;
+        })();
+
+        // set renderer
+        (() => {
+            this.renderer = new WebGLRenderer({ antialias: true });
+
+            this.renderer.setSize(window.innerWidth, window.innerHeight);
+            document
+                .querySelector("#cubecubed")
+                ?.appendChild(this.renderer.domElement);
+        })();
+
+        // set orbit controls
+        (() => {
+            this.controls = new OrbitControls(
+                this.camera,
+                this.renderer.domElement
+            );
+
+            this.controls.update();
+        })();
+
+        const axesHelper = new AxesHelper(5);
+
+        this.threeScene.add(axesHelper);
+    }
+
     /**
      * `update()` is called every animation frame.
-     *
-     * @param cubicons Cubicons to be rendered every animation frame.
-     *
-     * @param animationsInfo Information about the animations to be played every animation frame.
      */
-    private update(p: p5, cubicons: any[], animationsInfo: any[]) {
-        cubicons.forEach((cubicon) => {
-            cubicon.render(p);
-        });
+    private update() {
+        let t = 0;
 
-        animationsInfo.forEach((animInfo) => {
-            if (p.millis() >= animInfo.start) {
-                if (animInfo.animation.duration > 0) {
-                    if (p.millis() <= animInfo.end) {
-                        animInfo.animation.play();
-                    }
-                } else {
-                    animInfo.animation.play();
+        const clock = new Clock();
+
+        const animate = () => {
+            requestAnimationFrame(animate);
+
+            const elapsedTime = clock.getElapsedTime();
+
+            this.cubicons.forEach((c) => c.geometry.computeVertexNormals());
+
+            this.animationsInfo.forEach((animInfo) => {
+                if (
+                    elapsedTime * 1000 >= animInfo.start &&
+                    elapsedTime * 1000 <= animInfo.end
+                ) {
+                    animInfo.animation.play(t);
                 }
-            }
-        });
+            });
+
+            t += 0.05;
+
+            this.controls.update();
+            this.renderer.render(this.threeScene, this.camera);
+        };
+
+        animate();
     }
 
     /**
