@@ -13,4 +13,8 @@ export abstract class CanvasAnimation {
         this.cubicon = params.cubicon;
         this.duration = params.duration ?? 0;
     }
+
+    play(t: number) {
+        t;
+    }
 }
