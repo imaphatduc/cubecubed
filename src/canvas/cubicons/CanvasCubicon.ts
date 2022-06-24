@@ -3,6 +3,7 @@ import generateToken from "@utils/generateToken";
 import { Vector3 } from "@math/vector";
 
 import { CanvasGroup } from "@group/CanvasGroup";
+import { BufferGeometry, Material, Mesh } from "three";
 
 export abstract class CanvasCubicon {
     /**
@@ -15,6 +16,21 @@ export abstract class CanvasCubicon {
      * This property changed after finishing animations (in real time).
      */
     position: Vector3;
+
+    /**
+     * Geometry of this cubicon.
+     */
+    geometry: BufferGeometry;
+
+    /**
+     * Material of this cubicon.
+     */
+    material: Material;
+
+    /**
+     * Mesh of this cubicon.
+     */
+    mesh: Mesh;
 
     /**
      * Scale the position vector of this cubicon by this number.
