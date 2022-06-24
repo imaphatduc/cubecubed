@@ -48,7 +48,8 @@
         "inquirer": "^8.2.2",
         "katex": "^0.15.1",
         "p5": "^1.4.1",
-        "tex-to-svg": "^0.2.0"
+        "tex-to-svg": "^0.2.0",
+        "three": "^0.141.0"
     },
     "devDependencies": {
         "@types/d3": "^7.1.0",
@@ -56,6 +57,7 @@
         "@types/katex": "^0.11.1",
         "@types/p5": "^1.4.1",
         "@types/tap": "^15.0.5",
+        "@types/three": "^0.141.0",
         "@typescript-eslint/eslint-plugin": "^5.16.0",
         "@typescript-eslint/parser": "^5.16.0",
         "eslint": "^8.12.0",
