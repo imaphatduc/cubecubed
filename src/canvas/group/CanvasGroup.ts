@@ -308,7 +308,7 @@ export class CanvasGroup {
                     elapsedTime * 1000 >= animInfo.start &&
                     elapsedTime * 1000 <= animInfo.end
                 ) {
-                    animInfo.animation.play(t);
+                    animInfo.animation.play(elapsedTime);
                 }
             });
 
