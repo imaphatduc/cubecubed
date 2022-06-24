@@ -65,9 +65,11 @@ export class RevolutionSurface extends CanvasCubicon {
             wireframe: false,
         });
 
-        const graph = new Mesh(this.geometry, this.material);
+        this.mesh = new Mesh(this.geometry, this.material);
 
-        this.group.threeScene.add(graph);
+        this.mesh.rotation.y = Math.PI / 2;
+
+        this.group.threeScene.add(this.mesh);
 
         return this;
     }
