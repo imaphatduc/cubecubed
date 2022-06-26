@@ -15,6 +15,27 @@ import { Vector3 } from "@math/vector";
 import { CanvasGroup } from "@group/CanvasGroup";
 import { CanvasCubicon } from "./CanvasCubicon";
 
+export interface REVOLUTION_SURFACE_CONFIG {
+    /**
+     * @default 100
+     */
+    numCurveVertices: number;
+    /**
+     * @default 100
+     */
+    numRevolVertices: number;
+    /**
+     * @default [0,0]
+     */
+    xRange: [number, number];
+}
+
+export const REVOLUTION_SURFACE_DEFAULT_CONFIG: REVOLUTION_SURFACE_CONFIG = {
+    numCurveVertices: 100,
+    numRevolVertices: 100,
+    xRange: [0, 0],
+};
+
 export type CurveFunction = (x: number) => number;
 
 export class RevolutionSurface extends CanvasCubicon {
@@ -26,13 +47,10 @@ export class RevolutionSurface extends CanvasCubicon {
      */
     functionDef: CurveFunction;
 
-    private width = 5;
-
-    private height = 5;
-
-    numCurveVertices: number;
-
-    numRevolVertices: number;
+    /**
+     * Config options of the revolution surface.
+     */
+    CONFIG: REVOLUTION_SURFACE_CONFIG;
 
     constructor(params: {
         /**
@@ -49,13 +67,28 @@ export class RevolutionSurface extends CanvasCubicon {
          * Function definition of the initial curve.
          */
         functionDef: CurveFunction;
+        /**
+         * Config options of the revolution surface.
+         *
+         * @default REVOLUTION_SURFACE_DEFAULT_CONFIG
+         */
+        CONFIG: REVOLUTION_SURFACE_CONFIG;
     }) {
         super({ group: params.group });
 
         this.functionDef = params.functionDef;
 
-        this.numCurveVertices = 100;
-        this.numRevolVertices = 100;
+        this.CONFIG = {
+            numCurveVertices:
+                params.CONFIG?.numCurveVertices ??
+                REVOLUTION_SURFACE_DEFAULT_CONFIG.numCurveVertices,
+            numRevolVertices:
+                params.CONFIG?.numRevolVertices ??
+                REVOLUTION_SURFACE_DEFAULT_CONFIG.numRevolVertices,
+            xRange:
+                params.CONFIG?.xRange ??
+                REVOLUTION_SURFACE_DEFAULT_CONFIG.xRange,
+        };
     }
 
     /**
@@ -71,23 +104,26 @@ export class RevolutionSurface extends CanvasCubicon {
 
         this.mesh = new Mesh(this.geometry, this.material);
 
-        this.mesh.rotation.y = Math.PI / 2;
-
         this.group.threeScene.add(this.mesh);
 
         return this;
     }
 
     private geometrize() {
+        const { numCurveVertices, numRevolVertices, xRange } = this.CONFIG;
+
+        const width = xRange[1] - xRange[0];
+        const height = 5;
+
         this.geometry = new PlaneGeometry(
-            this.width,
-            this.height,
-            this.numCurveVertices - 1,
-            this.numRevolVertices - 1
+            width,
+            height,
+            numCurveVertices - 1,
+            numRevolVertices - 1
         );
 
         this.geometry.rotateX(0.5 * -Math.PI);
-        this.geometry.translate(this.width / 2 + 0.5, 0, 0);
+        this.geometry.translate(width / 2 + xRange[0], 0, 0);
 
         const vertices = this.geometry.attributes.position;
 
@@ -98,14 +134,15 @@ export class RevolutionSurface extends CanvasCubicon {
         vertices: BufferAttribute | InterleavedBufferAttribute,
         tRatio = 1
     ) {
+        const { numCurveVertices, numRevolVertices } = this.CONFIG;
+
         range(0, vertices.count).forEach((i) => {
-            const revolIndex = Math.floor(i / this.numCurveVertices);
+            const revolIndex = Math.floor(i / numCurveVertices);
 
             const revolOffset = -2;
 
             const theta =
-                revolIndex *
-                ((2 * Math.PI) / (this.numRevolVertices + revolOffset));
+                revolIndex * ((2 * Math.PI) / (numRevolVertices + revolOffset));
 
             const x = vertices.getX(i);
 
