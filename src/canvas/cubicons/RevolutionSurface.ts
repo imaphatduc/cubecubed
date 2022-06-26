@@ -1,6 +1,13 @@
 import { range } from "d3-array";
 
-import { DoubleSide, Mesh, MeshNormalMaterial, PlaneGeometry } from "three";
+import {
+    BufferAttribute,
+    DoubleSide,
+    InterleavedBufferAttribute,
+    Mesh,
+    MeshNormalMaterial,
+    PlaneGeometry,
+} from "three";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector3 } from "@math/vector";
@@ -19,13 +26,13 @@ export class RevolutionSurface extends CanvasCubicon {
      */
     functionDef: CurveFunction;
 
-    width: number;
+    private width = 5;
 
-    height: number;
+    private height = 5;
 
-    widthSegments: number;
+    numCurveVertices: number;
 
-    heightSegments: number;
+    numRevolVertices: number;
 
     constructor(params: {
         /**
@@ -47,11 +54,8 @@ export class RevolutionSurface extends CanvasCubicon {
 
         this.functionDef = params.functionDef;
 
-        this.width = 5;
-        this.height = 5;
-
-        this.widthSegments = 100;
-        this.heightSegments = 200;
+        this.numCurveVertices = 100;
+        this.numRevolVertices = 100;
     }
 
     /**
@@ -78,8 +82,8 @@ export class RevolutionSurface extends CanvasCubicon {
         this.geometry = new PlaneGeometry(
             this.width,
             this.height,
-            this.widthSegments,
-            this.heightSegments
+            this.numCurveVertices - 1,
+            this.numRevolVertices - 1
         );
 
         this.geometry.rotateX(0.5 * -Math.PI);
@@ -87,21 +91,29 @@ export class RevolutionSurface extends CanvasCubicon {
 
         const vertices = this.geometry.attributes.position;
 
-        range(0, vertices.count, this.widthSegments).forEach((i) => {
+        this.setVertices(vertices);
+    }
+
+    setVertices(
+        vertices: BufferAttribute | InterleavedBufferAttribute,
+        tRatio = 1
+    ) {
+        range(0, vertices.count).forEach((i) => {
+            const revolIndex = Math.floor(i / this.numCurveVertices);
+
+            const revolOffset = -2;
+
             const theta =
-                (2 * Math.PI * i) /
-                (this.widthSegments + 1) /
-                (this.heightSegments - 1);
+                revolIndex *
+                ((2 * Math.PI) / (this.numRevolVertices + revolOffset));
 
-            range(i, i + this.widthSegments, 1).forEach((j) => {
-                const x = vertices.getX(j);
+            const x = vertices.getX(i);
 
-                const newY = Math.cos(theta) * this.functionDef(x);
-                const newZ = Math.sin(theta) * this.functionDef(x);
+            const newY = Math.cos(theta * tRatio) * this.functionDef(x);
+            const newZ = Math.sin(theta * tRatio) * this.functionDef(x);
 
-                vertices.setY(j, newY);
-                vertices.setZ(j, newZ);
-            });
+            vertices.setY(i, newY);
+            vertices.setZ(i, newZ);
         });
     }
 }
