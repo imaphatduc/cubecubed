@@ -36,21 +36,21 @@ export class SimulateRevolution extends CanvasAnimation {
 
         const vertices = cubicon.geometry.attributes.position;
 
+        const tRatio = t / (this.duration / 1000);
+
         range(0, vertices.count, widthSegments).forEach((i) => {
             const theta =
                 (2 * Math.PI * i) / (widthSegments + 1) / (heightSegments - 1);
 
-            if (t <= theta) {
-                range(i, i + widthSegments, 1).forEach((j) => {
-                    const x = vertices.getX(j);
+            range(i, i + widthSegments, 1).forEach((j) => {
+                const x = vertices.getX(j);
 
-                    const newY = Math.cos(t) * cubicon.functionDef(x);
-                    const newZ = Math.sin(t) * cubicon.functionDef(x);
+                const newY = Math.cos(theta * tRatio) * cubicon.functionDef(x);
+                const newZ = Math.sin(theta * tRatio) * cubicon.functionDef(x);
 
-                    vertices.setY(j, newY);
-                    vertices.setZ(j, newZ);
-                });
-            }
+                vertices.setY(j, newY);
+                vertices.setZ(j, newZ);
+            });
         });
 
         vertices.needsUpdate = true;
