@@ -28,6 +28,7 @@ export default defineConfig({
                 "katex",
                 "p5",
                 "tex-to-svg",
+                "three",
             ],
         },
     },
