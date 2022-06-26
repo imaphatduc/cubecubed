@@ -292,8 +292,6 @@ export class CanvasGroup {
      * `update()` is called every animation frame.
      */
     private update() {
-        let t = 0;
-
         const clock = new Clock();
 
         const animate = () => {
@@ -311,8 +309,6 @@ export class CanvasGroup {
                     animInfo.animation.play(elapsedTime);
                 }
             });
-
-            t += 0.05;
 
             this.controls.update();
             this.renderer.render(this.threeScene, this.camera);
