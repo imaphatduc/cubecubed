@@ -3,7 +3,6 @@ import { ScaleLinear, scaleLinear } from "d3-scale";
 import {
     AxesHelper,
     Camera,
-    Clock,
     PerspectiveCamera,
     Scene as TScene,
     WebGLRenderer,
@@ -68,11 +67,6 @@ export class CanvasGroup {
      * List of cubicons included in this group.
      */
     cubicons: CanvasCubicon[] = [];
-
-    /**
-     * List of animations played in this group.
-     */
-    animationsInfo: ANIMATIONS_INFO[] = [];
 
     /**
      * Number of squares in the x direction.
@@ -292,23 +286,10 @@ export class CanvasGroup {
      * `update()` is called every animation frame.
      */
     private update() {
-        const clock = new Clock();
-
         const animate = () => {
             requestAnimationFrame(animate);
 
-            const elapsedTime = clock.getElapsedTime();
-
             this.cubicons.forEach((c) => c.geometry.computeVertexNormals());
-
-            this.animationsInfo.forEach((animInfo) => {
-                if (
-                    elapsedTime * 1000 >= animInfo.start &&
-                    elapsedTime * 1000 <= animInfo.end
-                ) {
-                    animInfo.animation.play(elapsedTime);
-                }
-            });
 
             this.controls.update();
             this.renderer.render(this.threeScene, this.camera);
@@ -325,13 +306,9 @@ export class CanvasGroup {
     play(anims: any[]) {
         const queueElapsed = Math.max(...anims.map((anim) => anim.duration));
 
-        this.animationsInfo.push(
-            ...anims.map((anim) => ({
-                animation: anim,
-                start: this.groupElapsed,
-                end: this.groupElapsed + anim.duration,
-            }))
-        );
+        anims.forEach((anim) => {
+            anim.play(this.groupElapsed);
+        });
 
         this.groupElapsed += queueElapsed;
 
