@@ -116,7 +116,8 @@ export class Group {
                     scene.sceneWidth
                 } ${scene.sceneHeight}`
             )
-            .attr("transform", "scale(1, -1)");
+            .attr("transform", "scale(1, -1)")
+            .style("pointer-events", "none");
 
         this.svg_group.style("position", "absolute");
 
