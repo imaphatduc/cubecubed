@@ -1,3 +1,6 @@
+import { transition } from "d3-transition";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 import { CanvasAnimation } from "./CanvasAnimation";
 
 import { RevolutionSurface } from "@cubicons/RevolutionSurface";
@@ -24,17 +27,22 @@ export class SimulateRevolution extends CanvasAnimation {
     /**
      * @internal
      */
-    play(t: number) {
-        this.simulateRevolution(t, this.cubicon);
+    play(sleepTime: number) {
+        this.simulateRevolution(this.cubicon, sleepTime);
     }
 
-    private simulateRevolution(t: number, cubicon: RevolutionSurface) {
+    private simulateRevolution(cubicon: RevolutionSurface, sleepTime: number) {
         const vertices = cubicon.geometry.attributes.position;
 
-        const tRatio = t / (this.duration / 1000);
+        cubicon.setVertices(0);
 
-        cubicon.setVertices(vertices, tRatio);
+        transition()
+            .delay(sleepTime)
+            .duration(this.duration)
+            .tween("simulate-revolution", () => (t: number) => {
+                cubicon.setVertices(t);
 
-        vertices.needsUpdate = true;
+                vertices.needsUpdate = true;
+            });
     }
 }
