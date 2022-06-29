@@ -3,7 +3,6 @@
         "target": "es2015",
         "module": "commonjs",
         "baseUrl": ".",
-        "types": ["p5/global"],
         "moduleResolution": "node",
         "paths": {
             "@consts": ["src/constants.ts"],
