@@ -259,12 +259,18 @@ export class CanvasGroup {
 
         // set renderer
         (() => {
-            this.renderer = new WebGLRenderer({ antialias: true });
+            this.renderer = new WebGLRenderer({ alpha: true, antialias: true });
 
             this.renderer.setSize(window.innerWidth, window.innerHeight);
-            document
-                .querySelector("#cubecubed")
-                ?.appendChild(this.renderer.domElement);
+
+            const domElement = this.renderer.domElement;
+
+            domElement.setAttribute(
+                "style",
+                domElement.getAttribute("style") + "position:absolute;"
+            );
+
+            document.querySelector("#cubecubed")?.appendChild(domElement);
         })();
 
         // set orbit controls
