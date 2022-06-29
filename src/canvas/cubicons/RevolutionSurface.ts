@@ -148,5 +148,7 @@ export class RevolutionSurface extends CanvasCubicon {
             vertices.setY(i, newY);
             vertices.setZ(i, newZ);
         });
+
+        vertices.needsUpdate = true;
     }
 }

@@ -32,8 +32,6 @@ export class SimulateRevolution extends CanvasAnimation {
     }
 
     private simulateRevolution(cubicon: RevolutionSurface, sleepTime: number) {
-        const vertices = cubicon.geometry.attributes.position;
-
         cubicon.setVertices(0);
 
         transition()
@@ -41,8 +39,6 @@ export class SimulateRevolution extends CanvasAnimation {
             .duration(this.duration)
             .tween("simulate-revolution", () => (t: number) => {
                 cubicon.setVertices(t);
-
-                vertices.needsUpdate = true;
             });
     }
 }
