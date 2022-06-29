@@ -82,22 +82,24 @@ export class RevolutionSurface extends CanvasCubicon {
                 params.CONFIG?.xRange ??
                 REVOLUTION_SURFACE_DEFAULT_CONFIG.xRange,
         };
-    }
 
-    /**
-     * @internal
-     */
-    render() {
         this.geometrize();
 
         this.material = new MeshNormalMaterial({
             side: DoubleSide,
             wireframe: false,
         });
+    }
 
+    /**
+     * @internal
+     */
+    render() {
         this.mesh = new Mesh(this.geometry, this.material);
 
         this.group.threeScene.add(this.mesh);
+
+        this.setVertices(1);
 
         return this;
     }
