@@ -99,8 +99,6 @@ export class RevolutionSurface extends CanvasCubicon {
 
         this.group.threeScene.add(this.mesh);
 
-        this.setVertices(1);
-
         return this;
     }
 
@@ -120,7 +118,7 @@ export class RevolutionSurface extends CanvasCubicon {
         this.geometry.rotateX(0.5 * -Math.PI);
         this.geometry.translate(width / 2 + xRange[0], 0, 0);
 
-        this.setVertices(1);
+        this.setVertices();
     }
 
     /**
