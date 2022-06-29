@@ -26,7 +26,6 @@ export default defineConfig({
                 "d3-simple-slider",
                 "inquirer",
                 "katex",
-                "p5",
                 "tex-to-svg",
                 "three",
             ],
