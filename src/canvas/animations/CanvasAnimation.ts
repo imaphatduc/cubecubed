@@ -14,7 +14,7 @@ export abstract class CanvasAnimation {
         this.duration = params.duration ?? 0;
     }
 
-    play(t: number) {
-        t;
+    play(sleepTime: number) {
+        sleepTime;
     }
 }
