@@ -280,6 +280,8 @@ export class CanvasGroup {
                 this.renderer.domElement
             );
 
+            this.controls.enableZoom = false;
+
             this.controls.update();
         })();
 
