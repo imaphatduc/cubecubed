@@ -6,9 +6,11 @@ Return the barebone of a circle shape.
 
 ## Hierarchy
 
-- `Geometry`
+- [`Geometry`](/reference/classes/Geometry.md)
 
   ↳ **`Circle`**
+
+  ↳↳ [`GridOrigin`](/reference/classes/GridOrigin.md)
 
 ## Constructors
 
@@ -28,11 +30,11 @@ Return the barebone of a circle shape.
 
 #### Overrides
 
-Geometry.constructor
+[Geometry](/reference/classes/Geometry.md).[constructor](/reference/classes/Geometry.md#constructor)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:25](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Circle.ts#L25)
+[src/svg/cubicons/geometry/Circle.ts:25](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L25)
 
 ## Properties
 
@@ -45,11 +47,11 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-Geometry.angle
+[Geometry](/reference/classes/Geometry.md).[angle](/reference/classes/Geometry.md#angle)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
@@ -59,11 +61,11 @@ ___
 
 #### Inherited from
 
-Geometry.cubType
+[Geometry](/reference/classes/Geometry.md).[cubType](/reference/classes/Geometry.md#cubtype)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L77)
+[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L77)
 
 ___
 
@@ -75,11 +77,11 @@ The HTML tag that represents this cubicon.
 
 #### Inherited from
 
-Geometry.def\_cubiconBase
+[Geometry](/reference/classes/Geometry.md).[def_cubiconBase](/reference/classes/Geometry.md#def_cubiconbase)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -89,11 +91,11 @@ ___
 
 #### Inherited from
 
-Geometry.fillColor
+[Geometry](/reference/classes/Geometry.md).[fillColor](/reference/classes/Geometry.md#fillcolor)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L82)
+[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L82)
 
 ___
 
@@ -103,11 +105,11 @@ ___
 
 #### Inherited from
 
-Geometry.fillOpacity
+[Geometry](/reference/classes/Geometry.md).[fillOpacity](/reference/classes/Geometry.md#fillopacity)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L83)
+[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L83)
 
 ___
 
@@ -119,11 +121,11 @@ The `<g/>` tag that holds this cubicon.
 
 #### Inherited from
 
-Geometry.g\_cubiconWrapper
+[Geometry](/reference/classes/Geometry.md).[g_cubiconWrapper](/reference/classes/Geometry.md#g_cubiconwrapper)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L46)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -135,11 +137,11 @@ Geometry type of the circle.
 
 #### Overrides
 
-Geometry.geoType
+[Geometry](/reference/classes/Geometry.md).[geoType](/reference/classes/Geometry.md#geotype)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:15](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Circle.ts#L15)
+[src/svg/cubicons/geometry/Circle.ts:15](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L15)
 
 ___
 
@@ -151,11 +153,11 @@ The group that this cubicon belongs to.
 
 #### Inherited from
 
-Geometry.group
+[Geometry](/reference/classes/Geometry.md).[group](/reference/classes/Geometry.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -165,11 +167,11 @@ ___
 
 #### Inherited from
 
-Geometry.lineColor
+[Geometry](/reference/classes/Geometry.md).[lineColor](/reference/classes/Geometry.md#linecolor)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L88)
+[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L88)
 
 ___
 
@@ -179,11 +181,11 @@ ___
 
 #### Inherited from
 
-Geometry.lineWidth
+[Geometry](/reference/classes/Geometry.md).[lineWidth](/reference/classes/Geometry.md#linewidth)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L89)
+[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L89)
 
 ___
 
@@ -195,11 +197,11 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Inherited from
 
-Geometry.moveAngle
+[Geometry](/reference/classes/Geometry.md).[moveAngle](/reference/classes/Geometry.md#moveangle)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -211,11 +213,11 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Inherited from
 
-Geometry.moveVector
+[Geometry](/reference/classes/Geometry.md).[moveVector](/reference/classes/Geometry.md#movevector)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -228,11 +230,11 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-Geometry.position
+[Geometry](/reference/classes/Geometry.md).[position](/reference/classes/Geometry.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L20)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -244,7 +246,7 @@ Radius of the rectangle (in grid coordinate system).
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:20](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Circle.ts#L20)
+[src/svg/cubicons/geometry/Circle.ts:20](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L20)
 
 ___
 
@@ -254,11 +256,11 @@ ___
 
 #### Inherited from
 
-Geometry.strokeColor
+[Geometry](/reference/classes/Geometry.md).[strokeColor](/reference/classes/Geometry.md#strokecolor)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L84)
+[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L84)
 
 ___
 
@@ -268,11 +270,11 @@ ___
 
 #### Inherited from
 
-Geometry.strokeWidth
+[Geometry](/reference/classes/Geometry.md).[strokeWidth](/reference/classes/Geometry.md#strokewidth)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L85)
+[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L85)
 
 ___
 
@@ -284,11 +286,11 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Inherited from
 
-Geometry.svg\_group
+[Geometry](/reference/classes/Geometry.md).[svg_group](/reference/classes/Geometry.md#svg_group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L41)
 
 ## Methods
 
@@ -302,11 +304,11 @@ Geometry.svg\_group
 
 #### Inherited from
 
-Geometry.checkIfRendered
+[Geometry](/reference/classes/Geometry.md).[checkIfRendered](/reference/classes/Geometry.md#checkifrendered)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L65)
 
 ___
 
@@ -326,11 +328,11 @@ ___
 
 #### Inherited from
 
-Geometry.coordsGtoW
+[Geometry](/reference/classes/Geometry.md).[coordsGtoW](/reference/classes/Geometry.md#coordsgtow)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:98](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Geometry.ts#L98)
+[src/svg/cubicons/geometry/Geometry.ts:98](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L98)
 
 ___
 
@@ -346,4 +348,4 @@ Draw (and render) the shape of this circle onto SVG.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:58](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/geometry/Circle.ts#L58)
+[src/svg/cubicons/geometry/Circle.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L58)

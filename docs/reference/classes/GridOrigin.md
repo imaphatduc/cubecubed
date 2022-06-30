@@ -1,41 +1,32 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Rectangle
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / GridOrigin
 
-# Class: Rectangle
-
-Return the barebone of a rectangle shape.
+# Class: GridOrigin
 
 ## Hierarchy
 
-- [`Geometry`](/reference/classes/Geometry.md)
+- [`Circle`](/reference/classes/Circle.md)
 
-  ↳ **`Rectangle`**
-
-  ↳↳ [`Square`](/reference/classes/Square.md)
+  ↳ **`GridOrigin`**
 
 ## Constructors
 
 ### constructor
 
-• **new Rectangle**(`params`)
+• **new GridOrigin**(`group`)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | Options to form the rectangle. |
-| `params.CONFIG?` | [`SHAPE_CONFIG`](/reference/interfaces/SHAPE_CONFIG.md) | Config options of the rectangle. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the rectangle belongs to. |
-| `params.height` | `number` | Height of the rectangle. |
-| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the rectangle. |
-| `params.width` | `number` | Width of the rectangle. |
+| Name | Type |
+| :------ | :------ |
+| `group` | [`Group`](/reference/classes/Group.md) |
 
 #### Overrides
 
-[Geometry](/reference/classes/Geometry.md).[constructor](/reference/classes/Geometry.md#constructor)
+[Circle](/reference/classes/Circle.md).[constructor](/reference/classes/Circle.md#constructor)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:46](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Rectangle.ts#L46)
+[src/svg/cubicons/geometry/Circle.ts:102](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L102)
 
 ## Properties
 
@@ -48,7 +39,7 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[angle](/reference/classes/Geometry.md#angle)
+[Circle](/reference/classes/Circle.md).[angle](/reference/classes/Circle.md#angle)
 
 #### Defined in
 
@@ -62,7 +53,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[cubType](/reference/classes/Geometry.md#cubtype)
+[Circle](/reference/classes/Circle.md).[cubType](/reference/classes/Circle.md#cubtype)
 
 #### Defined in
 
@@ -78,7 +69,7 @@ The HTML tag that represents this cubicon.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[def_cubiconBase](/reference/classes/Geometry.md#def_cubiconbase)
+[Circle](/reference/classes/Circle.md).[def_cubiconBase](/reference/classes/Circle.md#def_cubiconbase)
 
 #### Defined in
 
@@ -92,7 +83,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[fillColor](/reference/classes/Geometry.md#fillcolor)
+[Circle](/reference/classes/Circle.md).[fillColor](/reference/classes/Circle.md#fillcolor)
 
 #### Defined in
 
@@ -106,7 +97,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[fillOpacity](/reference/classes/Geometry.md#fillopacity)
+[Circle](/reference/classes/Circle.md).[fillOpacity](/reference/classes/Circle.md#fillopacity)
 
 #### Defined in
 
@@ -122,7 +113,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[g_cubiconWrapper](/reference/classes/Geometry.md#g_cubiconwrapper)
+[Circle](/reference/classes/Circle.md).[g_cubiconWrapper](/reference/classes/Circle.md#g_cubiconwrapper)
 
 #### Defined in
 
@@ -132,17 +123,17 @@ ___
 
 ### geoType
 
-• `Readonly` **geoType**: ``"rectangle"``
+• `Readonly` **geoType**: ``"circle"``
 
-Geometry type of the rectangle.
+Geometry type of the circle.
 
-#### Overrides
+#### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[geoType](/reference/classes/Geometry.md#geotype)
+[Circle](/reference/classes/Circle.md).[geoType](/reference/classes/Circle.md#geotype)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:32](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Rectangle.ts#L32)
+[src/svg/cubicons/geometry/Circle.ts:15](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L15)
 
 ___
 
@@ -154,23 +145,11 @@ The group that this cubicon belongs to.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[group](/reference/classes/Geometry.md#group)
+[Circle](/reference/classes/Circle.md).[group](/reference/classes/Circle.md#group)
 
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L14)
-
-___
-
-### height
-
-• `Readonly` **height**: `number`
-
-Height of the rectangle (in grid coordinate system).
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Rectangle.ts:41](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Rectangle.ts#L41)
 
 ___
 
@@ -180,7 +159,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[lineColor](/reference/classes/Geometry.md#linecolor)
+[Circle](/reference/classes/Circle.md).[lineColor](/reference/classes/Circle.md#linecolor)
 
 #### Defined in
 
@@ -194,7 +173,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[lineWidth](/reference/classes/Geometry.md#linewidth)
+[Circle](/reference/classes/Circle.md).[lineWidth](/reference/classes/Circle.md#linewidth)
 
 #### Defined in
 
@@ -210,7 +189,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[moveAngle](/reference/classes/Geometry.md#moveangle)
+[Circle](/reference/classes/Circle.md).[moveAngle](/reference/classes/Circle.md#moveangle)
 
 #### Defined in
 
@@ -226,7 +205,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[moveVector](/reference/classes/Geometry.md#movevector)
+[Circle](/reference/classes/Circle.md).[moveVector](/reference/classes/Circle.md#movevector)
 
 #### Defined in
 
@@ -243,11 +222,27 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[position](/reference/classes/Geometry.md#position)
+[Circle](/reference/classes/Circle.md).[position](/reference/classes/Circle.md#position)
 
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L20)
+
+___
+
+### radius
+
+• `Readonly` **radius**: `number`
+
+Radius of the rectangle (in grid coordinate system).
+
+#### Inherited from
+
+[Circle](/reference/classes/Circle.md).[radius](/reference/classes/Circle.md#radius)
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Circle.ts:20](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L20)
 
 ___
 
@@ -257,7 +252,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[strokeColor](/reference/classes/Geometry.md#strokecolor)
+[Circle](/reference/classes/Circle.md).[strokeColor](/reference/classes/Circle.md#strokecolor)
 
 #### Defined in
 
@@ -271,7 +266,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[strokeWidth](/reference/classes/Geometry.md#strokewidth)
+[Circle](/reference/classes/Circle.md).[strokeWidth](/reference/classes/Circle.md#strokewidth)
 
 #### Defined in
 
@@ -287,23 +282,11 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[svg_group](/reference/classes/Geometry.md#svg_group)
+[Circle](/reference/classes/Circle.md).[svg_group](/reference/classes/Circle.md#svg_group)
 
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L41)
-
-___
-
-### width
-
-• `Readonly` **width**: `number`
-
-Width of the rectangle (in grid coordinate system).
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Rectangle.ts:37](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Rectangle.ts#L37)
 
 ## Methods
 
@@ -317,7 +300,7 @@ Width of the rectangle (in grid coordinate system).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[checkIfRendered](/reference/classes/Geometry.md#checkifrendered)
+[Circle](/reference/classes/Circle.md).[checkIfRendered](/reference/classes/Circle.md#checkifrendered)
 
 #### Defined in
 
@@ -341,7 +324,7 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[coordsGtoW](/reference/classes/Geometry.md#coordsgtow)
+[Circle](/reference/classes/Circle.md).[coordsGtoW](/reference/classes/Circle.md#coordsgtow)
 
 #### Defined in
 
@@ -349,34 +332,20 @@ ___
 
 ___
 
-### drawInnerGrid
-
-▸ **drawInnerGrid**(): [`RECT_GRID_DATA`](/reference/types/RECT_GRID_DATA.md)
-
-Draw a grid inside the rectangle.
-
-#### Returns
-
-[`RECT_GRID_DATA`](/reference/types/RECT_GRID_DATA.md)
-
-A complex data type to specify in DrawInnerGrid() animation.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Rectangle.ts:142](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Rectangle.ts#L142)
-
-___
-
 ### render
 
-▸ **render**(): [`Rectangle`](/reference/classes/Rectangle.md)
+▸ **render**(): [`GridOrigin`](/reference/classes/GridOrigin.md)
 
-Add the shape of this rectangle onto SVG.
+Draw (and render) the shape of this circle onto SVG.
 
 #### Returns
 
-[`Rectangle`](/reference/classes/Rectangle.md)
+[`GridOrigin`](/reference/classes/GridOrigin.md)
+
+#### Inherited from
+
+[Circle](/reference/classes/Circle.md).[render](/reference/classes/Circle.md#render)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:85](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Rectangle.ts#L85)
+[src/svg/cubicons/geometry/Circle.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Circle.ts#L58)

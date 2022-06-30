@@ -6,7 +6,7 @@ Fade in a cubicon on the screen.
 
 ## Hierarchy
 
-- `Animation`
+- [`Animation`](/reference/classes/Animation.md)
 
   ↳ **`FadeIn`**
 
@@ -27,11 +27,11 @@ Fade in a cubicon on the screen.
 
 #### Overrides
 
-Animation.constructor
+[Animation](/reference/classes/Animation.md).[constructor](/reference/classes/Animation.md#constructor)
 
 #### Defined in
 
-[src/svg/animations/FadeIn.ts:9](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/FadeIn.ts#L9)
+[src/svg/animations/FadeIn.ts:9](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/FadeIn.ts#L9)
 
 ## Properties
 
@@ -43,11 +43,11 @@ The target cubicon of this animation.
 
 #### Inherited from
 
-Animation.cubicon
+[Animation](/reference/classes/Animation.md).[cubicon](/reference/classes/Animation.md#cubicon)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -59,11 +59,11 @@ Time to play this animation (in milliseconds).
 
 #### Inherited from
 
-Animation.duration
+[Animation](/reference/classes/Animation.md).[duration](/reference/classes/Animation.md#duration)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -75,11 +75,11 @@ The easing function to use.
 
 #### Inherited from
 
-Animation.ease
+[Animation](/reference/classes/Animation.md).[ease](/reference/classes/Animation.md#ease)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -99,4 +99,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/FadeIn.ts:30](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/FadeIn.ts#L30)
+[src/svg/animations/FadeIn.ts:30](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/FadeIn.ts#L30)

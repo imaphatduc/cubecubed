@@ -6,11 +6,11 @@
 
 ### animation
 
-• **animation**: `CanvasAnimation`
+• **animation**: [`CanvasAnimation`](/reference/classes/CanvasAnimation.md)
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:13](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/group/CanvasGroup.ts#L13)
+[src/canvas/group/CanvasGroup.ts:20](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/group/CanvasGroup.ts#L20)
 
 ___
 
@@ -20,7 +20,7 @@ ___
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:15](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/group/CanvasGroup.ts#L15)
+[src/canvas/group/CanvasGroup.ts:22](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/group/CanvasGroup.ts#L22)
 
 ___
 
@@ -30,4 +30,4 @@ ___
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:14](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/canvas/group/CanvasGroup.ts#L14)
+[src/canvas/group/CanvasGroup.ts:21](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/group/CanvasGroup.ts#L21)

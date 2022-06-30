@@ -8,7 +8,7 @@ Animate the smooth motion of a point along a graph.
 
 ## Hierarchy
 
-- `Animation`
+- [`Animation`](/reference/classes/Animation.md)
 
   ↳ **`PointAlongGraph`**
 
@@ -31,11 +31,11 @@ Animate the smooth motion of a point along a graph.
 
 #### Overrides
 
-Animation.constructor
+[Animation](/reference/classes/Animation.md).[constructor](/reference/classes/Animation.md#constructor)
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:32](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/PointAlongGraph.ts#L32)
+[src/svg/animations/PointAlongGraph.ts:32](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/PointAlongGraph.ts#L32)
 
 ## Properties
 
@@ -47,11 +47,11 @@ The target cubicon of this animation.
 
 #### Inherited from
 
-Animation.cubicon
+[Animation](/reference/classes/Animation.md).[cubicon](/reference/classes/Animation.md#cubicon)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -63,11 +63,11 @@ Time to play this animation (in milliseconds).
 
 #### Inherited from
 
-Animation.duration
+[Animation](/reference/classes/Animation.md).[duration](/reference/classes/Animation.md#duration)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -79,11 +79,11 @@ The easing function to use.
 
 #### Inherited from
 
-Animation.ease
+[Animation](/reference/classes/Animation.md).[ease](/reference/classes/Animation.md#ease)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -103,4 +103,4 @@ Animation.ease
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:67](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/animations/PointAlongGraph.ts#L67)
+[src/svg/animations/PointAlongGraph.ts:67](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/PointAlongGraph.ts#L67)

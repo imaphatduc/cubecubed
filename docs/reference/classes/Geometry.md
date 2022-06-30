@@ -1,27 +1,42 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / VectorField
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Geometry
 
-# Class: VectorField
+# Class: Geometry
+
+Base class of all geometric cubicon shape.
+
+Child classes: Rectangle, Square, Circle, Line, Vector (shape).
 
 ## Hierarchy
 
 - [`Cubicon`](/reference/classes/Cubicon.md)
 
-  ↳ **`VectorField`**
+  ↳ **`Geometry`**
+
+  ↳↳ [`Grid`](/reference/classes/Grid.md)
+
+  ↳↳ [`Rectangle`](/reference/classes/Rectangle.md)
+
+  ↳↳ [`Circle`](/reference/classes/Circle.md)
+
+  ↳↳ [`Line`](/reference/classes/Line.md)
+
+  ↳↳ [`VectorShape`](/reference/classes/VectorShape.md)
+
+  ↳↳ [`ParametricCurve`](/reference/classes/ParametricCurve.md)
 
 ## Constructors
 
 ### constructor
 
-• **new VectorField**(`params`)
+• **new Geometry**(`params`)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.CONFIG?` | [`VECTOR_FIELD_CONFIG`](/reference/interfaces/VECTOR_FIELD_CONFIG.md) | Config options for the vector field. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the cubicon belongs to. |
-| `params.functionDef` | (`pos`: [`Vector2`](/reference/classes/Vector2.md)) => [`Vector2`](/reference/classes/Vector2.md) | - |
+| Name | Type |
+| :------ | :------ |
+| `params` | `Object` |
+| `params.group` | [`Group`](/reference/classes/Group.md) |
+| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Overrides
 
@@ -29,7 +44,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:37](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/VectorField.ts#L37)
+[src/svg/cubicons/geometry/Geometry.ts:91](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L91)
 
 ## Properties
 
@@ -52,7 +67,7 @@ ___
 
 ### cubType
 
-• `Readonly` **cubType**: ``"vector-field"``
+• `Readonly` **cubType**: ``"geometry"``
 
 #### Overrides
 
@@ -60,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:25](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/VectorField.ts#L25)
+[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L77)
 
 ___
 
@@ -80,29 +95,23 @@ The HTML tag that represents this cubicon.
 
 ___
 
-### functionDef
+### fillColor
 
-• **functionDef**: (`pos`: [`Vector2`](/reference/classes/Vector2.md)) => [`Vector2`](/reference/classes/Vector2.md)
-
-#### Type declaration
-
-▸ (`pos`): [`Vector2`](/reference/classes/Vector2.md)
-
-Multivariable function that produces 2d vector field.
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `pos` | [`Vector2`](/reference/classes/Vector2.md) |
-
-##### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
+• **fillColor**: `any`
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/VectorField.ts#L30)
+[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L82)
+
+___
+
+### fillOpacity
+
+• **fillOpacity**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L83)
 
 ___
 
@@ -122,6 +131,16 @@ The `<g/>` tag that holds this cubicon.
 
 ___
 
+### geoType
+
+• `Readonly` `Abstract` **geoType**: `string`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Geometry.ts:79](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L79)
+
+___
+
 ### group
 
 • **group**: [`Group`](/reference/classes/Group.md)
@@ -135,6 +154,26 @@ The group that this cubicon belongs to.
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L14)
+
+___
+
+### lineColor
+
+• **lineColor**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L88)
+
+___
+
+### lineWidth
+
+• **lineWidth**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L89)
 
 ___
 
@@ -187,6 +226,26 @@ This property changed after finishing animations (in real time).
 
 ___
 
+### strokeColor
+
+• **strokeColor**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L84)
+
+___
+
+### strokeWidth
+
+• **strokeWidth**: `any`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L85)
+
+___
+
 ### svg\_group
 
 • **svg\_group**: `any`
@@ -200,18 +259,6 @@ The `<svg/>` tag of this cubicon's group.
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L41)
-
-___
-
-### vectorShapes
-
-• **vectorShapes**: [`VectorShape`](/reference/classes/VectorShape.md)[] = `[]`
-
-Vector shapes included in the scene.
-
-#### Defined in
-
-[src/svg/cubicons/VectorField.ts:35](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/VectorField.ts#L35)
 
 ## Methods
 
@@ -230,3 +277,23 @@ Vector shapes included in the scene.
 #### Defined in
 
 [src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L65)
+
+___
+
+### coordsGtoW
+
+▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Geometry.ts:98](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/geometry/Geometry.ts#L98)

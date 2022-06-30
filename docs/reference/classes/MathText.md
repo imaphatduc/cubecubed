@@ -4,7 +4,7 @@
 
 ## Hierarchy
 
-- `Cubicon`
+- [`Cubicon`](/reference/classes/Cubicon.md)
 
   ↳ **`MathText`**
 
@@ -27,11 +27,11 @@
 
 #### Overrides
 
-Cubicon.constructor
+[Cubicon](/reference/classes/Cubicon.md).[constructor](/reference/classes/Cubicon.md#constructor)
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:32](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/MathText.ts#L32)
+[src/svg/cubicons/MathText.ts:32](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/MathText.ts#L32)
 
 ## Properties
 
@@ -44,11 +44,11 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-Cubicon.angle
+[Cubicon](/reference/classes/Cubicon.md).[angle](/reference/classes/Cubicon.md#angle)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
@@ -60,7 +60,7 @@ Color of this text.
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:20](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/MathText.ts#L20)
+[src/svg/cubicons/MathText.ts:20](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/MathText.ts#L20)
 
 ___
 
@@ -70,11 +70,11 @@ ___
 
 #### Overrides
 
-Cubicon.cubType
+[Cubicon](/reference/classes/Cubicon.md).[cubType](/reference/classes/Cubicon.md#cubtype)
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:10](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/MathText.ts#L10)
+[src/svg/cubicons/MathText.ts:10](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/MathText.ts#L10)
 
 ___
 
@@ -86,11 +86,11 @@ The HTML tag that represents this cubicon.
 
 #### Inherited from
 
-Cubicon.def\_cubiconBase
+[Cubicon](/reference/classes/Cubicon.md).[def_cubiconBase](/reference/classes/Cubicon.md#def_cubiconbase)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -102,7 +102,7 @@ The SVG element that represents this text.
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:30](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/MathText.ts#L30)
+[src/svg/cubicons/MathText.ts:30](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/MathText.ts#L30)
 
 ___
 
@@ -114,7 +114,7 @@ Font size of this text (in points).
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:25](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/MathText.ts#L25)
+[src/svg/cubicons/MathText.ts:25](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/MathText.ts#L25)
 
 ___
 
@@ -126,11 +126,11 @@ The `<g/>` tag that holds this cubicon.
 
 #### Inherited from
 
-Cubicon.g\_cubiconWrapper
+[Cubicon](/reference/classes/Cubicon.md).[g_cubiconWrapper](/reference/classes/Cubicon.md#g_cubiconwrapper)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L46)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -142,11 +142,11 @@ The group that this cubicon belongs to.
 
 #### Inherited from
 
-Cubicon.group
+[Cubicon](/reference/classes/Cubicon.md).[group](/reference/classes/Cubicon.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -158,11 +158,11 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Inherited from
 
-Cubicon.moveAngle
+[Cubicon](/reference/classes/Cubicon.md).[moveAngle](/reference/classes/Cubicon.md#moveangle)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -174,11 +174,11 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Inherited from
 
-Cubicon.moveVector
+[Cubicon](/reference/classes/Cubicon.md).[moveVector](/reference/classes/Cubicon.md#movevector)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -191,11 +191,11 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-Cubicon.position
+[Cubicon](/reference/classes/Cubicon.md).[position](/reference/classes/Cubicon.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L20)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -207,11 +207,11 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Inherited from
 
-Cubicon.svg\_group
+[Cubicon](/reference/classes/Cubicon.md).[svg_group](/reference/classes/Cubicon.md#svg_group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L41)
 
 ___
 
@@ -223,7 +223,7 @@ Content of this text.
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:15](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/MathText.ts#L15)
+[src/svg/cubicons/MathText.ts:15](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/MathText.ts#L15)
 
 ## Methods
 
@@ -237,11 +237,11 @@ Content of this text.
 
 #### Inherited from
 
-Cubicon.checkIfRendered
+[Cubicon](/reference/classes/Cubicon.md).[checkIfRendered](/reference/classes/Cubicon.md#checkifrendered)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/Cubicon.ts#L65)
 
 ___
 
@@ -255,4 +255,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:69](https://github.com/imaphatduc/cubecubed/blob/1d9e38f/src/svg/cubicons/MathText.ts#L69)
+[src/svg/cubicons/MathText.ts:69](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/cubicons/MathText.ts#L69)

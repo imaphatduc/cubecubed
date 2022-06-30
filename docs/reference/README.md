@@ -59,11 +59,11 @@ To get started with Cubecubed, see this [Quick Start](https://imaphatduc.github.
 
 Documentation website is [here](https://imaphatduc.github.io/cubecubed)!
 
-## ✨ Contributing
+## ☄ Contributing
 
 Whether you have great feature ideas in mind or recognize bugs, feel free to contribute to Cubecubed. Any contribution to the Cubecubed is appreciated. Please read [contributing guidelines](https://github.com/imaphatduc/cubecubed/blob/master/CONTRIBUTING.md) before raising an issue or submitting a pull request. With every contribution, we are striving to make Cubecubed better.
 
-## 🥳 Stargazers
+## 🥳 Contributors
 
 Big thanks to all of these awesome people.
 
