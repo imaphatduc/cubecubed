@@ -1,5 +1,5 @@
 {
-    "entryPoints": ["src/docs.ts"],
+    "entryPoints": ["src/index.ts"],
     "out": "docs/reference",
     "excludePrivate": true,
     "excludeProtected": true,
