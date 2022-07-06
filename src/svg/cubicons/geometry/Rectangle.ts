@@ -77,14 +77,6 @@ export class Rectangle extends Geometry {
             strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
             strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
         } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
-    }
-
-    /**
-     * Add the shape of this rectangle onto SVG.
-     */
-    render() {
-        this.checkIfRendered();
-        this.isRendered = true;
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -92,8 +84,14 @@ export class Rectangle extends Geometry {
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
-        const path = this.definePath();
         this.def_cubiconBase = this.g_cubiconWrapper.append("path");
+    }
+
+    /**
+     * Add the shape of this rectangle onto SVG.
+     */
+    render() {
+        const path = this.definePath();
 
         this.def_cubiconBase
             .attr("class", "rectangle")
