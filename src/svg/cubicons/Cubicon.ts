@@ -50,8 +50,6 @@ export abstract class Cubicon {
      */
     def_cubiconBase: any;
 
-    protected isRendered = false;
-
     constructor(params: { group: Group; position: Vector2 }) {
         this.group = params.group;
 
@@ -60,13 +58,5 @@ export abstract class Cubicon {
         this.svg_group = params.group.svg_group;
 
         this.def_cubiconBase = select(null);
-    }
-
-    checkIfRendered() {
-        if (this.isRendered) {
-            throw new Error(
-                "Warning: render() shouldn't be called more than once. Returned nothing."
-            );
-        }
     }
 }

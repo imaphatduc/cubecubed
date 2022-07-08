@@ -58,9 +58,6 @@ export class Circle extends Geometry {
     render() {
         const { xGtoW } = this.group;
 
-        this.checkIfRendered();
-        this.isRendered = true;
-
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", `circle-wrapper`)

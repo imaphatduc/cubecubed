@@ -46,9 +46,6 @@ export class ParametricCurve extends Geometry {
     }
 
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", `arc-wrapper`)

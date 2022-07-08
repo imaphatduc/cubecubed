@@ -36,9 +36,6 @@ export class Label extends MathText {
      * Draw (and render) the label onto SVG.
      */
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         super.applyToHTMLFlow(this.g_cubiconWrapper);
         this.setPosition();
 

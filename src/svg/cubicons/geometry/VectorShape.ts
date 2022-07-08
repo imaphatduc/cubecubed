@@ -87,9 +87,6 @@ export class VectorShape extends Geometry {
     }
 
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         const WstartPoint = this.coordsGtoW(this.startPoint);
 
         this.g_cubiconWrapper = this.svg_group

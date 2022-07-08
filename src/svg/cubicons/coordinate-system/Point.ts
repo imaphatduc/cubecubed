@@ -55,9 +55,6 @@ export class Point extends Circle {
      * Draw (and render) the point onto SVG.
      */
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         const Wposition = this.axes.coordsGtoW(this.position);
         const Wradius = this.axes.xScale(this.radius);
 

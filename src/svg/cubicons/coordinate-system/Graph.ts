@@ -78,9 +78,6 @@ export class Graph extends CoordinateSystem {
     }
 
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         this.g_cubiconWrapper = this.axes.g_graphs
             .append("g")
             .attr("class", "graph-group");

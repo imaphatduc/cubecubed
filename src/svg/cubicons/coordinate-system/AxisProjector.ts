@@ -60,9 +60,6 @@ export class AxisProjector extends Line {
      * Draw (and render) the axis projectors onto SVG.
      */
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         const WstartPoint = this.axes.coordsGtoW(this.position);
         const WendPoint =
             this.type === "horizontal"

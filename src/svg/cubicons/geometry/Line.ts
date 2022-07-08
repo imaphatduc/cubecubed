@@ -62,9 +62,6 @@ export class Line extends Geometry {
      * Draw (and render) the shape of this line onto SVG.
      */
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         const WstartPoint = this.coordsGtoW(this.startPoint);
         const WendPoint = this.coordsGtoW(this.endPoint);
 
@@ -103,7 +100,6 @@ export class Line extends Geometry {
     setParentHTMLTag(parentGroupTag: any) {
         this.g_cubiconWrapper.remove();
         this.parentGroupTag = parentGroupTag;
-        this.isRendered = false;
         this.render();
 
         return this;

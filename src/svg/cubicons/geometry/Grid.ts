@@ -75,9 +75,6 @@ export class Grid extends Geometry {
     }
 
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         this.g_planeGrid = this.svg_group.append("g").attr("id", "plane-grid");
 
         this.g_horizontal = this.g_planeGrid

@@ -127,9 +127,6 @@ export class Axes extends CoordinateSystem {
      * Draw (and render) the axes onto SVG.
      */
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         this.g_coordinate = this.svg_group
             .append("g")
             .attr("class", "xy-coordinate")

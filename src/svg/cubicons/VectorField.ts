@@ -64,9 +64,6 @@ export class VectorField extends Cubicon {
     }
 
     private render(CONFIG: VECTOR_FIELD_CONFIG) {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", "vector-field-wrapper");

@@ -67,9 +67,6 @@ export class MathText extends Cubicon {
     }
 
     render() {
-        this.checkIfRendered();
-        this.isRendered = true;
-
         this.applyToHTMLFlow(this.svg_group);
         this.setSVGPosition();
 
