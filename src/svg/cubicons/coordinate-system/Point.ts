@@ -48,6 +48,9 @@ export class Point extends Circle {
             typeof params.parent !== "undefined"
                 ? params.parent.g_projector
                 : params.axes.g_cubiconWrapper;
+
+        this.def_cubiconBase.attr("class", "point");
+
         this.axes = params.axes;
     }
 
@@ -58,9 +61,7 @@ export class Point extends Circle {
         const Wposition = this.axes.coordsGtoW(this.position);
         const Wradius = this.axes.xScale(this.radius);
 
-        super.applyToHTMLFlow(this.g_cubiconWrapper, Wposition, Wradius);
-
-        this.def_cubiconBase.attr("class", "point");
+        super.applyToHTMLFlow(Wposition, Wradius);
 
         return this;
     }

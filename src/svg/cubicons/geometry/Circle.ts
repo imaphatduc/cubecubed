@@ -50,13 +50,6 @@ export class Circle extends Geometry {
             strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
             strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
         } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
-    }
-
-    /**
-     * Draw (and render) the shape of this circle onto SVG.
-     */
-    render() {
-        const { xGtoW } = this.group;
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -64,23 +57,27 @@ export class Circle extends Geometry {
             .style("transform-box", "fill-box")
             .style("transform-origin", `center`);
 
+        this.def_cubiconBase = this.g_cubiconWrapper
+            .append("circle")
+            .attr("class", "circle")
+            .style("transform-box", "fill-box")
+            .style("transform-origin", "center");
+    }
+
+    /**
+     * Draw (and render) the shape of this circle onto SVG.
+     */
+    render() {
         const Wposition = this.coordsGtoW(this.position);
-        const Wradius = xGtoW(this.radius);
+        const Wradius = this.group.xGtoW(this.radius);
 
-        this.applyToHTMLFlow(this.g_cubiconWrapper, Wposition, Wradius);
-
-        this.def_cubiconBase.attr("class", "circle");
+        this.applyToHTMLFlow(Wposition, Wradius);
 
         return this;
     }
 
-    protected applyToHTMLFlow(
-        g_cubiconWrapper: any,
-        Wposition: Vector2,
-        Wradius: number
-    ) {
-        this.def_cubiconBase = g_cubiconWrapper
-            .append("circle")
+    protected applyToHTMLFlow(Wposition: Vector2, Wradius: number) {
+        this.def_cubiconBase
             .attr("cx", Wposition.x)
             .attr("cy", Wposition.y)
             .attr("r", Wradius)
@@ -88,10 +85,6 @@ export class Circle extends Geometry {
             .attr("fill-opacity", this.fillOpacity)
             .attr("stroke", this.strokeColor)
             .attr("stroke-width", this.strokeWidth);
-
-        this.def_cubiconBase
-            .style("transform-box", "fill-box")
-            .style("transform-origin", "center");
     }
 }
 
