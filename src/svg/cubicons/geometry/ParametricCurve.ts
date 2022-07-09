@@ -43,20 +43,24 @@ export class ParametricCurve extends Geometry {
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
             lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
         } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
-    }
 
-    render() {
         this.g_cubiconWrapper = this.svg_group
             .append("g")
-            .attr("class", `arc-wrapper`)
+            .attr("class", "arc-wrapper")
             .style("transform-box", "fill-box")
-            .style("transform-origin", `center`);
+            .style("transform-origin", "center");
 
         this.def_cubiconBase = this.g_cubiconWrapper
             .append("path")
             .attr("class", "parametric-curve")
+            .attr("fill", "none");
+    }
+
+    render() {
+        this.g_cubiconWrapper;
+
+        this.def_cubiconBase
             .attr("d", this.getData())
-            .attr("fill", "none")
             .attr("stroke", this.lineColor)
             .attr("stroke-width", this.lineWidth);
 
