@@ -56,6 +56,16 @@ export class Line extends Geometry {
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
             lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
         } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
+
+        this.g_cubiconWrapper = this.parentGroupTag
+            .append("g")
+            .attr("class", `line-wrapper`)
+            .style("transform-box", "fill-box")
+            .style("transform-origin", `center`);
+
+        this.def_cubiconBase = this.g_cubiconWrapper
+            .append("line")
+            .attr("class", "line");
     }
 
     /**
@@ -65,26 +75,13 @@ export class Line extends Geometry {
         const WstartPoint = this.coordsGtoW(this.startPoint);
         const WendPoint = this.coordsGtoW(this.endPoint);
 
-        this.applyToHTMLFlow(this.parentGroupTag, WstartPoint, WendPoint);
-
-        this.g_cubiconWrapper.attr("class", `line-wrapper`);
-        this.def_cubiconBase.attr("class", "line");
+        this.applyToHTMLFlow(WstartPoint, WendPoint);
 
         return this;
     }
 
-    protected applyToHTMLFlow(
-        parentGroupTag: any,
-        WstartPoint: Vector2,
-        WendPoint: Vector2
-    ) {
-        this.g_cubiconWrapper = parentGroupTag
-            .append("g")
-            .style("transform-box", "fill-box")
-            .style("transform-origin", `center`);
-
-        this.def_cubiconBase = this.g_cubiconWrapper
-            .append("line")
+    protected applyToHTMLFlow(WstartPoint: Vector2, WendPoint: Vector2) {
+        this.def_cubiconBase
             .attr("x1", WstartPoint.x)
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)

@@ -13,7 +13,7 @@ export class AxisProjector extends Line {
     /**
      * Is this projector of type "horizontal" or "vertical"?
      */
-    type: string;
+    type: "horizontal" | "vertical";
     /**
      * The `</svg>` element that wraps the two axes' `</svg>`.
      */
@@ -54,6 +54,12 @@ export class AxisProjector extends Line {
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
             lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
         } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
+
+        this.g_cubiconWrapper.attr("class", `${this.type}-projector-wrapper`);
+
+        this.def_cubiconBase
+            .attr("class", `${this.type}-projector-line`)
+            .style("shape-rendering", "crispEdges");
     }
 
     /**
@@ -61,17 +67,13 @@ export class AxisProjector extends Line {
      */
     render() {
         const WstartPoint = this.axes.coordsGtoW(this.position);
+
         const WendPoint =
             this.type === "horizontal"
                 ? this.axes.coordsGtoW(new Vector2(0, this.position.y))
                 : this.axes.coordsGtoW(new Vector2(this.position.x, 0));
 
-        this.applyToHTMLFlow(this.parentGroupTag, WstartPoint, WendPoint);
-
-        this.g_cubiconWrapper.attr("class", `${this.type}-projector-wrapper`);
-        this.def_cubiconBase
-            .attr("class", `${this.type}-projector-line`)
-            .style("shape-rendering", "crispEdges");
+        this.applyToHTMLFlow(WstartPoint, WendPoint);
 
         return this;
     }
