@@ -344,6 +344,25 @@ export class Axes extends CoordinateSystem {
      */
     pointToCoords(graph: Graph, xPos = 1) {
         const pos = new Vector2(xPos, graph.functionDef(xPos));
+
+        const horizontalLine = new AxisProjector({
+            type: "horizontal",
+            coordinates: pos,
+            axes: graph.axes,
+            CONFIG: {
+                lineWidth: 1,
+            },
+        }).render();
+
+        const verticalLine = new AxisProjector({
+            type: "vertical",
+            coordinates: pos,
+            axes: graph.axes,
+            CONFIG: {
+                lineWidth: 1,
+            },
+        }).render();
+
         const point = new Point({
             parent: graph,
             axes: graph.axes,
@@ -353,27 +372,7 @@ export class Axes extends CoordinateSystem {
                 fillColor: "#000",
                 strokeWidth: 1.5,
             },
-        });
-
-        const horizontalLine = new AxisProjector({
-            type: "horizontal",
-            point: point,
-            axes: graph.axes,
-            CONFIG: {
-                lineWidth: 1,
-            },
         }).render();
-
-        const verticalLine = new AxisProjector({
-            type: "vertical",
-            point: point,
-            axes: graph.axes,
-            CONFIG: {
-                lineWidth: 1,
-            },
-        }).render();
-
-        point.render();
 
         const pointCoords: PT_TO_COORDS_DATA = {
             point: point,

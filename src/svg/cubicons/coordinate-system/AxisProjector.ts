@@ -3,7 +3,6 @@ import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "@cubicons/geometry/Geometry";
 import { Vector2 } from "@math/vector";
 
 import { Axes } from "./Axes";
-import { Point } from "./Point";
 
 import { Line } from "@cubicons/geometry/Line";
 
@@ -24,9 +23,9 @@ export class AxisProjector extends Line {
     constructor(params: {
         type: "horizontal" | "vertical";
         /**
-         * The point that holds the projector.
+         * The coordinates of the point that holds the projector.
          */
-        point: Point;
+        coordinates: Vector2;
         /**
          * The axes that the projector belongs to.
          */
@@ -38,15 +37,15 @@ export class AxisProjector extends Line {
     }) {
         super({
             group: params.axes.group,
-            startPoint: params.point.position,
+            startPoint: params.coordinates,
             endPoint:
                 params.type === "horizontal"
-                    ? new Vector2(0, params.point.position.y)
-                    : new Vector2(params.point.position.x, 0),
+                    ? new Vector2(0, params.coordinates.y)
+                    : new Vector2(params.coordinates.x, 0),
             CONFIG: params.CONFIG,
         });
 
-        this.parentGroupTag = params.point.g_cubiconWrapper;
+        this.parentGroupTag = params.axes.svg_group;
         this.type = params.type;
         this.axes = params.axes;
 
