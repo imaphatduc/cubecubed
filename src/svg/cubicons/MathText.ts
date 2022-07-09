@@ -59,30 +59,39 @@ export class MathText extends Cubicon {
         this.text = params.text;
         this.color = params.color ?? "#fff";
         this.fontSize = params.fontSize ?? 16;
+
+        this.g_cubiconWrapper = this.svg_group
+            .append("g")
+            .attr("class", "tex-wrapper");
     }
 
     private initData() {
         const SVGEquation = TeXToSVG(this.text);
+
         return SVGEquation;
     }
 
     render() {
-        this.applyToHTMLFlow(this.svg_group);
+        this.applyToHTMLFlow();
         this.setSVGPosition();
 
         return this;
     }
 
-    protected applyToHTMLFlow(g_cubiconWrapper: any) {
+    protected applyToHTMLFlow() {
         const htmlString = this.initData();
+
         const idKey = (Math.random() + 1)
             .toString(36)
             .substring(7)
             .toUpperCase();
-        this.def_cubiconBase = g_cubiconWrapper
-            .append("g")
-            .attr("font-size", this.fontSize);
-        this.def_cubiconBase.node().innerHTML = htmlString;
+
+        this.g_cubiconWrapper.node().innerHTML = htmlString;
+
+        this.def_cubiconBase = this.g_cubiconWrapper.select("svg");
+
+        this.def_cubiconBase.attr("font-size", this.fontSize);
+
         this.def_cubiconBase
             .select("defs")
             .selectAll("path")
@@ -105,7 +114,7 @@ export class MathText extends Cubicon {
     private setSVGPosition() {
         const { xGtoW, yGtoW } = this.group;
 
-        this.def_cubiconBase.attr(
+        this.g_cubiconWrapper.attr(
             "transform",
             `translate(${xGtoW(this.position.x)}, ${yGtoW(
                 this.position.y

@@ -298,7 +298,7 @@ export class Axes extends CoordinateSystem {
         fontSize = 18
     ) {
         const label = new Label({
-            parent: graph,
+            axes: this,
             position: new Vector2(xPos, graph.functionDef(xPos)),
             text: text,
             color: color,
