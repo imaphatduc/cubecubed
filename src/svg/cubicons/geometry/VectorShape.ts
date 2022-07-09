@@ -80,6 +80,24 @@ export class VectorShape extends Geometry {
             arrowWidth: this.arrowWidth = VECTOR_DEFAULT_CONFIG.arrowWidth,
             arrowHeight: this.arrowHeight = VECTOR_DEFAULT_CONFIG.arrowHeight,
         } = params.CONFIG ?? VECTOR_DEFAULT_CONFIG);
+
+        this.g_cubiconWrapper = this.svg_group
+            .append("g")
+            .attr("class", `vector-wrapper`)
+            .attr("transform-box", "fill-box");
+
+        this.def_cubiconBase = this.g_cubiconWrapper
+            .append("g")
+            .attr("class", "vector-group");
+
+        this.def_lineStroke = this.def_cubiconBase
+            .append("line")
+            .attr("class", "vector-line");
+
+        this.def_arrowHead = this.def_cubiconBase
+            .append("polygon")
+            .attr("class", "vector-arrow-head")
+            .attr("stroke", "none");
     }
 
     getWpoint(point: Vector2) {
@@ -89,15 +107,10 @@ export class VectorShape extends Geometry {
     render() {
         const WstartPoint = this.coordsGtoW(this.startPoint);
 
-        this.g_cubiconWrapper = this.svg_group
-            .append("g")
-            .attr("class", `vector-wrapper`)
-            .attr("transform-box", "fill-box")
-            .attr("transform-origin", `${WstartPoint.x} ${WstartPoint.y}`);
-
-        this.def_cubiconBase = this.g_cubiconWrapper
-            .append("g")
-            .attr("class", "vector-group");
+        this.g_cubiconWrapper.attr(
+            "transform-origin",
+            `${WstartPoint.x} ${WstartPoint.y}`
+        );
 
         this.drawVectorLine();
         this.drawVectorArrowHead();
@@ -117,9 +130,7 @@ export class VectorShape extends Geometry {
         const WstartPoint = this.coordsGtoW(this.startPoint);
         const WendPoint = this.coordsGtoW(resultVector.add(this.startPoint));
 
-        this.def_lineStroke = this.def_cubiconBase
-            .append("line")
-            .attr("class", "vector-line")
+        this.def_lineStroke
             .attr("x1", WstartPoint.x)
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)
@@ -133,9 +144,7 @@ export class VectorShape extends Geometry {
 
         const WendPoint = this.coordsGtoW(this.endPoint);
 
-        this.def_arrowHead = this.def_cubiconBase
-            .append("polygon")
-            .attr("class", "vector-arrow-head")
+        this.def_arrowHead
             .attr(
                 "points",
                 `${xGtoW(-this.arrowWidth)}, ${yGtoW(
@@ -143,7 +152,6 @@ export class VectorShape extends Geometry {
                 )} 0, 0 ${xGtoW(this.arrowWidth)}, ${yGtoW(-this.arrowHeight)}`
             )
             .attr("fill", this.lineColor)
-            .attr("stroke", "none")
             .attr(
                 "transform",
                 `translate(${WendPoint.x} ${WendPoint.y}) rotate(${
