@@ -20,16 +20,11 @@ export class VectorShape extends Geometry {
     /**
      * Start point (tail) of the vector.
      */
-    readonly startPoint: Vector2;
+    startPoint: Vector2;
     /**
      * End point (head) of the vector.
      */
-    readonly endPoint: Vector2;
-
-    /**
-     * The smaller angle (in degree) between the vector and the x axis.
-     */
-    theta: number;
+    endPoint: Vector2;
 
     def_lineStroke: any;
     def_arrowHead: any;
@@ -66,13 +61,6 @@ export class VectorShape extends Geometry {
                 : new Vector2(0, 0);
 
         this.endPoint = params.endPoint;
-
-        this.theta = rToD(
-            Math.atan2(
-                this.endPoint.y - this.startPoint.y,
-                this.endPoint.x - this.startPoint.x
-            )
-        );
 
         ({
             lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
@@ -155,8 +143,21 @@ export class VectorShape extends Geometry {
             .attr(
                 "transform",
                 `translate(${WendPoint.x} ${WendPoint.y}) rotate(${
-                    this.theta - 90
+                    this.getTheta() - 90
                 })`
             );
+    }
+
+    /**
+     *
+     * @returns The angle between this vector and the x axis.
+     */
+    private getTheta() {
+        return rToD(
+            Math.atan2(
+                this.endPoint.y - this.startPoint.y,
+                this.endPoint.x - this.startPoint.x
+            )
+        );
     }
 }
