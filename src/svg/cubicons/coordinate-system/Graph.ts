@@ -7,8 +7,8 @@ import { CoordinateSystem } from "./CoordinateSystem";
 import { Axes } from "./Axes";
 
 export interface GRAPH_CONFIG {
-    graphColor: string;
-    graphWidth: number;
+    graphColor?: string;
+    graphWidth?: number;
 }
 
 export const GRAPH_DEFAULT_CONFIG: GRAPH_CONFIG = {
