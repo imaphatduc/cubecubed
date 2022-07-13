@@ -1,7 +1,7 @@
 import { range } from "d3-array";
 import { axisBottom, axisRight } from "d3-axis";
 import { format } from "d3-format";
-import { ScaleLinear, scaleLinear } from "d3-scale";
+import { scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector2 } from "@math/vector";
