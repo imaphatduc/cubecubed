@@ -43,7 +43,7 @@ export abstract class Cubicon {
     /**
      * The `<g/>` tag that holds this cubicon.
      */
-    g_cubiconWrapper: any;
+    g_cubiconWrapper: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
      * The HTML tag that represents this cubicon.
@@ -58,5 +58,11 @@ export abstract class Cubicon {
         this.svg_group = params.group.svg_group;
 
         this.def_cubiconBase = select(null);
+    }
+
+    setParentSelection(
+        parentSelection: Selection<SVGGElement, unknown, HTMLElement, any>
+    ) {
+        this.g_cubiconWrapper = parentSelection;
     }
 }

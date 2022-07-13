@@ -23,8 +23,6 @@ export class Line extends Geometry {
      */
     readonly endPoint: Vector2;
 
-    protected parentGroupTag = this.svg_group;
-
     /**
      * Config options of this line.
      */
@@ -64,7 +62,7 @@ export class Line extends Geometry {
                 params.CONFIG?.lineWidth ?? LINE_DEFAULT_CONFIG.lineWidth,
         };
 
-        this.g_cubiconWrapper = this.parentGroupTag
+        this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", `line-wrapper`)
             .style("transform-box", "fill-box")
@@ -99,21 +97,5 @@ export class Line extends Geometry {
 
     getWpoint(point: Vector2) {
         return this.coordsGtoW(point);
-    }
-
-    setParentHTMLTag(parentGroupTag: any) {
-        this.g_cubiconWrapper.remove();
-        this.parentGroupTag = parentGroupTag;
-        this.render();
-
-        return this;
-    }
-
-    setParent(parent: Geometry) {
-        this.g_cubiconWrapper.remove();
-        this.parentGroupTag = parent.g_cubiconWrapper;
-        this.render();
-
-        return this;
     }
 }

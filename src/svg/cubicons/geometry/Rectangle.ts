@@ -165,28 +165,28 @@ export class Rectangle extends Geometry {
 
         const horizontalLines: Line[] = [];
         for (const i of range(-this.height / 2 + 1, this.height / 2, 1)) {
-            horizontalLines.push(
-                new Line({
-                    ...generalParams,
-                    startPoint: new Vector2(-this.width / 2, i),
-                    endPoint: new Vector2(this.width / 2, i),
-                })
-                    .render()
-                    .setParentHTMLTag(g_drawInnerGrid)
-            );
+            const line = new Line({
+                ...generalParams,
+                startPoint: new Vector2(-this.width / 2, i),
+                endPoint: new Vector2(this.width / 2, i),
+            }).render();
+
+            line.setParentSelection(g_drawInnerGrid);
+
+            horizontalLines.push(line);
         }
 
         const verticalLines: Line[] = [];
         for (const i of range(-this.width / 2 + 1, this.width / 2, 1)) {
-            verticalLines.push(
-                new Line({
-                    ...generalParams,
-                    startPoint: new Vector2(i, -this.height / 2),
-                    endPoint: new Vector2(i, this.height / 2),
-                })
-                    .render()
-                    .setParentHTMLTag(g_drawInnerGrid)
-            );
+            const line = new Line({
+                ...generalParams,
+                startPoint: new Vector2(i, -this.height / 2),
+                endPoint: new Vector2(i, this.height / 2),
+            }).render();
+
+            line.setParentSelection(g_drawInnerGrid);
+
+            verticalLines.push(line);
         }
 
         return {

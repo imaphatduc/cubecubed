@@ -18,8 +18,6 @@ export class AxisProjector extends Line {
      */
     axes: Axes;
 
-    protected parentGroupTag: any;
-
     /**
      * Config options of this axis projector.
      */
@@ -50,7 +48,6 @@ export class AxisProjector extends Line {
             CONFIG: params.CONFIG,
         });
 
-        this.parentGroupTag = params.axes.svg_group;
         this.type = params.type;
         this.axes = params.axes;
 
