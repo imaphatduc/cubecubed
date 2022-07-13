@@ -1,4 +1,4 @@
-import { Selection, select } from "d3-selection";
+import { Selection } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector2 } from "@math/vector";
