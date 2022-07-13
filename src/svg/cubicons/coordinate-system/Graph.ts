@@ -1,9 +1,20 @@
 import { range } from "d3-array";
+import { Selection } from "d3-selection";
 import { curveNatural, line } from "d3-shape";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { CoordinateSystem } from "./CoordinateSystem";
 import { Axes } from "./Axes";
+
+export interface GRAPH_CONFIG {
+    graphColor: string;
+    graphWidth: number;
+}
+
+export const GRAPH_DEFAULT_CONFIG: GRAPH_CONFIG = {
+    graphColor: "#fff",
+    graphWidth: 2,
+};
 
 export class Graph extends CoordinateSystem {
     readonly coordSysObjType = "graph";
@@ -26,17 +37,12 @@ export class Graph extends CoordinateSystem {
     /**
      * The `<g/>` element that contains two axis projectors' tags (if Axes().pointToCoords(...) was called).
      */
-    g_projector: any;
+    g_projector: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
-     * Color of this graph.
+     * Config options of this graph.
      */
-    graphColor: any;
-
-    /**
-     * Width of this graph.
-     */
-    graphWidth: any;
+    CONFIG: GRAPH_CONFIG;
 
     constructor(params: {
         /**
@@ -54,10 +60,7 @@ export class Graph extends CoordinateSystem {
         /**
          * Config options of this graph.
          */
-        CONFIG?: {
-            graphColor?: string | undefined;
-            graphWidth?: number | undefined;
-        };
+        CONFIG?: GRAPH_CONFIG;
     }) {
         super({ group: params.axes.group, position: params.axes.position });
 
@@ -67,13 +70,12 @@ export class Graph extends CoordinateSystem {
 
         this.xRange = params.xRange;
 
-        ({
-            graphColor: this.graphColor = "#fff",
-            graphWidth: this.graphWidth = 1.5,
-        } = params.CONFIG ?? {
-            graphColor: "#fff",
-            graphWidth: 1.5,
-        });
+        this.CONFIG = {
+            graphColor:
+                params.CONFIG?.graphColor ?? GRAPH_DEFAULT_CONFIG.graphColor,
+            graphWidth:
+                params.CONFIG?.graphWidth ?? GRAPH_DEFAULT_CONFIG.graphWidth,
+        };
 
         this.g_cubiconWrapper = this.axes.g_graphs
             .append("g")
@@ -93,7 +95,7 @@ export class Graph extends CoordinateSystem {
     render() {
         this.def_cubiconBase
             .attr("d", this.getData())
-            .attr("stroke", this.graphColor);
+            .attr("stroke", this.CONFIG.graphColor);
 
         return this;
     }
