@@ -96,10 +96,6 @@ export class Axes extends CoordinateSystem {
             hasNums: this.hasNums = DEFAULT_AXES_CONFIG.hasNums,
         } = params.CONFIG ?? DEFAULT_AXES_CONFIG);
 
-        this.g_coordinate = this.svg_group
-            .append("g")
-            .attr("class", "xy-coordinate");
-
         this.g_graphs = this.g_coordinate.append("g").attr("class", "graphs");
 
         this.g_axes = this.g_coordinate.append("g").attr("class", "axes");

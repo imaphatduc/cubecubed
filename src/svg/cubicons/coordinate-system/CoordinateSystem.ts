@@ -1,3 +1,6 @@
+import { Selection } from "d3-selection";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
@@ -11,7 +14,7 @@ export abstract class CoordinateSystem extends Cubicon {
     /**
      * The `<svg/>` element that contains the whole coordinate system and everything included in it.
      */
-    g_coordinate: any;
+    g_coordinate: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     constructor({
         group,
@@ -21,5 +24,9 @@ export abstract class CoordinateSystem extends Cubicon {
         position?: Vector2 | undefined;
     }) {
         super({ group: group, position: position });
+
+        this.g_coordinate = this.svg_group
+            .append("g")
+            .attr("class", "xy-coordinate");
     }
 }
