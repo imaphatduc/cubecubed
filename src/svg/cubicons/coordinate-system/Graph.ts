@@ -10,9 +10,9 @@ export class Graph extends CoordinateSystem {
     readonly coordSysObjType = "graph";
 
     /**
-     * The `</g>` element that wraps the two axes' tags.
+     * The axes that this graph belongs to.
      */
-    axes: any;
+    axes: Axes;
 
     /**
      * x range of this graph.
@@ -98,32 +98,24 @@ export class Graph extends CoordinateSystem {
     }
 
     getData() {
-        const { squareLength } = this.group;
-
-        const xScale = scaleLinear()
-            .domain(this.xRange)
-            .range([
-                squareLength * this.xRange[0],
-                squareLength * this.xRange[1],
-            ]);
+        const xScale = this.axes.getXScale(this.xRange);
+        const yScale = this.axes.getYScale();
 
         const lineGenerator = line()
             .curve(curveNatural)
             .x((d: [number, number]) => xScale(d[0]))
-            .y((d: [number, number]) => this.axes.yScale(d[1]));
+            .y((d: [number, number]) => yScale(d[1]));
 
         const points: [number, number][] = [];
 
-        for (const x of range(this.xRange[0], this.xRange[1] + 1, 0.01)) {
+        range(this.xRange[0], this.xRange[1] + 1, 0.01).forEach((x) => {
             if (
-                this.axes.yScale(this.functionDef(x)) <
-                    this.axes.yScale(this.axes.yRange[1] + 1) &&
-                this.axes.yScale(this.functionDef(x)) >
-                    this.axes.yScale(this.axes.yRange[0] - 1)
+                yScale(this.functionDef(x)) < yScale(this.axes.yRange[1] + 1) &&
+                yScale(this.functionDef(x)) > yScale(this.axes.yRange[0] - 1)
             ) {
                 points.push([x, this.functionDef(x)]);
             }
-        }
+        });
 
         return lineGenerator(points);
     }

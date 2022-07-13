@@ -43,9 +43,12 @@ export class Label extends MathText {
     }
 
     private setPosition() {
+        const xScale = this.axes.getXScale();
+        const yScale = this.axes.getYScale();
+
         this.g_cubiconWrapper.attr(
             "transform",
-            `translate(${this.axes.xScale(this.position.x)}, ${this.axes.yScale(
+            `translate(${xScale(this.position.x)}, ${yScale(
                 this.position.y
             )}) scale(1, -1)`
         );

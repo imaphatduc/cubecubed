@@ -18,13 +18,19 @@ export class PointAlongGraph extends Animation {
     private xPos: number;
 
     private tweenX = (t: number) => {
+        const xScale = this.graph.axes.getXScale();
+
         const deltaX = this.xPos - this.cubicon.position.x;
-        return this.graph.axes.xScale(t * deltaX + this.cubicon.position.x);
+
+        return xScale(t * deltaX + this.cubicon.position.x);
     };
 
     private tweenY = (t: number) => {
+        const yScale = this.graph.axes.getYScale();
+
         const deltaX = this.xPos - this.cubicon.position.x;
-        return this.graph.axes.yScale(
+
+        return yScale(
             this.graph.functionDef(t * deltaX + this.cubicon.position.x)
         );
     };
