@@ -2,6 +2,7 @@ import { range } from "d3-array";
 import { axisBottom, axisRight } from "d3-axis";
 import { format } from "d3-format";
 import { scaleLinear } from "d3-scale";
+import { Selection } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector2 } from "@math/vector";
@@ -63,22 +64,22 @@ export class Axes extends CoordinateSystem {
     /**
      * The `<svg/>` element that contains the axes.
      */
-    g_axes: any;
+    g_axes: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
      * The `<svg/>` element that contains the x axis.
      */
-    xAxis: any;
+    xAxis: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
      * The `<svg/>` element that contains the y axis.
      */
-    yAxis: any;
+    yAxis: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
      * The `<svg/>` element (inside .axes) that contains all the graphs inside a pair of axes.
      */
-    g_graphs: any;
+    g_graphs: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
      * @param params Options to form the axes.
@@ -298,7 +299,7 @@ export class Axes extends CoordinateSystem {
         graph: Graph,
         text: string,
         xPos = graph.xRange[1],
-        color = graph.graphColor,
+        color = graph.CONFIG.graphColor,
         fontSize = 18
     ) {
         const label = new Label({

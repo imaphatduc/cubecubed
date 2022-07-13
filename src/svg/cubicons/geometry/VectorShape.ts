@@ -1,3 +1,6 @@
+import { Selection } from "d3-selection";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 import {
     LINE_DEFAULT_CONFIG,
     VECTOR_CONFIG,
@@ -17,6 +20,7 @@ export class VectorShape extends Geometry {
     readonly geoType = "vector";
 
     /// These have to be public to use in Create animations
+
     /**
      * Start point (tail) of the vector.
      */
@@ -26,8 +30,9 @@ export class VectorShape extends Geometry {
      */
     endPoint: Vector2;
 
-    def_lineStroke: any;
-    def_arrowHead: any;
+    def_lineStroke: Selection<SVGLineElement, unknown, HTMLElement, any>;
+
+    def_arrowHead: Selection<SVGPolygonElement, unknown, HTMLElement, any>;
 
     /**
      * Config options of this vector shape.
@@ -132,8 +137,14 @@ export class VectorShape extends Geometry {
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)
             .attr("y2", WendPoint.y)
-            .attr("stroke", this.CONFIG.lineColor)
-            .attr("stroke-width", this.CONFIG.lineWidth);
+            .attr(
+                "stroke",
+                this.CONFIG.lineColor ?? VECTOR_DEFAULT_CONFIG.lineColor
+            )
+            .attr(
+                "stroke-width",
+                this.CONFIG.lineWidth ?? VECTOR_DEFAULT_CONFIG.lineWidth
+            );
     }
 
     private drawVectorArrowHead() {
@@ -150,7 +161,10 @@ export class VectorShape extends Geometry {
                     -this.CONFIG.arrowHeight
                 )}`
             )
-            .attr("fill", this.CONFIG.lineColor)
+            .attr(
+                "fill",
+                this.CONFIG.lineColor ?? VECTOR_DEFAULT_CONFIG.lineColor
+            )
             .attr(
                 "transform",
                 `translate(${WendPoint.x} ${WendPoint.y}) rotate(${

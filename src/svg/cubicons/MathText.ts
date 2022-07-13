@@ -24,11 +24,6 @@ export class MathText extends Cubicon {
      */
     fontSize: number;
 
-    /**
-     * The SVG element that represents this text.
-     */
-    def_text: any;
-
     constructor(params: {
         /**
          * The group that the text belongs to.
@@ -86,7 +81,7 @@ export class MathText extends Cubicon {
             .substring(7)
             .toUpperCase();
 
-        this.g_cubiconWrapper.node().innerHTML = htmlString;
+        this.g_cubiconWrapper.node()!.innerHTML = htmlString;
 
         this.def_cubiconBase = this.g_cubiconWrapper.select("svg");
 
