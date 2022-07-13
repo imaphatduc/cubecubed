@@ -1,4 +1,3 @@
-import { range } from "d3";
 import {
     Group,
     Scene,
@@ -7,13 +6,7 @@ import {
     Grid,
     DrawGridFromScreenSides,
     DrawVectorField,
-    CanvasGroup,
-    StreamLine,
-    Vector3,
-    SimulateStream,
 } from "../src/index";
-
-const dt = 0.1;
 
 function vectorFieldSimulation() {
     const scene = new Scene("visualize-2d-vector-field");
@@ -32,7 +25,7 @@ function vectorFieldSimulation() {
                 lineColor: "scaled",
                 lineWidth: 1,
             },
-        });
+        }).render();
 
         group.play([new DrawVectorField({ cubicon: vectorField })]);
 
@@ -41,45 +34,7 @@ function vectorFieldSimulation() {
         group.sleep(1000);
     }
 
-    function flowField() {
-        const group = new CanvasGroup("flow-field", scene);
-
-        const { xBound, yBound } = group;
-
-        const stream = [];
-
-        range(...xBound, 1).forEach((x) => {
-            range(...yBound, 1).forEach((y) => {
-                stream.push(
-                    new StreamLine({
-                        group: group,
-                        position: new Vector3(x, y, 0),
-                        dt: dt,
-                        functionDef: ({ x, y, z }) =>
-                            new Vector3(Math.sin(y), Math.sin(x), z),
-                        maxVertices: 20,
-                        CONFIG: {
-                            strokeColor: "#5e2eff",
-                            strokeWidth: 1,
-                        },
-                    })
-                );
-            });
-        });
-
-        const streamAnimations = stream.map((streamline) => {
-            streamline.vertices.splice(1);
-
-            return new SimulateStream({
-                cubicon: streamline,
-            });
-        });
-
-        group.play(streamAnimations);
-    }
-
     vectorField();
-    flowField();
 }
 
 vectorFieldSimulation();
