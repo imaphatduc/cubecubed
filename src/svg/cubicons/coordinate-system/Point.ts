@@ -19,7 +19,7 @@ export class Point extends Circle {
         /**
          * Parent of this point. (i.e. The cubicon on which this point should be put)
          */
-        parent?: Graph | undefined;
+        parent?: Graph;
         /**
          * The `</svg>` element that wraps the two axes' `</svg>`.
          */
@@ -35,7 +35,7 @@ export class Point extends Circle {
         /**
          * Config options of the point.
          */
-        CONFIG?: SHAPE_CONFIG | undefined;
+        CONFIG?: SHAPE_CONFIG;
     }) {
         super({
             group: params.axes.group,

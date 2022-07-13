@@ -44,7 +44,7 @@ export class Line extends Geometry {
         /**
          * Config options of the line.
          */
-        CONFIG?: LINE_CONFIG | undefined;
+        CONFIG?: LINE_CONFIG;
     }) {
         super({ group: params.group, position: params.startPoint });
 
