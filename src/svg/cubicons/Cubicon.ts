@@ -1,4 +1,4 @@
-import { select } from "d3-selection";
+import { Selection, select } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector2 } from "@math/vector";
@@ -38,7 +38,7 @@ export abstract class Cubicon {
     /**
      * The `<svg/>` tag of this cubicon's group.
      */
-    svg_group: any;
+    svg_group: Selection<SVGSVGElement, unknown, HTMLElement, any>;
 
     /**
      * The `<g/>` tag that holds this cubicon.
