@@ -31,7 +31,7 @@ The creation of a point and its two axis projectors.
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:17](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/PointToCoords.ts#L17)
+[src/svg/animations/PointToCoords.ts:17](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/PointToCoords.ts#L17)
 
 ## Properties
 
@@ -47,7 +47,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -63,7 +63,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -79,7 +79,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -93,4 +93,4 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/PointToCoords.ts:42](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/PointToCoords.ts#L42)
+[src/svg/animations/PointToCoords.ts:42](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/PointToCoords.ts#L42)

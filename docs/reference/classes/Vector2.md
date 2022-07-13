@@ -6,7 +6,7 @@ Specify a mathematical Vector2D.
 
 ## Implements
 
-- `IVector`
+- [`IVector`](/reference/interfaces/IVector.md)
 
 ## Constructors
 
@@ -23,7 +23,7 @@ Specify a mathematical Vector2D.
 
 #### Defined in
 
-[src/math/vector.ts:41](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L41)
+[src/math/vector.ts:41](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L41)
 
 ## Properties
 
@@ -33,7 +33,7 @@ Specify a mathematical Vector2D.
 
 #### Defined in
 
-[src/math/vector.ts:38](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L38)
+[src/math/vector.ts:38](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L38)
 
 ___
 
@@ -43,13 +43,15 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:39](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L39)
+[src/math/vector.ts:39](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L39)
 
 ## Methods
 
 ### add
 
 ▸ **add**(`vect`): [`Vector2`](/reference/classes/Vector2.md)
+
+Immutable element-wise addition
 
 #### Parameters
 
@@ -63,11 +65,11 @@ ___
 
 #### Implementation of
 
-IVector.add
+[IVector](/reference/interfaces/IVector.md).[add](/reference/interfaces/IVector.md#add)
 
 #### Defined in
 
-[src/math/vector.ts:50](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L50)
+[src/math/vector.ts:50](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L50)
 
 ___
 
@@ -81,7 +83,7 @@ Apply the same function to both coordinates of this vector.
 
 | Name | Type |
 | :------ | :------ |
-| `func` | `ElementMapFunction` |
+| `func` | [`ElementMapFunction`](/reference/types/ElementMapFunction.md) |
 
 #### Returns
 
@@ -89,17 +91,19 @@ Apply the same function to both coordinates of this vector.
 
 #### Implementation of
 
-IVector.apply
+[IVector](/reference/interfaces/IVector.md).[apply](/reference/interfaces/IVector.md#apply)
 
 #### Defined in
 
-[src/math/vector.ts:69](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L69)
+[src/math/vector.ts:69](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L69)
 
 ___
 
 ### dot
 
 ▸ **dot**(`vect`): `number`
+
+Returns the dot product of two vectors
 
 #### Parameters
 
@@ -113,11 +117,11 @@ ___
 
 #### Implementation of
 
-IVector.dot
+[IVector](/reference/interfaces/IVector.md).[dot](/reference/interfaces/IVector.md#dot)
 
 #### Defined in
 
-[src/math/vector.ts:62](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L62)
+[src/math/vector.ts:62](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L62)
 
 ___
 
@@ -125,23 +129,27 @@ ___
 
 ▸ **magnitude**(): `number`
 
+Calculate magnitude of vector
+
 #### Returns
 
 `number`
 
 #### Implementation of
 
-IVector.magnitude
+[IVector](/reference/interfaces/IVector.md).[magnitude](/reference/interfaces/IVector.md#magnitude)
 
 #### Defined in
 
-[src/math/vector.ts:46](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L46)
+[src/math/vector.ts:46](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L46)
 
 ___
 
 ### scale
 
 ▸ **scale**(`scalar`): [`Vector2`](/reference/classes/Vector2.md)
+
+Creates a new scaled vector
 
 #### Parameters
 
@@ -155,17 +163,19 @@ ___
 
 #### Implementation of
 
-IVector.scale
+[IVector](/reference/interfaces/IVector.md).[scale](/reference/interfaces/IVector.md#scale)
 
 #### Defined in
 
-[src/math/vector.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L58)
+[src/math/vector.ts:58](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L58)
 
 ___
 
 ### subtract
 
 ▸ **subtract**(`vect`): [`Vector2`](/reference/classes/Vector2.md)
+
+Immutable element-wise subtraction
 
 #### Parameters
 
@@ -179,8 +189,8 @@ ___
 
 #### Implementation of
 
-IVector.subtract
+[IVector](/reference/interfaces/IVector.md).[subtract](/reference/interfaces/IVector.md#subtract)
 
 #### Defined in
 
-[src/math/vector.ts:54](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L54)
+[src/math/vector.ts:54](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L54)

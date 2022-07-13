@@ -6,7 +6,7 @@ Specify a mathematical Vector3D.
 
 ## Implements
 
-- `IVector`
+- [`IVector`](/reference/interfaces/IVector.md)
 
 ## Constructors
 
@@ -24,7 +24,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:82](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L82)
+[src/math/vector.ts:82](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L82)
 
 ## Properties
 
@@ -34,7 +34,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:78](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L78)
+[src/math/vector.ts:78](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L78)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:79](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L79)
+[src/math/vector.ts:79](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L79)
 
 ___
 
@@ -54,13 +54,15 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L80)
+[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L80)
 
 ## Methods
 
 ### add
 
 ▸ **add**(`vect`): [`Vector3`](/reference/classes/Vector3.md)
+
+Immutable element-wise addition
 
 #### Parameters
 
@@ -74,11 +76,11 @@ ___
 
 #### Implementation of
 
-IVector.add
+[IVector](/reference/interfaces/IVector.md).[add](/reference/interfaces/IVector.md#add)
 
 #### Defined in
 
-[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L92)
+[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L92)
 
 ___
 
@@ -92,7 +94,7 @@ Apply the same function to all three coordinates of this vector.
 
 | Name | Type |
 | :------ | :------ |
-| `func` | `ElementMapFunction` |
+| `func` | [`ElementMapFunction`](/reference/types/ElementMapFunction.md) |
 
 #### Returns
 
@@ -100,17 +102,19 @@ Apply the same function to all three coordinates of this vector.
 
 #### Implementation of
 
-IVector.apply
+[IVector](/reference/interfaces/IVector.md).[apply](/reference/interfaces/IVector.md#apply)
 
 #### Defined in
 
-[src/math/vector.ts:111](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L111)
+[src/math/vector.ts:111](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L111)
 
 ___
 
 ### dot
 
 ▸ **dot**(`vect`): `number`
+
+Returns the dot product of two vectors
 
 #### Parameters
 
@@ -124,11 +128,11 @@ ___
 
 #### Implementation of
 
-IVector.dot
+[IVector](/reference/interfaces/IVector.md).[dot](/reference/interfaces/IVector.md#dot)
 
 #### Defined in
 
-[src/math/vector.ts:104](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L104)
+[src/math/vector.ts:104](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L104)
 
 ___
 
@@ -136,23 +140,27 @@ ___
 
 ▸ **magnitude**(): `number`
 
+Calculate magnitude of vector
+
 #### Returns
 
 `number`
 
 #### Implementation of
 
-IVector.magnitude
+[IVector](/reference/interfaces/IVector.md).[magnitude](/reference/interfaces/IVector.md#magnitude)
 
 #### Defined in
 
-[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L88)
+[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L88)
 
 ___
 
 ### scale
 
 ▸ **scale**(`scalar`): [`Vector3`](/reference/classes/Vector3.md)
+
+Creates a new scaled vector
 
 #### Parameters
 
@@ -166,17 +174,19 @@ ___
 
 #### Implementation of
 
-IVector.scale
+[IVector](/reference/interfaces/IVector.md).[scale](/reference/interfaces/IVector.md#scale)
 
 #### Defined in
 
-[src/math/vector.ts:100](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L100)
+[src/math/vector.ts:100](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L100)
 
 ___
 
 ### subtract
 
 ▸ **subtract**(`vect`): [`Vector3`](/reference/classes/Vector3.md)
+
+Immutable element-wise subtraction
 
 #### Parameters
 
@@ -190,8 +200,8 @@ ___
 
 #### Implementation of
 
-IVector.subtract
+[IVector](/reference/interfaces/IVector.md).[subtract](/reference/interfaces/IVector.md#subtract)
 
 #### Defined in
 
-[src/math/vector.ts:96](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/math/vector.ts#L96)
+[src/math/vector.ts:96](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L96)

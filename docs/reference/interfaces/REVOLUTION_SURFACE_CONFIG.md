@@ -12,7 +12,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:15](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/RevolutionSurface.ts#L15)
+[src/canvas/cubicons/RevolutionSurface.ts:15](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/RevolutionSurface.ts#L15)
 
 ___
 
@@ -24,7 +24,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:19](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/RevolutionSurface.ts#L19)
+[src/canvas/cubicons/RevolutionSurface.ts:19](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/RevolutionSurface.ts#L19)
 
 ___
 
@@ -36,4 +36,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:23](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/RevolutionSurface.ts#L23)
+[src/canvas/cubicons/RevolutionSurface.ts:23](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/RevolutionSurface.ts#L23)

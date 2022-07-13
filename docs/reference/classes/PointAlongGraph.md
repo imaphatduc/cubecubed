@@ -35,7 +35,7 @@ Animate the smooth motion of a point along a graph.
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:32](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/PointAlongGraph.ts#L32)
+[src/svg/animations/PointAlongGraph.ts:38](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/PointAlongGraph.ts#L38)
 
 ## Properties
 
@@ -51,7 +51,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -67,7 +67,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -83,7 +83,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -103,4 +103,4 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:67](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/PointAlongGraph.ts#L67)
+[src/svg/animations/PointAlongGraph.ts:73](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/PointAlongGraph.ts#L73)

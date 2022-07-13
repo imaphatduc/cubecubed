@@ -10,4 +10,4 @@
 
 #### Defined in
 
-[src/svg/group/Group.ts:10](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/group/Group.ts#L10)
+[src/svg/group/Group.ts:10](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/group/Group.ts#L10)

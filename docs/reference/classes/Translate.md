@@ -32,7 +32,7 @@ Translate a geometric cubicon by a specified vector.
 
 #### Defined in
 
-[src/svg/animations/Translate.ts:15](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Translate.ts#L15)
+[src/svg/animations/Translate.ts:15](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Translate.ts#L15)
 
 ## Properties
 
@@ -48,7 +48,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -64,7 +64,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -80,7 +80,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L58)
 
 ___
 
@@ -90,7 +90,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Translate.ts:13](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Translate.ts#L13)
+[src/svg/animations/Translate.ts:13](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Translate.ts#L13)
 
 ## Methods
 
@@ -110,4 +110,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Translate.ts:42](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/svg/animations/Translate.ts#L42)
+[src/svg/animations/Translate.ts:42](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Translate.ts#L42)

@@ -25,7 +25,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:45](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L45)
+[src/canvas/cubicons/CanvasCubicon.ts:45](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L45)
 
 ## Properties
 
@@ -37,7 +37,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:23](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L23)
+[src/canvas/cubicons/CanvasCubicon.ts:23](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L23)
 
 ___
 
@@ -49,7 +49,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L12)
+[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L12)
 
 ___
 
@@ -61,7 +61,7 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:28](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L28)
+[src/canvas/cubicons/CanvasCubicon.ts:28](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L28)
 
 ___
 
@@ -73,7 +73,7 @@ Mesh of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L33)
+[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L33)
 
 ___
 
@@ -86,7 +86,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:18](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L18)
+[src/canvas/cubicons/CanvasCubicon.ts:18](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L18)
 
 ___
 
@@ -98,7 +98,7 @@ Scale the position vector of this cubicon by this number.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:38](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L38)
+[src/canvas/cubicons/CanvasCubicon.ts:38](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L38)
 
 ___
 
@@ -110,4 +110,4 @@ Token string for this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:43](https://github.com/imaphatduc/cubecubed/blob/0dc8d92/src/canvas/cubicons/CanvasCubicon.ts#L43)
+[src/canvas/cubicons/CanvasCubicon.ts:43](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/cubicons/CanvasCubicon.ts#L43)
