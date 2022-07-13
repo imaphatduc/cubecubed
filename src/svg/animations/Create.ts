@@ -112,8 +112,8 @@ export class Create extends Animation {
             /// Make end point of vector's rendered line touch exactly at 10% height of its arrow
             const resultVector = vector.scale(
                 (magnitude -
-                    vectorShape.arrowHeight +
-                    vectorShape.arrowHeight * 0.1) /
+                    vectorShape.CONFIG.arrowHeight +
+                    vectorShape.CONFIG.arrowHeight * 0.1) /
                     magnitude
             );
 
@@ -161,10 +161,10 @@ export class Create extends Animation {
         const fill =
             cubicon.cubType === "coordinate-system"
                 ? "none"
-                : cubicon.fillColor;
+                : cubicon.CONFIG.fillColor;
 
         const fillOpacity =
-            cubicon.cubType === "geometry" ? cubicon.fillOpacity : 1;
+            cubicon.cubType === "geometry" ? cubicon.CONFIG.fillOpacity : 1;
 
         // Drawing animation and fade in fill
         cubicon.def_cubiconBase

@@ -21,6 +21,11 @@ export class ParametricCurve extends Geometry {
 
     tRange: [number, number];
 
+    /**
+     * Config options of this parametric curve.
+     */
+    CONFIG: LINE_CONFIG;
+
     constructor(params: {
         group: Group;
         tRange: [number, number];
@@ -39,10 +44,12 @@ export class ParametricCurve extends Geometry {
         this.functionDef = params.functionDef;
         this.tRange = params.tRange;
 
-        ({
-            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
+        this.CONFIG = {
+            lineColor:
+                params.CONFIG?.lineColor ?? LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth:
+                params.CONFIG?.lineWidth ?? LINE_DEFAULT_CONFIG.lineWidth,
+        };
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -61,8 +68,8 @@ export class ParametricCurve extends Geometry {
 
         this.def_cubiconBase
             .attr("d", this.getData())
-            .attr("stroke", this.lineColor)
-            .attr("stroke-width", this.lineWidth);
+            .attr("stroke", this.CONFIG.lineColor)
+            .attr("stroke-width", this.CONFIG.lineWidth);
 
         return this;
     }

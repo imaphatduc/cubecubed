@@ -59,8 +59,8 @@ export const LINE_DEFAULT_CONFIG = {
  * If this is not specified, then fall back to all of the default values.
  */
 export interface VECTOR_CONFIG extends LINE_CONFIG {
-    arrowWidth?: number;
-    arrowHeight?: number;
+    arrowWidth: number;
+    arrowHeight: number;
 }
 export const VECTOR_DEFAULT_CONFIG = {
     ...LINE_DEFAULT_CONFIG,
@@ -77,16 +77,6 @@ export abstract class Geometry extends Cubicon {
     readonly cubType = "geometry";
 
     abstract readonly geoType: string;
-
-    // For geometry (Geometry)
-    fillColor: any;
-    fillOpacity: any;
-    strokeColor: any;
-    strokeWidth: any;
-
-    // For line-like objects (Line | Vector | AxisProjector)
-    lineColor: any;
-    lineWidth: any;
 
     constructor(params: { group: Group; position?: Vector2 }) {
         super({

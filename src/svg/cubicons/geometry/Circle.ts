@@ -20,6 +20,11 @@ export class Circle extends Geometry {
     readonly radius: number;
 
     /**
+     * Config options of this circle.
+     */
+    CONFIG: SHAPE_CONFIG;
+
+    /**
      * @param params An object that contains options to form the circle.
      */
     constructor(params: {
@@ -44,12 +49,16 @@ export class Circle extends Geometry {
 
         this.radius = params.radius;
 
-        ({
-            fillColor: this.fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
-            fillOpacity: this.fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
-            strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
-            strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
-        } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
+        this.CONFIG = {
+            fillColor:
+                params.CONFIG?.fillColor ?? SHAPE_DEFAULT_CONFIG.fillColor,
+            fillOpacity:
+                params.CONFIG?.fillOpacity ?? SHAPE_DEFAULT_CONFIG.fillOpacity,
+            strokeColor:
+                params.CONFIG?.strokeColor ?? SHAPE_DEFAULT_CONFIG.strokeColor,
+            strokeWidth:
+                params.CONFIG?.strokeWidth ?? SHAPE_DEFAULT_CONFIG.strokeWidth,
+        };
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -81,10 +90,10 @@ export class Circle extends Geometry {
             .attr("cx", Wposition.x)
             .attr("cy", Wposition.y)
             .attr("r", Wradius)
-            .attr("fill", this.fillColor)
-            .attr("fill-opacity", this.fillOpacity)
-            .attr("stroke", this.strokeColor)
-            .attr("stroke-width", this.strokeWidth);
+            .attr("fill", this.CONFIG.fillColor)
+            .attr("fill-opacity", this.CONFIG.fillOpacity)
+            .attr("stroke", this.CONFIG.strokeColor)
+            .attr("stroke-width", this.CONFIG.strokeWidth);
     }
 }
 

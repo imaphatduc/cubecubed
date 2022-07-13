@@ -25,6 +25,11 @@ export class Line extends Geometry {
 
     protected parentGroupTag = this.svg_group;
 
+    /**
+     * Config options of this line.
+     */
+    CONFIG: LINE_CONFIG;
+
     constructor(params: {
         /**
          * The group that the line belongs to.
@@ -52,10 +57,12 @@ export class Line extends Geometry {
 
         this.endPoint = new Vector2(params.endPoint.x, params.endPoint.y);
 
-        ({
-            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
+        this.CONFIG = {
+            lineColor:
+                params.CONFIG?.lineColor ?? LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth:
+                params.CONFIG?.lineWidth ?? LINE_DEFAULT_CONFIG.lineWidth,
+        };
 
         this.g_cubiconWrapper = this.parentGroupTag
             .append("g")
@@ -86,8 +93,8 @@ export class Line extends Geometry {
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)
             .attr("y2", WendPoint.y)
-            .attr("stroke", this.lineColor)
-            .attr("stroke-width", this.lineWidth);
+            .attr("stroke", this.CONFIG.lineColor)
+            .attr("stroke-width", this.CONFIG.lineWidth);
     }
 
     getWpoint(point: Vector2) {

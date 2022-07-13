@@ -29,8 +29,10 @@ export class VectorShape extends Geometry {
     def_lineStroke: any;
     def_arrowHead: any;
 
-    readonly arrowWidth: any;
-    readonly arrowHeight: any;
+    /**
+     * Config options of this vector shape.
+     */
+    CONFIG: VECTOR_CONFIG;
 
     constructor(params: {
         /**
@@ -62,12 +64,16 @@ export class VectorShape extends Geometry {
 
         this.endPoint = params.endPoint;
 
-        ({
-            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-            arrowWidth: this.arrowWidth = VECTOR_DEFAULT_CONFIG.arrowWidth,
-            arrowHeight: this.arrowHeight = VECTOR_DEFAULT_CONFIG.arrowHeight,
-        } = params.CONFIG ?? VECTOR_DEFAULT_CONFIG);
+        this.CONFIG = {
+            lineColor:
+                params.CONFIG?.lineColor ?? LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth:
+                params.CONFIG?.lineWidth ?? LINE_DEFAULT_CONFIG.lineWidth,
+            arrowWidth:
+                params.CONFIG?.arrowWidth ?? VECTOR_DEFAULT_CONFIG.arrowWidth,
+            arrowHeight:
+                params.CONFIG?.arrowHeight ?? VECTOR_DEFAULT_CONFIG.arrowHeight,
+        };
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -112,7 +118,10 @@ export class VectorShape extends Geometry {
 
         /// Make end point of vector's rendered line touch exactly at 10% height of its arrow
         const resultVector = vector.scale(
-            (magnitude - this.arrowHeight + this.arrowHeight * 0.1) / magnitude
+            (magnitude -
+                this.CONFIG.arrowHeight +
+                this.CONFIG.arrowHeight * 0.1) /
+                magnitude
         );
 
         const WstartPoint = this.coordsGtoW(this.startPoint);
@@ -123,8 +132,8 @@ export class VectorShape extends Geometry {
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)
             .attr("y2", WendPoint.y)
-            .attr("stroke", this.lineColor)
-            .attr("stroke-width", this.lineWidth);
+            .attr("stroke", this.CONFIG.lineColor)
+            .attr("stroke-width", this.CONFIG.lineWidth);
     }
 
     private drawVectorArrowHead() {
@@ -135,11 +144,13 @@ export class VectorShape extends Geometry {
         this.def_arrowHead
             .attr(
                 "points",
-                `${xGtoW(-this.arrowWidth)}, ${yGtoW(
-                    -this.arrowHeight
-                )} 0, 0 ${xGtoW(this.arrowWidth)}, ${yGtoW(-this.arrowHeight)}`
+                `${xGtoW(-this.CONFIG.arrowWidth)}, ${yGtoW(
+                    -this.CONFIG.arrowHeight
+                )} 0, 0 ${xGtoW(this.CONFIG.arrowWidth)}, ${yGtoW(
+                    -this.CONFIG.arrowHeight
+                )}`
             )
-            .attr("fill", this.lineColor)
+            .attr("fill", this.CONFIG.lineColor)
             .attr(
                 "transform",
                 `translate(${WendPoint.x} ${WendPoint.y}) rotate(${

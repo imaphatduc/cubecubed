@@ -41,6 +41,11 @@ export class Rectangle extends Geometry {
     readonly height: number;
 
     /**
+     * Config options of this rectangle.
+     */
+    CONFIG: SHAPE_CONFIG;
+
+    /**
      * @param params Options to form the rectangle.
      */
     constructor(params: {
@@ -71,12 +76,16 @@ export class Rectangle extends Geometry {
 
         this.height = params.height;
 
-        ({
-            fillColor: this.fillColor = SHAPE_DEFAULT_CONFIG.fillColor,
-            fillOpacity: this.fillOpacity = SHAPE_DEFAULT_CONFIG.fillOpacity,
-            strokeColor: this.strokeColor = SHAPE_DEFAULT_CONFIG.strokeColor,
-            strokeWidth: this.strokeWidth = SHAPE_DEFAULT_CONFIG.strokeWidth,
-        } = params.CONFIG ?? SHAPE_DEFAULT_CONFIG);
+        this.CONFIG = {
+            fillColor:
+                params.CONFIG?.fillColor ?? SHAPE_DEFAULT_CONFIG.fillColor,
+            fillOpacity:
+                params.CONFIG?.fillOpacity ?? SHAPE_DEFAULT_CONFIG.fillOpacity,
+            strokeColor:
+                params.CONFIG?.strokeColor ?? SHAPE_DEFAULT_CONFIG.strokeColor,
+            strokeWidth:
+                params.CONFIG?.strokeWidth ?? SHAPE_DEFAULT_CONFIG.strokeWidth,
+        };
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -96,10 +105,10 @@ export class Rectangle extends Geometry {
         this.def_cubiconBase
             .attr("class", "rectangle")
             .attr("d", path.toString())
-            .attr("stroke", this.strokeColor)
-            .attr("stroke-width", this.strokeWidth)
-            .attr("fill", this.fillColor)
-            .attr("fill-opacity", this.fillOpacity);
+            .attr("stroke", this.CONFIG.strokeColor)
+            .attr("stroke-width", this.CONFIG.strokeWidth)
+            .attr("fill", this.CONFIG.fillColor)
+            .attr("fill-opacity", this.CONFIG.fillOpacity);
 
         this.def_cubiconBase
             .style("transform-box", "fill-box")
@@ -127,7 +136,7 @@ export class Rectangle extends Geometry {
         rectPath.lineTo(X + Wwidth, Y);
         rectPath.lineTo(X + Wwidth, Y - Wheight);
         rectPath.lineTo(X, Y - Wheight);
-        rectPath.lineTo(X, Y + (this.strokeWidth ?? 0) / 2);
+        rectPath.lineTo(X, Y + (this.CONFIG.strokeWidth ?? 0) / 2);
 
         return rectPath;
     }

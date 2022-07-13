@@ -105,7 +105,7 @@ export class VectorField extends Cubicon {
                 .domain([0, hslUpperLimitAngle])
                 .range([hslUpperLimitAngle, 0]);
 
-            vectorShape.lineColor =
+            vectorShape.CONFIG.lineColor =
                 this.CONFIG.lineColor === "scaled"
                     ? hsl(
                           reverseHslAngle(
@@ -116,7 +116,7 @@ export class VectorField extends Cubicon {
                       ).formatHsl()
                     : this.CONFIG.lineColor;
 
-            vectorShape.lineWidth = this.CONFIG.lineWidth;
+            vectorShape.CONFIG.lineWidth = this.CONFIG.lineWidth;
 
             vectorShape.render();
         });

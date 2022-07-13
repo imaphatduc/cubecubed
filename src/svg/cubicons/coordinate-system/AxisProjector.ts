@@ -20,6 +20,11 @@ export class AxisProjector extends Line {
 
     protected parentGroupTag: any;
 
+    /**
+     * Config options of this axis projector.
+     */
+    CONFIG: LINE_CONFIG;
+
     constructor(params: {
         type: "horizontal" | "vertical";
         /**
@@ -49,10 +54,12 @@ export class AxisProjector extends Line {
         this.type = params.type;
         this.axes = params.axes;
 
-        ({
-            lineColor: this.lineColor = LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth: this.lineWidth = LINE_DEFAULT_CONFIG.lineWidth,
-        } = params.CONFIG ?? LINE_DEFAULT_CONFIG);
+        this.CONFIG = {
+            lineColor:
+                params.CONFIG?.lineColor ?? LINE_DEFAULT_CONFIG.lineColor,
+            lineWidth:
+                params.CONFIG?.lineWidth ?? LINE_DEFAULT_CONFIG.lineWidth,
+        };
 
         this.g_cubiconWrapper.attr("class", `${this.type}-projector-wrapper`);
 
