@@ -61,16 +61,6 @@ export class Axes extends CoordinateSystem {
     hasNums: boolean;
 
     /**
-     * Scale function of the x axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
-     */
-    xScale: ScaleLinear<number, number, never>;
-
-    /**
-     * Scale function of the y axis, convert from SVG-Cartesian coordinates to the axes' coordinates.
-     */
-    yScale: ScaleLinear<number, number, never>;
-
-    /**
      * The `<svg/>` element that contains the axes.
      */
     g_axes: any;
@@ -106,129 +96,43 @@ export class Axes extends CoordinateSystem {
             hasNums: this.hasNums = DEFAULT_AXES_CONFIG.hasNums,
         } = params.CONFIG ?? DEFAULT_AXES_CONFIG);
 
-        const { squareLength } = this.group;
+        this.g_coordinate = this.svg_group
+            .append("g")
+            .attr("class", "xy-coordinate");
 
-        this.xScale = scaleLinear()
-            .domain(this.xRange)
-            .range([
-                squareLength * this.xRange[0],
-                squareLength * this.xRange[1],
-            ]);
+        this.g_graphs = this.g_coordinate.append("g").attr("class", "graphs");
 
-        this.yScale = scaleLinear()
-            .domain(this.yRange)
-            .range([
-                squareLength * this.yRange[0],
-                squareLength * this.yRange[1],
-            ]);
+        this.g_axes = this.g_coordinate.append("g").attr("class", "axes");
+
+        this.xAxis = this.g_axes.append("g").attr("class", "x-axis");
+
+        this.yAxis = this.g_axes.append("g").attr("class", "y-axis");
+
+        this.xAxis
+            .append("defs")
+            .append("marker")
+            .attr("class", "axis-arrowhead")
+            .append("path")
+            .attr("class", "axis-path");
+        this.yAxis
+            .append("defs")
+            .append("marker")
+            .attr("class", "axis-arrowhead")
+            .append("path")
+            .attr("class", "axis-path");
     }
 
     /**
      * Draw (and render) the axes onto SVG.
      */
     render() {
-        this.g_coordinate = this.svg_group
-            .append("g")
-            .attr("class", "xy-coordinate")
-            .attr(
-                "transform",
-                `translate(${this.position.x}, ${this.position.y})`
-            );
-        this.g_axes = this.g_coordinate.append("g").attr("class", "axes");
+        this.g_coordinate.attr(
+            "transform",
+            `translate(${this.position.x}, ${this.position.y})`
+        );
 
-        // x axis data
-        const xAxis = axisBottom(this.xScale)
-            .tickValues(
-                range(this.xRange[0], this.xRange[1] + 1, 1).filter(
-                    (t: number) => t !== 0
-                )
-            )
-            .tickSizeOuter(0);
-        this.xAxis = this.g_axes
-            .append("g")
-            .attr("class", "x-axis")
-            .call(xAxis);
-
-        // y axis data
-        const yAxis = axisRight(this.yScale)
-            .tickValues(
-                range(this.yRange[0], this.yRange[1] + 1, 1).filter(
-                    (t: number) => t !== 0
-                )
-            )
-            .tickFormat(format("0"))
-            .tickSizeOuter(0);
-        this.yAxis = this.g_axes
-            .append("g")
-            .attr("class", "y-axis")
-            .call(yAxis);
-
-        function applySettings(axes: any[]) {
-            const halfArrowBase = 7;
-            const axisStrokeWidth = 1;
-            const tickOffset = 5;
-
-            const options = [
-                [
-                    "x", // this axis label
-                    "y", // the other axis label
-                    `M 0,0 L ${halfArrowBase * 2},${halfArrowBase} L 0,${
-                        halfArrowBase * 2
-                    } z`,
-                    "X",
-                    "Y",
-                ],
-                [
-                    "y", // this axis label
-                    "x", // the other axis label
-                    `M 0,0 L ${halfArrowBase * 2},0 L ${halfArrowBase},${
-                        halfArrowBase * 2
-                    } z`,
-                    "Y",
-                    "X",
-                ],
-            ];
-
-            return axes.forEach((axis, i) => {
-                // Basic stylings for the axis
-                axis.style("font-size", "inherit")
-                    .style("color", "#fff")
-                    .style("stroke", "none");
-
-                axis.select("path.domain").attr("transform", "scale(1.05)");
-
-                // Add arrow marker to the axis
-                axis.append("defs")
-                    .append("marker")
-                    .attr("id", `arrowhead-${options[i][0]}`)
-                    .attr("markerWidth", 20)
-                    .attr("markerHeight", 20)
-                    .attr(`ref${options[i][3]}`, axisStrokeWidth)
-                    .attr(`ref${options[i][4]}`, halfArrowBase)
-                    .append("path")
-                    .attr("d", options[i][2])
-                    .attr("stroke", "none")
-                    .attr("stroke-width", axisStrokeWidth)
-                    .attr("fill", "#fff");
-
-                axis.select("path.domain").attr(
-                    "marker-end",
-                    `url(#arrowhead-${options[i][0]})`
-                );
-
-                // Basic stylings for the numbers
-                axis.selectAll(".tick text")
-                    .attr("transform", "scale(1, -1)")
-                    .style("font-family", "KaTeX_Main");
-
-                // Define tick lines' appearance
-                axis.selectAll(".tick line")
-                    .attr(`${options[i][1]}1`, -tickOffset)
-                    .attr(`${options[i][1]}2`, tickOffset);
-            });
-        }
-
-        applySettings([this.xAxis, this.yAxis]);
+        this.renderAxes();
+        this.applyAxesSettings(this.xAxis, this.yAxis);
 
         // Remove numbers on axes if hasNums is false
         if (!this.hasNums) {
@@ -236,9 +140,110 @@ export class Axes extends CoordinateSystem {
             this.yAxis.selectAll(".tick text").remove();
         }
 
-        this.g_graphs = this.g_coordinate.append("g").attr("class", "graphs");
-
         return this;
+    }
+
+    private renderAxes() {
+        const xAxis = axisBottom(this.getXScale())
+            .tickValues(
+                range(this.xRange[0], this.xRange[1] + 1, 1).filter(
+                    (t: number) => t !== 0
+                )
+            )
+            .tickSizeOuter(0);
+
+        this.xAxis.call(xAxis);
+
+        //
+
+        const yAxis = axisRight(this.getYScale())
+            .tickValues(
+                range(this.yRange[0], this.yRange[1] + 1, 1).filter(
+                    (t: number) => t !== 0
+                )
+            )
+            .tickFormat(format("0"))
+            .tickSizeOuter(0);
+
+        this.yAxis.call(yAxis);
+    }
+
+    private applyAxesSettings(...axes: any[]) {
+        const halfArrowBase = 7;
+        const axisStrokeWidth = 1;
+        const tickOffset = 5;
+
+        const options = [
+            [
+                "x", // this axis label
+                "y", // the other axis label
+                `M 0,0 L ${halfArrowBase * 2},${halfArrowBase} L 0,${
+                    halfArrowBase * 2
+                } z`,
+                "X",
+                "Y",
+            ],
+            [
+                "y", // this axis label
+                "x", // the other axis label
+                `M 0,0 L ${halfArrowBase * 2},0 L ${halfArrowBase},${
+                    halfArrowBase * 2
+                } z`,
+                "Y",
+                "X",
+            ],
+        ];
+
+        return axes.forEach((axis, i) => {
+            axis.style("font-size", "inherit")
+                .style("color", "#fff")
+                .style("stroke", "none");
+
+            axis.select("path.domain").attr("transform", "scale(1.05)");
+
+            axis.select("defs")
+                .select("marker.axis-arrowhead")
+                .attr("id", `arrowhead-${options[i][0]}`)
+                .attr("markerWidth", 20)
+                .attr("markerHeight", 20)
+                .attr(`ref${options[i][3]}`, axisStrokeWidth)
+                .attr(`ref${options[i][4]}`, halfArrowBase);
+
+            axis.select("path.axis-path")
+                .attr("d", options[i][2])
+                .attr("stroke", "none")
+                .attr("stroke-width", axisStrokeWidth)
+                .attr("fill", "#fff");
+
+            axis.select("path.domain").attr(
+                "marker-end",
+                `url(#arrowhead-${options[i][0]})`
+            );
+
+            axis.selectAll(".tick text")
+                .attr("transform", "scale(1, -1)")
+                .style("font-family", "KaTeX_Main");
+
+            axis.selectAll(".tick line")
+                .attr(`${options[i][1]}1`, -tickOffset)
+                .attr(`${options[i][1]}2`, tickOffset);
+        });
+    }
+
+    private getScale(axisRange: [number, number]) {
+        const { squareLength } = this.group;
+
+        return scaleLinear()
+            .domain(axisRange)
+            .range([squareLength * axisRange[0], squareLength * axisRange[1]]);
+    }
+
+    getXScale() {
+        return this.getScale(this.xRange);
+    }
+
+    getYScale() {
+        return this.getScale(this.yRange);
     }
 
     /**
@@ -247,7 +252,10 @@ export class Axes extends CoordinateSystem {
      * @internal
      */
     coordsGtoW(point: Vector2) {
-        return new Vector2(this.xScale(point.x), this.yScale(point.y));
+        const xScale = this.getXScale();
+        const yScale = this.getYScale();
+
+        return new Vector2(xScale(point.x), yScale(point.y));
     }
 
     /**
