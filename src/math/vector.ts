@@ -1,6 +1,6 @@
-type ElementMapFunction = (x: number) => number;
+export type ElementMapFunction = (x: number) => number;
 
-interface IVector {
+export interface IVector {
     /**
      * Calculate magnitude of vector
      */
