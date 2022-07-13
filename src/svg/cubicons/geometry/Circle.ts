@@ -90,10 +90,10 @@ export class Circle extends Geometry {
             .attr("cx", Wposition.x)
             .attr("cy", Wposition.y)
             .attr("r", Wradius)
-            .attr("fill", this.CONFIG.fillColor)
-            .attr("fill-opacity", this.CONFIG.fillOpacity)
-            .attr("stroke", this.CONFIG.strokeColor)
-            .attr("stroke-width", this.CONFIG.strokeWidth);
+            .attr("fill", this.CONFIG.fillColor!)
+            .attr("fill-opacity", this.CONFIG.fillOpacity!)
+            .attr("stroke", this.CONFIG.strokeColor!)
+            .attr("stroke-width", this.CONFIG.strokeWidth!);
     }
 }
 

@@ -161,10 +161,10 @@ export class Create extends Animation {
         const fill =
             cubicon.cubType === "coordinate-system"
                 ? "none"
-                : cubicon.CONFIG.fillColor;
+                : cubicon.CONFIG.fillColor!;
 
         const fillOpacity =
-            cubicon.cubType === "geometry" ? cubicon.CONFIG.fillOpacity : 1;
+            cubicon.cubType === "geometry" ? cubicon.CONFIG.fillOpacity! : 1;
 
         // Drawing animation and fade in fill
         cubicon.def_cubiconBase

@@ -48,7 +48,7 @@ export abstract class Cubicon {
     /**
      * The HTML tag that represents this cubicon.
      */
-    def_cubiconBase: any;
+    def_cubiconBase: Selection<any, unknown, HTMLElement, any>;
 
     constructor(params: { group: Group; position: Vector2 }) {
         this.group = params.group;
@@ -57,7 +57,7 @@ export abstract class Cubicon {
 
         this.svg_group = params.group.svg_group;
 
-        this.def_cubiconBase = select(null);
+        this.def_cubiconBase = this.svg_group;
     }
 
     setParentSelection(

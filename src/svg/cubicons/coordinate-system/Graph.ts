@@ -95,7 +95,7 @@ export class Graph extends CoordinateSystem {
     render() {
         this.def_cubiconBase
             .attr("d", this.getData())
-            .attr("stroke", this.CONFIG.graphColor);
+            .attr("stroke", this.CONFIG.graphColor!);
 
         return this;
     }

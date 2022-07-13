@@ -91,8 +91,8 @@ export class Line extends Geometry {
             .attr("y1", WstartPoint.y)
             .attr("x2", WendPoint.x)
             .attr("y2", WendPoint.y)
-            .attr("stroke", this.CONFIG.lineColor)
-            .attr("stroke-width", this.CONFIG.lineWidth);
+            .attr("stroke", this.CONFIG.lineColor!)
+            .attr("stroke-width", this.CONFIG.lineWidth!);
     }
 
     getWpoint(point: Vector2) {

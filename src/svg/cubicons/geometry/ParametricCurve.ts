@@ -68,8 +68,8 @@ export class ParametricCurve extends Geometry {
 
         this.def_cubiconBase
             .attr("d", this.getData())
-            .attr("stroke", this.CONFIG.lineColor)
-            .attr("stroke-width", this.CONFIG.lineWidth);
+            .attr("stroke", this.CONFIG.lineColor!)
+            .attr("stroke-width", this.CONFIG.lineWidth!);
 
         return this;
     }

@@ -105,10 +105,10 @@ export class Rectangle extends Geometry {
         this.def_cubiconBase
             .attr("class", "rectangle")
             .attr("d", path.toString())
-            .attr("stroke", this.CONFIG.strokeColor)
-            .attr("stroke-width", this.CONFIG.strokeWidth)
-            .attr("fill", this.CONFIG.fillColor)
-            .attr("fill-opacity", this.CONFIG.fillOpacity);
+            .attr("stroke", this.CONFIG.strokeColor!)
+            .attr("stroke-width", this.CONFIG.strokeWidth!)
+            .attr("fill", this.CONFIG.fillColor!)
+            .attr("fill-opacity", this.CONFIG.fillOpacity!);
 
         this.def_cubiconBase
             .style("transform-box", "fill-box")
