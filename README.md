@@ -11,7 +11,7 @@
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
       <img src="https://img.shields.io/badge/d3.js-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white" />
-      <img src="https://img.shields.io/badge/p5.js-DE235B?style=for-the-badge&logo=p5.js&logoColor=white" />
+      <img src="https://img.shields.io/badge/threejs-black?style=for-the-badge&logo=three.js&logoColor=white" />
       <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
       <img src="https://img.shields.io/badge/Vite-B73BFE?style=for-the-badge&logo=vite&logoColor=FFD62E" />
       <img src="https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white" />
@@ -25,7 +25,7 @@
   </p>
 </p>
 
-Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous graphical capabilities of [p5.js](https://github.com/processing/p5.js) library to create a visual representation of math concepts.
+Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) library to create a visual representation of math concepts.
 
 Though Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_ written in Python, it's not a port or a re-implementation of the engine. Cubecubed specifically focuses on playing dynamic animations right on the browser, with the intensive use of SVG and HTML Canvas. However, you can also export the animations to a video file (head to the [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart?id=video-exports) page for more details).
 
