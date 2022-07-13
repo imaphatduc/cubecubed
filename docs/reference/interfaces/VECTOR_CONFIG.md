@@ -16,21 +16,21 @@ If this is not specified, then fall back to all of the default values.
 
 ### arrowHeight
 
-• `Optional` **arrowHeight**: `number`
+• **arrowHeight**: `number`
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:63](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L63)
+[src/svg/cubicons/geometry/Geometry.ts:63](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L63)
 
 ___
 
 ### arrowWidth
 
-• `Optional` **arrowWidth**: `number`
+• **arrowWidth**: `number`
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:62](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L62)
+[src/svg/cubicons/geometry/Geometry.ts:62](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L62)
 
 ___
 
@@ -46,7 +46,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:45](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L45)
+[src/svg/cubicons/geometry/Geometry.ts:45](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L45)
 
 ___
 
@@ -62,4 +62,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:49](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L49)
+[src/svg/cubicons/geometry/Geometry.ts:49](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L49)

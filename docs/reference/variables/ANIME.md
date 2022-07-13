@@ -20,4 +20,4 @@ Animation duration constants
 
 #### Defined in
 
-[src/constants.ts:40](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/constants.ts#L40)
+[src/constants.ts:40](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/constants.ts#L40)

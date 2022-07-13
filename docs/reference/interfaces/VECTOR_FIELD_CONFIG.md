@@ -10,7 +10,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:13](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/VectorField.ts#L13)
+[src/svg/cubicons/VectorField.ts:13](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L13)
 
 ___
 
@@ -20,7 +20,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:14](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/VectorField.ts#L14)
+[src/svg/cubicons/VectorField.ts:14](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L14)
 
 ___
 
@@ -30,4 +30,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:15](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/VectorField.ts#L15)
+[src/svg/cubicons/VectorField.ts:15](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L15)

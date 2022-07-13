@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/animations/DrawGrid.ts:25](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/DrawGrid.ts#L25)
+[src/svg/animations/DrawGrid.ts:25](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/DrawGrid.ts#L25)
 
 ## Properties
 
@@ -42,7 +42,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L48)
 
 ___
 
@@ -58,7 +58,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L53)
 
 ___
 
@@ -74,7 +74,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L58)
 
 ## Methods
 
@@ -94,7 +94,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/DrawGrid.ts:195](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/DrawGrid.ts#L195)
+[src/svg/animations/DrawGrid.ts:195](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/DrawGrid.ts#L195)
 
 ___
 
@@ -114,4 +114,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/DrawGrid.ts:44](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/animations/DrawGrid.ts#L44)
+[src/svg/animations/DrawGrid.ts:44](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/DrawGrid.ts#L44)

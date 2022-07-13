@@ -24,7 +24,7 @@ Include this scene to HTML flow.
 
 #### Defined in
 
-[src/scene/Scene.ts:54](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/scene/Scene.ts#L54)
+[src/scene/Scene.ts:54](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/scene/Scene.ts#L54)
 
 ## Properties
 
@@ -36,7 +36,7 @@ Name of this scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:30](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/scene/Scene.ts#L30)
+[src/scene/Scene.ts:30](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/scene/Scene.ts#L30)
 
 ___
 
@@ -50,7 +50,7 @@ The time passed by since this scene was created. (in milliseconds)
 
 #### Defined in
 
-[src/scene/Scene.ts:47](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/scene/Scene.ts#L47)
+[src/scene/Scene.ts:47](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/scene/Scene.ts#L47)
 
 ___
 
@@ -62,7 +62,7 @@ Height of this scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:40](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/scene/Scene.ts#L40)
+[src/scene/Scene.ts:40](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/scene/Scene.ts#L40)
 
 ___
 
@@ -74,7 +74,7 @@ Width of this scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:35](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/scene/Scene.ts#L35)
+[src/scene/Scene.ts:35](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/scene/Scene.ts#L35)
 
 ## Methods
 
@@ -97,4 +97,4 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/scene/Scene.ts:70](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/scene/Scene.ts#L70)
+[src/scene/Scene.ts:70](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/scene/Scene.ts#L70)

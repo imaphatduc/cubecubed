@@ -23,7 +23,7 @@ Specify a mathematical Vector2D.
 
 #### Defined in
 
-[src/math/vector.ts:41](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L41)
+[src/math/vector.ts:41](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L41)
 
 ## Properties
 
@@ -33,7 +33,7 @@ Specify a mathematical Vector2D.
 
 #### Defined in
 
-[src/math/vector.ts:38](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L38)
+[src/math/vector.ts:38](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L38)
 
 ___
 
@@ -43,7 +43,7 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:39](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L39)
+[src/math/vector.ts:39](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L39)
 
 ## Methods
 
@@ -69,7 +69,7 @@ Immutable element-wise addition
 
 #### Defined in
 
-[src/math/vector.ts:50](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L50)
+[src/math/vector.ts:50](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L50)
 
 ___
 
@@ -95,7 +95,7 @@ Apply the same function to both coordinates of this vector.
 
 #### Defined in
 
-[src/math/vector.ts:69](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L69)
+[src/math/vector.ts:69](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L69)
 
 ___
 
@@ -121,7 +121,7 @@ Returns the dot product of two vectors
 
 #### Defined in
 
-[src/math/vector.ts:62](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L62)
+[src/math/vector.ts:62](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L62)
 
 ___
 
@@ -141,7 +141,7 @@ Calculate magnitude of vector
 
 #### Defined in
 
-[src/math/vector.ts:46](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L46)
+[src/math/vector.ts:46](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L46)
 
 ___
 
@@ -167,7 +167,7 @@ Creates a new scaled vector
 
 #### Defined in
 
-[src/math/vector.ts:58](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L58)
+[src/math/vector.ts:58](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L58)
 
 ___
 
@@ -193,4 +193,4 @@ Immutable element-wise subtraction
 
 #### Defined in
 
-[src/math/vector.ts:54](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/math/vector.ts#L54)
+[src/math/vector.ts:54](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L54)

@@ -28,7 +28,7 @@
 
 #### Defined in
 
-[src/canvas/animations/SimulateRevolution.ts:9](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/animations/SimulateRevolution.ts#L9)
+[src/canvas/animations/SimulateRevolution.ts:9](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/SimulateRevolution.ts#L9)
 
 ## Properties
 
@@ -44,7 +44,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/animations/CanvasAnimation.ts#L5)
+[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/CanvasAnimation.ts#L5)
 
 ___
 
@@ -60,7 +60,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/animations/CanvasAnimation.ts#L10)
+[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/CanvasAnimation.ts#L10)
 
 ## Methods
 
@@ -86,4 +86,4 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/SimulateRevolution.ts:30](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/canvas/animations/SimulateRevolution.ts#L30)
+[src/canvas/animations/SimulateRevolution.ts:30](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/SimulateRevolution.ts#L30)

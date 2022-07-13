@@ -33,9 +33,21 @@ Generate a 2d curve.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:24](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L24)
+[src/svg/cubicons/geometry/ParametricCurve.ts:29](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L29)
 
 ## Properties
+
+### CONFIG
+
+• **CONFIG**: [`LINE_CONFIG`](/reference/interfaces/LINE_CONFIG.md)
+
+Config options of this parametric curve.
+
+#### Defined in
+
+[src/svg/cubicons/geometry/ParametricCurve.ts:27](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L27)
+
+___
 
 ### angle
 
@@ -50,7 +62,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
@@ -64,13 +76,13 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L77)
+[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L77)
 
 ___
 
 ### def\_cubiconBase
 
-• **def\_cubiconBase**: `any`
+• **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
 The HTML tag that represents this cubicon.
 
@@ -80,35 +92,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L51)
-
-___
-
-### fillColor
-
-• **fillColor**: `any`
-
-#### Inherited from
-
-[Geometry](/reference/classes/Geometry.md).[fillColor](/reference/classes/Geometry.md#fillcolor)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Geometry.ts:82](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L82)
-
-___
-
-### fillOpacity
-
-• **fillOpacity**: `any`
-
-#### Inherited from
-
-[Geometry](/reference/classes/Geometry.md).[fillOpacity](/reference/classes/Geometry.md#fillopacity)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Geometry.ts:83](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L83)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -132,13 +116,13 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:20](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L20)
+[src/svg/cubicons/geometry/ParametricCurve.ts:20](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L20)
 
 ___
 
 ### g\_cubiconWrapper
 
-• **g\_cubiconWrapper**: `any`
+• **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
 The `<g/>` tag that holds this cubicon.
 
@@ -148,7 +132,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L46)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -162,7 +146,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:16](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L16)
+[src/svg/cubicons/geometry/ParametricCurve.ts:16](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L16)
 
 ___
 
@@ -178,35 +162,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L14)
-
-___
-
-### lineColor
-
-• **lineColor**: `any`
-
-#### Inherited from
-
-[Geometry](/reference/classes/Geometry.md).[lineColor](/reference/classes/Geometry.md#linecolor)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L88)
-
-___
-
-### lineWidth
-
-• **lineWidth**: `any`
-
-#### Inherited from
-
-[Geometry](/reference/classes/Geometry.md).[lineWidth](/reference/classes/Geometry.md#linewidth)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Geometry.ts:89](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L89)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -222,7 +178,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -238,7 +194,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -248,7 +204,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:18](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L18)
+[src/svg/cubicons/geometry/ParametricCurve.ts:18](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L18)
 
 ___
 
@@ -265,41 +221,13 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L20)
-
-___
-
-### strokeColor
-
-• **strokeColor**: `any`
-
-#### Inherited from
-
-[Geometry](/reference/classes/Geometry.md).[strokeColor](/reference/classes/Geometry.md#strokecolor)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Geometry.ts:84](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L84)
-
-___
-
-### strokeWidth
-
-• **strokeWidth**: `any`
-
-#### Inherited from
-
-[Geometry](/reference/classes/Geometry.md).[strokeWidth](/reference/classes/Geometry.md#strokewidth)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Geometry.ts:85](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L85)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
 ### svg\_group
 
-• **svg\_group**: `any`
+• **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
 The `<svg/>` tag of this cubicon's group.
 
@@ -309,7 +237,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L41)
 
 ___
 
@@ -319,7 +247,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:22](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L22)
+[src/svg/cubicons/geometry/ParametricCurve.ts:22](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L22)
 
 ## Methods
 
@@ -343,7 +271,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:98](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/Geometry.ts#L98)
+[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L88)
 
 ___
 
@@ -357,7 +285,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:90](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L90)
+[src/svg/cubicons/geometry/ParametricCurve.ts:97](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L97)
 
 ___
 
@@ -371,7 +299,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:94](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L94)
+[src/svg/cubicons/geometry/ParametricCurve.ts:101](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L101)
 
 ___
 
@@ -391,7 +319,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:86](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L86)
+[src/svg/cubicons/geometry/ParametricCurve.ts:93](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L93)
 
 ___
 
@@ -405,4 +333,28 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:59](https://github.com/imaphatduc/cubecubed/blob/4495c75/src/svg/cubicons/geometry/ParametricCurve.ts#L59)
+[src/svg/cubicons/geometry/ParametricCurve.ts:66](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/ParametricCurve.ts#L66)
+
+___
+
+### setParentSelection
+
+▸ **setParentSelection**(`parentSelection`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Geometry](/reference/classes/Geometry.md).[setParentSelection](/reference/classes/Geometry.md#setparentselection)
+
+#### Defined in
+
+[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L63)
