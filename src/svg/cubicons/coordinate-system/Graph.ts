@@ -1,5 +1,4 @@
 import { range } from "d3-array";
-import { scaleLinear } from "d3-scale";
 import { curveNatural, line } from "d3-shape";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -75,9 +74,7 @@ export class Graph extends CoordinateSystem {
             graphColor: "#fff",
             graphWidth: 1.5,
         });
-    }
 
-    render() {
         this.g_cubiconWrapper = this.axes.g_graphs
             .append("g")
             .attr("class", "graph-group");
@@ -85,19 +82,23 @@ export class Graph extends CoordinateSystem {
         this.def_cubiconBase = this.g_cubiconWrapper
             .append("path")
             .attr("class", "graph")
-            .attr("d", this.getData())
             .attr("fill", "none")
-            .attr("stroke", this.graphColor)
             .attr("stroke-width", 1.2);
 
         this.g_projector = this.g_cubiconWrapper
             .append("g")
             .attr("class", "projector-group");
+    }
+
+    render() {
+        this.def_cubiconBase
+            .attr("d", this.getData())
+            .attr("stroke", this.graphColor);
 
         return this;
     }
 
-    getData() {
+    private getData() {
         const xScale = this.axes.getXScale(this.xRange);
         const yScale = this.axes.getYScale();
 
