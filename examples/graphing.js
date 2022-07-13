@@ -22,22 +22,27 @@ function graphingFunctions() {
             hasNums: true,
         },
     }).render();
+
     group.play([new DrawAxes(axes)]);
 
-    /// Plotting cosine graph
     const cos = axes.graph({
         functionDef: (x) => Math.cos(x),
         color: COLOR.CYAN,
     });
+
     const tex = axes.addGraphLabel(cos, "cos(x)", 7);
+
     const pt = axes.pointToCoords(cos, 2);
+
     group.play([new Create({ cubicon: cos }), new Write({ cubicon: tex })]);
+
     group.play([
         new PointToCoords({
             point: pt,
             graph: cos,
         }),
     ]);
+
     group.play([
         new PointAlongGraph({
             point: pt,
@@ -46,13 +51,13 @@ function graphingFunctions() {
         }),
     ]);
 
-    /// Plotting natural logarithm graph
     const ln = axes.graph({
         functionDef: (x) => Math.log(x),
         color: COLOR.GREEN_1,
     });
 
     group.play([new Create({ cubicon: ln })]);
+
     group.play([
         new PointAlongGraph({
             point: pt,
@@ -61,11 +66,11 @@ function graphingFunctions() {
         }),
     ]);
 
-    /// Plotting cubic graph
     const cubic = axes.graph({
         functionDef: (x) => x * x * x + 2 * x * x,
         color: COLOR.RED_2,
     });
+
     group.play([new Create({ cubicon: cubic })]);
 }
 
