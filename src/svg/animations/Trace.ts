@@ -69,7 +69,7 @@ export class Trace extends Animation {
                         .attr("x2", currentPoint.x)
                         .attr("y2", currentPoint.y);
 
-                    return interpolate(t);
+                    return interpolate(t).toString();
                 };
             });
     }
