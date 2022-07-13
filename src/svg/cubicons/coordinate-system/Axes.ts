@@ -238,12 +238,12 @@ export class Axes extends CoordinateSystem {
             .range([squareLength * axisRange[0], squareLength * axisRange[1]]);
     }
 
-    getXScale() {
-        return this.getScale(this.xRange);
+    getXScale(axisRange: [number, number] = this.xRange) {
+        return this.getScale(axisRange);
     }
 
-    getYScale() {
-        return this.getScale(this.yRange);
+    getYScale(axisRange: [number, number] = this.yRange) {
+        return this.getScale(axisRange);
     }
 
     /**
