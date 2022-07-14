@@ -6,7 +6,7 @@ import { Vector2 } from "@math/vector";
 import { Group } from "@group/Group";
 
 export abstract class Cubicon {
-    abstract readonly cubType: string;
+    abstract readonly cubiconType: string;
 
     /**
      * The group that this cubicon belongs to.

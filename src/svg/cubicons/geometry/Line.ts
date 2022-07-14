@@ -9,7 +9,7 @@ import { Cubicon } from "@cubicons/Cubicon";
  * Return the barebone of a line shape.
  */
 export class Line extends Cubicon {
-    readonly cubType = "line";
+    readonly cubiconType = "Line";
 
     /**
      * Start point (tail) of the line.

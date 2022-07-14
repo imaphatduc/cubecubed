@@ -17,7 +17,7 @@ export const GRAPH_DEFAULT_CONFIG: GRAPH_CONFIG = {
 };
 
 export class Graph extends Cubicon {
-    readonly cubType = "graph";
+    readonly cubiconType = "Graph";
 
     /**
      * The axes that this graph belongs to.

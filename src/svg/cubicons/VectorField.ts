@@ -22,7 +22,7 @@ const VECTOR_FIELD_DEFAULT_CONFIG: VECTOR_FIELD_CONFIG = {
 };
 
 export class VectorField extends Cubicon {
-    readonly cubType = "vector-field";
+    readonly cubiconType = "VectorField";
 
     /**
      * Multivariable function that produces 2d vector field.

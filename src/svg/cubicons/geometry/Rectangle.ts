@@ -26,7 +26,7 @@ export type RECT_GRID_DATA = {
  * Return the barebone of a rectangle shape.
  */
 export class Rectangle extends Cubicon {
-    readonly cubType = "rectangle";
+    readonly cubiconType = "Rectangle";
 
     /**
      * Width of the rectangle (in grid coordinate system).

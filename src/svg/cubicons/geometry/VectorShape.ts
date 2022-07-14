@@ -14,7 +14,7 @@ import { Group } from "@group/Group";
 import { Cubicon } from "@cubicons/Cubicon";
 
 export class VectorShape extends Cubicon {
-    readonly cubType = "vector-shape";
+    readonly cubiconType = "VectorShape";
 
     /**
      * Start point (tail) of the vector.

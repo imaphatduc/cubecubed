@@ -9,7 +9,7 @@ import { Cubicon } from "@cubicons/Cubicon";
  * Return the barebone of a circle shape.
  */
 export class Circle extends Cubicon {
-    readonly cubType = "circle";
+    readonly cubiconType = "Circle";
 
     /**
      * Radius of the rectangle (in grid coordinate system).

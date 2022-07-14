@@ -8,7 +8,7 @@ import { Group } from "@group/Group";
 import { Cubicon } from "@cubicons/Cubicon";
 
 export class Grid extends Cubicon {
-    readonly cubType = "grid";
+    readonly cubiconType = "Grid";
 
     /**
      * Color of the grid origin.

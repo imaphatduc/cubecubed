@@ -44,7 +44,7 @@ const DEFAULT_AXES_CONFIG: AXES_CONFIG = {
  * Return the axes in coordinate system.
  */
 export class Axes extends Cubicon {
-    readonly cubType = "axes";
+    readonly cubiconType = "Axes";
 
     /**
      * Range of the x axis.

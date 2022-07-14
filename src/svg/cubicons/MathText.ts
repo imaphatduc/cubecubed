@@ -7,7 +7,7 @@ import { Group } from "@group/Group";
 import { Cubicon } from "./Cubicon";
 
 export class MathText extends Cubicon {
-    readonly cubType = "math-text";
+    readonly cubiconType = "MathText";
 
     /**
      * Content of this text.

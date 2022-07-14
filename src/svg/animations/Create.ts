@@ -39,16 +39,16 @@ export class Create extends Animation {
     }
 
     private create(cubicon: CREATE_TYPES, sleepTime: number) {
-        switch (cubicon.cubType) {
-            case "line":
-            case "vector-shape":
+        switch (cubicon.cubiconType) {
+            case "Line":
+            case "VectorShape":
                 this.lineCreation(cubicon, sleepTime);
 
                 break;
 
-            case "circle":
-            case "rectangle":
-            case "graph":
+            case "Circle":
+            case "Rectangle":
+            case "Graph":
                 this.shapeCreation(cubicon, sleepTime);
 
                 break;
@@ -63,7 +63,7 @@ export class Create extends Animation {
     private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
         // Line() and Vector() both have `<line>` element
         this.applyLineCreation(
-            cubicon.cubType === "line"
+            cubicon.cubiconType === "Line"
                 ? cubicon.def_cubiconBase
                 : cubicon.def_lineStroke,
             cubicon,
@@ -71,7 +71,7 @@ export class Create extends Animation {
         );
 
         // Applied for vector shape's arrow head
-        if (cubicon.cubType === "vector-shape") {
+        if (cubicon.cubiconType === "VectorShape") {
             this.applyArrowCreation(cubicon.def_arrowHead, sleepTime);
         }
     }
@@ -83,7 +83,7 @@ export class Create extends Animation {
     ) {
         const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
         const WendPoint =
-            cubicon.cubType === "vector-shape"
+            cubicon.cubiconType === "VectorShape"
                 ? getVectorLineEndPoint(cubicon)
                 : cubicon.getWpoint(cubicon.endPoint);
 
@@ -145,10 +145,12 @@ export class Create extends Animation {
             .attr("stroke-dashoffset", lineLength);
 
         const fill =
-            cubicon.cubType === "graph" ? "none" : cubicon.CONFIG.fillColor!;
+            cubicon.cubiconType === "Graph"
+                ? "none"
+                : cubicon.CONFIG.fillColor!;
 
         const fillOpacity =
-            cubicon.cubType === "graph" ? 1 : cubicon.CONFIG.fillOpacity!;
+            cubicon.cubiconType === "Graph" ? 1 : cubicon.CONFIG.fillOpacity!;
 
         // Drawing animation and fade in fill
         cubicon.def_cubiconBase
