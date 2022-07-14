@@ -10,6 +10,8 @@ import { Cubicon } from "@cubicons/Cubicon";
  * Translate a geometric cubicon by a specified vector.
  */
 export class Translate extends Animation {
+    readonly animationType = "Translate";
+
     vector: Vector2;
 
     constructor(params: {

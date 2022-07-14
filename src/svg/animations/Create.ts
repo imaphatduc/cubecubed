@@ -13,6 +13,8 @@ import { VectorShape } from "@cubicons/geometry/VectorShape";
  * Play animated creation on the screen.
  */
 export class Create extends Animation {
+    readonly animationType = "Create";
+
     constructor(params: {
         /**
          * The target cubicon to play this animation.

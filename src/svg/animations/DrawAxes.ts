@@ -9,6 +9,8 @@ import { Axes } from "@cubicons/coordinate-system/Axes";
  * Animated drawing process of x and y axes on the screen.
  */
 export class DrawAxes extends Animation {
+    readonly animationType = "DrawAxes";
+
     private xNums;
     private yNums;
     private delayEach;

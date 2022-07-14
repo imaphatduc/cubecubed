@@ -8,6 +8,8 @@ import { Grid } from "@cubicons/geometry/Grid";
 import { GridOrigin } from "@cubicons/geometry/Circle";
 
 export class DrawGridFromScreenSides extends Animation {
+    readonly animationType = "DrawGrid";
+
     private drawX = 1000;
     private drawXNums = 500;
     private drawXNumsDelay = 800;

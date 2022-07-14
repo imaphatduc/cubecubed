@@ -11,6 +11,8 @@ import { Cubicon } from "@cubicons/Cubicon";
  * Rotate a geometric cubicon by a specified angle.
  */
 export class Rotate extends Animation {
+    readonly animationType = "Rotate";
+
     degree: number;
 
     constructor(params: {

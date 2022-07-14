@@ -8,6 +8,8 @@ import { Cubicon } from "@cubicons/Cubicon";
  * Fade out a cubicon on the screen.
  */
 export class FadeOut extends Animation {
+    readonly animationType = "FadeOut";
+
     constructor(params: {
         /**
          * The target cubicon to play this animation.

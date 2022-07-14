@@ -12,6 +12,8 @@ import { ParametricCurve } from "@cubicons/geometry/ParametricCurve";
  * Let a line trace a curve.
  */
 export class Trace extends Animation {
+    readonly animationType = "Trace";
+
     /**
      * The curve.
      */

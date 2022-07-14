@@ -12,6 +12,8 @@ import { Point } from "@cubicons/coordinate-system/Point";
  * The creation of a point and its two axis projectors.
  */
 export class PointToCoords extends Animation {
+    readonly animationType = "PointToCoords";
+
     private projectors: [AxisProjector, AxisProjector];
 
     constructor(params: {

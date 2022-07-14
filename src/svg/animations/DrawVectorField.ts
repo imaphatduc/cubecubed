@@ -10,6 +10,8 @@ import { VectorShape } from "@cubicons/geometry/VectorShape";
  * Play vector field drawing animation on the screen.
  */
 export class DrawVectorField extends Animation {
+    readonly animationType = "DrawVectorField";
+
     constructor(params: {
         /**
          * The target cubicon to play this animation.

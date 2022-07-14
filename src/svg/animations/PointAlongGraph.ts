@@ -13,6 +13,8 @@ import { Graph } from "@cubicons/coordinate-system/Graph";
  * **Note** that you have to call either of Axes().pointOnGraph(args) or Axes().pointToCoords(args) to play this animation.
  */
 export class PointAlongGraph extends Animation {
+    readonly animationType = "PointAlongGraph";
+
     private projectors: [AxisProjector, AxisProjector];
     private graph: Graph;
     private xPos: number;

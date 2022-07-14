@@ -28,6 +28,8 @@ export type CREATE_LINE_TYPES = Line | VectorShape | AxisProjector;
 export type CREATE_TYPES = CREATE_SHAPE_TYPES | CREATE_LINE_TYPES;
 
 export abstract class Animation {
+    abstract readonly animationType: string;
+
     /**
      * The target cubicon of this animation.
      */

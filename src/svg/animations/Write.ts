@@ -5,6 +5,8 @@ import { Animation } from "./Animation";
 import { MathText } from "@cubicons/MathText";
 
 export class Write extends Animation {
+    readonly animationType = "Write";
+
     constructor(params: {
         /**
          * The target cubicon to play this animation.
