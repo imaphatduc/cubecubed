@@ -7,8 +7,6 @@ import { Axes } from "./Axes";
 import { Line } from "@cubicons/geometry/Line";
 
 export class AxisProjector extends Line {
-    readonly coordSysObjType = "axis-projector";
-
     /**
      * Is this projector of type "horizontal" or "vertical"?
      */

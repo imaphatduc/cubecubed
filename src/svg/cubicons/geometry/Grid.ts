@@ -5,10 +5,10 @@ import { COLOR } from "@consts";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
-import { Geometry } from "./Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 
-export class Grid extends Geometry {
-    readonly geoType = "grid";
+export class Grid extends Cubicon {
+    readonly cubType = "grid";
 
     /**
      * Color of the grid origin.

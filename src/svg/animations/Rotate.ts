@@ -5,7 +5,7 @@ import { ANIME, EASE_TYPE } from "@consts";
 
 import { Animation } from "./Animation";
 
-import { Geometry } from "@cubicons/geometry/Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Rotate a geometric cubicon by a specified angle.
@@ -17,7 +17,7 @@ export class Rotate extends Animation {
         /**
          * The target cubicon to play this animation.
          */
-        cubicon: Geometry;
+        cubicon: Cubicon;
         /**
          * Angle (in degrees) for rotating.
          */
@@ -43,7 +43,7 @@ export class Rotate extends Animation {
         this.rotate(this.cubicon, this.degree, sleepTime);
     }
 
-    private rotate(cubicon: Geometry, degree: number, sleepTime: number) {
+    private rotate(cubicon: Cubicon, degree: number, sleepTime: number) {
         const { xGtoW, yGtoW } = cubicon.group;
 
         if (

@@ -50,10 +50,10 @@ export abstract class Cubicon {
      */
     def_cubiconBase: Selection<any, unknown, HTMLElement, any>;
 
-    constructor(params: { group: Group; position: Vector2 }) {
+    constructor(params: { group: Group; position?: Vector2 }) {
         this.group = params.group;
 
-        this.position = params.position;
+        this.position = params.position ?? new Vector2(0, 0);
 
         this.svg_group = params.group.svg_group;
 
@@ -64,5 +64,11 @@ export abstract class Cubicon {
         parentSelection: Selection<SVGGElement, unknown, HTMLElement, any>
     ) {
         this.g_cubiconWrapper = parentSelection;
+    }
+
+    coordsGtoW(point: Vector2) {
+        const { xGtoW, yGtoW } = this.group;
+
+        return new Vector2(xGtoW(point.x), yGtoW(point.y));
     }
 }

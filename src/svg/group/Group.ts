@@ -4,7 +4,7 @@ import { Selection, select } from "d3";
 
 import { Scene } from "@scene/Scene";
 
-import { TYPES } from "@animations/Animation";
+import { Cubicon } from "@cubicons/Cubicon";
 
 export interface GROUP_MAKEUP_CONFIG {
     opacity: number;
@@ -223,7 +223,7 @@ export class Group {
      *
      * @param cubicons An array of cubicons to remove.
      */
-    remove(cubicons: TYPES[]) {
+    remove(cubicons: Cubicon[]) {
         cubicons.forEach((cubicon) => {
             cubicon.def_cubiconBase
                 .transition()

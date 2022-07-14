@@ -4,7 +4,7 @@ import { Vector2 } from "@math/vector";
 
 import { Animation } from "./Animation";
 
-import { Geometry } from "@cubicons/geometry/Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Translate a geometric cubicon by a specified vector.
@@ -16,7 +16,7 @@ export class Translate extends Animation {
         /**
          * The target cubicon to play this animation.
          */
-        cubicon: Geometry;
+        cubicon: Cubicon;
         /**
          * Translation vector.
          */
@@ -44,7 +44,7 @@ export class Translate extends Animation {
     }
 
     private translateByVector(
-        cubicon: Geometry,
+        cubicon: Cubicon,
         vector: Vector2,
         sleepTime: number
     ) {

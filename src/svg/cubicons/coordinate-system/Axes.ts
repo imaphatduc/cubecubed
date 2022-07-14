@@ -8,11 +8,11 @@ import { Selection } from "d3-selection";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
-import { CoordinateSystem } from "./CoordinateSystem";
 import { AxisProjector } from "./AxisProjector";
 import { Graph } from "./Graph";
 import { Label } from "./Label";
 import { Point } from "./Point";
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Return data type when calling Axes().pointOnGraph() method
@@ -43,8 +43,8 @@ const DEFAULT_AXES_CONFIG: AXES_CONFIG = {
 /*
  * Return the axes in coordinate system.
  */
-export class Axes extends CoordinateSystem {
-    readonly coordSysObjType = "axes";
+export class Axes extends Cubicon {
+    readonly cubType = "axes";
 
     /**
      * Range of the x axis.
@@ -60,6 +60,11 @@ export class Axes extends CoordinateSystem {
      * Whether the axes include numbers
      */
     hasNums: boolean;
+
+    /**
+     * The `<svg/>` element that contains the whole coordinate system and everything included in it.
+     */
+    g_coordinate: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
      * The `<svg/>` element that contains the axes.
@@ -96,6 +101,10 @@ export class Axes extends CoordinateSystem {
             yRange: this.yRange = DEFAULT_AXES_CONFIG.yRange,
             hasNums: this.hasNums = DEFAULT_AXES_CONFIG.hasNums,
         } = params.CONFIG ?? DEFAULT_AXES_CONFIG);
+
+        this.g_coordinate = this.svg_group
+            .append("g")
+            .attr("class", "xy-coordinate");
 
         this.g_graphs = this.g_coordinate.append("g").attr("class", "graphs");
 

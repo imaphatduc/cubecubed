@@ -5,8 +5,6 @@ import { Axes } from "./Axes";
 import { MathText } from "@cubicons/MathText";
 
 export class Label extends MathText {
-    readonly coordSysObjType = "label";
-
     /**
      * The axes that this label belongs to.
      */

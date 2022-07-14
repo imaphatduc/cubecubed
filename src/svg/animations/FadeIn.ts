@@ -1,6 +1,8 @@
 import { ANIME, EASE_TYPE } from "@consts";
 
-import { Animation, FADE_TYPES } from "./Animation";
+import { Animation } from "./Animation";
+
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Fade in a cubicon on the screen.
@@ -10,7 +12,7 @@ export class FadeIn extends Animation {
         /**
          * The target cubicon to play this animation.
          */
-        cubicon: FADE_TYPES;
+        cubicon: Cubicon;
         /**
          * Time to play this animation. (in milliseconds)
          */
@@ -31,11 +33,11 @@ export class FadeIn extends Animation {
         this.fadeIn(this.cubicon, sleepTime);
     }
 
-    private fadeIn(cubicon: FADE_TYPES, sleepTime: number) {
-        if (cubicon.cubType === "geometry") {
-            this.geometryFadeIn(sleepTime);
+    private fadeIn(cubicon: Cubicon, sleepTime: number) {
+        if (cubicon.cubType === "math-text") {
+            this.texFadeIn(sleepTime);
         } else {
-            if (cubicon.cubType === "math-text") this.texFadeIn(sleepTime);
+            this.geometryFadeIn(sleepTime);
         }
     }
 

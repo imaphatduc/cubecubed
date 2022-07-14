@@ -8,7 +8,7 @@ import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
-import { Geometry } from "./Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 import { Square } from "./Square";
 import { Line } from "./Line";
 
@@ -25,11 +25,8 @@ export type RECT_GRID_DATA = {
 /**
  * Return the barebone of a rectangle shape.
  */
-export class Rectangle extends Geometry {
-    /**
-     * Geometry type of the rectangle.
-     */
-    readonly geoType = "rectangle";
+export class Rectangle extends Cubicon {
+    readonly cubType = "rectangle";
 
     /**
      * Width of the rectangle (in grid coordinate system).

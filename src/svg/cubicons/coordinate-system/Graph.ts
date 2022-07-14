@@ -3,7 +3,7 @@ import { Selection } from "d3-selection";
 import { curveNatural, line } from "d3-shape";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { CoordinateSystem } from "./CoordinateSystem";
+import { Cubicon } from "@cubicons/Cubicon";
 import { Axes } from "./Axes";
 
 export interface GRAPH_CONFIG {
@@ -16,8 +16,8 @@ export const GRAPH_DEFAULT_CONFIG: GRAPH_CONFIG = {
     graphWidth: 2,
 };
 
-export class Graph extends CoordinateSystem {
-    readonly coordSysObjType = "graph";
+export class Graph extends Cubicon {
+    readonly cubType = "graph";
 
     /**
      * The axes that this graph belongs to.

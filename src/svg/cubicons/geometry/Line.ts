@@ -3,16 +3,13 @@ import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "./Geometry";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
-import { Geometry } from "./Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Return the barebone of a line shape.
  */
-export class Line extends Geometry {
-    /**
-     * Geometry type of the line.
-     */
-    readonly geoType = "line";
+export class Line extends Cubicon {
+    readonly cubType = "line";
 
     /**
      * Start point (tail) of the line.

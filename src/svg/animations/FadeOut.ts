@@ -1,6 +1,8 @@
 import { ANIME, EASE_TYPE } from "@consts";
 
-import { Animation, FADE_TYPES } from "./Animation";
+import { Animation } from "./Animation";
+
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Fade out a cubicon on the screen.
@@ -10,7 +12,7 @@ export class FadeOut extends Animation {
         /**
          * The target cubicon to play this animation.
          */
-        cubicon: FADE_TYPES;
+        cubicon: Cubicon;
         /**
          * Time to play this animation. (in milliseconds)
          */
@@ -31,7 +33,7 @@ export class FadeOut extends Animation {
         this.fadeOut(this.cubicon, sleepTime);
     }
 
-    private fadeOut(cubicon: FADE_TYPES, sleepTime: number) {
+    private fadeOut(cubicon: Cubicon, sleepTime: number) {
         cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)

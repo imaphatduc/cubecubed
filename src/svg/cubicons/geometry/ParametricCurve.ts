@@ -7,13 +7,13 @@ import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "./Geometry";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
-import { Geometry } from "./Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Generate a 2d curve.
  */
-export class ParametricCurve extends Geometry {
-    readonly geoType = "parametric-curve";
+export class ParametricCurve extends Cubicon {
+    readonly cubType = "parametric-curve";
 
     points: Vector2[];
 

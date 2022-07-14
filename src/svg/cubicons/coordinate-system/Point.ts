@@ -8,8 +8,6 @@ import { Graph } from "./Graph";
 import { Circle } from "@cubicons/geometry/Circle";
 
 export class Point extends Circle {
-    readonly coordSysObjType = "point";
-
     /**
      * The `</svg>` element that wraps the two axes' `</svg>`.
      */

@@ -40,44 +40,30 @@ export class Create extends Animation {
 
     private create(cubicon: CREATE_TYPES, sleepTime: number) {
         switch (cubicon.cubType) {
-            case "geometry": {
-                switch (cubicon.geoType) {
-                    case "line":
-                    case "vector": {
-                        this.lineCreation(cubicon, sleepTime);
-                        break;
-                    }
+            case "line":
+            case "vector-shape":
+                this.lineCreation(cubicon, sleepTime);
 
-                    default: {
-                        this.shapeCreation(cubicon, sleepTime);
-                        break;
-                    }
-                }
                 break;
-            }
 
-            case "coordinate-system": {
-                switch (cubicon.coordSysObjType) {
-                    case "graph": {
-                        this.shapeCreation(cubicon, sleepTime);
-                        break;
-                    }
+            case "circle":
+            case "rectangle":
+            case "graph":
+                this.shapeCreation(cubicon, sleepTime);
 
-                    default: {
-                        console.warn(
-                            "This cubicon is not defined in CREATE_TYPES."
-                        );
-                    }
-                }
                 break;
-            }
+
+            default:
+                console.warn("This cubicon is not defined in CREATE_TYPES.");
+
+                break;
         }
     }
 
     private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
         // Line() and Vector() both have `<line>` element
         this.applyLineCreation(
-            cubicon.geoType === "line"
+            cubicon.cubType === "line"
                 ? cubicon.def_cubiconBase
                 : cubicon.def_lineStroke,
             cubicon,
@@ -85,7 +71,7 @@ export class Create extends Animation {
         );
 
         // Applied for vector shape's arrow head
-        if (cubicon.geoType === "vector") {
+        if (cubicon.cubType === "vector-shape") {
             this.applyArrowCreation(cubicon.def_arrowHead, sleepTime);
         }
     }
@@ -97,7 +83,7 @@ export class Create extends Animation {
     ) {
         const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
         const WendPoint =
-            cubicon.geoType === "vector"
+            cubicon.cubType === "vector-shape"
                 ? getVectorLineEndPoint(cubicon)
                 : cubicon.getWpoint(cubicon.endPoint);
 
@@ -159,12 +145,10 @@ export class Create extends Animation {
             .attr("stroke-dashoffset", lineLength);
 
         const fill =
-            cubicon.cubType === "coordinate-system"
-                ? "none"
-                : cubicon.CONFIG.fillColor!;
+            cubicon.cubType === "graph" ? "none" : cubicon.CONFIG.fillColor!;
 
         const fillOpacity =
-            cubicon.cubType === "geometry" ? cubicon.CONFIG.fillOpacity! : 1;
+            cubicon.cubType === "graph" ? 1 : cubicon.CONFIG.fillOpacity!;
 
         // Drawing animation and fade in fill
         cubicon.def_cubiconBase

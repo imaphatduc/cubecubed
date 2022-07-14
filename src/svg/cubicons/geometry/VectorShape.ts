@@ -11,20 +11,16 @@ import { rToD } from "@math/convertUnit";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
-import { Geometry } from "./Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 
-export class VectorShape extends Geometry {
-    /**
-     * Geometry type of the vector.
-     */
-    readonly geoType = "vector";
-
-    /// These have to be public to use in Create animations
+export class VectorShape extends Cubicon {
+    readonly cubType = "vector-shape";
 
     /**
      * Start point (tail) of the vector.
      */
     startPoint: Vector2;
+
     /**
      * End point (head) of the vector.
      */

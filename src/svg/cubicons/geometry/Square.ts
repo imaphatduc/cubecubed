@@ -9,8 +9,6 @@ import { Rectangle } from "./Rectangle";
  * Return the barebone of a square shape.
  */
 export class Square extends Rectangle {
-    readonly sideLength: number;
-
     /**
      * @param params An object that contains options to form the square.
      */
@@ -39,7 +37,9 @@ export class Square extends Rectangle {
             height: params.sideLength,
             CONFIG: params.CONFIG,
         });
+    }
 
-        this.sideLength = params.sideLength;
+    getSideLength() {
+        return this.width;
     }
 }

@@ -1,8 +1,3 @@
-import { Vector2 } from "../../../math/vector";
-
-import { Group } from "@group/Group";
-import { Cubicon } from "@cubicons/Cubicon";
-
 /**
  * Configuration structure of basic shapes (Rectangle, Square and Circle).
  *
@@ -26,6 +21,7 @@ export interface SHAPE_CONFIG {
      */
     strokeWidth?: number;
 }
+
 export const SHAPE_DEFAULT_CONFIG = {
     fillColor: "none",
     fillOpacity: 1,
@@ -48,6 +44,7 @@ export interface LINE_CONFIG {
      */
     lineWidth?: number;
 }
+
 export const LINE_DEFAULT_CONFIG = {
     lineColor: "#fff",
     lineWidth: 2,
@@ -62,32 +59,9 @@ export interface VECTOR_CONFIG extends LINE_CONFIG {
     arrowWidth: number;
     arrowHeight: number;
 }
+
 export const VECTOR_DEFAULT_CONFIG = {
     ...LINE_DEFAULT_CONFIG,
     arrowWidth: 0.3,
     arrowHeight: 0.5,
 };
-
-/**
- * Base class of all geometric cubicon shape.
- *
- * Child classes: Rectangle, Square, Circle, Line, Vector (shape).
- */
-export abstract class Geometry extends Cubicon {
-    readonly cubType = "geometry";
-
-    abstract readonly geoType: string;
-
-    constructor(params: { group: Group; position?: Vector2 }) {
-        super({
-            group: params.group,
-            position: params.position ?? new Vector2(0, 0),
-        });
-    }
-
-    coordsGtoW(point: Vector2) {
-        const { xGtoW, yGtoW } = this.group;
-
-        return new Vector2(xGtoW(point.x), yGtoW(point.y));
-    }
-}

@@ -3,16 +3,13 @@ import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
 import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
-import { Geometry } from "./Geometry";
+import { Cubicon } from "@cubicons/Cubicon";
 
 /**
  * Return the barebone of a circle shape.
  */
-export class Circle extends Geometry {
-    /**
-     * Geometry type of the circle.
-     */
-    readonly geoType = "circle";
+export class Circle extends Cubicon {
+    readonly cubType = "circle";
 
     /**
      * Radius of the rectangle (in grid coordinate system).
