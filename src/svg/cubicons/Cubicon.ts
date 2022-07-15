@@ -60,10 +60,6 @@ export abstract class Cubicon {
         this.def_cubiconBase = this.svg_group;
     }
 
-    getType() {
-        return this.constructor.name;
-    }
-
     setParentSelection(
         parentSelection: Selection<SVGGElement, unknown, HTMLElement, any>
     ) {
