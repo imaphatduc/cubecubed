@@ -10,7 +10,7 @@ New features are the major priority of Cubecubed. If you have any ideas that Cub
 
 ### Documentation
 
-Documentation is stale, at least for now. Please don't open an issue to report anything relating to markdown files in this repository, but if possible, you can open a Pull Request with `Documentation` or `Markdown` template.
+Please don't open an issue to report anything relating to markdown files in this repository, but if possible, you can open a Pull Request with `Documentation` or `Markdown` template.
 
 ### Typos in Code
 
@@ -22,7 +22,7 @@ You can open an issue with `code typo` label for code typos.
 
 1. Install NodeJS on your machine.
 
-2. Make a fork (aka copy) of Cubecubed to your GitHub account, then clone it to your computer.
+2. Make a fork (aka copy) of Cubecubed to your GitHub account, then clone it to your local machine.
 
 3. Run `npm install` to install all necessary dependencies.
 
@@ -82,8 +82,8 @@ If you're not familiar with Git, watch this [quick](https://www.youtube.com/watc
 
 ## Open a Pull Request
 
--   Choose your target template...
+-   Choose your target template.
 
--   ...and you're good to go!
+-   You're good to go!
 
 And that's it. You are one of the contributors of Cubecubed!
