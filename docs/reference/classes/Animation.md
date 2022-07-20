@@ -41,15 +41,25 @@
 | Name | Type |
 | :------ | :------ |
 | `__namedParameters` | `Object` |
-| `__namedParameters.cubicon` | [`TYPES`](/reference/types/TYPES.md) |
+| `__namedParameters.cubicon` | [`Cubicon`](/reference/classes/Cubicon.md) |
 | `__namedParameters.duration?` | `number` |
 | `__namedParameters.ease?` | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) |
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:60](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L60)
+[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L48)
 
 ## Properties
+
+### animationType
+
+• `Readonly` `Abstract` **animationType**: `string`
+
+#### Defined in
+
+[src/svg/animations/Animation.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L31)
+
+___
 
 ### cubicon
 
@@ -59,7 +69,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L36)
 
 ___
 
@@ -71,7 +81,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L41)
 
 ___
 
@@ -83,4 +93,4 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L46)

@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:12](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/CanvasAnimation.ts#L12)
+[src/canvas/animations/CanvasAnimation.ts:12](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L12)
 
 ## Properties
 
@@ -36,7 +36,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/CanvasAnimation.ts#L5)
+[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L5)
 
 ___
 
@@ -48,7 +48,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/CanvasAnimation.ts#L10)
+[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L10)
 
 ## Methods
 
@@ -68,4 +68,4 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:17](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/canvas/animations/CanvasAnimation.ts#L17)
+[src/canvas/animations/CanvasAnimation.ts:17](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L17)

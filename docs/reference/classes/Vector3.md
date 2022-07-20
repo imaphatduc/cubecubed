@@ -24,7 +24,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:82](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L82)
+[src/math/vector.ts:82](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L82)
 
 ## Properties
 
@@ -34,7 +34,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-[src/math/vector.ts:78](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L78)
+[src/math/vector.ts:78](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L78)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:79](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L79)
+[src/math/vector.ts:79](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L79)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L80)
+[src/math/vector.ts:80](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L80)
 
 ## Methods
 
@@ -80,7 +80,7 @@ Immutable element-wise addition
 
 #### Defined in
 
-[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L92)
+[src/math/vector.ts:92](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L92)
 
 ___
 
@@ -106,7 +106,7 @@ Apply the same function to all three coordinates of this vector.
 
 #### Defined in
 
-[src/math/vector.ts:111](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L111)
+[src/math/vector.ts:111](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L111)
 
 ___
 
@@ -132,7 +132,7 @@ Returns the dot product of two vectors
 
 #### Defined in
 
-[src/math/vector.ts:104](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L104)
+[src/math/vector.ts:104](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L104)
 
 ___
 
@@ -152,7 +152,7 @@ Calculate magnitude of vector
 
 #### Defined in
 
-[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L88)
+[src/math/vector.ts:88](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L88)
 
 ___
 
@@ -178,7 +178,7 @@ Creates a new scaled vector
 
 #### Defined in
 
-[src/math/vector.ts:100](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L100)
+[src/math/vector.ts:100](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L100)
 
 ___
 
@@ -204,4 +204,4 @@ Immutable element-wise subtraction
 
 #### Defined in
 
-[src/math/vector.ts:96](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/math/vector.ts#L96)
+[src/math/vector.ts:96](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/vector.ts#L96)

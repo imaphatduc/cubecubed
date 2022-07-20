@@ -15,4 +15,4 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:29](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L29)
+[src/svg/cubicons/geometry/Geometry.ts:25](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Geometry.ts#L25)

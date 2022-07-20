@@ -21,7 +21,7 @@ Fade out a cubicon on the screen.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
-| `params.cubicon` | [`FADE_TYPES`](/reference/types/FADE_TYPES.md) | The target cubicon to play this animation. |
+| `params.cubicon` | [`Cubicon`](/reference/classes/Cubicon.md) | The target cubicon to play this animation. |
 | `params.duration?` | `number` | Time to play this animation. (in milliseconds) |
 | `params.ease?` | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) | Custom easing function for smooth animation. |
 
@@ -31,9 +31,23 @@ Fade out a cubicon on the screen.
 
 #### Defined in
 
-[src/svg/animations/FadeOut.ts:9](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/FadeOut.ts#L9)
+[src/svg/animations/FadeOut.ts:13](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/FadeOut.ts#L13)
 
 ## Properties
+
+### animationType
+
+• `Readonly` **animationType**: ``"FadeOut"``
+
+#### Overrides
+
+[Animation](/reference/classes/Animation.md).[animationType](/reference/classes/Animation.md#animationtype)
+
+#### Defined in
+
+[src/svg/animations/FadeOut.ts:11](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/FadeOut.ts#L11)
+
+___
 
 ### cubicon
 
@@ -47,7 +61,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L36)
 
 ___
 
@@ -63,7 +77,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L41)
 
 ___
 
@@ -79,7 +93,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L46)
 
 ## Methods
 
@@ -99,4 +113,4 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/FadeOut.ts:30](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/FadeOut.ts#L30)
+[src/svg/animations/FadeOut.ts:34](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/FadeOut.ts#L34)

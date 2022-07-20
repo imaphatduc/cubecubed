@@ -6,7 +6,7 @@ Return the barebone of a line shape.
 
 ## Hierarchy
 
-- [`Geometry`](/reference/classes/Geometry.md)
+- [`Cubicon`](/reference/classes/Cubicon.md)
 
   ↳ **`Line`**
 
@@ -28,11 +28,11 @@ Return the barebone of a line shape.
 
 #### Overrides
 
-[Geometry](/reference/classes/Geometry.md).[constructor](/reference/classes/Geometry.md#constructor)
+[Cubicon](/reference/classes/Cubicon.md).[constructor](/reference/classes/Cubicon.md#constructor)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:31](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Line.ts#L31)
+[src/svg/cubicons/geometry/Line.ts:28](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Line.ts#L28)
 
 ## Properties
 
@@ -44,7 +44,7 @@ Config options of this line.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:29](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Line.ts#L29)
+[src/svg/cubicons/geometry/Line.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Line.ts#L26)
 
 ___
 
@@ -57,25 +57,25 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[angle](/reference/classes/Geometry.md#angle)
+[Cubicon](/reference/classes/Cubicon.md).[angle](/reference/classes/Cubicon.md#angle)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
-### cubType
+### cubiconType
 
-• `Readonly` **cubType**: ``"geometry"``
+• `Readonly` **cubiconType**: ``"Line"``
 
-#### Inherited from
+#### Overrides
 
-[Geometry](/reference/classes/Geometry.md).[cubType](/reference/classes/Geometry.md#cubtype)
+[Cubicon](/reference/classes/Cubicon.md).[cubiconType](/reference/classes/Cubicon.md#cubicontype)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L77)
+[src/svg/cubicons/geometry/Line.ts:12](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Line.ts#L12)
 
 ___
 
@@ -87,11 +87,11 @@ The HTML tag that represents this cubicon.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[def_cubiconBase](/reference/classes/Geometry.md#def_cubiconbase)
+[Cubicon](/reference/classes/Cubicon.md).[def_cubiconBase](/reference/classes/Cubicon.md#def_cubiconbase)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -103,7 +103,7 @@ End point (head) of the line.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:24](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Line.ts#L24)
+[src/svg/cubicons/geometry/Line.ts:21](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Line.ts#L21)
 
 ___
 
@@ -115,27 +115,11 @@ The `<g/>` tag that holds this cubicon.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[g_cubiconWrapper](/reference/classes/Geometry.md#g_cubiconwrapper)
+[Cubicon](/reference/classes/Cubicon.md).[g_cubiconWrapper](/reference/classes/Cubicon.md#g_cubiconwrapper)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L46)
-
-___
-
-### geoType
-
-• `Readonly` **geoType**: ``"line"``
-
-Geometry type of the line.
-
-#### Overrides
-
-[Geometry](/reference/classes/Geometry.md).[geoType](/reference/classes/Geometry.md#geotype)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Line.ts:15](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Line.ts#L15)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -147,11 +131,11 @@ The group that this cubicon belongs to.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[group](/reference/classes/Geometry.md#group)
+[Cubicon](/reference/classes/Cubicon.md).[group](/reference/classes/Cubicon.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -163,11 +147,11 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[moveAngle](/reference/classes/Geometry.md#moveangle)
+[Cubicon](/reference/classes/Cubicon.md).[moveAngle](/reference/classes/Cubicon.md#moveangle)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -179,11 +163,11 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[moveVector](/reference/classes/Geometry.md#movevector)
+[Cubicon](/reference/classes/Cubicon.md).[moveVector](/reference/classes/Cubicon.md#movevector)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -196,11 +180,11 @@ This property changed after finishing animations (in real time).
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[position](/reference/classes/Geometry.md#position)
+[Cubicon](/reference/classes/Cubicon.md).[position](/reference/classes/Cubicon.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L20)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -212,7 +196,7 @@ Start point (tail) of the line.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:20](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Line.ts#L20)
+[src/svg/cubicons/geometry/Line.ts:17](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Line.ts#L17)
 
 ___
 
@@ -224,11 +208,11 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[svg_group](/reference/classes/Geometry.md#svg_group)
+[Cubicon](/reference/classes/Cubicon.md).[svg_group](/reference/classes/Cubicon.md#svg_group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
 
 ## Methods
 
@@ -248,11 +232,11 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[coordsGtoW](/reference/classes/Geometry.md#coordsgtow)
+[Cubicon](/reference/classes/Cubicon.md).[coordsGtoW](/reference/classes/Cubicon.md#coordsgtow)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L88)
+[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
 
 ___
 
@@ -272,7 +256,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:98](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Line.ts#L98)
+[src/svg/cubicons/geometry/Line.ts:95](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Line.ts#L95)
 
 ___
 
@@ -288,7 +272,7 @@ Draw (and render) the shape of this line onto SVG.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:79](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Line.ts#L79)
+[src/svg/cubicons/geometry/Line.ts:76](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Line.ts#L76)
 
 ___
 
@@ -308,8 +292,8 @@ ___
 
 #### Inherited from
 
-[Geometry](/reference/classes/Geometry.md).[setParentSelection](/reference/classes/Geometry.md#setparentselection)
+[Cubicon](/reference/classes/Cubicon.md).[setParentSelection](/reference/classes/Cubicon.md#setparentselection)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L63)
+[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)

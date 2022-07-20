@@ -21,7 +21,7 @@ Rotate a geometric cubicon by a specified angle.
 | Name | Type | Description |
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
-| `params.cubicon` | [`Geometry`](/reference/classes/Geometry.md) | The target cubicon to play this animation. |
+| `params.cubicon` | [`Cubicon`](/reference/classes/Cubicon.md) | The target cubicon to play this animation. |
 | `params.degree` | `number` | Angle (in degrees) for rotating. |
 | `params.duration` | `number` | Time to play this animation. (in milliseconds) |
 | `params.ease?` | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) | Custom easing function for smooth animation. |
@@ -32,9 +32,23 @@ Rotate a geometric cubicon by a specified angle.
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:16](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Rotate.ts#L16)
+[src/svg/animations/Rotate.ts:18](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Rotate.ts#L18)
 
 ## Properties
+
+### animationType
+
+• `Readonly` **animationType**: ``"Rotate"``
+
+#### Overrides
+
+[Animation](/reference/classes/Animation.md).[animationType](/reference/classes/Animation.md#animationtype)
+
+#### Defined in
+
+[src/svg/animations/Rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Rotate.ts#L14)
+
+___
 
 ### cubicon
 
@@ -48,7 +62,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L36)
 
 ___
 
@@ -58,7 +72,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Rotate.ts#L14)
+[src/svg/animations/Rotate.ts:16](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Rotate.ts#L16)
 
 ___
 
@@ -74,7 +88,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L41)
 
 ___
 
@@ -90,7 +104,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L46)
 
 ## Methods
 
@@ -110,4 +124,4 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:42](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Rotate.ts#L42)
+[src/svg/animations/Rotate.ts:44](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Rotate.ts#L44)

@@ -17,7 +17,6 @@
 - [DrawVectorField](/reference/classes/DrawVectorField.md)
 - [FadeIn](/reference/classes/FadeIn.md)
 - [FadeOut](/reference/classes/FadeOut.md)
-- [Geometry](/reference/classes/Geometry.md)
 - [Grid](/reference/classes/Grid.md)
 - [GridOrigin](/reference/classes/GridOrigin.md)
 - [Group](/reference/classes/Group.md)
@@ -62,11 +61,9 @@
 - [CurveFunction](/reference/types/CurveFunction.md)
 - [EASE\_TYPE](/reference/types/EASE_TYPE.md)
 - [ElementMapFunction](/reference/types/ElementMapFunction.md)
-- [FADE\_TYPES](/reference/types/FADE_TYPES.md)
 - [PT\_ON\_GRAPH\_DATA](/reference/types/PT_ON_GRAPH_DATA.md)
 - [PT\_TO\_COORDS\_DATA](/reference/types/PT_TO_COORDS_DATA.md)
 - [RECT\_GRID\_DATA](/reference/types/RECT_GRID_DATA.md)
-- [TYPES](/reference/types/TYPES.md)
 
 ## Variables
 

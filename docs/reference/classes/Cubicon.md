@@ -10,7 +10,19 @@
 
   ↳ [`MathText`](/reference/classes/MathText.md)
 
-  ↳ [`Geometry`](/reference/classes/Geometry.md)
+  ↳ [`Grid`](/reference/classes/Grid.md)
+
+  ↳ [`Rectangle`](/reference/classes/Rectangle.md)
+
+  ↳ [`Circle`](/reference/classes/Circle.md)
+
+  ↳ [`Line`](/reference/classes/Line.md)
+
+  ↳ [`VectorShape`](/reference/classes/VectorShape.md)
+
+  ↳ [`ParametricCurve`](/reference/classes/ParametricCurve.md)
+
+  ↳ [`Axes`](/reference/classes/Axes.md)
 
 ## Constructors
 
@@ -24,11 +36,11 @@
 | :------ | :------ |
 | `params` | `Object` |
 | `params.group` | [`Group`](/reference/classes/Group.md) |
-| `params.position` | [`Vector2`](/reference/classes/Vector2.md) |
+| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:53](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L53)
+[src/svg/cubicons/Cubicon.ts:53](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L53)
 
 ## Properties
 
@@ -41,17 +53,17 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
-### cubType
+### cubiconType
 
-• `Readonly` `Abstract` **cubType**: `string`
+• `Readonly` `Abstract` **cubiconType**: `string`
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:9](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L9)
+[src/svg/cubicons/Cubicon.ts:9](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L9)
 
 ___
 
@@ -63,7 +75,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -75,7 +87,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L46)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -87,7 +99,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -99,7 +111,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -111,7 +123,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -124,7 +136,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L20)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -136,9 +148,29 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
 
 ## Methods
+
+### coordsGtoW
+
+▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
+
+___
 
 ### setParentSelection
 
@@ -156,4 +188,4 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L63)
+[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)

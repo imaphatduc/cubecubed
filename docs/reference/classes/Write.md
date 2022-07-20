@@ -29,9 +29,23 @@
 
 #### Defined in
 
-[src/svg/animations/Write.ts:8](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Write.ts#L8)
+[src/svg/animations/Write.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Write.ts#L10)
 
 ## Properties
+
+### animationType
+
+• `Readonly` **animationType**: ``"Write"``
+
+#### Overrides
+
+[Animation](/reference/classes/Animation.md).[animationType](/reference/classes/Animation.md#animationtype)
+
+#### Defined in
+
+[src/svg/animations/Write.ts:8](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Write.ts#L8)
+
+___
 
 ### cubicon
 
@@ -45,7 +59,7 @@ The target cubicon of this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L48)
+[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L36)
 
 ___
 
@@ -61,7 +75,7 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L41)
 
 ___
 
@@ -77,7 +91,7 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:58](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Animation.ts#L58)
+[src/svg/animations/Animation.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L46)
 
 ## Methods
 
@@ -97,4 +111,4 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Write.ts:29](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/animations/Write.ts#L29)
+[src/svg/animations/Write.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Write.ts#L31)

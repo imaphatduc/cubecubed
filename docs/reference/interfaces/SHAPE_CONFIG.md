@@ -16,7 +16,7 @@ If this is not specified, then fall back to all of the default values.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:15](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L15)
+[src/svg/cubicons/geometry/Geometry.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Geometry.ts#L10)
 
 ___
 
@@ -28,7 +28,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:19](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L19)
+[src/svg/cubicons/geometry/Geometry.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Geometry.ts#L14)
 
 ___
 
@@ -40,7 +40,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:23](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L23)
+[src/svg/cubicons/geometry/Geometry.ts:18](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Geometry.ts#L18)
 
 ___
 
@@ -52,4 +52,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:27](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L27)
+[src/svg/cubicons/geometry/Geometry.ts:22](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Geometry.ts#L22)

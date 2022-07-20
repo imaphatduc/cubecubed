@@ -13,4 +13,4 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:51](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L51)
+[src/svg/cubicons/geometry/Geometry.ts:48](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Geometry.ts#L48)

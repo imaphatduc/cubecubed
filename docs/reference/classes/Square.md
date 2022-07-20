@@ -32,7 +32,7 @@ Return the barebone of a square shape.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Square.ts:17](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Square.ts#L17)
+[src/svg/cubicons/geometry/Square.ts:15](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Square.ts#L15)
 
 ## Properties
 
@@ -48,7 +48,7 @@ Config options of this rectangle.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:46](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Rectangle.ts#L46)
+[src/svg/cubicons/geometry/Rectangle.ts:43](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L43)
 
 ___
 
@@ -65,21 +65,21 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
-### cubType
+### cubiconType
 
-• `Readonly` **cubType**: ``"geometry"``
+• `Readonly` **cubiconType**: ``"Rectangle"``
 
 #### Inherited from
 
-[Rectangle](/reference/classes/Rectangle.md).[cubType](/reference/classes/Rectangle.md#cubtype)
+[Rectangle](/reference/classes/Rectangle.md).[cubiconType](/reference/classes/Rectangle.md#cubicontype)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:77](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L77)
+[src/svg/cubicons/geometry/Rectangle.ts:29](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L29)
 
 ___
 
@@ -95,7 +95,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -111,23 +111,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L46)
-
-___
-
-### geoType
-
-• `Readonly` **geoType**: ``"rectangle"``
-
-Geometry type of the rectangle.
-
-#### Inherited from
-
-[Rectangle](/reference/classes/Rectangle.md).[geoType](/reference/classes/Rectangle.md#geotype)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Rectangle.ts:32](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Rectangle.ts#L32)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -143,7 +127,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -159,7 +143,7 @@ Height of the rectangle (in grid coordinate system).
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:41](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Rectangle.ts#L41)
+[src/svg/cubicons/geometry/Rectangle.ts:38](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L38)
 
 ___
 
@@ -175,7 +159,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -191,7 +175,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -208,17 +192,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L20)
-
-___
-
-### sideLength
-
-• `Readonly` **sideLength**: `number`
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Square.ts:12](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Square.ts#L12)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -234,7 +208,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
 
 ___
 
@@ -250,7 +224,7 @@ Width of the rectangle (in grid coordinate system).
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:37](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Rectangle.ts#L37)
+[src/svg/cubicons/geometry/Rectangle.ts:34](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L34)
 
 ## Methods
 
@@ -274,7 +248,7 @@ Width of the rectangle (in grid coordinate system).
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Geometry.ts:88](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Geometry.ts#L88)
+[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
 
 ___
 
@@ -296,7 +270,21 @@ A complex data type to specify in DrawInnerGrid() animation.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:149](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Rectangle.ts#L149)
+[src/svg/cubicons/geometry/Rectangle.ts:146](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L146)
+
+___
+
+### getSideLength
+
+▸ **getSideLength**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Square.ts:42](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Square.ts#L42)
 
 ___
 
@@ -316,7 +304,7 @@ Add the shape of this rectangle onto SVG.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:102](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/geometry/Rectangle.ts#L102)
+[src/svg/cubicons/geometry/Rectangle.ts:99](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L99)
 
 ___
 
@@ -340,4 +328,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L63)
+[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)

@@ -29,7 +29,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:42](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L42)
+[src/svg/cubicons/VectorField.ts:42](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L42)
 
 ## Properties
 
@@ -41,7 +41,7 @@ Config options of the vector field.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L40)
+[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L40)
 
 ___
 
@@ -58,21 +58,21 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L26)
+[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
 
 ___
 
-### cubType
+### cubiconType
 
-• `Readonly` **cubType**: ``"vector-field"``
+• `Readonly` **cubiconType**: ``"VectorField"``
 
 #### Overrides
 
-[Cubicon](/reference/classes/Cubicon.md).[cubType](/reference/classes/Cubicon.md#cubtype)
+[Cubicon](/reference/classes/Cubicon.md).[cubiconType](/reference/classes/Cubicon.md#cubicontype)
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:25](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L25)
+[src/svg/cubicons/VectorField.ts:25](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L25)
 
 ___
 
@@ -88,7 +88,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L51)
+[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
 
 ___
 
@@ -114,7 +114,7 @@ Multivariable function that produces 2d vector field.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L30)
+[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L30)
 
 ___
 
@@ -130,7 +130,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L46)
+[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
 
 ___
 
@@ -146,7 +146,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L14)
+[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
 
 ___
 
@@ -162,7 +162,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L36)
+[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
 
 ___
 
@@ -178,7 +178,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L31)
+[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
 
 ___
 
@@ -195,7 +195,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L20)
+[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
 
 ___
 
@@ -211,7 +211,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L41)
+[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
 
 ___
 
@@ -223,9 +223,33 @@ Vector shapes included in the scene.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:35](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L35)
+[src/svg/cubicons/VectorField.ts:35](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L35)
 
 ## Methods
+
+### coordsGtoW
+
+▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `point` | [`Vector2`](/reference/classes/Vector2.md) |
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Inherited from
+
+[Cubicon](/reference/classes/Cubicon.md).[coordsGtoW](/reference/classes/Cubicon.md#coordsgtow)
+
+#### Defined in
+
+[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
+
+___
 
 ### render
 
@@ -237,7 +261,7 @@ Vector shapes included in the scene.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:80](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/VectorField.ts#L80)
+[src/svg/cubicons/VectorField.ts:80](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L80)
 
 ___
 
@@ -261,4 +285,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/e48fd86/src/svg/cubicons/Cubicon.ts#L63)
+[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
