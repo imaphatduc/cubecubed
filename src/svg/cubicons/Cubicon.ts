@@ -71,4 +71,8 @@ export abstract class Cubicon {
 
         return new Vector2(xGtoW(point.x), yGtoW(point.y));
     }
+
+    getWpoint(point: Vector2) {
+        return this.coordsGtoW(point);
+    }
 }

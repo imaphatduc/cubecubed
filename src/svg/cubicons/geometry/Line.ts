@@ -91,8 +91,4 @@ export class Line extends Cubicon {
             .attr("stroke", this.CONFIG.lineColor!)
             .attr("stroke-width", this.CONFIG.lineWidth!);
     }
-
-    getWpoint(point: Vector2) {
-        return this.coordsGtoW(point);
-    }
 }
