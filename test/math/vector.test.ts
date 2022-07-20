@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 
 import { Vector2, Vector3 } from "../../src/math/vector";
 
-describe("#Vector2", () => {
+describe("Vector2", () => {
     let a: Vector2;
     let b: Vector2;
 
@@ -87,7 +87,7 @@ describe("#Vector2", () => {
     });
 });
 
-describe("#Vector3", () => {
+describe("Vector3", () => {
     let a: Vector3;
     let b: Vector3;
 
