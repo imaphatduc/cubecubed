@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it } from "vitest";
 
-import { Vector2, Vector3 } from "../../src/math/vector";
+import { Vector2, Vector3 } from "@math/vector";
 
 describe("Vector2", () => {
     let a: Vector2;
