@@ -9,7 +9,6 @@ import { Vector2 } from "@math/vector";
 
 import { Group } from "@group/Group";
 import { Cubicon } from "@cubicons/Cubicon";
-import { Square } from "./Square";
 import { Line } from "./Line";
 
 /**
@@ -17,7 +16,6 @@ import { Line } from "./Line";
  * or Square().drawInnerGrid() method
  */
 export type RECT_GRID_DATA = {
-    cubicon: Rectangle | Square;
     horizontalLines: Line[];
     verticalLines: Line[];
 };
@@ -187,7 +185,6 @@ export class Rectangle extends Cubicon {
         }
 
         return {
-            cubicon: this,
             horizontalLines: horizontalLines,
             verticalLines: verticalLines,
         };
