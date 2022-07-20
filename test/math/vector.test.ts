@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from "vitest";
+import { beforeAll, describe, expect, it } from "vitest";
 
 import { Vector2, Vector3 } from "@math/vector";
 
@@ -6,7 +6,7 @@ describe("Vector2", () => {
     let a: Vector2;
     let b: Vector2;
 
-    beforeEach(() => {
+    beforeAll(() => {
         a = new Vector2(1, 2);
         b = new Vector2(2, -1);
     });
@@ -91,7 +91,7 @@ describe("Vector3", () => {
     let a: Vector3;
     let b: Vector3;
 
-    beforeEach(() => {
+    beforeAll(() => {
         a = new Vector3(2, 4, 0);
         b = new Vector3(5, -2, 2);
     });
