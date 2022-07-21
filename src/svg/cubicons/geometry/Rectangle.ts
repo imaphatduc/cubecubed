@@ -142,11 +142,11 @@ export class Rectangle extends Cubicon {
      * @returns A complex data type to specify in DrawInnerGrid() animation.
      */
     drawInnerGrid(): RECT_GRID_DATA {
-        // Create a <g/> element to hold the result grid.
-        const g_drawInnerGrid = this.g_cubiconWrapper.append("g");
-
         const Wposition = this.coordsGtoW(this.position);
-        g_drawInnerGrid
+
+        // Create a <g/> element to hold the result grid.
+        const g_drawInnerGrid = this.g_cubiconWrapper
+            .append("g")
             .attr("class", "rect-inner-grid")
             .attr("transform", `translate(${Wposition.x}, ${Wposition.y})`);
 
