@@ -8,6 +8,9 @@ export default defineConfig({
         environment: "jsdom",
     },
     plugins: [tsconfigPaths()],
+    optimizeDeps: {
+        exclude: ["cubecubed"],
+    },
     build: {
         lib: {
             entry: path.resolve(__dirname, "src/index.ts"),
