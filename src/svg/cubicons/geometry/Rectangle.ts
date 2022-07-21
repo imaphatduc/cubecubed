@@ -159,30 +159,32 @@ export class Rectangle extends Cubicon {
         };
 
         const horizontalLines: Line[] = [];
-        for (const i of range(-this.height / 2 + 1, this.height / 2, 1)) {
+
+        range(-this.height / 2 + 1, this.height / 2).forEach((y) => {
             const line = new Line({
                 ...generalParams,
-                startPoint: new Vector2(-this.width / 2, i),
-                endPoint: new Vector2(this.width / 2, i),
+                startPoint: new Vector2(-this.width / 2, y),
+                endPoint: new Vector2(this.width / 2, y),
             }).render();
 
             line.setParentSelection(g_drawInnerGrid);
 
             horizontalLines.push(line);
-        }
+        });
 
         const verticalLines: Line[] = [];
-        for (const i of range(-this.width / 2 + 1, this.width / 2, 1)) {
+
+        range(-this.width / 2 + 1, this.width / 2).forEach((x) => {
             const line = new Line({
                 ...generalParams,
-                startPoint: new Vector2(i, -this.height / 2),
-                endPoint: new Vector2(i, this.height / 2),
+                startPoint: new Vector2(x, -this.height / 2),
+                endPoint: new Vector2(x, this.height / 2),
             }).render();
 
             line.setParentSelection(g_drawInnerGrid);
 
             verticalLines.push(line);
-        }
+        });
 
         return {
             horizontalLines: horizontalLines,
