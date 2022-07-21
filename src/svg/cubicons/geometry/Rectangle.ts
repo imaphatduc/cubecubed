@@ -20,6 +20,11 @@ export type RECT_GRID_DATA = {
     verticalLines: Line[];
 };
 
+type RECT_INNER_LINE_POINTS = {
+    startPoint: Vector2;
+    endPoint: Vector2;
+};
+
 /**
  * Return the barebone of a rectangle shape.
  */
@@ -142,53 +147,66 @@ export class Rectangle extends Cubicon {
      * @returns A complex data type to specify in DrawInnerGrid() animation.
      */
     drawInnerGrid(): RECT_GRID_DATA {
-        const Wposition = this.coordsGtoW(this.position);
+        const xLower = -this.width / 2;
+        const xUpper = this.width / 2;
+        const yLower = -this.height / 2;
+        const yUpper = this.height / 2;
 
-        // Create a <g/> element to hold the result grid.
-        const g_drawInnerGrid = this.g_cubiconWrapper
-            .append("g")
-            .attr("class", "rect-inner-grid")
-            .attr("transform", `translate(${Wposition.x}, ${Wposition.y})`);
+        const horizontalLinePoints = this.horizontalLinePoints(
+            [xLower, xUpper],
+            [yLower, yUpper]
+        );
 
-        const generalParams = {
-            group: this.group,
-            CONFIG: {
-                lineColor: COLOR.BLUE_1,
-                lineWidth: 1,
-            },
-        };
-
-        const horizontalLines: Line[] = [];
-
-        range(-this.height / 2 + 1, this.height / 2).forEach((y) => {
-            const line = new Line({
-                ...generalParams,
-                startPoint: new Vector2(-this.width / 2, y),
-                endPoint: new Vector2(this.width / 2, y),
-            }).render();
-
-            line.setParentSelection(g_drawInnerGrid);
-
-            horizontalLines.push(line);
-        });
-
-        const verticalLines: Line[] = [];
-
-        range(-this.width / 2 + 1, this.width / 2).forEach((x) => {
-            const line = new Line({
-                ...generalParams,
-                startPoint: new Vector2(x, -this.height / 2),
-                endPoint: new Vector2(x, this.height / 2),
-            }).render();
-
-            line.setParentSelection(g_drawInnerGrid);
-
-            verticalLines.push(line);
-        });
+        const verticalLinePoints = this.verticalLinePoints(
+            [xLower, xUpper],
+            [yLower, yUpper]
+        );
 
         return {
-            horizontalLines: horizontalLines,
-            verticalLines: verticalLines,
+            horizontalLines: this.innerLines(horizontalLinePoints),
+            verticalLines: this.innerLines(verticalLinePoints),
         };
+    }
+
+    private innerLines(points: RECT_INNER_LINE_POINTS[]) {
+        const lines = points.map(({ startPoint, endPoint }) =>
+            new Line({
+                group: this.group,
+                startPoint: startPoint,
+                endPoint: endPoint,
+                CONFIG: {
+                    lineColor: COLOR.BLUE_1,
+                    lineWidth: 1,
+                },
+            }).render()
+        );
+
+        return lines;
+    }
+
+    private horizontalLinePoints(
+        xRange: [number, number],
+        yRange: [number, number]
+    ) {
+        const [xLower, xUpper] = xRange;
+        const [yLower, yUpper] = yRange;
+
+        return range(yLower, yUpper).map((y) => ({
+            startPoint: new Vector2(xLower, y).add(this.position),
+            endPoint: new Vector2(xUpper, y).add(this.position),
+        }));
+    }
+
+    private verticalLinePoints(
+        xRange: [number, number],
+        yRange: [number, number]
+    ) {
+        const [xLower, xUpper] = xRange;
+        const [yLower, yUpper] = yRange;
+
+        return range(xLower, xUpper).map((x) => ({
+            startPoint: new Vector2(x, yLower).add(this.position),
+            endPoint: new Vector2(x, yUpper).add(this.position),
+        }));
     }
 }
