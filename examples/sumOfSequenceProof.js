@@ -14,10 +14,8 @@ function sumOfSequenceProof() {
 
     const { horizontalLines, verticalLines } = square.drawInnerGrid();
 
-    const anims = [];
-
-    [...horizontalLines, ...verticalLines].forEach((line) =>
-        anims.push(new Create({ cubicon: line }))
+    const anims = [...horizontalLines, ...verticalLines].map(
+        (line) => new Create({ cubicon: line })
     );
 
     group.play(anims);
