@@ -1,5 +1,4 @@
 import { range } from "d3-array";
-import { Selection } from "d3-selection";
 import { curveNatural, line } from "d3-shape";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -33,11 +32,6 @@ export class Graph extends Cubicon {
      * The function of this graph.
      */
     functionDef: (x: number) => number;
-
-    /**
-     * The `<g/>` element that contains two axis projectors' tags (if Axes().pointToCoords(...) was called).
-     */
-    g_projector: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
      * Config options of this graph.
@@ -79,17 +73,13 @@ export class Graph extends Cubicon {
 
         this.g_cubiconWrapper = this.axes.g_graphs
             .append("g")
-            .attr("class", "graph-group");
+            .attr("class", "graph-wrapper");
 
         this.def_cubiconBase = this.g_cubiconWrapper
             .append("path")
             .attr("class", "graph")
             .attr("fill", "none")
             .attr("stroke-width", 1.2);
-
-        this.g_projector = this.g_cubiconWrapper
-            .append("g")
-            .attr("class", "projector-group");
     }
 
     render() {
