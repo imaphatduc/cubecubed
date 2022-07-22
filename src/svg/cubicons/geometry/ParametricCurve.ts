@@ -53,7 +53,7 @@ export class ParametricCurve extends Cubicon {
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
-            .attr("class", "arc-wrapper")
+            .attr("class", "parametric-curve-wrapper")
             .style("transform-box", "fill-box")
             .style("transform-origin", "center");
 
