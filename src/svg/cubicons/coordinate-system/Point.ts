@@ -3,7 +3,6 @@ import { SHAPE_CONFIG } from "@cubicons/geometry/Geometry";
 import { Vector2 } from "@math/vector";
 
 import { Axes } from "./Axes";
-import { Graph } from "./Graph";
 
 import { Circle } from "@cubicons/geometry/Circle";
 
@@ -14,10 +13,6 @@ export class Point extends Circle {
     axes: Axes;
 
     constructor(params: {
-        /**
-         * Parent of this point. (i.e. The cubicon on which this point should be put)
-         */
-        parent?: Graph;
         /**
          * The `</svg>` element that wraps the two axes' `</svg>`.
          */
@@ -42,14 +37,11 @@ export class Point extends Circle {
             CONFIG: params.CONFIG,
         });
 
-        this.g_cubiconWrapper =
-            typeof params.parent !== "undefined"
-                ? params.parent.g_projector
-                : params.axes.g_cubiconWrapper;
+        this.axes = params.axes;
+
+        this.g_cubiconWrapper.attr("class", "point-wrapper");
 
         this.def_cubiconBase.attr("class", "point");
-
-        this.axes = params.axes;
     }
 
     /**
