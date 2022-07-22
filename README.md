@@ -35,6 +35,10 @@ Cubecubed believes the best way to learn and discover math is through the combin
 
 Imagine that a 3d cube multiply by itself two times — That's it!
 
+## 💭 Inspiration
+
+This project exists for a reason. Check out my [article](https://dev.to/imaphatduc/my-story-with-cubecubed-2da2) to figure it out.
+
 ## 💡 Initialize Project
 
 Getting started with Cubecubed is easily easy, you can run either
