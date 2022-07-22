@@ -20,10 +20,14 @@
   </p>
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
-          <img src="https://img.shields.io/npm/v/cubecubed?style=flat-square&logo=npm" />
+      <img src="https://img.shields.io/github/workflow/status/imaphatduc/cubecubed/CI?label=CI&labelColor=000&logo=github&style=for-the-badge" />
+      <img src="https://img.shields.io/npm/v/cubecubed?color=cb3837&labelColor=000&logo=npm&style=for-the-badge" />
+      <img src="https://img.shields.io/github/license/imaphatduc/cubecubed?color=560bff&labelColor=000&style=for-the-badge" />
     </a>
   </p>
 </p>
+
+# What is Cubecubed?
 
 Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) library to create a visual representation of math concepts.
 
