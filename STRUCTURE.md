@@ -4,173 +4,102 @@
 
 ```html
 :
-|`<svg id="viz" >`
+|`<svg id="cubecubed" >`
 |\
-| \
-| |`<svg id="scene-name" >`
+| \__ `<svg id="group-name" >`
+| |
+|
+| @Circle > @GridOrigin
 | |\
-| | \_ `<svg id="group-name" >`
-| | |
-| | |\ 
-| | | \__ `<g class="rectangle-wrapper" >`
-| | | |\
-| | | | \___ `<path />` (for Rectangle() and Square())
-| | | | |
-| | | | |___ `<g class="rect-inner-grid" >`
-| | | | |
-| | | | |___ `<g class="lines-to-sides" >`
-| | |
+| | \** `<g class="circle-wrapper" >`
 | | |\
-| | | \__ `<g class="circle-wrapper" >`
-| | | |\
-| | | | \___ `<circle />`, `<line />`, etc.
-| | |
+| | | \** `<circle />`
+| |
+|
+| @Line > @AxisProjector
+| |\
+| | \** `<g class="line-wrapper" >`
 | | |\
-| | | \__ `<g class="vector-wrapper" >`
+| | | \** `<line />`
+| |
+|
+| @ParametricCurve
+| |\
+| | \** `<g class="parametric-curve-wrapper" >`
+| | |\
+| | | \** `<path />`
+| |
+|
+| @Rectangle > @Square
+| |\ 
+| | \** `<g class="rectangle-wrapper" >`
+| | |\
+| | | \** `<path />`
+| |
+|
+| @VectorShape
+| |\
+| | \** `<g class="vector-wrapper" >`
+| | |\
+| | | \** `<g class="vector-group" >`
 | | | |\
-| | | | \___ `<g class="vector-group" >`
-| | | | |\
-| | | | | \____ `<line class="vector-line" />`
-| | | | | |
-| | | | | |____ `<polygon class="vector-arrow-head" />`
+| | | | *---.def_lineStroke
+| | | | |__ `<line class="vector-line" />`
+| | | | |
+| | | | *---.def_arrowHead
+| | | | |__ `<polygon class="vector-arrow-head" />`
+| 
 ```
 
-## Plain HTML View
-
-```html
-<!-- Cubicon().svg -->
-<svg id="viz">                                  
-    <svg id="scene-name">                       
-        <!-- this.svg_group -->
-        <svg id="group-name">
-            <!-- Rectangle().g_cubiconWrapper -->
-            <g class="rectangle-wrapper">           
-                <!-- this.def_cubiconBase -->
-                <path class="rectangle" />      
-
-                <!-- after calling this.drawInnerGrid() -->
-                <g class="rect-inner-grid" />   
-
-                <!-- after calling this.pointToSides(...) -->
-                <g class="lines-to-sides" />    
-            </g>
-
-            <!-- Circle().g_cubiconWrapper -->
-            <g class="circle-wrapper">
-                <!-- this.def_cubiconBase -->
-                <circle class="circle" />
-            </g>
-
-            <!-- Vector().g_cubiconWrapper -->
-            <g class="vector-wrapper">
-                <!-- this.def_cubiconBase -->
-                <g class="vector-group">
-                    <!-- this.def_lineStroke -->
-                    <line class="vector-line" />
-
-                    <!-- this.def_arrowHead -->
-                    <polygon class="vector-arrow-head">
-                </g>
-            </g>
-        </svg>
-    </svg>
-</svg>
-```
-
-# Coordinate System Structure
+# Coordinate System HTML Structure
 
 ## Tree View
 
 ```html
 :
-|`<svg id="viz" >`
+|`<svg id="cubecubed" >`
 |\
-| \
-| |`<svg id="scene-name" >`
+| \__ `<svg id="group-name" >`
+| |
+
+@Axes
 | |\
-| | \_ `<svg id="group-name" >`
-| | |
+| | \__ `<g class="xy-coordinate" >`
 | | |\
-| | | \__ `<g class="xy-coordinate" >`
+| | | *---.g_axes
+| | | |__ `<g class="axes" >`
 | | | |\
-| | | | \___ `<g class="axes" >`
-| | | | |\
-| | | | | \____ `<g class="x-axis" >`
-| | | | | |
-| | | | | |____ `<g class="y-axis" >`
+| | | | \__ `<g class="x-axis" >`
 | | | | |
-| | | | |___ `<g class="graphs" >`
+| | | | |__ `<g class="y-axis" >`
+| | |  
+| | |\ 
+| | | *--- .g_graphs
+| | | |__ `<g class="graphs" >`
+| | | |
+| | |
+| | | @Graph
+| | | |\
+| | | | \** `<g class="graph-group" >`
 | | | | |\
-| | | | | \____ `<g class="graph-group" >`
-| | | | | |\
-| | | | | | \_____ `<path class="graph" />`
-| | | | | | |
-| | | | | | |_____ `<foreignObject class="graph-label" >`
-| | | | | | |
-| | | | | | |_____ `<g class="projector-group" >`
-| | | | | | |\
-| | | | | | | \______ `<circle class="point" />`
-| | | | | | | |
-| | | | | | | |______ `<g class="horizontal-projector-wrapper" >`
-| | | | | | | |\
-| | | | | | | | \_______ `<line class="horizontal-projector-line" />`
-| | | | | | | |
-| | | | | | | |______ `<g class="vertical-projector-wrapper" >`
-| | | | | | | |\
-| | | | | | | | \_______ `<line class="vertical-projector-line" />`
+| | | | | \** `<path class="graph" />`
+| | |
+| | | @Label
+| | | |\
+| | | | \** `<g class="graph-label-wrapper" >`
+| | | | |\
+| | | | | \** `<svg >`
+| | |
+| | | @AxisProjector
+| | | |\
+| | | | \** `<g class={
+| | | | |\      "horizontal-projector-wrapper" ||
+| | | | |       "vertical=projector-wrapper"
+| | | | |   }>`
+| | | | |\
+| | | | | \** `<line class={
+| | | | | |\         "horizontal-projector-line ||
+| | | | | |          "vertical-projector-line"
+| | | | | | }/>`
+| | |
 ```
-
-## Plain HTML View
-
-```html
-<!-- Cubicon().svg -->
-<svg id="viz">                                  
-    <svg id="scene-name">                       
-        <!-- this.svg_group -->
-        <svg id="group-name">
-            <!-- CoordinateSystem().g_coordinate -->
-            <g class="xy-coordinate">
-                <!-- Axes().g_axes -->
-                <g class="axes">
-                    <!-- Axes().xAxis -->
-                    <g class="x-axis" >
-
-                    <!-- Axes().yAxis -->
-                    <g class="y-axis" >
-                </g>
-
-                <!-- Axes().g_graphs -->
-                <g class="graphs">
-                    <!-- Graph().g_cubiconWrapper -->
-                    <g class="graph-group">
-                        <!-- Graph().def_cubiconBase -->
-                        <path class="graph" />
-
-                        <!-- Label().def_cubiconBase -->
-                        <foreignObject class="graph-label" >
-
-                        <!-- Graph().g_projector -->
-                        <g class="projector-group">
-                            <!-- Point().def_cubiconBase -->
-                            <circle class="point" />
-
-                            <!-- AxisProjector().g_cubiconWrapper -->
-                            <g class="horizontal-projector-wrapper">
-                                <!-- AxisProjector().def_cubiconBase -->
-                                <line class="horizontal-projector-line" />
-                            </g>
-
-                            <!-- AxisProjector().g_cubiconWrapper -->
-                            <g class="vertical-projector-wrapper">
-                                <!-- AxisProjector().def_cubiconBase -->
-                                <line class="vertical-projector-line" />
-                            </g>
-                        </g>
-                    </g>
-                </g>
-            </g>
-        </svg>
-    </svg>
-</svg>
-```
-
