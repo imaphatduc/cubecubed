@@ -334,8 +334,7 @@ export class Axes extends Cubicon {
         const pos = new Vector2(xPos, graph.functionDef(xPos));
 
         const point = new Point({
-            parent: graph,
-            axes: graph.axes,
+            axes: this,
             position: pos,
             radius: 0.06,
             CONFIG: {
@@ -362,7 +361,7 @@ export class Axes extends Cubicon {
         const horizontalLine = new AxisProjector({
             type: "horizontal",
             coordinates: pos,
-            axes: graph.axes,
+            axes: this,
             CONFIG: {
                 lineWidth: 1,
             },
@@ -371,15 +370,14 @@ export class Axes extends Cubicon {
         const verticalLine = new AxisProjector({
             type: "vertical",
             coordinates: pos,
-            axes: graph.axes,
+            axes: this,
             CONFIG: {
                 lineWidth: 1,
             },
         }).render();
 
         const point = new Point({
-            parent: graph,
-            axes: graph.axes,
+            axes: this,
             position: pos,
             radius: 0.06,
             CONFIG: {
