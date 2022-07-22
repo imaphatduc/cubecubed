@@ -18,11 +18,19 @@ You can open an issue with `code typo` label for code typos.
 
 ## Contributing Code through Pull Requests
 
+If you don't know where to start, these articles will help you.
+
+-   [x] [How the animation engine of Cubecubed works?](https://dev.to/imaphatduc/how-the-animation-engine-of-cubecubed-works-4m06)
+
+-   [x] [Cubecubed 💖 d3.js](https://dev.to/imaphatduc/cubecubed-d3js-64f)
+
+The first sections will walk you through the basics, and the final one will list the rules to contribute to each specific parts of Cubecubed.
+
 ### Steps
 
 1. Install NodeJS on your machine.
 
-2. Make a fork (aka copy) of Cubecubed to your GitHub account, then clone it to your local machine.
+2. Fork this repo to your GitHub account, then clone it to your local machine.
 
 3. Run `npm install` to install all necessary dependencies.
 
@@ -32,27 +40,35 @@ You can open an issue with `code typo` label for code typos.
 
 -   Please read [`STRUCTURE.md`](STRUCTURE.md) carefully before making any changes in the code.
 
--   If you create (a) new `Cubicon()` type(s): Before making a pull request, add the result HTML structure (after running your code) to both Tree View and Plain HTML View in [`STRUCTURE.md`](STRUCTURE.md), then include the new [`STRUCTURE.md`](STRUCTURE.md) to your pull request.
+> Separate Tree View into sections based on class name.
+
+> The two (\*\*)s indicates the `g_cubiconWrapper` and `def_cubiconBase` respectively.
+
+> Mark each HTML element as (\*---) for every d3 selection included in a class.
+
+You can see the file for clearer understanding.
+
+-   If you create (a) new `Cubicon()` type(s): Before making a pull request, add the result HTML structure (after running your code) to the Tree View section in [`STRUCTURE.md`](STRUCTURE.md), then include the new `STRUCTURE.md` to your pull request.
 
 ##### Naming Conventions
 
--   Please avoid abbreviations for all names related to classes (class names, properties, parameters for constructor).
+-   Please avoid abbreviations for all names related to classes (class names, properties, parameters for constructor, etc.).
 
 -   For naming rule of d3 selections, check out `d3 Selection Prefixes` part below.
 
 ###### d3 Selection Prefixes
 
+Element that represents an `<svg>` tag:
+
 > svg\_
 
-Element that represents an `<svg>` tag.
+Element that represents a `<g>` tag:
 
 > g\_
 
-Element that represents a `<g>` tag.
+Element that represents the SVG tag of a cubicon: (e.g. `<path/>`, `<circle/>`)
 
 > def\_
-
-Element that represents the SVG tag of a cubicon. (e.g. `<path/>`, `<circle/>`)
 
 #### Okay, we've read through the rules, let's continue our work!
 
@@ -70,7 +86,7 @@ Element that represents the SVG tag of a cubicon. (e.g. `<path/>`, `<circle/>`)
 
 10. Make a new directory somewhere outside the local repo directory. Run `npm link cubecubed` to pull the global codes to the new directory.
 
-11. Run `npx cubecubed` to initialize a scene (make sure you say 'yes' for all of the options).
+11. Run `npx cubecubed` to initialize a scene (make sure you say 'yes' for all of the prompt options).
 
 12. Run `npm run dev` again to test the npm package.
 
