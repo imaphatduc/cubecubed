@@ -80,7 +80,7 @@
 | | |
 | | | @Graph
 | | | |\
-| | | | \** `<g class="graph-group" >`
+| | | | \** `<g class="graph-wrapper" >`
 | | | | |\
 | | | | | \** `<path class="graph" />`
 | | |
