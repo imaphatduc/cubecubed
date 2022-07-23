@@ -1,12 +1,13 @@
+import { Selection } from "d3-selection";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 import { ANIME, EASE_TYPE } from "@consts";
 
-import {
-    Animation,
-    CREATE_TYPES,
-    CREATE_SHAPE_TYPES,
-    CREATE_LINE_TYPES,
-} from "./Animation";
+import { Vector2 } from "@math/vector";
 
+import { Animation, CREATE_TYPES, CREATE_SHAPE_TYPES } from "./Animation";
+
+import { Line } from "@cubicons/geometry/Line";
 import { VectorShape } from "@cubicons/geometry/VectorShape";
 
 /**
@@ -43,8 +44,12 @@ export class Create extends Animation {
     private create(cubicon: CREATE_TYPES, sleepTime: number) {
         switch (cubicon.cubiconType) {
             case "Line":
-            case "VectorShape":
                 this.lineCreation(cubicon, sleepTime);
+
+                break;
+
+            case "VectorShape":
+                this.vectorShapeCreation(cubicon, sleepTime);
 
                 break;
 
@@ -62,53 +67,42 @@ export class Create extends Animation {
         }
     }
 
-    private lineCreation(cubicon: CREATE_LINE_TYPES, sleepTime: number) {
-        // Line() and Vector() both have `<line>` element
-        this.applyLineCreation(
-            cubicon.cubiconType === "Line"
-                ? cubicon.def_cubiconBase
-                : cubicon.def_lineStroke,
-            cubicon,
+    private lineCreation(cubicon: Line, sleepTime: number) {
+        const WstartPoint = cubicon.coordsGtoW(cubicon.startPoint);
+        const WendPoint = cubicon.coordsGtoW(cubicon.endPoint);
+
+        this.applySVGLineCreation(
+            cubicon.def_cubiconBase,
+            WstartPoint,
+            WendPoint,
+            sleepTime
+        );
+    }
+
+    private vectorShapeCreation(cubicon: VectorShape, sleepTime: number) {
+        const WstartPoint = cubicon.coordsGtoW(cubicon.startPoint);
+
+        const WendPoint = cubicon.coordsGtoW(
+            this.getVectorShapeLineEndPoint(cubicon)
+        );
+
+        this.applySVGLineCreation(
+            cubicon.def_lineStroke,
+            WstartPoint,
+            WendPoint,
             sleepTime
         );
 
-        // Applied for vector shape's arrow head
-        if (cubicon.cubiconType === "VectorShape") {
-            this.applyArrowCreation(cubicon.def_arrowHead, sleepTime);
-        }
+        this.applySVGArrowCreation(cubicon.def_arrowHead, sleepTime);
     }
 
-    private applyLineCreation(
-        selection: any,
-        cubicon: CREATE_LINE_TYPES,
+    private applySVGLineCreation(
+        selection: Selection<SVGLineElement, unknown, HTMLElement, any>,
+        WstartPoint: Vector2,
+        WendPoint: Vector2,
         sleepTime: number
     ) {
-        const WstartPoint = cubicon.getWpoint(cubicon.startPoint);
-        const WendPoint =
-            cubicon.cubiconType === "VectorShape"
-                ? getVectorLineEndPoint(cubicon)
-                : cubicon.getWpoint(cubicon.endPoint);
-
         selection.attr("x2", WstartPoint.x).attr("y2", WstartPoint.y);
-
-        function getVectorLineEndPoint(vectorShape: VectorShape) {
-            const vector = vectorShape.endPoint.subtract(
-                vectorShape.startPoint
-            );
-            const magnitude = vector.magnitude();
-
-            /// Make end point of vector's rendered line touch exactly at 10% height of its arrow
-            const resultVector = vector.scale(
-                (magnitude -
-                    vectorShape.CONFIG.arrowHeight +
-                    vectorShape.CONFIG.arrowHeight * 0.1) /
-                    magnitude
-            );
-
-            return vectorShape.coordsGtoW(
-                resultVector.add(vectorShape.startPoint)
-            );
-        }
 
         selection
             .transition()
@@ -119,7 +113,29 @@ export class Create extends Animation {
             .attr("y2", WendPoint.y);
     }
 
-    private applyArrowCreation(selection: any, sleepTime: number) {
+    private getVectorShapeLineEndPoint(vectorShape: VectorShape) {
+        const vector = vectorShape.getVector();
+
+        const magnitude = vector.magnitude();
+
+        // Make end point of vector's rendered line
+        // touches exactly at 10% height of its arrow
+        const scaledVector = vector
+            .scale(
+                (magnitude -
+                    vectorShape.CONFIG.arrowHeight +
+                    vectorShape.CONFIG.arrowHeight * 0.1) /
+                    magnitude
+            )
+            .add(vectorShape.startPoint);
+
+        return scaledVector;
+    }
+
+    private applySVGArrowCreation(
+        selection: Selection<SVGPolygonElement, unknown, HTMLElement, any>,
+        sleepTime: number
+    ) {
         const delayTime = this.duration * 0.45;
 
         selection
@@ -138,30 +154,31 @@ export class Create extends Animation {
      * - CoordinateSystem(): Point, Graph.
      */
     private shapeCreation(cubicon: CREATE_SHAPE_TYPES, sleepTime: number) {
-        cubicon.def_cubiconBase.attr("fill-opacity", 0);
-
         const lineLength = this.cubicon.def_cubiconBase.node().getTotalLength();
+
+        const { fillColor, fillOpacity } =
+            cubicon.cubiconType === "Graph"
+                ? {
+                      fillColor: "none",
+                      fillOpacity: 1,
+                  }
+                : {
+                      fillColor: cubicon.CONFIG.fillColor!,
+                      fillOpacity: cubicon.CONFIG.fillOpacity!,
+                  };
 
         cubicon.def_cubiconBase
             .attr("stroke-dasharray", lineLength + ", " + lineLength)
-            .attr("stroke-dashoffset", lineLength);
+            .attr("stroke-dashoffset", lineLength)
+            .attr("fill-opacity", 0);
 
-        const fill =
-            cubicon.cubiconType === "Graph"
-                ? "none"
-                : cubicon.CONFIG.fillColor!;
-
-        const fillOpacity =
-            cubicon.cubiconType === "Graph" ? 1 : cubicon.CONFIG.fillOpacity!;
-
-        // Drawing animation and fade in fill
         cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(sleepTime)
             .duration(this.duration)
             .attr("stroke-dashoffset", 0)
-            .attr("fill", fill)
+            .attr("fill", fillColor)
             .attr("fill-opacity", fillOpacity);
     }
 }
