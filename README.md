@@ -27,11 +27,9 @@
   </p>
 </p>
 
-# What is Cubecubed?
+Cubecubed is an intuitive and easy-to-use math visualization engine aimed at students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3), along with the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) library to create a visual representation of math concepts.
 
-Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) library to create a visual representation of math concepts.
-
-[Cubedbook](https://github.com/imaphatduc/cubedbook) is built on top of Cubecubed to create a user-friendly environment with interactive UI. If you're not comfortable with programming, Cubedbook is an option for you. The project is in early development stages now, and more features are being added to it.
+[Cubedbook](https://github.com/imaphatduc/cubedbook) is built on top of Cubecubed to build a user-friendly and interactive UI environment. If you're not comfortable with programming, Cubedbook is an option for you. The project is in early development stages now, and more features are being added to it.
 
 Though Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_ written in Python, it's not a port or a re-implementation of the engine. Cubecubed specifically focuses on playing dynamic animations right on the browser, with the intensive use of SVG and HTML Canvas. However, you can also export the animations to a video file (head to the [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart?id=video-exports) page for more details).
 
