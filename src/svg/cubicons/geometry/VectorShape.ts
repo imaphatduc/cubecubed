@@ -95,10 +95,6 @@ export class VectorShape extends Cubicon {
             .attr("stroke", "none");
     }
 
-    getWpoint(point: Vector2) {
-        return this.coordsGtoW(point);
-    }
-
     render() {
         const WstartPoint = this.coordsGtoW(this.startPoint);
 
@@ -167,6 +163,10 @@ export class VectorShape extends Cubicon {
                     this.getTheta() - 90
                 })`
             );
+    }
+
+    getVector() {
+        return this.endPoint.subtract(this.startPoint);
     }
 
     /**
