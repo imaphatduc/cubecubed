@@ -8,7 +8,7 @@ import {
     ParametricCurve,
     Trace,
     Line,
-    MathText,
+    MathTex,
     Write,
 } from "../src/index";
 
@@ -45,7 +45,7 @@ function curveTracing() {
         }),
     ]);
 
-    const tex = new MathText({
+    const tex = new MathTex({
         group: group,
         position: new Vector2(8, 5),
         text: "f(t) = \\begin{bmatrix} t \\cos(t) \\\\ t \\sin(t) \\end{bmatrix}",

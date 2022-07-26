@@ -3,7 +3,7 @@ import {
     DrawGridFromScreenSides,
     Grid,
     Group,
-    MathText,
+    MathTex,
     RevolutionSurface,
     Scene,
     SimulateRevolution,
@@ -19,7 +19,7 @@ function scenery() {
 
         const grid = new Grid({ group: group }).render();
 
-        const formula = new MathText({
+        const formula = new MathTex({
             group: group,
             position: new Vector2(5, 3),
             text: "y = \\frac{1}{x}",

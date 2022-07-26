@@ -6,8 +6,8 @@ import { Vector2 } from "@math/vector";
 import { Group } from "@group/Group";
 import { Cubicon } from "./Cubicon";
 
-export class MathText extends Cubicon {
-    readonly cubiconType = "MathText";
+export class MathTex extends Cubicon {
+    readonly cubiconType = "MathTex";
 
     /**
      * Content of this text.

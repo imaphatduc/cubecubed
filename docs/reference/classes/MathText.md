@@ -1,29 +1,29 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / MathText
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / MathTex
 
-# Class: MathText
+# Class: MathTex
 
 ## Hierarchy
 
-- [`Cubicon`](/reference/classes/Cubicon.md)
+-   [`Cubicon`](/reference/classes/Cubicon.md)
 
-  ↳ **`MathText`**
+    ↳ **`MathTex`**
 
 ## Constructors
 
 ### constructor
 
-• **new MathText**(`params`)
+• **new MathTex**(`params`)
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.color?` | `string` | Color of the text. |
-| `params.fontSize?` | `number` | Font size of the text. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the text belongs to. |
-| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the text. |
-| `params.text` | `string` | Content of the text. |
+| Name               | Type                                       | Description                         |
+| :----------------- | :----------------------------------------- | :---------------------------------- |
+| `params`           | `Object`                                   | -                                   |
+| `params.color?`    | `string`                                   | Color of the text.                  |
+| `params.fontSize?` | `number`                                   | Font size of the text.              |
+| `params.group`     | [`Group`](/reference/classes/Group.md)     | The group that the text belongs to. |
+| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the text.               |
+| `params.text`      | `string`                                   | Content of the text.                |
 
 #### Overrides
 
@@ -31,7 +31,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:27](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathText.ts#L27)
+[src/svg/cubicons/MathTex.ts:27](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathTex.ts#L27)
 
 ## Properties
 
@@ -50,7 +50,7 @@ This property changed after finishing animations (in real time).
 
 [src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
 
-___
+---
 
 ### color
 
@@ -60,13 +60,13 @@ Color of this text.
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathText.ts#L20)
+[src/svg/cubicons/MathTex.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathTex.ts#L20)
 
-___
+---
 
 ### cubiconType
 
-• `Readonly` **cubiconType**: ``"MathText"``
+• `Readonly` **cubiconType**: `"MathTex"`
 
 #### Overrides
 
@@ -74,13 +74,13 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathText.ts#L10)
+[src/svg/cubicons/MathTex.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathTex.ts#L10)
 
-___
+---
 
-### def\_cubiconBase
+### def_cubiconBase
 
-• **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
+• **def_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
 The HTML tag that represents this cubicon.
 
@@ -92,7 +92,7 @@ The HTML tag that represents this cubicon.
 
 [src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
 
-___
+---
 
 ### fontSize
 
@@ -102,13 +102,13 @@ Font size of this text (in points).
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:25](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathText.ts#L25)
+[src/svg/cubicons/MathTex.ts:25](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathTex.ts#L25)
 
-___
+---
 
-### g\_cubiconWrapper
+### g_cubiconWrapper
 
-• **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
+• **g_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
 The `<g/>` tag that holds this cubicon.
 
@@ -120,7 +120,7 @@ The `<g/>` tag that holds this cubicon.
 
 [src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
 
-___
+---
 
 ### group
 
@@ -136,7 +136,7 @@ The group that this cubicon belongs to.
 
 [src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
 
-___
+---
 
 ### moveAngle
 
@@ -152,7 +152,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 [src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
 
-___
+---
 
 ### moveVector
 
@@ -168,7 +168,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 [src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
 
-___
+---
 
 ### position
 
@@ -185,11 +185,11 @@ This property changed after finishing animations (in real time).
 
 [src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
 
-___
+---
 
-### svg\_group
+### svg_group
 
-• **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
+• **svg_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
 The `<svg/>` tag of this cubicon's group.
 
@@ -201,7 +201,7 @@ The `<svg/>` tag of this cubicon's group.
 
 [src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
 
-___
+---
 
 ### text
 
@@ -211,7 +211,7 @@ Content of this text.
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:15](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathText.ts#L15)
+[src/svg/cubicons/MathTex.ts:15](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathTex.ts#L15)
 
 ## Methods
 
@@ -221,8 +221,8 @@ Content of this text.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name    | Type                                       |
+| :------ | :----------------------------------------- |
 | `point` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
@@ -237,21 +237,21 @@ Content of this text.
 
 [src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
 
-___
+---
 
 ### render
 
-▸ **render**(): [`MathText`](/reference/classes/MathText.md)
+▸ **render**(): [`MathTex`](/reference/classes/MathTex.md)
 
 #### Returns
 
-[`MathText`](/reference/classes/MathText.md)
+[`MathTex`](/reference/classes/MathTex.md)
 
 #### Defined in
 
-[src/svg/cubicons/MathText.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathText.ts#L69)
+[src/svg/cubicons/MathTex.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/MathTex.ts#L69)
 
-___
+---
 
 ### setParentSelection
 
@@ -259,8 +259,8 @@ ___
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name              | Type                                                         |
+| :---------------- | :----------------------------------------------------------- |
 | `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
 
 #### Returns

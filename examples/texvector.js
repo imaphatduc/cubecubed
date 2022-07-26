@@ -6,7 +6,7 @@ import {
     FadeIn,
     Grid,
     Group,
-    MathText,
+    MathTex,
     Scene,
     VectorShape,
     Vector2,
@@ -30,13 +30,13 @@ function renderVector() {
 
     group.play([new Create({ cubicon: vector })]);
 
-    const formula = new MathText({
+    const formula = new MathTex({
         group: group,
         position: new Vector2(-8, 4),
         text: "\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}",
     }).render();
 
-    const vectCoor = new MathText({
+    const vectCoor = new MathTex({
         group: group,
         position: vector.endPoint,
         text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,

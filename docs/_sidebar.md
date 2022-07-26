@@ -20,7 +20,7 @@
             -   Coordinate System
                 -   [Axes](/reference/classes/Axes.md)
             -   [Grid](/reference/classes/Grid.md)
-            -   [Math Text](/reference/classes/MathText.md)
+            -   [Math Text](/reference/classes/MathTex.md)
         -   Canvas
             -   [RevolutionSurface](/reference/classes/RevolutionSurface.md)
     -   Animation

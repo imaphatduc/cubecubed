@@ -2,7 +2,7 @@ import { ANIME, EASE_TYPE } from "@consts";
 
 import { Animation } from "./Animation";
 
-import { MathText } from "@cubicons/MathText";
+import { MathTex } from "@cubicons/MathTex";
 
 export class Write extends Animation {
     readonly animationType = "Write";
@@ -11,7 +11,7 @@ export class Write extends Animation {
         /**
          * The target cubicon to play this animation.
          */
-        cubicon: MathText;
+        cubicon: MathTex;
         /**
          * Time to play this animation. (in milliseconds)
          */
@@ -32,7 +32,7 @@ export class Write extends Animation {
         this.writeText(this.cubicon, sleepTime);
     }
 
-    private writeText(cubicon: MathText, sleepTime: number) {
+    private writeText(cubicon: MathTex, sleepTime: number) {
         const options = [cubicon, this.duration, this.ease, sleepTime];
 
         // <path> elements
@@ -60,7 +60,7 @@ export class Write extends Animation {
     private applyWriteAnimation(
         selection: any,
         lengths: number[],
-        cubicon: MathText,
+        cubicon: MathTex,
         duration: number,
         ease: any,
         sleepTime: number

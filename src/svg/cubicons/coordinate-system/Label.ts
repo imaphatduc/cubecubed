@@ -2,9 +2,9 @@ import { Vector2 } from "@math/vector";
 
 import { Axes } from "./Axes";
 
-import { MathText } from "@cubicons/MathText";
+import { MathTex } from "@cubicons/MathTex";
 
-export class Label extends MathText {
+export class Label extends MathTex {
     /**
      * The axes that this label belongs to.
      */

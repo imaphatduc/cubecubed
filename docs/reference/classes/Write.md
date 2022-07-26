@@ -4,9 +4,9 @@
 
 ## Hierarchy
 
-- [`Animation`](/reference/classes/Animation.md)
+-   [`Animation`](/reference/classes/Animation.md)
 
-  ↳ **`Write`**
+    ↳ **`Write`**
 
 ## Constructors
 
@@ -16,12 +16,12 @@
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.cubicon` | [`MathText`](/reference/classes/MathText.md) | The target cubicon to play this animation. |
-| `params.duration?` | `number` | Time to play this animation. (in milliseconds) |
-| `params.ease?` | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) | Custom easing function for smooth animation. |
+| Name               | Type                                         | Description                                    |
+| :----------------- | :------------------------------------------- | :--------------------------------------------- |
+| `params`           | `Object`                                     | -                                              |
+| `params.cubicon`   | [`MathTex`](/reference/classes/MathTex.md)   | The target cubicon to play this animation.     |
+| `params.duration?` | `number`                                     | Time to play this animation. (in milliseconds) |
+| `params.ease?`     | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) | Custom easing function for smooth animation.   |
 
 #### Overrides
 
@@ -35,7 +35,7 @@
 
 ### animationType
 
-• `Readonly` **animationType**: ``"Write"``
+• `Readonly` **animationType**: `"Write"`
 
 #### Overrides
 
@@ -45,7 +45,7 @@
 
 [src/svg/animations/Write.ts:8](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Write.ts#L8)
 
-___
+---
 
 ### cubicon
 
@@ -61,7 +61,7 @@ The target cubicon of this animation.
 
 [src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L36)
 
-___
+---
 
 ### duration
 
@@ -77,7 +77,7 @@ Time to play this animation (in milliseconds).
 
 [src/svg/animations/Animation.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L41)
 
-___
+---
 
 ### ease
 
@@ -101,8 +101,8 @@ The easing function to use.
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
+| Name        | Type     |
+| :---------- | :------- |
 | `sleepTime` | `number` |
 
 #### Returns

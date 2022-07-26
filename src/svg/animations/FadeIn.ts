@@ -36,7 +36,7 @@ export class FadeIn extends Animation {
     }
 
     private fadeIn(cubicon: Cubicon, sleepTime: number) {
-        if (cubicon.cubiconType === "MathText") {
+        if (cubicon.cubiconType === "MathTex") {
             this.texFadeIn(sleepTime);
         } else {
             this.geometryFadeIn(sleepTime);

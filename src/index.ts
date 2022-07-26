@@ -6,7 +6,7 @@ export * from "./recorder/Recorder";
 export * from "./svg/group/Group";
 export * from "./svg/cubicons/Cubicon";
 export * from "./svg/cubicons/VectorField";
-export * from "./svg/cubicons/MathText";
+export * from "./svg/cubicons/MathTex";
 export * from "./svg/cubicons/geometry/Geometry";
 export * from "./svg/cubicons/geometry/Grid";
 export * from "./svg/cubicons/geometry/Rectangle";
