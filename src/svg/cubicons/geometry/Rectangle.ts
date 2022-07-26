@@ -89,9 +89,9 @@ export class Rectangle extends Cubicon {
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
-            .attr("class", `rectangle-wrapper`)
+            .attr("class", "rectangle-wrapper")
             .style("transform-box", "fill-box")
-            .style("transform-origin", `center`);
+            .style("transform-origin", "center");
 
         this.def_cubiconBase = this.g_cubiconWrapper.append("path");
     }

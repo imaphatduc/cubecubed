@@ -61,9 +61,9 @@ export class Line extends Cubicon {
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
-            .attr("class", `line-wrapper`)
+            .attr("class", "line-wrapper")
             .style("transform-box", "fill-box")
-            .style("transform-origin", `center`);
+            .style("transform-origin", "center");
 
         this.def_cubiconBase = this.g_cubiconWrapper
             .append("line")
