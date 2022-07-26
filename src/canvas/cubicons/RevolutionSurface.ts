@@ -3,7 +3,7 @@ import { range } from "d3-array";
 import { DoubleSide, Mesh, MeshNormalMaterial, PlaneGeometry } from "three";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Vector3 } from "@math/vector";
+import { Vector3 } from "@math/Vector3";
 
 import { CanvasGroup } from "@group/CanvasGroup";
 import { CanvasCubicon } from "./CanvasCubicon";

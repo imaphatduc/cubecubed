@@ -3,7 +3,7 @@ import { Selection } from "d3-selection";
 
 import { ANIME, EASE_TYPE } from "@consts";
 
-import { Vector2 } from "@math/vector";
+import { Vector2 } from "@math/Vector2";
 
 import { Animation, CREATE_TYPES, CREATE_SHAPE_TYPES } from "./Animation";
 

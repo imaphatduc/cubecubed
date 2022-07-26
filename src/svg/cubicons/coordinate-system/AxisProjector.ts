@@ -1,6 +1,6 @@
 import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "@cubicons/geometry/Geometry";
 
-import { Vector2 } from "@math/vector";
+import { Vector2 } from "@math/Vector2";
 
 import { Axes } from "./Axes";
 

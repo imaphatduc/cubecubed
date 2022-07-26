@@ -3,7 +3,7 @@ import { hsl } from "d3-color";
 import { scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Vector2 } from "@math/vector";
+import { Vector2 } from "@math/Vector2";
 
 import { Group } from "@group/Group";
 import { Cubicon } from "./Cubicon";

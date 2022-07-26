@@ -1,7 +1,7 @@
 import TeXToSVG from "tex-to-svg";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Vector2 } from "@math/vector";
+import { Vector2 } from "@math/Vector2";
 
 import { Group } from "@group/Group";
 import { Cubicon } from "./Cubicon";

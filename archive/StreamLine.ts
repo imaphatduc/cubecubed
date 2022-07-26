@@ -1,4 +1,4 @@
-import { Vector3 } from "@math/vector";
+import { Vector3 } from "@math/Vector3";
 
 import { CanvasGroup } from "@group/CanvasGroup";
 import { CanvasCubicon } from "./CanvasCubicon";

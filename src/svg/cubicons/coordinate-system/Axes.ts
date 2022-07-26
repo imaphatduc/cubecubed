@@ -5,7 +5,7 @@ import { scaleLinear } from "d3-scale";
 import { Selection } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Vector2 } from "@math/vector";
+import { Vector2 } from "@math/Vector2";
 
 import { Group } from "@group/Group";
 import { AxisProjector } from "./AxisProjector";

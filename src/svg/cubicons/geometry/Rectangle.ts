@@ -5,7 +5,7 @@ import { path } from "d3-path";
 import { COLOR } from "@consts";
 import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
 
-import { Vector2 } from "@math/vector";
+import { Vector2 } from "@math/Vector2";
 
 import { Group } from "@group/Group";
 import { Cubicon } from "@cubicons/Cubicon";
