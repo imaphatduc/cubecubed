@@ -58,7 +58,7 @@ export class Graph extends Cubicon {
 
             position: params.axes.position,
 
-            CONFIG: configFactory(params.CONFIG, GRAPH_DEFAULT_CONFIG),
+            CONFIG: configFactory(GRAPH_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.axes = params.axes;

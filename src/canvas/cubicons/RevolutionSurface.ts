@@ -63,8 +63,8 @@ export class RevolutionSurface extends CanvasCubicon {
             position: params.position,
 
             CONFIG: configFactory(
-                params.CONFIG,
-                REVOLUTION_SURFACE_DEFAULT_CONFIG
+                REVOLUTION_SURFACE_DEFAULT_CONFIG,
+                params.CONFIG
             ),
         });
 

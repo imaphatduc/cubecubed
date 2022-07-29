@@ -60,7 +60,7 @@ export class Grid extends Cubicon {
 
             position: new Vector2(0, 0),
 
-            CONFIG: configFactory(params.CONFIG, GRID_DEFAULT_CONFIG),
+            CONFIG: configFactory(GRID_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.g_planeGrid = this.svg_group.append("g").attr("id", "plane-grid");

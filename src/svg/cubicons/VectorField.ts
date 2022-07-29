@@ -56,7 +56,7 @@ export class VectorField extends Cubicon {
         super({
             group: params.group,
             position: new Vector2(0, 0),
-            CONFIG: configFactory(params.CONFIG, VECTOR_FIELD_DEFAULT_CONFIG),
+            CONFIG: configFactory(VECTOR_FIELD_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.functionDef = params.functionDef;

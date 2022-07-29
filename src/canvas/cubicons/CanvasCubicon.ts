@@ -19,7 +19,7 @@ export interface CanvasCubiconParams<TCONFIG> {
     /**
      * Config options of this cubicon.
      */
-    CONFIG: TCONFIG;
+    CONFIG?: TCONFIG;
 }
 
 export abstract class CanvasCubicon {
@@ -49,7 +49,10 @@ export abstract class CanvasCubicon {
 
         this.position = params.position ?? new Vector3(0, 0, 0);
 
-        this.CONFIG = params.CONFIG;
+        // params.CONFIG is never null or undefined, because it reverts to
+        // DEFAULT_CONFIG everytime it is passed down to the constructor of
+        // the CanvasCubicon abstract class.
+        this.CONFIG = params.CONFIG!;
     }
 
     /**

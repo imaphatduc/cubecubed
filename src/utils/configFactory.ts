@@ -1,6 +1,6 @@
 const configFactory = <TCONFIG extends Record<string, any>>(
-    CONFIG: TCONFIG,
-    DEFAULT_CONFIG: TCONFIG
+    DEFAULT_CONFIG: TCONFIG,
+    CONFIG?: TCONFIG
 ) => {
     if (!CONFIG) return DEFAULT_CONFIG;
 

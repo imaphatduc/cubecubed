@@ -43,7 +43,7 @@ export class VectorShape extends Cubicon {
 
             position: params.startPoint ?? new Vector2(0, 0),
 
-            CONFIG: configFactory(params.CONFIG, VECTOR_SHAPE_DEFAULT_CONFIG),
+            CONFIG: configFactory(VECTOR_SHAPE_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.endPoint = params.endPoint;

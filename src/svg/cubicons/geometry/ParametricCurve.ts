@@ -39,7 +39,7 @@ export class ParametricCurve extends Cubicon {
         super({
             group: params.group,
 
-            CONFIG: configFactory(params.CONFIG, LINE_SHAPE_DEFAULT_CONFIG),
+            CONFIG: configFactory(LINE_SHAPE_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.functionDef = params.functionDef;

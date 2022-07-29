@@ -73,7 +73,7 @@ export class Axes extends Cubicon {
 
             position: params.position,
 
-            CONFIG: configFactory(params.CONFIG, AXES_DEFAULT_CONFIG),
+            CONFIG: configFactory(AXES_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.g_coordinate = this.svg_group

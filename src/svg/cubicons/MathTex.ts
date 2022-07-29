@@ -42,7 +42,7 @@ export class MathTex extends Cubicon {
 
             position: params.position,
 
-            CONFIG: configFactory(params.CONFIG, MATH_TEX_DEFAULT_CONFIG),
+            CONFIG: configFactory(MATH_TEX_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.text = params.text;

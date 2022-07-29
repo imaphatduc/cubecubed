@@ -31,7 +31,7 @@ export class Circle extends Cubicon {
 
             position: params.position,
 
-            CONFIG: configFactory(params.CONFIG, PLANE_SHAPE_DEFAULT_CONFIG),
+            CONFIG: configFactory(PLANE_SHAPE_DEFAULT_CONFIG, params.CONFIG),
         });
 
         this.radius = params.radius;
