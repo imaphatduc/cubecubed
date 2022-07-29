@@ -1,46 +1,32 @@
-import { ANIME, EASE_TYPE } from "@consts";
-
-import { Animation } from "./Animation";
+import { ANIME } from "@consts";
 
 import { Cubicon } from "@cubicons/Cubicon";
 
-/**
- * Fade out a cubicon on the screen.
- */
-export class FadeOut extends Animation {
-    readonly animationType = "FadeOut";
+import { Animation, AnimationParams } from "@animations/Animation";
 
-    constructor(params: {
-        /**
-         * The target cubicon to play this animation.
-         */
-        cubicon: Cubicon;
-        /**
-         * Time to play this animation. (in milliseconds)
-         */
-        duration?: number;
-        /**
-         * Custom easing function for smooth animation.
-         */
-        ease?: EASE_TYPE;
-    }) {
+export class FadeOut extends Animation {
+    readonly animationType = "FadeIn";
+
+    constructor(params: AnimationParams<Cubicon>) {
         super({
             cubicon: params.cubicon,
-            duration: params.duration ?? ANIME.FADEOUT,
+
+            duration: params.duration ?? ANIME.FADEIN,
+
             ease: params.ease,
         });
     }
 
-    play(sleepTime: number) {
-        this.fadeOut(this.cubicon, sleepTime);
+    play() {
+        this.fadeOut();
     }
 
-    private fadeOut(cubicon: Cubicon, sleepTime: number) {
-        cubicon.def_cubiconBase
+    private fadeOut() {
+        this.cubicon.g_cubiconWrapper
             .transition()
             .ease(this.ease)
-            .delay(sleepTime)
+            .delay(this.sleepTime)
             .duration(this.duration)
-            .style("opacity", 0);
+            .attr("opacity", 0);
     }
 }

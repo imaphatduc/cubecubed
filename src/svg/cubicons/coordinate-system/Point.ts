@@ -1,39 +1,28 @@
-import { SHAPE_CONFIG } from "@cubicons/geometry/Geometry";
+import { PLANE_SHAPE_CONFIG } from "@configs/geometry/PLANE_SHAPE_CONFIG";
 
-import { Vector2 } from "@math/Vector2";
-
-import { Axes } from "./Axes";
-
+import { InheritedCubiconParams } from "@cubicons/Cubicon";
+import { Axes } from "@cubicons/coordinate-system/Axes";
 import { Circle } from "@cubicons/geometry/Circle";
 
-export class Point extends Circle {
+export interface PointParams
+    extends InheritedCubiconParams<PLANE_SHAPE_CONFIG> {
     /**
-     * The `</svg>` element that wraps the two axes' `</svg>`.
+     * The axes that this point belongs to.
      */
     axes: Axes;
+}
 
-    constructor(params: {
-        /**
-         * The `</svg>` element that wraps the two axes' `</svg>`.
-         */
-        axes: Axes;
-        /**
-         * Position of the point.
-         */
-        position: Vector2;
-        /**
-         * Radius of the point.
-         */
-        radius: number;
-        /**
-         * Config options of the point.
-         */
-        CONFIG?: SHAPE_CONFIG;
-    }) {
+export class Point extends Circle {
+    axes: Axes;
+
+    constructor(params: PointParams) {
         super({
             group: params.axes.group,
+
             position: params.position,
-            radius: params.radius,
+
+            radius: 0.06,
+
             CONFIG: params.CONFIG,
         });
 
@@ -44,9 +33,6 @@ export class Point extends Circle {
         this.def_cubiconBase.attr("class", "point");
     }
 
-    /**
-     * Draw (and render) the point onto SVG.
-     */
     render() {
         const xScale = this.axes.getXScale();
 

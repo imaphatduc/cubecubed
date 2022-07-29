@@ -5,26 +5,22 @@ import { scaleLinear } from "d3-scale";
 import { Selection } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+import configFactory from "@utils/configFactory";
+
 import { Vector2 } from "@math/Vector2";
 
-import { Group } from "@group/Group";
-import { AxisProjector } from "./AxisProjector";
-import { Graph } from "./Graph";
-import { Label } from "./Label";
-import { Point } from "./Point";
-import { Cubicon } from "@cubicons/Cubicon";
+import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
+import { MATH_TEX_CONFIG } from "@cubicons/MathTex";
+import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
+import { Graph } from "@cubicons/coordinate-system/Graph";
+import { Label } from "@cubicons/coordinate-system/Label";
+import { Point } from "@cubicons/coordinate-system/Point";
 
-/**
- * Return data type when calling Axes().pointOnGraph() method
- */
-export type PT_ON_GRAPH_DATA = {
+export type POINT_ON_GRAPH_DATA = {
     point: Point;
 };
 
-/**
- * Return data type when calling Axes().pointToCoords() method
- */
-export type PT_TO_COORDS_DATA = {
+export type POINT_TO_COORDS_DATA = {
     point: Point;
     projectors: [AxisProjector, AxisProjector];
 };
@@ -34,73 +30,51 @@ export interface AXES_CONFIG {
     yRange: [number, number];
     hasNums: boolean;
 }
-const DEFAULT_AXES_CONFIG: AXES_CONFIG = {
+
+export const AXES_DEFAULT_CONFIG: AXES_CONFIG = {
     xRange: [0, 0],
     yRange: [0, 0],
     hasNums: false,
 };
 
-/*
- * Return the axes in coordinate system.
- */
 export class Axes extends Cubicon {
     readonly cubiconType = "Axes";
 
-    /**
-     * Range of the x axis.
-     */
-    xRange: [number, number];
+    CONFIG: AXES_CONFIG;
 
     /**
-     * Range of the y axis.
-     */
-    yRange: [number, number];
-
-    /**
-     * Whether the axes include numbers
-     */
-    hasNums: boolean;
-
-    /**
-     * The `<svg/>` element that contains the whole coordinate system and everything included in it.
+     * The `<svg>` element that contains the whole coordinate system and everything included in it.
      */
     g_coordinate: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
-     * The `<svg/>` element that contains the axes.
+     * The `<svg>` element that contains the axes.
      */
     g_axes: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
-     * The `<svg/>` element that contains the x axis.
+     * The `<svg>` element that contains the x axis.
      */
     xAxis: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
-     * The `<svg/>` element that contains the y axis.
+     * The `<svg>` element that contains the y axis.
      */
     yAxis: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
-     * The `<svg/>` element (inside .axes) that contains all the graphs inside a pair of axes.
+     * The `<svg>` element (inside .axes) that contains all the graphs inside a pair of axes.
      */
     g_graphs: Selection<SVGGElement, unknown, HTMLElement, any>;
 
-    /**
-     * @param params Options to form the axes.
-     */
-    constructor(params: {
-        group: Group;
-        position?: Vector2;
-        CONFIG?: AXES_CONFIG;
-    }) {
-        super({ group: params.group, position: params.position });
+    constructor(params: CubiconParams<AXES_CONFIG>) {
+        super({
+            group: params.group,
 
-        ({
-            xRange: this.xRange = DEFAULT_AXES_CONFIG.xRange,
-            yRange: this.yRange = DEFAULT_AXES_CONFIG.yRange,
-            hasNums: this.hasNums = DEFAULT_AXES_CONFIG.hasNums,
-        } = params.CONFIG ?? DEFAULT_AXES_CONFIG);
+            position: params.position,
+
+            CONFIG: configFactory(params.CONFIG, AXES_DEFAULT_CONFIG),
+        });
 
         this.g_coordinate = this.svg_group
             .append("g")
@@ -119,18 +93,16 @@ export class Axes extends Cubicon {
             .append("marker")
             .attr("class", "axis-arrowhead")
             .append("path")
-            .attr("class", "axis-path");
+            .attr("class", "axis-arrowhead-path");
+
         this.yAxis
             .append("defs")
             .append("marker")
             .attr("class", "axis-arrowhead")
             .append("path")
-            .attr("class", "axis-path");
+            .attr("class", "axis-arrowhead-path");
     }
 
-    /**
-     * Draw (and render) the axes onto SVG.
-     */
     render() {
         this.g_coordinate.attr(
             "transform",
@@ -138,12 +110,11 @@ export class Axes extends Cubicon {
         );
 
         this.renderAxes();
-        this.applyAxesSettings(this.xAxis, this.yAxis);
 
-        // Remove numbers on axes if hasNums is false
+        this.applyAxesSettings();
+
         if (!this.hasNums) {
-            this.xAxis.selectAll(".tick text").remove();
-            this.yAxis.selectAll(".tick text").remove();
+            this.removeAxesNumbers();
         }
 
         return this;
@@ -152,7 +123,7 @@ export class Axes extends Cubicon {
     private renderAxes() {
         const xAxis = axisBottom(this.getXScale())
             .tickValues(
-                range(this.xRange[0], this.xRange[1] + 1, 1).filter(
+                range(this.xRange[0], this.xRange[1] + 1).filter(
                     (t: number) => t !== 0
                 )
             )
@@ -164,7 +135,7 @@ export class Axes extends Cubicon {
 
         const yAxis = axisRight(this.getYScale())
             .tickValues(
-                range(this.yRange[0], this.yRange[1] + 1, 1).filter(
+                range(this.yRange[0], this.yRange[1] + 1).filter(
                     (t: number) => t !== 0
                 )
             )
@@ -174,66 +145,279 @@ export class Axes extends Cubicon {
         this.yAxis.call(yAxis);
     }
 
-    private applyAxesSettings(...axes: any[]) {
-        const halfArrowBase = 7;
-        const axisStrokeWidth = 1;
-        const tickOffset = 5;
+    private applyAxesSettings() {
+        this.setAxesWrapperElementsAttrs();
 
-        const options = [
-            [
-                "x", // this axis label
-                "y", // the other axis label
+        this.setAxesArrowheadsAttrs();
+
+        this.setAxesPathElementsAttrs();
+
+        this.setAxesTickOffsets();
+
+        this.setAxesTickNumbersAttrs();
+    }
+
+    private setAxesWrapperElementsAttrs() {
+        [this.xAxis, this.yAxis].forEach((axis) => {
+            axis.attr("font-size", "inherit")
+                .attr("color", "#fff")
+                .attr("stroke", "none");
+        });
+    }
+
+    private setAxesArrowheadsAttrs() {
+        const halfArrowBase = 7;
+
+        const axisStrokeWidth = 1;
+
+        const markerWidth = 20;
+        const markerHeight = 20;
+
+        this.xAxis
+            .select("defs")
+            .select("marker.axis-arrowhead")
+            .attr("id", "arrowhead-x")
+            .attr("markerWidth", markerWidth)
+            .attr("markerHeight", markerHeight)
+            .attr("refX", axisStrokeWidth)
+            .attr("refY", halfArrowBase)
+            .select("path.axis-arrowhead-path")
+            .attr(
+                "d",
                 `M 0,0 L ${halfArrowBase * 2},${halfArrowBase} L 0,${
                     halfArrowBase * 2
-                } z`,
-                "X",
-                "Y",
-            ],
-            [
-                "y", // this axis label
-                "x", // the other axis label
+                } z`
+            )
+            .attr("stroke", "none")
+            .attr("stroke-width", axisStrokeWidth)
+            .attr("fill", "#fff");
+
+        //
+
+        this.yAxis
+            .select("defs")
+            .select("marker.axis-arrowhead")
+            .attr("id", "arrowhead-y")
+            .attr("markerWidth", markerWidth)
+            .attr("markerHeight", markerHeight)
+            .attr("refY", axisStrokeWidth)
+            .attr("refX", halfArrowBase)
+            .select("path.axis-arrowhead-path")
+            .attr(
+                "d",
                 `M 0,0 L ${halfArrowBase * 2},0 L ${halfArrowBase},${
                     halfArrowBase * 2
-                } z`,
-                "Y",
-                "X",
-            ],
-        ];
+                } z`
+            )
+            .attr("stroke", "none")
+            .attr("stroke-width", axisStrokeWidth)
+            .attr("fill", "#fff");
+    }
 
-        return axes.forEach((axis, i) => {
-            axis.style("font-size", "inherit")
-                .style("color", "#fff")
-                .style("stroke", "none");
+    private setAxesPathElementsAttrs() {
+        this.xAxis
+            .select("path.domain")
+            .attr("transform", "scale(1.05)")
+            .attr("marker-end", `url(#arrowhead-x)`);
 
-            axis.select("path.domain").attr("transform", "scale(1.05)");
+        this.yAxis
+            .select("path.domain")
+            .attr("transform", "scale(1.05)")
+            .attr("marker-end", `url(#arrowhead-y)`);
+    }
 
-            axis.select("defs")
-                .select("marker.axis-arrowhead")
-                .attr("id", `arrowhead-${options[i][0]}`)
-                .attr("markerWidth", 20)
-                .attr("markerHeight", 20)
-                .attr(`ref${options[i][3]}`, axisStrokeWidth)
-                .attr(`ref${options[i][4]}`, halfArrowBase);
+    private setAxesTickOffsets() {
+        const tickOffset = 5;
 
-            axis.select("path.axis-path")
-                .attr("d", options[i][2])
-                .attr("stroke", "none")
-                .attr("stroke-width", axisStrokeWidth)
-                .attr("fill", "#fff");
+        this.xAxis
+            .selectAll(".tick line")
+            .attr("y1", -tickOffset)
+            .attr("y2", tickOffset);
 
-            axis.select("path.domain").attr(
-                "marker-end",
-                `url(#arrowhead-${options[i][0]})`
-            );
+        this.yAxis
+            .selectAll(".tick line")
+            .attr("x1", -tickOffset)
+            .attr("x2", tickOffset);
+    }
 
+    private setAxesTickNumbersAttrs() {
+        [this.xAxis, this.yAxis].forEach((axis) => {
             axis.selectAll(".tick text")
                 .attr("transform", "scale(1, -1)")
                 .style("font-family", "KaTeX_Main");
-
-            axis.selectAll(".tick line")
-                .attr(`${options[i][1]}1`, -tickOffset)
-                .attr(`${options[i][1]}2`, tickOffset);
         });
+    }
+
+    private removeAxesNumbers() {
+        this.xAxis.selectAll(".tick text").remove();
+        this.yAxis.selectAll(".tick text").remove();
+    }
+
+    /**
+     * Plot a function onto the axes.
+     *
+     * @param params Options to form the graph.
+     *
+     * @returns A plotted graph.
+     */
+    plot(params: {
+        /**
+         * Function of the graph.
+         */
+        functionDef: (x: number) => number;
+
+        /**
+         * x range of the graph.
+         */
+        xRange?: [number, number];
+
+        /**
+         * Color of the graph.
+         */
+        color?: string;
+    }) {
+        return new Graph({
+            group: this.group,
+            axes: this,
+            functionDef: params.functionDef,
+            xRange: params.xRange ?? this.xRange,
+            CONFIG: {
+                graphColor: params.color,
+            },
+        }).render();
+    }
+
+    /**
+     * Add label onto a graph.
+     *
+     * @returns A label.
+     */
+    addGraphLabel(params: {
+        /**
+         * The graph to put the label on.
+         */
+        graph: Graph;
+        /**
+         * Content of the label.
+         */
+        text: string;
+        /**
+         * x position of the label.
+         */
+        xPos?: number;
+        /**
+         * Config options of the label.
+         */
+        CONFIG?: MATH_TEX_CONFIG;
+    }) {
+        const xPos = params.xPos ?? params.graph.xRange[1];
+
+        const label = new Label({
+            axes: this,
+            position: new Vector2(xPos, params.graph.functionDef(xPos)),
+            text: params.text,
+            CONFIG: {
+                color: params.CONFIG?.color ?? params.graph.CONFIG.graphColor,
+                fontSize: params.CONFIG?.fontSize,
+            },
+        }).render();
+
+        return label;
+    }
+
+    /**
+     * Add a point at the specified x position on the graph.
+     *
+     * @returns A complex data object that contains the point.
+     */
+    pointOnGraph(params: {
+        /**
+         * The graph to put the point on.
+         */
+        graph: Graph;
+
+        /**
+         * The x position of the point.
+         *
+         * @default 1
+         */
+        xPos: number;
+    }) {
+        const xPos = params.xPos ?? 1;
+
+        const pos = new Vector2(xPos, params.graph.functionDef(xPos));
+
+        const point = new Point({
+            axes: this,
+            position: pos,
+            CONFIG: {
+                fillColor: "#000",
+                strokeWidth: 1.5,
+            },
+        }).render();
+
+        const pointGraph: POINT_ON_GRAPH_DATA = { point: point };
+
+        return pointGraph;
+    }
+
+    /**
+     * Add a point at the specified x position on the graph, along with two axis
+     * projectors of it.
+     *
+     * @returns A complex data object that contains the point and an array of the
+     * two axis projectors.
+     */
+    pointToCoords(params: {
+        /**
+         * The graph to put the point on.
+         */
+        graph: Graph;
+
+        /**
+         * The x position of the point.
+         *
+         * @default 1
+         */
+        xPos: number;
+    }) {
+        const xPos = params.xPos ?? 1;
+
+        const pos = new Vector2(xPos, params.graph.functionDef(xPos));
+
+        const horizontalLine = new AxisProjector({
+            type: "horizontal",
+            position: pos,
+            axes: this,
+            CONFIG: {
+                lineWidth: 1,
+            },
+        }).render();
+
+        const verticalLine = new AxisProjector({
+            type: "vertical",
+            position: pos,
+            axes: this,
+            CONFIG: {
+                lineWidth: 1,
+            },
+        }).render();
+
+        const point = new Point({
+            axes: this,
+            position: pos,
+            CONFIG: {
+                fillColor: "#000",
+                strokeWidth: 1.5,
+            },
+        }).render();
+
+        const pointCoords: POINT_TO_COORDS_DATA = {
+            point: point,
+            projectors: [horizontalLine, verticalLine],
+        };
+
+        return pointCoords;
     }
 
     private getScale(axisRange: [number, number]) {
@@ -252,11 +436,6 @@ export class Axes extends Cubicon {
         return this.getScale(axisRange);
     }
 
-    /**
-     * Convert axes coordinates to SVG-Cartesian coordinates.
-     *
-     * @internal
-     */
     coordsGtoW(point: Vector2) {
         const xScale = this.getXScale();
         const yScale = this.getYScale();
@@ -264,132 +443,19 @@ export class Axes extends Cubicon {
         return new Vector2(xScale(point.x), yScale(point.y));
     }
 
-    /**
-     * Graph a function onto the axes.
-     *
-     * @param params Options to form the graph.
-     *
-     * @returns A plotted graph.
-     */
-    graph(params: {
-        /**
-         * Function of the graph.
-         */
-        functionDef: (x: number) => number;
-        /**
-         * x range of the graph.
-         */
-        xRange?: [number, number];
-        /**
-         * Color of the graph.
-         */
-        color?: string;
-    }) {
-        return new Graph({
-            axes: this,
-            functionDef: params.functionDef,
-            xRange: params.xRange ?? this.xRange,
-            CONFIG: {
-                graphColor: params.color,
-            },
-        }).render();
+    get xRange() {
+        return this.CONFIG.xRange;
     }
 
-    /**
-     * Add label onto a graph.
-     *
-     * @param graph The graph to put the label on.
-     * @param text Content of the label.
-     * @param xPos x position of the label. Default is the rightmost value on the x axis.
-     *
-     * @returns A label.
-     */
-    addGraphLabel(
-        graph: Graph,
-        text: string,
-        xPos = graph.xRange[1],
-        color = graph.CONFIG.graphColor,
-        fontSize = 18
-    ) {
-        const label = new Label({
-            axes: this,
-            position: new Vector2(xPos, graph.functionDef(xPos)),
-            text: text,
-            color: color,
-            fontSize: fontSize,
-        }).render();
-
-        return label;
+    get yRange() {
+        return this.CONFIG.yRange;
     }
 
-    /**
-     * Add a point at the specified x position on the graph.
-     *
-     * @param graph The graph to put the point on.
-     * @param xPos The x position of the point. Default is 1.
-     *
-     * @returns A complex data object that contains the point.
-     */
-    pointOnGraph(graph: Graph, xPos = 1) {
-        const pos = new Vector2(xPos, graph.functionDef(xPos));
-
-        const point = new Point({
-            axes: this,
-            position: pos,
-            radius: 0.06,
-            CONFIG: {
-                fillColor: "#000",
-                strokeWidth: 1.5,
-            },
-        }).render();
-
-        const pointGraph: PT_ON_GRAPH_DATA = { point: point };
-        return pointGraph;
+    get hasNums() {
+        return this.CONFIG.hasNums;
     }
 
-    /**
-     * Add a point at the specified x position on the graph, along with two axis projectors of it.
-     *
-     * @param graph The graph to put the point on.
-     * @param xPos The x position of the point. Default is 1.
-     *
-     * @returns A complex data object that contains the point and an array of the two axis projectors.
-     */
-    pointToCoords(graph: Graph, xPos = 1) {
-        const pos = new Vector2(xPos, graph.functionDef(xPos));
-
-        const horizontalLine = new AxisProjector({
-            type: "horizontal",
-            coordinates: pos,
-            axes: this,
-            CONFIG: {
-                lineWidth: 1,
-            },
-        }).render();
-
-        const verticalLine = new AxisProjector({
-            type: "vertical",
-            coordinates: pos,
-            axes: this,
-            CONFIG: {
-                lineWidth: 1,
-            },
-        }).render();
-
-        const point = new Point({
-            axes: this,
-            position: pos,
-            radius: 0.06,
-            CONFIG: {
-                fillColor: "#000",
-                strokeWidth: 1.5,
-            },
-        }).render();
-
-        const pointCoords: PT_TO_COORDS_DATA = {
-            point: point,
-            projectors: [horizontalLine, verticalLine],
-        };
-        return pointCoords;
+    getWpoint(point: Vector2) {
+        return this.coordsGtoW(point);
     }
 }

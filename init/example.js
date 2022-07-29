@@ -1,7 +1,7 @@
 import {
     COLOR,
     Create,
-    DrawGridFromScreenSides,
+    DrawGrid,
     Grid,
     Group,
     Rotate,
@@ -62,7 +62,7 @@ function drawShapes() {
 
         const grid = new Grid({ group: group }).render();
 
-        group.play([new DrawGridFromScreenSides(grid)]);
+        group.play([new DrawGrid(grid)]);
     }
 
     squares();

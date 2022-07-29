@@ -2,11 +2,20 @@ import { range } from "d3-array";
 import { curveNatural, line } from "d3-shape";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Cubicon } from "@cubicons/Cubicon";
-import { Axes } from "./Axes";
+import configFactory from "@utils/configFactory";
+
+import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
+import { Axes } from "@cubicons/coordinate-system/Axes";
 
 export interface GRAPH_CONFIG {
+    /**
+     * Color of this graph.
+     */
     graphColor?: string;
+
+    /**
+     * Width of this graph.
+     */
     graphWidth?: number;
 }
 
@@ -15,18 +24,11 @@ export const GRAPH_DEFAULT_CONFIG: GRAPH_CONFIG = {
     graphWidth: 2,
 };
 
-export class Graph extends Cubicon {
-    readonly cubiconType = "Graph";
-
+export interface GraphParams extends CubiconParams<GRAPH_CONFIG> {
     /**
      * The axes that this graph belongs to.
      */
     axes: Axes;
-
-    /**
-     * x range of this graph.
-     */
-    xRange: [number, number];
 
     /**
      * The function of this graph.
@@ -34,42 +36,36 @@ export class Graph extends Cubicon {
     functionDef: (x: number) => number;
 
     /**
-     * Config options of this graph.
+     * x range of this graph.
      */
+    xRange: [number, number];
+}
+
+export class Graph extends Cubicon {
+    readonly cubiconType = "Graph";
+
+    axes: Axes;
+
+    xRange: [number, number];
+
+    functionDef: (x: number) => number;
+
     CONFIG: GRAPH_CONFIG;
 
-    constructor(params: {
-        /**
-         * The `</svg>` element that wraps the two axes' `</svg>`.
-         */
-        axes: Axes;
-        /**
-         * The function of this graph.
-         */
-        functionDef: (x: number) => number;
-        /**
-         * x range of this graph.
-         */
-        xRange: [number, number];
-        /**
-         * Config options of this graph.
-         */
-        CONFIG?: GRAPH_CONFIG;
-    }) {
-        super({ group: params.axes.group, position: params.axes.position });
+    constructor(params: GraphParams) {
+        super({
+            group: params.axes.group,
+
+            position: params.axes.position,
+
+            CONFIG: configFactory(params.CONFIG, GRAPH_DEFAULT_CONFIG),
+        });
 
         this.axes = params.axes;
 
-        this.functionDef = params.functionDef;
-
         this.xRange = params.xRange;
 
-        this.CONFIG = {
-            graphColor:
-                params.CONFIG?.graphColor ?? GRAPH_DEFAULT_CONFIG.graphColor,
-            graphWidth:
-                params.CONFIG?.graphWidth ?? GRAPH_DEFAULT_CONFIG.graphWidth,
-        };
+        this.functionDef = params.functionDef;
 
         this.g_cubiconWrapper = this.axes.g_graphs
             .append("g")

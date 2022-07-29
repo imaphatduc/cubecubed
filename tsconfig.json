@@ -6,10 +6,12 @@
         "moduleResolution": "node",
         "paths": {
             "@consts": ["src/constants.ts"],
+            "@converters/*": ["src/converters/*"],
             "@utils/*": ["src/utils/*"],
             "@math/*": ["src/math/*"],
             "@scene/*": ["src/scene/*"],
             "@group/*": ["src/svg/group/*", "src/canvas/group/*"],
+            "@configs/geometry/*": ["src/svg/cubicons/geometry/configs/*"],
             "@cubicons/*": ["src/svg/cubicons/*", "src/canvas/cubicons/*"],
             "@animations/*": ["src/svg/animations/*", "src/canvas/animations/*"]
         },

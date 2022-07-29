@@ -3,30 +3,46 @@ import { hsl } from "d3-color";
 import { scaleLinear } from "d3-scale";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+import configFactory from "@utils/configFactory";
+
 import { Vector2 } from "@math/Vector2";
 
-import { Group } from "@group/Group";
-import { Cubicon } from "./Cubicon";
+import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
 import { VectorShape } from "@cubicons/geometry/VectorShape";
 
 export interface VECTOR_FIELD_CONFIG {
+    /**
+     * Are the length of the vector shapes scaled based on the longest one?
+     */
     isScaled?: boolean;
+
+    /**
+     * Are the color of the vector shapes one color or scaled?
+     */
     lineColor?: string | "scaled";
+
+    /**
+     * Width of the vector shapes.
+     */
     lineWidth?: number;
 }
 
-const VECTOR_FIELD_DEFAULT_CONFIG: VECTOR_FIELD_CONFIG = {
+export const VECTOR_FIELD_DEFAULT_CONFIG: VECTOR_FIELD_CONFIG = {
     isScaled: false,
     lineColor: "#fff",
     lineWidth: 2,
 };
 
-export class VectorField extends Cubicon {
-    readonly cubiconType = "VectorField";
-
+export interface VectorFieldParams extends CubiconParams<VECTOR_FIELD_CONFIG> {
     /**
      * Multivariable function that produces 2d vector field.
      */
+    functionDef: (pos: Vector2) => Vector2;
+}
+
+export class VectorField extends Cubicon {
+    readonly cubiconType = "VectorField";
+
     functionDef: (pos: Vector2) => Vector2;
 
     /**
@@ -34,37 +50,16 @@ export class VectorField extends Cubicon {
      */
     vectorShapes: VectorShape[] = [];
 
-    /**
-     * Config options of the vector field.
-     */
     CONFIG: VECTOR_FIELD_CONFIG;
 
-    constructor(params: {
-        /**
-         * The group that the cubicon belongs to.
-         */
-        group: Group;
-        /**
-         * Multivariable function that produces 2d vector field.
-         */
-        functionDef: (pos: Vector2) => Vector2;
-        /**
-         * Config options for the vector field.
-         */
-        CONFIG?: VECTOR_FIELD_CONFIG;
-    }) {
-        super({ group: params.group, position: new Vector2(0, 0) });
+    constructor(params: VectorFieldParams) {
+        super({
+            group: params.group,
+            position: new Vector2(0, 0),
+            CONFIG: configFactory(params.CONFIG, VECTOR_FIELD_DEFAULT_CONFIG),
+        });
 
         this.functionDef = params.functionDef;
-
-        this.CONFIG = {
-            isScaled:
-                params.CONFIG?.isScaled ?? VECTOR_FIELD_DEFAULT_CONFIG.isScaled,
-            lineColor:
-                params.CONFIG?.lineColor ??
-                VECTOR_FIELD_DEFAULT_CONFIG.lineColor,
-            lineWidth: params.CONFIG?.lineWidth,
-        };
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -139,10 +134,10 @@ export class VectorField extends Cubicon {
                         startPoint: startPoint,
                         endPoint: new Vector2(0, 0),
                         CONFIG: {
-                            arrowWidth: 0.1,
-                            arrowHeight: 0.2,
+                            arrowheadWidth: 0.1,
+                            arrowheadHeight: 0.2,
                         },
-                    }).render();
+                    });
 
                     this.vectorShapes.push(vectorShape);
                 }

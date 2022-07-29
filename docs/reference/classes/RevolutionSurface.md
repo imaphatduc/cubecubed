@@ -16,13 +16,9 @@
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.CONFIG` | [`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md) | Config options of the revolution surface.  **`default`** REVOLUTION_SURFACE_DEFAULT_CONFIG |
-| `params.functionDef` | [`CurveFunction`](/reference/types/CurveFunction.md) | Function definition of the initial curve. |
-| `params.group` | [`CanvasGroup`](/reference/classes/CanvasGroup.md) | The group that the particle belongs to |
-| `params.position?` | [`Vector3`](/reference/classes/Vector3.md) | Position of the particle.  **`default`** Vector3(0,0,0) |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`RevolutionSurfaceParams`](/reference/interfaces/RevolutionSurfaceParams.md) |
 
 #### Overrides
 
@@ -30,7 +26,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:48](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L48)
+src/canvas/cubicons/RevolutionSurface.ts:59
 
 ## Properties
 
@@ -38,11 +34,13 @@
 
 • **CONFIG**: [`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)
 
-Config options of the revolution surface.
+#### Overrides
+
+[CanvasCubicon](/reference/classes/CanvasCubicon.md).[CONFIG](/reference/classes/CanvasCubicon.md#config)
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L46)
+src/canvas/cubicons/RevolutionSurface.ts:57
 
 ___
 
@@ -50,14 +48,13 @@ ___
 
 • **functionDef**: [`CurveFunction`](/reference/types/CurveFunction.md)
 
-The function defining the curve to rotate around
-the x axis.
+The function defining the curve to rotate around the x axis.
 
 Form: y = f(x)
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L41)
+src/canvas/cubicons/RevolutionSurface.ts:55
 
 ___
 
@@ -73,7 +70,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:23](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/CanvasCubicon.ts#L23)
+src/canvas/cubicons/CanvasCubicon.ts:35
 
 ___
 
@@ -81,15 +78,13 @@ ___
 
 • **group**: [`CanvasGroup`](/reference/classes/CanvasGroup.md)
 
-The group that this cubicon belongs to.
-
 #### Inherited from
 
 [CanvasCubicon](/reference/classes/CanvasCubicon.md).[group](/reference/classes/CanvasCubicon.md#group)
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/CanvasCubicon.ts#L12)
+src/canvas/cubicons/CanvasCubicon.ts:26
 
 ___
 
@@ -105,7 +100,7 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:28](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/CanvasCubicon.ts#L28)
+src/canvas/cubicons/CanvasCubicon.ts:40
 
 ___
 
@@ -121,7 +116,7 @@ Mesh of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/CanvasCubicon.ts#L33)
+src/canvas/cubicons/CanvasCubicon.ts:45
 
 ___
 
@@ -129,48 +124,13 @@ ___
 
 • **position**: [`Vector3`](/reference/classes/Vector3.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
-
 #### Inherited from
 
 [CanvasCubicon](/reference/classes/CanvasCubicon.md).[position](/reference/classes/CanvasCubicon.md#position)
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:18](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/CanvasCubicon.ts#L18)
-
-___
-
-### scaleFactor
-
-• **scaleFactor**: `number`
-
-Scale the position vector of this cubicon by this number.
-
-#### Inherited from
-
-[CanvasCubicon](/reference/classes/CanvasCubicon.md).[scaleFactor](/reference/classes/CanvasCubicon.md#scalefactor)
-
-#### Defined in
-
-[src/canvas/cubicons/CanvasCubicon.ts:38](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/CanvasCubicon.ts#L38)
-
-___
-
-### token
-
-• **token**: `string`
-
-Token string for this cubicon.
-
-#### Inherited from
-
-[CanvasCubicon](/reference/classes/CanvasCubicon.md).[token](/reference/classes/CanvasCubicon.md#token)
-
-#### Defined in
-
-[src/canvas/cubicons/CanvasCubicon.ts:43](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/CanvasCubicon.ts#L43)
+src/canvas/cubicons/CanvasCubicon.ts:28
 
 ## Methods
 
@@ -184,9 +144,13 @@ Token string for this cubicon.
 
 [`RevolutionSurface`](/reference/classes/RevolutionSurface.md)
 
+#### Overrides
+
+[CanvasCubicon](/reference/classes/CanvasCubicon.md).[render](/reference/classes/CanvasCubicon.md#render)
+
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:97](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L97)
+src/canvas/cubicons/RevolutionSurface.ts:81
 
 ___
 
@@ -208,4 +172,4 @@ Set the surface's geometry based on the current animation stage.
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:130](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L130)
+src/canvas/cubicons/RevolutionSurface.ts:122

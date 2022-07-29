@@ -6,19 +6,19 @@ import { Scene } from "@scene/Scene";
 
 import { Cubicon } from "@cubicons/Cubicon";
 
+import { Animation } from "@animations/Animation";
+import configFactory from "@utils/configFactory";
+
 export interface GROUP_MAKEUP_CONFIG {
     opacity: number;
 }
 
+export const GROUP_MAKEUP_DEFAULT_CONFIG: GROUP_MAKEUP_CONFIG = {
+    opacity: 1,
+};
+
 /**
- * The dad/mom object of every pack of objects in the visualization.
- *
- * A group must belong to a scene.
- *
- * Group is classified in terms of its purpose.
- * Below `Group()` is a SVG group to render SVG objects.
- *
- * Please see the Quick Start page in official documentation for clearer understanding about this `Group` term.
+ * The object to group SVG cubicons together. A group must belong to a scene.
  */
 export class Group {
     /**
@@ -27,7 +27,7 @@ export class Group {
     scene: Scene;
 
     /**
-     * The `<svg/>` element that represents this group.
+     * The `<svg>` element that represents this group.
      */
     svg_group: Selection<SVGSVGElement, unknown, HTMLElement, any>;
 
@@ -39,12 +39,12 @@ export class Group {
     /**
      * Number of squares in the x direction.
      */
-    xSquareNums: number;
+    private xSquareNums: number;
 
     /**
-     * Number of squares in the x direction.
+     * Number of squares in the y direction.
      */
-    ySquareNums: number;
+    private ySquareNums: number;
 
     /**
      * Length of a square in this scene.
@@ -108,13 +108,13 @@ export class Group {
             .attr("id", groupName)
             .attr("class", "group")
             .attr("xmlns", "http://www.w3.org/2000/svg")
-            .attr("width", scene.sceneWidth)
-            .attr("height", scene.sceneHeight)
+            .attr("width", scene.CONFIG.sceneWidth)
+            .attr("height", scene.CONFIG.sceneHeight)
             .attr(
                 "viewBox",
-                `${-scene.sceneWidth / 2} ${-scene.sceneHeight / 2} ${
-                    scene.sceneWidth
-                } ${scene.sceneHeight}`
+                `${-scene.CONFIG.sceneWidth / 2} ${
+                    -scene.CONFIG.sceneHeight / 2
+                } ${scene.CONFIG.sceneWidth} ${scene.CONFIG.sceneHeight}`
             )
             .attr("transform", "scale(1, -1)")
             .style("pointer-events", "none");
@@ -135,14 +135,14 @@ export class Group {
      *
      * @param cubicons Comma-separated cubicons to render.
      */
-    render(...cubicons: any[]) {
+    render(cubicons: Cubicon[]) {
         cubicons.forEach((cubicon) => {
             cubicon.render();
         });
     }
 
     private defineBoundsAndSquares(ratio: [number, number]) {
-        const { sceneWidth, sceneHeight } = this.scene;
+        const { sceneWidth, sceneHeight } = this.scene.CONFIG;
 
         const xSquareLength = ratio[0] * this.squareLength;
         const ySquareLength = ratio[1] * this.squareLength;
@@ -154,6 +154,7 @@ export class Group {
             Math.floor(-this.xSquareNums / 2),
             -Math.floor(-this.xSquareNums / 2),
         ];
+
         this.yBound = [
             Math.floor(-this.ySquareNums / 2),
             -Math.floor(-this.ySquareNums / 2),
@@ -161,7 +162,7 @@ export class Group {
     }
 
     private defineCovertFunctions(ratio: [number, number]) {
-        const { sceneWidth, sceneHeight } = this.scene;
+        const { sceneWidth, sceneHeight } = this.scene.CONFIG;
 
         const xBound = [
             -sceneWidth / (this.squareLength * ratio[0]),
@@ -193,14 +194,16 @@ export class Group {
     /**
      * Play all the animations included in a queue.
      *
-     * @param anims Array (Queue) of animations to play.
+     * @param animations Array (Queue) of animations to play.
      */
-    play(anims: any[]) {
-        const queueElapsed = Math.max(...anims.map((anim) => anim.duration));
+    play(animations: Animation[]) {
+        const queueElapsed = Math.max(
+            ...animations.map((animation) => {
+                animation.play();
 
-        anims.forEach((anim) => {
-            anim.play(this.groupElapsed);
-        });
+                return animation.duration;
+            })
+        );
 
         this.groupElapsed += queueElapsed;
 
@@ -225,7 +228,7 @@ export class Group {
      */
     remove(cubicons: Cubicon[]) {
         cubicons.forEach((cubicon) => {
-            cubicon.def_cubiconBase
+            cubicon.g_cubiconWrapper
                 .transition()
                 .delay(this.groupElapsed)
                 .duration(0)
@@ -248,16 +251,28 @@ export class Group {
             .remove();
     }
 
-    /**
-     * @param MAKEUP_CONFIG Config for the makeup function.
-     *
-     * @param duration Time to play the makeup animation. (in milliseconds)
-     */
-    makeup(MAKEUP_CONFIG: GROUP_MAKEUP_CONFIG, duration = 0) {
+    makeup(params: {
+        /**
+         * Time to play the makeup animation. (in milliseconds)
+         */
+        duration?: number;
+
+        /**
+         * Config for the makeup function.
+         */
+        CONFIG: GROUP_MAKEUP_CONFIG;
+    }) {
+        const duration = params.duration ?? 0;
+
+        const CONFIG = configFactory(
+            params.CONFIG,
+            GROUP_MAKEUP_DEFAULT_CONFIG
+        );
+
         this.svg_group
             .transition()
             .delay(this.groupElapsed)
             .duration(duration)
-            .style("opacity", MAKEUP_CONFIG.opacity);
+            .style("opacity", CONFIG.opacity);
     }
 }

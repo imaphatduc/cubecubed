@@ -1,11 +1,11 @@
-import generateToken from "@utils/generateToken";
+import { BufferGeometry, Material, Mesh } from "three";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector3 } from "@math/Vector3";
 
 import { CanvasGroup } from "@group/CanvasGroup";
-import { BufferGeometry, Material, Mesh } from "three";
 
-export abstract class CanvasCubicon {
+export interface CanvasCubiconParams<TCONFIG> {
     /**
      * The group that this cubicon belongs to.
      */
@@ -13,9 +13,21 @@ export abstract class CanvasCubicon {
 
     /**
      * Position of this cubicon.
-     * This property changed after finishing animations (in real time).
      */
+    position?: Vector3;
+
+    /**
+     * Config options of this cubicon.
+     */
+    CONFIG: TCONFIG;
+}
+
+export abstract class CanvasCubicon {
+    group: CanvasGroup;
+
     position: Vector3;
+
+    CONFIG: object;
 
     /**
      * Geometry of this cubicon.
@@ -32,27 +44,20 @@ export abstract class CanvasCubicon {
      */
     mesh: Mesh;
 
-    /**
-     * Scale the position vector of this cubicon by this number.
-     */
-    scaleFactor: number;
-
-    /**
-     * Token string for this cubicon.
-     */
-    token = generateToken();
-
-    constructor(params: {
-        group: CanvasGroup;
-        position?: Vector3;
-        scaleFactor?: number;
-    }) {
+    constructor(params: CanvasCubiconParams<object>) {
         this.group = params.group;
 
         this.position = params.position ?? new Vector3(0, 0, 0);
 
-        this.scaleFactor = params.scaleFactor ?? 1;
+        this.CONFIG = params.CONFIG;
+    }
 
-        this.group.cubicons.push(this);
+    /**
+     * Render this cubicon.
+     *
+     * @internal
+     */
+    render() {
+        //
     }
 }

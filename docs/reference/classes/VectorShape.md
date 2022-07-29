@@ -16,13 +16,9 @@
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.CONFIG?` | [`VECTOR_CONFIG`](/reference/interfaces/VECTOR_CONFIG.md) | Config options of the vector line. |
-| `params.endPoint` | [`Vector2`](/reference/classes/Vector2.md) | End point (head) of the vector. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the vector belongs to. |
-| `params.startPoint?` | [`Vector2`](/reference/classes/Vector2.md) | Start point (tail) of the vector. |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`VectorShapeParams`](/reference/interfaces/VectorShapeParams.md) |
 
 #### Overrides
 
@@ -30,19 +26,21 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:38](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L38)
+src/svg/cubicons/geometry/VectorShape.ts:40
 
 ## Properties
 
 ### CONFIG
 
-• **CONFIG**: [`VECTOR_CONFIG`](/reference/interfaces/VECTOR_CONFIG.md)
+• **CONFIG**: [`VECTOR_SHAPE_CONFIG`](/reference/interfaces/VECTOR_SHAPE_CONFIG.md)
 
-Config options of this vector shape.
+#### Overrides
+
+[Cubicon](/reference/classes/Cubicon.md).[CONFIG](/reference/classes/Cubicon.md#config)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L36)
+src/svg/cubicons/geometry/VectorShape.ts:38
 
 ___
 
@@ -59,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
+src/svg/cubicons/Cubicon.ts:50
 
 ___
 
@@ -73,17 +71,17 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:17](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L17)
+src/svg/cubicons/geometry/VectorShape.ts:30
 
 ___
 
-### def\_arrowHead
+### def\_arrowhead
 
-• **def\_arrowHead**: `Selection`<`SVGPolygonElement`, `unknown`, `HTMLElement`, `any`\>
+• **def\_arrowhead**: `Selection`<`SVGPolygonElement`, `unknown`, `HTMLElement`, `any`\>
 
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L31)
+src/svg/cubicons/geometry/VectorShape.ts:36
 
 ___
 
@@ -91,7 +89,7 @@ ___
 
 • **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
-The HTML tag that represents this cubicon.
+The SVG element that represents this cubicon.
 
 #### Inherited from
 
@@ -99,7 +97,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
+src/svg/cubicons/Cubicon.ts:75
 
 ___
 
@@ -109,7 +107,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:29](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L29)
+src/svg/cubicons/geometry/VectorShape.ts:34
 
 ___
 
@@ -117,11 +115,9 @@ ___
 
 • **endPoint**: [`Vector2`](/reference/classes/Vector2.md)
 
-End point (head) of the vector.
-
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:27](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L27)
+src/svg/cubicons/geometry/VectorShape.ts:32
 
 ___
 
@@ -129,7 +125,7 @@ ___
 
 • **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<g/>` tag that holds this cubicon.
+The `<g>` element that holds this cubicon.
 
 #### Inherited from
 
@@ -137,7 +133,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
+src/svg/cubicons/Cubicon.ts:70
 
 ___
 
@@ -145,15 +141,13 @@ ___
 
 • **group**: [`Group`](/reference/classes/Group.md)
 
-The group that this cubicon belongs to.
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[group](/reference/classes/Cubicon.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
+src/svg/cubicons/Cubicon.ts:40
 
 ___
 
@@ -169,7 +163,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
+src/svg/cubicons/Cubicon.ts:60
 
 ___
 
@@ -185,7 +179,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
+src/svg/cubicons/Cubicon.ts:55
 
 ___
 
@@ -193,28 +187,13 @@ ___
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[position](/reference/classes/Cubicon.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
-
-___
-
-### startPoint
-
-• **startPoint**: [`Vector2`](/reference/classes/Vector2.md)
-
-Start point (tail) of the vector.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/VectorShape.ts:22](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L22)
+src/svg/cubicons/Cubicon.ts:42
 
 ___
 
@@ -222,7 +201,7 @@ ___
 
 • **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<svg/>` tag of this cubicon's group.
+The `<svg>` element of this cubicon's group.
 
 #### Inherited from
 
@@ -230,13 +209,47 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
+src/svg/cubicons/Cubicon.ts:65
+
+## Accessors
+
+### theta
+
+• `get` **theta**(): `number`
+
+#### Returns
+
+`number`
+
+The angle between this vector and the x axis.
+
+#### Defined in
+
+src/svg/cubicons/geometry/VectorShape.ts:157
+
+___
+
+### vector
+
+• `get` **vector**(): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+The coordinate vector.
+
+#### Defined in
+
+src/svg/cubicons/geometry/VectorShape.ts:150
 
 ## Methods
 
 ### coordsGtoW
 
 ▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+Convert grid coordinates to pixels.
 
 #### Parameters
 
@@ -254,27 +267,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
-
-___
-
-### getWpoint
-
-▸ **getWpoint**(`point`): [`Vector2`](/reference/classes/Vector2.md)
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `point` | [`Vector2`](/reference/classes/Vector2.md) |
-
-#### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/VectorShape.ts:98](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L98)
+src/svg/cubicons/Cubicon.ts:99
 
 ___
 
@@ -282,34 +275,16 @@ ___
 
 ▸ **render**(): [`VectorShape`](/reference/classes/VectorShape.md)
 
+Render this cubicon.
+
 #### Returns
 
 [`VectorShape`](/reference/classes/VectorShape.md)
 
-#### Defined in
+#### Overrides
 
-[src/svg/cubicons/geometry/VectorShape.ts:102](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/VectorShape.ts#L102)
-
-___
-
-### setParentSelection
-
-▸ **setParentSelection**(`parentSelection`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Cubicon](/reference/classes/Cubicon.md).[setParentSelection](/reference/classes/Cubicon.md#setparentselection)
+[Cubicon](/reference/classes/Cubicon.md).[render](/reference/classes/Cubicon.md#render)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
+src/svg/cubicons/geometry/VectorShape.ts:70

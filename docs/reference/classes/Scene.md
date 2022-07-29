@@ -2,10 +2,9 @@
 
 # Class: Scene
 
-The granddad/grandma object of everything in the visualization.
-Scene() here is a must in every result math videos.
-
-Please see the Quick Start page in official documentation for clearer understanding about this `Scene` term.
+The object that holds all cubicon groups. Working with Cubecubed requires
+only one scene. To group cubicons together, you need to create a Group
+instance and assign every cubicon to it.
 
 ## Constructors
 
@@ -24,9 +23,21 @@ Include this scene to HTML flow.
 
 #### Defined in
 
-[src/scene/Scene.ts:54](https://github.com/imaphatduc/cubecubed/blob/8295992/src/scene/Scene.ts#L54)
+src/scene/Scene.ts:53
 
 ## Properties
+
+### CONFIG
+
+• **CONFIG**: [`SCENE_CONFIG`](/reference/interfaces/SCENE_CONFIG.md)
+
+Config options of this scene.
+
+#### Defined in
+
+src/scene/Scene.ts:39
+
+___
 
 ### name
 
@@ -36,7 +47,7 @@ Name of this scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:30](https://github.com/imaphatduc/cubecubed/blob/8295992/src/scene/Scene.ts#L30)
+src/scene/Scene.ts:34
 
 ___
 
@@ -44,37 +55,13 @@ ___
 
 • **sceneElapsed**: `number` = `0`
 
-The time passed by since this scene was created. (in milliseconds)
-
-> (aka the total time of all the animations of all groups included in this scene)
-
-#### Defined in
-
-[src/scene/Scene.ts:47](https://github.com/imaphatduc/cubecubed/blob/8295992/src/scene/Scene.ts#L47)
-
-___
-
-### sceneHeight
-
-• **sceneHeight**: `number`
-
-Height of this scene.
+The time passed by since this scene was created (in milliseconds), or
+the sum of the `groupElapsed` property of all groups included in this
+scene.
 
 #### Defined in
 
-[src/scene/Scene.ts:40](https://github.com/imaphatduc/cubecubed/blob/8295992/src/scene/Scene.ts#L40)
-
-___
-
-### sceneWidth
-
-• **sceneWidth**: `number`
-
-Width of this scene.
-
-#### Defined in
-
-[src/scene/Scene.ts:35](https://github.com/imaphatduc/cubecubed/blob/8295992/src/scene/Scene.ts#L35)
+src/scene/Scene.ts:46
 
 ## Methods
 
@@ -82,14 +69,14 @@ Width of this scene.
 
 ▸ **destroy**(`delay?`): `void`
 
-Fade out and remove this scene away from HTML flow.
-That means, everything in the scene will be removed, too.
+Fade out and remove this scene away from HTML flow. That means,
+everything in the scene will be removed, too.
 
 #### Parameters
 
 | Name | Type | Default value | Description |
 | :------ | :------ | :------ | :------ |
-| `delay` | `number` | `0` | Delay (in milliseconds) before destroying this scene. > This delay variable should be tracked by summing all Group().groupElapsed properties of all `Group()`s in this scene. |
+| `delay` | `number` | `0` | Delay (in milliseconds) before destroying this scene. This delay variable should be tracked by summing the `groupElapsed` properties all groups included in this scene. |
 
 #### Returns
 
@@ -97,4 +84,4 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/scene/Scene.ts:70](https://github.com/imaphatduc/cubecubed/blob/8295992/src/scene/Scene.ts#L70)
+src/scene/Scene.ts:71

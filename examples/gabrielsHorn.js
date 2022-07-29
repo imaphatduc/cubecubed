@@ -1,6 +1,6 @@
 import {
     CanvasGroup,
-    DrawGridFromScreenSides,
+    DrawGrid,
     Grid,
     Group,
     MathTex,
@@ -26,7 +26,7 @@ function scenery() {
             fontSize: 30,
         }).render();
 
-        group.play([new DrawGridFromScreenSides(grid)]);
+        group.play([new DrawGrid({ cubicon: grid })]);
 
         group.play([new Write({ cubicon: formula, duration: 2000 })]);
     })();

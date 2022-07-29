@@ -6,7 +6,11 @@
 
 - **`Animation`**
 
-  ↳ [`Create`](/reference/classes/Create.md)
+  ↳ [`CreatePlaneShape`](/reference/classes/CreatePlaneShape.md)
+
+  ↳ [`CreateLineShape`](/reference/classes/CreateLineShape.md)
+
+  ↳ [`CreateVectorShape`](/reference/classes/CreateVectorShape.md)
 
   ↳ [`Translate`](/reference/classes/Translate.md)
 
@@ -16,7 +20,7 @@
 
   ↳ [`FadeOut`](/reference/classes/FadeOut.md)
 
-  ↳ [`DrawGridFromScreenSides`](/reference/classes/DrawGridFromScreenSides.md)
+  ↳ [`DrawGrid`](/reference/classes/DrawGrid.md)
 
   ↳ [`DrawAxes`](/reference/classes/DrawAxes.md)
 
@@ -34,20 +38,17 @@
 
 ### constructor
 
-• **new Animation**(`__namedParameters`)
+• **new Animation**(`params`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `__namedParameters` | `Object` |
-| `__namedParameters.cubicon` | [`Cubicon`](/reference/classes/Cubicon.md) |
-| `__namedParameters.duration?` | `number` |
-| `__namedParameters.ease?` | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) |
+| `params` | [`AnimationParams`](/reference/interfaces/AnimationParams.md)<[`Cubicon`](/reference/classes/Cubicon.md)\> |
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:48](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L48)
+src/svg/animations/Animation.ts:36
 
 ## Properties
 
@@ -57,19 +58,17 @@
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L31)
+src/svg/animations/Animation.ts:23
 
 ___
 
 ### cubicon
 
-• **cubicon**: `any`
-
-The target cubicon of this animation.
+• **cubicon**: [`Cubicon`](/reference/classes/Cubicon.md)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L36)
+src/svg/animations/Animation.ts:30
 
 ___
 
@@ -77,11 +76,9 @@ ___
 
 • **duration**: `number`
 
-Time to play this animation (in milliseconds).
-
 #### Defined in
 
-[src/svg/animations/Animation.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L41)
+src/svg/animations/Animation.ts:32
 
 ___
 
@@ -89,8 +86,55 @@ ___
 
 • **ease**: [`EASE_TYPE`](/reference/types/EASE_TYPE.md)
 
-The easing function to use.
+#### Defined in
+
+src/svg/animations/Animation.ts:34
+
+___
+
+### sleepTime
+
+• **sleepTime**: `number` = `0`
+
+The time to wait before playing this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L46)
+src/svg/animations/Animation.ts:28
+
+## Methods
+
+### play
+
+▸ **play**(): `void`
+
+Play this animation.
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/svg/animations/Animation.ts:49
+
+___
+
+### setCubiconPosition
+
+▸ **setCubiconPosition**(`x`, `y`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+
+#### Returns
+
+`void`
+
+#### Defined in
+
+src/svg/animations/Animation.ts:53

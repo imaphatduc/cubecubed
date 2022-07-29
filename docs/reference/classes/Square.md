@@ -2,8 +2,6 @@
 
 # Class: Square
 
-Return the barebone of a square shape.
-
 ## Hierarchy
 
 - [`Rectangle`](/reference/classes/Rectangle.md)
@@ -18,13 +16,9 @@ Return the barebone of a square shape.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | An object that contains options to form the square. |
-| `params.CONFIG?` | [`SHAPE_CONFIG`](/reference/interfaces/SHAPE_CONFIG.md) | Config options of the square. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the square belongs to. |
-| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the square. |
-| `params.sideLength` | `number` | Side length of the square. |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`SquareParams`](/reference/interfaces/SquareParams.md) |
 
 #### Overrides
 
@@ -32,15 +26,13 @@ Return the barebone of a square shape.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Square.ts:15](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Square.ts#L15)
+src/svg/cubicons/geometry/Square.ts:14
 
 ## Properties
 
 ### CONFIG
 
-• **CONFIG**: [`SHAPE_CONFIG`](/reference/interfaces/SHAPE_CONFIG.md)
-
-Config options of this rectangle.
+• **CONFIG**: [`PLANE_SHAPE_CONFIG`](/reference/interfaces/PLANE_SHAPE_CONFIG.md)
 
 #### Inherited from
 
@@ -48,7 +40,7 @@ Config options of this rectangle.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:43](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L43)
+src/svg/cubicons/geometry/Rectangle.ts:48
 
 ___
 
@@ -65,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
+src/svg/cubicons/Cubicon.ts:50
 
 ___
 
@@ -79,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:29](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L29)
+src/svg/cubicons/geometry/Rectangle.ts:42
 
 ___
 
@@ -87,7 +79,7 @@ ___
 
 • **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
-The HTML tag that represents this cubicon.
+The SVG element that represents this cubicon.
 
 #### Inherited from
 
@@ -95,7 +87,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
+src/svg/cubicons/Cubicon.ts:75
 
 ___
 
@@ -103,7 +95,7 @@ ___
 
 • **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<g/>` tag that holds this cubicon.
+The `<g>` element that holds this cubicon.
 
 #### Inherited from
 
@@ -111,7 +103,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
+src/svg/cubicons/Cubicon.ts:70
 
 ___
 
@@ -119,15 +111,13 @@ ___
 
 • **group**: [`Group`](/reference/classes/Group.md)
 
-The group that this cubicon belongs to.
-
 #### Inherited from
 
 [Rectangle](/reference/classes/Rectangle.md).[group](/reference/classes/Rectangle.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
+src/svg/cubicons/Cubicon.ts:40
 
 ___
 
@@ -135,15 +125,13 @@ ___
 
 • `Readonly` **height**: `number`
 
-Height of the rectangle (in grid coordinate system).
-
 #### Inherited from
 
 [Rectangle](/reference/classes/Rectangle.md).[height](/reference/classes/Rectangle.md#height)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:38](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L38)
+src/svg/cubicons/geometry/Rectangle.ts:46
 
 ___
 
@@ -159,7 +147,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
+src/svg/cubicons/Cubicon.ts:60
 
 ___
 
@@ -175,7 +163,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
+src/svg/cubicons/Cubicon.ts:55
 
 ___
 
@@ -183,16 +171,13 @@ ___
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
-
 #### Inherited from
 
 [Rectangle](/reference/classes/Rectangle.md).[position](/reference/classes/Rectangle.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
+src/svg/cubicons/Cubicon.ts:42
 
 ___
 
@@ -200,7 +185,7 @@ ___
 
 • **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<svg/>` tag of this cubicon's group.
+The `<svg>` element of this cubicon's group.
 
 #### Inherited from
 
@@ -208,7 +193,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
+src/svg/cubicons/Cubicon.ts:65
 
 ___
 
@@ -216,21 +201,35 @@ ___
 
 • `Readonly` **width**: `number`
 
-Width of the rectangle (in grid coordinate system).
-
 #### Inherited from
 
 [Rectangle](/reference/classes/Rectangle.md).[width](/reference/classes/Rectangle.md#width)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:34](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L34)
+src/svg/cubicons/geometry/Rectangle.ts:44
+
+## Accessors
+
+### sideLength
+
+• `get` **sideLength**(): `number`
+
+#### Returns
+
+`number`
+
+#### Defined in
+
+src/svg/cubicons/geometry/Square.ts:28
 
 ## Methods
 
 ### coordsGtoW
 
 ▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+Convert grid coordinates to pixels.
 
 #### Parameters
 
@@ -248,7 +247,7 @@ Width of the rectangle (in grid coordinate system).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
+src/svg/cubicons/Cubicon.ts:99
 
 ___
 
@@ -270,21 +269,7 @@ A complex data type to specify in DrawInnerGrid() animation.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:146](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L146)
-
-___
-
-### getSideLength
-
-▸ **getSideLength**(): `number`
-
-#### Returns
-
-`number`
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Square.ts:42](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Square.ts#L42)
+src/svg/cubicons/geometry/Rectangle.ts:131
 
 ___
 
@@ -292,7 +277,7 @@ ___
 
 ▸ **render**(): [`Square`](/reference/classes/Square.md)
 
-Add the shape of this rectangle onto SVG.
+Render this cubicon.
 
 #### Returns
 
@@ -304,28 +289,4 @@ Add the shape of this rectangle onto SVG.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:99](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Rectangle.ts#L99)
-
-___
-
-### setParentSelection
-
-▸ **setParentSelection**(`parentSelection`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Rectangle](/reference/classes/Rectangle.md).[setParentSelection](/reference/classes/Rectangle.md#setparentselection)
-
-#### Defined in
-
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
+src/svg/cubicons/geometry/Rectangle.ts:72

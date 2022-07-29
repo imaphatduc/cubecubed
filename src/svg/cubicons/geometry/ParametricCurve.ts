@@ -2,54 +2,49 @@ import { range } from "d3-array";
 import { curveNatural, line } from "d3-shape";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "./Geometry";
+import configFactory from "@utils/configFactory";
 
 import { Vector2 } from "@math/Vector2";
 
-import { Group } from "@group/Group";
-import { Cubicon } from "@cubicons/Cubicon";
+import {
+    LINE_SHAPE_CONFIG,
+    LINE_SHAPE_DEFAULT_CONFIG,
+} from "@configs/geometry/LINE_SHAPE_CONFIG";
 
-/**
- * Generate a 2d curve.
- */
+import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
+
+export interface ParametricCurveParams
+    extends CubiconParams<LINE_SHAPE_CONFIG> {
+    /**
+     * Range of the parameter t.
+     */
+    tRange: [number, number];
+
+    /**
+     * Parametric function definition.
+     */
+    functionDef: (t: number) => Vector2;
+}
+
 export class ParametricCurve extends Cubicon {
     readonly cubiconType = "ParametricCurve";
-
-    points: Vector2[];
 
     functionDef: (t: number) => Vector2;
 
     tRange: [number, number];
 
-    /**
-     * Config options of this parametric curve.
-     */
-    CONFIG: LINE_CONFIG;
+    CONFIG: LINE_SHAPE_CONFIG;
 
-    constructor(params: {
-        group: Group;
-        tRange: [number, number];
-        dt?: number;
-        functionDef: (t: number) => Vector2;
-        CONFIG: LINE_CONFIG;
-    }) {
-        super({ group: params.group });
+    constructor(params: ParametricCurveParams) {
+        super({
+            group: params.group,
 
-        this.points = range(
-            params.tRange[0],
-            params.tRange[1] + (params.dt || 0.02),
-            params.dt || 0.02
-        ).map((t: number) => params.functionDef(t));
+            CONFIG: configFactory(params.CONFIG, LINE_SHAPE_DEFAULT_CONFIG),
+        });
 
         this.functionDef = params.functionDef;
-        this.tRange = params.tRange;
 
-        this.CONFIG = {
-            lineColor:
-                params.CONFIG?.lineColor ?? LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth:
-                params.CONFIG?.lineWidth ?? LINE_DEFAULT_CONFIG.lineWidth,
-        };
+        this.tRange = params.tRange;
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -64,8 +59,6 @@ export class ParametricCurve extends Cubicon {
     }
 
     render() {
-        this.g_cubiconWrapper;
-
         this.def_cubiconBase
             .attr("d", this.getData())
             .attr("stroke", this.CONFIG.lineColor!)
@@ -77,28 +70,35 @@ export class ParametricCurve extends Cubicon {
     private getData() {
         const { xGtoW, yGtoW } = this.group;
 
-        const points: [number, number][] = this.points.map((pt: Vector2) => [
-            pt.x,
-            pt.y,
-        ]);
-
         const curveGenerator = line()
             .curve(curveNatural)
             .x((d: [number, number]) => xGtoW(d[0]))
             .y((d: [number, number]) => yGtoW(d[1]));
 
-        return curveGenerator(points);
+        return curveGenerator(
+            this.vertices.map((vertex) => [vertex.x, vertex.y])
+        );
     }
 
     getOutputVector(t: number) {
         return this.functionDef(t);
     }
 
-    getFirstOutputPoint() {
+    get vertices() {
+        const dt = 0.02;
+
+        const vertices = range(this.tRange[0], this.tRange[1] + dt, dt).map(
+            (t: number) => this.functionDef(t)
+        );
+
+        return vertices;
+    }
+
+    get firstOutputPoint() {
         return this.functionDef(this.tRange[0]);
     }
 
-    getLastOutputPoint() {
+    get lastOutputPoint() {
         return this.functionDef(this.tRange[1]);
     }
 }

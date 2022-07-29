@@ -8,11 +8,13 @@
 
 • **numCurveVertices**: `number`
 
+Number of vertices on each curve.
+
 **`default`** 100
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:15](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L15)
+src/canvas/cubicons/RevolutionSurface.ts:16
 
 ___
 
@@ -20,11 +22,13 @@ ___
 
 • **numRevolVertices**: `number`
 
+Number of vertices on each ring after a full rotation.
+
 **`default`** 100
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:19](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L19)
+src/canvas/cubicons/RevolutionSurface.ts:23
 
 ___
 
@@ -32,8 +36,10 @@ ___
 
 • **xRange**: [`number`, `number`]
 
+x value range of the curves.
+
 **`default`** [0,0]
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:23](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/cubicons/RevolutionSurface.ts#L23)
+src/canvas/cubicons/RevolutionSurface.ts:30

@@ -1,28 +1,31 @@
-import { Vector2 } from "@math/Vector2";
+import { InheritedCubiconParams } from "@cubicons/Cubicon";
+import { MathTex, MATH_TEX_CONFIG } from "@cubicons/MathTex";
+import { Axes } from "@cubicons/coordinate-system/Axes";
 
-import { Axes } from "./Axes";
-
-import { MathTex } from "@cubicons/MathTex";
-
-export class Label extends MathTex {
+export interface LabelParams extends InheritedCubiconParams<MATH_TEX_CONFIG> {
     /**
      * The axes that this label belongs to.
      */
     axes: Axes;
 
-    constructor(params: {
-        axes: Axes;
-        position: Vector2;
-        text: string;
-        color?: string;
-        fontSize?: number;
-    }) {
+    /**
+     * Content of this label.
+     */
+    text: string;
+}
+
+export class Label extends MathTex {
+    axes: Axes;
+
+    constructor(params: LabelParams) {
         super({
             group: params.axes.group,
+
             position: params.position,
+
             text: params.text,
-            color: params.color ?? "#fff",
-            fontSize: params.fontSize ?? 18,
+
+            CONFIG: params.CONFIG,
         });
 
         this.g_cubiconWrapper.attr("class", "graph-label-wrapper");

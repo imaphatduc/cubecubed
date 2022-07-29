@@ -16,11 +16,9 @@
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.cubicon` | [`RevolutionSurface`](/reference/classes/RevolutionSurface.md) | The target cubicon to play this animation. |
-| `params.duration?` | `number` | Time to play this animation. (in milliseconds)  **`default`** 0 |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`CanvasAnimationParams`](/reference/interfaces/CanvasAnimationParams.md)<[`RevolutionSurface`](/reference/classes/RevolutionSurface.md)\> |
 
 #### Overrides
 
@@ -28,23 +26,21 @@
 
 #### Defined in
 
-[src/canvas/animations/SimulateRevolution.ts:9](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/SimulateRevolution.ts#L9)
+src/canvas/animations/SimulateRevolution.ts:11
 
 ## Properties
 
 ### cubicon
 
-• **cubicon**: `any`
+• **cubicon**: [`RevolutionSurface`](/reference/classes/RevolutionSurface.md)
 
-The target cubicon of this animation.
-
-#### Inherited from
+#### Overrides
 
 [CanvasAnimation](/reference/classes/CanvasAnimation.md).[cubicon](/reference/classes/CanvasAnimation.md#cubicon)
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L5)
+src/canvas/animations/SimulateRevolution.ts:9
 
 ___
 
@@ -52,29 +48,37 @@ ___
 
 • **duration**: `number`
 
-Time to play this animation (in milliseconds).
-
 #### Inherited from
 
 [CanvasAnimation](/reference/classes/CanvasAnimation.md).[duration](/reference/classes/CanvasAnimation.md#duration)
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L10)
+src/canvas/animations/CanvasAnimation.ts:18
+
+___
+
+### sleepTime
+
+• **sleepTime**: `number` = `0`
+
+The time to wait before playing this animation.
+
+#### Inherited from
+
+[CanvasAnimation](/reference/classes/CanvasAnimation.md).[sleepTime](/reference/classes/CanvasAnimation.md#sleeptime)
+
+#### Defined in
+
+src/canvas/animations/CanvasAnimation.ts:23
 
 ## Methods
 
 ### play
 
-▸ **play**(`sleepTime`): `void`
+▸ **play**(): `void`
 
 **`internal`**
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `sleepTime` | `number` |
 
 #### Returns
 
@@ -86,4 +90,4 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/SimulateRevolution.ts:30](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/SimulateRevolution.ts#L30)
+src/canvas/animations/SimulateRevolution.ts:22

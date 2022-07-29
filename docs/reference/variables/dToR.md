@@ -8,4 +8,4 @@ One-param function to convert degrees value to radians one.
 
 #### Defined in
 
-[src/math/convertUnit.ts:13](https://github.com/imaphatduc/cubecubed/blob/8295992/src/math/convertUnit.ts#L13)
+src/converters/angleUnit.ts:13

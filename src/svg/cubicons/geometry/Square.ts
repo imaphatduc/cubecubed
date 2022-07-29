@@ -1,45 +1,31 @@
-import { SHAPE_CONFIG } from "./Geometry";
+import { PLANE_SHAPE_CONFIG } from "@configs/geometry/PLANE_SHAPE_CONFIG";
 
-import { Vector2 } from "@math/Vector2";
-
-import { Group } from "@group/Group";
+import { CubiconParams } from "@cubicons/Cubicon";
 import { Rectangle } from "./Rectangle";
 
-/**
- * Return the barebone of a square shape.
- */
-export class Square extends Rectangle {
+export interface SquareParams extends CubiconParams<PLANE_SHAPE_CONFIG> {
     /**
-     * @param params An object that contains options to form the square.
+     * Side length of this square.
      */
-    constructor(params: {
-        /**
-         * The group that the square belongs to.
-         */
-        group: Group;
-        /**
-         * Position of the square.
-         */
-        position?: Vector2;
-        /**
-         * Side length of the square.
-         */
-        sideLength: number;
-        /**
-         * Config options of the square.
-         */
-        CONFIG?: SHAPE_CONFIG;
-    }) {
+    sideLength: number;
+}
+
+export class Square extends Rectangle {
+    constructor(params: SquareParams) {
         super({
             group: params.group,
+
             position: params.position,
+
             width: params.sideLength,
+
             height: params.sideLength,
+
             CONFIG: params.CONFIG,
         });
     }
 
-    getSideLength() {
+    get sideLength() {
         return this.width;
     }
 }

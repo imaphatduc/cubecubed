@@ -1,8 +1,8 @@
 import {
     COLOR,
-    Create,
+    CreateVectorShape,
     Write,
-    DrawGridFromScreenSides,
+    DrawGrid,
     FadeIn,
     Grid,
     Group,
@@ -18,7 +18,8 @@ function renderVector() {
     const group = new Group("tex", scene);
 
     const grid = new Grid({ group: group }).render();
-    group.play([new DrawGridFromScreenSides(grid)]);
+
+    group.play([new DrawGrid({ cubicon: grid })]);
 
     const vector = new VectorShape({
         group: group,
@@ -28,7 +29,7 @@ function renderVector() {
         },
     }).render();
 
-    group.play([new Create({ cubicon: vector })]);
+    group.play([new CreateVectorShape({ cubicon: vector })]);
 
     const formula = new MathTex({
         group: group,
@@ -40,7 +41,9 @@ function renderVector() {
         group: group,
         position: vector.endPoint,
         text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,
-        color: vector.lineColor,
+        CONFIG: {
+            color: vector.CONFIG.lineColor,
+        },
     }).render();
 
     group.play([

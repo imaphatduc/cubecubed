@@ -1,63 +1,57 @@
 import TeXToSVG from "tex-to-svg";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Vector2 } from "@math/Vector2";
+import configFactory from "@utils/configFactory";
 
-import { Group } from "@group/Group";
-import { Cubicon } from "./Cubicon";
+import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
 
-export class MathTex extends Cubicon {
-    readonly cubiconType = "MathTex";
+export interface MATH_TEX_CONFIG {
+    /**
+     * Color of this text.
+     */
+    color?: string;
 
+    /**
+     * Font size of this text (in pts).
+     */
+    fontSize?: number;
+}
+
+export const MATH_TEX_DEFAULT_CONFIG: MATH_TEX_CONFIG = {
+    color: "#fff",
+    fontSize: 16,
+};
+
+export interface MathTexParams extends CubiconParams<MATH_TEX_CONFIG> {
     /**
      * Content of this text.
      */
     text: string;
+}
 
-    /**
-     * Color of this text.
-     */
-    color: string;
+export class MathTex extends Cubicon {
+    readonly cubiconType = "MathTex";
 
-    /**
-     * Font size of this text (in points).
-     */
-    fontSize: number;
+    text: string;
 
-    constructor(params: {
-        /**
-         * The group that the text belongs to.
-         */
-        group: Group;
-        /**
-         * Position of the text.
-         */
-        position?: Vector2;
-        /**
-         * Content of the text.
-         */
-        text: string;
-        /**
-         * Color of the text.
-         */
-        color?: string;
-        /**
-         * Font size of the text.
-         */
-        fontSize?: number;
-    }) {
+    CONFIG: MATH_TEX_CONFIG;
+
+    constructor(params: MathTexParams) {
         super({
             group: params.group,
-            position: params.position ?? new Vector2(0, 0),
+
+            position: params.position,
+
+            CONFIG: configFactory(params.CONFIG, MATH_TEX_DEFAULT_CONFIG),
         });
 
         this.text = params.text;
-        this.color = params.color ?? "#fff";
-        this.fontSize = params.fontSize ?? 16;
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", "tex-wrapper");
+
+        this.def_cubiconBase = this.g_cubiconWrapper.select("svg");
     }
 
     private initData() {
@@ -74,35 +68,69 @@ export class MathTex extends Cubicon {
     }
 
     protected applyToHTMLFlow() {
+        this.assignInnerHtmlToTheWrapper();
+
+        this.defineBaseElement();
+
+        this.makeTexElementsUnique();
+    }
+
+    private assignInnerHtmlToTheWrapper() {
         const htmlString = this.initData();
 
-        const idKey = (Math.random() + 1)
-            .toString(36)
-            .substring(7)
-            .toUpperCase();
-
         this.g_cubiconWrapper.node()!.innerHTML = htmlString;
+    }
 
+    private defineBaseElement() {
         this.def_cubiconBase = this.g_cubiconWrapper.select("svg");
 
-        this.def_cubiconBase.attr("font-size", this.fontSize);
+        this.def_cubiconBase.attr("font-size", this.CONFIG.fontSize!);
+    }
 
+    private makeTexElementsUnique() {
+        const id = (Math.random() + 1).toString(36).substring(7).toUpperCase();
+
+        this.applyAttrsToPathElements(id);
+        this.applyAttrsToRectElements(id);
+
+        this.attachIdsToElements(id);
+    }
+
+    private applyAttrsToPathElements(id: string) {
         this.def_cubiconBase
             .select("defs")
             .selectAll("path")
             .attr(
                 "id",
-                (d: any, i: number, nodes: any) =>
-                    nodes[i].getAttribute("id") + "-" + idKey
+                (d, i: number, nodes: any) =>
+                    nodes[i].getAttribute("id") + "-" + id
             )
-            .attr("fill", this.color);
+            .attr("fill", this.CONFIG.color!)
+            .attr("stroke", this.CONFIG.color!)
+            .attr("stroke-width", 20);
+    }
 
+    private applyAttrsToRectElements(id: string) {
+        this.def_cubiconBase
+            .select("g")
+            .selectAll("rect")
+            .attr(
+                "id",
+                (d, i: number, nodes: any) =>
+                    nodes[i].getAttribute("id") + "-" + id
+            )
+            .attr("fill", this.CONFIG.color!)
+            .attr("stroke", this.CONFIG.color!)
+            .attr("stroke-width", 20);
+    }
+
+    private attachIdsToElements(id: string) {
         this.def_cubiconBase
             .selectAll("use")
             .attr(
                 "xlink:href",
-                (d: any, i: number, nodes: any) =>
-                    nodes[i].getAttribute("xlink:href") + "-" + idKey
+                (d, i: number, nodes: any) =>
+                    nodes[i].getAttribute("xlink:href") + "-" + id
             );
     }
 

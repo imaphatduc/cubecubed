@@ -5,9 +5,7 @@ import { Vector2 } from "@math/Vector2";
 
 import { Group } from "@group/Group";
 
-export abstract class Cubicon {
-    abstract readonly cubiconType: string;
-
+export interface CubiconParams<TCONFIG> {
     /**
      * The group that this cubicon belongs to.
      */
@@ -15,9 +13,35 @@ export abstract class Cubicon {
 
     /**
      * Position of this cubicon.
-     * This property changed after finishing animations (in real time).
      */
+    position?: Vector2;
+
+    /**
+     * Config options of this cubicon.
+     */
+    CONFIG?: TCONFIG;
+}
+
+export interface InheritedCubiconParams<TCONFIG> {
+    /**
+     * Position of this cubicon.
+     */
+    position?: Vector2;
+
+    /**
+     * Config options of this cubicon.
+     */
+    CONFIG?: TCONFIG;
+}
+
+export abstract class Cubicon {
+    abstract readonly cubiconType: string;
+
+    group: Group;
+
     position: Vector2;
+
+    CONFIG: object;
 
     /**
      * The angle between this cubicon and the x axis.
@@ -36,36 +60,45 @@ export abstract class Cubicon {
     moveAngle = 0;
 
     /**
-     * The `<svg/>` tag of this cubicon's group.
+     * The `<svg>` element of this cubicon's group.
      */
     svg_group: Selection<SVGSVGElement, unknown, HTMLElement, any>;
 
     /**
-     * The `<g/>` tag that holds this cubicon.
+     * The `<g>` element that holds this cubicon.
      */
     g_cubiconWrapper: Selection<SVGGElement, unknown, HTMLElement, any>;
 
     /**
-     * The HTML tag that represents this cubicon.
+     * The SVG element that represents this cubicon.
      */
     def_cubiconBase: Selection<any, unknown, HTMLElement, any>;
 
-    constructor(params: { group: Group; position?: Vector2 }) {
+    constructor(params: CubiconParams<object>) {
         this.group = params.group;
 
         this.position = params.position ?? new Vector2(0, 0);
+
+        // params.CONFIG is never null or undefined, because it reverts to
+        // DEFAULT_CONFIG everytime it is passed down to the constructor of
+        // the Cubicon abstract class.
+        this.CONFIG = params.CONFIG!;
 
         this.svg_group = params.group.svg_group;
 
         this.def_cubiconBase = this.svg_group;
     }
 
-    setParentSelection(
-        parentSelection: Selection<SVGGElement, unknown, HTMLElement, any>
-    ) {
-        this.g_cubiconWrapper = parentSelection;
+    /**
+     * Render this cubicon.
+     */
+    render() {
+        //
     }
 
+    /**
+     * Convert grid coordinates to pixels.
+     */
     coordsGtoW(point: Vector2) {
         const { xGtoW, yGtoW } = this.group;
 

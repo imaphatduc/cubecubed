@@ -3,7 +3,7 @@ import {
     Group,
     Scene,
     COLOR,
-    Create,
+    CreatePlaneShape,
     PointAlongGraph,
     PointToCoords,
     DrawAxes,
@@ -23,55 +23,63 @@ function graphingFunctions() {
         },
     }).render();
 
-    group.play([new DrawAxes(axes)]);
+    group.play([new DrawAxes({ cubicon: axes })]);
 
-    const cos = axes.graph({
+    const cos = axes.plot({
         functionDef: (x) => Math.cos(x),
         color: COLOR.CYAN,
     });
 
-    const tex = axes.addGraphLabel(cos, "cos(x)", 7);
+    const tex = axes.addGraphLabel({ graph: cos, text: "cos(x)", xPos: 7 });
 
-    const pt = axes.pointToCoords(cos, 2);
+    const pt = axes.pointToCoords({ graph: cos, xPos: 2 });
 
-    group.play([new Create({ cubicon: cos }), new Write({ cubicon: tex })]);
+    group.play([
+        new CreatePlaneShape({ cubicon: cos }),
+        new Write({ cubicon: tex }),
+    ]);
 
     group.play([
         new PointToCoords({
-            point: pt,
-            graph: cos,
+            cubicon: pt.point,
+            horizontalProjector: pt.projectors[0],
+            verticalProjector: pt.projectors[1],
         }),
     ]);
 
     group.play([
         new PointAlongGraph({
-            point: pt,
+            cubicon: pt.point,
+            horizontalProjector: pt.projectors[0],
+            verticalProjector: pt.projectors[1],
             graph: cos,
             xPos: -3,
         }),
     ]);
 
-    const ln = axes.graph({
+    const ln = axes.plot({
         functionDef: (x) => Math.log(x),
         color: COLOR.GREEN_1,
     });
 
-    group.play([new Create({ cubicon: ln })]);
+    group.play([new CreatePlaneShape({ cubicon: ln })]);
 
     group.play([
         new PointAlongGraph({
-            point: pt,
+            cubicon: pt.point,
+            horizontalProjector: pt.projectors[0],
+            verticalProjector: pt.projectors[1],
             graph: cos,
             xPos: 5,
         }),
     ]);
 
-    const cubic = axes.graph({
+    const cubic = axes.plot({
         functionDef: (x) => x * x * x + 2 * x * x,
         color: COLOR.RED_2,
     });
 
-    group.play([new Create({ cubicon: cubic })]);
+    group.play([new CreatePlaneShape({ cubicon: cubic })]);
 }
 
 graphingFunctions();

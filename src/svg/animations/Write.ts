@@ -1,83 +1,75 @@
-import { ANIME, EASE_TYPE } from "@consts";
+import { Selection, BaseType } from "d3-selection";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Animation } from "./Animation";
+import { ANIME } from "@consts";
 
 import { MathTex } from "@cubicons/MathTex";
+
+import { Animation, AnimationParams } from "@animations/Animation";
+
+export type TexElement = Selection<SVGPathElement, unknown, BaseType, any>;
 
 export class Write extends Animation {
     readonly animationType = "Write";
 
-    constructor(params: {
-        /**
-         * The target cubicon to play this animation.
-         */
-        cubicon: MathTex;
-        /**
-         * Time to play this animation. (in milliseconds)
-         */
-        duration?: number;
-        /**
-         * Custom easing function for smooth animation.
-         */
-        ease?: EASE_TYPE;
-    }) {
+    cubicon: MathTex;
+
+    constructor(params: AnimationParams<MathTex>) {
         super({
             cubicon: params.cubicon,
+
             duration: params.duration ?? ANIME.CREATE,
+
             ease: params.ease,
         });
     }
 
-    play(sleepTime: number) {
-        this.writeText(this.cubicon, sleepTime);
+    play() {
+        this.write();
     }
 
-    private writeText(cubicon: MathTex, sleepTime: number) {
-        const options = [cubicon, this.duration, this.ease, sleepTime];
+    private write() {
+        this.applyPathWriting();
 
-        // <path> elements
-        const pathLengths = cubicon.def_cubiconBase
+        this.applyShapeWriting();
+    }
+
+    private applyPathWriting() {
+        const pathElements: TexElement = this.cubicon.def_cubiconBase
             .select("defs")
-            .selectAll("path")
-            .nodes()
-            .map((d: any) => d.getTotalLength());
+            .selectAll("path");
 
-        const paths = cubicon.def_cubiconBase.select("defs").selectAll("path");
+        const pathLengths = pathElements.nodes().map((d) => d.getTotalLength());
 
-        paths.call(this.applyWriteAnimation, pathLengths, ...options);
-
-        // <rect> elements
-        const shapeLengths = cubicon.def_cubiconBase
-            .selectAll("rect")
-            .nodes()
-            .map((d: any) => d.getTotalLength());
-
-        const rects = cubicon.def_cubiconBase.selectAll("rect");
-
-        rects.call(this.applyWriteAnimation, shapeLengths, ...options);
+        this.applyWriteAnimation(pathElements, pathLengths);
     }
 
-    private applyWriteAnimation(
-        selection: any,
-        lengths: number[],
-        cubicon: MathTex,
-        duration: number,
-        ease: any,
-        sleepTime: number
-    ) {
+    private applyShapeWriting() {
+        const shapeElements: TexElement =
+            this.cubicon.def_cubiconBase.selectAll("rect");
+
+        const shapeLengths = shapeElements
+            .nodes()
+            .map((d) => d.getTotalLength());
+
+        this.applyWriteAnimation(shapeElements, shapeLengths);
+    }
+
+    private applyWriteAnimation(selection: TexElement, lengths: number[]) {
+        const delayEach = 100;
+
         selection
-            .attr("stroke", cubicon.color)
-            .attr("stroke-width", 20)
-            .attr("fill", cubicon.color)
             .data(lengths)
+            .attr("stroke-dasharray", (d) => d + ", " + d)
+            .attr("stroke-dashoffset", (d) => d)
             .attr("fill-opacity", 0)
-            .attr("stroke-dasharray", (d: number) => d + ", " + d)
-            .attr("stroke-dashoffset", (d: number) => d)
             .transition()
-            .ease(ease)
-            .delay((d: any, i: number) => 100 * i + sleepTime)
-            .duration(duration)
+            .ease(this.ease)
+            .delay((d, i) => delayEach * i + this.sleepTime)
+            .duration(this.duration)
             .attr("stroke-dashoffset", 0)
             .attr("fill-opacity", 1);
+
+        this.cubicon.group.groupElapsed += (delayEach / 2) * lengths.length;
     }
 }

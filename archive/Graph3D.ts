@@ -1,7 +1,7 @@
 import { range } from "d3-array";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Vector3 } from "@math/Vector3";
+import { Vector3 } from "@math/vector";
 
 import { CanvasCubicon } from "./CanvasCubicon";
 import { Axes3D } from "./Axes3D";

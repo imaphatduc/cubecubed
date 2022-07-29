@@ -1,76 +1,60 @@
-import { ANIME, EASE_TYPE } from "@consts";
+import { ANIME } from "@consts";
 
 import { Vector2 } from "@math/Vector2";
 
-import { Animation } from "./Animation";
-
 import { Cubicon } from "@cubicons/Cubicon";
 
-/**
- * Translate a geometric cubicon by a specified vector.
- */
+import { Animation, AnimationParams } from "@animations/Animation";
+
+export interface TranslateParams extends AnimationParams<Cubicon> {
+    /**
+     * The translation vector.
+     */
+    vector: Vector2;
+}
+
 export class Translate extends Animation {
     readonly animationType = "Translate";
 
     vector: Vector2;
 
-    constructor(params: {
-        /**
-         * The target cubicon to play this animation.
-         */
-        cubicon: Cubicon;
-        /**
-         * Translation vector.
-         */
-        vector: Vector2;
-        /**
-         * Time to play this animation. (in milliseconds)
-         */
-        duration?: number;
-        /**
-         * Custom easing function for smooth animation.
-         */
-        ease?: EASE_TYPE;
-    }) {
+    constructor(params: TranslateParams) {
         super({
             cubicon: params.cubicon,
+
             duration: params.duration ?? ANIME.TRANSLATE,
+
             ease: params.ease,
         });
 
         this.vector = params.vector;
     }
 
-    play(sleepTime: number) {
-        this.translateByVector(this.cubicon, this.vector, sleepTime);
+    play() {
+        this.translate();
     }
 
-    private translateByVector(
-        cubicon: Cubicon,
-        vector: Vector2,
-        sleepTime: number
-    ) {
-        const { xGtoW, yGtoW } = cubicon.group;
+    private translate() {
+        const { xGtoW, yGtoW } = this.cubicon.group;
 
-        /// Calculate the sum of all translation vectors
-        cubicon.moveVector = cubicon.moveVector.add(vector);
+        this.cubicon.moveVector = this.cubicon.moveVector.add(this.vector);
 
-        cubicon.g_cubiconWrapper
+        const v = this.cubicon.moveVector;
+
+        this.cubicon.g_cubiconWrapper
             .transition()
             .ease(this.ease)
-            .delay(sleepTime)
+            .delay(this.sleepTime)
             .duration(this.duration)
-            /// `moveVector` and `angle` are very useful here.
-            /// We must have these properties, otherwise our cubicons will return to
-            // the previous position and rotation.
             .attr(
                 "transform",
-                `translate(${xGtoW(cubicon.moveVector.x)}, ${yGtoW(
-                    cubicon.moveVector.y
-                )}) rotate(${cubicon.moveAngle})`
+
+                `translate(${xGtoW(v.x)}, ${yGtoW(v.y)}) rotate(${
+                    this.cubicon.moveAngle
+                })`
             )
             .on("end", () => {
-                cubicon.position = cubicon.position.add(vector);
+                this.cubicon.position = this.cubicon.position.add(this.vector);
             });
     }
 }

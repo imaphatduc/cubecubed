@@ -23,9 +23,9 @@ describe("Square", () => {
                 sideLength: sideLength,
             }).render();
 
-            expect(square.getSideLength()).toBe(sideLength);
-            expect(square.getSideLength()).toBe(square.width);
-            expect(square.getSideLength()).toBe(square.height);
+            expect(square.sideLength).toBe(sideLength);
+            expect(square.sideLength).toBe(square.width);
+            expect(square.sideLength).toBe(square.height);
         });
     });
 });

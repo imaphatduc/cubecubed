@@ -3,25 +3,29 @@ import { select } from "d3-selection";
 
 export interface SCENE_CONFIG {
     /**
+     * Width of this scene (in pixels).
+     *
      * @default window.innerWidth
      */
     sceneWidth: number;
+
     /**
+     * Height of this scene (in pixels).
+     *
      * @default window.innerHeight
      */
     sceneHeight: number;
 }
 
-const SCENE_DEFAULT_CONFIG: SCENE_CONFIG = {
+export const SCENE_DEFAULT_CONFIG: SCENE_CONFIG = {
     sceneWidth: window.innerWidth,
     sceneHeight: window.innerHeight,
 };
 
 /**
- * The granddad/grandma object of everything in the visualization.
- * Scene() here is a must in every result math videos.
- *
- * Please see the Quick Start page in official documentation for clearer understanding about this `Scene` term.
+ * The object that holds all cubicon groups. Working with Cubecubed requires
+ * only one scene. To group cubicons together, you need to create a Group
+ * instance and assign every cubicon to it.
  */
 export class Scene {
     /**
@@ -30,19 +34,14 @@ export class Scene {
     name: string;
 
     /**
-     * Width of this scene.
+     * Config options of this scene.
      */
-    sceneWidth: number;
+    CONFIG: SCENE_CONFIG;
 
     /**
-     * Height of this scene.
-     */
-    sceneHeight: number;
-
-    /**
-     * The time passed by since this scene was created. (in milliseconds)
-     *
-     * > (aka the total time of all the animations of all groups included in this scene)
+     * The time passed by since this scene was created (in milliseconds), or
+     * the sum of the `groupElapsed` property of all groups included in this
+     * scene.
      */
     sceneElapsed = 0;
 
@@ -54,18 +53,20 @@ export class Scene {
     constructor(sceneName: string, CONFIG?: SCENE_CONFIG) {
         this.name = sceneName;
 
-        ({
-            sceneWidth: this.sceneWidth = SCENE_DEFAULT_CONFIG.sceneWidth,
-            sceneHeight: this.sceneHeight = SCENE_DEFAULT_CONFIG.sceneHeight,
-        } = CONFIG ?? SCENE_DEFAULT_CONFIG);
+        this.CONFIG = {
+            sceneWidth: CONFIG?.sceneWidth ?? SCENE_DEFAULT_CONFIG.sceneWidth,
+            sceneHeight:
+                CONFIG?.sceneHeight ?? SCENE_DEFAULT_CONFIG.sceneHeight,
+        };
     }
 
     /**
-     * Fade out and remove this scene away from HTML flow.
-     * That means, everything in the scene will be removed, too.
+     * Fade out and remove this scene away from HTML flow. That means,
+     * everything in the scene will be removed, too.
      *
-     * @param delay Delay (in milliseconds) before destroying this scene.
-     * > This delay variable should be tracked by summing all Group().groupElapsed properties of all `Group()`s in this scene.
+     * @param delay Delay (in milliseconds) before destroying this scene. This
+     * delay variable should be tracked by summing the `groupElapsed` properties
+     * all groups included in this scene.
      */
     destroy(delay = 0) {
         select("#cubecubed")

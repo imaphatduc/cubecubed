@@ -3,10 +3,12 @@ import { ScaleLinear, scaleLinear } from "d3-scale";
 import {
     AxesHelper,
     Camera,
+    Material,
     PerspectiveCamera,
     Scene as TScene,
     WebGLRenderer,
 } from "three";
+
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -16,21 +18,8 @@ import { CanvasAnimation } from "@animations/CanvasAnimation";
 
 import { CanvasCubicon } from "@cubicons/CanvasCubicon";
 
-export interface ANIMATIONS_INFO {
-    animation: CanvasAnimation;
-    start: number;
-    end: number;
-}
-
 /**
- * The dad/mom object of every pack of objects in the visualization.
- *
- * A group must belong to a scene.
- *
- * Group is classified in terms of its purpose.
- * Below `CanvasGroup()` is a HTML canvas group to render canvas-related objects.
- *
- * Please see the Quick Start page in official documentation for clearer understanding about this `Group` term.
+ * The object to group canvas cubicons together. A group must belong to a scene.
  */
 export class CanvasGroup {
     /**
@@ -62,11 +51,6 @@ export class CanvasGroup {
      * Name of this scene.
      */
     name: string;
-
-    /**
-     * List of cubicons included in this group.
-     */
-    cubicons: CanvasCubicon[] = [];
 
     /**
      * Number of squares in the x direction.
@@ -167,8 +151,21 @@ export class CanvasGroup {
         this.update();
     }
 
+    /**
+     * Render all the specified cubicons on the screen (instead of calling `.render()` for each of the cubicon).
+     *
+     * @param cubicons Comma-separated cubicons to render.
+     */
+    render(cubicons: CanvasCubicon[]) {
+        cubicons.forEach((cubicon) => {
+            cubicon.geometry.computeVertexNormals();
+
+            cubicon.render();
+        });
+    }
+
     private defineBoundsAndSquares(ratio: [number, number, number]) {
-        const { sceneWidth, sceneHeight } = this.scene;
+        const { sceneWidth, sceneHeight } = this.scene.CONFIG;
 
         const sceneDepth = Math.min(sceneWidth, sceneHeight);
 
@@ -195,7 +192,7 @@ export class CanvasGroup {
     }
 
     private defineCovertFunctions(ratio: [number, number, number]) {
-        const { sceneWidth, sceneHeight } = this.scene;
+        const { sceneWidth, sceneHeight } = this.scene.CONFIG;
 
         const sceneDepth = Math.min(sceneWidth, sceneHeight);
 
@@ -297,8 +294,6 @@ export class CanvasGroup {
         const animate = () => {
             requestAnimationFrame(animate);
 
-            this.cubicons.forEach((c) => c.geometry.computeVertexNormals());
-
             this.controls.update();
             this.renderer.render(this.threeScene, this.camera);
         };
@@ -309,14 +304,16 @@ export class CanvasGroup {
     /**
      * Play all the animations included in a queue.
      *
-     * @param anims Array (Queue) of animations to play.
+     * @param animations Array (Queue) of animations to play.
      */
-    play(anims: any[]) {
-        const queueElapsed = Math.max(...anims.map((anim) => anim.duration));
+    play(animations: CanvasAnimation[]) {
+        const queueElapsed = Math.max(
+            ...animations.map((animation) => {
+                animation.play();
 
-        anims.forEach((anim) => {
-            anim.play(this.groupElapsed);
-        });
+                return animation.duration;
+            })
+        );
 
         this.groupElapsed += queueElapsed;
 
@@ -342,10 +339,10 @@ export class CanvasGroup {
     remove(cubicons: CanvasCubicon[]) {
         setTimeout(() => {
             cubicons.forEach((cubicon) => {
-                this.cubicons.splice(
-                    this.cubicons.findIndex((c) => c.token === cubicon.token),
-                    1
-                );
+                cubicon.mesh.geometry.dispose();
+                (cubicon.mesh.material as Material).dispose();
+
+                this.threeScene.remove(cubicon.mesh);
             });
         }, this.groupElapsed);
     }

@@ -16,12 +16,9 @@
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.CONFIG?` | [`VECTOR_FIELD_CONFIG`](/reference/interfaces/VECTOR_FIELD_CONFIG.md) | Config options for the vector field. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the cubicon belongs to. |
-| `params.functionDef` | (`pos`: [`Vector2`](/reference/classes/Vector2.md)) => [`Vector2`](/reference/classes/Vector2.md) | - |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`VectorFieldParams`](/reference/interfaces/VectorFieldParams.md) |
 
 #### Overrides
 
@@ -29,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:42](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L42)
+src/svg/cubicons/VectorField.ts:55
 
 ## Properties
 
@@ -37,11 +34,13 @@
 
 • **CONFIG**: [`VECTOR_FIELD_CONFIG`](/reference/interfaces/VECTOR_FIELD_CONFIG.md)
 
-Config options of the vector field.
+#### Overrides
+
+[Cubicon](/reference/classes/Cubicon.md).[CONFIG](/reference/classes/Cubicon.md#config)
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L40)
+src/svg/cubicons/VectorField.ts:53
 
 ___
 
@@ -58,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
+src/svg/cubicons/Cubicon.ts:50
 
 ___
 
@@ -72,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:25](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L25)
+src/svg/cubicons/VectorField.ts:44
 
 ___
 
@@ -80,7 +79,7 @@ ___
 
 • **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
-The HTML tag that represents this cubicon.
+The SVG element that represents this cubicon.
 
 #### Inherited from
 
@@ -88,7 +87,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
+src/svg/cubicons/Cubicon.ts:75
 
 ___
 
@@ -99,8 +98,6 @@ ___
 #### Type declaration
 
 ▸ (`pos`): [`Vector2`](/reference/classes/Vector2.md)
-
-Multivariable function that produces 2d vector field.
 
 ##### Parameters
 
@@ -114,7 +111,7 @@ Multivariable function that produces 2d vector field.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L30)
+src/svg/cubicons/VectorField.ts:46
 
 ___
 
@@ -122,7 +119,7 @@ ___
 
 • **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<g/>` tag that holds this cubicon.
+The `<g>` element that holds this cubicon.
 
 #### Inherited from
 
@@ -130,7 +127,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
+src/svg/cubicons/Cubicon.ts:70
 
 ___
 
@@ -138,15 +135,13 @@ ___
 
 • **group**: [`Group`](/reference/classes/Group.md)
 
-The group that this cubicon belongs to.
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[group](/reference/classes/Cubicon.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
+src/svg/cubicons/Cubicon.ts:40
 
 ___
 
@@ -162,7 +157,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
+src/svg/cubicons/Cubicon.ts:60
 
 ___
 
@@ -178,7 +173,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
+src/svg/cubicons/Cubicon.ts:55
 
 ___
 
@@ -186,16 +181,13 @@ ___
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[position](/reference/classes/Cubicon.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
+src/svg/cubicons/Cubicon.ts:42
 
 ___
 
@@ -203,7 +195,7 @@ ___
 
 • **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<svg/>` tag of this cubicon's group.
+The `<svg>` element of this cubicon's group.
 
 #### Inherited from
 
@@ -211,7 +203,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
+src/svg/cubicons/Cubicon.ts:65
 
 ___
 
@@ -223,13 +215,15 @@ Vector shapes included in the scene.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:35](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L35)
+src/svg/cubicons/VectorField.ts:51
 
 ## Methods
 
 ### coordsGtoW
 
 ▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+Convert grid coordinates to pixels.
 
 #### Parameters
 
@@ -247,7 +241,7 @@ Vector shapes included in the scene.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
+src/svg/cubicons/Cubicon.ts:99
 
 ___
 
@@ -255,34 +249,16 @@ ___
 
 ▸ **render**(): [`VectorField`](/reference/classes/VectorField.md)
 
+Render this cubicon.
+
 #### Returns
 
 [`VectorField`](/reference/classes/VectorField.md)
 
-#### Defined in
+#### Overrides
 
-[src/svg/cubicons/VectorField.ts:80](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L80)
-
-___
-
-### setParentSelection
-
-▸ **setParentSelection**(`parentSelection`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Cubicon](/reference/classes/Cubicon.md).[setParentSelection](/reference/classes/Cubicon.md#setparentselection)
+[Cubicon](/reference/classes/Cubicon.md).[render](/reference/classes/Cubicon.md#render)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
+src/svg/cubicons/VectorField.ts:75

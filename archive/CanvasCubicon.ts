@@ -1,6 +1,6 @@
 import generateToken from "@utils/generateToken";
 
-import { Vector3 } from "@math/Vector3";
+import { Vector3 } from "@math/vector";
 
 import { CanvasGroup } from "@group/CanvasGroup";
 

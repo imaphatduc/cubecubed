@@ -19,24 +19,22 @@
 | Name | Type |
 | :------ | :------ |
 | `params` | `Object` |
-| `params.cubicon` | `any` |
+| `params.cubicon` | [`CanvasCubicon`](/reference/classes/CanvasCubicon.md) |
 | `params.duration?` | `number` |
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:12](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L12)
+src/canvas/animations/CanvasAnimation.ts:25
 
 ## Properties
 
 ### cubicon
 
-• **cubicon**: `any`
-
-The target cubicon of this animation.
+• **cubicon**: [`CanvasCubicon`](/reference/classes/CanvasCubicon.md)
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:5](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L5)
+src/canvas/animations/CanvasAnimation.ts:16
 
 ___
 
@@ -44,23 +42,31 @@ ___
 
 • **duration**: `number`
 
-Time to play this animation (in milliseconds).
+#### Defined in
+
+src/canvas/animations/CanvasAnimation.ts:18
+
+___
+
+### sleepTime
+
+• **sleepTime**: `number` = `0`
+
+The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L10)
+src/canvas/animations/CanvasAnimation.ts:23
 
 ## Methods
 
 ### play
 
-▸ **play**(`sleepTime`): `void`
+▸ **play**(): `void`
 
-#### Parameters
+Play this animation.
 
-| Name | Type |
-| :------ | :------ |
-| `sleepTime` | `number` |
+**`internal`**
 
 #### Returns
 
@@ -68,4 +74,4 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:17](https://github.com/imaphatduc/cubecubed/blob/8295992/src/canvas/animations/CanvasAnimation.ts#L17)
+src/canvas/animations/CanvasAnimation.ts:38

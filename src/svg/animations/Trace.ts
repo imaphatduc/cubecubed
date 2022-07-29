@@ -1,73 +1,66 @@
 import { interpolateNumber } from "d3-interpolate";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { ANIME, EASE_TYPE } from "@consts";
-
-import { Animation } from "./Animation";
+import { ANIME } from "@consts";
 
 import { Line } from "@cubicons/geometry/Line";
 import { ParametricCurve } from "@cubicons/geometry/ParametricCurve";
 
-/**
- * Let a line trace a curve.
- */
+import { Animation, AnimationParams } from "@animations/Animation";
+
+export interface TraceParams extends AnimationParams<Line> {
+    /**
+     * The curve for this line to trace.
+     */
+    curve: ParametricCurve;
+}
+
 export class Trace extends Animation {
     readonly animationType = "Trace";
 
-    /**
-     * The curve.
-     */
+    cubicon: Line;
+
     private curve: ParametricCurve;
 
-    constructor(params: {
-        /**
-         * The target line for tracing.
-         */
-        cubicon: Line;
-        /**
-         * The curve.
-         */
-        curve: ParametricCurve;
-        /**
-         * Time to play this animation. (in milliseconds)
-         */
-        duration: number;
-        /**
-         * Custom easing function for smooth animation.
-         */
-        ease: EASE_TYPE;
-    }) {
+    constructor(params: TraceParams) {
         super({
             cubicon: params.cubicon,
+
             duration: params.duration ?? ANIME.CREATE,
+
             ease: params.ease,
         });
 
         this.curve = params.curve;
     }
 
-    play(sleepTime: number) {
-        this.tracing(this.cubicon, sleepTime);
+    play() {
+        this.trace();
     }
 
-    private tracing(cubicon: Line, sleepTime: number) {
-        const lineLen = this.curve.def_cubiconBase.node().getTotalLength();
-        this.curve.def_cubiconBase
-            .attr("stroke-dasharray", lineLen + ", " + lineLen)
-            .attr("stroke-dashoffset", lineLen);
+    private trace() {
+        const pathLength = this.curve.def_cubiconBase.node().getTotalLength();
+
+        this.curve.def_cubiconBase.attr(
+            "stroke-dasharray",
+            pathLength + ", " + pathLength
+        );
 
         this.curve.def_cubiconBase
+            .attr("stroke-dashoffset", pathLength)
             .transition()
             .ease(this.ease)
-            .delay(sleepTime)
+            .delay(this.sleepTime)
             .duration(this.duration)
             .attrTween("stroke-dashoffset", () => {
-                const interpolate = interpolateNumber(lineLen, 0);
+                const interpolate = interpolateNumber(pathLength, 0);
+
                 return (t: number) => {
                     const currentPoint = this.curve.def_cubiconBase
                         .node()
-                        .getPointAtLength(t * lineLen);
-                    cubicon.def_cubiconBase
+                        .getPointAtLength(t * pathLength);
+
+                    this.cubicon.def_cubiconBase
                         .attr("x2", currentPoint.x)
                         .attr("y2", currentPoint.y);
 

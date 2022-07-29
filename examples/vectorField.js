@@ -4,8 +4,10 @@ import {
     Vector2,
     VectorField,
     Grid,
-    DrawGridFromScreenSides,
+    DrawGrid,
     DrawVectorField,
+    MathTex,
+    Write,
 } from "../src/index";
 
 function vectorFieldSimulation() {
@@ -15,7 +17,8 @@ function vectorFieldSimulation() {
         const group = new Group("vector-field", scene);
 
         const grid = new Grid({ group: group }).render();
-        group.play([new DrawGridFromScreenSides(grid)]);
+
+        group.play([new DrawGrid({ cubicon: grid })]);
 
         const vectorField = new VectorField({
             group: group,
@@ -29,7 +32,15 @@ function vectorFieldSimulation() {
 
         group.play([new DrawVectorField({ cubicon: vectorField })]);
 
-        group.makeup({ opacity: 0.5 }, 1000);
+        const formula = new MathTex({
+            group: group,
+            position: new Vector2(-8, 4),
+            text: "\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}",
+        }).render();
+
+        group.play([new Write({ cubicon: formula })]);
+
+        group.makeup({ duration: 1000, CONFIG: { opacity: 0.5 } });
 
         group.sleep(1000);
     }

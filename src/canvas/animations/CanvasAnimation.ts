@@ -1,20 +1,41 @@
-export abstract class CanvasAnimation {
+import { CanvasCubicon } from "@cubicons/CanvasCubicon";
+
+export interface CanvasAnimationParams<TCubicon> {
     /**
-     * The target cubicon of this animation.
+     * The target cubicon to play this animation.
      */
-    cubicon: any;
+    cubicon: TCubicon;
 
     /**
-     * Time to play this animation (in milliseconds).
+     * The duration of this animation (in milliseconds).
      */
+    duration?: number;
+}
+
+export abstract class CanvasAnimation {
+    cubicon: CanvasCubicon;
+
     duration: number;
 
-    constructor(params: { cubicon: any; duration?: number }) {
+    /**
+     * The time to wait before playing this animation.
+     */
+    sleepTime = 0;
+
+    constructor(params: { cubicon: CanvasCubicon; duration?: number }) {
         this.cubicon = params.cubicon;
+
+        this.sleepTime = params.cubicon.group.groupElapsed;
+
         this.duration = params.duration ?? 0;
     }
 
-    play(sleepTime: number) {
-        sleepTime;
+    /**
+     * Play this animation.
+     *
+     * @internal
+     */
+    play() {
+        //
     }
 }

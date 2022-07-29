@@ -2,60 +2,56 @@ import { EASE_TYPE, EASE } from "@consts";
 
 import { Cubicon } from "@cubicons/Cubicon";
 
-import { Rectangle } from "@cubicons/geometry/Rectangle";
-import { Square } from "@cubicons/geometry/Square";
-import { Circle } from "@cubicons/geometry/Circle";
-import { Line } from "@cubicons/geometry/Line";
-import { VectorShape } from "@cubicons/geometry/VectorShape";
+export interface AnimationParams<TCubicon> {
+    /**
+     * The target cubicon to play this animation.
+     */
+    cubicon: TCubicon;
 
-import { Graph } from "@cubicons/coordinate-system/Graph";
-import { Point } from "@cubicons/coordinate-system/Point";
-import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
+    /**
+     * The duration of this animation (in milliseconds).
+     */
+    duration?: number;
 
-/**
- * Legal shape types to play Create() animation.
- */
-export type CREATE_SHAPE_TYPES = Rectangle | Square | Circle | Graph | Point;
-
-/**
- * Legal line-like types to play Create() animation.
- */
-export type CREATE_LINE_TYPES = Line | VectorShape | AxisProjector;
-
-/**
- * Legal cubicon types to play Create() animation.
- */
-export type CREATE_TYPES = CREATE_SHAPE_TYPES | CREATE_LINE_TYPES;
+    /**
+     * Easing function for smooth animation.
+     */
+    ease?: EASE_TYPE;
+}
 
 export abstract class Animation {
     abstract readonly animationType: string;
 
     /**
-     * The target cubicon of this animation.
+     * The time to wait before playing this animation.
      */
-    cubicon: any;
+    sleepTime = 0;
 
-    /**
-     * Time to play this animation (in milliseconds).
-     */
+    cubicon: Cubicon;
+
     duration: number;
 
-    /**
-     * The easing function to use.
-     */
     ease: EASE_TYPE;
 
-    constructor({
-        cubicon,
-        duration,
-        ease,
-    }: {
-        cubicon: Cubicon;
-        duration?: number;
-        ease?: EASE_TYPE;
-    }) {
-        this.cubicon = cubicon;
-        this.duration = duration ?? 0;
-        this.ease = ease ?? EASE.CUBIC;
+    constructor(params: AnimationParams<Cubicon>) {
+        this.cubicon = params.cubicon;
+
+        this.sleepTime = params.cubicon.group.groupElapsed;
+
+        this.duration = params.duration ?? 0;
+
+        this.ease = params.ease ?? EASE.CUBIC;
+    }
+
+    /**
+     * Play this animation.
+     */
+    play() {
+        //
+    }
+
+    setCubiconPosition(x: number, y: number) {
+        this.cubicon.position.x = x;
+        this.cubicon.position.y = y;
     }
 }

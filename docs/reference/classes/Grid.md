@@ -16,11 +16,9 @@
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | - |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the grid belongs to. |
-| `params.hasNums?` | `boolean` | Whether or not to include numbers onto axes. |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`CubiconParams`](/reference/interfaces/CubiconParams.md)<[`GRID_CONFIG`](/reference/interfaces/GRID_CONFIG.md)\> |
 
 #### Overrides
 
@@ -28,9 +26,23 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:57](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L57)
+src/svg/cubicons/Grid.ts:57
 
 ## Properties
+
+### CONFIG
+
+• **CONFIG**: [`GRID_CONFIG`](/reference/interfaces/GRID_CONFIG.md)
+
+#### Overrides
+
+[Cubicon](/reference/classes/Cubicon.md).[CONFIG](/reference/classes/Cubicon.md#config)
+
+#### Defined in
+
+src/svg/cubicons/Grid.ts:44
+
+___
 
 ### angle
 
@@ -45,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
+src/svg/cubicons/Cubicon.ts:50
 
 ___
 
@@ -59,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:11](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L11)
+src/svg/cubicons/Grid.ts:42
 
 ___
 
@@ -67,7 +79,7 @@ ___
 
 • **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
-The HTML tag that represents this cubicon.
+The SVG element that represents this cubicon.
 
 #### Inherited from
 
@@ -75,7 +87,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
+src/svg/cubicons/Cubicon.ts:75
 
 ___
 
@@ -83,7 +95,7 @@ ___
 
 • **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<g/>` tag that holds this cubicon.
+The `<g>` element that holds this cubicon.
 
 #### Inherited from
 
@@ -91,31 +103,17 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
+src/svg/cubicons/Cubicon.ts:70
 
 ___
 
-### g\_horizontal
+### gridOrigin
 
-• **g\_horizontal**: `any`
-
-The `<g/>` tag that contains all horizontal lines.
+• **gridOrigin**: [`GridOrigin`](/reference/classes/GridOrigin.md)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:49](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L49)
-
-___
-
-### g\_vertical
-
-• **g\_vertical**: `any`
-
-The `<g/>` tag that contains all vertical lines.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:53](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L53)
+src/svg/cubicons/Grid.ts:46
 
 ___
 
@@ -123,37 +121,23 @@ ___
 
 • **group**: [`Group`](/reference/classes/Group.md)
 
-The group that this cubicon belongs to.
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[group](/reference/classes/Cubicon.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
+src/svg/cubicons/Cubicon.ts:40
 
 ___
 
-### hasNums
+### horizontalLines
 
-• **hasNums**: `boolean`
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:55](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L55)
-
-___
-
-### lineColor
-
-• **lineColor**: `string`
-
-Color of the grid lines.
+• **horizontalLines**: [`Line`](/reference/classes/Line.md)[]
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:30](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L30)
+src/svg/cubicons/Grid.ts:48
 
 ___
 
@@ -169,7 +153,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
+src/svg/cubicons/Cubicon.ts:60
 
 ___
 
@@ -185,19 +169,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
-
-___
-
-### originColor
-
-• **originColor**: `string`
-
-Color of the grid origin.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:16](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L16)
+src/svg/cubicons/Cubicon.ts:55
 
 ___
 
@@ -205,16 +177,13 @@ ___
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[position](/reference/classes/Cubicon.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
+src/svg/cubicons/Cubicon.ts:42
 
 ___
 
@@ -222,7 +191,7 @@ ___
 
 • **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<svg/>` tag of this cubicon's group.
+The `<svg>` element of this cubicon's group.
 
 #### Inherited from
 
@@ -230,61 +199,53 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
+src/svg/cubicons/Cubicon.ts:65
 
 ___
 
-### xAxesColor
+### verticalLines
 
-• **xAxesColor**: `string`
-
-Color of the x axis.
+• **verticalLines**: [`Line`](/reference/classes/Line.md)[]
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:21](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L21)
+src/svg/cubicons/Grid.ts:50
+
+## Accessors
+
+### xs
+
+• `get` **xs**(): `number`[]
+
+#### Returns
+
+`number`[]
+
+#### Defined in
+
+src/svg/cubicons/Grid.ts:132
 
 ___
 
-### xNumberRange
+### ys
 
-• **xNumberRange**: `number`[]
+• `get` **ys**(): `number`[]
 
-Numbers marked on the x axis.
+#### Returns
 
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:35](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L35)
-
-___
-
-### yAxesColor
-
-• **yAxesColor**: `string`
-
-Color of the y axis.
+`number`[]
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Grid.ts:25](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L25)
-
-___
-
-### yNumberRange
-
-• **yNumberRange**: `number`[]
-
-Numbers marked on the y axis.
-
-#### Defined in
-
-[src/svg/cubicons/geometry/Grid.ts:39](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L39)
+src/svg/cubicons/Grid.ts:136
 
 ## Methods
 
 ### coordsGtoW
 
 ▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+Convert grid coordinates to pixels.
 
 #### Parameters
 
@@ -302,7 +263,7 @@ Numbers marked on the y axis.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
+src/svg/cubicons/Cubicon.ts:99
 
 ___
 
@@ -310,34 +271,16 @@ ___
 
 ▸ **render**(): [`Grid`](/reference/classes/Grid.md)
 
+Render this cubicon.
+
 #### Returns
 
 [`Grid`](/reference/classes/Grid.md)
 
-#### Defined in
+#### Overrides
 
-[src/svg/cubicons/geometry/Grid.ts:77](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Grid.ts#L77)
-
-___
-
-### setParentSelection
-
-▸ **setParentSelection**(`parentSelection`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Cubicon](/reference/classes/Cubicon.md).[setParentSelection](/reference/classes/Cubicon.md#setparentselection)
+[Cubicon](/reference/classes/Cubicon.md).[render](/reference/classes/Cubicon.md#render)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
+src/svg/cubicons/Grid.ts:123

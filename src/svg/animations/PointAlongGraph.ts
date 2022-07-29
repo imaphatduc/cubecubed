@@ -1,121 +1,134 @@
-import { ANIME, EASE_TYPE } from "@consts";
-
-import { PT_TO_COORDS_DATA } from "@cubicons/coordinate-system/Axes";
-
-import { Animation } from "./Animation";
+import { ANIME } from "@consts";
 
 import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
 import { Graph } from "@cubicons/coordinate-system/Graph";
+import { Point } from "@cubicons/coordinate-system/Point";
+
+import { Animation, AnimationParams } from "@animations/Animation";
+
+export interface PointAlongGraphParams extends AnimationParams<Point> {
+    horizontalProjector?: AxisProjector;
+
+    verticalProjector?: AxisProjector;
+
+    /**
+     * Which graph should the point moving along?
+     */
+    graph: Graph;
+
+    /**
+     * x coordinate of the point's target position.
+     */
+    xPos: number;
+}
 
 /**
- * Animate the smooth motion of a point along a graph.
- *
- * **Note** that you have to call either of Axes().pointOnGraph(args) or Axes().pointToCoords(args) to play this animation.
+ * Animate the smooth motion of a point along a graph. **Note** that you have to
+ * call either of `Axes().pointOnGraph(args)` or `Axes().pointToCoords(args)` to
+ * play this animation.
  */
 export class PointAlongGraph extends Animation {
     readonly animationType = "PointAlongGraph";
 
-    private projectors: [AxisProjector, AxisProjector];
+    cubicon: Point;
+
+    private horizontalProjector?: AxisProjector;
+
+    private verticalProjector?: AxisProjector;
+
     private graph: Graph;
+
     private xPos: number;
 
     private tweenX = (t: number) => {
         const xScale = this.graph.axes.getXScale();
 
-        const deltaX = this.xPos - this.cubicon.position.x;
+        const deltaX = this.getDeltaX();
 
-        return xScale(t * deltaX + this.cubicon.position.x);
+        const x = t * deltaX + this.cubicon.position.x;
+
+        return xScale(x).toString();
     };
 
     private tweenY = (t: number) => {
         const yScale = this.graph.axes.getYScale();
 
-        const deltaX = this.xPos - this.cubicon.position.x;
+        const deltaX = this.getDeltaX();
 
-        return yScale(
-            this.graph.functionDef(t * deltaX + this.cubicon.position.x)
-        );
+        const y = this.graph.functionDef(t * deltaX + this.cubicon.position.x);
+
+        return yScale(y).toString();
     };
 
-    constructor(params: {
-        /**
-         * The target point object for this animation.
-         *
-         * This is the result point after calling Axes().pointOnGraph(args) or Axes().pointToCoords(args).
-         */
-        point: PT_TO_COORDS_DATA;
-        /**
-         * Which graph should the point moving along?
-         */
-        graph: Graph;
-        /**
-         * x coordinate of the point's target position.
-         */
-        xPos: number;
-        /**
-         * Time to play this animation. (in milliseconds)
-         */
-        duration?: number;
-        /**
-         * Custom easing function for smooth animation.
-         */
-        ease?: EASE_TYPE;
-    }) {
+    constructor(params: PointAlongGraphParams) {
         super({
-            cubicon: params.point.point,
+            cubicon: params.cubicon,
+
             duration: params.duration ?? ANIME.CREATE,
+
             ease: params.ease,
         });
 
-        this.projectors = params.point.projectors;
+        this.horizontalProjector = params.horizontalProjector;
+
+        this.verticalProjector = params.verticalProjector;
+
         this.graph = params.graph;
+
         this.xPos = params.xPos;
     }
 
-    play(sleepTime: number) {
-        this.pointAlongGraph(sleepTime);
-        if (typeof this.projectors !== "undefined") {
-            this.animateProjectors(sleepTime);
+    play() {
+        this.pointAlongGraph();
+    }
+
+    private pointAlongGraph() {
+        this.applyPointAlongGraph();
+
+        if (this.horizontalProjector && this.verticalProjector) {
+            this.applyProjectorsAlongGraph();
         }
     }
 
-    private pointAlongGraph(sleepTime: number) {
+    private applyPointAlongGraph() {
         this.cubicon.def_cubiconBase
             .transition()
             .ease(this.ease)
-            .delay(sleepTime)
+            .delay(this.sleepTime)
             .duration(this.duration)
             .attrTween("cx", () => this.tweenX)
             .attrTween("cy", () => this.tweenY)
             .on("end", () => {
-                this.cubicon.position.x = this.xPos;
-                this.cubicon.position.y = this.graph.functionDef(this.xPos);
+                this.setCubiconPosition(
+                    this.xPos,
+                    this.graph.functionDef(this.xPos)
+                );
             });
     }
 
-    private animateProjectors(sleepTime: number) {
-        const data = [
-            {
-                projector: this.projectors[0],
-                attr: "y2",
-                tween: this.tweenY,
-            },
-            {
-                projector: this.projectors[1],
-                attr: "x2",
-                tween: this.tweenX,
-            },
-        ];
+    private applyProjectorsAlongGraph() {
+        this.horizontalProjector?.def_cubiconBase
+            .transition()
+            .ease(this.ease)
+            .delay(this.sleepTime)
+            .duration(this.duration)
+            .attrTween("x1", () => this.tweenX)
+            .attrTween("y1", () => this.tweenY)
+            .attrTween("y2", () => this.tweenY);
 
-        data.forEach((d: any) => {
-            d.projector.def_cubiconBase
-                .transition()
-                .ease(this.ease)
-                .delay(sleepTime)
-                .duration(this.duration)
-                .attrTween("x1", () => this.tweenX)
-                .attrTween("y1", () => this.tweenY)
-                .attrTween(d.attr, () => d.tween);
-        });
+        //
+
+        this.verticalProjector?.def_cubiconBase
+            .transition()
+            .ease(this.ease)
+            .delay(this.sleepTime)
+            .duration(this.duration)
+            .attrTween("x1", () => this.tweenX)
+            .attrTween("y1", () => this.tweenY)
+            .attrTween("x2", () => this.tweenX);
+    }
+
+    private getDeltaX() {
+        return this.xPos - this.cubicon.position.x;
     }
 }

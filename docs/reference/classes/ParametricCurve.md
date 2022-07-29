@@ -2,8 +2,6 @@
 
 # Class: ParametricCurve
 
-Generate a 2d curve.
-
 ## Hierarchy
 
 - [`Cubicon`](/reference/classes/Cubicon.md)
@@ -20,12 +18,7 @@ Generate a 2d curve.
 
 | Name | Type |
 | :------ | :------ |
-| `params` | `Object` |
-| `params.CONFIG` | [`LINE_CONFIG`](/reference/interfaces/LINE_CONFIG.md) |
-| `params.dt?` | `number` |
-| `params.group` | [`Group`](/reference/classes/Group.md) |
-| `params.tRange` | [`number`, `number`] |
-| `params.functionDef` | (`t`: `number`) => [`Vector2`](/reference/classes/Vector2.md) |
+| `params` | [`ParametricCurveParams`](/reference/interfaces/ParametricCurveParams.md) |
 
 #### Overrides
 
@@ -33,19 +26,21 @@ Generate a 2d curve.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:29](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L29)
+src/svg/cubicons/geometry/ParametricCurve.ts:38
 
 ## Properties
 
 ### CONFIG
 
-• **CONFIG**: [`LINE_CONFIG`](/reference/interfaces/LINE_CONFIG.md)
+• **CONFIG**: [`LINE_SHAPE_CONFIG`](/reference/interfaces/LINE_SHAPE_CONFIG.md)
 
-Config options of this parametric curve.
+#### Overrides
+
+[Cubicon](/reference/classes/Cubicon.md).[CONFIG](/reference/classes/Cubicon.md#config)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:27](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L27)
+src/svg/cubicons/geometry/ParametricCurve.ts:36
 
 ___
 
@@ -62,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
+src/svg/cubicons/Cubicon.ts:50
 
 ___
 
@@ -76,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:16](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L16)
+src/svg/cubicons/geometry/ParametricCurve.ts:30
 
 ___
 
@@ -84,7 +79,7 @@ ___
 
 • **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
-The HTML tag that represents this cubicon.
+The SVG element that represents this cubicon.
 
 #### Inherited from
 
@@ -92,7 +87,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
+src/svg/cubicons/Cubicon.ts:75
 
 ___
 
@@ -116,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L20)
+src/svg/cubicons/geometry/ParametricCurve.ts:32
 
 ___
 
@@ -124,7 +119,7 @@ ___
 
 • **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<g/>` tag that holds this cubicon.
+The `<g>` element that holds this cubicon.
 
 #### Inherited from
 
@@ -132,7 +127,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
+src/svg/cubicons/Cubicon.ts:70
 
 ___
 
@@ -140,15 +135,13 @@ ___
 
 • **group**: [`Group`](/reference/classes/Group.md)
 
-The group that this cubicon belongs to.
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[group](/reference/classes/Cubicon.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
+src/svg/cubicons/Cubicon.ts:40
 
 ___
 
@@ -164,7 +157,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
+src/svg/cubicons/Cubicon.ts:60
 
 ___
 
@@ -180,17 +173,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
-
-___
-
-### points
-
-• **points**: [`Vector2`](/reference/classes/Vector2.md)[]
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:18](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L18)
+src/svg/cubicons/Cubicon.ts:55
 
 ___
 
@@ -198,16 +181,13 @@ ___
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[position](/reference/classes/Cubicon.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
+src/svg/cubicons/Cubicon.ts:42
 
 ___
 
@@ -215,7 +195,7 @@ ___
 
 • **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<svg/>` tag of this cubicon's group.
+The `<svg>` element of this cubicon's group.
 
 #### Inherited from
 
@@ -223,7 +203,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
+src/svg/cubicons/Cubicon.ts:65
 
 ___
 
@@ -233,13 +213,57 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:22](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L22)
+src/svg/cubicons/geometry/ParametricCurve.ts:34
+
+## Accessors
+
+### firstOutputPoint
+
+• `get` **firstOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+src/svg/cubicons/geometry/ParametricCurve.ts:97
+
+___
+
+### lastOutputPoint
+
+• `get` **lastOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+src/svg/cubicons/geometry/ParametricCurve.ts:101
+
+___
+
+### vertices
+
+• `get` **vertices**(): [`Vector2`](/reference/classes/Vector2.md)[]
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)[]
+
+#### Defined in
+
+src/svg/cubicons/geometry/ParametricCurve.ts:87
 
 ## Methods
 
 ### coordsGtoW
 
 ▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+Convert grid coordinates to pixels.
 
 #### Parameters
 
@@ -257,35 +281,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
-
-___
-
-### getFirstOutputPoint
-
-▸ **getFirstOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
-
-#### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:97](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L97)
-
-___
-
-### getLastOutputPoint
-
-▸ **getLastOutputPoint**(): [`Vector2`](/reference/classes/Vector2.md)
-
-#### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:101](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L101)
+src/svg/cubicons/Cubicon.ts:99
 
 ___
 
@@ -305,7 +301,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:93](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L93)
+src/svg/cubicons/geometry/ParametricCurve.ts:83
 
 ___
 
@@ -313,34 +309,16 @@ ___
 
 ▸ **render**(): [`ParametricCurve`](/reference/classes/ParametricCurve.md)
 
+Render this cubicon.
+
 #### Returns
 
 [`ParametricCurve`](/reference/classes/ParametricCurve.md)
 
-#### Defined in
+#### Overrides
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:66](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/ParametricCurve.ts#L66)
-
-___
-
-### setParentSelection
-
-▸ **setParentSelection**(`parentSelection`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Cubicon](/reference/classes/Cubicon.md).[setParentSelection](/reference/classes/Cubicon.md#setparentselection)
+[Cubicon](/reference/classes/Cubicon.md).[render](/reference/classes/Cubicon.md#render)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
+src/svg/cubicons/geometry/ParametricCurve.ts:61

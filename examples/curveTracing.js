@@ -4,7 +4,7 @@ import {
     Vector2,
     COLOR,
     Grid,
-    DrawGridFromScreenSides,
+    DrawGrid,
     ParametricCurve,
     Trace,
     Line,
@@ -17,7 +17,8 @@ function curveTracing() {
     const group = new Group("group", scene);
 
     const grid = new Grid({ group: group }).render();
-    group.play([new DrawGridFromScreenSides(grid)]);
+
+    group.play([new DrawGrid({ cubicon: grid })]);
 
     const curve = new ParametricCurve({
         group: group,
@@ -31,7 +32,7 @@ function curveTracing() {
 
     const drawer = new Line({
         group: group,
-        endPoint: curve.getFirstOutputPoint(),
+        endPoint: curve.firstOutputPoint,
         CONFIG: {
             lineColor: COLOR.PINK_1,
         },

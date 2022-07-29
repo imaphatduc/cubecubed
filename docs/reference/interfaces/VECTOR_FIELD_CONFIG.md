@@ -8,9 +8,11 @@
 
 • `Optional` **isScaled**: `boolean`
 
+Are the length of the vector shapes scaled based on the longest one?
+
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:13](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L13)
+src/svg/cubicons/VectorField.ts:17
 
 ___
 
@@ -18,9 +20,11 @@ ___
 
 • `Optional` **lineColor**: `string`
 
+Are the color of the vector shapes one color or scaled?
+
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L14)
+src/svg/cubicons/VectorField.ts:22
 
 ___
 
@@ -28,6 +32,8 @@ ___
 
 • `Optional` **lineWidth**: `number`
 
+Width of the vector shapes.
+
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:15](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/VectorField.ts#L15)
+src/svg/cubicons/VectorField.ts:27

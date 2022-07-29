@@ -1,78 +1,121 @@
 import { range } from "d3-array";
+import { Selection } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
-
-import { Animation } from "./Animation";
 
 import { Axes } from "@cubicons/coordinate-system/Axes";
 
-/**
- * Animated drawing process of x and y axes on the screen.
- */
+import { Animation, AnimationParams } from "@animations/Animation";
+
+export type AxisSelection = Selection<SVGGElement, unknown, HTMLElement, any>;
+
 export class DrawAxes extends Animation {
     readonly animationType = "DrawAxes";
 
-    private xNums;
-    private yNums;
-    private delayEach;
+    cubicon: Axes;
 
-    private arrowDuration = 600;
+    private readonly delayEach = 100;
 
-    /**
-     * @param axes The target axes object to play this animation.
-     */
-    constructor(axes: Axes) {
-        super({ cubicon: axes });
+    private readonly arrowDuration = 600;
 
-        this.xNums = -this.cubicon.xRange[0] + this.cubicon.xRange[1];
-        this.yNums = -this.cubicon.yRange[0] + this.cubicon.yRange[1];
+    constructor(params: AnimationParams<Axes>) {
+        super({ cubicon: params.cubicon, ease: params.ease });
 
-        this.delayEach = 100;
+        const { numXValues, numYValues } = this.getNumXYValues();
 
         this.duration =
             Math.max(
-                (this.xNums + 2) * this.delayEach,
-                (this.yNums + 2) * this.delayEach
+                (numXValues + 2) * this.delayEach,
+                (numYValues + 2) * this.delayEach
             ) + this.arrowDuration;
     }
 
-    play(sleepTime: number) {
-        this.drawAxis(this.cubicon.xAxis, sleepTime);
-        this.drawAxis(this.cubicon.yAxis, sleepTime);
+    play() {
+        this.drawAxes();
     }
 
-    private drawAxis(axis: any, sleepTime: number) {
-        /// Draw axis
-        const path = axis.select("path.domain");
-        const l = path.node().getTotalLength();
+    private drawAxes() {
+        this.applyAxesDrawing();
 
-        path.attr("stroke-dasharray", l + ", " + l).attr(
-            "stroke-dashoffset",
-            l
-        );
-        path.transition()
-            .ease(this.ease)
-            .delay(sleepTime)
-            .duration(this.duration)
-            .attr("stroke-dashoffset", 0);
+        this.applyAxesTicksMarking();
 
-        /// Mark ticks
-        axis.selectAll("g.tick")
-            .attr("opacity", 0)
-            .data(range(0, this.xNums + 1, 1))
-            .transition()
-            .ease(this.ease)
-            .delay((d: number) => sleepTime + this.delayEach * d)
-            .duration(this.duration)
-            .attr("opacity", 1);
+        this.applyAxesArrowheadFadeIn();
+    }
 
-        /// Fade in axes' arrows
-        axis.select("defs marker path")
-            .attr("opacity", 0)
-            .data(range(0, this.yNums + 1, 1))
-            .transition()
-            .ease(this.ease)
-            .delay(sleepTime + this.delayEach * this.xNums)
-            .duration(this.arrowDuration)
-            .attr("opacity", 1);
+    private applyAxesDrawing() {
+        const axisElements = this.getAxisElements();
+
+        axisElements.forEach((axis) => {
+            const axisPath = this.getAxisPath(axis);
+
+            const pathLength = this.getPathLength(axis)!;
+
+            axisPath.attr("stroke-dasharray", pathLength + ", " + pathLength);
+
+            axisPath
+                .attr("stroke-dashoffset", pathLength)
+                .transition()
+                .ease(this.ease)
+                .delay(this.sleepTime)
+                .duration(this.duration)
+                .attr("stroke-dashoffset", 0);
+        });
+    }
+
+    private applyAxesTicksMarking() {
+        const axisElements = this.getAxisElements();
+
+        axisElements.forEach((axis) => {
+            const { numXValues } = this.getNumXYValues();
+
+            axis.selectAll("g.tick")
+                .attr("opacity", 0)
+                .data(range(0, numXValues + 1))
+                .transition()
+                .ease(this.ease)
+                .delay((d: number) => this.sleepTime + this.delayEach * d)
+                .duration(this.duration)
+                .attr("opacity", 1);
+        });
+    }
+
+    private applyAxesArrowheadFadeIn() {
+        const axisElements = this.getAxisElements();
+
+        axisElements.forEach((axis) => {
+            const { numXValues, numYValues } = this.getNumXYValues();
+
+            axis.select("defs marker path")
+                .attr("opacity", 0)
+                .data(range(0, numYValues + 1))
+                .transition()
+                .ease(this.ease)
+                .delay(this.sleepTime + this.delayEach * numXValues)
+                .duration(this.arrowDuration)
+                .attr("opacity", 1);
+        });
+    }
+
+    private getAxisElements() {
+        return [this.cubicon.xAxis, this.cubicon.yAxis];
+    }
+
+    private getPathLength(axis: AxisSelection) {
+        const axisPath = this.getAxisPath(axis);
+
+        return axisPath.node()?.getTotalLength();
+    }
+
+    private getAxisPath(axis: AxisSelection) {
+        const path: Selection<SVGPathElement, unknown, HTMLElement, any> =
+            axis.select("path.domain");
+
+        return path;
+    }
+
+    private getNumXYValues() {
+        const numXValues = -this.cubicon.xRange[0] + this.cubicon.xRange[1];
+        const numYValues = -this.cubicon.yRange[0] + this.cubicon.yRange[1];
+
+        return { numXValues, numYValues };
     }
 }

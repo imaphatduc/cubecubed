@@ -1,64 +1,73 @@
-import { ANIME, EASE_TYPE } from "@consts";
-
-import { PT_TO_COORDS_DATA } from "@cubicons/coordinate-system/Axes";
-
-import { Animation } from "./Animation";
-import { Create } from "./Create";
+import { ANIME } from "@consts";
 
 import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
 import { Point } from "@cubicons/coordinate-system/Point";
 
-/**
- * The creation of a point and its two axis projectors.
- */
+import { Animation, AnimationParams } from "@animations/Animation";
+import { CreateLineShape } from "@animations/CreateLineShape";
+import { CreatePlaneShape } from "@animations/CreatePlaneShape";
+
+export interface PointToCoordsParams extends AnimationParams<Point> {
+    horizontalProjector?: AxisProjector;
+
+    verticalProjector?: AxisProjector;
+}
+
 export class PointToCoords extends Animation {
     readonly animationType = "PointToCoords";
 
-    private projectors: [AxisProjector, AxisProjector];
+    cubicon: Point;
 
-    constructor(params: {
-        /**
-         * The target point object for this animation.
-         *
-         * This is the result point after calling Axes().pointToCoords(args).
-         */
-        point: PT_TO_COORDS_DATA;
-        /**
-         * Time to play this animation. (in milliseconds)
-         */
-        duration?: number;
-        /**
-         * Custom easing function for smooth animation.
-         */
-        ease?: EASE_TYPE;
-    }) {
+    private horizontalProjector?: AxisProjector;
+
+    private verticalProjector?: AxisProjector;
+
+    constructor(params: PointToCoordsParams) {
         super({
-            cubicon: params.point.point,
+            cubicon: params.cubicon,
+
             duration: params.duration ?? ANIME.CREATE,
+
             ease: params.ease,
         });
 
-        this.projectors = params.point.projectors;
+        this.horizontalProjector = params.horizontalProjector;
+
+        this.verticalProjector = params.verticalProjector;
     }
 
     play() {
-        this.ptToCoords(this.cubicon, this.projectors);
+        this.pointToCoords();
     }
 
-    private ptToCoords(
-        point: Point,
-        projectors: [AxisProjector, AxisProjector]
-    ) {
-        const anims = [
-            new Create({ cubicon: point }),
-            new Create({ cubicon: projectors[0] }),
-            new Create({ cubicon: projectors[1] }),
-        ];
+    private pointToCoords() {
+        const animations = this.getAnimations();
 
-        point.group.play(anims);
+        this.cubicon.group.play(animations);
 
-        point.group.groupElapsed -= Math.max(
-            ...anims.map((anim) => anim.duration)
+        this.reverseToLastGroupElapsed();
+    }
+
+    private reverseToLastGroupElapsed() {
+        const animations = this.getAnimations();
+
+        this.cubicon.group.groupElapsed -= Math.max(
+            ...animations.map((animation) => animation.duration)
         );
+    }
+
+    private getAnimations() {
+        const animations = [];
+
+        animations.push(new CreatePlaneShape({ cubicon: this.cubicon }));
+
+        if (this.horizontalProjector && this.verticalProjector) {
+            animations.push(
+                new CreateLineShape({ cubicon: this.horizontalProjector }),
+                new CreateLineShape({ cubicon: this.verticalProjector })
+            );
+        }
+
+        return animations;
     }
 }

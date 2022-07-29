@@ -1,63 +1,43 @@
-import { LINE_CONFIG, LINE_DEFAULT_CONFIG } from "./Geometry";
+import configFactory from "@utils/configFactory";
 
 import { Vector2 } from "@math/Vector2";
 
-import { Group } from "@group/Group";
-import { Cubicon } from "@cubicons/Cubicon";
+import {
+    LINE_SHAPE_CONFIG,
+    LINE_SHAPE_DEFAULT_CONFIG,
+} from "@configs/geometry/LINE_SHAPE_CONFIG";
 
-/**
- * Return the barebone of a line shape.
- */
+import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
+
+export interface LineParams extends CubiconParams<LINE_SHAPE_CONFIG> {
+    /**
+     * Start point (tail) of this line.
+     */
+    startPoint?: Vector2;
+
+    /**
+     * End point (head) of this line.
+     */
+    endPoint: Vector2;
+}
+
 export class Line extends Cubicon {
     readonly cubiconType = "Line";
 
-    /**
-     * Start point (tail) of the line.
-     */
-    readonly startPoint: Vector2;
-    /**
-     * End point (head) of the line.
-     */
     readonly endPoint: Vector2;
 
-    /**
-     * Config options of this line.
-     */
-    CONFIG: LINE_CONFIG;
+    CONFIG: LINE_SHAPE_CONFIG;
 
-    constructor(params: {
-        /**
-         * The group that the line belongs to.
-         */
-        group: Group;
-        /**
-         * Start point (tail) of the line.
-         */
-        startPoint?: Vector2;
-        /**
-         * End point (head) of the line.
-         */
-        endPoint: Vector2;
-        /**
-         * Config options of the line.
-         */
-        CONFIG?: LINE_CONFIG;
-    }) {
-        super({ group: params.group, position: params.startPoint });
+    constructor(params: LineParams) {
+        super({
+            group: params.group,
 
-        this.startPoint =
-            typeof params.startPoint !== "undefined"
-                ? new Vector2(params.startPoint.x, params.startPoint.y)
-                : new Vector2(0, 0);
+            position: params.startPoint ?? new Vector2(0, 0),
+
+            CONFIG: configFactory(params.CONFIG, LINE_SHAPE_DEFAULT_CONFIG),
+        });
 
         this.endPoint = new Vector2(params.endPoint.x, params.endPoint.y);
-
-        this.CONFIG = {
-            lineColor:
-                params.CONFIG?.lineColor ?? LINE_DEFAULT_CONFIG.lineColor,
-            lineWidth:
-                params.CONFIG?.lineWidth ?? LINE_DEFAULT_CONFIG.lineWidth,
-        };
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -70,11 +50,8 @@ export class Line extends Cubicon {
             .attr("class", "line");
     }
 
-    /**
-     * Draw (and render) the shape of this line onto SVG.
-     */
     render() {
-        const WstartPoint = this.coordsGtoW(this.startPoint);
+        const WstartPoint = this.coordsGtoW(this.position);
         const WendPoint = this.coordsGtoW(this.endPoint);
 
         this.applyToHTMLFlow(WstartPoint, WendPoint);

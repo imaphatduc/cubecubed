@@ -3,21 +3,28 @@ import { range } from "d3-array";
 import { DoubleSide, Mesh, MeshNormalMaterial, PlaneGeometry } from "three";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-import { Vector3 } from "@math/Vector3";
+import configFactory from "@utils/configFactory";
 
-import { CanvasGroup } from "@group/CanvasGroup";
-import { CanvasCubicon } from "./CanvasCubicon";
+import { CanvasCubicon, CanvasCubiconParams } from "@cubicons/CanvasCubicon";
 
 export interface REVOLUTION_SURFACE_CONFIG {
     /**
+     * Number of vertices on each curve.
+     *
      * @default 100
      */
     numCurveVertices: number;
+
     /**
+     * Number of vertices on each ring after a full rotation.
+     *
      * @default 100
      */
     numRevolVertices: number;
+
     /**
+     * x value range of the curves.
+     *
      * @default [0,0]
      */
     xRange: [number, number];
@@ -31,64 +38,41 @@ export const REVOLUTION_SURFACE_DEFAULT_CONFIG: REVOLUTION_SURFACE_CONFIG = {
 
 export type CurveFunction = (x: number) => number;
 
+export interface RevolutionSurfaceParams
+    extends CanvasCubiconParams<REVOLUTION_SURFACE_CONFIG> {
+    /**
+     * Function definition of the initial curve.
+     */
+    functionDef: CurveFunction;
+}
+
 export class RevolutionSurface extends CanvasCubicon {
     /**
-     * The function defining the curve to rotate around
-     * the x axis.
+     * The function defining the curve to rotate around the x axis.
      *
      * Form: y = f(x)
      */
     functionDef: CurveFunction;
 
-    /**
-     * Config options of the revolution surface.
-     */
     CONFIG: REVOLUTION_SURFACE_CONFIG;
 
-    constructor(params: {
-        /**
-         * The group that the particle belongs to
-         */
-        group: CanvasGroup;
-        /**
-         * Position of the particle.
-         *
-         * @default Vector3(0,0,0)
-         */
-        position?: Vector3;
-        /**
-         * Function definition of the initial curve.
-         */
-        functionDef: CurveFunction;
-        /**
-         * Config options of the revolution surface.
-         *
-         * @default REVOLUTION_SURFACE_DEFAULT_CONFIG
-         */
-        CONFIG: REVOLUTION_SURFACE_CONFIG;
-    }) {
-        super({ group: params.group });
+    constructor(params: RevolutionSurfaceParams) {
+        super({
+            group: params.group,
+
+            position: params.position,
+
+            CONFIG: configFactory(
+                params.CONFIG,
+                REVOLUTION_SURFACE_DEFAULT_CONFIG
+            ),
+        });
 
         this.functionDef = params.functionDef;
 
-        this.CONFIG = {
-            numCurveVertices:
-                params.CONFIG?.numCurveVertices ??
-                REVOLUTION_SURFACE_DEFAULT_CONFIG.numCurveVertices,
-            numRevolVertices:
-                params.CONFIG?.numRevolVertices ??
-                REVOLUTION_SURFACE_DEFAULT_CONFIG.numRevolVertices,
-            xRange:
-                params.CONFIG?.xRange ??
-                REVOLUTION_SURFACE_DEFAULT_CONFIG.xRange,
-        };
-
         this.geometrize();
 
-        this.material = new MeshNormalMaterial({
-            side: DoubleSide,
-            wireframe: false,
-        });
+        this.materialize();
     }
 
     /**
@@ -116,9 +100,17 @@ export class RevolutionSurface extends CanvasCubicon {
         );
 
         this.geometry.rotateX(0.5 * -Math.PI);
+
         this.geometry.translate(width / 2 + xRange[0], 0, 0);
 
         this.setVertices();
+    }
+
+    private materialize() {
+        this.material = new MeshNormalMaterial({
+            side: DoubleSide,
+            wireframe: false,
+        });
     }
 
     /**
@@ -130,15 +122,8 @@ export class RevolutionSurface extends CanvasCubicon {
     setVertices(t = 1) {
         const vertices = this.geometry.attributes.position;
 
-        const { numCurveVertices, numRevolVertices } = this.CONFIG;
-
         range(0, vertices.count).forEach((i) => {
-            const revolIndex = Math.floor(i / numCurveVertices);
-
-            const revolOffset = -2;
-
-            const theta =
-                revolIndex * ((2 * Math.PI) / (numRevolVertices + revolOffset));
+            const theta = this.getTheta(i);
 
             const x = vertices.getX(i);
 
@@ -150,5 +135,21 @@ export class RevolutionSurface extends CanvasCubicon {
         });
 
         vertices.needsUpdate = true;
+    }
+
+    private getRevolIndex(i: number) {
+        const { numCurveVertices } = this.CONFIG;
+
+        return Math.floor(i / numCurveVertices);
+    }
+
+    private getTheta(i: number) {
+        const { numRevolVertices } = this.CONFIG;
+
+        const revolIndex = this.getRevolIndex(i);
+
+        const revolOffset = -2;
+
+        return revolIndex * ((2 * Math.PI) / (numRevolVertices + revolOffset));
     }
 }

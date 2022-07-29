@@ -4,25 +4,25 @@
 
 ## Hierarchy
 
--   **`Cubicon`**
+- **`Cubicon`**
 
-    ↳ [`VectorField`](/reference/classes/VectorField.md)
+  ↳ [`VectorField`](/reference/classes/VectorField.md)
 
-    ↳ [`MathTex`](/reference/classes/MathTex.md)
+  ↳ [`MathTex`](/reference/classes/MathTex.md)
 
-    ↳ [`Grid`](/reference/classes/Grid.md)
+  ↳ [`Grid`](/reference/classes/Grid.md)
 
-    ↳ [`Rectangle`](/reference/classes/Rectangle.md)
+  ↳ [`Rectangle`](/reference/classes/Rectangle.md)
 
-    ↳ [`Circle`](/reference/classes/Circle.md)
+  ↳ [`Circle`](/reference/classes/Circle.md)
 
-    ↳ [`Line`](/reference/classes/Line.md)
+  ↳ [`Line`](/reference/classes/Line.md)
 
-    ↳ [`VectorShape`](/reference/classes/VectorShape.md)
+  ↳ [`VectorShape`](/reference/classes/VectorShape.md)
 
-    ↳ [`ParametricCurve`](/reference/classes/ParametricCurve.md)
+  ↳ [`ParametricCurve`](/reference/classes/ParametricCurve.md)
 
-    ↳ [`Axes`](/reference/classes/Axes.md)
+  ↳ [`Axes`](/reference/classes/Axes.md)
 
 ## Constructors
 
@@ -32,17 +32,25 @@
 
 #### Parameters
 
-| Name               | Type                                       |
-| :----------------- | :----------------------------------------- |
-| `params`           | `Object`                                   |
-| `params.group`     | [`Group`](/reference/classes/Group.md)     |
-| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`CubiconParams`](/reference/interfaces/CubiconParams.md)<`object`\> |
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:53](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L53)
+src/svg/cubicons/Cubicon.ts:77
 
 ## Properties
+
+### CONFIG
+
+• **CONFIG**: `object`
+
+#### Defined in
+
+src/svg/cubicons/Cubicon.ts:44
+
+___
 
 ### angle
 
@@ -53,9 +61,9 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
+src/svg/cubicons/Cubicon.ts:50
 
----
+___
 
 ### cubiconType
 
@@ -63,45 +71,43 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:9](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L9)
+src/svg/cubicons/Cubicon.ts:38
 
----
+___
 
-### def_cubiconBase
+### def\_cubiconBase
 
-• **def_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
+• **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
-The HTML tag that represents this cubicon.
-
-#### Defined in
-
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
-
----
-
-### g_cubiconWrapper
-
-• **g_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
-
-The `<g/>` tag that holds this cubicon.
+The SVG element that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
+src/svg/cubicons/Cubicon.ts:75
 
----
+___
+
+### g\_cubiconWrapper
+
+• **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
+
+The `<g>` element that holds this cubicon.
+
+#### Defined in
+
+src/svg/cubicons/Cubicon.ts:70
+
+___
 
 ### group
 
 • **group**: [`Group`](/reference/classes/Group.md)
 
-The group that this cubicon belongs to.
-
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
+src/svg/cubicons/Cubicon.ts:40
 
----
+___
 
 ### moveAngle
 
@@ -111,9 +117,9 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
+src/svg/cubicons/Cubicon.ts:60
 
----
+___
 
 ### moveVector
 
@@ -123,32 +129,29 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
+src/svg/cubicons/Cubicon.ts:55
 
----
+___
 
 ### position
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
+#### Defined in
+
+src/svg/cubicons/Cubicon.ts:42
+
+___
+
+### svg\_group
+
+• **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
+
+The `<svg>` element of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
-
----
-
-### svg_group
-
-• **svg_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
-
-The `<svg/>` tag of this cubicon's group.
-
-#### Defined in
-
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
+src/svg/cubicons/Cubicon.ts:65
 
 ## Methods
 
@@ -156,10 +159,12 @@ The `<svg/>` tag of this cubicon's group.
 
 ▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
 
+Convert grid coordinates to pixels.
+
 #### Parameters
 
-| Name    | Type                                       |
-| :------ | :----------------------------------------- |
+| Name | Type |
+| :------ | :------ |
 | `point` | [`Vector2`](/reference/classes/Vector2.md) |
 
 #### Returns
@@ -168,19 +173,15 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
+src/svg/cubicons/Cubicon.ts:99
 
----
+___
 
-### setParentSelection
+### render
 
-▸ **setParentSelection**(`parentSelection`): `void`
+▸ **render**(): `void`
 
-#### Parameters
-
-| Name              | Type                                                         |
-| :---------------- | :----------------------------------------------------------- |
-| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
+Render this cubicon.
 
 #### Returns
 
@@ -188,4 +189,4 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
+src/svg/cubicons/Cubicon.ts:92

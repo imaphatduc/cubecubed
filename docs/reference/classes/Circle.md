@@ -2,8 +2,6 @@
 
 # Class: Circle
 
-Return the barebone of a circle shape.
-
 ## Hierarchy
 
 - [`Cubicon`](/reference/classes/Cubicon.md)
@@ -20,13 +18,9 @@ Return the barebone of a circle shape.
 
 #### Parameters
 
-| Name | Type | Description |
-| :------ | :------ | :------ |
-| `params` | `Object` | An object that contains options to form the circle. |
-| `params.CONFIG?` | [`SHAPE_CONFIG`](/reference/interfaces/SHAPE_CONFIG.md) | Config options of the circle. |
-| `params.group` | [`Group`](/reference/classes/Group.md) | The group that the circle belongs to. |
-| `params.position?` | [`Vector2`](/reference/classes/Vector2.md) | Position of the circle. |
-| `params.radius` | `number` | Radius of the rectangle. |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`CircleParams`](/reference/interfaces/CircleParams.md) |
 
 #### Overrides
 
@@ -34,19 +28,21 @@ Return the barebone of a circle shape.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:27](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Circle.ts#L27)
+src/svg/cubicons/geometry/Circle.ts:28
 
 ## Properties
 
 ### CONFIG
 
-• **CONFIG**: [`SHAPE_CONFIG`](/reference/interfaces/SHAPE_CONFIG.md)
+• **CONFIG**: [`PLANE_SHAPE_CONFIG`](/reference/interfaces/PLANE_SHAPE_CONFIG.md)
 
-Config options of this circle.
+#### Overrides
+
+[Cubicon](/reference/classes/Cubicon.md).[CONFIG](/reference/classes/Cubicon.md#config)
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:22](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Circle.ts#L22)
+src/svg/cubicons/geometry/Circle.ts:26
 
 ___
 
@@ -63,7 +59,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L26)
+src/svg/cubicons/Cubicon.ts:50
 
 ___
 
@@ -77,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:12](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Circle.ts#L12)
+src/svg/cubicons/geometry/Circle.ts:22
 
 ___
 
@@ -85,7 +81,7 @@ ___
 
 • **def\_cubiconBase**: `Selection`<`any`, `unknown`, `HTMLElement`, `any`\>
 
-The HTML tag that represents this cubicon.
+The SVG element that represents this cubicon.
 
 #### Inherited from
 
@@ -93,7 +89,7 @@ The HTML tag that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:51](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L51)
+src/svg/cubicons/Cubicon.ts:75
 
 ___
 
@@ -101,7 +97,7 @@ ___
 
 • **g\_cubiconWrapper**: `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<g/>` tag that holds this cubicon.
+The `<g>` element that holds this cubicon.
 
 #### Inherited from
 
@@ -109,7 +105,7 @@ The `<g/>` tag that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L46)
+src/svg/cubicons/Cubicon.ts:70
 
 ___
 
@@ -117,15 +113,13 @@ ___
 
 • **group**: [`Group`](/reference/classes/Group.md)
 
-The group that this cubicon belongs to.
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[group](/reference/classes/Cubicon.md#group)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:14](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L14)
+src/svg/cubicons/Cubicon.ts:40
 
 ___
 
@@ -141,7 +135,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L36)
+src/svg/cubicons/Cubicon.ts:60
 
 ___
 
@@ -157,7 +151,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L31)
+src/svg/cubicons/Cubicon.ts:55
 
 ___
 
@@ -165,16 +159,13 @@ ___
 
 • **position**: [`Vector2`](/reference/classes/Vector2.md)
 
-Position of this cubicon.
-This property changed after finishing animations (in real time).
-
 #### Inherited from
 
 [Cubicon](/reference/classes/Cubicon.md).[position](/reference/classes/Cubicon.md#position)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:20](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L20)
+src/svg/cubicons/Cubicon.ts:42
 
 ___
 
@@ -182,11 +173,9 @@ ___
 
 • `Readonly` **radius**: `number`
 
-Radius of the rectangle (in grid coordinate system).
-
 #### Defined in
 
-[src/svg/cubicons/geometry/Circle.ts:17](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Circle.ts#L17)
+src/svg/cubicons/geometry/Circle.ts:24
 
 ___
 
@@ -194,7 +183,7 @@ ___
 
 • **svg\_group**: `Selection`<`SVGSVGElement`, `unknown`, `HTMLElement`, `any`\>
 
-The `<svg/>` tag of this cubicon's group.
+The `<svg>` element of this cubicon's group.
 
 #### Inherited from
 
@@ -202,13 +191,15 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L41)
+src/svg/cubicons/Cubicon.ts:65
 
 ## Methods
 
 ### coordsGtoW
 
 ▸ **coordsGtoW**(`point`): [`Vector2`](/reference/classes/Vector2.md)
+
+Convert grid coordinates to pixels.
 
 #### Parameters
 
@@ -226,7 +217,7 @@ The `<svg/>` tag of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:69](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L69)
+src/svg/cubicons/Cubicon.ts:99
 
 ___
 
@@ -234,36 +225,16 @@ ___
 
 ▸ **render**(): [`Circle`](/reference/classes/Circle.md)
 
-Draw (and render) the shape of this circle onto SVG.
+Render this cubicon.
 
 #### Returns
 
 [`Circle`](/reference/classes/Circle.md)
 
-#### Defined in
+#### Overrides
 
-[src/svg/cubicons/geometry/Circle.ts:76](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/geometry/Circle.ts#L76)
-
-___
-
-### setParentSelection
-
-▸ **setParentSelection**(`parentSelection`): `void`
-
-#### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `parentSelection` | `Selection`<`SVGGElement`, `unknown`, `HTMLElement`, `any`\> |
-
-#### Returns
-
-`void`
-
-#### Inherited from
-
-[Cubicon](/reference/classes/Cubicon.md).[setParentSelection](/reference/classes/Cubicon.md#setparentselection)
+[Cubicon](/reference/classes/Cubicon.md).[render](/reference/classes/Cubicon.md#render)
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/cubicons/Cubicon.ts#L63)
+src/svg/cubicons/geometry/Circle.ts:52

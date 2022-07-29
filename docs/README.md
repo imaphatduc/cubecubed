@@ -20,12 +20,16 @@
   </p>
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
-          <img src="https://img.shields.io/npm/v/cubecubed?style=flat-square&logo=npm" />
+      <img src="https://img.shields.io/github/workflow/status/imaphatduc/cubecubed/CI?label=CI&labelColor=000&logo=github&style=for-the-badge" />
+      <img src="https://img.shields.io/npm/v/cubecubed?color=cb3837&labelColor=000&logo=npm&style=for-the-badge" />
+      <img src="https://img.shields.io/github/license/imaphatduc/cubecubed?color=560bff&labelColor=000&style=for-the-badge" />
     </a>
   </p>
 </p>
 
-Cubecubed is designed to be an intuitive and easy-to-use math visualization engine for students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3) and the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) library to create a visual representation of math concepts.
+Cubecubed is an intuitive and easy-to-use math visualization engine aimed at students, teachers, enthusiastic math lovers and anyone who is curious about the subject. It utilizes the powerful SVG manipulation system of [D3.js](https://github.com/d3/d3), along with the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) library to create a visual representation of math concepts.
+
+[Cubedbook](https://github.com/imaphatduc/cubedbook) is built on top of Cubecubed to build a user-friendly and interactive UI environment. If you're not comfortable with programming, Cubedbook is an option for you. The project is in early development stages now, and more features are being added to it.
 
 Though Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_ written in Python, it's not a port or a re-implementation of the engine. Cubecubed specifically focuses on playing dynamic animations right on the browser, with the intensive use of SVG and HTML Canvas. However, you can also export the animations to a video file (head to the [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart?id=video-exports) page for more details).
 
@@ -34,6 +38,10 @@ Cubecubed believes the best way to learn and discover math is through the combin
 ## 💤 Name Explanation
 
 Imagine that a 3d cube multiply by itself two times — That's it!
+
+## 💭 Inspiration
+
+This project exists for a reason. Check out my [article](https://dev.to/imaphatduc/my-story-with-cubecubed-2da2) to figure it out.
 
 ## 💡 Initialize Project
 

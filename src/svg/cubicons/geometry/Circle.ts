@@ -1,61 +1,40 @@
-import { SHAPE_CONFIG, SHAPE_DEFAULT_CONFIG } from "./Geometry";
+import configFactory from "@utils/configFactory";
 
 import { Vector2 } from "@math/Vector2";
 
 import { Group } from "@group/Group";
-import { Cubicon } from "@cubicons/Cubicon";
 
-/**
- * Return the barebone of a circle shape.
- */
+import {
+    PLANE_SHAPE_CONFIG,
+    PLANE_SHAPE_DEFAULT_CONFIG,
+} from "@configs/geometry/PLANE_SHAPE_CONFIG";
+
+import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
+
+export interface CircleParams extends CubiconParams<PLANE_SHAPE_CONFIG> {
+    /**
+     * Radius of this circle.
+     */
+    radius: number;
+}
+
 export class Circle extends Cubicon {
     readonly cubiconType = "Circle";
 
-    /**
-     * Radius of the rectangle (in grid coordinate system).
-     */
     readonly radius: number;
 
-    /**
-     * Config options of this circle.
-     */
-    CONFIG: SHAPE_CONFIG;
+    CONFIG: PLANE_SHAPE_CONFIG;
 
-    /**
-     * @param params An object that contains options to form the circle.
-     */
-    constructor(params: {
-        /**
-         * The group that the circle belongs to.
-         */
-        group: Group;
-        /**
-         * Position of the circle.
-         */
-        position?: Vector2;
-        /**
-         * Radius of the rectangle.
-         */
-        radius: number;
-        /**
-         * Config options of the circle.
-         */
-        CONFIG?: SHAPE_CONFIG;
-    }) {
-        super({ group: params.group, position: params.position });
+    constructor(params: CircleParams) {
+        super({
+            group: params.group,
+
+            position: params.position,
+
+            CONFIG: configFactory(params.CONFIG, PLANE_SHAPE_DEFAULT_CONFIG),
+        });
 
         this.radius = params.radius;
-
-        this.CONFIG = {
-            fillColor:
-                params.CONFIG?.fillColor ?? SHAPE_DEFAULT_CONFIG.fillColor,
-            fillOpacity:
-                params.CONFIG?.fillOpacity ?? SHAPE_DEFAULT_CONFIG.fillOpacity,
-            strokeColor:
-                params.CONFIG?.strokeColor ?? SHAPE_DEFAULT_CONFIG.strokeColor,
-            strokeWidth:
-                params.CONFIG?.strokeWidth ?? SHAPE_DEFAULT_CONFIG.strokeWidth,
-        };
 
         this.g_cubiconWrapper = this.svg_group
             .append("g")
@@ -70,11 +49,9 @@ export class Circle extends Cubicon {
             .style("transform-origin", "center");
     }
 
-    /**
-     * Draw (and render) the shape of this circle onto SVG.
-     */
     render() {
         const Wposition = this.coordsGtoW(this.position);
+
         const Wradius = this.group.xGtoW(this.radius);
 
         this.applyToHTMLFlow(Wposition, Wradius);
@@ -98,7 +75,10 @@ export class GridOrigin extends Circle {
     constructor(group: Group) {
         super({
             group: group,
-            radius: group.xWtoG(2.2),
+
+            radius: group.xWtoG(5),
+
+            CONFIG: PLANE_SHAPE_DEFAULT_CONFIG,
         });
     }
 }

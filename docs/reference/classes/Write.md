@@ -4,9 +4,9 @@
 
 ## Hierarchy
 
--   [`Animation`](/reference/classes/Animation.md)
+- [`Animation`](/reference/classes/Animation.md)
 
-    ↳ **`Write`**
+  ↳ **`Write`**
 
 ## Constructors
 
@@ -16,12 +16,9 @@
 
 #### Parameters
 
-| Name               | Type                                         | Description                                    |
-| :----------------- | :------------------------------------------- | :--------------------------------------------- |
-| `params`           | `Object`                                     | -                                              |
-| `params.cubicon`   | [`MathTex`](/reference/classes/MathTex.md)   | The target cubicon to play this animation.     |
-| `params.duration?` | `number`                                     | Time to play this animation. (in milliseconds) |
-| `params.ease?`     | [`EASE_TYPE`](/reference/types/EASE_TYPE.md) | Custom easing function for smooth animation.   |
+| Name | Type |
+| :------ | :------ |
+| `params` | [`AnimationParams`](/reference/interfaces/AnimationParams.md)<[`MathTex`](/reference/classes/MathTex.md)\> |
 
 #### Overrides
 
@@ -29,13 +26,13 @@
 
 #### Defined in
 
-[src/svg/animations/Write.ts:10](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Write.ts#L10)
+src/svg/animations/Write.ts:17
 
 ## Properties
 
 ### animationType
 
-• `Readonly` **animationType**: `"Write"`
+• `Readonly` **animationType**: ``"Write"``
 
 #### Overrides
 
@@ -43,31 +40,27 @@
 
 #### Defined in
 
-[src/svg/animations/Write.ts:8](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Write.ts#L8)
+src/svg/animations/Write.ts:13
 
----
+___
 
 ### cubicon
 
-• **cubicon**: `any`
+• **cubicon**: [`MathTex`](/reference/classes/MathTex.md)
 
-The target cubicon of this animation.
-
-#### Inherited from
+#### Overrides
 
 [Animation](/reference/classes/Animation.md).[cubicon](/reference/classes/Animation.md#cubicon)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L36)
+src/svg/animations/Write.ts:15
 
----
+___
 
 ### duration
 
 • **duration**: `number`
-
-Time to play this animation (in milliseconds).
 
 #### Inherited from
 
@@ -75,15 +68,13 @@ Time to play this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:41](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L41)
+src/svg/animations/Animation.ts:32
 
----
+___
 
 ### ease
 
 • **ease**: [`EASE_TYPE`](/reference/types/EASE_TYPE.md)
-
-The easing function to use.
 
 #### Inherited from
 
@@ -91,24 +82,65 @@ The easing function to use.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:46](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Animation.ts#L46)
+src/svg/animations/Animation.ts:34
+
+___
+
+### sleepTime
+
+• **sleepTime**: `number` = `0`
+
+The time to wait before playing this animation.
+
+#### Inherited from
+
+[Animation](/reference/classes/Animation.md).[sleepTime](/reference/classes/Animation.md#sleeptime)
+
+#### Defined in
+
+src/svg/animations/Animation.ts:28
 
 ## Methods
 
 ### play
 
-▸ **play**(`sleepTime`): `void`
+▸ **play**(): `void`
 
-#### Parameters
-
-| Name        | Type     |
-| :---------- | :------- |
-| `sleepTime` | `number` |
+Play this animation.
 
 #### Returns
 
 `void`
 
+#### Overrides
+
+[Animation](/reference/classes/Animation.md).[play](/reference/classes/Animation.md#play)
+
 #### Defined in
 
-[src/svg/animations/Write.ts:31](https://github.com/imaphatduc/cubecubed/blob/8295992/src/svg/animations/Write.ts#L31)
+src/svg/animations/Write.ts:27
+
+___
+
+### setCubiconPosition
+
+▸ **setCubiconPosition**(`x`, `y`): `void`
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `x` | `number` |
+| `y` | `number` |
+
+#### Returns
+
+`void`
+
+#### Inherited from
+
+[Animation](/reference/classes/Animation.md).[setCubiconPosition](/reference/classes/Animation.md#setcubiconposition)
+
+#### Defined in
+
+src/svg/animations/Animation.ts:53

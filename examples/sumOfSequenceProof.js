@@ -1,4 +1,11 @@
-import { Scene, Group, Square, COLOR, Create } from "../src/index";
+import {
+    Scene,
+    Group,
+    Square,
+    COLOR,
+    CreatePlaneShape,
+    CreateLineShape,
+} from "../src/index";
 
 function sumOfSequenceProof() {
     const scene = new Scene("sum-of-sequence-proof");
@@ -10,12 +17,12 @@ function sumOfSequenceProof() {
         CONFIG: { strokeColor: COLOR.PINK_1 },
     }).render();
 
-    group.play([new Create({ cubicon: square })]);
+    group.play([new CreatePlaneShape({ cubicon: square })]);
 
     const { horizontalLines, verticalLines } = square.drawInnerGrid();
 
     const anims = [...horizontalLines, ...verticalLines].map(
-        (line) => new Create({ cubicon: line })
+        (line) => new CreateLineShape({ cubicon: line })
     );
 
     group.play(anims);

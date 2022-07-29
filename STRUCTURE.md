@@ -13,28 +13,28 @@
 | |\
 | | \** `<g class="circle-wrapper" >`
 | | |\
-| | | \** `<circle />`
+| | | \** `<circle >`
 | |
 |
 | @Line > @AxisProjector
 | |\
 | | \** `<g class="line-wrapper" >`
 | | |\
-| | | \** `<line />`
+| | | \** `<line >`
 | |
 |
 | @ParametricCurve
 | |\
 | | \** `<g class="parametric-curve-wrapper" >`
 | | |\
-| | | \** `<path />`
+| | | \** `<path >`
 | |
 |
 | @Rectangle > @Square
 | |\ 
 | | \** `<g class="rectangle-wrapper" >`
 | | |\
-| | | \** `<path />`
+| | | \** `<path >`
 | |
 |
 | @VectorShape
@@ -44,10 +44,10 @@
 | | | \** `<g class="vector-group" >`
 | | | |\
 | | | | *---.def_lineStroke
-| | | | |__ `<line class="vector-line" />`
+| | | | |__ `<line class="vector-line" >`
 | | | | |
-| | | | *---.def_arrowHead
-| | | | |__ `<polygon class="vector-arrow-head" />`
+| | | | *---.def_arrowhead
+| | | | |__ `<polygon class="vector-arrow-head" >`
 | 
 ```
 
@@ -82,7 +82,7 @@
 | | | |\
 | | | | \** `<g class="graph-wrapper" >`
 | | | | |\
-| | | | | \** `<path class="graph" />`
+| | | | | \** `<path class="graph" >`
 | | |
 | | | @Label
 | | | |\
@@ -100,6 +100,6 @@
 | | | | | \** `<line class={
 | | | | | |\         "horizontal-projector-line ||
 | | | | | |          "vertical-projector-line"
-| | | | | | }/>`
+| | | | | | }>`
 | | |
 ```

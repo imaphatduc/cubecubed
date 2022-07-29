@@ -1,51 +1,50 @@
-import { ANIME, EASE_TYPE } from "@consts";
-
-import { Animation } from "./Animation";
-import { Create } from "./Create";
+import { ANIME } from "@consts";
 
 import { VectorField } from "@cubicons/VectorField";
 import { VectorShape } from "@cubicons/geometry/VectorShape";
 
-/**
- * Play vector field drawing animation on the screen.
- */
+import { Animation, AnimationParams } from "@animations/Animation";
+import { CreateVectorShape } from "@animations/CreateVectorShape";
+
 export class DrawVectorField extends Animation {
     readonly animationType = "DrawVectorField";
 
-    constructor(params: {
-        /**
-         * The target cubicon to play this animation.
-         */
-        cubicon: VectorField;
-        /**
-         * Time to play this animation. (in milliseconds)
-         */
-        duration?: number;
-        /**
-         * Custom easing function for smooth animation.
-         */
-        ease?: EASE_TYPE;
-    }) {
+    cubicon: VectorField;
+
+    constructor(params: AnimationParams<VectorField>) {
         super({
             cubicon: params.cubicon,
+
             duration: params.duration ?? ANIME.CREATE,
+
             ease: params.ease,
         });
     }
 
-    play(sleepTime: number) {
-        this.drawVectorField(this.cubicon);
+    play() {
+        this.drawVectorField();
+
+        this.cubicon.group.groupElapsed -= this.duration;
     }
 
-    private drawVectorField(cubicon: VectorField) {
-        const anims = cubicon.vectorShapes.map((vectorShape: VectorShape) => {
-            return new Create({ cubicon: vectorShape });
-        });
+    private drawVectorField() {
+        this.applyVectorShapeCreation();
+    }
 
-        cubicon.group.play(anims);
+    private applyVectorShapeCreation() {
+        const animations = this.getAnimations();
 
-        cubicon.group.groupElapsed -= Math.max(
-            ...anims.map((anim) => anim.duration)
+        this.cubicon.group.play(animations);
+    }
+
+    private getAnimations() {
+        return this.cubicon.vectorShapes.map(
+            (vectorShape: VectorShape) =>
+                new CreateVectorShape({
+                    cubicon: vectorShape,
+                    duration: this.duration,
+                    ease: this.ease,
+                })
         );
     }
 }

@@ -58,15 +58,15 @@ You can see the file for clearer understanding.
 
 ###### d3 Selection Prefixes
 
-Element that represents an `<svg>` tag:
+Element that represents an `<svg>` element:
 
 > svg\_
 
-Element that represents a `<g>` tag:
+Element that represents a `<g>` element:
 
 > g\_
 
-Element that represents the SVG tag of a cubicon: (e.g. `<path/>`, `<circle/>`)
+Element that represents the SVG element of a cubicon: (e.g. `<path>`, `<circle>`)
 
 > def\_
 
