@@ -1,6 +1,6 @@
 import {
     COLOR,
-    Create,
+    CreatePlaneShape,
     DrawGrid,
     Grid,
     Group,
@@ -9,6 +9,7 @@ import {
     Square,
     VectorShape,
     Vector2,
+    CreateVectorShape,
 } from "cubecubed";
 
 // By convention, first-class functions represent scenes.
@@ -35,10 +36,10 @@ function drawShapes() {
             },
         }).render();
 
-        group.play([new Create({ cubicon: square1 })]);
+        group.play([new CreatePlaneShape({ cubicon: square1 })]);
 
         group.play([
-            new Create({ cubicon: square2 }),
+            new CreatePlaneShape({ cubicon: square2 }),
             new Rotate({ cubicon: square1, degree: 45 }),
         ]);
     }
@@ -54,7 +55,7 @@ function drawShapes() {
             },
         }).render();
 
-        group.play([new Create({ cubicon: vector })]);
+        group.play([new CreateVectorShape({ cubicon: vector })]);
     }
 
     function planeGrid() {
@@ -62,7 +63,7 @@ function drawShapes() {
 
         const grid = new Grid({ group: group }).render();
 
-        group.play([new DrawGrid(grid)]);
+        group.play([new DrawGrid({ cubicon: grid })]);
     }
 
     squares();
