@@ -18,7 +18,7 @@ Fill color of this plane shape.
 
 #### Defined in
 
-src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:12
+[src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts#L12)
 
 ___
 
@@ -32,7 +32,7 @@ Fill opacity of this plane shape.
 
 #### Defined in
 
-src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:19
+[src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:19](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts#L19)
 
 ___
 
@@ -46,7 +46,7 @@ Stroke color of this plane shape.
 
 #### Defined in
 
-src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:26
+[src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:26](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts#L26)
 
 ___
 
@@ -60,4 +60,4 @@ Stroke width of this plane shape (in pixels).
 
 #### Defined in
 
-src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:33
+[src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:33](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts#L33)

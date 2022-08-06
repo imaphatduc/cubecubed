@@ -26,7 +26,7 @@
 
 #### Defined in
 
-src/svg/animations/CreateLineShape.ts:15
+[src/svg/animations/CreateLineShape.ts:15](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/CreateLineShape.ts#L15)
 
 ## Properties
 
@@ -40,7 +40,7 @@ src/svg/animations/CreateLineShape.ts:15
 
 #### Defined in
 
-src/svg/animations/CreateLineShape.ts:11
+[src/svg/animations/CreateLineShape.ts:11](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/CreateLineShape.ts#L11)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-src/svg/animations/CreateLineShape.ts:13
+[src/svg/animations/CreateLineShape.ts:13](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/CreateLineShape.ts#L13)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-src/svg/animations/Animation.ts:32
+[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L32)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-src/svg/animations/Animation.ts:34
+[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L34)
 
 ___
 
@@ -98,7 +98,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-src/svg/animations/Animation.ts:28
+[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L28)
 
 ## Methods
 
@@ -118,7 +118,7 @@ Play this animation.
 
 #### Defined in
 
-src/svg/animations/CreateLineShape.ts:25
+[src/svg/animations/CreateLineShape.ts:25](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/CreateLineShape.ts#L25)
 
 ___
 
@@ -143,4 +143,4 @@ ___
 
 #### Defined in
 
-src/svg/animations/Animation.ts:53
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L53)

@@ -12,7 +12,7 @@
 
 ### CONFIG
 
-• **CONFIG**: [`VECTOR_FIELD_CONFIG`](/reference/interfaces/VECTOR_FIELD_CONFIG.md)
+• `Optional` **CONFIG**: [`VECTOR_FIELD_CONFIG`](/reference/interfaces/VECTOR_FIELD_CONFIG.md)
 
 Config options of this cubicon.
 
@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:22
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -38,7 +38,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:12
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -54,7 +54,7 @@ Position of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:17
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L17)
 
 ## Methods
 
@@ -76,4 +76,4 @@ Multivariable function that produces 2d vector field.
 
 #### Defined in
 
-src/svg/cubicons/VectorField.ts:40
+[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/VectorField.ts#L40)

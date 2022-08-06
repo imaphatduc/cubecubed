@@ -24,7 +24,7 @@ Specify a mathematical Vector3D.
 
 #### Defined in
 
-src/math/Vector3.ts:11
+[src/math/Vector3.ts:11](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L11)
 
 ## Properties
 
@@ -34,7 +34,7 @@ src/math/Vector3.ts:11
 
 #### Defined in
 
-src/math/Vector3.ts:7
+[src/math/Vector3.ts:7](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L7)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-src/math/Vector3.ts:8
+[src/math/Vector3.ts:8](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L8)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-src/math/Vector3.ts:9
+[src/math/Vector3.ts:9](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L9)
 
 ## Methods
 
@@ -80,7 +80,7 @@ Immutable element-wise addition
 
 #### Defined in
 
-src/math/Vector3.ts:21
+[src/math/Vector3.ts:21](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L21)
 
 ___
 
@@ -106,7 +106,7 @@ Apply the same function to all three coordinates of this vector.
 
 #### Defined in
 
-src/math/Vector3.ts:40
+[src/math/Vector3.ts:40](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L40)
 
 ___
 
@@ -132,7 +132,7 @@ Returns the dot product of two vectors
 
 #### Defined in
 
-src/math/Vector3.ts:33
+[src/math/Vector3.ts:33](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L33)
 
 ___
 
@@ -152,7 +152,7 @@ Calculate magnitude of vector
 
 #### Defined in
 
-src/math/Vector3.ts:17
+[src/math/Vector3.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L17)
 
 ___
 
@@ -178,7 +178,7 @@ Creates a new scaled vector
 
 #### Defined in
 
-src/math/Vector3.ts:29
+[src/math/Vector3.ts:29](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L29)
 
 ___
 
@@ -204,4 +204,4 @@ Immutable element-wise subtraction
 
 #### Defined in
 
-src/math/Vector3.ts:25
+[src/math/Vector3.ts:25](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/math/Vector3.ts#L25)

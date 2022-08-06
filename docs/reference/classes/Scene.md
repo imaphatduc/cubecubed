@@ -23,7 +23,7 @@ Include this scene to HTML flow.
 
 #### Defined in
 
-src/scene/Scene.ts:53
+[src/scene/Scene.ts:53](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/scene/Scene.ts#L53)
 
 ## Properties
 
@@ -35,7 +35,7 @@ Config options of this scene.
 
 #### Defined in
 
-src/scene/Scene.ts:39
+[src/scene/Scene.ts:39](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/scene/Scene.ts#L39)
 
 ___
 
@@ -47,7 +47,7 @@ Name of this scene.
 
 #### Defined in
 
-src/scene/Scene.ts:34
+[src/scene/Scene.ts:34](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/scene/Scene.ts#L34)
 
 ___
 
@@ -61,7 +61,7 @@ scene.
 
 #### Defined in
 
-src/scene/Scene.ts:46
+[src/scene/Scene.ts:46](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/scene/Scene.ts#L46)
 
 ## Methods
 
@@ -84,4 +84,4 @@ everything in the scene will be removed, too.
 
 #### Defined in
 
-src/scene/Scene.ts:71
+[src/scene/Scene.ts:71](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/scene/Scene.ts#L71)

@@ -26,7 +26,7 @@
 
 #### Defined in
 
-src/canvas/animations/SimulateRevolution.ts:11
+[src/canvas/animations/SimulateRevolution.ts:11](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/SimulateRevolution.ts#L11)
 
 ## Properties
 
@@ -40,7 +40,7 @@ src/canvas/animations/SimulateRevolution.ts:11
 
 #### Defined in
 
-src/canvas/animations/SimulateRevolution.ts:9
+[src/canvas/animations/SimulateRevolution.ts:9](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/SimulateRevolution.ts#L9)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-src/canvas/animations/CanvasAnimation.ts:18
+[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L18)
 
 ___
 
@@ -70,7 +70,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-src/canvas/animations/CanvasAnimation.ts:23
+[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L23)
 
 ## Methods
 
@@ -90,4 +90,4 @@ src/canvas/animations/CanvasAnimation.ts:23
 
 #### Defined in
 
-src/canvas/animations/SimulateRevolution.ts:22
+[src/canvas/animations/SimulateRevolution.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/SimulateRevolution.ts#L22)

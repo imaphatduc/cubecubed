@@ -14,7 +14,7 @@ Number of vertices on each curve.
 
 #### Defined in
 
-src/canvas/cubicons/RevolutionSurface.ts:16
+[src/canvas/cubicons/RevolutionSurface.ts:16](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/RevolutionSurface.ts#L16)
 
 ___
 
@@ -28,7 +28,7 @@ Number of vertices on each ring after a full rotation.
 
 #### Defined in
 
-src/canvas/cubicons/RevolutionSurface.ts:23
+[src/canvas/cubicons/RevolutionSurface.ts:23](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/RevolutionSurface.ts#L23)
 
 ___
 
@@ -42,4 +42,4 @@ x value range of the curves.
 
 #### Defined in
 
-src/canvas/cubicons/RevolutionSurface.ts:30
+[src/canvas/cubicons/RevolutionSurface.ts:30](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/RevolutionSurface.ts#L30)

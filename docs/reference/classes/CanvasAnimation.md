@@ -24,7 +24,7 @@
 
 #### Defined in
 
-src/canvas/animations/CanvasAnimation.ts:25
+[src/canvas/animations/CanvasAnimation.ts:25](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L25)
 
 ## Properties
 
@@ -34,7 +34,7 @@ src/canvas/animations/CanvasAnimation.ts:25
 
 #### Defined in
 
-src/canvas/animations/CanvasAnimation.ts:16
+[src/canvas/animations/CanvasAnimation.ts:16](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L16)
 
 ___
 
@@ -44,7 +44,7 @@ ___
 
 #### Defined in
 
-src/canvas/animations/CanvasAnimation.ts:18
+[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L18)
 
 ___
 
@@ -56,7 +56,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-src/canvas/animations/CanvasAnimation.ts:23
+[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L23)
 
 ## Methods
 
@@ -74,4 +74,4 @@ Play this animation.
 
 #### Defined in
 
-src/canvas/animations/CanvasAnimation.ts:38
+[src/canvas/animations/CanvasAnimation.ts:38](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L38)

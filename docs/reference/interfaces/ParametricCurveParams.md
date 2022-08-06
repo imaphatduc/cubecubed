@@ -12,7 +12,7 @@
 
 ### CONFIG
 
-• **CONFIG**: [`LINE_SHAPE_CONFIG`](/reference/interfaces/LINE_SHAPE_CONFIG.md)
+• `Optional` **CONFIG**: [`LINE_SHAPE_CONFIG`](/reference/interfaces/LINE_SHAPE_CONFIG.md)
 
 Config options of this cubicon.
 
@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:22
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -38,7 +38,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:12
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -54,7 +54,7 @@ Position of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:17
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L17)
 
 ___
 
@@ -66,7 +66,7 @@ Range of the parameter t.
 
 #### Defined in
 
-src/svg/cubicons/geometry/ParametricCurve.ts:21
+[src/svg/cubicons/geometry/ParametricCurve.ts:21](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/ParametricCurve.ts#L21)
 
 ## Methods
 
@@ -88,4 +88,4 @@ Parametric function definition.
 
 #### Defined in
 
-src/svg/cubicons/geometry/ParametricCurve.ts:26
+[src/svg/cubicons/geometry/ParametricCurve.ts:26](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/ParametricCurve.ts#L26)

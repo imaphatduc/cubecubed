@@ -12,7 +12,7 @@
 
 ### CONFIG
 
-• **CONFIG**: [`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)
+• `Optional` **CONFIG**: [`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)
 
 Config options of this cubicon.
 
@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-src/canvas/cubicons/CanvasCubicon.ts:22
+[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/CanvasCubicon.ts#L22)
 
 ___
 
@@ -34,7 +34,7 @@ Function definition of the initial curve.
 
 #### Defined in
 
-src/canvas/cubicons/RevolutionSurface.ts:46
+[src/canvas/cubicons/RevolutionSurface.ts:46](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/RevolutionSurface.ts#L46)
 
 ___
 
@@ -50,7 +50,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-src/canvas/cubicons/CanvasCubicon.ts:12
+[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/CanvasCubicon.ts#L12)
 
 ___
 
@@ -66,4 +66,4 @@ Position of this cubicon.
 
 #### Defined in
 
-src/canvas/cubicons/CanvasCubicon.ts:17
+[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/CanvasCubicon.ts#L17)

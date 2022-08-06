@@ -10,4 +10,4 @@
 
 #### Defined in
 
-src/svg/group/Group.ts:13
+[src/svg/group/Group.ts:13](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/group/Group.ts#L13)

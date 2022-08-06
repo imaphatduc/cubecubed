@@ -12,13 +12,13 @@
 
 ### CONFIG
 
-• **CONFIG**: `TCONFIG`
+• `Optional` **CONFIG**: `TCONFIG`
 
 Config options of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:34
+[src/svg/cubicons/Cubicon.ts:34](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L34)
 
 ___
 
@@ -30,4 +30,4 @@ Position of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:29
+[src/svg/cubicons/Cubicon.ts:29](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L29)

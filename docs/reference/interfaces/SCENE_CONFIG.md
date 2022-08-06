@@ -14,7 +14,7 @@ Height of this scene (in pixels).
 
 #### Defined in
 
-src/scene/Scene.ts:17
+[src/scene/Scene.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/scene/Scene.ts#L17)
 
 ___
 
@@ -28,4 +28,4 @@ Width of this scene (in pixels).
 
 #### Defined in
 
-src/scene/Scene.ts:10
+[src/scene/Scene.ts:10](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/scene/Scene.ts#L10)

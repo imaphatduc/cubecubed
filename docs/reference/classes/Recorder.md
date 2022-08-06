@@ -16,7 +16,7 @@
 
 #### Defined in
 
-src/recorder/Recorder.ts:16
+[src/recorder/Recorder.ts:16](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/recorder/Recorder.ts#L16)
 
 ## Methods
 
@@ -30,4 +30,4 @@ src/recorder/Recorder.ts:16
 
 #### Defined in
 
-src/recorder/Recorder.ts:25
+[src/recorder/Recorder.ts:25](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/recorder/Recorder.ts#L25)

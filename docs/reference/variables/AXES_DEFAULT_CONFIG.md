@@ -6,4 +6,4 @@
 
 #### Defined in
 
-src/svg/cubicons/coordinate-system/Axes.ts:34
+[src/svg/cubicons/coordinate-system/Axes.ts:34](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/coordinate-system/Axes.ts#L34)

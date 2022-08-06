@@ -22,7 +22,7 @@ The target cubicon to play this animation.
 
 #### Defined in
 
-src/svg/animations/Animation.ts:9
+[src/svg/animations/Animation.ts:9](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L9)
 
 ___
 
@@ -34,7 +34,7 @@ Angle (in degrees) for this rotation.
 
 #### Defined in
 
-src/svg/animations/Rotate.ts:14
+[src/svg/animations/Rotate.ts:14](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Rotate.ts#L14)
 
 ___
 
@@ -50,7 +50,7 @@ The duration of this animation (in milliseconds).
 
 #### Defined in
 
-src/svg/animations/Animation.ts:14
+[src/svg/animations/Animation.ts:14](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L14)
 
 ___
 
@@ -66,4 +66,4 @@ Easing function for smooth animation.
 
 #### Defined in
 
-src/svg/animations/Animation.ts:19
+[src/svg/animations/Animation.ts:19](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L19)

@@ -12,7 +12,7 @@
 
 ### CONFIG
 
-• **CONFIG**: [`MATH_TEX_CONFIG`](/reference/interfaces/MATH_TEX_CONFIG.md)
+• `Optional` **CONFIG**: [`MATH_TEX_CONFIG`](/reference/interfaces/MATH_TEX_CONFIG.md)
 
 Config options of this cubicon.
 
@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:22
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -38,7 +38,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:12
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -54,7 +54,7 @@ Position of this cubicon.
 
 #### Defined in
 
-src/svg/cubicons/Cubicon.ts:17
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L17)
 
 ___
 
@@ -66,4 +66,4 @@ Content of this text.
 
 #### Defined in
 
-src/svg/cubicons/MathTex.ts:29
+[src/svg/cubicons/MathTex.ts:29](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/MathTex.ts#L29)

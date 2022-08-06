@@ -18,13 +18,13 @@
 
 ### CONFIG
 
-• **CONFIG**: `TCONFIG`
+• `Optional` **CONFIG**: `TCONFIG`
 
 Config options of this cubicon.
 
 #### Defined in
 
-src/canvas/cubicons/CanvasCubicon.ts:22
+[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/CanvasCubicon.ts#L22)
 
 ___
 
@@ -36,7 +36,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-src/canvas/cubicons/CanvasCubicon.ts:12
+[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/CanvasCubicon.ts#L12)
 
 ___
 
@@ -48,4 +48,4 @@ Position of this cubicon.
 
 #### Defined in
 
-src/canvas/cubicons/CanvasCubicon.ts:17
+[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/cubicons/CanvasCubicon.ts#L17)

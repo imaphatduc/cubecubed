@@ -30,7 +30,7 @@ play this animation.
 
 #### Defined in
 
-src/svg/animations/PointAlongGraph.ts:63
+[src/svg/animations/PointAlongGraph.ts:63](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/PointAlongGraph.ts#L63)
 
 ## Properties
 
@@ -44,7 +44,7 @@ src/svg/animations/PointAlongGraph.ts:63
 
 #### Defined in
 
-src/svg/animations/PointAlongGraph.ts:31
+[src/svg/animations/PointAlongGraph.ts:31](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/PointAlongGraph.ts#L31)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-src/svg/animations/PointAlongGraph.ts:33
+[src/svg/animations/PointAlongGraph.ts:33](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/PointAlongGraph.ts#L33)
 
 ___
 
@@ -72,7 +72,7 @@ ___
 
 #### Defined in
 
-src/svg/animations/Animation.ts:32
+[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L32)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-src/svg/animations/Animation.ts:34
+[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L34)
 
 ___
 
@@ -102,7 +102,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-src/svg/animations/Animation.ts:28
+[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L28)
 
 ## Methods
 
@@ -122,7 +122,7 @@ Play this animation.
 
 #### Defined in
 
-src/svg/animations/PointAlongGraph.ts:81
+[src/svg/animations/PointAlongGraph.ts:81](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/PointAlongGraph.ts#L81)
 
 ___
 
@@ -147,4 +147,4 @@ ___
 
 #### Defined in
 
-src/svg/animations/Animation.ts:53
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L53)
