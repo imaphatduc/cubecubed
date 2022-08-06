@@ -265,8 +265,8 @@ export class Group {
         const duration = params.duration ?? 0;
 
         const CONFIG = configFactory(
-            params.CONFIG,
-            GROUP_MAKEUP_DEFAULT_CONFIG
+            GROUP_MAKEUP_DEFAULT_CONFIG,
+            params.CONFIG
         );
 
         this.svg_group
