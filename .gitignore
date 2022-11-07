@@ -7,3 +7,4 @@ compile
 types
 *.local
 .nyc_output
+~/
