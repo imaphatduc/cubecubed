@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Rotate.ts#L22)
+[src/svg/animations/Rotate.ts:31](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Rotate.ts#L31)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:18](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Rotate.ts#L18)
+[src/svg/animations/Rotate.ts:25](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Rotate.ts#L25)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:30](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L30)
+[src/svg/animations/Animation.ts:30](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L30)
 
 ___
 
@@ -64,7 +64,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:20](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Rotate.ts#L20)
+[src/svg/animations/Rotate.ts:27](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Rotate.ts#L27)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L32)
+[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L32)
 
 ___
 
@@ -92,7 +92,17 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L34)
+[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L34)
+
+___
+
+### origin
+
+• **origin**: [`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/animations/Rotate.ts:29](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Rotate.ts#L29)
 
 ___
 
@@ -108,7 +118,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L28)
+[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L28)
 
 ## Methods
 
@@ -128,7 +138,7 @@ Play this animation.
 
 #### Defined in
 
-[src/svg/animations/Rotate.ts:34](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Rotate.ts#L34)
+[src/svg/animations/Rotate.ts:45](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Rotate.ts#L45)
 
 ___
 
@@ -153,4 +163,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L53)

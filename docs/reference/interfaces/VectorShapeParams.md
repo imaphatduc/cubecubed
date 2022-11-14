@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L22)
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -34,7 +34,7 @@ End point (head) of this line.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:26](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/VectorShape.ts#L26)
+[src/svg/cubicons/geometry/VectorShape.ts:26](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/geometry/VectorShape.ts#L26)
 
 ___
 
@@ -50,7 +50,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -66,7 +66,7 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/Cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L17)
 
 ___
 
@@ -78,4 +78,4 @@ Start point (tail) of this line.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/VectorShape.ts:21](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/VectorShape.ts#L21)
+[src/svg/cubicons/geometry/VectorShape.ts:21](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/geometry/VectorShape.ts#L21)

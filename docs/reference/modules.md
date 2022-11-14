@@ -25,6 +25,7 @@
 - [Line](/reference/classes/Line.md)
 - [MathTex](/reference/classes/MathTex.md)
 - [ParametricCurve](/reference/classes/ParametricCurve.md)
+- [Particle](/reference/classes/Particle.md)
 - [PointAlongGraph](/reference/classes/PointAlongGraph.md)
 - [PointToCoords](/reference/classes/PointToCoords.md)
 - [Recorder](/reference/classes/Recorder.md)
@@ -58,8 +59,10 @@
 - [LineParams](/reference/interfaces/LineParams.md)
 - [MATH\_TEX\_CONFIG](/reference/interfaces/MATH_TEX_CONFIG.md)
 - [MathTexParams](/reference/interfaces/MathTexParams.md)
+- [PARTICLE\_CONFIG](/reference/interfaces/PARTICLE_CONFIG.md)
 - [PLANE\_SHAPE\_CONFIG](/reference/interfaces/PLANE_SHAPE_CONFIG.md)
 - [ParametricCurveParams](/reference/interfaces/ParametricCurveParams.md)
+- [ParticleParams](/reference/interfaces/ParticleParams.md)
 - [PointAlongGraphParams](/reference/interfaces/PointAlongGraphParams.md)
 - [PointToCoordsParams](/reference/interfaces/PointToCoordsParams.md)
 - [REVOLUTION\_SURFACE\_CONFIG](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)
@@ -75,7 +78,7 @@
 - [VectorFieldParams](/reference/interfaces/VectorFieldParams.md)
 - [VectorShapeParams](/reference/interfaces/VectorShapeParams.md)
 
-## Type aliases
+## Type Aliases
 
 - [AxisSelection](/reference/types/AxisSelection.md)
 - [CREATE\_LINE\_SHAPE\_TYPES](/reference/types/CREATE_LINE_SHAPE_TYPES.md)
@@ -100,6 +103,7 @@
 - [GROUP\_MAKEUP\_DEFAULT\_CONFIG](/reference/variables/GROUP_MAKEUP_DEFAULT_CONFIG.md)
 - [LINE\_SHAPE\_DEFAULT\_CONFIG](/reference/variables/LINE_SHAPE_DEFAULT_CONFIG.md)
 - [MATH\_TEX\_DEFAULT\_CONFIG](/reference/variables/MATH_TEX_DEFAULT_CONFIG.md)
+- [PARTICLE\_DEFAULT\_CONFIG](/reference/variables/PARTICLE_DEFAULT_CONFIG.md)
 - [PI](/reference/variables/PI.md)
 - [PLANE\_SHAPE\_DEFAULT\_CONFIG](/reference/variables/PLANE_SHAPE_DEFAULT_CONFIG.md)
 - [REVOLUTION\_SURFACE\_DEFAULT\_CONFIG](/reference/variables/REVOLUTION_SURFACE_DEFAULT_CONFIG.md)
@@ -107,5 +111,8 @@
 - [TAU](/reference/variables/TAU.md)
 - [VECTOR\_FIELD\_DEFAULT\_CONFIG](/reference/variables/VECTOR_FIELD_DEFAULT_CONFIG.md)
 - [VECTOR\_SHAPE\_DEFAULT\_CONFIG](/reference/variables/VECTOR_SHAPE_DEFAULT_CONFIG.md)
-- [dToR](/reference/variables/dToR.md)
-- [rToD](/reference/variables/rToD.md)
+
+## Functions
+
+- [dToR](/reference/functions/dToR.md)
+- [rToD](/reference/functions/rToD.md)

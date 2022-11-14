@@ -20,11 +20,13 @@ If this is not specified, then fall back to all of the default values.
 
 Color of this line shape.
 
-**`default`** "#fff"
+**`Default`**
+
+"#fff"
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L12)
+[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:12](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L12)
 
 ___
 
@@ -34,8 +36,10 @@ ___
 
 Width of this line shape.
 
-**`default`** 2
+**`Default`**
+
+2
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:19](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L19)
+[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:19](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L19)

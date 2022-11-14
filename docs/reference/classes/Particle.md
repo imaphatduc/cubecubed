@@ -1,24 +1,29 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / RevolutionSurface
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / Particle
 
-# Class: RevolutionSurface
+# Class: Particle
+
+Creating a new `Particle()` object means render a point
+on the animation screen.
+
+Particle term here represents a point (aka a dot).
 
 ## Hierarchy
 
 - [`CanvasCubicon`](/reference/classes/CanvasCubicon.md)
 
-  ↳ **`RevolutionSurface`**
+  ↳ **`Particle`**
 
 ## Constructors
 
 ### constructor
 
-• **new RevolutionSurface**(`params`)
+• **new Particle**(`params`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`RevolutionSurfaceParams`](/reference/interfaces/RevolutionSurfaceParams.md) |
+| `params` | [`ParticleParams`](/reference/interfaces/ParticleParams.md) |
 
 #### Overrides
 
@@ -26,13 +31,13 @@
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:59](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L59)
+[src/canvas/cubicons/Particle.ts:37](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/Particle.ts#L37)
 
 ## Properties
 
 ### CONFIG
 
-• **CONFIG**: [`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)
+• **CONFIG**: [`PARTICLE_CONFIG`](/reference/interfaces/PARTICLE_CONFIG.md)
 
 #### Overrides
 
@@ -40,21 +45,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:57](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L57)
-
-___
-
-### functionDef
-
-• **functionDef**: [`CurveFunction`](/reference/types/CurveFunction.md)
-
-The function defining the curve to rotate around the x axis.
-
-Form: y = f(x)
-
-#### Defined in
-
-[src/canvas/cubicons/RevolutionSurface.ts:55](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L55)
+[src/canvas/cubicons/Particle.ts:35](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/Particle.ts#L35)
 
 ___
 
@@ -134,6 +125,16 @@ ___
 
 ___
 
+### radius
+
+• **radius**: `number`
+
+#### Defined in
+
+[src/canvas/cubicons/Particle.ts:33](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/Particle.ts#L33)
+
+___
+
 ### scaleFactor
 
 • **scaleFactor**: `number`
@@ -150,11 +151,11 @@ ___
 
 ### render
 
-▸ **render**(): [`RevolutionSurface`](/reference/classes/RevolutionSurface.md)
+▸ **render**(): [`Particle`](/reference/classes/Particle.md)
 
 #### Returns
 
-[`RevolutionSurface`](/reference/classes/RevolutionSurface.md)
+[`Particle`](/reference/classes/Particle.md)
 
 #### Overrides
 
@@ -162,26 +163,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:81](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L81)
-
-___
-
-### setVertices
-
-▸ **setVertices**(`t?`): `void`
-
-Set the surface's geometry based on the current animation stage.
-
-#### Parameters
-
-| Name | Type | Default value | Description |
-| :------ | :------ | :------ | :------ |
-| `t` | `number` | `1` | "Eased" time changing smoothly in the range [0, 1]. 0 for initial stage and 1 for the complete rendered mesh. |
-
-#### Returns
-
-`void`
-
-#### Defined in
-
-[src/canvas/cubicons/RevolutionSurface.ts:122](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L122)
+[src/canvas/cubicons/Particle.ts:58](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/Particle.ts#L58)

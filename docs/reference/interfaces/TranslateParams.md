@@ -22,7 +22,7 @@ The target cubicon to play this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:9](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L9)
+[src/svg/animations/Animation.ts:9](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L9)
 
 ___
 
@@ -38,7 +38,7 @@ The duration of this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:14](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L14)
+[src/svg/animations/Animation.ts:14](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L14)
 
 ___
 
@@ -54,7 +54,7 @@ Easing function for smooth animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:19](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Animation.ts#L19)
+[src/svg/animations/Animation.ts:19](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L19)
 
 ___
 
@@ -66,4 +66,4 @@ The translation vector.
 
 #### Defined in
 
-[src/svg/animations/Translate.ts:13](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/animations/Translate.ts#L13)
+[src/svg/animations/Translate.ts:13](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Translate.ts#L13)

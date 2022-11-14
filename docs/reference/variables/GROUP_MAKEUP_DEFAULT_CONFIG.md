@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/svg/group/Group.ts:16](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/svg/group/Group.ts#L16)
+[src/svg/group/Group.ts:16](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L16)

@@ -18,7 +18,7 @@ The target cubicon to play this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:7](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L7)
+[src/canvas/animations/CanvasAnimation.ts:7](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/animations/CanvasAnimation.ts#L7)
 
 ___
 
@@ -30,4 +30,4 @@ The duration of this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:12](https://github.com/imaphatduc/cubecubed/blob/0bd348a/src/canvas/animations/CanvasAnimation.ts#L12)
+[src/canvas/animations/CanvasAnimation.ts:12](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/animations/CanvasAnimation.ts#L12)

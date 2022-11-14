@@ -1,18 +1,18 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / RevolutionSurfaceParams
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / ParticleParams
 
-# Interface: RevolutionSurfaceParams
+# Interface: ParticleParams
 
 ## Hierarchy
 
-- [`CanvasCubiconParams`](/reference/interfaces/CanvasCubiconParams.md)<[`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)\>
+- [`CanvasCubiconParams`](/reference/interfaces/CanvasCubiconParams.md)<[`PARTICLE_CONFIG`](/reference/interfaces/PARTICLE_CONFIG.md)\>
 
-  ↳ **`RevolutionSurfaceParams`**
+  ↳ **`ParticleParams`**
 
 ## Properties
 
 ### CONFIG
 
-• `Optional` **CONFIG**: [`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)
+• `Optional` **CONFIG**: [`PARTICLE_CONFIG`](/reference/interfaces/PARTICLE_CONFIG.md)
 
 Config options of this cubicon.
 
@@ -23,18 +23,6 @@ Config options of this cubicon.
 #### Defined in
 
 [src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L27)
-
-___
-
-### functionDef
-
-• **functionDef**: [`CurveFunction`](/reference/types/CurveFunction.md)
-
-Function definition of the initial curve.
-
-#### Defined in
-
-[src/canvas/cubicons/RevolutionSurface.ts:46](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L46)
 
 ___
 
@@ -67,6 +55,18 @@ Position of this cubicon.
 #### Defined in
 
 [src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L17)
+
+___
+
+### radius
+
+• `Optional` **radius**: `number`
+
+Radius of this particle.
+
+#### Defined in
+
+[src/canvas/cubicons/Particle.ts:23](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/Particle.ts#L23)
 
 ___
 
