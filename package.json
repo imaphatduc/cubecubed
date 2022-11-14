@@ -45,30 +45,31 @@
     "dependencies": {
         "d3": "^7.4.1",
         "d3-simple-slider": "^1.10.4",
-        "inquirer": "^8.2.2",
-        "katex": "^0.15.1",
+        "inquirer": "^9.1.4",
+        "katex": "^0.16.3",
         "tex-to-svg": "^0.2.0",
-        "three": "^0.141.0"
+        "three": "^0.146.0"
     },
     "devDependencies": {
         "@types/d3": "^7.1.0",
         "@types/d3-simple-slider": "^1.5.2",
-        "@types/katex": "^0.11.1",
+        "@types/katex": "^0.14.0",
         "@types/tap": "^15.0.5",
-        "@types/three": "^0.141.0",
-        "@typescript-eslint/eslint-plugin": "^5.16.0",
-        "@typescript-eslint/parser": "^5.16.0",
+        "@types/three": "^0.146.0",
+        "@typescript-eslint/eslint-plugin": "^5.42.1",
+        "@typescript-eslint/parser": "^5.42.1",
+        "@vitest/coverage-c8": "^0.25.2",
         "c8": "^7.12.0",
         "eslint": "^8.12.0",
         "eslint-config-prettier": "^8.5.0",
         "eslint-plugin-prettier": "^4.0.0",
         "jsdom": "^20.0.0",
         "prettier": "^2.6.1",
-        "typedoc": "^0.22.10",
+        "typedoc": "^0.23.21",
         "typedoc-plugin-markdown": "^3.11.11",
         "typescript": "^4.5.4",
-        "vite": "^2.7.4",
+        "vite": "^3.2.3",
         "vite-tsconfig-paths": "^3.4.1",
-        "vitest": "^0.18.1"
+        "vitest": "^0.25.2"
     }
 }
