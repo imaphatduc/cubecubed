@@ -32,7 +32,7 @@ export interface ParticleParams extends CanvasCubiconParams<PARTICLE_CONFIG> {
 export class Particle extends CanvasCubicon {
     radius: number;
 
-    CONFIG: PARTICLE_CONFIG;
+    declare CONFIG: PARTICLE_CONFIG;
 
     constructor(params: ParticleParams) {
         super({
@@ -46,16 +46,16 @@ export class Particle extends CanvasCubicon {
         });
 
         this.radius = params.radius ?? 0.02;
-
-        this.geometrize();
-
-        this.materialize();
     }
 
     /**
      * @internal
      */
     render() {
+        this.geometrize();
+
+        this.materialize();
+
         this.mesh = new Mesh(this.geometry, this.material);
 
         this.mesh.position.set(

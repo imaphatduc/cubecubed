@@ -33,7 +33,7 @@ export class ParametricCurve extends Cubicon {
 
     tRange: [number, number];
 
-    CONFIG: LINE_SHAPE_CONFIG;
+    declare CONFIG: LINE_SHAPE_CONFIG;
 
     constructor(params: ParametricCurveParams) {
         super({

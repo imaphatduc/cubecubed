@@ -41,7 +41,7 @@ export const GRID_DEFAULT_CONFIG: GRID_CONFIG = {
 export class Grid extends Cubicon {
     readonly cubiconType = "Grid";
 
-    CONFIG: GRID_CONFIG;
+    declare CONFIG: GRID_CONFIG;
 
     gridOrigin: GridOrigin;
 

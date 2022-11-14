@@ -50,7 +50,7 @@ export class Graph extends Cubicon {
 
     functionDef: (x: number) => number;
 
-    CONFIG: GRAPH_CONFIG;
+    declare CONFIG: GRAPH_CONFIG;
 
     constructor(params: GraphParams) {
         super({

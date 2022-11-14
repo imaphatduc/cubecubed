@@ -29,7 +29,7 @@ export class AxisProjector extends Line {
 
     axes: Axes;
 
-    CONFIG: LINE_SHAPE_CONFIG;
+    declare CONFIG: LINE_SHAPE_CONFIG;
 
     constructor(params: AxisProjectorParams) {
         super({

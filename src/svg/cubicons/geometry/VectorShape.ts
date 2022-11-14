@@ -35,7 +35,7 @@ export class VectorShape extends Cubicon {
 
     def_arrowhead: Selection<SVGPolygonElement, unknown, HTMLElement, any>;
 
-    CONFIG: VECTOR_SHAPE_CONFIG;
+    declare CONFIG: VECTOR_SHAPE_CONFIG;
 
     constructor(params: VectorShapeParams) {
         super({

@@ -34,7 +34,7 @@ export class MathTex extends Cubicon {
 
     text: string;
 
-    CONFIG: MATH_TEX_CONFIG;
+    declare CONFIG: MATH_TEX_CONFIG;
 
     constructor(params: MathTexParams) {
         super({

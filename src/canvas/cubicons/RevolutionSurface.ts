@@ -54,7 +54,7 @@ export class RevolutionSurface extends CanvasCubicon {
      */
     functionDef: CurveFunction;
 
-    CONFIG: REVOLUTION_SURFACE_CONFIG;
+    declare CONFIG: REVOLUTION_SURFACE_CONFIG;
 
     constructor(params: RevolutionSurfaceParams) {
         super({

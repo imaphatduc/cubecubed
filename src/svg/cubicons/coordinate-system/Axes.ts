@@ -40,7 +40,7 @@ export const AXES_DEFAULT_CONFIG: AXES_CONFIG = {
 export class Axes extends Cubicon {
     readonly cubiconType = "Axes";
 
-    CONFIG: AXES_CONFIG;
+    declare CONFIG: AXES_CONFIG;
 
     /**
      * The `<svg>` element that contains the whole coordinate system and everything included in it.

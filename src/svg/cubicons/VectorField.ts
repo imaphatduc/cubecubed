@@ -50,7 +50,7 @@ export class VectorField extends Cubicon {
      */
     vectorShapes: VectorShape[] = [];
 
-    CONFIG: VECTOR_FIELD_CONFIG;
+    declare CONFIG: VECTOR_FIELD_CONFIG;
 
     constructor(params: VectorFieldParams) {
         super({

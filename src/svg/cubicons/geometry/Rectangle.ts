@@ -45,7 +45,7 @@ export class Rectangle extends Cubicon {
 
     readonly height: number;
 
-    CONFIG: PLANE_SHAPE_CONFIG;
+    declare CONFIG: PLANE_SHAPE_CONFIG;
 
     constructor(params: RectangleParams) {
         super({

@@ -23,7 +23,7 @@ export class Circle extends Cubicon {
 
     readonly radius: number;
 
-    CONFIG: PLANE_SHAPE_CONFIG;
+    declare CONFIG: PLANE_SHAPE_CONFIG;
 
     constructor(params: CircleParams) {
         super({

@@ -26,7 +26,7 @@ export class Line extends Cubicon {
 
     readonly endPoint: Vector2;
 
-    CONFIG: LINE_SHAPE_CONFIG;
+    declare CONFIG: LINE_SHAPE_CONFIG;
 
     constructor(params: LineParams) {
         super({
