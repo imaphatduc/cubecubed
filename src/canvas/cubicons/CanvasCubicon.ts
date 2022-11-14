@@ -17,6 +17,11 @@ export interface CanvasCubiconParams<TCONFIG> {
     position?: Vector3;
 
     /**
+     * Scale the position vector of this cubicon by this number.
+     */
+    scaleFactor?: number;
+
+    /**
      * Config options of this cubicon.
      */
     CONFIG?: TCONFIG;
@@ -26,6 +31,8 @@ export abstract class CanvasCubicon {
     group: CanvasGroup;
 
     position: Vector3;
+
+    scaleFactor: number;
 
     CONFIG: object;
 
@@ -48,6 +55,8 @@ export abstract class CanvasCubicon {
         this.group = params.group;
 
         this.position = params.position ?? new Vector3(0, 0, 0);
+
+        this.scaleFactor = params.scaleFactor ?? 1;
 
         // params.CONFIG is never null or undefined, because it reverts to
         // DEFAULT_CONFIG everytime it is passed down to the constructor of
