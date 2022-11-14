@@ -40,7 +40,7 @@ export * from "./svg/animations/Trace";
 export * from "./canvas/group/CanvasGroup";
 export * from "./canvas/cubicons/CanvasCubicon";
 // export * from "./canvas/cubicons/Graph3D";
-// export * from "./canvas/cubicons/Particle";
+export * from "./canvas/cubicons/Particle";
 // export * from "./canvas/cubicons/StreamLine";
 // export * from "./canvas/cubicons/Axes3D";
 export * from "./canvas/cubicons/RevolutionSurface";
