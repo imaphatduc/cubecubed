@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:59](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L59)
+[src/canvas/cubicons/RevolutionSurface.ts:59](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/RevolutionSurface.ts#L59)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:57](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L57)
+[src/canvas/cubicons/RevolutionSurface.ts:57](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/RevolutionSurface.ts#L57)
 
 ___
 
@@ -54,7 +54,7 @@ Form: y = f(x)
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:55](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L55)
+[src/canvas/cubicons/RevolutionSurface.ts:55](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/RevolutionSurface.ts#L55)
 
 ___
 
@@ -70,7 +70,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L42)
+[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L35)
 
 ___
 
@@ -84,7 +84,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L31)
+[src/canvas/cubicons/CanvasCubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L26)
 
 ___
 
@@ -100,7 +100,7 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L47)
+[src/canvas/cubicons/CanvasCubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L40)
 
 ___
 
@@ -116,7 +116,7 @@ Mesh of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L52)
+[src/canvas/cubicons/CanvasCubicon.ts:45](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L45)
 
 ___
 
@@ -130,21 +130,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L33)
-
-___
-
-### scaleFactor
-
-• **scaleFactor**: `number`
-
-#### Inherited from
-
-[CanvasCubicon](/reference/classes/CanvasCubicon.md).[scaleFactor](/reference/classes/CanvasCubicon.md#scalefactor)
-
-#### Defined in
-
-[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/CanvasCubicon.ts#L35)
+[src/canvas/cubicons/CanvasCubicon.ts:28](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L28)
 
 ## Methods
 
@@ -162,7 +148,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:81](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L81)
+[src/canvas/cubicons/RevolutionSurface.ts:81](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/RevolutionSurface.ts#L81)
 
 ___
 
@@ -184,4 +170,4 @@ Set the surface's geometry based on the current animation stage.
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:122](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/RevolutionSurface.ts#L122)
+[src/canvas/cubicons/RevolutionSurface.ts:122](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/RevolutionSurface.ts#L122)

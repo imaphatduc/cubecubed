@@ -16,7 +16,7 @@ window.innerHeight
 
 #### Defined in
 
-[src/scene/Scene.ts:17](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/scene/Scene.ts#L17)
+[src/scene/Scene.ts:17](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/scene/Scene.ts#L17)
 
 ___
 
@@ -32,4 +32,4 @@ window.innerWidth
 
 #### Defined in
 
-[src/scene/Scene.ts:10](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/scene/Scene.ts#L10)
+[src/scene/Scene.ts:10](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/scene/Scene.ts#L10)

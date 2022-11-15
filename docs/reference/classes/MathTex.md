@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:39](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/MathTex.ts#L39)
+[src/svg/cubicons/MathTex.ts:39](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/MathTex.ts#L39)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:37](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/MathTex.ts#L37)
+[src/svg/cubicons/MathTex.ts:37](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/MathTex.ts#L37)
 
 ___
 
@@ -57,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L50)
+[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L50)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:33](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/MathTex.ts#L33)
+[src/svg/cubicons/MathTex.ts:33](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/MathTex.ts#L33)
 
 ___
 
@@ -87,7 +87,7 @@ The SVG element that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L75)
+[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L75)
 
 ___
 
@@ -103,7 +103,7 @@ The `<g>` element that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L70)
+[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L70)
 
 ___
 
@@ -117,7 +117,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L40)
+[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L40)
 
 ___
 
@@ -133,7 +133,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L60)
+[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L60)
 
 ___
 
@@ -149,7 +149,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L55)
+[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L55)
 
 ___
 
@@ -163,7 +163,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L42)
+[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L42)
 
 ___
 
@@ -179,7 +179,7 @@ The `<svg>` element of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L65)
 
 ___
 
@@ -189,7 +189,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:35](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/MathTex.ts#L35)
+[src/svg/cubicons/MathTex.ts:35](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/MathTex.ts#L35)
 
 ## Methods
 
@@ -215,7 +215,7 @@ Convert grid coordinates to pixels.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:102](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/Cubicon.ts#L102)
+[src/svg/cubicons/Cubicon.ts:102](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L102)
 
 ___
 
@@ -235,4 +235,4 @@ Render this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:63](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/MathTex.ts#L63)
+[src/svg/cubicons/MathTex.ts:63](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/MathTex.ts#L63)

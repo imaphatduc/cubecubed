@@ -21,7 +21,7 @@ Include this group to HTML flow.
 
 #### Defined in
 
-[src/svg/group/Group.ts:103](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L103)
+[src/svg/group/Group.ts:103](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L103)
 
 ## Properties
 
@@ -35,7 +35,7 @@ The time passed by since this group was created. (in milliseconds)
 
 #### Defined in
 
-[src/svg/group/Group.ts:94](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L94)
+[src/svg/group/Group.ts:94](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L94)
 
 ___
 
@@ -47,7 +47,7 @@ Name of this group.
 
 #### Defined in
 
-[src/svg/group/Group.ts:37](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L37)
+[src/svg/group/Group.ts:37](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L37)
 
 ___
 
@@ -59,7 +59,7 @@ Ratio between square length in x direction and y direction.
 
 #### Defined in
 
-[src/svg/group/Group.ts:57](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L57)
+[src/svg/group/Group.ts:57](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L57)
 
 ___
 
@@ -71,7 +71,7 @@ The scene that this group belongs to.
 
 #### Defined in
 
-[src/svg/group/Group.ts:27](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L27)
+[src/svg/group/Group.ts:27](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L27)
 
 ___
 
@@ -83,7 +83,7 @@ Length of a square in this scene.
 
 #### Defined in
 
-[src/svg/group/Group.ts:52](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L52)
+[src/svg/group/Group.ts:52](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L52)
 
 ___
 
@@ -95,7 +95,7 @@ The `<svg>` element that represents this group.
 
 #### Defined in
 
-[src/svg/group/Group.ts:32](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L32)
+[src/svg/group/Group.ts:32](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L32)
 
 ___
 
@@ -107,7 +107,7 @@ x coordinate bound values of this scene.
 
 #### Defined in
 
-[src/svg/group/Group.ts:62](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L62)
+[src/svg/group/Group.ts:62](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L62)
 
 ___
 
@@ -119,7 +119,7 @@ Convert x value of grid coordinates to real-world coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:72](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L72)
+[src/svg/group/Group.ts:72](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L72)
 
 ___
 
@@ -131,7 +131,7 @@ Convert x value of real-world coordinates to grid coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:82](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L82)
+[src/svg/group/Group.ts:82](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L82)
 
 ___
 
@@ -143,7 +143,7 @@ y coordinate bound values of this scene.
 
 #### Defined in
 
-[src/svg/group/Group.ts:67](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L67)
+[src/svg/group/Group.ts:67](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L67)
 
 ___
 
@@ -155,7 +155,7 @@ Convert y value of grid coordinates to real-world coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:77](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L77)
+[src/svg/group/Group.ts:77](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L77)
 
 ___
 
@@ -167,7 +167,7 @@ Convert y value of real-world coordinates to grid coordinates.
 
 #### Defined in
 
-[src/svg/group/Group.ts:87](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L87)
+[src/svg/group/Group.ts:87](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L87)
 
 ## Methods
 
@@ -190,7 +190,7 @@ That means, everything in the scene will be removed, too.
 
 #### Defined in
 
-[src/svg/group/Group.ts:245](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L245)
+[src/svg/group/Group.ts:245](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L245)
 
 ___
 
@@ -212,7 +212,7 @@ ___
 
 #### Defined in
 
-[src/svg/group/Group.ts:254](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L254)
+[src/svg/group/Group.ts:254](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L254)
 
 ___
 
@@ -234,7 +234,7 @@ Play all the animations included in a queue.
 
 #### Defined in
 
-[src/svg/group/Group.ts:199](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L199)
+[src/svg/group/Group.ts:199](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L199)
 
 ___
 
@@ -256,7 +256,7 @@ Remove cubicons from this group.
 
 #### Defined in
 
-[src/svg/group/Group.ts:229](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L229)
+[src/svg/group/Group.ts:229](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L229)
 
 ___
 
@@ -278,7 +278,7 @@ Render all the specified cubicons on the screen (instead of calling `.render()` 
 
 #### Defined in
 
-[src/svg/group/Group.ts:138](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L138)
+[src/svg/group/Group.ts:138](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L138)
 
 ___
 
@@ -300,4 +300,4 @@ Sleep this group for an amount of time.
 
 #### Defined in
 
-[src/svg/group/Group.ts:218](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/group/Group.ts#L218)
+[src/svg/group/Group.ts:218](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/group/Group.ts#L218)

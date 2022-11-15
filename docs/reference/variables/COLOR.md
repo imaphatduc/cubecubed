@@ -28,4 +28,4 @@ Color constants
 
 #### Defined in
 
-[src/constants.ts:8](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/constants.ts#L8)
+[src/constants.ts:8](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/constants.ts#L8)

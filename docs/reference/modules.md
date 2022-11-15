@@ -19,6 +19,7 @@
 - [DrawVectorField](/reference/classes/DrawVectorField.md)
 - [FadeIn](/reference/classes/FadeIn.md)
 - [FadeOut](/reference/classes/FadeOut.md)
+- [Flow](/reference/classes/Flow.md)
 - [Grid](/reference/classes/Grid.md)
 - [GridOrigin](/reference/classes/GridOrigin.md)
 - [Group](/reference/classes/Group.md)
@@ -45,12 +46,14 @@
 
 ## Interfaces
 
+- [ANIMATION\_INFO](/reference/interfaces/ANIMATION_INFO.md)
 - [AXES\_CONFIG](/reference/interfaces/AXES_CONFIG.md)
 - [AnimationParams](/reference/interfaces/AnimationParams.md)
 - [CanvasAnimationParams](/reference/interfaces/CanvasAnimationParams.md)
 - [CanvasCubiconParams](/reference/interfaces/CanvasCubiconParams.md)
 - [CircleParams](/reference/interfaces/CircleParams.md)
 - [CubiconParams](/reference/interfaces/CubiconParams.md)
+- [FlowParams](/reference/interfaces/FlowParams.md)
 - [GRID\_CONFIG](/reference/interfaces/GRID_CONFIG.md)
 - [GROUP\_MAKEUP\_CONFIG](/reference/interfaces/GROUP_MAKEUP_CONFIG.md)
 - [IVector](/reference/interfaces/IVector.md)
@@ -86,10 +89,13 @@
 - [CurveFunction](/reference/types/CurveFunction.md)
 - [EASE\_TYPE](/reference/types/EASE_TYPE.md)
 - [ElementMapFunction](/reference/types/ElementMapFunction.md)
+- [FLOW\_TYPES](/reference/types/FLOW_TYPES.md)
+- [FlowVectorFunction](/reference/types/FlowVectorFunction.md)
 - [POINT\_ON\_GRAPH\_DATA](/reference/types/POINT_ON_GRAPH_DATA.md)
 - [POINT\_TO\_COORDS\_DATA](/reference/types/POINT_TO_COORDS_DATA.md)
 - [RECT\_GRID\_DATA](/reference/types/RECT_GRID_DATA.md)
 - [RECT\_INNER\_LINE\_POINTS](/reference/types/RECT_INNER_LINE_POINTS.md)
+- [SIMULATE\_REVOLUTION\_TYPES](/reference/types/SIMULATE_REVOLUTION_TYPES.md)
 - [TexElement](/reference/types/TexElement.md)
 - [VideoRecipe](/reference/types/VideoRecipe.md)
 

@@ -10,7 +10,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:31](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/coordinate-system/Axes.ts#L31)
+[src/svg/cubicons/coordinate-system/Axes.ts:31](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L31)
 
 ___
 
@@ -20,7 +20,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:29](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/coordinate-system/Axes.ts#L29)
+[src/svg/cubicons/coordinate-system/Axes.ts:29](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L29)
 
 ___
 
@@ -30,4 +30,4 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:30](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/cubicons/coordinate-system/Axes.ts#L30)
+[src/svg/cubicons/coordinate-system/Axes.ts:30](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L30)

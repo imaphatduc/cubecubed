@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/animations/Write.ts:17](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Write.ts#L17)
+[src/svg/animations/Write.ts:17](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Write.ts#L17)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/svg/animations/Write.ts:13](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Write.ts#L13)
+[src/svg/animations/Write.ts:13](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Write.ts#L13)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Write.ts:15](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Write.ts#L15)
+[src/svg/animations/Write.ts:15](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Write.ts#L15)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L32)
+[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L32)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L34)
+[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L34)
 
 ___
 
@@ -98,7 +98,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L28)
+[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L28)
 
 ## Methods
 
@@ -118,7 +118,7 @@ Play this animation.
 
 #### Defined in
 
-[src/svg/animations/Write.ts:27](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Write.ts#L27)
+[src/svg/animations/Write.ts:27](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Write.ts#L27)
 
 ___
 
@@ -143,4 +143,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L53)

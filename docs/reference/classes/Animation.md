@@ -48,7 +48,7 @@
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L36)
+[src/svg/animations/Animation.ts:36](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L36)
 
 ## Properties
 
@@ -58,7 +58,7 @@
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:23](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L23)
+[src/svg/animations/Animation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L23)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:30](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L30)
+[src/svg/animations/Animation.ts:30](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L30)
 
 ___
 
@@ -78,7 +78,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L32)
+[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L32)
 
 ___
 
@@ -88,7 +88,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L34)
+[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L34)
 
 ___
 
@@ -100,7 +100,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L28)
+[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L28)
 
 ## Methods
 
@@ -116,7 +116,7 @@ Play this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:49](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L49)
+[src/svg/animations/Animation.ts:49](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L49)
 
 ___
 
@@ -137,4 +137,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/animations/Animation.ts#L53)

@@ -14,4 +14,4 @@
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:12](https://github.com/imaphatduc/cubecubed/blob/cb0c39f/src/canvas/cubicons/Particle.ts#L12)
+[src/canvas/cubicons/Particle.ts:12](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/Particle.ts#L12)
