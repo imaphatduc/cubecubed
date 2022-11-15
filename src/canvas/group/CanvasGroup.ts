@@ -3,6 +3,7 @@ import { ScaleLinear, scaleLinear } from "d3-scale";
 import {
     AxesHelper,
     Camera,
+    Clock,
     Material,
     PerspectiveCamera,
     Scene as TScene,
@@ -17,6 +18,12 @@ import { Scene } from "@scene/Scene";
 import { CanvasAnimation } from "@animations/CanvasAnimation";
 
 import { CanvasCubicon } from "@cubicons/CanvasCubicon";
+
+export interface ANIMATION_INFO {
+    animation: CanvasAnimation;
+    startAt: number;
+    endAt: number;
+}
 
 /**
  * The object to group canvas cubicons together. A group must belong to a scene.
@@ -46,6 +53,11 @@ export class CanvasGroup {
      * Three.js OrbitControls object
      */
     private controls: OrbitControls;
+
+    /**
+     * Three.js Clock object
+     */
+    private clock: Clock;
 
     /**
      * Name of this scene.
@@ -121,6 +133,8 @@ export class CanvasGroup {
      * Convert z value of real-world coordinates to grid coordinates.
      */
     zWtoG: ScaleLinear<number, number, never>;
+
+    animationsInfo: ANIMATION_INFO[] = [];
 
     /**
      * The time passed by since this group was created. (in milliseconds)
@@ -282,6 +296,13 @@ export class CanvasGroup {
             this.controls.update();
         })();
 
+        // set clock
+        (() => {
+            this.clock = new Clock();
+
+            this.clock.start();
+        })();
+
         const axesHelper = new AxesHelper(5);
 
         this.threeScene.add(axesHelper);
@@ -293,6 +314,20 @@ export class CanvasGroup {
     private update() {
         const animate = () => {
             requestAnimationFrame(animate);
+
+            const elapsed = this.clock.getElapsedTime();
+
+            this.animationsInfo.forEach((animationInfo) => {
+                if (elapsed >= animationInfo.startAt) {
+                    if (animationInfo.animation.duration > 0) {
+                        if (elapsed <= animationInfo.endAt) {
+                            animationInfo.animation.play();
+                        }
+                    } else {
+                        animationInfo.animation.play();
+                    }
+                }
+            });
 
             this.controls.update();
             this.renderer.render(this.threeScene, this.camera);
@@ -308,11 +343,15 @@ export class CanvasGroup {
      */
     play(animations: CanvasAnimation[]) {
         const queueElapsed = Math.max(
-            ...animations.map((animation) => {
-                animation.play();
+            ...animations.map((animation) => animation.duration)
+        );
 
-                return animation.duration;
-            })
+        this.animationsInfo.push(
+            ...animations.map((animation) => ({
+                animation,
+                startAt: this.groupElapsed,
+                endAt: this.groupElapsed + animation.duration,
+            }))
         );
 
         this.groupElapsed += queueElapsed;
