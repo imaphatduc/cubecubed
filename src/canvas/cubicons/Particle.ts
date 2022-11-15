@@ -46,22 +46,22 @@ export class Particle extends CanvasCubicon {
         });
 
         this.radius = params.radius ?? 0.02;
+
+        this.geometrize();
+
+        this.materialize();
     }
 
     /**
      * @internal
      */
     render() {
-        this.geometrize();
-
-        this.materialize();
-
         this.mesh = new Mesh(this.geometry, this.material);
 
         this.mesh.position.set(
-            this.position.x * this.scaleFactor,
-            this.position.y * this.scaleFactor,
-            this.position.z * this.scaleFactor
+            this.position.x,
+            this.position.y,
+            this.position.z
         );
 
         this.group.threeScene.add(this.mesh);
