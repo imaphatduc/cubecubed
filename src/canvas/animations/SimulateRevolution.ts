@@ -5,10 +5,12 @@ import { CanvasAnimation, CanvasAnimationParams } from "./CanvasAnimation";
 
 import { RevolutionSurface } from "@cubicons/RevolutionSurface";
 
-export class SimulateRevolution extends CanvasAnimation {
-    cubicon: RevolutionSurface;
+export type SIMULATE_REVOLUTION_TYPES = RevolutionSurface;
 
-    constructor(params: CanvasAnimationParams<RevolutionSurface>) {
+export class SimulateRevolution extends CanvasAnimation {
+    cubicon: SIMULATE_REVOLUTION_TYPES;
+
+    constructor(params: CanvasAnimationParams<SIMULATE_REVOLUTION_TYPES>) {
         super({
             cubicon: params.cubicon,
 
