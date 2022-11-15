@@ -84,9 +84,9 @@ Element that represents the SVG element of a cubicon: (e.g. `<path>`, `<circle>`
 
 9. Run `npm link` to link the local repository to store it globally on your machine.
 
-10. Make a new directory somewhere outside the local repo directory. Run `npm link cubecubed` to pull the global codes to the new directory.
+10. Run `npx cubecubed my-workspace` somewhere outside the local repo directory to initialize a scene (make sure you say 'yes' for all of the prompt options).
 
-11. Run `npx cubecubed` to initialize a scene (make sure you say 'yes' for all of the prompt options).
+11. Inside the `my-workspace` folder, run `npm link cubecubed` to pull the global codes to the new directory.
 
 12. Run `npm run dev` again to test the npm package.
 
