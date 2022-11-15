@@ -40,8 +40,6 @@ export class Particle extends CanvasCubicon {
 
             position: params.position,
 
-            scaleFactor: params.scaleFactor,
-
             CONFIG: configFactory(PARTICLE_DEFAULT_CONFIG, params.CONFIG),
         });
 
