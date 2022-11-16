@@ -67,22 +67,15 @@ const prompt = () => {
             },
         ])
         .then((answers) => {
-            exec(`npm i ${project}`);
-
-            let raw;
-
-            try {
-                raw = readFileSync("package.json");
-            } catch (err) {
-                throw err;
-            }
+            execSync(`npm i ${project}`);
 
             clone();
 
             if (answers["vite"]) {
                 console.log("Installing vite...");
 
-                exec("npm i vite", () => {
+                exec("npm i -D vite", () => {
+                    const raw = readFileSync("package.json").toString();
                     writePackageJson(raw, {
                         key: "scripts",
                         value: {
