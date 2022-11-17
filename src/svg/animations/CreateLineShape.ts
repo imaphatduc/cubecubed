@@ -10,7 +10,7 @@ export type CREATE_LINE_SHAPE_TYPES = Line | AxisProjector;
 export class CreateLineShape extends Animation {
     readonly animationType = "CreateLineShape";
 
-    cubicon: CREATE_LINE_SHAPE_TYPES;
+    declare cubicon: CREATE_LINE_SHAPE_TYPES;
 
     constructor(params: AnimationParams<CREATE_LINE_SHAPE_TYPES>) {
         super({

@@ -33,6 +33,8 @@ export interface FlowParams extends CanvasAnimationParams<FLOW_TYPES> {
  * flow, use `SimulateStream()` instead.
  */
 export class Flow extends CanvasAnimation {
+    declare cubicon: FLOW_TYPES;
+
     /**
      * The function defining the position of the target
      * cubicon. This function should take a `Vector3()`

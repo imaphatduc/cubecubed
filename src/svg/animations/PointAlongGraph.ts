@@ -30,7 +30,7 @@ export interface PointAlongGraphParams extends AnimationParams<Point> {
 export class PointAlongGraph extends Animation {
     readonly animationType = "PointAlongGraph";
 
-    cubicon: Point;
+    declare cubicon: Point;
 
     private horizontalProjector?: AxisProjector;
 

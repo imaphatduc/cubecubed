@@ -7,7 +7,7 @@ import { CreatePlaneShape } from "@animations/CreatePlaneShape";
 export class DrawGrid extends Animation {
     readonly animationType = "DrawGrid";
 
-    cubicon: Grid;
+    declare cubicon: Grid;
 
     private readonly draw = 1000;
 

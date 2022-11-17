@@ -7,7 +7,7 @@ import { Animation, AnimationParams } from "@animations/Animation";
 export class CreateVectorShape extends Animation {
     readonly animationType = "CreateVectorShape";
 
-    cubicon: VectorShape;
+    declare cubicon: VectorShape;
 
     constructor(params: AnimationParams<VectorShape>) {
         super({

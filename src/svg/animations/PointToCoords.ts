@@ -16,7 +16,7 @@ export interface PointToCoordsParams extends AnimationParams<Point> {
 export class PointToCoords extends Animation {
     readonly animationType = "PointToCoords";
 
-    cubicon: Point;
+    declare cubicon: Point;
 
     private horizontalProjector?: AxisProjector;
 

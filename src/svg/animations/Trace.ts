@@ -18,7 +18,7 @@ export interface TraceParams extends AnimationParams<Line> {
 export class Trace extends Animation {
     readonly animationType = "Trace";
 
-    cubicon: Line;
+    declare cubicon: Line;
 
     private curve: ParametricCurve;
 

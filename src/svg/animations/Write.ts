@@ -12,7 +12,7 @@ export type TexElement = Selection<SVGPathElement, unknown, BaseType, any>;
 export class Write extends Animation {
     readonly animationType = "Write";
 
-    cubicon: MathTex;
+    declare cubicon: MathTex;
 
     constructor(params: AnimationParams<MathTex>) {
         super({

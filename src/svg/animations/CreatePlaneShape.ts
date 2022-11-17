@@ -18,7 +18,7 @@ export type CREATE_PLANE_SHAPE_TYPES =
 export class CreatePlaneShape extends Animation {
     readonly animationType = "CreatePlaneShape";
 
-    cubicon: CREATE_PLANE_SHAPE_TYPES;
+    declare cubicon: CREATE_PLANE_SHAPE_TYPES;
 
     constructor(params: AnimationParams<CREATE_PLANE_SHAPE_TYPES>) {
         super({

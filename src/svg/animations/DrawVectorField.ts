@@ -9,7 +9,7 @@ import { CreateVectorShape } from "@animations/CreateVectorShape";
 export class DrawVectorField extends Animation {
     readonly animationType = "DrawVectorField";
 
-    cubicon: VectorField;
+    declare cubicon: VectorField;
 
     constructor(params: AnimationParams<VectorField>) {
         super({

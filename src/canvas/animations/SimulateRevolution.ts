@@ -8,7 +8,7 @@ import { RevolutionSurface } from "@cubicons/RevolutionSurface";
 export type SIMULATE_REVOLUTION_TYPES = RevolutionSurface;
 
 export class SimulateRevolution extends CanvasAnimation {
-    cubicon: SIMULATE_REVOLUTION_TYPES;
+    declare cubicon: SIMULATE_REVOLUTION_TYPES;
 
     constructor(params: CanvasAnimationParams<SIMULATE_REVOLUTION_TYPES>) {
         super({

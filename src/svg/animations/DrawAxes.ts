@@ -11,7 +11,7 @@ export type AxisSelection = Selection<SVGGElement, unknown, HTMLElement, any>;
 export class DrawAxes extends Animation {
     readonly animationType = "DrawAxes";
 
-    cubicon: Axes;
+    declare cubicon: Axes;
 
     private readonly delayEach = 100;
 
