@@ -6,6 +6,8 @@ export type VideoRecipe = () => void;
 export class Recorder {
     private recipe: VideoRecipe;
 
+    private fileName: string;
+
     private videoElement: Selection<
         HTMLVideoElement,
         unknown,
@@ -13,8 +15,10 @@ export class Recorder {
         any
     >;
 
-    constructor(recipe: VideoRecipe) {
+    constructor(recipe: VideoRecipe, fileName = "video") {
         this.recipe = recipe;
+
+        this.fileName = fileName;
 
         this.videoElement = select("body")
             .append("video")
@@ -67,7 +71,7 @@ export class Recorder {
             const a = document.createElement("a");
 
             a.href = url;
-            a.download = "video.webm";
+            a.download = this.fileName;
             a.click();
         };
     }
