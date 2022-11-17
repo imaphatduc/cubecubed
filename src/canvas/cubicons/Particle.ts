@@ -40,6 +40,8 @@ export class Particle extends CanvasCubicon {
 
             position: params.position,
 
+            scaleFactor: params.scaleFactor,
+
             CONFIG: configFactory(PARTICLE_DEFAULT_CONFIG, params.CONFIG),
         });
 
@@ -54,12 +56,14 @@ export class Particle extends CanvasCubicon {
      * @internal
      */
     render() {
+        const { xGtoW, yGtoW, zGtoW } = this.group;
+
         this.mesh = new Mesh(this.geometry, this.material);
 
         this.mesh.position.set(
-            this.position.x,
-            this.position.y,
-            this.position.z
+            xGtoW(this.position.x) * this.scaleFactor,
+            yGtoW(this.position.y) * this.scaleFactor,
+            zGtoW(this.position.z) * this.scaleFactor
         );
 
         this.group.threeScene.add(this.mesh);

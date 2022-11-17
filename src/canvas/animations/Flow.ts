@@ -82,10 +82,16 @@ export class Flow extends CanvasAnimation {
     }
 
     private flow() {
-        const { x, y, z } = this.cubicon.position;
-
-        this.cubicon.mesh.position.set(x, y, z);
+        const { xGtoW, yGtoW, zGtoW } = this.cubicon.group;
 
         this.cubicon.position = this.functionDef(this.cubicon.position);
+
+        const { x, y, z } = this.cubicon.position;
+
+        this.cubicon.mesh.position.set(
+            xGtoW(x) * this.cubicon.scaleFactor,
+            yGtoW(y) * this.cubicon.scaleFactor,
+            zGtoW(z) * this.cubicon.scaleFactor
+        );
     }
 }
