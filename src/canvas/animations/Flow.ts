@@ -54,7 +54,8 @@ export class Flow extends CanvasAnimation {
     constructor(params: FlowParams) {
         super({
             cubicon: params.cubicon,
-            duration: params.duration ?? 0,
+
+            duration: params.duration,
         });
 
         this.functionDef = ({ x, y, z }) => {

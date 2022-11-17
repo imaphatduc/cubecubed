@@ -14,7 +14,7 @@ export class SimulateRevolution extends CanvasAnimation {
         super({
             cubicon: params.cubicon,
 
-            duration: params.duration ?? 0,
+            duration: params.duration,
         });
     }
 
