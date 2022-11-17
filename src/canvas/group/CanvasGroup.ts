@@ -335,7 +335,7 @@ export class CanvasGroup {
         const animate = () => {
             requestAnimationFrame(animate);
 
-            const elapsed = this.clock.getElapsedTime();
+            const elapsed = this.clock.getElapsedTime() * 1000;
 
             this.animationsInfo.forEach((animationInfo) => {
                 if (elapsed >= animationInfo.startAt) {
