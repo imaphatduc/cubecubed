@@ -1,4 +1,4 @@
-import { BufferGeometry, Material, Mesh } from "three";
+import { BufferGeometry, Line, Material, Mesh, Object3D } from "three";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector3 } from "@math/Vector3";
@@ -47,9 +47,9 @@ export abstract class CanvasCubicon {
     material: Material;
 
     /**
-     * Mesh of this cubicon.
+     * Object representing this cubicon.
      */
-    mesh: Mesh;
+    object: Mesh | Line;
 
     constructor(params: CanvasCubiconParams<object>) {
         this.group = params.group;

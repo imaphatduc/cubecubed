@@ -398,10 +398,10 @@ export class CanvasGroup {
     remove(cubicons: CanvasCubicon[]) {
         setTimeout(() => {
             cubicons.forEach((cubicon) => {
-                cubicon.mesh.geometry.dispose();
-                (cubicon.mesh.material as Material).dispose();
+                cubicon.object.geometry.dispose();
+                (cubicon.object.material as Material).dispose();
 
-                this.threeScene.remove(cubicon.mesh);
+                this.threeScene.remove(cubicon.object);
             });
         }, this.groupElapsed);
     }

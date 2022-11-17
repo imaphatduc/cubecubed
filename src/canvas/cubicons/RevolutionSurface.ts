@@ -79,9 +79,9 @@ export class RevolutionSurface extends CanvasCubicon {
      * @internal
      */
     render() {
-        this.mesh = new Mesh(this.geometry, this.material);
+        this.object = new Mesh(this.geometry, this.material);
 
-        this.group.threeScene.add(this.mesh);
+        this.group.threeScene.add(this.object);
 
         return this;
     }

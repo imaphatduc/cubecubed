@@ -58,15 +58,15 @@ export class Particle extends CanvasCubicon {
     render() {
         const { xGtoW, yGtoW, zGtoW } = this.group;
 
-        this.mesh = new Mesh(this.geometry, this.material);
+        this.object = new Mesh(this.geometry, this.material);
 
-        this.mesh.position.set(
+        this.object.position.set(
             xGtoW(this.position.x) * this.scaleFactor,
             yGtoW(this.position.y) * this.scaleFactor,
             zGtoW(this.position.z) * this.scaleFactor
         );
 
-        this.group.threeScene.add(this.mesh);
+        this.group.threeScene.add(this.object);
 
         return this;
     }
