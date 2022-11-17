@@ -5,6 +5,7 @@ import {
     Camera,
     Clock,
     Material,
+    OrthographicCamera,
     PerspectiveCamera,
     Scene as TScene,
     WebGLRenderer,
@@ -63,6 +64,8 @@ export class CanvasGroup {
      * Name of this scene.
      */
     name: string;
+
+    private type: "2d" | "3d" = "2d";
 
     /**
      * Number of squares in the x direction.
@@ -134,7 +137,7 @@ export class CanvasGroup {
      */
     zWtoG: ScaleLinear<number, number, never>;
 
-    animationsInfo: ANIMATION_INFO[] = [];
+    private animationsInfo: ANIMATION_INFO[] = [];
 
     /**
      * The time passed by since this group was created. (in milliseconds)
@@ -150,10 +153,12 @@ export class CanvasGroup {
      *
      * @param scene The scene that the group belongs to.
      */
-    constructor(groupName: string, scene: Scene) {
+    constructor(groupName: string, scene: Scene, type: "2d" | "3d" = "2d") {
         this.scene = scene;
 
         this.name = groupName;
+
+        this.type = type;
 
         this.defineBoundsAndSquares(this.ratio);
 
@@ -258,14 +263,29 @@ export class CanvasGroup {
 
         // set camera
         (() => {
-            this.camera = new PerspectiveCamera(
-                75,
-                window.innerWidth / window.innerHeight,
-                0.1,
-                1000
-            );
+            const { sceneWidth, sceneHeight } = this.scene.CONFIG;
 
-            this.camera.position.z = 5;
+            if (this.type === "2d") {
+                this.camera = new OrthographicCamera(
+                    sceneWidth / -2,
+                    sceneWidth / 2,
+                    sceneHeight / 2,
+                    sceneHeight / -2,
+                    1,
+                    1000
+                );
+
+                this.camera.position.z = 1000;
+            } else {
+                this.camera = new PerspectiveCamera(
+                    75,
+                    sceneWidth / sceneHeight,
+                    0.1,
+                    1000
+                );
+
+                this.camera.position.z = 5;
+            }
         })();
 
         // set renderer
@@ -303,7 +323,7 @@ export class CanvasGroup {
             this.clock.start();
         })();
 
-        const axesHelper = new AxesHelper(5);
+        const axesHelper = new AxesHelper(100);
 
         this.threeScene.add(axesHelper);
     }
