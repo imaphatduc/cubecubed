@@ -103,21 +103,7 @@ export class StreamLine extends CanvasCubicon {
             CONFIG: configFactory(STREAMLINE_DEFAULT_CONFIG, params.CONFIG),
         });
 
-        this.functionDef = ({ x, y, z }) => {
-            const dt = params.dt ?? 0.01;
-
-            const v = new Vector3(x, y, z);
-
-            const dx = params.functionDef(v).x;
-            const dy = params.functionDef(v).y;
-            const dz = params.functionDef(v).z;
-
-            x += dx * dt;
-            y += dy * dt;
-            z += dz * dt;
-
-            return new Vector3(x, y, z);
-        };
+        this.functionDef = (v) => params.functionDef(v);
 
         this.maxVertices = params.maxVertices ?? 2;
 
