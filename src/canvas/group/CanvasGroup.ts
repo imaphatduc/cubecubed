@@ -272,7 +272,7 @@ export class CanvasGroup {
                     sceneHeight / 2,
                     sceneHeight / -2,
                     1,
-                    1000
+                    10000
                 );
 
                 this.camera.position.z = 1000;
