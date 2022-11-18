@@ -15,7 +15,7 @@ export class Recorder {
         any
     >;
 
-    constructor(recipe: VideoRecipe, fileName = "video") {
+    constructor(recipe: VideoRecipe, fileName = "cubed") {
         this.recipe = recipe;
 
         this.fileName = fileName;
