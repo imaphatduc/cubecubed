@@ -15,11 +15,17 @@ const rho = 28;
 const beta = 8 / 3;
 
 const lorenz = ({ x, y, z }) => {
+    const dt = 0.01;
+
     const dx = sigma * (y - x);
     const dy = x * (rho - z) - y;
     const dz = x * y - beta * z;
 
-    return new Vector3(dx, dy, dz);
+    x += dx * dt;
+    y += dy * dt;
+    z += dz * dt;
+
+    return new Vector3(x, y, z);
 };
 
 function particles() {
