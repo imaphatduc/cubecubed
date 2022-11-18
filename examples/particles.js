@@ -1,19 +1,37 @@
 import { CanvasGroup, Flow, Particle, Scene, Vector3 } from "../src/index";
 
-const getRandomInRange = (min, max) => {
-    return Math.random() * (max - min) + min;
+const str2params = (str) => {
+    const mapper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+    const params = [];
+
+    const step = 0.1;
+
+    str.split("").forEach((c, i) => {
+        const index = mapper.indexOf(c.toUpperCase());
+
+        const param = (index - 12) * step;
+
+        params[i] = param;
+    });
+
+    return params;
 };
 
-const sigma = 14;
-const rho = 28;
-const beta = 8 / 3;
+const chaos = ({ x, y }) => {
+    const params = str2params("GIIETPIQRRUL");
 
-const lorenz = ({ x, y, z }) => {
-    const dx = sigma * (y - x);
-    const dy = x * (rho - z) - y;
-    const dz = x * y - beta * z;
+    const xx = x * x;
+    const xy = x * y;
+    const yy = y * y;
 
-    return new Vector3(dx, dy, dz);
+    // prettier-ignore
+    const nx = params[0] + params[1] * x + params[2] * xx + params[3] * xy + params[4] * y + params[5] * yy;
+    // prettier-ignore
+    const ny = params[6] + params[7] * x + params[8] * xx + params[9] * xy + params[10] * y + params[11] * yy;
+    const nz = 0;
+
+    return new Vector3(nx, ny, nz);
 };
 
 function particles() {
@@ -24,22 +42,19 @@ function particles() {
         return new Particle({
             group,
             position: new Vector3(
-                getRandomInRange(1, sigma),
-                getRandomInRange(1, rho),
-                getRandomInRange(1, beta)
+                Math.random() * 2,
+                Math.random() * 2,
+                Math.random() * 2
             ),
             radius: 1,
-            scaleFactor: 0.2,
-            CONFIG: {
-                fillColor: "#5e2eff",
-            },
+            scaleFactor: 8,
         }).render();
     });
 
     const flowAnimations = particles.map((particle) => {
         return new Flow({
             cubicon: particle,
-            functionDef: lorenz,
+            functionDef: chaos,
         });
     });
 
