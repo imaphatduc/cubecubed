@@ -1,7 +1,7 @@
 import { select, Selection } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
-export type VideoRecipe = () => void;
+export type VideoRecipe = () => number | undefined;
 
 export class Recorder {
     private recipe: VideoRecipe;
@@ -55,7 +55,15 @@ export class Recorder {
     private setMediaRecorderMethods(mediaRecorder: MediaRecorder) {
         const chunks: Blob[] = [];
 
-        mediaRecorder.onstart = () => this.recipe();
+        mediaRecorder.onstart = () => {
+            const duration = this.recipe();
+
+            if (duration) {
+                setTimeout(() => {
+                    mediaRecorder.stop();
+                }, duration);
+            }
+        };
 
         mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
 
