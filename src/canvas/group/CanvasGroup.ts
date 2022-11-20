@@ -220,8 +220,6 @@ export class CanvasGroup {
      */
     render(cubicons: CanvasCubicon[]) {
         cubicons.forEach((cubicon) => {
-            cubicon.geometry.computeVertexNormals();
-
             cubicon.render();
         });
     }
