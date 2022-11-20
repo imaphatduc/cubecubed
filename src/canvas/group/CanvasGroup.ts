@@ -12,7 +12,12 @@ import {
 } from "three";
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
+import { AfterimagePass } from "three/examples/jsm/postprocessing/AfterimagePass.js";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
+import configFactory from "@utils/configFactory";
 
 import { Scene } from "@scene/Scene";
 
@@ -25,6 +30,24 @@ export interface ANIMATION_INFO {
     startAt: number;
     endAt: number;
 }
+
+export interface CANVAS_GROUP_CONFIG {
+    type?: "2d" | "3d";
+
+    orbitControls?: boolean;
+
+    postprocessing?:
+        | {
+              afterimage: boolean;
+          }
+        | false;
+}
+
+export const CANVAS_GROUP_DEFAULT_CONFIG: CANVAS_GROUP_CONFIG = {
+    type: "2d",
+    orbitControls: false,
+    postprocessing: false,
+};
 
 /**
  * The object to group canvas cubicons together. A group must belong to a scene.
@@ -53,7 +76,12 @@ export class CanvasGroup {
     /**
      * Three.js OrbitControls object
      */
-    private controls: OrbitControls;
+    private controls?: OrbitControls;
+
+    /**
+     * Three.js EffectComposer object
+     */
+    private composer?: EffectComposer;
 
     /**
      * Three.js Clock object
@@ -64,8 +92,6 @@ export class CanvasGroup {
      * Name of this scene.
      */
     name: string;
-
-    private type: "2d" | "3d" = "2d";
 
     /**
      * Number of squares in the x direction.
@@ -137,6 +163,9 @@ export class CanvasGroup {
      */
     zWtoG: ScaleLinear<number, number, never>;
 
+    /**
+     * Animations to play in this group, with `startAt` and `endAt` included.
+     */
     private animationsInfo: ANIMATION_INFO[] = [];
 
     /**
@@ -147,18 +176,25 @@ export class CanvasGroup {
     groupElapsed = 0;
 
     /**
+     * Config options of this canvas group.
+     */
+    CONFIG: CANVAS_GROUP_CONFIG;
+
+    /**
      * Include this group to HTML flow.
      *
      * @param groupName Name of the group.
      *
      * @param scene The scene that the group belongs to.
+     *
+     * @param CONFIG Config options of the canvas group.
      */
-    constructor(groupName: string, scene: Scene, type: "2d" | "3d" = "2d") {
+    constructor(groupName: string, scene: Scene, CONFIG: CANVAS_GROUP_CONFIG) {
         this.scene = scene;
 
         this.name = groupName;
 
-        this.type = type;
+        this.CONFIG = configFactory(CANVAS_GROUP_DEFAULT_CONFIG, CONFIG);
 
         this.defineBoundsAndSquares(this.ratio);
 
@@ -265,7 +301,7 @@ export class CanvasGroup {
         (() => {
             const { sceneWidth, sceneHeight } = this.scene.CONFIG;
 
-            if (this.type === "2d") {
+            if (this.CONFIG.type === "2d") {
                 this.camera = new OrthographicCamera(
                     sceneWidth / -2,
                     sceneWidth / 2,
@@ -304,16 +340,33 @@ export class CanvasGroup {
             document.querySelector("#cubecubed")?.appendChild(domElement);
         })();
 
+        // postprocessing
+        (() => {
+            if (this.CONFIG.postprocessing) {
+                this.composer = new EffectComposer(this.renderer);
+                this.composer.addPass(
+                    new RenderPass(this.threeScene, this.camera)
+                );
+
+                if (this.CONFIG.postprocessing.afterimage) {
+                    const afterimagePass = new AfterimagePass();
+                    this.composer.addPass(afterimagePass);
+                }
+            }
+        })();
+
         // set orbit controls
         (() => {
-            this.controls = new OrbitControls(
-                this.camera,
-                this.renderer.domElement
-            );
+            if (this.CONFIG.orbitControls) {
+                this.controls = new OrbitControls(
+                    this.camera,
+                    this.renderer.domElement
+                );
 
-            this.controls.enableZoom = false;
+                this.controls.enableZoom = false;
 
-            this.controls.update();
+                this.controls.update();
+            }
         })();
 
         // set clock
@@ -349,8 +402,15 @@ export class CanvasGroup {
                 }
             });
 
-            this.controls.update();
-            this.renderer.render(this.threeScene, this.camera);
+            if (this.composer) {
+                this.composer.render();
+            } else {
+                this.renderer.render(this.threeScene, this.camera);
+            }
+
+            if (this.controls) {
+                this.controls.update();
+            }
         };
 
         animate();
