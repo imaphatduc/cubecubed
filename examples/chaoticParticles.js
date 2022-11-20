@@ -34,9 +34,9 @@ const chaos = ({ x, y }, t) => {
     return new Vector3(nx, ny, nz);
 };
 
-function particles() {
-    const scene = new Scene("particles-scene");
-    const group = new CanvasGroup("particles-group", scene);
+function chaoticParticles() {
+    const scene = new Scene("chaotic-particles-scene");
+    const group = new CanvasGroup("chaotic-particles", scene);
 
     const t0 = 1;
 
@@ -67,4 +67,4 @@ function particles() {
     group.play(flowAnimations);
 }
 
-particles();
+chaoticParticles();

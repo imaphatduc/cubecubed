@@ -8,8 +8,8 @@ import {
 } from "../src/index";
 
 function sumOfSequenceProof() {
-    const scene = new Scene("sum-of-sequence-proof");
-    const group = new Group("graphing-group", scene);
+    const scene = new Scene("sum-of-sequence-proof-scene");
+    const group = new Group("sum-of-sequence-proof", scene);
 
     const square = new Square({
         group: group,
@@ -21,11 +21,11 @@ function sumOfSequenceProof() {
 
     const { horizontalLines, verticalLines } = square.drawInnerGrid();
 
-    const anims = [...horizontalLines, ...verticalLines].map(
+    const animations = [...horizontalLines, ...verticalLines].map(
         (line) => new CreateLineShape({ cubicon: line })
     );
 
-    group.play(anims);
+    group.play(animations);
 }
 
 sumOfSequenceProof();

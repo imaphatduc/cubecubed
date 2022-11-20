@@ -11,11 +11,11 @@ import {
     Write,
 } from "../src/index";
 
-function scenery() {
-    const scene = new Scene("three");
+function gabrielsHorn() {
+    const scene = new Scene("gabriels-horn-scene");
 
     (() => {
-        const group = new Group("tex", scene);
+        const group = new Group("formula", scene);
 
         const grid = new Grid({ group: group }).render();
 
@@ -32,7 +32,7 @@ function scenery() {
     })();
 
     (() => {
-        const group = new CanvasGroup("three-group", scene);
+        const group = new CanvasGroup("gabriels-horn", scene);
 
         const surface = new RevolutionSurface({
             group: group,
@@ -48,4 +48,4 @@ function scenery() {
     })();
 }
 
-scenery();
+gabrielsHorn();

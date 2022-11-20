@@ -13,9 +13,8 @@ import {
 } from "../src/index";
 
 function renderVector() {
-    const scene = new Scene("tex-vector");
-
-    const group = new Group("tex", scene);
+    const scene = new Scene("tex-vector-scene");
+    const group = new Group("tex-vector", scene);
 
     const grid = new Grid({ group: group }).render();
 
@@ -31,13 +30,13 @@ function renderVector() {
 
     group.play([new CreateVectorShape({ cubicon: vector })]);
 
-    const formula = new MathTex({
+    const formulaTex = new MathTex({
         group: group,
         position: new Vector2(-8, 4),
         text: "\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}",
     }).render();
 
-    const vectCoor = new MathTex({
+    const vectorCoordsTex = new MathTex({
         group: group,
         position: vector.endPoint,
         text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,
@@ -47,8 +46,8 @@ function renderVector() {
     }).render();
 
     group.play([
-        new Write({ cubicon: formula }),
-        new FadeIn({ cubicon: vectCoor }),
+        new Write({ cubicon: formulaTex }),
+        new FadeIn({ cubicon: vectorCoordsTex }),
     ]);
 }
 

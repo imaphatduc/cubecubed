@@ -13,8 +13,8 @@ import {
 } from "../src/index";
 
 function curveTracing() {
-    const scene = new Scene("playground");
-    const group = new Group("group", scene);
+    const scene = new Scene("curve-tracing-scene");
+    const group = new Group("curve-tracing", scene);
 
     const grid = new Grid({ group: group }).render();
 

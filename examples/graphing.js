@@ -10,9 +10,9 @@ import {
     Write,
 } from "../src/index";
 
-function graphingFunctions() {
-    const scene = new Scene("graphing-functions");
-    const group = new Group("graphing-group", scene);
+function graphing() {
+    const scene = new Scene("graphing-scene");
+    const group = new Group("graphing", scene);
 
     const axes = new Axes({
         group: group,
@@ -82,4 +82,4 @@ function graphingFunctions() {
     group.play([new CreatePlaneShape({ cubicon: cubic })]);
 }
 
-graphingFunctions();
+graphing();

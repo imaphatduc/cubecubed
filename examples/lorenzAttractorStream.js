@@ -28,9 +28,9 @@ const lorenz = ({ x, y, z }) => {
     return new Vector3(x, y, z);
 };
 
-function particles() {
-    const scene = new Scene("particles-scene");
-    const group = new CanvasGroup("particles-group", scene);
+function lorenzAttractorStream() {
+    const scene = new Scene("lorenz-attractor-stream-scene");
+    const group = new CanvasGroup("lorenz-attractor-stream", scene);
 
     const streamLines = [...Array(1000)].map(() => {
         return new StreamLine({
@@ -59,4 +59,4 @@ function particles() {
     group.play(streamAnimations);
 }
 
-particles();
+lorenzAttractorStream();
