@@ -197,6 +197,7 @@ Now you have a dynamic scene playing directly on the browser, but if you want to
 ```js
 import { Recorder } from "cubecubed"
 
+// `simpleScene` is called the "recipe" of the recorder.
 const recorder = new Recorder(simpleScene);
 ```
 
@@ -204,6 +205,18 @@ Then, call `start()` method on the recorder object to start recording.
 
 ```js
 recorder.start();
+```
+
+To automatically stop the recorder at a given time, it is important to wrap the whole scene inside a function (like our convention). Then, you need to return the time value in the recipe function. If you want to stop it once finishing all the animations of the scene, return the value `scene.sceneElapsed`.
+
+```js
+function simpleScene() {
+    const scene = new Scene("simple-scene");
+
+    // ...
+
+    return scene.sceneElapsed;
+}
 ```
 
 Now, you can follow the browser instructions intuitively and it will automatically download the video file.
