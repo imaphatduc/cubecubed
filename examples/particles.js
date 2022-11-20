@@ -18,7 +18,7 @@ const str2params = (str) => {
     return params;
 };
 
-const chaos = ({ x, y }) => {
+const chaos = ({ x, y }, t) => {
     const params = str2params("GIIETPIQRRUL");
 
     const xx = x * x;
@@ -26,9 +26,9 @@ const chaos = ({ x, y }) => {
     const yy = y * y;
 
     // prettier-ignore
-    const nx = params[0] + params[1] * x + params[2] * xx + params[3] * xy + params[4] * y + params[5] * yy;
+    const nx = params[0] * t + params[1] * x * t + params[2] * xx + params[3] * xy + params[4] * y * t + params[5] * yy;
     // prettier-ignore
-    const ny = params[6] + params[7] * x + params[8] * xx + params[9] * xy + params[10] * y + params[11] * yy;
+    const ny = params[6] * t + params[7] * x * t + params[8] * xx + params[9] * xy + params[10] * y * t + params[11] * yy;
     const nz = 0;
 
     return new Vector3(nx, ny, nz);
@@ -38,23 +38,29 @@ function particles() {
     const scene = new Scene("particles-scene");
     const group = new CanvasGroup("particles-group", scene);
 
-    const particles = [...Array(1000)].map(() => {
-        return new Particle({
+    const t0 = 1;
+
+    let position = new Vector3(0.01, 0.01, 0.01);
+
+    const particles = [...Array(2000)].map(() => {
+        const particle = new Particle({
             group,
-            position: new Vector3(
-                Math.random() * 2,
-                Math.random() * 2,
-                Math.random() * 2
-            ),
-            radius: 1,
-            scaleFactor: 8,
+            position,
+            radius: 0.5,
+            scaleFactor: 6,
         }).render();
+
+        position = chaos(position, t0);
+
+        return particle;
     });
 
     const flowAnimations = particles.map((particle) => {
         return new Flow({
             cubicon: particle,
             functionDef: chaos,
+            tRange: [t0, 2],
+            dt: 0.00001,
         });
     });
 
