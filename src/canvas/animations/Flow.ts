@@ -6,20 +6,17 @@ import { Particle } from "@cubicons/Particle";
 
 export type FLOW_TYPES = Particle;
 
-export type FlowVectorFunction = (position: Vector3) => Vector3;
+export type FlowVectorFunction = (position: Vector3, t?: number) => Vector3;
 
 export interface FlowParams extends CanvasAnimationParams<FLOW_TYPES> {
-    /**
-     * Speed when changing the position of the stream line.
-     *
-     * @default 0.01
-     */
-    dt?: number;
-
     /**
      * The function to change the cubicon's position at each frame.
      */
     functionDef: FlowVectorFunction;
+
+    tRange?: [number, number];
+
+    dt?: number;
 }
 
 /**
@@ -53,6 +50,12 @@ export class Flow extends CanvasAnimation {
      */
     functionDef: FlowVectorFunction;
 
+    private tRange?: [number, number];
+
+    private dt?: number;
+
+    private t?: number;
+
     constructor(params: FlowParams) {
         super({
             cubicon: params.cubicon,
@@ -60,20 +63,36 @@ export class Flow extends CanvasAnimation {
             duration: params.duration,
         });
 
-        this.functionDef = (v) => params.functionDef(v);
+        this.functionDef = (v, t) => params.functionDef(v, t);
+
+        this.tRange = params.tRange;
+
+        this.dt = params.dt;
+
+        if (params.tRange) {
+            this.t = params.tRange[0];
+        }
     }
 
     /**
      * @internal
      */
     play() {
-        this.flow();
+        if (this.tRange && this.dt && this.t) {
+            if (this.t <= this.tRange[1]) {
+                this.flow();
+
+                this.t += this.dt;
+            }
+        } else {
+            this.flow();
+        }
     }
 
     private flow() {
         const { xGtoW, yGtoW, zGtoW } = this.cubicon.group;
 
-        this.cubicon.position = this.functionDef(this.cubicon.position);
+        this.cubicon.position = this.functionDef(this.cubicon.position, this.t);
 
         const { x, y, z } = this.cubicon.position;
 
