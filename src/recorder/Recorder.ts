@@ -27,6 +27,8 @@ export class Recorder {
     }
 
     async start() {
+        select("body").style("cursor", "none");
+
         try {
             const mediaRecorder = await this.getMediaRecorder();
 
@@ -68,6 +70,8 @@ export class Recorder {
         mediaRecorder.ondataavailable = (e) => chunks.push(e.data);
 
         mediaRecorder.onstop = () => {
+            select("body").style("cursor", "auto");
+
             const blob = new Blob(chunks, {
                 type: chunks[0].type,
             });
