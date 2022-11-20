@@ -1,24 +1,24 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / SimulateRevolution
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / SimulateStream
 
-# Class: SimulateRevolution
+# Class: SimulateStream
 
 ## Hierarchy
 
 - [`CanvasAnimation`](/reference/classes/CanvasAnimation.md)
 
-  ↳ **`SimulateRevolution`**
+  ↳ **`SimulateStream`**
 
 ## Constructors
 
 ### constructor
 
-• **new SimulateRevolution**(`params`)
+• **new SimulateStream**(`params`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`CanvasAnimationParams`](/reference/interfaces/CanvasAnimationParams.md)<[`RevolutionSurface`](/reference/classes/RevolutionSurface.md)\> |
+| `params` | [`CanvasAnimationParams`](/reference/interfaces/CanvasAnimationParams.md)<[`StreamLine`](/reference/classes/StreamLine.md)\> |
 
 #### Overrides
 
@@ -26,13 +26,13 @@
 
 #### Defined in
 
-[src/canvas/animations/SimulateRevolution.ts:13](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/SimulateRevolution.ts#L13)
+[src/canvas/animations/SimulateStream.ts:10](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/SimulateStream.ts#L10)
 
 ## Properties
 
 ### cubicon
 
-• **cubicon**: [`RevolutionSurface`](/reference/classes/RevolutionSurface.md)
+• **cubicon**: [`StreamLine`](/reference/classes/StreamLine.md)
 
 #### Overrides
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/canvas/animations/SimulateRevolution.ts:11](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/SimulateRevolution.ts#L11)
+[src/canvas/animations/SimulateStream.ts:8](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/SimulateStream.ts#L8)
 
 ___
 
@@ -90,4 +90,4 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/SimulateRevolution.ts:24](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/SimulateRevolution.ts#L24)
+[src/canvas/animations/SimulateStream.ts:21](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/SimulateStream.ts#L21)

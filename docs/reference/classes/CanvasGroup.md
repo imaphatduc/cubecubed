@@ -8,7 +8,7 @@ The object to group canvas cubicons together. A group must belong to a scene.
 
 ### constructor
 
-• **new CanvasGroup**(`groupName`, `scene`)
+• **new CanvasGroup**(`groupName`, `scene`, `CONFIG`)
 
 Include this group to HTML flow.
 
@@ -18,20 +18,23 @@ Include this group to HTML flow.
 | :------ | :------ | :------ |
 | `groupName` | `string` | Name of the group. |
 | `scene` | [`Scene`](/reference/classes/Scene.md) | The scene that the group belongs to. |
+| `CONFIG` | [`CANVAS_GROUP_CONFIG`](/reference/interfaces/CANVAS_GROUP_CONFIG.md) | Config options of the canvas group. |
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:153](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L153)
+[src/canvas/group/CanvasGroup.ts:199](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L199)
 
 ## Properties
 
-### animationsInfo
+### CONFIG
 
-• **animationsInfo**: [`ANIMATION_INFO`](/reference/interfaces/ANIMATION_INFO.md)[] = `[]`
+• **CONFIG**: [`CANVAS_GROUP_CONFIG`](/reference/interfaces/CANVAS_GROUP_CONFIG.md)
+
+Config options of this canvas group.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:137](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L137)
+[src/canvas/group/CanvasGroup.ts:188](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L188)
 
 ___
 
@@ -45,7 +48,7 @@ The time passed by since this group was created. (in milliseconds)
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:144](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L144)
+[src/canvas/group/CanvasGroup.ts:183](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L183)
 
 ___
 
@@ -57,7 +60,7 @@ Name of this scene.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:65](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L65)
+[src/canvas/group/CanvasGroup.ts:101](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L101)
 
 ___
 
@@ -69,7 +72,7 @@ Ratio between square length in x, y and z direction.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:90](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L90)
+[src/canvas/group/CanvasGroup.ts:126](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L126)
 
 ___
 
@@ -81,7 +84,7 @@ The scene that this group belongs to.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:35](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L35)
+[src/canvas/group/CanvasGroup.ts:66](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L66)
 
 ___
 
@@ -93,7 +96,7 @@ Length of a square in this group.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:85](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L85)
+[src/canvas/group/CanvasGroup.ts:121](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L121)
 
 ___
 
@@ -105,7 +108,7 @@ Three.js Scene object
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:40](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L40)
+[src/canvas/group/CanvasGroup.ts:71](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L71)
 
 ___
 
@@ -117,7 +120,7 @@ x coordinate bound values of this group.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:95](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L95)
+[src/canvas/group/CanvasGroup.ts:131](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L131)
 
 ___
 
@@ -129,7 +132,7 @@ Convert x value of grid coordinates to real-world coordinates.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:110](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L110)
+[src/canvas/group/CanvasGroup.ts:146](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L146)
 
 ___
 
@@ -141,7 +144,7 @@ Number of squares in the x direction.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:70](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L70)
+[src/canvas/group/CanvasGroup.ts:106](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L106)
 
 ___
 
@@ -153,7 +156,7 @@ Convert x value of real-world coordinates to grid coordinates.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:125](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L125)
+[src/canvas/group/CanvasGroup.ts:161](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L161)
 
 ___
 
@@ -165,7 +168,7 @@ y coordinate bound values of this group.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:100](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L100)
+[src/canvas/group/CanvasGroup.ts:136](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L136)
 
 ___
 
@@ -177,7 +180,7 @@ Convert y value of grid coordinates to real-world coordinates.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:115](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L115)
+[src/canvas/group/CanvasGroup.ts:151](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L151)
 
 ___
 
@@ -189,7 +192,7 @@ Number of squares in the y direction.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:75](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L75)
+[src/canvas/group/CanvasGroup.ts:111](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L111)
 
 ___
 
@@ -201,7 +204,7 @@ Convert y value of real-world coordinates to grid coordinates.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:130](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L130)
+[src/canvas/group/CanvasGroup.ts:166](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L166)
 
 ___
 
@@ -213,7 +216,7 @@ z coordinate bound values of this group.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:105](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L105)
+[src/canvas/group/CanvasGroup.ts:141](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L141)
 
 ___
 
@@ -225,7 +228,7 @@ Convert z value of grid coordinates to real-world coordinates.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:120](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L120)
+[src/canvas/group/CanvasGroup.ts:156](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L156)
 
 ___
 
@@ -237,7 +240,7 @@ Number of squares in the z direction.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:80](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L80)
+[src/canvas/group/CanvasGroup.ts:116](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L116)
 
 ___
 
@@ -249,7 +252,7 @@ Convert z value of real-world coordinates to grid coordinates.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:135](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L135)
+[src/canvas/group/CanvasGroup.ts:171](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L171)
 
 ## Methods
 
@@ -271,7 +274,7 @@ Play all the animations included in a queue.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:344](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L344)
+[src/canvas/group/CanvasGroup.ts:434](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L434)
 
 ___
 
@@ -293,7 +296,7 @@ Remove cubicons from this group.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:378](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L378)
+[src/canvas/group/CanvasGroup.ts:468](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L468)
 
 ___
 
@@ -315,7 +318,7 @@ Render all the specified cubicons on the screen (instead of calling `.render()` 
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:173](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L173)
+[src/canvas/group/CanvasGroup.ts:221](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L221)
 
 ___
 
@@ -337,4 +340,4 @@ Sleep this group for an amount of time.
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:367](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/group/CanvasGroup.ts#L367)
+[src/canvas/group/CanvasGroup.ts:457](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/group/CanvasGroup.ts#L457)

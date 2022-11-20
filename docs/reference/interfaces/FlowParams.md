@@ -22,7 +22,7 @@ The target cubicon to play this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:7](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L7)
+[src/canvas/animations/CanvasAnimation.ts:7](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L7)
 
 ___
 
@@ -30,15 +30,9 @@ ___
 
 • `Optional` **dt**: `number`
 
-Speed when changing the position of the stream line.
-
-**`Default`**
-
-0.01
-
 #### Defined in
 
-[src/canvas/animations/Flow.ts:17](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/Flow.ts#L17)
+[src/canvas/animations/Flow.ts:19](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L19)
 
 ___
 
@@ -54,7 +48,7 @@ The duration of this animation (in milliseconds).
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:12](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L12)
+[src/canvas/animations/CanvasAnimation.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L12)
 
 ___
 
@@ -66,4 +60,14 @@ The function to change the cubicon's position at each frame.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:22](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/Flow.ts#L22)
+[src/canvas/animations/Flow.ts:15](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L15)
+
+___
+
+### tRange
+
+• `Optional` **tRange**: [`number`, `number`]
+
+#### Defined in
+
+[src/canvas/animations/Flow.ts:17](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L17)

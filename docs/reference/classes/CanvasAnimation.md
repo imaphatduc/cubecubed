@@ -8,6 +8,8 @@
 
   ↳ [`Flow`](/reference/classes/Flow.md)
 
+  ↳ [`SimulateStream`](/reference/classes/SimulateStream.md)
+
   ↳ [`SimulateRevolution`](/reference/classes/SimulateRevolution.md)
 
 ## Constructors
@@ -26,7 +28,7 @@
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:25](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L25)
+[src/canvas/animations/CanvasAnimation.ts:25](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L25)
 
 ## Properties
 
@@ -36,7 +38,7 @@
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:16](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L16)
+[src/canvas/animations/CanvasAnimation.ts:16](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L16)
 
 ___
 
@@ -46,7 +48,7 @@ ___
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L18)
+[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L18)
 
 ___
 
@@ -58,7 +60,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L23)
+[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L23)
 
 ## Methods
 
@@ -68,10 +70,12 @@ The time to wait before playing this animation.
 
 Play this animation.
 
+**`internal`**
+
 #### Returns
 
 `void`
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:38](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L38)
+[src/canvas/animations/CanvasAnimation.ts:38](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L38)

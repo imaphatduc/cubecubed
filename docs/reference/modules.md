@@ -35,7 +35,9 @@
 - [Rotate](/reference/classes/Rotate.md)
 - [Scene](/reference/classes/Scene.md)
 - [SimulateRevolution](/reference/classes/SimulateRevolution.md)
+- [SimulateStream](/reference/classes/SimulateStream.md)
 - [Square](/reference/classes/Square.md)
+- [StreamLine](/reference/classes/StreamLine.md)
 - [Trace](/reference/classes/Trace.md)
 - [Translate](/reference/classes/Translate.md)
 - [Vector2](/reference/classes/Vector2.md)
@@ -49,6 +51,7 @@
 - [ANIMATION\_INFO](/reference/interfaces/ANIMATION_INFO.md)
 - [AXES\_CONFIG](/reference/interfaces/AXES_CONFIG.md)
 - [AnimationParams](/reference/interfaces/AnimationParams.md)
+- [CANVAS\_GROUP\_CONFIG](/reference/interfaces/CANVAS_GROUP_CONFIG.md)
 - [CanvasAnimationParams](/reference/interfaces/CanvasAnimationParams.md)
 - [CanvasCubiconParams](/reference/interfaces/CanvasCubiconParams.md)
 - [CircleParams](/reference/interfaces/CircleParams.md)
@@ -73,7 +76,9 @@
 - [RevolutionSurfaceParams](/reference/interfaces/RevolutionSurfaceParams.md)
 - [RotateParams](/reference/interfaces/RotateParams.md)
 - [SCENE\_CONFIG](/reference/interfaces/SCENE_CONFIG.md)
+- [STREAMLINE\_CONFIG](/reference/interfaces/STREAMLINE_CONFIG.md)
 - [SquareParams](/reference/interfaces/SquareParams.md)
+- [StreamLineParams](/reference/interfaces/StreamLineParams.md)
 - [TraceParams](/reference/interfaces/TraceParams.md)
 - [TranslateParams](/reference/interfaces/TranslateParams.md)
 - [VECTOR\_FIELD\_CONFIG](/reference/interfaces/VECTOR_FIELD_CONFIG.md)
@@ -81,7 +86,7 @@
 - [VectorFieldParams](/reference/interfaces/VectorFieldParams.md)
 - [VectorShapeParams](/reference/interfaces/VectorShapeParams.md)
 
-## Type Aliases
+## Type aliases
 
 - [AxisSelection](/reference/types/AxisSelection.md)
 - [CREATE\_LINE\_SHAPE\_TYPES](/reference/types/CREATE_LINE_SHAPE_TYPES.md)
@@ -96,6 +101,8 @@
 - [RECT\_GRID\_DATA](/reference/types/RECT_GRID_DATA.md)
 - [RECT\_INNER\_LINE\_POINTS](/reference/types/RECT_INNER_LINE_POINTS.md)
 - [SIMULATE\_REVOLUTION\_TYPES](/reference/types/SIMULATE_REVOLUTION_TYPES.md)
+- [SIMULATE\_STREAM\_TYPES](/reference/types/SIMULATE_STREAM_TYPES.md)
+- [StreamVectorFunction](/reference/types/StreamVectorFunction.md)
 - [TexElement](/reference/types/TexElement.md)
 - [VideoRecipe](/reference/types/VideoRecipe.md)
 
@@ -103,6 +110,7 @@
 
 - [ANIME](/reference/variables/ANIME.md)
 - [AXES\_DEFAULT\_CONFIG](/reference/variables/AXES_DEFAULT_CONFIG.md)
+- [CANVAS\_GROUP\_DEFAULT\_CONFIG](/reference/variables/CANVAS_GROUP_DEFAULT_CONFIG.md)
 - [COLOR](/reference/variables/COLOR.md)
 - [EASE](/reference/variables/EASE.md)
 - [GRID\_DEFAULT\_CONFIG](/reference/variables/GRID_DEFAULT_CONFIG.md)
@@ -114,11 +122,9 @@
 - [PLANE\_SHAPE\_DEFAULT\_CONFIG](/reference/variables/PLANE_SHAPE_DEFAULT_CONFIG.md)
 - [REVOLUTION\_SURFACE\_DEFAULT\_CONFIG](/reference/variables/REVOLUTION_SURFACE_DEFAULT_CONFIG.md)
 - [SCENE\_DEFAULT\_CONFIG](/reference/variables/SCENE_DEFAULT_CONFIG.md)
+- [STREAMLINE\_DEFAULT\_CONFIG](/reference/variables/STREAMLINE_DEFAULT_CONFIG.md)
 - [TAU](/reference/variables/TAU.md)
 - [VECTOR\_FIELD\_DEFAULT\_CONFIG](/reference/variables/VECTOR_FIELD_DEFAULT_CONFIG.md)
 - [VECTOR\_SHAPE\_DEFAULT\_CONFIG](/reference/variables/VECTOR_SHAPE_DEFAULT_CONFIG.md)
-
-## Functions
-
-- [dToR](/reference/functions/dToR.md)
-- [rToD](/reference/functions/rToD.md)
+- [dToR](/reference/variables/dToR.md)
+- [rToD](/reference/variables/rToD.md)

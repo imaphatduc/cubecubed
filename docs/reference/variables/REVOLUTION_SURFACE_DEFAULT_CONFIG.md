@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:33](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/RevolutionSurface.ts#L33)
+[src/canvas/cubicons/RevolutionSurface.ts:33](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/RevolutionSurface.ts#L33)

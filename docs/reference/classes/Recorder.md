@@ -6,17 +6,18 @@
 
 ### constructor
 
-• **new Recorder**(`recipe`)
+• **new Recorder**(`recipe`, `fileName?`)
 
 #### Parameters
 
-| Name | Type |
-| :------ | :------ |
-| `recipe` | [`VideoRecipe`](/reference/types/VideoRecipe.md) |
+| Name | Type | Default value |
+| :------ | :------ | :------ |
+| `recipe` | [`VideoRecipe`](/reference/types/VideoRecipe.md) | `undefined` |
+| `fileName` | `string` | `"cubed"` |
 
 #### Defined in
 
-[src/recorder/Recorder.ts:16](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/recorder/Recorder.ts#L16)
+[src/recorder/Recorder.ts:18](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/recorder/Recorder.ts#L18)
 
 ## Methods
 
@@ -30,4 +31,4 @@
 
 #### Defined in
 
-[src/recorder/Recorder.ts:25](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/recorder/Recorder.ts#L25)
+[src/recorder/Recorder.ts:29](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/recorder/Recorder.ts#L29)

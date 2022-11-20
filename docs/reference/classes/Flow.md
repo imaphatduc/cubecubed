@@ -35,21 +35,21 @@ flow, use `SimulateStream()` instead.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:54](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/Flow.ts#L54)
+[src/canvas/animations/Flow.ts:59](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L59)
 
 ## Properties
 
 ### cubicon
 
-• **cubicon**: [`CanvasCubicon`](/reference/classes/CanvasCubicon.md)
+• **cubicon**: [`Particle`](/reference/classes/Particle.md)
 
-#### Inherited from
+#### Overrides
 
 [CanvasAnimation](/reference/classes/CanvasAnimation.md).[cubicon](/reference/classes/CanvasAnimation.md#cubicon)
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:16](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L16)
+[src/canvas/animations/Flow.ts:33](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L33)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L18)
+[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L18)
 
 ___
 
@@ -87,7 +87,7 @@ const sineField = ({ x, y, z })
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:52](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/Flow.ts#L52)
+[src/canvas/animations/Flow.ts:51](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L51)
 
 ___
 
@@ -103,13 +103,15 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/CanvasAnimation.ts#L23)
+[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L23)
 
 ## Methods
 
 ### play
 
 ▸ **play**(): `void`
+
+**`internal`**
 
 #### Returns
 
@@ -121,4 +123,4 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:80](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/animations/Flow.ts#L80)
+[src/canvas/animations/Flow.ts:80](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L80)

@@ -22,33 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L22)
-
-___
-
-### functionDef
-
-• **functionDef**: (`pos`: [`Vector2`](/reference/classes/Vector2.md)) => [`Vector2`](/reference/classes/Vector2.md)
-
-#### Type declaration
-
-▸ (`pos`): [`Vector2`](/reference/classes/Vector2.md)
-
-Multivariable function that produces 2d vector field.
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `pos` | [`Vector2`](/reference/classes/Vector2.md) |
-
-##### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/VectorField.ts#L40)
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -64,7 +38,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -80,4 +54,26 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L17)
+
+## Methods
+
+### functionDef
+
+▸ **functionDef**(`pos`): [`Vector2`](/reference/classes/Vector2.md)
+
+Multivariable function that produces 2d vector field.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `pos` | [`Vector2`](/reference/classes/Vector2.md) |
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/VectorField.ts#L40)

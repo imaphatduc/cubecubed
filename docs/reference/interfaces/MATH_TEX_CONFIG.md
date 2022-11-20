@@ -12,7 +12,7 @@ Color of this text.
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:12](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/MathTex.ts#L12)
+[src/svg/cubicons/MathTex.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/MathTex.ts#L12)
 
 ___
 
@@ -24,4 +24,4 @@ Font size of this text (in pts).
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:17](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/MathTex.ts#L17)
+[src/svg/cubicons/MathTex.ts:17](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/MathTex.ts#L17)

@@ -8,6 +8,8 @@
 
   ↳ [`Particle`](/reference/classes/Particle.md)
 
+  ↳ [`StreamLine`](/reference/classes/StreamLine.md)
+
   ↳ [`RevolutionSurface`](/reference/classes/RevolutionSurface.md)
 
 ## Constructors
@@ -24,7 +26,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L47)
+[src/canvas/cubicons/CanvasCubicon.ts:54](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L54)
 
 ## Properties
 
@@ -34,7 +36,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:30](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L30)
+[src/canvas/cubicons/CanvasCubicon.ts:37](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L37)
 
 ___
 
@@ -46,7 +48,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L35)
+[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L42)
 
 ___
 
@@ -56,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L26)
+[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L31)
 
 ___
 
@@ -68,19 +70,19 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L40)
+[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L47)
 
 ___
 
-### mesh
+### object
 
-• **mesh**: `Mesh`<`BufferGeometry`, `Material` \| `Material`[]\>
+• **object**: `Mesh`<`BufferGeometry`, `Material` \| `Material`[]\> \| `Line`<`BufferGeometry`, `Material` \| `Material`[]\>
 
-Mesh of this cubicon.
+Object representing this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:45](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L45)
+[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L52)
 
 ___
 
@@ -90,7 +92,17 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:28](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L28)
+[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L33)
+
+___
+
+### scaleFactor
+
+• **scaleFactor**: `number`
+
+#### Defined in
+
+[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L35)
 
 ## Methods
 
@@ -100,10 +112,12 @@ ___
 
 Render this cubicon.
 
+**`internal`**
+
 #### Returns
 
 `void`
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:63](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L63)
+[src/canvas/cubicons/CanvasCubicon.ts:72](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L72)

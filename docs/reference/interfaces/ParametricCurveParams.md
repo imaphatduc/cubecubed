@@ -22,33 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L22)
-
-___
-
-### functionDef
-
-• **functionDef**: (`t`: `number`) => [`Vector2`](/reference/classes/Vector2.md)
-
-#### Type declaration
-
-▸ (`t`): [`Vector2`](/reference/classes/Vector2.md)
-
-Parametric function definition.
-
-##### Parameters
-
-| Name | Type |
-| :------ | :------ |
-| `t` | `number` |
-
-##### Returns
-
-[`Vector2`](/reference/classes/Vector2.md)
-
-#### Defined in
-
-[src/svg/cubicons/geometry/ParametricCurve.ts:26](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/geometry/ParametricCurve.ts#L26)
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -64,7 +38,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -80,7 +54,7 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L17)
 
 ___
 
@@ -92,4 +66,26 @@ Range of the parameter t.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:21](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/geometry/ParametricCurve.ts#L21)
+[src/svg/cubicons/geometry/ParametricCurve.ts:21](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/geometry/ParametricCurve.ts#L21)
+
+## Methods
+
+### functionDef
+
+▸ **functionDef**(`t`): [`Vector2`](/reference/classes/Vector2.md)
+
+Parametric function definition.
+
+#### Parameters
+
+| Name | Type |
+| :------ | :------ |
+| `t` | `number` |
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)
+
+#### Defined in
+
+[src/svg/cubicons/geometry/ParametricCurve.ts:26](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/geometry/ParametricCurve.ts#L26)

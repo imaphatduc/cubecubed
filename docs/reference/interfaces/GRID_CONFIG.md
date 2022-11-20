@@ -10,7 +10,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/Grid.ts:16](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Grid.ts#L16)
+[src/svg/cubicons/Grid.ts:16](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Grid.ts#L16)
 
 ___
 
@@ -22,7 +22,7 @@ Color of the grid lines.
 
 #### Defined in
 
-[src/svg/cubicons/Grid.ts:31](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Grid.ts#L31)
+[src/svg/cubicons/Grid.ts:31](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Grid.ts#L31)
 
 ___
 
@@ -34,7 +34,7 @@ Color of the x axis.
 
 #### Defined in
 
-[src/svg/cubicons/Grid.ts:21](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Grid.ts#L21)
+[src/svg/cubicons/Grid.ts:21](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Grid.ts#L21)
 
 ___
 
@@ -46,4 +46,4 @@ Color of the y axis.
 
 #### Defined in
 
-[src/svg/cubicons/Grid.ts:26](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Grid.ts#L26)
+[src/svg/cubicons/Grid.ts:26](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Grid.ts#L26)

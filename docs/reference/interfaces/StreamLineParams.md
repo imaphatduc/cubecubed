@@ -1,18 +1,18 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / RevolutionSurfaceParams
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / StreamLineParams
 
-# Interface: RevolutionSurfaceParams
+# Interface: StreamLineParams
 
 ## Hierarchy
 
-- [`CanvasCubiconParams`](/reference/interfaces/CanvasCubiconParams.md)<[`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)\>
+- [`CanvasCubiconParams`](/reference/interfaces/CanvasCubiconParams.md)<[`STREAMLINE_CONFIG`](/reference/interfaces/STREAMLINE_CONFIG.md)\>
 
-  ↳ **`RevolutionSurfaceParams`**
+  ↳ **`StreamLineParams`**
 
 ## Properties
 
 ### CONFIG
 
-• `Optional` **CONFIG**: [`REVOLUTION_SURFACE_CONFIG`](/reference/interfaces/REVOLUTION_SURFACE_CONFIG.md)
+• `Optional` **CONFIG**: [`STREAMLINE_CONFIG`](/reference/interfaces/STREAMLINE_CONFIG.md)
 
 Config options of this cubicon.
 
@@ -26,15 +26,29 @@ Config options of this cubicon.
 
 ___
 
-### functionDef
+### dt
 
-• **functionDef**: [`CurveFunction`](/reference/types/CurveFunction.md)
+• `Optional` **dt**: `number`
 
-Function definition of the initial curve.
+Speed when changing the position of the stream line.
+
+**`default`** 0.01
 
 #### Defined in
 
-[src/canvas/cubicons/RevolutionSurface.ts:46](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/RevolutionSurface.ts#L46)
+[src/canvas/cubicons/StreamLine.ts:42](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L42)
+
+___
+
+### functionDef
+
+• **functionDef**: [`StreamVectorFunction`](/reference/types/StreamVectorFunction.md)
+
+The function to change the cubicon's position at each frame.
+
+#### Defined in
+
+[src/canvas/cubicons/StreamLine.ts:47](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L47)
 
 ___
 
@@ -51,6 +65,20 @@ The group that this cubicon belongs to.
 #### Defined in
 
 [src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L12)
+
+___
+
+### maxVertices
+
+• `Optional` **maxVertices**: `number`
+
+Maximum number of vertices for the stream line.
+
+**`default`** 2
+
+#### Defined in
+
+[src/canvas/cubicons/StreamLine.ts:54](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L54)
 
 ___
 

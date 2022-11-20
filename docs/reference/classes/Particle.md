@@ -31,7 +31,7 @@ Particle term here represents a point (aka a dot).
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:37](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/Particle.ts#L37)
+[src/canvas/cubicons/Particle.ts:37](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/Particle.ts#L37)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Particle term here represents a point (aka a dot).
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:35](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/Particle.ts#L35)
+[src/canvas/cubicons/Particle.ts:35](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/Particle.ts#L35)
 
 ___
 
@@ -61,7 +61,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L35)
+[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L42)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:26](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L26)
+[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L31)
 
 ___
 
@@ -91,23 +91,23 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L40)
+[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L47)
 
 ___
 
-### mesh
+### object
 
-• **mesh**: `Mesh`<`BufferGeometry`, `Material` \| `Material`[]\>
+• **object**: `Mesh`<`BufferGeometry`, `Material` \| `Material`[]\> \| `Line`<`BufferGeometry`, `Material` \| `Material`[]\>
 
-Mesh of this cubicon.
+Object representing this cubicon.
 
 #### Inherited from
 
-[CanvasCubicon](/reference/classes/CanvasCubicon.md).[mesh](/reference/classes/CanvasCubicon.md#mesh)
+[CanvasCubicon](/reference/classes/CanvasCubicon.md).[object](/reference/classes/CanvasCubicon.md#object)
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:45](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L45)
+[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L52)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:28](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/CanvasCubicon.ts#L28)
+[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L33)
 
 ___
 
@@ -131,13 +131,29 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:33](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/Particle.ts#L33)
+[src/canvas/cubicons/Particle.ts:33](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/Particle.ts#L33)
+
+___
+
+### scaleFactor
+
+• **scaleFactor**: `number`
+
+#### Inherited from
+
+[CanvasCubicon](/reference/classes/CanvasCubicon.md).[scaleFactor](/reference/classes/CanvasCubicon.md#scalefactor)
+
+#### Defined in
+
+[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L35)
 
 ## Methods
 
 ### render
 
 ▸ **render**(): [`Particle`](/reference/classes/Particle.md)
+
+**`internal`**
 
 #### Returns
 
@@ -149,4 +165,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:56](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/canvas/cubicons/Particle.ts#L56)
+[src/canvas/cubicons/Particle.ts:58](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/Particle.ts#L58)

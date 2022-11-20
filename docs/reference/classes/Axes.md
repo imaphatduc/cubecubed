@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:70](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L70)
+[src/svg/cubicons/coordinate-system/Axes.ts:70](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L70)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:43](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L43)
+[src/svg/cubicons/coordinate-system/Axes.ts:43](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L43)
 
 ___
 
@@ -57,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L50)
+[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L50)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:41](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L41)
+[src/svg/cubicons/coordinate-system/Axes.ts:41](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L41)
 
 ___
 
@@ -87,7 +87,7 @@ The SVG element that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L75)
+[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L75)
 
 ___
 
@@ -99,7 +99,7 @@ The `<svg>` element that contains the axes.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:53](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L53)
+[src/svg/cubicons/coordinate-system/Axes.ts:53](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L53)
 
 ___
 
@@ -111,7 +111,7 @@ The `<svg>` element that contains the whole coordinate system and everything inc
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:48](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L48)
+[src/svg/cubicons/coordinate-system/Axes.ts:48](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L48)
 
 ___
 
@@ -127,7 +127,7 @@ The `<g>` element that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L70)
+[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L70)
 
 ___
 
@@ -139,7 +139,7 @@ The `<svg>` element (inside .axes) that contains all the graphs inside a pair of
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:68](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L68)
+[src/svg/cubicons/coordinate-system/Axes.ts:68](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L68)
 
 ___
 
@@ -153,7 +153,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L40)
+[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L40)
 
 ___
 
@@ -169,7 +169,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L60)
+[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L60)
 
 ___
 
@@ -185,7 +185,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L55)
+[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L55)
 
 ___
 
@@ -199,7 +199,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L42)
+[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L42)
 
 ___
 
@@ -215,7 +215,7 @@ The `<svg>` element of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/Cubicon.ts#L65)
 
 ___
 
@@ -227,7 +227,7 @@ The `<svg>` element that contains the x axis.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:58](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L58)
+[src/svg/cubicons/coordinate-system/Axes.ts:58](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L58)
 
 ___
 
@@ -239,7 +239,7 @@ The `<svg>` element that contains the y axis.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:63](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L63)
+[src/svg/cubicons/coordinate-system/Axes.ts:63](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L63)
 
 ## Accessors
 
@@ -253,7 +253,7 @@ The `<svg>` element that contains the y axis.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:454](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L454)
+[src/svg/cubicons/coordinate-system/Axes.ts:454](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L454)
 
 ___
 
@@ -267,7 +267,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:446](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L446)
+[src/svg/cubicons/coordinate-system/Axes.ts:446](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L446)
 
 ___
 
@@ -281,7 +281,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:450](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L450)
+[src/svg/cubicons/coordinate-system/Axes.ts:450](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L450)
 
 ## Methods
 
@@ -309,7 +309,7 @@ A label.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:295](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L295)
+[src/svg/cubicons/coordinate-system/Axes.ts:295](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L295)
 
 ___
 
@@ -335,7 +335,7 @@ Convert grid coordinates to pixels.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:439](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L439)
+[src/svg/cubicons/coordinate-system/Axes.ts:439](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L439)
 
 ___
 
@@ -355,7 +355,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:458](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L458)
+[src/svg/cubicons/coordinate-system/Axes.ts:458](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L458)
 
 ___
 
@@ -375,7 +375,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:431](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L431)
+[src/svg/cubicons/coordinate-system/Axes.ts:431](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L431)
 
 ___
 
@@ -395,7 +395,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:435](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L435)
+[src/svg/cubicons/coordinate-system/Axes.ts:435](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L435)
 
 ___
 
@@ -411,8 +411,8 @@ Plot a function onto the axes.
 | :------ | :------ | :------ |
 | `params` | `Object` | Options to form the graph. |
 | `params.color?` | `string` | Color of the graph. |
-| `params.functionDef` | (`x`: `number`) => `number` | - |
 | `params.xRange?` | [`number`, `number`] | x range of the graph. |
+| `params.functionDef` | (`x`: `number`) => `number` | - |
 
 #### Returns
 
@@ -422,7 +422,7 @@ A plotted graph.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:263](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L263)
+[src/svg/cubicons/coordinate-system/Axes.ts:263](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L263)
 
 ___
 
@@ -438,7 +438,7 @@ Add a point at the specified x position on the graph.
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
 | `params.graph` | `Graph` | The graph to put the point on. |
-| `params.xPos` | `number` | The x position of the point.  **`Default`**  1 |
+| `params.xPos` | `number` | The x position of the point.  **`default`** 1 |
 
 #### Returns
 
@@ -448,7 +448,7 @@ A complex data object that contains the point.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:333](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L333)
+[src/svg/cubicons/coordinate-system/Axes.ts:333](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L333)
 
 ___
 
@@ -465,7 +465,7 @@ projectors of it.
 | :------ | :------ | :------ |
 | `params` | `Object` | - |
 | `params.graph` | `Graph` | The graph to put the point on. |
-| `params.xPos` | `number` | The x position of the point.  **`Default`**  1 |
+| `params.xPos` | `number` | The x position of the point.  **`default`** 1 |
 
 #### Returns
 
@@ -476,7 +476,7 @@ two axis projectors.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:371](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L371)
+[src/svg/cubicons/coordinate-system/Axes.ts:371](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L371)
 
 ___
 
@@ -496,4 +496,4 @@ Render this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/coordinate-system/Axes.ts:106](https://github.com/imaphatduc/cubecubed/blob/0fd2007/src/svg/cubicons/coordinate-system/Axes.ts#L106)
+[src/svg/cubicons/coordinate-system/Axes.ts:106](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/coordinate-system/Axes.ts#L106)
