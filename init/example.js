@@ -12,12 +12,12 @@ import {
     CreateVectorShape,
 } from "cubecubed";
 
-// By convention, first-class functions represent scenes.
+// By convention, first-class functions represent `scenes`,
+// and each function inside it represents a `group`.
 function drawShapes() {
-    const scene = new Scene("draw-shapes");
+    const scene = new Scene("draw-shapes-scene");
 
-    // Groups are defined inside their scene function.
-    function squares() {
+    (() => {
         const group = new Group("squares", scene);
 
         const square1 = new Square({
@@ -42,9 +42,9 @@ function drawShapes() {
             new CreatePlaneShape({ cubicon: square2 }),
             new Rotate({ cubicon: square1, degree: 45 }),
         ]);
-    }
+    })();
 
-    function vectors() {
+    (() => {
         const group = new Group("vectors", scene);
 
         const vector = new VectorShape({
@@ -56,19 +56,15 @@ function drawShapes() {
         }).render();
 
         group.play([new CreateVectorShape({ cubicon: vector })]);
-    }
+    })();
 
-    function planeGrid() {
+    (() => {
         const group = new Group("plane-grid-group", scene);
 
         const grid = new Grid({ group: group }).render();
 
         group.play([new DrawGrid({ cubicon: grid })]);
-    }
-
-    squares();
-    vectors();
-    planeGrid();
+    })();
 }
 
 drawShapes();
