@@ -34,17 +34,24 @@ export interface ANIMATION_INFO {
 export interface CANVAS_GROUP_CONFIG {
     type?: "2d" | "3d";
 
+    axesHelper?:
+        | {
+              size?: number;
+          }
+        | false;
+
     orbitControls?: boolean;
 
     postprocessing?:
         | {
-              afterimage: boolean;
+              afterimage?: boolean;
           }
         | false;
 }
 
 export const CANVAS_GROUP_DEFAULT_CONFIG: CANVAS_GROUP_CONFIG = {
     type: "2d",
+    axesHelper: false,
     orbitControls: false,
     postprocessing: false,
 };
@@ -376,9 +383,14 @@ export class CanvasGroup {
             this.clock.start();
         })();
 
-        const axesHelper = new AxesHelper(100);
+        // helpers
+        (() => {
+            if (this.CONFIG.axesHelper) {
+                const axesHelper = new AxesHelper(100);
 
-        this.threeScene.add(axesHelper);
+                this.threeScene.add(axesHelper);
+            }
+        })();
     }
 
     /**
