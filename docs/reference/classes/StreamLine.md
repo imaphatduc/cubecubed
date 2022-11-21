@@ -36,7 +36,7 @@ interchangably.
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:95](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L95)
+[src/canvas/cubicons/StreamLine.ts:95](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L95)
 
 ## Properties
 
@@ -50,7 +50,7 @@ interchangably.
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:90](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L90)
+[src/canvas/cubicons/StreamLine.ts:90](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L90)
 
 ___
 
@@ -74,7 +74,7 @@ const sineField = ({ x, y, z })
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:84](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L84)
+[src/canvas/cubicons/StreamLine.ts:84](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L84)
 
 ___
 
@@ -90,7 +90,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L42)
+[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L42)
 
 ___
 
@@ -104,7 +104,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L31)
+[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L31)
 
 ___
 
@@ -120,7 +120,7 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L47)
+[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L47)
 
 ___
 
@@ -130,7 +130,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:88](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L88)
+[src/canvas/cubicons/StreamLine.ts:88](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L88)
 
 ___
 
@@ -146,7 +146,7 @@ Object representing this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L52)
+[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L52)
 
 ___
 
@@ -160,7 +160,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L33)
+[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L33)
 
 ___
 
@@ -174,7 +174,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L35)
+[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L35)
 
 ___
 
@@ -184,7 +184,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:86](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L86)
+[src/canvas/cubicons/StreamLine.ts:86](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L86)
 
 ## Accessors
 
@@ -198,7 +198,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:159](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L159)
+[src/canvas/cubicons/StreamLine.ts:159](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L159)
 
 ## Methods
 
@@ -212,15 +212,13 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:151](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L151)
+[src/canvas/cubicons/StreamLine.ts:151](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L151)
 
 ___
 
 ### render
 
 ▸ **render**(): [`StreamLine`](/reference/classes/StreamLine.md)
-
-**`internal`**
 
 #### Returns
 
@@ -232,4 +230,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:120](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L120)
+[src/canvas/cubicons/StreamLine.ts:120](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L120)

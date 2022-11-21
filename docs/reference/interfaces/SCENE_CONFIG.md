@@ -10,11 +10,13 @@
 
 Height of this scene (in pixels).
 
-**`default`** window.innerHeight
+**`Default`**
+
+window.innerHeight
 
 #### Defined in
 
-[src/scene/Scene.ts:17](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/scene/Scene.ts#L17)
+[src/scene/Scene.ts:17](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/scene/Scene.ts#L17)
 
 ___
 
@@ -24,8 +26,10 @@ ___
 
 Width of this scene (in pixels).
 
-**`default`** window.innerWidth
+**`Default`**
+
+window.innerWidth
 
 #### Defined in
 
-[src/scene/Scene.ts:10](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/scene/Scene.ts#L10)
+[src/scene/Scene.ts:10](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/scene/Scene.ts#L10)

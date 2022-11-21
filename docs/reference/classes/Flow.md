@@ -35,7 +35,7 @@ flow, use `SimulateStream()` instead.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:59](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L59)
+[src/canvas/animations/Flow.ts:65](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/animations/Flow.ts#L65)
 
 ## Properties
 
@@ -49,7 +49,7 @@ flow, use `SimulateStream()` instead.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:33](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L33)
+[src/canvas/animations/Flow.ts:39](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/animations/Flow.ts#L39)
 
 ___
 
@@ -63,7 +63,7 @@ ___
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L18)
+[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/animations/CanvasAnimation.ts#L18)
 
 ___
 
@@ -87,7 +87,7 @@ const sineField = ({ x, y, z })
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:51](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L51)
+[src/canvas/animations/Flow.ts:57](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/animations/Flow.ts#L57)
 
 ___
 
@@ -103,15 +103,13 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/CanvasAnimation.ts#L23)
+[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/animations/CanvasAnimation.ts#L23)
 
 ## Methods
 
 ### play
 
 ▸ **play**(): `void`
-
-**`internal`**
 
 #### Returns
 
@@ -123,4 +121,4 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:80](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/animations/Flow.ts#L80)
+[src/canvas/animations/Flow.ts:86](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/animations/Flow.ts#L86)

@@ -17,7 +17,7 @@
 
 #### Defined in
 
-[src/recorder/Recorder.ts:18](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/recorder/Recorder.ts#L18)
+[src/recorder/Recorder.ts:18](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/recorder/Recorder.ts#L18)
 
 ## Methods
 
@@ -31,4 +31,4 @@
 
 #### Defined in
 
-[src/recorder/Recorder.ts:29](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/recorder/Recorder.ts#L29)
+[src/recorder/Recorder.ts:29](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/recorder/Recorder.ts#L29)

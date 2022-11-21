@@ -8,11 +8,13 @@
 
 • **strokeColor**: `string`
 
-**`default`** "#fff"
+**`Default`**
+
+"#fff"
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:20](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L20)
+[src/canvas/cubicons/StreamLine.ts:20](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L20)
 
 ___
 
@@ -20,8 +22,10 @@ ___
 
 • **strokeWidth**: `number`
 
-**`default`** 2
+**`Default`**
+
+2
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:25](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L25)
+[src/canvas/cubicons/StreamLine.ts:25](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L25)

@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L27)
+[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L27)
 
 ___
 
@@ -32,11 +32,13 @@ ___
 
 Speed when changing the position of the stream line.
 
-**`default`** 0.01
+**`Default`**
+
+0.01
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:42](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L42)
+[src/canvas/cubicons/StreamLine.ts:42](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L42)
 
 ___
 
@@ -48,7 +50,7 @@ The function to change the cubicon's position at each frame.
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:47](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L47)
+[src/canvas/cubicons/StreamLine.ts:47](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L47)
 
 ___
 
@@ -64,7 +66,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L12)
+[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L12)
 
 ___
 
@@ -74,11 +76,13 @@ ___
 
 Maximum number of vertices for the stream line.
 
-**`default`** 2
+**`Default`**
+
+2
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:54](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/StreamLine.ts#L54)
+[src/canvas/cubicons/StreamLine.ts:54](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L54)
 
 ___
 
@@ -94,7 +98,7 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L17)
+[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L17)
 
 ___
 
@@ -110,4 +114,4 @@ Scale the position vector of this cubicon by this number.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L22)
+[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L22)

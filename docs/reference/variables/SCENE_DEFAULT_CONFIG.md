@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/scene/Scene.ts:20](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/scene/Scene.ts#L20)
+[src/scene/Scene.ts:20](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/scene/Scene.ts#L20)

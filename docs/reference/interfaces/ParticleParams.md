@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L27)
+[src/canvas/cubicons/CanvasCubicon.ts:27](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L27)
 
 ___
 
@@ -38,7 +38,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L12)
+[src/canvas/cubicons/CanvasCubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L12)
 
 ___
 
@@ -54,7 +54,7 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L17)
+[src/canvas/cubicons/CanvasCubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L17)
 
 ___
 
@@ -66,7 +66,7 @@ Radius of this particle.
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:23](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/Particle.ts#L23)
+[src/canvas/cubicons/Particle.ts:23](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/Particle.ts#L23)
 
 ___
 
@@ -82,4 +82,4 @@ Scale the position vector of this cubicon by this number.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/CanvasCubicon.ts#L22)
+[src/canvas/cubicons/CanvasCubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/CanvasCubicon.ts#L22)

@@ -86,7 +86,7 @@
 - [VectorFieldParams](/reference/interfaces/VectorFieldParams.md)
 - [VectorShapeParams](/reference/interfaces/VectorShapeParams.md)
 
-## Type aliases
+## Type Aliases
 
 - [AxisSelection](/reference/types/AxisSelection.md)
 - [CREATE\_LINE\_SHAPE\_TYPES](/reference/types/CREATE_LINE_SHAPE_TYPES.md)
@@ -126,5 +126,8 @@
 - [TAU](/reference/variables/TAU.md)
 - [VECTOR\_FIELD\_DEFAULT\_CONFIG](/reference/variables/VECTOR_FIELD_DEFAULT_CONFIG.md)
 - [VECTOR\_SHAPE\_DEFAULT\_CONFIG](/reference/variables/VECTOR_SHAPE_DEFAULT_CONFIG.md)
-- [dToR](/reference/variables/dToR.md)
-- [rToD](/reference/variables/rToD.md)
+
+## Functions
+
+- [dToR](/reference/functions/dToR.md)
+- [rToD](/reference/functions/rToD.md)

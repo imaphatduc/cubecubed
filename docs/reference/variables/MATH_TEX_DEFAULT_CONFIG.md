@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/svg/cubicons/MathTex.ts:20](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/MathTex.ts#L20)
+[src/svg/cubicons/MathTex.ts:20](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/MathTex.ts#L20)

@@ -8,8 +8,10 @@
 
 • **fillColor**: `string`
 
-**`default`** "#fff"
+**`Default`**
+
+"#fff"
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/canvas/cubicons/Particle.ts#L12)
+[src/canvas/cubicons/Particle.ts:12](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/Particle.ts#L12)

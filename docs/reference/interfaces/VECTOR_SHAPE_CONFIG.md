@@ -22,7 +22,7 @@ Height of the arrowhead.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:41](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L41)
+[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:41](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L41)
 
 ___
 
@@ -34,7 +34,7 @@ Base length of the arrowhead.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:36](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L36)
+[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:36](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L36)
 
 ___
 
@@ -44,7 +44,9 @@ ___
 
 Color of this line shape.
 
-**`default`** "#fff"
+**`Default`**
+
+"#fff"
 
 #### Inherited from
 
@@ -52,7 +54,7 @@ Color of this line shape.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:12](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L12)
+[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:12](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L12)
 
 ___
 
@@ -62,7 +64,9 @@ ___
 
 Width of this line shape.
 
-**`default`** 2
+**`Default`**
+
+2
 
 #### Inherited from
 
@@ -70,4 +74,4 @@ Width of this line shape.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:19](https://github.com/imaphatduc/cubecubed/blob/0c47e8e/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L19)
+[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:19](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L19)
