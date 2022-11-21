@@ -14,8 +14,14 @@ export interface FlowParams extends CanvasAnimationParams<FLOW_TYPES> {
      */
     functionDef: FlowVectorFunction;
 
+    /**
+     * The range of the time variable `t`.
+     */
     tRange?: [number, number];
 
+    /**
+     * Differential of the time variable `t`.
+     */
     dt?: number;
 }
 
