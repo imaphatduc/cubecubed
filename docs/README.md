@@ -2,14 +2,17 @@
 
 <p align="center">
   <img
-    width="300"
+    width="250"
     src="./assets/svg/logo.svg"
     align="center" hspace="12"
     alt="Cubecubed - A Math Visualization Library"
   />
-  <p align="center">A mathematical visualization library for playing dynamic animations right on your favorite browser. Built with "simple and intuitive" philosophy in mind.</p>
+  <p align="center">A mathematical visualization library for playing dynamic animations right on your favorite browser. Producing animations with eye-soothing graphical effects. Built with "simple and intuitive" philosophy in mind.</p>
   <h4 align="center">Imagine 💡 → Launch 🚀 → Watch 🍿</h4>
   <hr>
+
+  ![Chaotic Particles](./assets/gif/particles.gif)
+
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
       <img src="https://img.shields.io/badge/d3.js-F9A03C?style=for-the-badge&logo=d3.js&logoColor=white" />
@@ -29,23 +32,17 @@
   </p>
 </p>
 
-## 💡 About the Project
-
-Cubecubed produces high-performance animations and graphical effects soothing to the eyes.
-
-![Chaotic Particles](./assets/gif/particles.gif)
-
 ## 💤 Name Explanation
 
-Imagine that a 3d cube is multiplied by itself two times — That's it!
+Imagine that a 3D cube is multiplied by itself two times — That's it!
 
-## Core Features
+## 💎 Core Features
 
-- **Animation engine**: Flexible and well-organized animtion controls. You don't need to explicitly manipulate time for each animation, as it is controlled behind the scene.
+- **Animation engine**: Flexible and well-organized animations handling. You don't need to explicitly manipulate time for each animation, as it is controlled behind the scene.
 
 - **Video exports**: Export any scene to video files.
 
-- **2D and 3D rendering**: Cubecubed utilizes the powerful SVG manipulation abilities of [D3.js](https://github.com/d3/d3), along with the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) library to create a visual representation of math concepts.
+- **2D and 3D rendering**: Cubecubed produces high-performance animations with eye-soothing graphical effects. At its core, the library utilizes the powerful SVG manipulation abilities of [D3.js](https://github.com/d3/d3), along with the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) to create a visual representation of math concepts.
 
 ## 🚀 Getting Started
 
@@ -70,17 +67,17 @@ See this [Quick Start](https://imaphatduc.github.io/cubecubed/#/quickstart) page
 
 ## 🗒️ Notes
 
-### Who should use Cubecubed?
+### Cubecubed is made for everyone!
 
-Anyone! Whether you are students, teachers, researchers, or someone who is curious about mathematics, you can use Cubecubed or any visualization tools out there to explore its mystical beauty.
+Whether you are students, teachers, researchers, or someone who is curious about mathematics, you can use Cubecubed or any visualization tools out there to go on exploring the mystical beauty of the science.
 
 ### Inspiration
 
 Cubecubed exists for a reason. Check out this [article](https://dev.to/imaphatduc/my-story-with-cubecubed-2da2) to figure it out.
 
-Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_. However, it is not a port or a re-implementation of the engine. The first commit of Cubecubed was made by author [@imaphatduc](https://github.com/imaphatduc) on December 1, 2021. More features are coming soon...
+The project is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_. However, it is not a port or a re-implementation of the engine. The first commit of Cubecubed was made by author [@imaphatduc](https://github.com/imaphatduc) on December 1, 2021. More features are coming soon...
 
-### "Cubecubed UI"
+### GUI version of Cubecubed
 
 [Cubedbook](https://github.com/imaphatduc/cubedbook) is built on top of Cubecubed to provide a user-friendly GUI environment. If you're not comfortable with programming, Cubedbook is an option for you.
 
@@ -88,7 +85,7 @@ Cubecubed is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an ani
 
 Cubecubed believes the best way to learn and discover math is through the combining process of visualizations and deductive reasoning. If we write math on paper, why don't we write it on a computer?
 
-## ☄ Contributing
+## ☄️ Contributing
 
 Cubecubed welcomes all contributors! Whether you have great feature ideas in mind or recognize bugs, feel free to contribute to the project. But first, please read these [contributing guidelines](https://github.com/imaphatduc/cubecubed/blob/master/CONTRIBUTING.md) and check the `issues` and `pull requests` tabs to prevent any duplications.
 

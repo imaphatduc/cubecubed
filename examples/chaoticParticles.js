@@ -19,7 +19,7 @@ const str2params = (str) => {
 };
 
 const chaos = ({ x, y }, t) => {
-    const params = str2params("GIIETPIQRRUL");
+    const params = str2params("FIRCDERRPVLD");
 
     const xx = x * x;
     const xy = x * y;
@@ -46,12 +46,15 @@ function chaoticParticles() {
 
     let position = new Vector3(0.01, 0.01, 0.01);
 
-    const particles = [...Array(2000)].map(() => {
+    const particles = [...Array(5000)].map(() => {
         const particle = new Particle({
             group,
             position,
             radius: 0.5,
-            scaleFactor: 6,
+            scaleFactor: 8,
+            CONFIG: {
+                fillColor: "#c8d3f5"
+            }
         }).render();
 
         position = chaos(position, t0);
@@ -65,7 +68,7 @@ function chaoticParticles() {
             duration: 5000,
             functionDef: chaos,
             tRange: [t0, 2],
-            dt: -0.0002,
+            dt: 0.0005,
         });
     });
 
@@ -73,7 +76,7 @@ function chaoticParticles() {
 
     setTimeout(() => {
         flowAnimations.forEach((animation) => {
-            animation.dt = 0.0002;
+            animation.dt = -0.001;
         });
     }, group.groupElapsed);
 
