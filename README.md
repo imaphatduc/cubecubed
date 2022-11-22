@@ -8,6 +8,8 @@
     alt="Cubecubed - A Math Visualization Library"
   />
   <p align="center">A mathematical visualization library for playing dynamic animations right on your favorite browser. Producing animations with eye-soothing graphical effects. Built with "simple and intuitive" philosophy in mind.</p>
+
+  <hr>
   <h4 align="center">Imagine 💡 → Launch 🚀 → Watch 🍿</h4>
   <hr>
 
@@ -75,7 +77,7 @@ Whether you are students, teachers, researchers, or someone who is curious about
 
 Cubecubed exists for a reason. Check out this [article](https://dev.to/imaphatduc/my-story-with-cubecubed-2da2) to figure it out.
 
-The project is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_. However, it is not a port or a re-implementation of the engine. The first commit of Cubecubed was made by author [@imaphatduc](https://github.com/imaphatduc) on December 1, 2021. More features are coming soon...
+The project is deeply inspired by [Manim](https://github.com/3b1b/manim) - _an animation engine for explanatory math videos_. However, it is not a port or a re-implementation of the engine. Since its first commit on December 1, 2021, Cubecubed has been thriving with upcoming features and friendly community.
 
 ### GUI version of Cubecubed
 
