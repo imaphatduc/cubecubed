@@ -8,7 +8,7 @@
     alt="Cubecubed - A Math Visualization Library"
   />
   <p align="center">A mathematical visualization library for playing dynamic animations right on your favorite browser. Built with "simple and intuitive" philosophy in mind.</p>
-  <blockquote align="center">Imagine 💡 → Launch 🚀 → Watch 🍿</blockquote>
+  <h4 align="center">Imagine 💡 → Launch 🚀 → Watch 🍿</h4>
   <hr>
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
