@@ -58,7 +58,7 @@ export class Flow extends CanvasAnimation {
 
     private tRange?: [number, number];
 
-    private dt?: number;
+    dt?: number;
 
     private t?: number;
 

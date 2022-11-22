@@ -29,15 +29,17 @@
   </p>
 </p>
 
-## 💡 About the project
+## 💡 About the Project
 
 Cubecubed produces high-performance animations and graphical effects soothing to the eyes.
+
+![Chaotic Particles](./assets/gif/particles.gif)
 
 ## 💤 Name Explanation
 
 Imagine that a 3d cube is multiplied by itself two times — That's it!
 
-## Core features
+## Core Features
 
 - **Animation engine**: Flexible and well-organized animtion controls. You don't need to explicitly manipulate time for each animation, as it is controlled behind the scene.
 

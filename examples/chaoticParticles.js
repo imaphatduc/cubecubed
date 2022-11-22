@@ -1,4 +1,4 @@
-import { CanvasGroup, Flow, Particle, Scene, Vector3 } from "../src/index";
+import { CanvasGroup, Flow, Particle, Recorder, Scene, Vector3 } from "../src/index";
 
 const str2params = (str) => {
     const mapper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
@@ -36,7 +36,11 @@ const chaos = ({ x, y }, t) => {
 
 function chaoticParticles() {
     const scene = new Scene("chaotic-particles-scene");
-    const group = new CanvasGroup("chaotic-particles", scene);
+    const group = new CanvasGroup("chaotic-particles", scene, {
+        postprocessing: {
+            afterimage: true,
+        }
+    });
 
     const t0 = 1;
 
@@ -58,13 +62,26 @@ function chaoticParticles() {
     const flowAnimations = particles.map((particle) => {
         return new Flow({
             cubicon: particle,
+            duration: 5000,
             functionDef: chaos,
             tRange: [t0, 2],
-            dt: 0.00001,
+            dt: -0.0002,
         });
     });
 
     group.play(flowAnimations);
+
+    setTimeout(() => {
+        flowAnimations.forEach((animation) => {
+            animation.dt = 0.0002;
+        });
+    }, group.groupElapsed);
+
+    group.play(flowAnimations);
+
+    return group.groupElapsed;
 }
 
-chaoticParticles();
+const recorder = new Recorder(chaoticParticles);
+
+recorder.start();
