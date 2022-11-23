@@ -32,7 +32,10 @@ function gabrielsHorn() {
     })();
 
     (() => {
-        const group = new CanvasGroup("gabriels-horn", scene);
+        const group = new CanvasGroup("gabriels-horn", scene, {
+            type: "3d",
+            orbitControls: true,
+        });
 
         const surface = new RevolutionSurface({
             group: group,
@@ -42,9 +45,10 @@ function gabrielsHorn() {
             },
         }).render();
 
-        group.play([
-            new SimulateRevolution({ cubicon: surface, duration: 2000 }),
-        ]);
+        group.play(
+            [new SimulateRevolution({ cubicon: surface, duration: 2000 })],
+            false
+        );
     })();
 }
 
