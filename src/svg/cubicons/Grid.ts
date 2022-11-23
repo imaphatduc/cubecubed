@@ -10,7 +10,7 @@ import { Vector2 } from "@math/Vector2";
 
 import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
 import { GridOrigin } from "@cubicons/geometry/Circle";
-import { Line } from "./geometry/Line";
+import { Line, VerticesMapFunction } from "./geometry/Line";
 
 export interface GRID_CONFIG {
     hasNums?: boolean;
@@ -127,6 +127,11 @@ export class Grid extends Cubicon {
         this.gridOrigin.render();
 
         return this;
+    }
+
+    applyFunction(func: VerticesMapFunction) {
+        this.horizontalLines.forEach((line) => line.applyFunction(func));
+        this.verticalLines.forEach((line) => line.applyFunction(func));
     }
 
     get xs() {

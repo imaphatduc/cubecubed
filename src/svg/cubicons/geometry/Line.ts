@@ -13,6 +13,8 @@ import {
 
 import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
 
+export type VerticesMapFunction = (vertex: Vector2) => Vector2;
+
 export interface LineParams extends CubiconParams<LINE_SHAPE_CONFIG> {
     /**
      * Start point (tail) of this line.
@@ -29,6 +31,8 @@ export class Line extends Cubicon {
     readonly cubiconType = "Line";
 
     readonly endPoint: Vector2;
+
+    private vertices: Vector2[];
 
     declare CONFIG: LINE_SHAPE_CONFIG;
 
@@ -53,6 +57,8 @@ export class Line extends Cubicon {
             .append("path")
             .attr("class", "line")
             .attr("fill", "none");
+
+        this.initVertices();
     }
 
     render() {
@@ -74,18 +80,21 @@ export class Line extends Cubicon {
         );
     }
 
-    get vertices() {
+    private initVertices() {
         const dt = 0.02;
 
-        const vertices = range(0, 1 + dt, dt).map((t) => {
+        this.vertices = range(0, 1 + dt, dt).map((t) => {
             const vertex = this.position
                 .scale(1 - t)
                 .add(this.endPoint.scale(t));
 
             return vertex;
         });
+    }
 
-        return vertices;
+    applyFunction(func: VerticesMapFunction) {
+        this.vertices = this.vertices.map((vertex) => func(vertex));
+        this.render();
     }
 
     protected applyToHTMLFlow() {
