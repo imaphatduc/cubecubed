@@ -22,8 +22,7 @@ export * from "./svg/cubicons/geometry/ParametricCurve";
 export * from "./svg/cubicons/coordinate-system/Axes";
 
 export * from "./svg/animations/Animation";
-export * from "./svg/animations/CreatePlaneShape";
-export * from "./svg/animations/CreateLineShape";
+export * from "./svg/animations/CreateShape";
 export * from "./svg/animations/CreateVectorShape";
 export * from "./svg/animations/Translate";
 export * from "./svg/animations/Rotate";

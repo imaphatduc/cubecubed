@@ -1,10 +1,12 @@
 import { ANIME } from "@consts";
 
+import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
 import { Graph } from "@cubicons/coordinate-system/Graph";
 import { Point } from "@cubicons/coordinate-system/Point";
 import { Rectangle } from "@cubicons/geometry/Rectangle";
 import { Square } from "@cubicons/geometry/Square";
 import { Circle } from "@cubicons/geometry/Circle";
+import { Line } from "@cubicons/geometry/Line";
 
 import { Animation, AnimationParams } from "@animations/Animation";
 
@@ -15,12 +17,18 @@ export type CREATE_PLANE_SHAPE_TYPES =
     | Graph
     | Point;
 
-export class CreatePlaneShape extends Animation {
-    readonly animationType = "CreatePlaneShape";
+export type CREATE_LINE_SHAPE_TYPES = Line | AxisProjector;
 
-    declare cubicon: CREATE_PLANE_SHAPE_TYPES;
+export type CREATE_SHAPE_TYPES =
+    | CREATE_PLANE_SHAPE_TYPES
+    | CREATE_LINE_SHAPE_TYPES;
 
-    constructor(params: AnimationParams<CREATE_PLANE_SHAPE_TYPES>) {
+export class CreateShape extends Animation {
+    readonly animationType = "CreateShape";
+
+    declare cubicon: CREATE_SHAPE_TYPES;
+
+    constructor(params: AnimationParams<CREATE_SHAPE_TYPES>) {
         super({
             cubicon: params.cubicon,
 
@@ -31,10 +39,10 @@ export class CreatePlaneShape extends Animation {
     }
 
     play() {
-        this.createPlaneShape();
+        this.createShape();
     }
 
-    private createPlaneShape() {
+    private createShape() {
         const pathLength = this.getPathLength();
 
         const fillOpacity = this.getFillOpacity();
@@ -60,8 +68,14 @@ export class CreatePlaneShape extends Animation {
     }
 
     private getFillOpacity() {
-        return this.cubicon.cubiconType === "Graph"
-            ? 1
-            : this.cubicon.CONFIG.fillOpacity!;
+        if (this.cubicon.cubiconType === "Graph") {
+            return 1;
+        }
+
+        if (this.cubicon.cubiconType === "Line") {
+            return 0;
+        }
+
+        return this.cubicon.CONFIG.fillOpacity!;
     }
 }

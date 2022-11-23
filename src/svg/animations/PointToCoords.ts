@@ -4,8 +4,7 @@ import { AxisProjector } from "@cubicons/coordinate-system/AxisProjector";
 import { Point } from "@cubicons/coordinate-system/Point";
 
 import { Animation, AnimationParams } from "@animations/Animation";
-import { CreateLineShape } from "@animations/CreateLineShape";
-import { CreatePlaneShape } from "@animations/CreatePlaneShape";
+import { CreateShape } from "@animations/CreateShape";
 
 export interface PointToCoordsParams extends AnimationParams<Point> {
     horizontalProjector?: AxisProjector;
@@ -59,12 +58,12 @@ export class PointToCoords extends Animation {
     private getAnimations() {
         const animations = [];
 
-        animations.push(new CreatePlaneShape({ cubicon: this.cubicon }));
+        animations.push(new CreateShape({ cubicon: this.cubicon }));
 
         if (this.horizontalProjector && this.verticalProjector) {
             animations.push(
-                new CreateLineShape({ cubicon: this.horizontalProjector }),
-                new CreateLineShape({ cubicon: this.verticalProjector })
+                new CreateShape({ cubicon: this.horizontalProjector }),
+                new CreateShape({ cubicon: this.verticalProjector })
             );
         }
 

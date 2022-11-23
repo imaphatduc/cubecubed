@@ -1,8 +1,7 @@
 import { Grid } from "@cubicons/Grid";
 
 import { Animation, AnimationParams } from "@animations/Animation";
-import { CreateLineShape } from "@animations/CreateLineShape";
-import { CreatePlaneShape } from "@animations/CreatePlaneShape";
+import { CreateShape } from "@animations/CreateShape";
 
 export class DrawGrid extends Animation {
     readonly animationType = "DrawGrid";
@@ -48,7 +47,7 @@ export class DrawGrid extends Animation {
             (line) => {
                 const y = line.position.y;
 
-                const animation = new CreateLineShape({
+                const animation = new CreateShape({
                     cubicon: line,
                     duration: this.draw,
                     ease: this.ease,
@@ -67,7 +66,7 @@ export class DrawGrid extends Animation {
         const verticalAnimations = this.cubicon.verticalLines.map((line) => {
             const x = line.position.x;
 
-            const animation = new CreateLineShape({
+            const animation = new CreateShape({
                 cubicon: line,
                 duration: this.draw,
                 ease: this.ease,
@@ -82,7 +81,7 @@ export class DrawGrid extends Animation {
     }
 
     private getOriginAnimation() {
-        const originAnimation = new CreatePlaneShape({
+        const originAnimation = new CreateShape({
             cubicon: this.cubicon.gridOrigin,
             duration: this.draw,
             ease: this.ease,
