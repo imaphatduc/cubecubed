@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:52](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/group/CanvasGroup.ts#L52)
+[src/canvas/group/CanvasGroup.ts:52](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/group/CanvasGroup.ts#L52)

@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:28](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/StreamLine.ts#L28)
+[src/canvas/cubicons/StreamLine.ts:28](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/StreamLine.ts#L28)

@@ -22,7 +22,7 @@ The target cubicon to play this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:9](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L9)
+[src/svg/animations/Animation.ts:9](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L9)
 
 ___
 
@@ -38,7 +38,7 @@ The duration of this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:14](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L14)
+[src/svg/animations/Animation.ts:14](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L14)
 
 ___
 
@@ -54,7 +54,7 @@ Easing function for smooth animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:19](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L19)
+[src/svg/animations/Animation.ts:19](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L19)
 
 ___
 
@@ -66,7 +66,7 @@ Which graph should the point moving along?
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:17](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/PointAlongGraph.ts#L17)
+[src/svg/animations/PointAlongGraph.ts:17](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/PointAlongGraph.ts#L17)
 
 ___
 
@@ -76,7 +76,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:10](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/PointAlongGraph.ts#L10)
+[src/svg/animations/PointAlongGraph.ts:10](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/PointAlongGraph.ts#L10)
 
 ___
 
@@ -86,7 +86,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:12](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/PointAlongGraph.ts#L12)
+[src/svg/animations/PointAlongGraph.ts:12](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/PointAlongGraph.ts#L12)
 
 ___
 
@@ -98,4 +98,4 @@ x coordinate of the point's target position.
 
 #### Defined in
 
-[src/svg/animations/PointAlongGraph.ts:22](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/PointAlongGraph.ts#L22)
+[src/svg/animations/PointAlongGraph.ts:22](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/PointAlongGraph.ts#L22)

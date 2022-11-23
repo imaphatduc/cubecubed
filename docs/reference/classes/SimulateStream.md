@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/canvas/animations/SimulateStream.ts:10](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/SimulateStream.ts#L10)
+[src/canvas/animations/SimulateStream.ts:10](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/SimulateStream.ts#L10)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/canvas/animations/SimulateStream.ts:8](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/SimulateStream.ts#L8)
+[src/canvas/animations/SimulateStream.ts:8](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/SimulateStream.ts#L8)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/CanvasAnimation.ts#L18)
+[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/CanvasAnimation.ts#L18)
 
 ___
 
@@ -70,7 +70,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/CanvasAnimation.ts#L23)
+[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/CanvasAnimation.ts#L23)
 
 ## Methods
 
@@ -88,4 +88,4 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/SimulateStream.ts:21](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/SimulateStream.ts#L21)
+[src/canvas/animations/SimulateStream.ts:21](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/SimulateStream.ts#L21)

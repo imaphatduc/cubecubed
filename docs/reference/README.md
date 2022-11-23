@@ -11,8 +11,8 @@ cubecubed / [Exports](/reference/modules.md)
   />
   <p align="center">
     <i>A mathematical visualization library for playing dynamic animations right on your favorite browser.</i><br>
-    • Producing animations with eye-soothing graphical effects. •<br>
-    • Built with "simple and intuitive" philosophy in mind. •
+    • Producing animations with eye-soothing graphical effects.<br>
+    • Built with "simple and intuitive" philosophy in mind.
   </p>
 
   <h4 align="center">Imagine 💡 → Launch 🚀 → Watch 🍿</h4>

@@ -1,24 +1,24 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / CreateLineShape
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / CreateShape
 
-# Class: CreateLineShape
+# Class: CreateShape
 
 ## Hierarchy
 
 - [`Animation`](/reference/classes/Animation.md)
 
-  ↳ **`CreateLineShape`**
+  ↳ **`CreateShape`**
 
 ## Constructors
 
 ### constructor
 
-• **new CreateLineShape**(`params`)
+• **new CreateShape**(`params`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`AnimationParams`](/reference/interfaces/AnimationParams.md)<[`CREATE_LINE_SHAPE_TYPES`](/reference/types/CREATE_LINE_SHAPE_TYPES.md)\> |
+| `params` | [`AnimationParams`](/reference/interfaces/AnimationParams.md)<[`CREATE_SHAPE_TYPES`](/reference/types/CREATE_SHAPE_TYPES.md)\> |
 
 #### Overrides
 
@@ -26,13 +26,13 @@
 
 #### Defined in
 
-[src/svg/animations/CreateLineShape.ts:15](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/CreateLineShape.ts#L15)
+[src/svg/animations/CreateShape.ts:31](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L31)
 
 ## Properties
 
 ### animationType
 
-• `Readonly` **animationType**: ``"CreateLineShape"``
+• `Readonly` **animationType**: ``"CreateShape"``
 
 #### Overrides
 
@@ -40,13 +40,13 @@
 
 #### Defined in
 
-[src/svg/animations/CreateLineShape.ts:11](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/CreateLineShape.ts#L11)
+[src/svg/animations/CreateShape.ts:27](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L27)
 
 ___
 
 ### cubicon
 
-• **cubicon**: [`CREATE_LINE_SHAPE_TYPES`](/reference/types/CREATE_LINE_SHAPE_TYPES.md)
+• **cubicon**: [`CREATE_SHAPE_TYPES`](/reference/types/CREATE_SHAPE_TYPES.md)
 
 #### Overrides
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/CreateLineShape.ts:13](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/CreateLineShape.ts#L13)
+[src/svg/animations/CreateShape.ts:29](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L29)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L32)
+[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L32)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L34)
+[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L34)
 
 ___
 
@@ -98,7 +98,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L28)
+[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L28)
 
 ## Methods
 
@@ -118,7 +118,7 @@ Play this animation.
 
 #### Defined in
 
-[src/svg/animations/CreateLineShape.ts:25](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/CreateLineShape.ts#L25)
+[src/svg/animations/CreateShape.ts:41](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L41)
 
 ___
 
@@ -143,4 +143,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L53)

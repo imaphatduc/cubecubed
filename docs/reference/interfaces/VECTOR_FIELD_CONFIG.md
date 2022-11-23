@@ -12,7 +12,7 @@ Are the length of the vector shapes scaled based on the longest one?
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:17](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/VectorField.ts#L17)
+[src/svg/cubicons/VectorField.ts:17](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/VectorField.ts#L17)
 
 ___
 
@@ -24,7 +24,7 @@ Are the color of the vector shapes one color or scaled?
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:22](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/VectorField.ts#L22)
+[src/svg/cubicons/VectorField.ts:22](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/VectorField.ts#L22)
 
 ___
 
@@ -36,4 +36,4 @@ Width of the vector shapes.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:27](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/VectorField.ts#L27)
+[src/svg/cubicons/VectorField.ts:27](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/VectorField.ts#L27)

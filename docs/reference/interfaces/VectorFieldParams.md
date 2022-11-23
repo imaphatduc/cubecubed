@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L22)
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -48,7 +48,7 @@ Multivariable function that produces 2d vector field.
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/VectorField.ts#L40)
+[src/svg/cubicons/VectorField.ts:40](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/VectorField.ts#L40)
 
 ___
 
@@ -64,7 +64,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -80,4 +80,4 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L17)

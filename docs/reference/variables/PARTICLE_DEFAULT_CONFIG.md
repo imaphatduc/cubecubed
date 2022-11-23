@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:15](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/Particle.ts#L15)
+[src/canvas/cubicons/Particle.ts:15](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/Particle.ts#L15)

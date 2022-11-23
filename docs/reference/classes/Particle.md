@@ -31,7 +31,7 @@ Particle term here represents a point (aka a dot).
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:37](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/Particle.ts#L37)
+[src/canvas/cubicons/Particle.ts:37](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/Particle.ts#L37)
 
 ## Properties
 
@@ -45,7 +45,7 @@ Particle term here represents a point (aka a dot).
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:35](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/Particle.ts#L35)
+[src/canvas/cubicons/Particle.ts:35](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/Particle.ts#L35)
 
 ___
 
@@ -61,7 +61,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/CanvasCubicon.ts#L42)
+[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L42)
 
 ___
 
@@ -75,7 +75,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/CanvasCubicon.ts#L31)
+[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L31)
 
 ___
 
@@ -91,7 +91,7 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/CanvasCubicon.ts#L47)
+[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L47)
 
 ___
 
@@ -107,7 +107,7 @@ Object representing this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/CanvasCubicon.ts#L52)
+[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L52)
 
 ___
 
@@ -121,7 +121,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/CanvasCubicon.ts#L33)
+[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L33)
 
 ___
 
@@ -131,7 +131,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:33](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/Particle.ts#L33)
+[src/canvas/cubicons/Particle.ts:33](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/Particle.ts#L33)
 
 ___
 
@@ -145,7 +145,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/CanvasCubicon.ts#L35)
+[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L35)
 
 ## Methods
 
@@ -163,4 +163,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/Particle.ts:58](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/Particle.ts#L58)
+[src/canvas/cubicons/Particle.ts:58](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/Particle.ts#L58)

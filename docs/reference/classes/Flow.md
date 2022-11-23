@@ -35,7 +35,7 @@ flow, use `SimulateStream()` instead.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:65](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/Flow.ts#L65)
+[src/canvas/animations/Flow.ts:65](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/Flow.ts#L65)
 
 ## Properties
 
@@ -49,7 +49,7 @@ flow, use `SimulateStream()` instead.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:39](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/Flow.ts#L39)
+[src/canvas/animations/Flow.ts:39](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/Flow.ts#L39)
 
 ___
 
@@ -59,7 +59,7 @@ ___
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:61](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/Flow.ts#L61)
+[src/canvas/animations/Flow.ts:61](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/Flow.ts#L61)
 
 ___
 
@@ -73,7 +73,7 @@ ___
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/CanvasAnimation.ts#L18)
+[src/canvas/animations/CanvasAnimation.ts:18](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/CanvasAnimation.ts#L18)
 
 ___
 
@@ -97,7 +97,7 @@ const sineField = ({ x, y, z })
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:57](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/Flow.ts#L57)
+[src/canvas/animations/Flow.ts:57](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/Flow.ts#L57)
 
 ___
 
@@ -113,7 +113,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/CanvasAnimation.ts#L23)
+[src/canvas/animations/CanvasAnimation.ts:23](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/CanvasAnimation.ts#L23)
 
 ## Methods
 
@@ -131,4 +131,4 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/canvas/animations/Flow.ts:86](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/animations/Flow.ts#L86)
+[src/canvas/animations/Flow.ts:86](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/animations/Flow.ts#L86)

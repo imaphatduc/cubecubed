@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:31](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/geometry/Line.ts#L31)
+[src/svg/cubicons/geometry/Line.ts:32](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/Line.ts#L32)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:29](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/geometry/Line.ts#L29)
+[src/svg/cubicons/geometry/Line.ts:30](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/Line.ts#L30)
 
 ___
 
@@ -57,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L50)
+[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L50)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:25](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/geometry/Line.ts#L25)
+[src/svg/cubicons/geometry/Line.ts:26](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/Line.ts#L26)
 
 ___
 
@@ -87,7 +87,7 @@ The SVG element that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L75)
+[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L75)
 
 ___
 
@@ -97,7 +97,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:27](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/geometry/Line.ts#L27)
+[src/svg/cubicons/geometry/Line.ts:28](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/Line.ts#L28)
 
 ___
 
@@ -113,7 +113,7 @@ The `<g>` element that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L70)
+[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L70)
 
 ___
 
@@ -127,7 +127,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L40)
+[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L40)
 
 ___
 
@@ -143,7 +143,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L60)
+[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L60)
 
 ___
 
@@ -159,7 +159,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L55)
+[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L55)
 
 ___
 
@@ -173,7 +173,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L42)
+[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L42)
 
 ___
 
@@ -189,7 +189,21 @@ The `<svg>` element of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L65)
+
+## Accessors
+
+### vertices
+
+• `get` **vertices**(): [`Vector2`](/reference/classes/Vector2.md)[]
+
+#### Returns
+
+[`Vector2`](/reference/classes/Vector2.md)[]
+
+#### Defined in
+
+[src/svg/cubicons/geometry/Line.ts:74](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/Line.ts#L74)
 
 ## Methods
 
@@ -215,7 +229,7 @@ Convert grid coordinates to pixels.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:102](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L102)
+[src/svg/cubicons/Cubicon.ts:102](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L102)
 
 ___
 
@@ -235,4 +249,4 @@ Render this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Line.ts:53](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/geometry/Line.ts#L53)
+[src/svg/cubicons/geometry/Line.ts:55](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/Line.ts#L55)
