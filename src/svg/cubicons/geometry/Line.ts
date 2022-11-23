@@ -1,3 +1,7 @@
+import { range } from "d3-array";
+import { curveNatural, line } from "d3-shape";
+//+++++++++++++++++++++++++++++++++++++++++++++++++++//
+
 import configFactory from "@utils/configFactory";
 
 import { Vector2 } from "@math/Vector2";
@@ -8,7 +12,6 @@ import {
 } from "@configs/geometry/LINE_SHAPE_CONFIG";
 
 import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
-import { curveNatural, line, range } from "d3";
 
 export interface LineParams extends CubiconParams<LINE_SHAPE_CONFIG> {
     /**
