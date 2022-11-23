@@ -57,10 +57,7 @@ export class AxisProjector extends Line {
     }
 
     render() {
-        const WstartPoint = this.axes.coordsGtoW(this.position);
-        const WendPoint = this.axes.coordsGtoW(this.endPoint);
-
-        this.applyToHTMLFlow(WstartPoint, WendPoint);
+        this.applyToHTMLFlow();
 
         return this;
     }

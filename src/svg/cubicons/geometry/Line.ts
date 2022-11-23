@@ -8,6 +8,7 @@ import {
 } from "@configs/geometry/LINE_SHAPE_CONFIG";
 
 import { Cubicon, CubiconParams } from "@cubicons/Cubicon";
+import { curveNatural, line, range } from "d3";
 
 export interface LineParams extends CubiconParams<LINE_SHAPE_CONFIG> {
     /**
@@ -46,25 +47,47 @@ export class Line extends Cubicon {
             .style("transform-origin", "center");
 
         this.def_cubiconBase = this.g_cubiconWrapper
-            .append("line")
-            .attr("class", "line");
+            .append("path")
+            .attr("class", "line")
+            .attr("fill", "none");
     }
 
     render() {
-        const WstartPoint = this.coordsGtoW(this.position);
-        const WendPoint = this.coordsGtoW(this.endPoint);
-
-        this.applyToHTMLFlow(WstartPoint, WendPoint);
+        this.applyToHTMLFlow();
 
         return this;
     }
 
-    protected applyToHTMLFlow(WstartPoint: Vector2, WendPoint: Vector2) {
+    private getData() {
+        const { xGtoW, yGtoW } = this.group;
+
+        const curveGenerator = line()
+            .curve(curveNatural)
+            .x((d: [number, number]) => xGtoW(d[0]))
+            .y((d: [number, number]) => yGtoW(d[1]));
+
+        return curveGenerator(
+            this.vertices.map((vertex) => [vertex.x, vertex.y])
+        );
+    }
+
+    get vertices() {
+        const dt = 0.02;
+
+        const vertices = range(0, 1 + dt, dt).map((t) => {
+            const vertex = this.position
+                .scale(1 - t)
+                .add(this.endPoint.scale(t));
+
+            return vertex;
+        });
+
+        return vertices;
+    }
+
+    protected applyToHTMLFlow() {
         this.def_cubiconBase
-            .attr("x1", WstartPoint.x)
-            .attr("y1", WstartPoint.y)
-            .attr("x2", WendPoint.x)
-            .attr("y2", WendPoint.y)
+            .attr("d", this.getData())
             .attr("stroke", this.CONFIG.lineColor!)
             .attr("stroke-width", this.CONFIG.lineWidth!);
     }
