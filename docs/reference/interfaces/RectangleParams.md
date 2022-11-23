@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/Cubicon.ts#L22)
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -38,7 +38,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/Cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -50,7 +50,7 @@ Height of this rectangle.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:38](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/geometry/Rectangle.ts#L38)
+[src/svg/cubicons/geometry/Rectangle.ts:38](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/geometry/Rectangle.ts#L38)
 
 ___
 
@@ -66,7 +66,7 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/Cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/Cubicon.ts#L17)
 
 ___
 
@@ -78,4 +78,4 @@ Width of this rectangle.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/Rectangle.ts:33](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/cubicons/geometry/Rectangle.ts#L33)
+[src/svg/cubicons/geometry/Rectangle.ts:33](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/cubicons/geometry/Rectangle.ts#L33)

@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:20](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L20)
+[src/canvas/cubicons/StreamLine.ts:20](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/StreamLine.ts#L20)
 
 ___
 
@@ -28,4 +28,4 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/StreamLine.ts:25](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/canvas/cubicons/StreamLine.ts#L25)
+[src/canvas/cubicons/StreamLine.ts:25](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/canvas/cubicons/StreamLine.ts#L25)

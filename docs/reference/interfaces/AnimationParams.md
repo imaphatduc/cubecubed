@@ -32,7 +32,7 @@ The target cubicon to play this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:9](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/animations/Animation.ts#L9)
+[src/svg/animations/Animation.ts:9](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L9)
 
 ___
 
@@ -44,7 +44,7 @@ The duration of this animation (in milliseconds).
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:14](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/animations/Animation.ts#L14)
+[src/svg/animations/Animation.ts:14](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L14)
 
 ___
 
@@ -56,4 +56,4 @@ Easing function for smooth animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:19](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/svg/animations/Animation.ts#L19)
+[src/svg/animations/Animation.ts:19](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/svg/animations/Animation.ts#L19)

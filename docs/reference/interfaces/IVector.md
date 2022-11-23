@@ -27,7 +27,7 @@ Immutable element-wise addition
 
 #### Defined in
 
-[src/math/vector.ts:12](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/math/vector.ts#L12)
+[src/math/vector.ts:12](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/math/vector.ts#L12)
 
 ___
 
@@ -49,7 +49,7 @@ Returns a new vector with element-wise function mapping
 
 #### Defined in
 
-[src/math/vector.ts:32](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/math/vector.ts#L32)
+[src/math/vector.ts:32](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/math/vector.ts#L32)
 
 ___
 
@@ -71,7 +71,7 @@ Returns the dot product of two vectors
 
 #### Defined in
 
-[src/math/vector.ts:27](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/math/vector.ts#L27)
+[src/math/vector.ts:27](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/math/vector.ts#L27)
 
 ___
 
@@ -87,7 +87,7 @@ Calculate magnitude of vector
 
 #### Defined in
 
-[src/math/vector.ts:7](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/math/vector.ts#L7)
+[src/math/vector.ts:7](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/math/vector.ts#L7)
 
 ___
 
@@ -109,7 +109,7 @@ Creates a new scaled vector
 
 #### Defined in
 
-[src/math/vector.ts:22](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/math/vector.ts#L22)
+[src/math/vector.ts:22](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/math/vector.ts#L22)
 
 ___
 
@@ -131,4 +131,4 @@ Immutable element-wise subtraction
 
 #### Defined in
 
-[src/math/vector.ts:17](https://github.com/imaphatduc/cubecubed/blob/f8be6e1/src/math/vector.ts#L17)
+[src/math/vector.ts:17](https://github.com/imaphatduc/cubecubed/blob/ffe94b1/src/math/vector.ts#L17)
