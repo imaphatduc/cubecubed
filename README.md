@@ -1,4 +1,4 @@
-<!-- # Cubecubed - A Math Visualization Engine -->
+<!-- # Cubecubed - A Math Visualization Library -->
 
 <p align="center">
   <img
@@ -7,7 +7,11 @@
     align="center" hspace="12"
     alt="Cubecubed - A Math Visualization Library"
   />
-  <p align="center">A mathematical visualization library for playing dynamic animations right on your favorite browser. Producing animations with eye-soothing graphical effects. Built with "simple and intuitive" philosophy in mind.</p>
+  <p align="center">
+    <i>A mathematical visualization library for playing dynamic animations right on your favorite browser.</i><br>
+    Producing animations with eye-soothing graphical effects.<br>
+    Built with "simple and intuitive" philosophy in mind.
+  </p>
 
   <hr>
   <h4 align="center">Imagine 💡 → Launch 🚀 → Watch 🍿</h4>
