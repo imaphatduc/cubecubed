@@ -431,18 +431,22 @@ export class CanvasGroup {
      *
      * @param animations Array (Queue) of animations to play.
      */
-    play(animations: CanvasAnimation[]) {
+    play(animations: CanvasAnimation[], dependsOnFrame = true) {
         const queueElapsed = Math.max(
             ...animations.map((animation) => animation.duration)
         );
 
-        this.animationsInfo.push(
-            ...animations.map((animation) => ({
-                animation,
-                startAt: this.groupElapsed,
-                endAt: this.groupElapsed + animation.duration,
-            }))
-        );
+        if (dependsOnFrame) {
+            this.animationsInfo.push(
+                ...animations.map((animation) => ({
+                    animation,
+                    startAt: this.groupElapsed,
+                    endAt: this.groupElapsed + animation.duration,
+                }))
+            );
+        } else {
+            animations.forEach((animation) => animation.play());
+        }
 
         this.groupElapsed += queueElapsed;
 
@@ -474,5 +478,13 @@ export class CanvasGroup {
                 this.threeScene.remove(cubicon.object);
             });
         }, this.groupElapsed);
+    }
+
+    get elapsed() {
+        return this.clock.getElapsedTime();
+    }
+
+    get delta() {
+        return this.clock.getDelta();
     }
 }
