@@ -9,15 +9,14 @@
   />
   <p align="center">
     <i>A mathematical visualization library for playing dynamic animations right on your favorite browser.</i><br>
-    Producing animations with eye-soothing graphical effects.<br>
-    Built with "simple and intuitive" philosophy in mind.
+    • Producing animations with eye-soothing graphical effects. •<br>
+    • Built with "simple and intuitive" philosophy in mind. •
   </p>
 
-  <hr>
   <h4 align="center">Imagine 💡 → Launch 🚀 → Watch 🍿</h4>
   <hr>
 
-  ![Chaotic Particles](./assets/gif/particles.gif)
+![Chaotic Particles](./assets/gif/particles.gif)
 
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
@@ -44,11 +43,11 @@ Imagine that a 3D cube is multiplied by itself two times — That's it!
 
 ## 💎 Core Features
 
-- **Animation engine**: Flexible and well-organized animations handling. You don't need to explicitly manipulate time for each animation, as it is controlled behind the scene.
+-   **Animation engine**: Flexible and well-organized animations handling. You don't need to explicitly manipulate time for each animation, as it is controlled behind the scene.
 
-- **Video exports**: Export any scene to video files.
+-   **Video exports**: Export any scene to video files.
 
-- **2D and 3D rendering**: Cubecubed produces high-performance animations with eye-soothing graphical effects. At its core, the library utilizes the powerful SVG manipulation abilities of [D3.js](https://github.com/d3/d3), along with the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) to create a visual representation of math concepts.
+-   **2D and 3D rendering**: Cubecubed produces high-performance animations with eye-soothing graphical effects. At its core, the library utilizes the powerful SVG manipulation abilities of [D3.js](https://github.com/d3/d3), along with the marvelous 3D graphical system of [three.js](https://github.com/mrdoob/three.js) to create a visual representation of math concepts.
 
 ## 🚀 Getting Started
 
