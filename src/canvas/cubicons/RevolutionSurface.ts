@@ -62,6 +62,8 @@ export class RevolutionSurface extends CanvasCubicon {
 
             position: params.position,
 
+            scaleFactor: params.scaleFactor,
+
             CONFIG: configFactory(
                 REVOLUTION_SURFACE_DEFAULT_CONFIG,
                 params.CONFIG
@@ -104,6 +106,8 @@ export class RevolutionSurface extends CanvasCubicon {
         this.geometry.translate(width / 2 + xRange[0], 0, 0);
 
         this.setVertices();
+
+        this.geometry.computeVertexNormals();
     }
 
     private materialize() {
