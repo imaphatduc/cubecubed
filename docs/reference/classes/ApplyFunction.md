@@ -1,24 +1,24 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / FadeIn
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / ApplyFunction
 
-# Class: FadeIn
+# Class: ApplyFunction
 
 ## Hierarchy
 
 - [`Animation`](/reference/classes/Animation.md)
 
-  ↳ **`FadeIn`**
+  ↳ **`ApplyFunction`**
 
 ## Constructors
 
 ### constructor
 
-• **new FadeIn**(`params`)
+• **new ApplyFunction**(`params`)
 
 #### Parameters
 
 | Name | Type |
 | :------ | :------ |
-| `params` | [`AnimationParams`](/reference/interfaces/AnimationParams.md)<[`Cubicon`](/reference/classes/Cubicon.md)\> |
+| `params` | [`ApplyFunctionParams`](/reference/interfaces/ApplyFunctionParams.md) |
 
 #### Overrides
 
@@ -26,13 +26,13 @@
 
 #### Defined in
 
-[src/svg/animations/FadeIn.ts:10](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/FadeIn.ts#L10)
+[src/svg/animations/ApplyFunction.ts:23](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/ApplyFunction.ts#L23)
 
 ## Properties
 
 ### animationType
 
-• `Readonly` **animationType**: ``"FadeIn"``
+• `Readonly` **animationType**: ``"ApplyFunction"``
 
 #### Overrides
 
@@ -40,21 +40,21 @@
 
 #### Defined in
 
-[src/svg/animations/FadeIn.ts:8](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/FadeIn.ts#L8)
+[src/svg/animations/ApplyFunction.ts:17](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/ApplyFunction.ts#L17)
 
 ___
 
 ### cubicon
 
-• **cubicon**: [`Cubicon`](/reference/classes/Cubicon.md)
+• **cubicon**: [`APPLY_FUNCTION_TYPES`](/reference/types/APPLY_FUNCTION_TYPES.md)
 
-#### Inherited from
+#### Overrides
 
 [Animation](/reference/classes/Animation.md).[cubicon](/reference/classes/Animation.md#cubicon)
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:30](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/Animation.ts#L30)
+[src/svg/animations/ApplyFunction.ts:19](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/ApplyFunction.ts#L19)
 
 ___
 
@@ -83,6 +83,16 @@ ___
 #### Defined in
 
 [src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/Animation.ts#L34)
+
+___
+
+### func
+
+• **func**: [`VerticesMapFunction`](/reference/types/VerticesMapFunction.md)
+
+#### Defined in
+
+[src/svg/animations/ApplyFunction.ts:21](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/ApplyFunction.ts#L21)
 
 ___
 
@@ -118,7 +128,7 @@ Play this animation.
 
 #### Defined in
 
-[src/svg/animations/FadeIn.ts:20](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/FadeIn.ts#L20)
+[src/svg/animations/ApplyFunction.ts:35](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/ApplyFunction.ts#L35)
 
 ___
 

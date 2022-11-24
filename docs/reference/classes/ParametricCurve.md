@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:38](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L38)
+[src/svg/cubicons/geometry/ParametricCurve.ts:38](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L38)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:36](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L36)
+[src/svg/cubicons/geometry/ParametricCurve.ts:36](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L36)
 
 ___
 
@@ -57,7 +57,7 @@ This property changed after finishing animations (in real time).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L50)
+[src/svg/cubicons/Cubicon.ts:50](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L50)
 
 ___
 
@@ -71,7 +71,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:30](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L30)
+[src/svg/cubicons/geometry/ParametricCurve.ts:30](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L30)
 
 ___
 
@@ -87,7 +87,7 @@ The SVG element that represents this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L75)
+[src/svg/cubicons/Cubicon.ts:75](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L75)
 
 ___
 
@@ -111,7 +111,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:32](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L32)
+[src/svg/cubicons/geometry/ParametricCurve.ts:32](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L32)
 
 ___
 
@@ -127,7 +127,7 @@ The `<g>` element that holds this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L70)
+[src/svg/cubicons/Cubicon.ts:70](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L70)
 
 ___
 
@@ -141,7 +141,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L40)
+[src/svg/cubicons/Cubicon.ts:40](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L40)
 
 ___
 
@@ -157,7 +157,7 @@ The sum of all rotate angles (if invoking rotate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L60)
+[src/svg/cubicons/Cubicon.ts:60](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L60)
 
 ___
 
@@ -173,7 +173,7 @@ The sum vector of all translate vectors (if invoking translate animation).
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L55)
+[src/svg/cubicons/Cubicon.ts:55](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L55)
 
 ___
 
@@ -187,7 +187,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L42)
+[src/svg/cubicons/Cubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L42)
 
 ___
 
@@ -203,7 +203,7 @@ The `<svg>` element of this cubicon's group.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L65)
+[src/svg/cubicons/Cubicon.ts:65](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L65)
 
 ___
 
@@ -213,7 +213,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:34](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L34)
+[src/svg/cubicons/geometry/ParametricCurve.ts:34](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L34)
 
 ## Accessors
 
@@ -227,7 +227,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:97](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L97)
+[src/svg/cubicons/geometry/ParametricCurve.ts:97](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L97)
 
 ___
 
@@ -241,7 +241,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:101](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L101)
+[src/svg/cubicons/geometry/ParametricCurve.ts:101](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L101)
 
 ___
 
@@ -255,7 +255,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:87](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L87)
+[src/svg/cubicons/geometry/ParametricCurve.ts:87](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L87)
 
 ## Methods
 
@@ -281,7 +281,7 @@ Convert grid coordinates to pixels.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:102](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L102)
+[src/svg/cubicons/Cubicon.ts:102](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L102)
 
 ___
 
@@ -301,7 +301,7 @@ ___
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:83](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L83)
+[src/svg/cubicons/geometry/ParametricCurve.ts:83](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L83)
 
 ___
 
@@ -321,4 +321,4 @@ Render this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:61](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L61)
+[src/svg/cubicons/geometry/ParametricCurve.ts:61](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L61)

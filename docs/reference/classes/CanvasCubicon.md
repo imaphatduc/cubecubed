@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:54](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L54)
+[src/canvas/cubicons/CanvasCubicon.ts:54](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L54)
 
 ## Properties
 
@@ -36,7 +36,7 @@
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:37](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L37)
+[src/canvas/cubicons/CanvasCubicon.ts:37](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L37)
 
 ___
 
@@ -48,7 +48,7 @@ Geometry of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L42)
+[src/canvas/cubicons/CanvasCubicon.ts:42](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L42)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L31)
+[src/canvas/cubicons/CanvasCubicon.ts:31](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L31)
 
 ___
 
@@ -70,7 +70,7 @@ Material of this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L47)
+[src/canvas/cubicons/CanvasCubicon.ts:47](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L47)
 
 ___
 
@@ -82,7 +82,7 @@ Object representing this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L52)
+[src/canvas/cubicons/CanvasCubicon.ts:52](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L52)
 
 ___
 
@@ -92,7 +92,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L33)
+[src/canvas/cubicons/CanvasCubicon.ts:33](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L33)
 
 ___
 
@@ -102,7 +102,7 @@ ___
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L35)
+[src/canvas/cubicons/CanvasCubicon.ts:35](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L35)
 
 ## Methods
 
@@ -118,4 +118,4 @@ Render this cubicon.
 
 #### Defined in
 
-[src/canvas/cubicons/CanvasCubicon.ts:72](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/cubicons/CanvasCubicon.ts#L72)
+[src/canvas/cubicons/CanvasCubicon.ts:72](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/cubicons/CanvasCubicon.ts#L72)

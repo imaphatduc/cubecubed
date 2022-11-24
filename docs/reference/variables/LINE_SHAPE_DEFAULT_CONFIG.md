@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:22](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L22)
+[src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts:22](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG.ts#L22)

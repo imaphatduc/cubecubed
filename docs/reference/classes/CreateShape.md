@@ -26,7 +26,7 @@
 
 #### Defined in
 
-[src/svg/animations/CreateShape.ts:31](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L31)
+[src/svg/animations/CreateShape.ts:31](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/CreateShape.ts#L31)
 
 ## Properties
 
@@ -40,7 +40,7 @@
 
 #### Defined in
 
-[src/svg/animations/CreateShape.ts:27](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L27)
+[src/svg/animations/CreateShape.ts:27](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/CreateShape.ts#L27)
 
 ___
 
@@ -54,7 +54,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/CreateShape.ts:29](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L29)
+[src/svg/animations/CreateShape.ts:29](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/CreateShape.ts#L29)
 
 ___
 
@@ -68,7 +68,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L32)
+[src/svg/animations/Animation.ts:32](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/Animation.ts#L32)
 
 ___
 
@@ -82,7 +82,7 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L34)
+[src/svg/animations/Animation.ts:34](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/Animation.ts#L34)
 
 ___
 
@@ -98,7 +98,7 @@ The time to wait before playing this animation.
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L28)
+[src/svg/animations/Animation.ts:28](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/Animation.ts#L28)
 
 ## Methods
 
@@ -118,7 +118,7 @@ Play this animation.
 
 #### Defined in
 
-[src/svg/animations/CreateShape.ts:41](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/CreateShape.ts#L41)
+[src/svg/animations/CreateShape.ts:41](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/CreateShape.ts#L41)
 
 ___
 
@@ -143,4 +143,4 @@ ___
 
 #### Defined in
 
-[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/animations/Animation.ts#L53)
+[src/svg/animations/Animation.ts:53](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/Animation.ts#L53)

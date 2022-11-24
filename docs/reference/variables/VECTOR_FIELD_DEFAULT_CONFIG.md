@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/VectorField.ts#L30)
+[src/svg/cubicons/VectorField.ts:30](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/VectorField.ts#L30)

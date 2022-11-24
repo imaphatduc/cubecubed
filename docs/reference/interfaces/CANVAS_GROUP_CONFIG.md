@@ -10,7 +10,7 @@
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:37](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/group/CanvasGroup.ts#L37)
+[src/canvas/group/CanvasGroup.ts:37](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/group/CanvasGroup.ts#L37)
 
 ___
 
@@ -20,7 +20,7 @@ ___
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:43](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/group/CanvasGroup.ts#L43)
+[src/canvas/group/CanvasGroup.ts:43](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/group/CanvasGroup.ts#L43)
 
 ___
 
@@ -30,7 +30,7 @@ ___
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:45](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/group/CanvasGroup.ts#L45)
+[src/canvas/group/CanvasGroup.ts:45](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/group/CanvasGroup.ts#L45)
 
 ___
 
@@ -40,4 +40,4 @@ ___
 
 #### Defined in
 
-[src/canvas/group/CanvasGroup.ts:35](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/canvas/group/CanvasGroup.ts#L35)
+[src/canvas/group/CanvasGroup.ts:35](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/canvas/group/CanvasGroup.ts#L35)

@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/svg/cubicons/Grid.ts:34](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Grid.ts#L34)
+[src/svg/cubicons/Grid.ts:34](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Grid.ts#L34)

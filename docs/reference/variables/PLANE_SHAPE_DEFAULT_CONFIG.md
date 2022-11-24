@@ -6,4 +6,4 @@
 
 #### Defined in
 
-[src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:36](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts#L36)
+[src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts:36](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG.ts#L36)

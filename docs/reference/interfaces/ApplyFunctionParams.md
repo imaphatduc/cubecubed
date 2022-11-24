@@ -1,18 +1,18 @@
-[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / TranslateParams
+[cubecubed](/reference/README.md) / [Exports](/reference/modules.md) / ApplyFunctionParams
 
-# Interface: TranslateParams
+# Interface: ApplyFunctionParams
 
 ## Hierarchy
 
-- [`AnimationParams`](/reference/interfaces/AnimationParams.md)<[`Cubicon`](/reference/classes/Cubicon.md)\>
+- [`AnimationParams`](/reference/interfaces/AnimationParams.md)<[`APPLY_FUNCTION_TYPES`](/reference/types/APPLY_FUNCTION_TYPES.md)\>
 
-  ↳ **`TranslateParams`**
+  ↳ **`ApplyFunctionParams`**
 
 ## Properties
 
 ### cubicon
 
-• **cubicon**: [`Cubicon`](/reference/classes/Cubicon.md)
+• **cubicon**: [`APPLY_FUNCTION_TYPES`](/reference/types/APPLY_FUNCTION_TYPES.md)
 
 The target cubicon to play this animation.
 
@@ -58,12 +58,12 @@ Easing function for smooth animation.
 
 ___
 
-### vector
+### func
 
-• **vector**: [`Vector2`](/reference/classes/Vector2.md)
+• **func**: [`VerticesMapFunction`](/reference/types/VerticesMapFunction.md)
 
-The translation vector.
+Function to apply to each vertex.
 
 #### Defined in
 
-[src/svg/animations/Translate.ts:13](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/Translate.ts#L13)
+[src/svg/animations/ApplyFunction.ts:13](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/animations/ApplyFunction.ts#L13)

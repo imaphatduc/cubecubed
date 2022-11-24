@@ -5,6 +5,7 @@
 ## Classes
 
 - [Animation](/reference/classes/Animation.md)
+- [ApplyFunction](/reference/classes/ApplyFunction.md)
 - [Axes](/reference/classes/Axes.md)
 - [CanvasAnimation](/reference/classes/CanvasAnimation.md)
 - [CanvasCubicon](/reference/classes/CanvasCubicon.md)
@@ -50,6 +51,7 @@
 - [ANIMATION\_INFO](/reference/interfaces/ANIMATION_INFO.md)
 - [AXES\_CONFIG](/reference/interfaces/AXES_CONFIG.md)
 - [AnimationParams](/reference/interfaces/AnimationParams.md)
+- [ApplyFunctionParams](/reference/interfaces/ApplyFunctionParams.md)
 - [CANVAS\_GROUP\_CONFIG](/reference/interfaces/CANVAS_GROUP_CONFIG.md)
 - [CanvasAnimationParams](/reference/interfaces/CanvasAnimationParams.md)
 - [CanvasCubiconParams](/reference/interfaces/CanvasCubiconParams.md)
@@ -87,6 +89,7 @@
 
 ## Type Aliases
 
+- [APPLY\_FUNCTION\_TYPES](/reference/types/APPLY_FUNCTION_TYPES.md)
 - [AxisSelection](/reference/types/AxisSelection.md)
 - [CREATE\_LINE\_SHAPE\_TYPES](/reference/types/CREATE_LINE_SHAPE_TYPES.md)
 - [CREATE\_PLANE\_SHAPE\_TYPES](/reference/types/CREATE_PLANE_SHAPE_TYPES.md)
@@ -104,6 +107,7 @@
 - [SIMULATE\_STREAM\_TYPES](/reference/types/SIMULATE_STREAM_TYPES.md)
 - [StreamVectorFunction](/reference/types/StreamVectorFunction.md)
 - [TexElement](/reference/types/TexElement.md)
+- [VerticesMapFunction](/reference/types/VerticesMapFunction.md)
 - [VideoRecipe](/reference/types/VideoRecipe.md)
 
 ## Variables

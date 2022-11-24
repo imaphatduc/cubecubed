@@ -22,7 +22,7 @@ Config options of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L22)
+[src/svg/cubicons/Cubicon.ts:22](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L22)
 
 ___
 
@@ -48,7 +48,7 @@ Parametric function definition.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:26](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L26)
+[src/svg/cubicons/geometry/ParametricCurve.ts:26](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L26)
 
 ___
 
@@ -64,7 +64,7 @@ The group that this cubicon belongs to.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L12)
+[src/svg/cubicons/Cubicon.ts:12](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L12)
 
 ___
 
@@ -80,7 +80,7 @@ Position of this cubicon.
 
 #### Defined in
 
-[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/Cubicon.ts#L17)
+[src/svg/cubicons/Cubicon.ts:17](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/Cubicon.ts#L17)
 
 ___
 
@@ -92,4 +92,4 @@ Range of the parameter t.
 
 #### Defined in
 
-[src/svg/cubicons/geometry/ParametricCurve.ts:21](https://github.com/imaphatduc/cubecubed/blob/f64863c/src/svg/cubicons/geometry/ParametricCurve.ts#L21)
+[src/svg/cubicons/geometry/ParametricCurve.ts:21](https://github.com/imaphatduc/cubecubed/blob/ec15a85/src/svg/cubicons/geometry/ParametricCurve.ts#L21)
