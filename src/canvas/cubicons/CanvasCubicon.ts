@@ -1,4 +1,4 @@
-import { BufferGeometry, Line, Material, Mesh, Object3D } from "three";
+import { BufferGeometry, Line, Material, Mesh } from "three";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { Vector3 } from "@math/Vector3";
