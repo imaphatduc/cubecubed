@@ -35,6 +35,7 @@ export * from "./svg/animations/PointToCoords";
 export * from "./svg/animations/PointAlongGraph";
 export * from "./svg/animations/Write";
 export * from "./svg/animations/Trace";
+export * from "./svg/animations/ApplyFunction";
 
 export * from "./canvas/group/CanvasGroup";
 export * from "./canvas/cubicons/CanvasCubicon";
