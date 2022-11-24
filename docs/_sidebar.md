@@ -39,6 +39,7 @@
             -   [PointToSides](/reference/classes/PointToSides.md)
             -   [Trace](/reference/classes/Trace.md)
             -   [Write](/reference/classes/Write.md)
+            -   [ApplyFunction](/reference/classes/ApplyFunction.md)
         -   Canvas
             -   [Flow](/reference/classes/Flow.md)
             -   [SimulateRevolution](/reference/classes/SimulateRevolution.md)
