@@ -32,7 +32,7 @@ export class Line extends Cubicon {
 
     readonly endPoint: Vector2;
 
-    private vertices: Vector2[];
+    vertices: Vector2[];
 
     declare CONFIG: LINE_SHAPE_CONFIG;
 
@@ -67,7 +67,7 @@ export class Line extends Cubicon {
         return this;
     }
 
-    private getData() {
+    getData() {
         const { xGtoW, yGtoW } = this.group;
 
         const curveGenerator = line()
