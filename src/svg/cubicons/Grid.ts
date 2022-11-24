@@ -72,13 +72,11 @@ export class Grid extends Cubicon {
     }
 
     private defineHorizontalLines() {
-        const { xBound } = this.group;
-
         this.horizontalLines = this.ys.map((y) => {
             const horizontalLine = new Line({
                 group: this.group,
-                startPoint: new Vector2(xBound[0], y),
-                endPoint: new Vector2(xBound[1], y),
+                startPoint: new Vector2(this.xs[0], y),
+                endPoint: new Vector2(this.xs[this.xs.length - 1], y),
                 CONFIG: {
                     lineColor:
                         y === 0
@@ -98,13 +96,11 @@ export class Grid extends Cubicon {
     }
 
     private defineVerticleLines() {
-        const { yBound } = this.group;
-
         this.verticalLines = this.xs.map((x) => {
             const verticalLine = new Line({
                 group: this.group,
-                startPoint: new Vector2(x, yBound[0]),
-                endPoint: new Vector2(x, yBound[1]),
+                startPoint: new Vector2(x, this.ys[0]),
+                endPoint: new Vector2(x, this.ys[this.ys.length - 1]),
                 CONFIG: {
                     lineColor:
                         x === 0
