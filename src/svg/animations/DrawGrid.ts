@@ -8,7 +8,8 @@ export class DrawGrid extends Animation {
 
     declare cubicon: Grid;
 
-    private readonly draw = 1000;
+    private readonly drawLineDuration = 1200;
+    private readonly drawOriginDuration = 1000;
 
     private readonly xDelayEach = 50;
     private readonly yDelayEach = 20;
@@ -49,7 +50,7 @@ export class DrawGrid extends Animation {
 
                 const animation = new CreateShape({
                     cubicon: line,
-                    duration: this.draw,
+                    duration: this.drawLineDuration,
                     ease: this.ease,
                 });
 
@@ -68,7 +69,7 @@ export class DrawGrid extends Animation {
 
             const animation = new CreateShape({
                 cubicon: line,
-                duration: this.draw,
+                duration: this.drawLineDuration,
                 ease: this.ease,
             });
 
@@ -83,7 +84,7 @@ export class DrawGrid extends Animation {
     private getOriginAnimation() {
         const originAnimation = new CreateShape({
             cubicon: this.cubicon.gridOrigin,
-            duration: this.draw,
+            duration: this.drawOriginDuration,
             ease: this.ease,
         });
 
