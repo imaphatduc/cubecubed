@@ -300,6 +300,9 @@ export class CanvasGroup {
         // set scene
         (() => {
             this.threeScene = new TScene();
+
+            this.threeScene.rotateX(-Math.PI / 2);
+            this.threeScene.scale.setY(-1);
         })();
 
         // set camera
