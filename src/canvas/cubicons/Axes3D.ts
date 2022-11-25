@@ -36,17 +36,17 @@ export interface AXES3D_CONFIG {
     /**
      * Color of the x axis.
      */
-    xAxisColor: string;
+    xAxisColor?: string;
 
     /**
      * Color of the y axis.
      */
-    yAxisColor: string;
+    yAxisColor?: string;
 
     /**
      * Color of the z axis.
      */
-    zAxisColor: string;
+    zAxisColor?: string;
 }
 
 const AXES3D_DEFAULT_CONFIG: AXES3D_CONFIG = {
@@ -117,6 +117,8 @@ export class Axes3D extends CanvasCubicon {
         this.drawXAxis();
         this.drawYAxis();
         this.drawZAxis();
+
+        return this;
     }
 
     private drawXAxis() {
@@ -127,13 +129,16 @@ export class Axes3D extends CanvasCubicon {
         const length = xGtoW(xRange[1] - xRange[0] + this.offset);
         const middle = xGtoW((xRange[0] + xRange[1] + this.offsetDiff) / 2);
 
-        const group = this.getObjectsGroupOnAxis(length, xAxisColor);
+        const group = this.getObjectsGroupOnAxis(length, xAxisColor!);
         group.position.set(middle, 0, 0);
         group.rotation.z = -Math.PI / 2;
 
         range(xRange[0], xRange[1] + 1).forEach((x) => {
             if (x !== 0) {
-                this.renderPointOnAxis(new Vector3(xGtoW(x), 0, 0), xAxisColor);
+                this.renderPointOnAxis(
+                    new Vector3(xGtoW(x), 0, 0),
+                    xAxisColor!
+                );
             }
         });
     }
@@ -146,13 +151,16 @@ export class Axes3D extends CanvasCubicon {
         const length = yGtoW(yRange[1] - yRange[0] + this.offset);
         const middle = yGtoW((yRange[0] + yRange[1] + this.offsetDiff) / 2);
 
-        const group = this.getObjectsGroupOnAxis(length, yAxisColor);
+        const group = this.getObjectsGroupOnAxis(length, yAxisColor!);
         group.position.set(0, middle, 0);
         group.rotation.y = -Math.PI / 2;
 
         range(yRange[0], yRange[1] + 1).forEach((y) => {
             if (y !== 0) {
-                this.renderPointOnAxis(new Vector3(0, yGtoW(y), 0), yAxisColor);
+                this.renderPointOnAxis(
+                    new Vector3(0, yGtoW(y), 0),
+                    yAxisColor!
+                );
             }
         });
     }
@@ -165,13 +173,16 @@ export class Axes3D extends CanvasCubicon {
         const length = zGtoW(zRange[1] - zRange[0] + this.offset);
         const middle = zGtoW((zRange[0] + zRange[1] + this.offsetDiff) / 2);
 
-        const group = this.getObjectsGroupOnAxis(length, zAxisColor);
+        const group = this.getObjectsGroupOnAxis(length, zAxisColor!);
         group.position.set(0, 0, middle);
         group.rotation.x = Math.PI / 2;
 
         range(zRange[0], zRange[1] + 1).forEach((z) => {
             if (z !== 0) {
-                this.renderPointOnAxis(new Vector3(0, 0, zGtoW(z)), zAxisColor);
+                this.renderPointOnAxis(
+                    new Vector3(0, 0, zGtoW(z)),
+                    zAxisColor!
+                );
             }
         });
     }
