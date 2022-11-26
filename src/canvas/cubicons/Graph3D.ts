@@ -125,25 +125,18 @@ export class Graph3D extends CanvasCubicon {
         const zMax = this.geometry.boundingBox?.max.z ?? 0;
         const zRange = zMax - zMin;
 
-        const colors = [];
+        const colors: number[] = [];
 
-        for (let i = 0; i <= segments; i++) {
-            const widthSegmentSize = width / segments;
-            const heightSegmentSize = height / segments;
+        const vertices = this.geometry.attributes.position;
 
-            const Wy = i * heightSegmentSize - height / 2;
+        range(0, vertices.count).forEach((i) => {
+            const Wz = vertices.getZ(i);
 
-            for (let j = 0; j <= segments; j++) {
-                const Wx = j * widthSegmentSize - width / 2;
+            const color = new Color(0xff0000);
+            color.setHSL((0.8 * (zMax - Wz)) / zRange, 1, 0.5);
 
-                const Wz = this.getWz(Wx, Wy);
-
-                const color = new Color(0xff0000);
-                color.setHSL((0.7 * (zMax - Wz)) / zRange, 1, 0.5);
-
-                colors.push(color.r, color.g, color.b);
-            }
-        }
+            colors.push(color.r, color.g, color.b);
+        });
 
         this.geometry.setAttribute(
             "color",
