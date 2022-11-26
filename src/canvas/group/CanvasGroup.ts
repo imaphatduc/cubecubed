@@ -337,6 +337,7 @@ export class CanvasGroup {
             this.renderer = new WebGLRenderer({ alpha: true, antialias: true });
 
             this.renderer.setSize(window.innerWidth, window.innerHeight);
+            this.renderer.setClearColor(0x000000, 0);
 
             const domElement = this.renderer.domElement;
 
