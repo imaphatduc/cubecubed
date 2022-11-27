@@ -1,6 +1,8 @@
 import { transition } from "d3-transition";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+import { ANIME } from "@consts";
+
 import { CanvasAnimation, CanvasAnimationParams } from "./CanvasAnimation";
 
 import { RevolutionSurface } from "@cubicons/RevolutionSurface";
@@ -14,7 +16,7 @@ export class SimulateRevolution extends CanvasAnimation {
         super({
             cubicon: params.cubicon,
 
-            duration: params.duration,
+            duration: params.duration ?? ANIME.CREATE,
         });
     }
 
