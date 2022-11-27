@@ -7,12 +7,12 @@ import { CanvasAnimation, CanvasAnimationParams } from "./CanvasAnimation";
 
 import { RevolutionSurface } from "@cubicons/RevolutionSurface";
 
-export type SIMULATE_REVOLUTION_TYPES = RevolutionSurface;
+export type CREATE_SURFACE_TYPES = RevolutionSurface;
 
-export class SimulateRevolution extends CanvasAnimation {
-    declare cubicon: SIMULATE_REVOLUTION_TYPES;
+export class CreateSurface extends CanvasAnimation {
+    declare cubicon: CREATE_SURFACE_TYPES;
 
-    constructor(params: CanvasAnimationParams<SIMULATE_REVOLUTION_TYPES>) {
+    constructor(params: CanvasAnimationParams<CREATE_SURFACE_TYPES>) {
         super({
             cubicon: params.cubicon,
 
@@ -24,16 +24,16 @@ export class SimulateRevolution extends CanvasAnimation {
      * @internal
      */
     play() {
-        this.simulateRevolution();
+        this.createSurface();
     }
 
-    private simulateRevolution() {
+    private createSurface() {
         this.cubicon.setVertices(0);
 
         transition()
             .delay(this.sleepTime)
             .duration(this.duration)
-            .tween("simulate-revolution", () => (t: number) => {
+            .tween("create-surface", () => (t: number) => {
                 this.cubicon.setVertices(t);
             });
     }

@@ -6,7 +6,7 @@ import {
     MathTex,
     RevolutionSurface,
     Scene,
-    SimulateRevolution,
+    CreateSurface,
     Vector2,
     Write,
 } from "../src/index";
@@ -46,7 +46,7 @@ function gabrielsHorn() {
         }).render();
 
         group.play(
-            [new SimulateRevolution({ cubicon: surface, duration: 2000 })],
+            [new CreateSurface({ cubicon: surface, duration: 2000 })],
             false
         );
     })();

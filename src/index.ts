@@ -48,4 +48,4 @@ export * from "./canvas/cubicons/RevolutionSurface";
 export * from "./canvas/animations/CanvasAnimation";
 export * from "./canvas/animations/Flow";
 export * from "./canvas/animations/SimulateStream";
-export * from "./canvas/animations/SimulateRevolution";
+export * from "./canvas/animations/CreateSurface";
