@@ -112,14 +112,10 @@ export class Graph3D extends CanvasCubicon {
 
         this.setVertices();
 
-        this.setVertexNormalColors(width, height, segments);
+        this.setVertexNormalColors();
     }
 
-    private setVertexNormalColors(
-        width: number,
-        height: number,
-        segments: number
-    ) {
+    private setVertexNormalColors() {
         this.geometry.computeBoundingBox();
         const zMin = this.geometry.boundingBox?.min.z ?? 0;
         const zMax = this.geometry.boundingBox?.max.z ?? 0;
@@ -144,7 +140,7 @@ export class Graph3D extends CanvasCubicon {
         );
     }
 
-    private setVertices() {
+    setVertices(t = 1) {
         const { xWtoG, yWtoG, zGtoW } = this.group;
 
         const vertices = this.geometry.attributes.position;
@@ -155,7 +151,7 @@ export class Graph3D extends CanvasCubicon {
 
             const newZ = this.functionDef(x, y);
 
-            vertices.setZ(i, zGtoW(newZ));
+            vertices.setZ(i, zGtoW(newZ) * t);
         });
 
         vertices.needsUpdate = true;
