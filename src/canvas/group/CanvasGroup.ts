@@ -300,9 +300,6 @@ export class CanvasGroup {
         // set scene
         (() => {
             this.threeScene = new TScene();
-
-            this.threeScene.rotateX(-Math.PI / 2);
-            this.threeScene.scale.setY(-1);
         })();
 
         // set camera
@@ -430,6 +427,11 @@ export class CanvasGroup {
         animate();
     }
 
+    zUp() {
+        this.threeScene.rotateX(-Math.PI / 2);
+        this.threeScene.scale.setY(-1);
+    }
+
     /**
      * Play all the animations included in a queue.
      *
@@ -454,7 +456,7 @@ export class CanvasGroup {
 
         this.groupElapsed += queueElapsed;
 
-        this.scene.sceneElapsed = this.groupElapsed;
+        this.scene.sceneElapsed += queueElapsed;
     }
 
     /**
@@ -465,7 +467,7 @@ export class CanvasGroup {
     sleep(milliseconds: number) {
         this.groupElapsed += milliseconds;
 
-        this.scene.sceneElapsed = this.groupElapsed;
+        this.scene.sceneElapsed += milliseconds;
     }
 
     /**
