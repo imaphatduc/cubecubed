@@ -69,7 +69,7 @@ export class Flow extends CanvasAnimation {
             duration: params.duration,
         });
 
-        this.functionDef = (v, t) => params.functionDef(v, t);
+        this.functionDef = params.functionDef;
 
         this.tRange = params.tRange;
 
