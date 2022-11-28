@@ -34,6 +34,8 @@ export interface ANIMATION_INFO {
 export interface CANVAS_GROUP_CONFIG {
     type?: "2d" | "3d";
 
+    zAxisUp?: boolean;
+
     axesHelper?:
         | {
               size?: number;
@@ -51,6 +53,7 @@ export interface CANVAS_GROUP_CONFIG {
 
 export const CANVAS_GROUP_DEFAULT_CONFIG: CANVAS_GROUP_CONFIG = {
     type: "2d",
+    zAxisUp: false,
     axesHelper: false,
     orbitControls: false,
     postprocessing: false,
@@ -300,6 +303,11 @@ export class CanvasGroup {
         // set scene
         (() => {
             this.threeScene = new TScene();
+
+            if (this.CONFIG.zAxisUp) {
+                this.threeScene.rotateX(-Math.PI / 2);
+                this.threeScene.scale.setY(-1);
+            }
         })();
 
         // set camera
@@ -425,11 +433,6 @@ export class CanvasGroup {
         };
 
         animate();
-    }
-
-    zUp() {
-        this.threeScene.rotateX(-Math.PI / 2);
-        this.threeScene.scale.setY(-1);
     }
 
     /**
