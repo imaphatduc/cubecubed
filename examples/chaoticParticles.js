@@ -10,7 +10,6 @@ import {
     Group,
     MathTex,
     Particle,
-    Recorder,
     Scene,
     Vector2,
     Vector3,
@@ -34,44 +33,44 @@ const str2params = (str) => {
     return params;
 };
 
-const chaos = ({ x, y }, t) => {
-    const xx = x * x;
-    const xy = x * y;
-    const yy = y * y;
+const chaos =
+    (params) =>
+    ({ x, y }, t) => {
+        const xx = x * x;
+        const xy = x * y;
+        const yy = y * y;
 
-    // prettier-ignore
-    const nx = params[0] * t + params[1] * x * t + params[2] * xx + params[3] * xy + params[4] * y * t + params[5] * yy;
-    // prettier-ignore
-    const ny = params[6] * t + params[7] * x * t + params[8] * xx + params[9] * xy + params[10] * y * t + params[11] * yy;
-    const nz = 0;
+        // prettier-ignore
+        const nx = params[0] * t + params[1] * x * t + params[2] * xx + params[3] * xy + params[4] * y * t + params[5] * yy;
+        // prettier-ignore
+        const ny = params[6] * t + params[7] * x * t + params[8] * xx + params[9] * xy + params[10] * y * t + params[11] * yy;
+        const nz = 0;
 
-    return new Vector3(nx, ny, nz);
-};
+        return new Vector3(nx, ny, nz);
+    };
 
 const equationGen = (params, label) => {
     const tex = `
             ${label}'      =
-        ${params[0]}     t +
-        ${params[1]} x   t +
-        ${params[2]} x^2   +
-        ${params[2]} xy    +
-        ${params[2]} y   t +
-        ${params[2]} y^2
+        ${params[0]}     t ${params[1] < 0 ? "" : "+"}
+        ${params[1]} x   t ${params[2] < 0 ? "" : "+"}
+        ${params[2]} x^2   ${params[3] < 0 ? "" : "+"}
+        ${params[3]} xy    ${params[4] < 0 ? "" : "+"}
+        ${params[4]} y   t ${params[5] < 0 ? "" : "+"}
+        ${params[5]} y^2
     `;
 
     return tex;
 };
 
-let params = [];
-
 // const stringParams = "FIRCDERRPVLD"; // cool
-// const stringParams = "MDVAIDOYHYEA"; // cool
-const stringParams = "GIIETPIQRRUL"; // hmmm
+const stringParams = "MDVAIDOYHYEA"; // cool
+// const stringParams = "GIIETPIQRRUL"; // hmmm
 
 function chaoticParticles() {
     const scene = new Scene("chaotic-particles-scene");
 
-    params = str2params(stringParams);
+    const params = str2params(stringParams);
 
     (() => {
         const group = new CanvasGroup("chaotic-particles", scene, {
@@ -80,11 +79,12 @@ function chaoticParticles() {
             },
         });
 
-        const t0 = 0.85;
+        const tRange = [0.85, 2];
+        const dt = 0.0005;
 
         let position = new Vector3(0.01, 0.01, 0.01);
 
-        const particles = [...Array(5000)].map(() => {
+        const particles = [...Array(10000)].map(() => {
             const particle = new Particle({
                 group,
                 position,
@@ -95,7 +95,7 @@ function chaoticParticles() {
                 },
             }).render();
 
-            position = chaos(position, t0);
+            position = chaos(params)(position, tRange[0]);
 
             return particle;
         });
@@ -103,16 +103,13 @@ function chaoticParticles() {
         const flowAnimations = particles.map((particle) => {
             return new Flow({
                 cubicon: particle,
-                duration: 25000,
-                functionDef: chaos,
-                tRange: [t0, 2],
-                dt: 0.0005,
+                functionDef: chaos(params),
+                tRange,
+                dt,
             });
         });
 
         group.play(flowAnimations);
-
-        group.remove(particles);
     })();
 
     (() => {
@@ -147,10 +144,6 @@ function chaoticParticles() {
             },
         }).render();
     })();
-
-    return scene.sceneElapsed;
 }
 
-const recorder = new Recorder(chaoticParticles, stringParams);
-
-recorder.start();
+chaoticParticles();
