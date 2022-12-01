@@ -41,9 +41,9 @@ export interface RectangleParams extends CubiconParams<PLANE_SHAPE_CONFIG> {
 export class Rectangle extends Cubicon {
     readonly cubiconType = "Rectangle";
 
-    readonly width: number;
+    width: number;
 
-    readonly height: number;
+    height: number;
 
     declare CONFIG: PLANE_SHAPE_CONFIG;
 
