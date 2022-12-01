@@ -5,21 +5,21 @@ export interface SCENE_CONFIG {
     /**
      * Width of this scene (in pixels).
      *
-     * @default window.innerWidth
+     * @default 'auto'
      */
-    sceneWidth: number;
+    sceneWidth: number | "auto";
 
     /**
      * Height of this scene (in pixels).
      *
-     * @default window.innerHeight
+     * @default 'auto'
      */
-    sceneHeight: number;
+    sceneHeight: number | "auto";
 }
 
 export const SCENE_DEFAULT_CONFIG: SCENE_CONFIG = {
-    sceneWidth: window.innerWidth,
-    sceneHeight: window.innerHeight,
+    sceneWidth: "auto",
+    sceneHeight: "auto",
 };
 
 /**

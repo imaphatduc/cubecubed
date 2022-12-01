@@ -1,4 +1,5 @@
 import { ScaleLinear, scaleLinear } from "d3-scale";
+import { select, Selection } from "d3-selection";
 
 import {
     AxesHelper,
@@ -103,6 +104,10 @@ export class CanvasGroup {
      */
     name: string;
 
+    private groupWidth: number;
+
+    private groupHeight: number;
+
     /**
      * Number of squares in the x direction.
      */
@@ -206,6 +211,8 @@ export class CanvasGroup {
 
         this.CONFIG = configFactory(CANVAS_GROUP_DEFAULT_CONFIG, CONFIG);
 
+        this.computeWidthAndHeight();
+
         this.defineBoundsAndSquares(this.ratio);
 
         this.defineCovertFunctions(this.ratio);
@@ -227,17 +234,40 @@ export class CanvasGroup {
         });
     }
 
-    private defineBoundsAndSquares(ratio: [number, number, number]) {
+    private computeWidthAndHeight() {
+        const cubecubedElement = select("#cubecubed") as Selection<
+            HTMLDivElement,
+            unknown,
+            HTMLElement,
+            any
+        >;
+
         const { sceneWidth, sceneHeight } = this.scene.CONFIG;
 
-        const sceneDepth = Math.min(sceneWidth, sceneHeight);
+        this.groupWidth =
+            sceneWidth === "auto"
+                ? cubecubedElement.node()?.getBoundingClientRect().width ??
+                  window.innerWidth
+                : sceneWidth;
+
+        this.groupHeight =
+            sceneHeight === "auto"
+                ? cubecubedElement.node()?.getBoundingClientRect().height ??
+                  window.innerHeight
+                : sceneHeight;
+    }
+
+    private defineBoundsAndSquares(ratio: [number, number, number]) {
+        const { groupWidth, groupHeight } = this;
+
+        const sceneDepth = Math.min(groupWidth, groupHeight);
 
         const xSquareLength = ratio[0] * this.squareLength;
         const ySquareLength = ratio[1] * this.squareLength;
         const zSquareLength = ratio[2] * this.squareLength;
 
-        this.xSquareNums = Math.floor(sceneWidth / xSquareLength);
-        this.ySquareNums = Math.floor(sceneHeight / ySquareLength);
+        this.xSquareNums = Math.floor(groupWidth / xSquareLength);
+        this.ySquareNums = Math.floor(groupHeight / ySquareLength);
         this.zSquareNums = Math.floor(sceneDepth / zSquareLength);
 
         this.xBound = [
@@ -255,18 +285,18 @@ export class CanvasGroup {
     }
 
     private defineCovertFunctions(ratio: [number, number, number]) {
-        const { sceneWidth, sceneHeight } = this.scene.CONFIG;
+        const { groupWidth, groupHeight } = this;
 
-        const sceneDepth = Math.min(sceneWidth, sceneHeight);
+        const sceneDepth = Math.min(groupWidth, groupHeight);
 
         const xBound = [
-            -sceneWidth / (this.squareLength * ratio[0]),
-            sceneWidth / (this.squareLength * ratio[0]),
+            -groupWidth / (this.squareLength * ratio[0]),
+            groupWidth / (this.squareLength * ratio[0]),
         ];
 
         const yBound = [
-            -sceneHeight / (this.squareLength * ratio[1]),
-            sceneHeight / (this.squareLength * ratio[1]),
+            -groupHeight / (this.squareLength * ratio[1]),
+            groupHeight / (this.squareLength * ratio[1]),
         ];
 
         const zBound = [
@@ -276,22 +306,22 @@ export class CanvasGroup {
 
         this.xGtoW = scaleLinear()
             .domain(xBound)
-            .range([-sceneWidth, sceneWidth]);
+            .range([-groupWidth, groupWidth]);
 
         this.yGtoW = scaleLinear()
             .domain(yBound)
-            .range([-sceneHeight, sceneHeight]);
+            .range([-groupHeight, groupHeight]);
 
         this.zGtoW = scaleLinear()
             .domain(zBound)
             .range([-sceneDepth, sceneDepth]);
 
         this.xWtoG = scaleLinear()
-            .domain([-sceneWidth, sceneWidth])
+            .domain([-groupWidth, groupWidth])
             .range(this.xBound);
 
         this.yWtoG = scaleLinear()
-            .domain([-sceneHeight, sceneHeight])
+            .domain([-groupHeight, groupHeight])
             .range(this.yBound);
 
         this.zWtoG = scaleLinear()
@@ -312,14 +342,14 @@ export class CanvasGroup {
 
         // set camera
         (() => {
-            const { sceneWidth, sceneHeight } = this.scene.CONFIG;
+            const { groupWidth, groupHeight } = this;
 
             if (this.CONFIG.type === "2d") {
                 this.camera = new OrthographicCamera(
-                    sceneWidth / -2,
-                    sceneWidth / 2,
-                    sceneHeight / 2,
-                    sceneHeight / -2,
+                    groupWidth / -2,
+                    groupWidth / 2,
+                    groupHeight / 2,
+                    groupHeight / -2,
                     1,
                     10000
                 );
@@ -328,7 +358,7 @@ export class CanvasGroup {
             } else {
                 this.camera = new PerspectiveCamera(
                     75,
-                    sceneWidth / sceneHeight,
+                    groupWidth / groupHeight,
                     0.1,
                     1000
                 );
@@ -341,7 +371,7 @@ export class CanvasGroup {
         (() => {
             this.renderer = new WebGLRenderer({ alpha: true, antialias: true });
 
-            this.renderer.setSize(window.innerWidth, window.innerHeight);
+            this.renderer.setSize(this.groupWidth, this.groupHeight);
             this.renderer.setClearColor(0x000000, 0);
 
             const domElement = this.renderer.domElement;

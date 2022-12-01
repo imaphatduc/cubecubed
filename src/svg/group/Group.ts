@@ -36,6 +36,10 @@ export class Group {
      */
     name: string;
 
+    private groupWidth: number;
+
+    private groupHeight: number;
+
     /**
      * Number of squares in the x direction.
      */
@@ -103,18 +107,20 @@ export class Group {
     constructor(groupName: string, scene: Scene) {
         this.scene = scene;
 
+        this.computeWidthAndHeight();
+
         this.svg_group = select("#cubecubed")
             .append("svg")
             .attr("id", groupName)
             .attr("class", "group")
             .attr("xmlns", "http://www.w3.org/2000/svg")
-            .attr("width", scene.CONFIG.sceneWidth)
-            .attr("height", scene.CONFIG.sceneHeight)
+            .attr("width", this.groupWidth)
+            .attr("height", this.groupHeight)
             .attr(
                 "viewBox",
-                `${-scene.CONFIG.sceneWidth / 2} ${
-                    -scene.CONFIG.sceneHeight / 2
-                } ${scene.CONFIG.sceneWidth} ${scene.CONFIG.sceneHeight}`
+                `${-this.groupWidth / 2} ${-this.groupHeight / 2} ${
+                    this.groupWidth
+                } ${this.groupHeight}`
             )
             .attr("transform", "scale(1, -1)")
             .style("pointer-events", "none");
@@ -141,14 +147,37 @@ export class Group {
         });
     }
 
-    private defineBoundsAndSquares(ratio: [number, number]) {
+    private computeWidthAndHeight() {
+        const cubecubedElement = select("#cubecubed") as Selection<
+            HTMLDivElement,
+            unknown,
+            HTMLElement,
+            any
+        >;
+
         const { sceneWidth, sceneHeight } = this.scene.CONFIG;
+
+        this.groupWidth =
+            sceneWidth === "auto"
+                ? cubecubedElement.node()?.getBoundingClientRect().width ??
+                  window.innerWidth
+                : sceneWidth;
+
+        this.groupHeight =
+            sceneHeight === "auto"
+                ? cubecubedElement.node()?.getBoundingClientRect().height ??
+                  window.innerHeight
+                : sceneHeight;
+    }
+
+    private defineBoundsAndSquares(ratio: [number, number]) {
+        const { groupWidth, groupHeight } = this;
 
         const xSquareLength = ratio[0] * this.squareLength;
         const ySquareLength = ratio[1] * this.squareLength;
 
-        this.xSquareNums = Math.floor(sceneWidth / xSquareLength);
-        this.ySquareNums = Math.floor(sceneHeight / ySquareLength);
+        this.xSquareNums = Math.floor(groupWidth / xSquareLength);
+        this.ySquareNums = Math.floor(groupHeight / ySquareLength);
 
         this.xBound = [
             Math.floor(-this.xSquareNums / 2),
@@ -162,32 +191,32 @@ export class Group {
     }
 
     private defineCovertFunctions(ratio: [number, number]) {
-        const { sceneWidth, sceneHeight } = this.scene.CONFIG;
+        const { groupWidth, groupHeight } = this;
 
         const xBound = [
-            -sceneWidth / (this.squareLength * ratio[0]),
-            sceneWidth / (this.squareLength * ratio[0]),
+            -groupWidth / (this.squareLength * ratio[0]),
+            groupWidth / (this.squareLength * ratio[0]),
         ];
 
         const yBound = [
-            -sceneHeight / (this.squareLength * ratio[1]),
-            sceneHeight / (this.squareLength * ratio[1]),
+            -groupHeight / (this.squareLength * ratio[1]),
+            groupHeight / (this.squareLength * ratio[1]),
         ];
 
         this.xGtoW = scaleLinear()
             .domain(xBound)
-            .range([-sceneWidth, sceneWidth]);
+            .range([-groupWidth, groupWidth]);
 
         this.yGtoW = scaleLinear()
             .domain(yBound)
-            .range([-sceneHeight, sceneHeight]);
+            .range([-groupHeight, groupHeight]);
 
         this.xWtoG = scaleLinear()
-            .domain([-sceneWidth, sceneWidth])
+            .domain([-groupWidth, groupWidth])
             .range(this.xBound);
 
         this.yWtoG = scaleLinear()
-            .domain([-sceneHeight, sceneHeight])
+            .domain([-groupHeight, groupHeight])
             .range(this.yBound);
     }
 
