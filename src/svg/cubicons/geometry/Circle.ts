@@ -21,7 +21,7 @@ export interface CircleParams extends CubiconParams<PLANE_SHAPE_CONFIG> {
 export class Circle extends Cubicon {
     readonly cubiconType = "Circle";
 
-    readonly radius: number;
+    radius: number;
 
     declare CONFIG: PLANE_SHAPE_CONFIG;
 
