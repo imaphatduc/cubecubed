@@ -3,7 +3,7 @@ import {
     Group,
     Scene,
     COLOR,
-    CreatePlaneShape,
+    CreateShape,
     PointAlongGraph,
     PointToCoords,
     DrawAxes,
@@ -35,7 +35,7 @@ function graphing() {
     const pt = axes.pointToCoords({ graph: cos, xPos: 2 });
 
     group.play([
-        new CreatePlaneShape({ cubicon: cos }),
+        new CreateShape({ cubicon: cos }),
         new Write({ cubicon: tex }),
     ]);
 
@@ -62,7 +62,7 @@ function graphing() {
         color: COLOR.GREEN_1,
     });
 
-    group.play([new CreatePlaneShape({ cubicon: ln })]);
+    group.play([new CreateShape({ cubicon: ln })]);
 
     group.play([
         new PointAlongGraph({
@@ -79,7 +79,7 @@ function graphing() {
         color: COLOR.RED_2,
     });
 
-    group.play([new CreatePlaneShape({ cubicon: cubic })]);
+    group.play([new CreateShape({ cubicon: cubic })]);
 }
 
 graphing();
