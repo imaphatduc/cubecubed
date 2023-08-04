@@ -100,7 +100,27 @@ export class ParametricSurface extends CanvasCubicon {
     }
 
     private geometrize() {
-        this.geometry = new BufferGeometry()
+        this.geometry = this.setGeometry(new BufferGeometry());
+
+        this.geometry.computeVertexNormals();
+    }
+
+    private materialize() {
+        this.material = new MeshNormalMaterial({
+            side: DoubleSide,
+            wireframe: false,
+        });
+    }
+
+    setVertices(u0?: number, v0?: number) {
+        u0 && (this.CONFIG.uRange = [this.CONFIG.uRange[0], u0]);
+        v0 && (this.CONFIG.vRange = [this.CONFIG.vRange[0], v0]);
+
+        this.setGeometry(this.geometry);
+    }
+
+    private setGeometry(geometry: BufferGeometry) {
+        return geometry
             .setIndex(this.indices)
             .setAttribute(
                 "position",
@@ -113,15 +133,6 @@ export class ParametricSurface extends CanvasCubicon {
                     3
                 )
             );
-
-        this.geometry.computeVertexNormals();
-    }
-
-    private materialize() {
-        this.material = new MeshNormalMaterial({
-            side: DoubleSide,
-            wireframe: false,
-        });
     }
 
     get vertices() {
