@@ -30,7 +30,7 @@
   </p>
   <p align="center">
     <a href="https://www.npmjs.com/package/cubecubed">
-      <img src="https://img.shields.io/github/workflow/status/imaphatduc/cubecubed/CI?label=CI&labelColor=000&logo=github&style=for-the-badge" />
+      <img src="https://img.shields.io/github/actions/workflow/status/imaphatduc/cubecubed/main.yml?branch=main&label=CI&labelColor=000&logo=github&style=for-the-badge" />
       <img src="https://img.shields.io/npm/v/cubecubed?color=cb3837&labelColor=000&logo=npm&style=for-the-badge" />
       <img src="https://img.shields.io/github/license/imaphatduc/cubecubed?color=560bff&labelColor=000&style=for-the-badge" />
     </a>
