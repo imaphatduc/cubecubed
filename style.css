@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap");
+
 body {
     box-sizing: border-box;
     margin: 0;
@@ -23,4 +25,34 @@ h5,
 p {
     margin: 0;
     padding: 0;
+}
+
+.slider {
+    -webkit-appearance: none;
+    height: 5px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.9;
+    -webkit-transition: 0.2s;
+    transition: opacity 0.2s;
+}
+
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    border-radius: 20%;
+    background: rgb(211, 29, 222);
+    cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    border-radius: 20%;
+    border: none;
+    background: rgb(211, 29, 222);
+    cursor: pointer;
 }
