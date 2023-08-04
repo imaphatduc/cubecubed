@@ -4,6 +4,7 @@ export * from "./math/vector";
 export * from "./math/Vector2";
 export * from "./math/Vector3";
 export * from "./scene/Scene";
+export * from "./slider/Slider";
 export * from "./recorder/Recorder";
 
 export * from "./svg/group/Group";
