@@ -3,6 +3,7 @@ import {
     CanvasGroup,
     ParametricSurface,
     Scene,
+    Slider,
     Vector3,
 } from "../src/index";
 
@@ -42,13 +43,21 @@ function seashellSurface() {
 
     const surface = new ParametricSurface({
         group,
-        functionDef: seashell,
+        functionDef: donut,
         scaleFactor: 1,
         CONFIG: {
-            uRange: [0, 5 * Math.PI],
-            vRange: [0, 5 * Math.PI],
+            uRange: [0, 2 * Math.PI],
+            vRange: [0, 2 * Math.PI],
         },
     }).render();
+
+    const slider = new Slider({
+        label: "u",
+        min: 0,
+        max: surface.CONFIG.uRange[1],
+        step: 0.02,
+        onSlide: (value) => surface.setVertices(value, undefined),
+    });
 }
 
 seashellSurface();
