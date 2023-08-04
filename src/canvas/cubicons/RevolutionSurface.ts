@@ -9,18 +9,18 @@ import { CanvasCubicon, CanvasCubiconParams } from "@cubicons/CanvasCubicon";
 
 export interface REVOLUTION_SURFACE_CONFIG {
     /**
-     * Number of vertices on each curve.
+     * Number of slices on the surface.
      *
      * @default 100
      */
-    numCurveVertices: number;
+    slices: number;
 
     /**
-     * Number of vertices on each ring after a full rotation.
+     * Number of stacks on the surface.
      *
      * @default 100
      */
-    numRevolVertices: number;
+    stacks: number;
 
     /**
      * x value range of the curves.
@@ -31,8 +31,8 @@ export interface REVOLUTION_SURFACE_CONFIG {
 }
 
 export const REVOLUTION_SURFACE_DEFAULT_CONFIG: REVOLUTION_SURFACE_CONFIG = {
-    numCurveVertices: 100,
-    numRevolVertices: 100,
+    slices: 100,
+    stacks: 100,
     xRange: [0, 0],
 };
 
@@ -89,7 +89,7 @@ export class RevolutionSurface extends CanvasCubicon {
     }
 
     private geometrize() {
-        const { numCurveVertices, numRevolVertices, xRange } = this.CONFIG;
+        const { slices, stacks, xRange } = this.CONFIG;
 
         const width = xRange[1] - xRange[0];
         const height = 5;
@@ -97,8 +97,8 @@ export class RevolutionSurface extends CanvasCubicon {
         this.geometry = new PlaneGeometry(
             width,
             height,
-            numCurveVertices - 1,
-            numRevolVertices - 1
+            slices - 1,
+            stacks - 1
         );
 
         this.geometry.rotateX(0.5 * -Math.PI);
@@ -142,18 +142,18 @@ export class RevolutionSurface extends CanvasCubicon {
     }
 
     private getRevolIndex(i: number) {
-        const { numCurveVertices } = this.CONFIG;
+        const { slices } = this.CONFIG;
 
-        return Math.floor(i / numCurveVertices);
+        return Math.floor(i / slices);
     }
 
     private getTheta(i: number) {
-        const { numRevolVertices } = this.CONFIG;
+        const { stacks } = this.CONFIG;
 
         const revolIndex = this.getRevolIndex(i);
 
         const revolOffset = -2;
 
-        return revolIndex * ((2 * Math.PI) / (numRevolVertices + revolOffset));
+        return revolIndex * ((2 * Math.PI) / (stacks + revolOffset));
     }
 }
