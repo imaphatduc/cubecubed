@@ -29,9 +29,9 @@ p {
 
 .slider {
     -webkit-appearance: none;
-    height: 5px;
+    height: 3px;
     border-radius: 5px;
-    background: #d3d3d3;
+    background: #fff;
     outline: none;
     opacity: 0.9;
     -webkit-transition: 0.2s;
@@ -43,16 +43,17 @@ p {
     appearance: none;
     width: 15px;
     height: 15px;
-    border-radius: 20%;
-    background: rgb(211, 29, 222);
+    border-radius: 100%;
+    border: 3px solid #fff;
+    background: #000;
     cursor: pointer;
 }
 
 .slider::-moz-range-thumb {
     width: 15px;
     height: 15px;
-    border-radius: 20%;
-    border: none;
-    background: rgb(211, 29, 222);
+    border-radius: 100%;
+    border: 3px solid #fff;
+    background: #000;
     cursor: pointer;
 }
