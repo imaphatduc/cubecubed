@@ -64,9 +64,11 @@ export class Slider {
             .text(this.label)
             .style("font-family", "Roboto, Arial, sans-serif");
 
+        const sliderId = `${this.label.replace(/[^A-Za-z0-9]/g, '-')}-slider`
+
         this.html_slider = wrapper
             .append("input")
-            .attr("id", `${this.label}-slider`)
+            .attr("id", sliderId)
             .attr("class", "slider")
             .attr("type", "range")
             .attr("min", this.min)
@@ -77,7 +79,7 @@ export class Slider {
             .on("input", () => {
                 const value = parseFloat(
                     // @ts-expect-error who cares?
-                    select(`#${this.label}-slider`).node().value ?? 0
+                    select(`#${sliderId}`).node().value ?? 0
                 );
 
                 this.onSlide(value);
