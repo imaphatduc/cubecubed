@@ -56,7 +56,7 @@ function seashellSurface() {
         min: 0,
         max: surface.CONFIG.uRange[1],
         step: 0.02,
-        onSlide: (value) => surface.setVertices(value, undefined),
+        onSlide: (value) => surface.setVertices(value),
     });
 }
 
