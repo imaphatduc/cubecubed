@@ -1,6 +1,6 @@
 import {
     COLOR,
-    CreatePlaneShape,
+    CreateShape,
     DrawGrid,
     Grid,
     Group,
@@ -36,10 +36,10 @@ function drawShapes() {
             },
         }).render();
 
-        group.play([new CreatePlaneShape({ cubicon: square1 })]);
+        group.play([new CreateShape({ cubicon: square1 })]);
 
         group.play([
-            new CreatePlaneShape({ cubicon: square2 }),
+            new CreateShape({ cubicon: square2 }),
             new Rotate({ cubicon: square1, degree: 45 }),
         ]);
     })();
