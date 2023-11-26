@@ -1,36 +1,33 @@
-import {
-    Scene,
-    Group,
-    Rectangle,
-    CreatePlaneShape,
-    Recorder,
-} from "../src/index";
+import { Scene, Group, Rectangle, CreateShape, Recorder } from "../src/index";
 
 function starter() {
     const scene = new Scene("starter-scene");
-    const group = new Group("starter", scene);
 
-    const rectangle = new Rectangle({
-        group: group,
-        width: 3,
-        height: 2,
-        CONFIG: {
-            fillColor: "#fff",
-            strokeColor: "#ffc777",
-        },
-    });
+    const recipe = () => {
+        const group = new Group("starter", scene);
 
-    group.render([rectangle]);
+        const rectangle = new Rectangle({
+            group: group,
+            width: 3,
+            height: 2,
+            CONFIG: {
+                fillColor: "#fff",
+                strokeColor: "#ffc777",
+            },
+        });
 
-    group.play([
-        new CreatePlaneShape({
-            cubicon: rectangle,
-        }),
-    ]);
+        group.render([rectangle]);
 
-    return scene.sceneElapsed;
+        group.play([
+            new CreateShape({
+                cubicon: rectangle,
+            }),
+        ]);
+    };
+
+    const recorder = new Recorder(scene, recipe);
+
+    recorder.start();
 }
 
-const recorder = new Recorder(starter);
-
-recorder.start();
+starter();
