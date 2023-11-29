@@ -8,6 +8,7 @@ import { Cubicon } from "@cubicons/Cubicon";
 
 import { Animation } from "@animations/Animation";
 import configFactory from "@utils/configFactory";
+import { EASE } from "@consts";
 
 export interface GROUP_MAKEUP_CONFIG {
     opacity: number;
@@ -109,12 +110,7 @@ export class Group {
             .attr("xmlns", "http://www.w3.org/2000/svg")
             .attr("width", this.groupWidth)
             .attr("height", this.groupHeight)
-            .attr(
-                "viewBox",
-                `${-this.groupWidth / 2} ${-this.groupHeight / 2} ${
-                    this.groupWidth
-                } ${this.groupHeight}`
-            )
+            .attr("viewBox", this.getScaledViewbox())
             .attr("transform", "scale(1, -1)")
             .style("pointer-events", "none");
 
@@ -253,6 +249,8 @@ export class Group {
     makeup(params: {
         /**
          * Time to play the makeup animation. (in milliseconds)
+         *
+         * @default 0
          */
         duration?: number;
 
@@ -273,5 +271,32 @@ export class Group {
             .delay(this.scene.sceneElapsed)
             .duration(duration)
             .style("opacity", CONFIG.opacity);
+    }
+
+    zoom(params: {
+        /**
+         * Time to play the zoom animation. (in milliseconds)
+         *
+         * @default 0
+         */
+        duration?: number;
+
+        zoom: number;
+    }) {
+        const duration = params.duration ?? 0;
+
+        this.svg_group
+            .transition()
+            .delay(this.scene.sceneElapsed)
+            .duration(duration)
+            .ease(EASE.LINEAR)
+            .attr("viewBox", this.getScaledViewbox(params.zoom));
+    }
+
+    private getScaledViewbox(scalar = 1) {
+        const width = this.groupWidth / scalar;
+        const height = this.groupHeight / scalar;
+
+        return `${-width / 2} ${-height / 2} ${width} ${height}`;
     }
 }
