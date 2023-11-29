@@ -59,7 +59,9 @@ export class Rectangle extends Cubicon {
         this.width = params.width;
 
         this.height = params.height;
+    }
 
+    render() {
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", "rectangle-wrapper")
@@ -67,9 +69,7 @@ export class Rectangle extends Cubicon {
             .style("transform-origin", "center");
 
         this.def_cubiconBase = this.g_cubiconWrapper.append("path");
-    }
 
-    render() {
         const path = this.definePath();
 
         this.def_cubiconBase

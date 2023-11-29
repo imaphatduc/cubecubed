@@ -35,7 +35,9 @@ export class Circle extends Cubicon {
         });
 
         this.radius = params.radius;
+    }
 
+    render() {
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", "circle-wrapper")
@@ -47,9 +49,7 @@ export class Circle extends Cubicon {
             .attr("class", "circle")
             .style("transform-box", "fill-box")
             .style("transform-origin", "center");
-    }
 
-    render() {
         const Wposition = this.coordsGtoW(this.position);
 
         const Wradius = this.group.xGtoW(this.radius);
