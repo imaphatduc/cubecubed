@@ -27,19 +27,14 @@ export class Point extends Circle {
         });
 
         this.axes = params.axes;
+    }
+
+    render() {
+        super.render();
 
         this.g_cubiconWrapper.attr("class", "point-wrapper");
 
         this.def_cubiconBase.attr("class", "point");
-    }
-
-    render() {
-        const xScale = this.axes.getXScale();
-
-        const Wposition = this.axes.coordsGtoW(this.position);
-        const Wradius = xScale(this.radius);
-
-        super.applyToHTMLFlow(Wposition, Wradius);
 
         return this;
     }

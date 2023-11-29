@@ -48,16 +48,16 @@ export class AxisProjector extends Line {
         this.type = params.type;
 
         this.axes = params.axes;
+    }
+
+    render() {
+        super.render();
 
         this.g_cubiconWrapper.attr("class", `${this.type}-projector-wrapper`);
 
         this.def_cubiconBase
             .attr("class", `${this.type}-projector-line`)
             .style("shape-rendering", "crispEdges");
-    }
-
-    render() {
-        this.applyToHTMLFlow();
 
         return this;
     }
