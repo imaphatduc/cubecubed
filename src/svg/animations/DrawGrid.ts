@@ -31,7 +31,7 @@ export class DrawGrid extends Animation {
         const horizontalAnimations = this.getHorizontalAnimations();
         const verticalAnimations = this.getVerticalAnimations();
 
-        this.cubicon.group.play([
+        this.cubicon.group.scene.play([
             ...horizontalAnimations,
             ...verticalAnimations,
         ]);
@@ -40,7 +40,7 @@ export class DrawGrid extends Animation {
     private drawOrigin() {
         const originAnimation = this.getOriginAnimation();
 
-        this.cubicon.group.play([originAnimation]);
+        this.cubicon.group.scene.play([originAnimation]);
     }
 
     private getHorizontalAnimations() {

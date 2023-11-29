@@ -1,3 +1,4 @@
+import { Animation } from "@animations/Animation";
 import { select } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -56,6 +57,23 @@ export class Scene {
             sceneHeight:
                 CONFIG?.sceneHeight ?? SCENE_DEFAULT_CONFIG.sceneHeight,
         };
+    }
+
+    /**
+     * Play all the animations included in a queue.
+     *
+     * @param animations Array (Queue) of animations to play.
+     */
+    play(animations: Animation[]) {
+        const queueElapsed = Math.max(
+            ...animations.map((animation) => {
+                animation.play();
+
+                return animation.duration;
+            })
+        );
+
+        this.sceneElapsed += queueElapsed;
     }
 
     /**

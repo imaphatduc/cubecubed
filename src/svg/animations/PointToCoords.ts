@@ -42,7 +42,7 @@ export class PointToCoords extends Animation {
     private pointToCoords() {
         const animations = this.getAnimations();
 
-        this.cubicon.group.play(animations);
+        this.cubicon.group.scene.play(animations);
 
         this.reverseToLastGroupElapsed();
     }

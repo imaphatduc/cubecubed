@@ -34,7 +34,7 @@ export class DrawVectorField extends Animation {
     private applyVectorShapeCreation() {
         const animations = this.getAnimations();
 
-        this.cubicon.group.play(animations);
+        this.cubicon.group.scene.play(animations);
     }
 
     private getAnimations() {

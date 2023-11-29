@@ -212,23 +212,6 @@ export class Group {
     }
 
     /**
-     * Play all the animations included in a queue.
-     *
-     * @param animations Array (Queue) of animations to play.
-     */
-    play(animations: Animation[]) {
-        const queueElapsed = Math.max(
-            ...animations.map((animation) => {
-                animation.play();
-
-                return animation.duration;
-            })
-        );
-
-        this.scene.sceneElapsed += queueElapsed;
-    }
-
-    /**
      * Sleep this group for an amount of time.
      *
      * @param milliseconds The time to sleep.
