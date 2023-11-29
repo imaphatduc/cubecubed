@@ -12,6 +12,7 @@ export * from "./svg/cubicons/Cubicon";
 export * from "./svg/cubicons/VectorField";
 export * from "./svg/cubicons/MathTex";
 export * from "./svg/cubicons/Grid";
+export * from "./svg/cubicons/Image";
 export * from "./svg/cubicons/geometry/configs/PLANE_SHAPE_CONFIG";
 export * from "./svg/cubicons/geometry/configs/LINE_SHAPE_CONFIG";
 export * from "./svg/cubicons/geometry/Rectangle";
