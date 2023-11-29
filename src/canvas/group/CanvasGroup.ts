@@ -62,6 +62,8 @@ export const CANVAS_GROUP_DEFAULT_CONFIG: CANVAS_GROUP_CONFIG = {
 
 /**
  * The object to group canvas cubicons together. A group must belong to a scene.
+ *
+ * TODO: remove groupElapsed & do tests
  */
 export class CanvasGroup {
     /**
