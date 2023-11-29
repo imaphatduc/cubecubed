@@ -86,11 +86,6 @@ export class Grid extends Cubicon {
                 },
             });
 
-            horizontalLine.def_cubiconBase.attr(
-                "opacity",
-                y % 2 === 0 ? 1 : 0.2
-            );
-
             return horizontalLine;
         });
     }
@@ -110,15 +105,26 @@ export class Grid extends Cubicon {
                 },
             });
 
-            verticalLine.def_cubiconBase.attr("opacity", x % 2 === 0 ? 1 : 0.2);
-
             return verticalLine;
         });
     }
 
     render() {
-        this.horizontalLines.forEach((line) => line.render());
-        this.verticalLines.forEach((line) => line.render());
+        this.horizontalLines.forEach((line) => {
+            line.render();
+            line.def_cubiconBase.attr(
+                "opacity",
+                line.position.y % 2 === 0 ? 1 : 0.2
+            );
+        });
+
+        this.verticalLines.forEach((line) => {
+            line.render();
+            line.def_cubiconBase.attr(
+                "opacity",
+                line.position.x % 2 === 0 ? 1 : 0.2
+            );
+        });
 
         this.gridOrigin.render();
 

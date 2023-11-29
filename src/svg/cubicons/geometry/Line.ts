@@ -47,6 +47,10 @@ export class Line extends Cubicon {
 
         this.endPoint = new Vector2(params.endPoint.x, params.endPoint.y);
 
+        this.initVertices();
+    }
+
+    render() {
         this.g_cubiconWrapper = this.svg_group
             .append("g")
             .attr("class", "line-wrapper")
@@ -58,10 +62,6 @@ export class Line extends Cubicon {
             .attr("class", "line")
             .attr("fill", "none");
 
-        this.initVertices();
-    }
-
-    render() {
         this.applyToHTMLFlow();
 
         return this;
