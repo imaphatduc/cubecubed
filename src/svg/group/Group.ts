@@ -2,13 +2,15 @@ import { ScaleLinear, scaleLinear } from "d3-scale";
 import { Selection, select } from "d3";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
+import { EASE } from "@consts";
+
+import { Vector2 } from "@math/Vector2";
+
 import { Scene } from "@scene/Scene";
 
 import { Cubicon } from "@cubicons/Cubicon";
 
-import { Animation } from "@animations/Animation";
 import configFactory from "@utils/configFactory";
-import { EASE } from "@consts";
 
 export interface GROUP_MAKEUP_CONFIG {
     opacity: number;
@@ -103,6 +105,12 @@ export class Group {
 
         this.computeWidthAndHeight();
 
+        this.name = groupName;
+
+        this.defineBoundsAndSquares(this.ratio);
+
+        this.defineCovertFunctions(this.ratio);
+
         this.svg_group = select("#cubecubed")
             .append("svg")
             .attr("id", groupName)
@@ -112,15 +120,8 @@ export class Group {
             .attr("height", this.groupHeight)
             .attr("viewBox", this.getScaledViewbox())
             .attr("transform", "scale(1, -1)")
-            .style("pointer-events", "none");
-
-        this.svg_group.style("position", "absolute");
-
-        this.name = groupName;
-
-        this.defineBoundsAndSquares(this.ratio);
-
-        this.defineCovertFunctions(this.ratio);
+            .style("pointer-events", "none")
+            .style("position", "absolute");
     }
 
     /**
@@ -281,22 +282,39 @@ export class Group {
          */
         duration?: number;
 
+        position?: Vector2;
+
         zoom: number;
     }) {
         const duration = params.duration ?? 0;
+        const position = params.position ?? new Vector2(0, 0);
+
+        /**
+         * position = (-3, 0)
+         * edge = (xBound[0], yBound[0])
+         */
 
         this.svg_group
             .transition()
             .delay(this.scene.sceneElapsed)
             .duration(duration)
             .ease(EASE.LINEAR)
-            .attr("viewBox", this.getScaledViewbox(params.zoom));
+            .attr(
+                "viewBox",
+                this.getScaledViewbox(params.zoom, new Vector2(-3, 0))
+            );
     }
 
-    private getScaledViewbox(scalar = 1) {
+    private getScaledViewbox(
+        scalar = 1,
+        translationVector = new Vector2(0, 0)
+    ) {
         const width = this.groupWidth / scalar;
         const height = this.groupHeight / scalar;
 
-        return `${-width / 2} ${-height / 2} ${width} ${height}`;
+        const Wx = this.xGtoW(translationVector.x);
+        const Wy = this.yGtoW(translationVector.y);
+
+        return `${-width / 2 + Wx} ${-height / 2 + Wy} ${width} ${height}`;
     }
 }
