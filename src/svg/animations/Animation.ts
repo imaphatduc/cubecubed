@@ -36,7 +36,7 @@ export abstract class Animation {
     constructor(params: AnimationParams<Cubicon>) {
         this.cubicon = params.cubicon;
 
-        this.sleepTime = params.cubicon.group.groupElapsed;
+        this.sleepTime = params.cubicon.group.scene.sceneElapsed;
 
         this.duration = params.duration ?? 0;
 

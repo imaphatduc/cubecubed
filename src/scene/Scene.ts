@@ -39,9 +39,7 @@ export class Scene {
     CONFIG: SCENE_CONFIG;
 
     /**
-     * The time passed by since this scene was created (in milliseconds), or
-     * the sum of the `groupElapsed` property of all groups included in this
-     * scene.
+     * The time passed by since this scene was created (in milliseconds).
      */
     sceneElapsed = 0;
 

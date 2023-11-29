@@ -70,6 +70,7 @@ export class Write extends Animation {
             .attr("stroke-dashoffset", 0)
             .attr("fill-opacity", 1);
 
-        this.cubicon.group.groupElapsed += (delayEach / 2) * lengths.length;
+        this.cubicon.group.scene.sceneElapsed +=
+            (delayEach / 2) * lengths.length;
     }
 }
