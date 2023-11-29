@@ -106,6 +106,9 @@ export class PointAlongGraph extends Animation {
             });
     }
 
+    /**
+     * TODO: projectors are paths, tweak d attribute
+     */
     private applyProjectorsAlongGraph() {
         this.horizontalProjector?.def_cubiconBase
             .transition()
