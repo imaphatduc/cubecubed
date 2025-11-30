@@ -1,4 +1,6 @@
 import { Animation } from "@animations/Animation";
+import { CanvasAnimation } from "@animations/CanvasAnimation";
+import { CanvasGroup } from "@group/CanvasGroup";
 import { select } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
@@ -71,6 +73,27 @@ export class Scene {
 
                 return animation.duration;
             })
+        );
+
+        this.sceneElapsed += queueElapsed;
+    }
+
+    /**
+     * Play all the animations included in a queue.
+     *
+     * @param animations Array (Queue) of animations to play.
+     */
+    play3D(animations: CanvasAnimation[], group: CanvasGroup) {
+        const queueElapsed = Math.max(
+            ...animations.map((animation) => animation.duration)
+        );
+
+        group.animationsInfo.push(
+            ...animations.map((animation) => ({
+                animation,
+                startAt: this.sceneElapsed,
+                endAt: this.sceneElapsed + animation.duration,
+            }))
         );
 
         this.sceneElapsed += queueElapsed;

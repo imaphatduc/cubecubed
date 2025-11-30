@@ -62,8 +62,6 @@ export const CANVAS_GROUP_DEFAULT_CONFIG: CANVAS_GROUP_CONFIG = {
 
 /**
  * The object to group canvas cubicons together. A group must belong to a scene.
- *
- * TODO: remove groupElapsed & do tests
  */
 export class CanvasGroup {
     /**
@@ -183,14 +181,7 @@ export class CanvasGroup {
     /**
      * Animations to play in this group, with `startAt` and `endAt` included.
      */
-    private animationsInfo: ANIMATION_INFO[] = [];
-
-    /**
-     * The time passed by since this group was created. (in milliseconds)
-     *
-     * > (aka the total time of all the animations **called** in this group)
-     */
-    groupElapsed = 0;
+    animationsInfo: ANIMATION_INFO[] = [];
 
     /**
      * Config options of this canvas group.
@@ -218,8 +209,6 @@ export class CanvasGroup {
         this.defineBoundsAndSquares(this.ratio);
 
         this.defineCovertFunctions(this.ratio);
-
-        this.groupElapsed = scene.sceneElapsed;
 
         this.start();
         this.update();
@@ -468,40 +457,11 @@ export class CanvasGroup {
     }
 
     /**
-     * Play all the animations included in a queue.
-     *
-     * @param animations Array (Queue) of animations to play.
-     */
-    play(animations: CanvasAnimation[], dependsOnFrame = true) {
-        const queueElapsed = Math.max(
-            ...animations.map((animation) => animation.duration)
-        );
-
-        if (dependsOnFrame) {
-            this.animationsInfo.push(
-                ...animations.map((animation) => ({
-                    animation,
-                    startAt: this.groupElapsed,
-                    endAt: this.groupElapsed + animation.duration,
-                }))
-            );
-        } else {
-            animations.forEach((animation) => animation.play());
-        }
-
-        this.groupElapsed += queueElapsed;
-
-        this.scene.sceneElapsed += queueElapsed;
-    }
-
-    /**
      * Sleep this group for an amount of time.
      *
      * @param milliseconds The time to sleep.
      */
     sleep(milliseconds: number) {
-        this.groupElapsed += milliseconds;
-
         this.scene.sceneElapsed += milliseconds;
     }
 
@@ -518,7 +478,7 @@ export class CanvasGroup {
 
                 this.threeScene.remove(cubicon.object);
             });
-        }, this.groupElapsed);
+        }, this.scene.sceneElapsed);
     }
 
     get elapsed() {
