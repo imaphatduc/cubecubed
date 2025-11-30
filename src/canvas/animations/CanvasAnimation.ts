@@ -25,7 +25,7 @@ export abstract class CanvasAnimation {
     constructor(params: { cubicon: CanvasCubicon; duration?: number }) {
         this.cubicon = params.cubicon;
 
-        this.sleepTime = params.cubicon.group.groupElapsed;
+        this.sleepTime = params.cubicon.group.scene.sceneElapsed;
 
         this.duration = params.duration ?? 0;
     }
