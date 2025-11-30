@@ -10,7 +10,7 @@ function sumOfSequenceProof() {
         CONFIG: { strokeColor: COLOR.PINK_1 },
     }).render();
 
-    group.play([new CreateShape({ cubicon: square })]);
+    scene.play([new CreateShape({ cubicon: square })]);
 
     const { horizontalLines, verticalLines } = square.drawInnerGrid();
 
@@ -18,7 +18,7 @@ function sumOfSequenceProof() {
         (line) => new CreateShape({ cubicon: line })
     );
 
-    group.play(animations);
+    scene.play(animations);
 }
 
 sumOfSequenceProof();

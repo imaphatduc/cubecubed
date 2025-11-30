@@ -26,9 +26,9 @@ function gabrielsHorn() {
             fontSize: 30,
         }).render();
 
-        group.play([new DrawGrid({ cubicon: grid })]);
+        scene.play([new DrawGrid({ cubicon: grid })]);
 
-        group.play([new Write({ cubicon: formula, duration: 2000 })]);
+        scene.play([new Write({ cubicon: formula, duration: 2000 })]);
     })();
 
     (() => {
@@ -45,7 +45,7 @@ function gabrielsHorn() {
             },
         }).render();
 
-        group.play(
+        scene.play(
             [new CreateSurface({ cubicon: surface, duration: 2000 })],
             false
         );

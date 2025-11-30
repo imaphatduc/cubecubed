@@ -18,7 +18,7 @@ function starter() {
 
         group.render([rectangle]);
 
-        group.play([
+        scene.play([
             new CreateShape({
                 cubicon: rectangle,
             }),

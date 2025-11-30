@@ -18,7 +18,7 @@ function renderVector() {
 
     const grid = new Grid({ group: group }).render();
 
-    group.play([new DrawGrid({ cubicon: grid })]);
+    scene.play([new DrawGrid({ cubicon: grid })]);
 
     const vector = new VectorShape({
         group: group,
@@ -28,7 +28,7 @@ function renderVector() {
         },
     }).render();
 
-    group.play([new CreateVectorShape({ cubicon: vector })]);
+    scene.play([new CreateVectorShape({ cubicon: vector })]);
 
     const formulaTex = new MathTex({
         group: group,
@@ -45,7 +45,7 @@ function renderVector() {
         },
     }).render();
 
-    group.play([
+    scene.play([
         new Write({ cubicon: formulaTex }),
         new FadeIn({ cubicon: vectorCoordsTex }),
     ]);

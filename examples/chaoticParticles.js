@@ -109,7 +109,7 @@ function chaoticParticles() {
             });
         });
 
-        group.play(flowAnimations);
+        scene.play(flowAnimations);
     })();
 
     (() => {

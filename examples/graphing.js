@@ -23,7 +23,7 @@ function graphing() {
         },
     }).render();
 
-    group.play([new DrawAxes({ cubicon: axes })]);
+    scene.play([new DrawAxes({ cubicon: axes })]);
 
     const cos = axes.plot({
         functionDef: (x) => Math.cos(x),
@@ -34,12 +34,12 @@ function graphing() {
 
     const pt = axes.pointToCoords({ graph: cos, xPos: 2 });
 
-    group.play([
+    scene.play([
         new CreateShape({ cubicon: cos }),
         new Write({ cubicon: tex }),
     ]);
 
-    group.play([
+    scene.play([
         new PointToCoords({
             cubicon: pt.point,
             horizontalProjector: pt.projectors[0],
@@ -47,7 +47,7 @@ function graphing() {
         }),
     ]);
 
-    group.play([
+    scene.play([
         new PointAlongGraph({
             cubicon: pt.point,
             horizontalProjector: pt.projectors[0],
@@ -62,9 +62,9 @@ function graphing() {
         color: COLOR.GREEN_1,
     });
 
-    group.play([new CreateShape({ cubicon: ln })]);
+    scene.play([new CreateShape({ cubicon: ln })]);
 
-    group.play([
+    scene.play([
         new PointAlongGraph({
             cubicon: pt.point,
             horizontalProjector: pt.projectors[0],
@@ -79,7 +79,7 @@ function graphing() {
         color: COLOR.RED_2,
     });
 
-    group.play([new CreateShape({ cubicon: cubic })]);
+    scene.play([new CreateShape({ cubicon: cubic })]);
 }
 
 graphing();

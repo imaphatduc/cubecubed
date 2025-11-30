@@ -56,7 +56,7 @@ function lorenzAttractorStream() {
         });
     });
 
-    group.play(streamAnimations);
+    scene.play(streamAnimations);
 }
 
 lorenzAttractorStream();

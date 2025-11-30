@@ -18,7 +18,7 @@ function curveTracing() {
 
     const grid = new Grid({ group: group }).render();
 
-    group.play([new DrawGrid({ cubicon: grid })]);
+    scene.play([new DrawGrid({ cubicon: grid })]);
 
     const curve = new ParametricCurve({
         group: group,
@@ -38,7 +38,7 @@ function curveTracing() {
         },
     }).render();
 
-    group.play([
+    scene.play([
         new Trace({
             cubicon: drawer,
             curve: curve,
@@ -52,7 +52,7 @@ function curveTracing() {
         text: "f(t) = \\begin{bmatrix} t \\cos(t) \\\\ t \\sin(t) \\end{bmatrix}",
     }).render();
 
-    group.play([new Write({ cubicon: tex })]);
+    scene.play([new Write({ cubicon: tex })]);
 }
 
 curveTracing();

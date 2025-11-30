@@ -6,7 +6,7 @@ function bumpyGrid() {
 
     const grid = new Grid({ group }).render();
 
-    group.play([
+    scene.play([
         new ApplyFunction({
             cubicon: grid,
             func: (v) => new Vector2(v.x + Math.sin(v.y), v.y + Math.sin(v.x)),

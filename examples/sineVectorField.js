@@ -16,7 +16,7 @@ function sineVectorField() {
 
     const grid = new Grid({ group: group }).render();
 
-    group.play([new DrawGrid({ cubicon: grid })]);
+    scene.play([new DrawGrid({ cubicon: grid })]);
 
     const vectorField = new VectorField({
         group: group,
@@ -28,7 +28,7 @@ function sineVectorField() {
         },
     }).render();
 
-    group.play([new DrawVectorField({ cubicon: vectorField })]);
+    scene.play([new DrawVectorField({ cubicon: vectorField })]);
 
     const formula = new MathTex({
         group: group,
@@ -36,7 +36,7 @@ function sineVectorField() {
         text: "\\sum_{i=0}^n i^2 = \\frac{(n^2+n)(2n+1)}{6}",
     }).render();
 
-    group.play([new Write({ cubicon: formula })]);
+    scene.play([new Write({ cubicon: formula })]);
 
     group.makeup({ duration: 1000, CONFIG: { opacity: 0.5 } });
 
