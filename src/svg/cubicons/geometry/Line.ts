@@ -30,7 +30,7 @@ export interface LineParams extends CubiconParams<LINE_SHAPE_CONFIG> {
 export class Line extends Cubicon {
     readonly cubiconType = "Line";
 
-    readonly endPoint: Vector2;
+    endPoint: Vector2;
 
     vertices: Vector2[];
 
@@ -80,7 +80,7 @@ export class Line extends Cubicon {
         );
     }
 
-    private initVertices() {
+    initVertices() {
         const dt = 0.02;
 
         this.vertices = range(0, 1 + dt, dt).map((t) => {

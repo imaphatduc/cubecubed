@@ -5,6 +5,7 @@ import { Graph } from "@cubicons/coordinate-system/Graph";
 import { Point } from "@cubicons/coordinate-system/Point";
 
 import { Animation, AnimationParams } from "@animations/Animation";
+import { Vector2 } from "@math/Vector2";
 
 export interface PointAlongGraphParams extends AnimationParams<Point> {
     horizontalProjector?: AxisProjector;
@@ -41,23 +42,21 @@ export class PointAlongGraph extends Animation {
     private xPos: number;
 
     private tweenX = (t: number) => {
-        const xScale = this.graph.axes.getXScale();
-
         const deltaX = this.getDeltaX();
 
         const x = t * deltaX + this.cubicon.position.x;
 
-        return xScale(x).toString();
+        return x;
     };
 
     private tweenY = (t: number) => {
-        const yScale = this.graph.axes.getYScale();
+        // const yScale = this.graph.axes.getYScale();
 
         const deltaX = this.getDeltaX();
 
         const y = this.graph.functionDef(t * deltaX + this.cubicon.position.x);
 
-        return yScale(y).toString();
+        return y;
     };
 
     constructor(params: PointAlongGraphParams) {
@@ -86,7 +85,10 @@ export class PointAlongGraph extends Animation {
         this.applyPointAlongGraph();
 
         if (this.horizontalProjector && this.verticalProjector) {
-            this.applyProjectorsAlongGraph();
+            this.applyProjectorsAlongGraph(
+                this.horizontalProjector,
+                this.verticalProjector
+            );
         }
     }
 
@@ -96,8 +98,16 @@ export class PointAlongGraph extends Animation {
             .ease(this.ease)
             .delay(this.sleepTime)
             .duration(this.duration)
-            .attrTween("cx", () => this.tweenX)
-            .attrTween("cy", () => this.tweenY)
+            .attrTween("cx", () => (t) => {
+                const xScale = this.graph.axes.getXScale();
+                const x = this.tweenX(t);
+                return xScale(x).toString();
+            })
+            .attrTween("cy", () => (t) => {
+                const yScale = this.graph.axes.getYScale();
+                const y = this.tweenY(t);
+                return yScale(y).toString();
+            })
             .on("end", () => {
                 this.setCubiconPosition(
                     this.xPos,
@@ -109,26 +119,45 @@ export class PointAlongGraph extends Animation {
     /**
      * TODO: projectors are paths, tweak d attribute
      */
-    private applyProjectorsAlongGraph() {
-        this.horizontalProjector?.def_cubiconBase
+    private applyProjectorsAlongGraph(
+        horizontalProjector: AxisProjector,
+        verticalProjector: AxisProjector
+    ) {
+        horizontalProjector.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(this.sleepTime)
             .duration(this.duration)
-            .attrTween("x1", () => this.tweenX)
-            .attrTween("y1", () => this.tweenY)
-            .attrTween("y2", () => this.tweenY);
+            .attr("stroke-dasharray", 0)
+            .attr("stroke-dashoffset", 0)
+            .attrTween("d", () => (t) => {
+                const cx = this.tweenX(t);
+                const cy = this.tweenY(t);
+                horizontalProjector.position = new Vector2(cx, cy);
+                horizontalProjector.endPoint = new Vector2(0, cy);
+                horizontalProjector.initVertices();
+
+                return horizontalProjector.getData() ?? "";
+            });
 
         //
 
-        this.verticalProjector?.def_cubiconBase
+        verticalProjector.def_cubiconBase
             .transition()
             .ease(this.ease)
             .delay(this.sleepTime)
             .duration(this.duration)
-            .attrTween("x1", () => this.tweenX)
-            .attrTween("y1", () => this.tweenY)
-            .attrTween("x2", () => this.tweenX);
+            .attr("stroke-dasharray", 0)
+            .attr("stroke-dashoffset", 0)
+            .attrTween("d", () => (t) => {
+                const cx = this.tweenX(t);
+                const cy = this.tweenY(t);
+                verticalProjector.position = new Vector2(cx, cy);
+                verticalProjector.endPoint = new Vector2(cx, 0);
+                verticalProjector.initVertices();
+
+                return verticalProjector.getData() ?? "";
+            });
     }
 
     private getDeltaX() {
