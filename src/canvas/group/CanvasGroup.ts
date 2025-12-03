@@ -457,15 +457,6 @@ export class CanvasGroup {
     }
 
     /**
-     * Sleep this group for an amount of time.
-     *
-     * @param milliseconds The time to sleep.
-     */
-    sleep(milliseconds: number) {
-        this.scene.sceneElapsed += milliseconds;
-    }
-
-    /**
      * Remove cubicons from this group.
      *
      * @param cubicons An array of cubicons to remove.

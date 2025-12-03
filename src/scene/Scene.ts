@@ -100,6 +100,15 @@ export class Scene {
     }
 
     /**
+     * Sleep this group for an amount of time.
+     *
+     * @param milliseconds The time to sleep.
+     */
+    sleep(milliseconds: number) {
+        this.sceneElapsed += milliseconds;
+    }
+
+    /**
      * Fade out and remove this scene away from HTML flow. That means,
      * everything in the scene will be removed, too.
      *
