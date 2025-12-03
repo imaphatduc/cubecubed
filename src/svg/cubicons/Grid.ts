@@ -63,7 +63,9 @@ export class Grid extends Cubicon {
             CONFIG: configFactory(GRID_DEFAULT_CONFIG, params.CONFIG),
         });
 
-        this.g_planeGrid = this.svg_group.append("g").attr("id", "plane-grid");
+        this.g_planeGrid = this.group.svg_group
+            .append("g")
+            .attr("id", "plane-grid");
 
         this.defineHorizontalLines();
         this.defineVerticleLines();

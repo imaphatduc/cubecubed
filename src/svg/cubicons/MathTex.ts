@@ -47,7 +47,7 @@ export class MathTex extends Cubicon {
 
         this.text = params.text;
 
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", "tex-wrapper");
 

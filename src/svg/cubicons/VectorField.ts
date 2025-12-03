@@ -61,7 +61,7 @@ export class VectorField extends Cubicon {
 
         this.functionDef = params.functionDef;
 
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", "vector-field-wrapper");
 

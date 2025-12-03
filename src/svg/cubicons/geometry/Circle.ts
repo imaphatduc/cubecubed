@@ -36,7 +36,7 @@ export class Circle extends Cubicon {
 
         this.radius = params.radius;
 
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", "circle-wrapper")
             .style("transform-box", "fill-box")

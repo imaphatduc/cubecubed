@@ -46,7 +46,7 @@ export class ParametricCurve extends Cubicon {
 
         this.tRange = params.tRange;
 
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", "parametric-curve-wrapper")
             .style("transform-box", "fill-box")

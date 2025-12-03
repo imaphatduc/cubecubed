@@ -111,7 +111,7 @@ export class Group {
 
         this.defineCovertFunctions(this.ratio);
 
-        this.svg_group = select("#cubecubed")
+        this.svg_group = scene.svg_group
             .append("svg")
             .attr("id", groupName)
             .attr("class", "group")

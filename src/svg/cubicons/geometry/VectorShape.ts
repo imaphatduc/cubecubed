@@ -48,7 +48,7 @@ export class VectorShape extends Cubicon {
 
         this.endPoint = params.endPoint;
 
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", `vector-wrapper`)
             .attr("transform-box", "fill-box");

@@ -1,7 +1,7 @@
 import { Animation } from "@animations/Animation";
 import { CanvasAnimation } from "@animations/CanvasAnimation";
 import { CanvasGroup } from "@group/CanvasGroup";
-import { select } from "d3-selection";
+import { select, Selection } from "d3-selection";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 export interface SCENE_CONFIG {
@@ -18,6 +18,8 @@ export interface SCENE_CONFIG {
      * @default 'auto'
      */
     sceneHeight: number | "auto";
+
+    dom?: HTMLDivElement;
 }
 
 export const SCENE_DEFAULT_CONFIG: SCENE_CONFIG = {
@@ -31,6 +33,11 @@ export const SCENE_DEFAULT_CONFIG: SCENE_CONFIG = {
  * instance and assign every cubicon to it.
  */
 export class Scene {
+    /**
+     * The `<svg>` element that represents this group.
+     */
+    svg_group: Selection<HTMLDivElement, unknown, HTMLElement, any>;
+
     /**
      * Name of this scene.
      */
@@ -59,6 +66,11 @@ export class Scene {
             sceneHeight:
                 CONFIG?.sceneHeight ?? SCENE_DEFAULT_CONFIG.sceneHeight,
         };
+
+        // @ts-expect-error
+        this.svg_group = CONFIG?.dom
+            ? select(CONFIG.dom)
+            : select("#cubecubed");
     }
 
     /**

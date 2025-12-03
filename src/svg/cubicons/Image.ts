@@ -46,7 +46,7 @@ export class Image extends Cubicon {
     }
 
     render() {
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", "image-wrapper");
 

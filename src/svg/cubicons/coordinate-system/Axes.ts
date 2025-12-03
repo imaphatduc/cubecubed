@@ -76,7 +76,7 @@ export class Axes extends Cubicon {
             CONFIG: configFactory(AXES_DEFAULT_CONFIG, params.CONFIG),
         });
 
-        this.g_coordinate = this.svg_group
+        this.g_coordinate = this.group.svg_group
             .append("g")
             .attr("class", "xy-coordinate");
 

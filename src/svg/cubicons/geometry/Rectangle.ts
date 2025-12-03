@@ -60,7 +60,7 @@ export class Rectangle extends Cubicon {
 
         this.height = params.height;
 
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", "rectangle-wrapper")
             .style("transform-box", "fill-box")

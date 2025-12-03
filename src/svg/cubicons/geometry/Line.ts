@@ -49,7 +49,7 @@ export class Line extends Cubicon {
 
         this.initVertices();
 
-        this.g_cubiconWrapper = this.svg_group
+        this.g_cubiconWrapper = this.group.svg_group
             .append("g")
             .attr("class", "line-wrapper")
             .style("transform-box", "fill-box")

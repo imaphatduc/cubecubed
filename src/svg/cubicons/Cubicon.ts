@@ -60,11 +60,6 @@ export abstract class Cubicon {
     moveAngle = 0;
 
     /**
-     * The `<svg>` element of this cubicon's group.
-     */
-    svg_group: Selection<SVGSVGElement, unknown, HTMLElement, any>;
-
-    /**
      * The `<g>` element that holds this cubicon.
      */
     g_cubiconWrapper: Selection<SVGGElement, unknown, HTMLElement, any>;
@@ -84,9 +79,7 @@ export abstract class Cubicon {
         // the Cubicon abstract class.
         this.CONFIG = params.CONFIG!;
 
-        this.svg_group = params.group.svg_group;
-
-        this.def_cubiconBase = this.svg_group;
+        this.def_cubiconBase = this.group.svg_group;
     }
 
     /**
