@@ -39,7 +39,7 @@
         "tsc": "tsc",
         "tsc:watch": "tsc --watch",
         "docs": "typedoc --hideInPageTOC --allReflectionsHaveOwnDocument && cp -rf ./README.md ./docs/",
-        "build": "vite build && tsc",
+        "build": "vite build",
         "test": "vitest --coverage"
     },
     "dependencies": {
@@ -67,6 +67,7 @@
         "typedoc": "^0.23.21",
         "typedoc-plugin-markdown": "^3.11.11",
         "typescript": "^4.5.4",
+        "unplugin-dts": "^1.0.0-beta.6",
         "vite": "^3.2.3",
         "vite-tsconfig-paths": "^3.4.1",
         "vitest": "^0.25.2"
