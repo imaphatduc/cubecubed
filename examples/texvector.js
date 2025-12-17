@@ -39,7 +39,7 @@ function renderVector() {
     const vectorCoordsTex = new MathTex({
         group: group,
         position: vector.endPoint,
-        text: `\\begin{bmatrix} ${vector.endPoint.y} \\\\ ${vector.endPoint.x} \\end{bmatrix}`,
+        text: `\\begin{bmatrix} ${vector.endPoint.x} \\\\ ${vector.endPoint.y} \\end{bmatrix}`,
         CONFIG: {
             color: vector.CONFIG.lineColor,
         },

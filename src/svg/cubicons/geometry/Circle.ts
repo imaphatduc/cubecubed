@@ -76,7 +76,7 @@ export class GridOrigin extends Circle {
         super({
             group: group,
 
-            radius: group.xWtoG(5),
+            radius: group.xWtoG(3),
 
             CONFIG: PLANE_SHAPE_DEFAULT_CONFIG,
         });

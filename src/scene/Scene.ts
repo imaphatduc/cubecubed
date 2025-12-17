@@ -36,7 +36,7 @@ export class Scene {
     /**
      * The `<svg>` element that represents this group.
      */
-    svg_group: Selection<HTMLDivElement, unknown, HTMLElement, any>;
+    private _svg_group: Selection<HTMLDivElement, unknown, HTMLElement, any>;
 
     /**
      * Name of this scene.
@@ -67,10 +67,13 @@ export class Scene {
                 CONFIG?.sceneHeight ?? SCENE_DEFAULT_CONFIG.sceneHeight,
         };
 
-        // @ts-expect-error
-        this.svg_group = CONFIG?.dom
+        this._svg_group = CONFIG?.dom
             ? select(CONFIG.dom)
-            : select("#cubecubed");
+            : (select("#cubecubed") as any);
+    }
+
+    get svg_group() {
+        return this._svg_group;
     }
 
     /**

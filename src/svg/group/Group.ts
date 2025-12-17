@@ -1,5 +1,5 @@
-import { ScaleLinear, scaleLinear } from "d3-scale";
-import { Selection, select } from "d3";
+import { scaleLinear } from "d3-scale";
+import { Selection } from "d3";
 //+++++++++++++++++++++++++++++++++++++++++++++++++++//
 
 import { EASE } from "@consts";
@@ -39,59 +39,15 @@ export class Group {
      */
     name: string;
 
-    private groupWidth: number;
-
-    private groupHeight: number;
-
-    /**
-     * Number of squares in the x direction.
-     */
-    private xSquareNums: number;
-
-    /**
-     * Number of squares in the y direction.
-     */
-    private ySquareNums: number;
-
     /**
      * Length of a square in this scene.
      */
-    squareLength = 40;
+    readonly squareLength = 40;
 
     /**
      * Ratio between square length in x direction and y direction.
      */
     ratio: [number, number] = [1, 1];
-
-    /**
-     * x coordinate bound values of this scene.
-     */
-    xBound: [number, number];
-
-    /**
-     * y coordinate bound values of this scene.
-     */
-    yBound: [number, number];
-
-    /**
-     * Convert x value of grid coordinates to real-world coordinates.
-     */
-    xGtoW: ScaleLinear<number, number, never>;
-
-    /**
-     * Convert y value of grid coordinates to real-world coordinates.
-     */
-    yGtoW: ScaleLinear<number, number, never>;
-
-    /**
-     * Convert x value of real-world coordinates to grid coordinates.
-     */
-    xWtoG: ScaleLinear<number, number, never>;
-
-    /**
-     * Convert y value of real-world coordinates to grid coordinates.
-     */
-    yWtoG: ScaleLinear<number, number, never>;
 
     /**
      * Include this group to HTML flow.
@@ -103,17 +59,16 @@ export class Group {
     constructor(groupName: string, scene: Scene) {
         this.scene = scene;
 
-        this.computeWidthAndHeight();
-
         this.name = groupName;
+        console.log(this.xGtoW(1));
 
-        this.defineBoundsAndSquares(this.ratio);
+        this.init();
+    }
 
-        this.defineCovertFunctions(this.ratio);
-
-        this.svg_group = scene.svg_group
+    private init() {
+        this.svg_group = this.scene.svg_group
             .append("svg")
-            .attr("id", groupName)
+            .attr("id", this.name)
             .attr("class", "group")
             .attr("xmlns", "http://www.w3.org/2000/svg")
             .attr("width", this.groupWidth)
@@ -135,77 +90,122 @@ export class Group {
         });
     }
 
-    private computeWidthAndHeight() {
-        const cubecubedElement = select("#cubecubed") as Selection<
-            HTMLDivElement,
-            unknown,
-            HTMLElement,
-            any
-        >;
+    get groupWidth() {
+        const { sceneWidth } = this.scene.CONFIG;
 
-        const { sceneWidth, sceneHeight } = this.scene.CONFIG;
-
-        this.groupWidth =
+        const groupWidth =
             sceneWidth === "auto"
-                ? cubecubedElement.node()?.getBoundingClientRect().width ??
+                ? this.scene.svg_group.node()?.getBoundingClientRect().width ??
                   window.innerWidth
                 : sceneWidth;
 
-        this.groupHeight =
+        return groupWidth;
+    }
+
+    get groupHeight() {
+        const { sceneHeight } = this.scene.CONFIG;
+
+        const groupHeight =
             sceneHeight === "auto"
-                ? cubecubedElement.node()?.getBoundingClientRect().height ??
+                ? this.scene.svg_group.node()?.getBoundingClientRect().height ??
                   window.innerHeight
                 : sceneHeight;
+
+        return groupHeight;
     }
 
-    private defineBoundsAndSquares(ratio: [number, number]) {
-        const { groupWidth, groupHeight } = this;
+    /**
+     * x coordinate bound values of this group.
+     */
+    get xBound() {
+        const { groupWidth } = this;
 
-        const xSquareLength = ratio[0] * this.squareLength;
-        const ySquareLength = ratio[1] * this.squareLength;
+        const xSquareLength = this.ratio[0] * this.squareLength;
 
-        this.xSquareNums = Math.floor(groupWidth / xSquareLength);
-        this.ySquareNums = Math.floor(groupHeight / ySquareLength);
-
-        this.xBound = [
-            Math.floor(-this.xSquareNums / 2),
-            -Math.floor(-this.xSquareNums / 2),
-        ];
-
-        this.yBound = [
-            Math.floor(-this.ySquareNums / 2),
-            -Math.floor(-this.ySquareNums / 2),
-        ];
-    }
-
-    private defineCovertFunctions(ratio: [number, number]) {
-        const { groupWidth, groupHeight } = this;
+        /**
+         * Number of squares in the x direction.
+         */
+        const xSquareNums = Math.floor(groupWidth / xSquareLength);
 
         const xBound = [
-            -groupWidth / (this.squareLength * ratio[0]),
-            groupWidth / (this.squareLength * ratio[0]),
+            -Math.floor(xSquareNums / 2),
+            Math.floor(xSquareNums / 2),
         ];
+
+        return xBound;
+    }
+
+    /**
+     * y coordinate bound values of this group.
+     */
+    get yBound() {
+        const { groupHeight } = this;
+
+        const ySquareLength = this.ratio[1] * this.squareLength;
+
+        /**
+         * Number of squares in the y direction.
+         */
+        const ySquareNums = Math.floor(groupHeight / ySquareLength);
 
         const yBound = [
-            -groupHeight / (this.squareLength * ratio[1]),
-            groupHeight / (this.squareLength * ratio[1]),
+            -Math.floor(ySquareNums / 2),
+            Math.floor(ySquareNums / 2),
         ];
 
-        this.xGtoW = scaleLinear()
+        return yBound;
+    }
+
+    /**
+     * Convert x value of grid coordinates to real-world coordinates.
+     */
+    get xGtoW() {
+        const { groupWidth, xBound } = this;
+
+        const xGtoW = scaleLinear()
             .domain(xBound)
-            .range([-groupWidth, groupWidth]);
+            .range([-groupWidth / 2, groupWidth / 2]);
 
-        this.yGtoW = scaleLinear()
+        return xGtoW;
+    }
+
+    /**
+     * Convert x value of real-world coordinates to grid coordinates.
+     */
+    get xWtoG() {
+        const { groupWidth, xBound } = this;
+
+        const xWtoG = scaleLinear()
+            .domain([-groupWidth / 2, groupWidth / 2])
+            .range(xBound);
+
+        return xWtoG;
+    }
+
+    /**
+     * Convert y value of grid coordinates to real-world coordinates.
+     */
+    get yGtoW() {
+        const { groupHeight, yBound } = this;
+
+        const yGtoW = scaleLinear()
             .domain(yBound)
-            .range([-groupHeight, groupHeight]);
+            .range([-groupHeight / 2, groupHeight / 2]);
 
-        this.xWtoG = scaleLinear()
-            .domain([-groupWidth, groupWidth])
-            .range(this.xBound);
+        return yGtoW;
+    }
 
-        this.yWtoG = scaleLinear()
+    /**
+     * Convert y value of real-world coordinates to grid coordinates.
+     */
+    get yWtoG() {
+        const { groupHeight, yBound } = this;
+
+        const yWtoG = scaleLinear()
             .domain([-groupHeight, groupHeight])
-            .range(this.yBound);
+            .range(yBound);
+
+        return yWtoG;
     }
 
     /**
