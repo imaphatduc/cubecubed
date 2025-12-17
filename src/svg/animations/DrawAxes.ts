@@ -29,70 +29,83 @@ export class DrawAxes extends Animation {
             ) + this.arrowDuration;
     }
 
-    play() {
-        this.drawAxes();
+    getTransitions(sleepTime: number) {
+        const axesTransitions = this.getAxesTransitions(sleepTime);
+        const axesTicksTransitions = this.getAxesTicksTransitions(sleepTime);
+        const axesArrowheadsTransitions =
+            this.getAxesArrowheadsTransitions(sleepTime);
+
+        // `as any[]` is for bypassing the compiler
+        return [
+            ...axesTransitions,
+            ...axesTicksTransitions,
+            ...axesArrowheadsTransitions,
+        ] as any[];
     }
 
-    private drawAxes() {
-        this.applyAxesDrawing();
-
-        this.applyAxesTicksMarking();
-
-        this.applyAxesArrowheadFadeIn();
-    }
-
-    private applyAxesDrawing() {
+    private getAxesTransitions(sleepTime: number) {
         const axisElements = this.getAxisElements();
 
-        axisElements.forEach((axis) => {
+        const transitions = axisElements.map((axis) => {
             const axisPath = this.getAxisPath(axis);
 
             const pathLength = this.getPathLength(axis)!;
 
             axisPath.attr("stroke-dasharray", pathLength + ", " + pathLength);
 
-            axisPath
-                .attr("stroke-dashoffset", pathLength)
-                .transition()
-                .ease(this.ease)
-                .delay(this.sleepTime)
-                .duration(this.duration)
-                .attr("stroke-dashoffset", 0);
+            return () =>
+                axisPath
+                    .attr("stroke-dashoffset", pathLength)
+                    .transition()
+                    .ease(this.ease)
+                    .delay(sleepTime)
+                    .duration(this.duration)
+                    .attr("stroke-dashoffset", 0);
         });
+
+        return transitions;
     }
 
-    private applyAxesTicksMarking() {
+    private getAxesTicksTransitions(sleepTime: number) {
         const axisElements = this.getAxisElements();
 
-        axisElements.forEach((axis) => {
+        const transitions = axisElements.map((axis) => {
             const { numXValues } = this.getNumXYValues();
 
-            axis.selectAll("g.tick")
-                .attr("opacity", 0)
-                .data(range(0, numXValues + 1))
-                .transition()
-                .ease(this.ease)
-                .delay((d: number) => this.sleepTime + this.delayEach * d)
-                .duration(this.duration)
-                .attr("opacity", 1);
+            return () =>
+                axis
+                    .selectAll("g.tick")
+                    .attr("opacity", 0)
+                    .data(range(0, numXValues + 1))
+                    .transition()
+                    .ease(this.ease)
+                    .delay((d: number) => sleepTime + this.delayEach * d)
+                    .duration(this.duration)
+                    .attr("opacity", 1);
         });
+
+        return transitions;
     }
 
-    private applyAxesArrowheadFadeIn() {
+    private getAxesArrowheadsTransitions(sleepTime: number) {
         const axisElements = this.getAxisElements();
 
-        axisElements.forEach((axis) => {
+        const transitions = axisElements.map((axis) => {
             const { numXValues, numYValues } = this.getNumXYValues();
 
-            axis.select("defs marker path")
-                .attr("opacity", 0)
-                .data(range(0, numYValues + 1))
-                .transition()
-                .ease(this.ease)
-                .delay(this.sleepTime + this.delayEach * numXValues)
-                .duration(this.arrowDuration)
-                .attr("opacity", 1);
+            return () =>
+                axis
+                    .select("defs marker path")
+                    .attr("opacity", 0)
+                    .data(range(0, numYValues + 1))
+                    .transition()
+                    .ease(this.ease)
+                    .delay(sleepTime + this.delayEach * numXValues)
+                    .duration(this.arrowDuration)
+                    .attr("opacity", 1);
         });
+
+        return transitions;
     }
 
     private getAxisElements() {

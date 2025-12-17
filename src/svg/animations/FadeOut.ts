@@ -17,16 +17,15 @@ export class FadeOut extends Animation {
         });
     }
 
-    play() {
-        this.fadeOut();
-    }
+    getTransitions(sleepTime: number) {
+        const transition = () =>
+            this.cubicon.g_cubiconWrapper
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attr("opacity", 0);
 
-    private fadeOut() {
-        this.cubicon.g_cubiconWrapper
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attr("opacity", 0);
+        return [transition];
     }
 }

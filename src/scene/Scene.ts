@@ -76,12 +76,14 @@ export class Scene {
     /**
      * Play all the animations included in a queue.
      *
-     * @param animations Array (Queue) of animations to play.
+     * @param animationQueue Array (Queue) of animations to play.
      */
-    play(animations: Animation[]) {
+    play(animationQueue: Animation[]) {
         const queueElapsed = Math.max(
-            ...animations.map((animation) => {
-                animation.play();
+            ...animationQueue.map((animation) => {
+                const transitions = animation.getTransitions(this.sceneElapsed);
+
+                transitions.forEach((transition) => transition());
 
                 return animation.duration;
             })
@@ -104,7 +106,6 @@ export class Scene {
             ...animations.map((animation) => ({
                 animation,
                 startAt: this.sceneElapsed,
-                endAt: this.sceneElapsed + animation.duration,
             }))
         );
 

@@ -19,46 +19,49 @@ export class CreateVectorShape extends Animation {
         });
     }
 
-    play() {
-        this.createVectorShape();
+    getTransitions(sleepTime: number) {
+        const lineTransition = this.getLineTransition(sleepTime);
+        const arrowheadTransition = this.getArrowheadTransition(sleepTime);
+
+        return [lineTransition, arrowheadTransition];
     }
 
-    private createVectorShape() {
-        this.applyLineCreation();
-
-        this.applyArrowheadCreation();
-    }
-
-    private applyLineCreation() {
+    private getLineTransition(sleepTime: number) {
         const { WstartPoint, WendPoint } = this.getPoints();
 
         const durationRatio = 0.8;
 
-        this.cubicon.def_lineStroke
-            .attr("x2", WstartPoint.x)
-            .attr("y2", WstartPoint.y)
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration * durationRatio)
-            .attr("x2", WendPoint.x)
-            .attr("y2", WendPoint.y);
+        const transition = () =>
+            this.cubicon.def_lineStroke
+                .attr("x2", WstartPoint.x)
+                .attr("y2", WstartPoint.y)
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration * durationRatio)
+                .attr("x2", WendPoint.x)
+                .attr("y2", WendPoint.y);
+
+        return transition;
     }
 
-    private applyArrowheadCreation() {
+    private getArrowheadTransition(sleepTime: number) {
         const delayRatio = 0.2;
         const delay = this.duration * delayRatio;
 
         const durationRatio = 1 - delayRatio;
         const duration = this.duration * durationRatio;
 
-        this.cubicon.def_arrowhead
-            .attr("opacity", 0)
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime + delay)
-            .duration(duration)
-            .attr("opacity", 1);
+        const transition = () =>
+            this.cubicon.def_arrowhead
+                .attr("opacity", 0)
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime + delay)
+                .duration(duration)
+                .attr("opacity", 1);
+
+        return transition;
     }
 
     private getPoints() {

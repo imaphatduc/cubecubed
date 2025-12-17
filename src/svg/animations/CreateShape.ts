@@ -38,36 +38,31 @@ export class CreateShape extends Animation {
         });
     }
 
-    play() {
-        this.createShape();
+    getTransitions(sleepTime: number) {
+        const pathLength = this.pathLength;
+
+        const fillOpacity = this.fillOpacity;
+
+        return [
+            () =>
+                this.cubicon.def_cubiconBase
+                    .attr("stroke-dasharray", pathLength + ", " + pathLength)
+                    .attr("stroke-dashoffset", pathLength)
+                    .attr("fill-opacity", 0)
+                    .transition()
+                    .delay(sleepTime)
+                    .duration(this.duration)
+                    .ease(this.ease)
+                    .attr("stroke-dashoffset", 0)
+                    .attr("fill-opacity", fillOpacity),
+        ];
     }
 
-    private createShape() {
-        const pathLength = this.getPathLength();
-
-        const fillOpacity = this.getFillOpacity();
-
-        this.cubicon.def_cubiconBase.attr(
-            "stroke-dasharray",
-            pathLength + ", " + pathLength
-        );
-
-        this.cubicon.def_cubiconBase
-            .attr("stroke-dashoffset", pathLength)
-            .attr("fill-opacity", 0)
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attr("stroke-dashoffset", 0)
-            .attr("fill-opacity", fillOpacity);
-    }
-
-    private getPathLength() {
+    private get pathLength(): number {
         return this.cubicon.def_cubiconBase.node().getTotalLength();
     }
 
-    private getFillOpacity() {
+    private get fillOpacity() {
         if (this.cubicon.cubiconType === "Graph") {
             return 1;
         }

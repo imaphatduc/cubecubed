@@ -35,38 +35,49 @@ export class PointToCoords extends Animation {
         this.verticalProjector = params.verticalProjector;
     }
 
-    play() {
-        this.pointToCoords();
-    }
-
-    private pointToCoords() {
-        const animations = this.getAnimations();
-
-        this.cubicon.group.scene.play(animations);
-
-        this.reverseToLastGroupElapsed();
-    }
-
-    private reverseToLastGroupElapsed() {
-        const animations = this.getAnimations();
-
-        this.cubicon.group.scene.sceneElapsed -= Math.max(
-            ...animations.map((animation) => animation.duration)
+    getTransitions(sleepTime: number) {
+        const pointTransitions = this.getPointTransitions(
+            this.cubicon,
+            sleepTime
         );
-    }
 
-    private getAnimations() {
-        const animations = [];
-
-        animations.push(new CreateShape({ cubicon: this.cubicon }));
-
-        if (this.horizontalProjector && this.verticalProjector) {
-            animations.push(
-                new CreateShape({ cubicon: this.horizontalProjector }),
-                new CreateShape({ cubicon: this.verticalProjector })
-            );
+        if (!this.horizontalProjector || !this.verticalProjector) {
+            return pointTransitions;
         }
 
-        return animations;
+        const projectorsTransitions = this.getProjectorsTransitions(
+            this.horizontalProjector,
+            this.verticalProjector,
+            sleepTime
+        );
+
+        return [...pointTransitions, ...projectorsTransitions];
     }
+
+    private getPointTransitions = (point: Point, sleepTime: number) => {
+        const animation = new CreateShape({ cubicon: this.cubicon });
+
+        const transitions = animation.getTransitions(sleepTime);
+
+        return transitions;
+    };
+
+    private getProjectorsTransitions = (
+        horizontalProjector: AxisProjector,
+        verticalProjector: AxisProjector,
+        sleepTime: number
+    ) => {
+        const horizontalProjectorTransitions = new CreateShape({
+            cubicon: horizontalProjector,
+        }).getTransitions(sleepTime);
+
+        const verticalProjectorTransitions = new CreateShape({
+            cubicon: verticalProjector,
+        }).getTransitions(sleepTime);
+
+        return [
+            ...horizontalProjectorTransitions,
+            ...verticalProjectorTransitions,
+        ];
+    };
 }

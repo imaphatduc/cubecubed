@@ -19,20 +19,14 @@ export class CreateSurface extends CanvasAnimation {
 
             duration: params.duration ?? ANIME.CREATE,
         });
+
+        this.cubicon.setVertices(0);
     }
 
-    /**
-     * @internal
-     */
     play() {
-        this.createSurface();
-    }
-
-    private createSurface() {
         this.cubicon.setVertices(0);
 
         transition()
-            .delay(this.sleepTime)
             .duration(this.duration)
             .tween("create-surface", () => (t: number) => {
                 this.cubicon.setVertices(t);

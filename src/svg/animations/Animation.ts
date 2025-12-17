@@ -1,6 +1,7 @@
 import { EASE_TYPE, EASE } from "@consts";
 
 import { Cubicon } from "@cubicons/Cubicon";
+import { Transition } from "d3";
 
 export interface AnimationParams<TCubicon> {
     /**
@@ -19,13 +20,10 @@ export interface AnimationParams<TCubicon> {
     ease?: EASE_TYPE;
 }
 
+type GetTransition = () => Transition<any, unknown, HTMLElement, any>;
+
 export abstract class Animation {
     abstract readonly animationType: string;
-
-    /**
-     * The time to wait before playing this animation.
-     */
-    sleepTime = 0;
 
     cubicon: Cubicon;
 
@@ -36,19 +34,15 @@ export abstract class Animation {
     constructor(params: AnimationParams<Cubicon>) {
         this.cubicon = params.cubicon;
 
-        this.sleepTime = params.cubicon.group.scene.sceneElapsed;
-
         this.duration = params.duration ?? 0;
 
         this.ease = params.ease ?? EASE.CUBIC;
     }
 
     /**
-     * Play this animation.
+     * Get transition queues, e.g. `[[() => Transition, () => Transition], [() => Transition], [() => Transition]]`
      */
-    play() {
-        //
-    }
+    abstract getTransitions(sleepTime: number): GetTransition[];
 
     setCubiconPosition(x: number, y: number) {
         this.cubicon.position.x = x;

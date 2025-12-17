@@ -21,30 +21,27 @@ export class DrawVectorField extends Animation {
         });
     }
 
-    play() {
-        this.drawVectorField();
+    getTransitions(sleepTime: number) {
+        const transitions = this.getVectorsTransitions(sleepTime);
 
-        this.cubicon.group.scene.sceneElapsed -= this.duration;
+        return transitions;
     }
 
-    private drawVectorField() {
-        this.applyVectorShapeCreation();
-    }
-
-    private applyVectorShapeCreation() {
-        const animations = this.getAnimations();
-
-        this.cubicon.group.scene.play(animations);
-    }
-
-    private getAnimations() {
-        return this.cubicon.vectorShapes.map(
-            (vectorShape: VectorShape) =>
-                new CreateVectorShape({
+    private getVectorsTransitions(sleepTime: number) {
+        const vectorsTransitions = this.cubicon.vectorShapes
+            .map((vectorShape: VectorShape) => {
+                const animation = new CreateVectorShape({
                     cubicon: vectorShape,
                     duration: this.duration,
                     ease: this.ease,
-                })
-        );
+                });
+
+                const transitions = animation.getTransitions(sleepTime);
+
+                return transitions;
+            })
+            .flat();
+
+        return vectorsTransitions;
     }
 }

@@ -77,87 +77,106 @@ export class PointAlongGraph extends Animation {
         this.xPos = params.xPos;
     }
 
-    play() {
-        this.pointAlongGraph();
-    }
+    getTransitions(sleepTime: number) {
+        const pointTransition = this.getPointTransition(sleepTime);
 
-    private pointAlongGraph() {
-        this.applyPointAlongGraph();
-
-        if (this.horizontalProjector && this.verticalProjector) {
-            this.applyProjectorsAlongGraph(
-                this.horizontalProjector,
-                this.verticalProjector
-            );
+        if (!this.horizontalProjector || !this.verticalProjector) {
+            return [pointTransition];
         }
+
+        const horizontalProjectorTransition =
+            this.getHorizontalProjectorTransition(
+                this.horizontalProjector,
+                sleepTime
+            );
+
+        const verticalProjectorTransition = this.getVerticalProjectorTransition(
+            this.verticalProjector,
+            sleepTime
+        );
+
+        return [
+            pointTransition,
+            horizontalProjectorTransition,
+            verticalProjectorTransition,
+        ];
     }
 
-    private applyPointAlongGraph() {
-        this.cubicon.def_cubiconBase
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attrTween("cx", () => (t) => {
-                const xScale = this.graph.axes.getXScale();
-                const x = this.tweenX(t);
-                return xScale(x).toString();
-            })
-            .attrTween("cy", () => (t) => {
-                const yScale = this.graph.axes.getYScale();
-                const y = this.tweenY(t);
-                return yScale(y).toString();
-            })
-            .on("end", () => {
-                this.setCubiconPosition(
-                    this.xPos,
-                    this.graph.functionDef(this.xPos)
-                );
-            });
+    private getPointTransition(sleepTime: number) {
+        const transition = () =>
+            this.cubicon.def_cubiconBase
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attrTween("cx", () => (t) => {
+                    const xScale = this.graph.axes.getXScale();
+                    const x = this.tweenX(t);
+                    return xScale(x).toString();
+                })
+                .attrTween("cy", () => (t) => {
+                    const yScale = this.graph.axes.getYScale();
+                    const y = this.tweenY(t);
+                    return yScale(y).toString();
+                })
+                .on("end", () => {
+                    this.setCubiconPosition(
+                        this.xPos,
+                        this.graph.functionDef(this.xPos)
+                    );
+                });
+
+        return transition;
     }
 
-    /**
-     * TODO: projectors are paths, tweak d attribute
-     */
-    private applyProjectorsAlongGraph(
+    private getHorizontalProjectorTransition(
         horizontalProjector: AxisProjector,
-        verticalProjector: AxisProjector
+        sleepTime: number
     ) {
-        horizontalProjector.def_cubiconBase
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attr("stroke-dasharray", 0)
-            .attr("stroke-dashoffset", 0)
-            .attrTween("d", () => (t) => {
-                const cx = this.tweenX(t);
-                const cy = this.tweenY(t);
-                horizontalProjector.position = new Vector2(cx, cy);
-                horizontalProjector.endPoint = new Vector2(0, cy);
-                horizontalProjector.initVertices();
+        const transition = () =>
+            horizontalProjector.def_cubiconBase
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attr("stroke-dasharray", 0)
+                .attr("stroke-dashoffset", 0)
+                .attrTween("d", () => (t) => {
+                    const cx = this.tweenX(t);
+                    const cy = this.tweenY(t);
+                    horizontalProjector.position = new Vector2(cx, cy);
+                    horizontalProjector.endPoint = new Vector2(0, cy);
+                    horizontalProjector.initVertices();
 
-                return horizontalProjector.getData() ?? "";
-            });
+                    return horizontalProjector.getData() ?? "";
+                });
 
-        //
+        return transition;
+    }
 
-        verticalProjector.def_cubiconBase
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attr("stroke-dasharray", 0)
-            .attr("stroke-dashoffset", 0)
-            .attrTween("d", () => (t) => {
-                const cx = this.tweenX(t);
-                const cy = this.tweenY(t);
-                verticalProjector.position = new Vector2(cx, cy);
-                verticalProjector.endPoint = new Vector2(cx, 0);
-                verticalProjector.initVertices();
+    private getVerticalProjectorTransition(
+        verticalProjector: AxisProjector,
+        sleepTime: number
+    ) {
+        const transition = () =>
+            verticalProjector.def_cubiconBase
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attr("stroke-dasharray", 0)
+                .attr("stroke-dashoffset", 0)
+                .attrTween("d", () => (t) => {
+                    const cx = this.tweenX(t);
+                    const cy = this.tweenY(t);
+                    verticalProjector.position = new Vector2(cx, cy);
+                    verticalProjector.endPoint = new Vector2(cx, 0);
+                    verticalProjector.initVertices();
 
-                return verticalProjector.getData() ?? "";
-            });
+                    return verticalProjector.getData() ?? "";
+                });
+
+        return transition;
     }
 
     private getDeltaX() {

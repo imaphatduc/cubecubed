@@ -29,7 +29,6 @@ import { CanvasCubicon } from "@cubicons/CanvasCubicon";
 export interface ANIMATION_INFO {
     animation: CanvasAnimation;
     startAt: number;
-    endAt: number;
 }
 
 export interface CANVAS_GROUP_CONFIG {
@@ -430,14 +429,16 @@ export class CanvasGroup {
 
             const elapsed = this.clock.getElapsedTime() * 1000;
 
-            this.animationsInfo.forEach((animationInfo) => {
-                if (elapsed >= animationInfo.startAt) {
-                    if (animationInfo.animation.duration > 0) {
-                        if (elapsed <= animationInfo.endAt) {
-                            animationInfo.animation.play();
+            this.animationsInfo.forEach(({ startAt, animation }) => {
+                if (elapsed >= startAt) {
+                    if (animation.duration > 0) {
+                        const endAt = startAt + animation.duration;
+
+                        if (elapsed <= endAt) {
+                            animation.play();
                         }
                     } else {
-                        animationInfo.animation.play();
+                        animation.play();
                     }
                 }
             });

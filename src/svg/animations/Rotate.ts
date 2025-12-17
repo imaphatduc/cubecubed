@@ -42,33 +42,32 @@ export class Rotate extends Animation {
         this.origin = params.origin ?? params.cubicon.position;
     }
 
-    play() {
-        this.rotate();
-    }
-
-    private rotate() {
+    getTransitions(sleepTime: number) {
         const { xGtoW, yGtoW } = this.cubicon.group;
 
         this.cubicon.moveAngle += this.degree;
 
         const v = this.cubicon.moveVector;
 
-        this.cubicon.g_cubiconWrapper
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attrTween("transform", () =>
-                interpolate(
-                    `translate(${xGtoW(v.x)}, ${yGtoW(v.y)}) rotate(${
-                        this.cubicon.angle
-                    }, ${xGtoW(this.origin.x)}, ${yGtoW(this.origin.y)})`,
+        const transition = () =>
+            this.cubicon.g_cubiconWrapper
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attrTween("transform", () =>
+                    interpolate(
+                        `translate(${xGtoW(v.x)}, ${yGtoW(v.y)}) rotate(${
+                            this.cubicon.angle
+                        }, ${xGtoW(this.origin.x)}, ${yGtoW(this.origin.y)})`,
 
-                    `translate(${xGtoW(v.x)}, ${yGtoW(v.y)}) rotate(${
-                        this.cubicon.angle + this.degree
-                    }, ${xGtoW(this.origin.x)}, ${yGtoW(this.origin.y)})`
+                        `translate(${xGtoW(v.x)}, ${yGtoW(v.y)}) rotate(${
+                            this.cubicon.angle + this.degree
+                        }, ${xGtoW(this.origin.x)}, ${yGtoW(this.origin.y)})`
+                    )
                 )
-            )
-            .on("end", () => (this.cubicon.angle += this.degree));
+                .on("end", () => (this.cubicon.angle += this.degree));
+
+        return [transition];
     }
 }

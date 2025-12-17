@@ -32,30 +32,37 @@ export class ApplyFunction extends Animation {
         this.func = params.func;
     }
 
-    play() {
-        this.applyFunction();
-    }
-
-    private applyFunction() {
+    getTransitions(sleepTime: number) {
         if (this.cubicon.cubiconType === "Line") {
-            this.applyFunctionToLine(this.cubicon);
+            const transition = this.getLineTransition(this.cubicon, sleepTime);
+
+            return [transition];
         }
 
         if (this.cubicon.cubiconType === "Grid") {
-            [
+            const lines = [
                 ...this.cubicon.horizontalLines,
                 ...this.cubicon.verticalLines,
-            ].forEach((line) => this.applyFunctionToLine(line));
+            ];
+
+            const lineTransitions = lines.map((line) =>
+                this.getLineTransition(line, sleepTime)
+            );
+
+            return lineTransitions;
         }
+
+        return [];
     }
 
-    private applyFunctionToLine(line: Line) {
+    private getLineTransition(line: Line, sleepTime: number) {
         line.vertices = line.vertices.map((vertex) => this.func(vertex));
 
-        line.def_cubiconBase
-            .transition()
-            .delay(line.group.scene.sceneElapsed)
-            .duration(this.duration)
-            .attr("d", line.getData());
+        return () =>
+            line.def_cubiconBase
+                .transition()
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attr("d", line.getData());
     }
 }

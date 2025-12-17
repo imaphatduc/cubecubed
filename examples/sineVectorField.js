@@ -46,7 +46,7 @@ function sineVectorField() {
 
     group.makeup({ duration: 1000, CONFIG: { opacity: 0.5 } });
 
-    group.sleep(1000);
+    scene.sleep(1000);
 }
 
 function sineFlowField() {

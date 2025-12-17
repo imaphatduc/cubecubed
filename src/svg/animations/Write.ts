@@ -24,27 +24,31 @@ export class Write extends Animation {
         });
     }
 
-    play() {
-        this.write();
+    getTransitions(sleepTime: number) {
+        const pathTransition = this.getPathTransition(sleepTime);
+        const shapeTransition = this.getShapeTransition(sleepTime);
+
+        // `as any[]` is for bypassing the compiler
+        return [pathTransition, shapeTransition] as any[];
     }
 
-    private write() {
-        this.applyPathWriting();
-
-        this.applyShapeWriting();
-    }
-
-    private applyPathWriting() {
+    private getPathTransition(sleepTime: number) {
         const pathElements: TexElement = this.cubicon.def_cubiconBase
             .select("defs")
             .selectAll("path");
 
         const pathLengths = pathElements.nodes().map((d) => d.getTotalLength());
 
-        this.applyWriteAnimation(pathElements, pathLengths);
+        const transition = this.getTransition(
+            pathElements,
+            pathLengths,
+            sleepTime
+        );
+
+        return transition;
     }
 
-    private applyShapeWriting() {
+    private getShapeTransition(sleepTime: number) {
         const shapeElements: TexElement =
             this.cubicon.def_cubiconBase.selectAll("rect");
 
@@ -52,25 +56,35 @@ export class Write extends Animation {
             .nodes()
             .map((d) => d.getTotalLength());
 
-        this.applyWriteAnimation(shapeElements, shapeLengths);
+        const transition = this.getTransition(
+            shapeElements,
+            shapeLengths,
+            sleepTime
+        );
+
+        return transition;
     }
 
-    private applyWriteAnimation(selection: TexElement, lengths: number[]) {
+    private getTransition(
+        selection: TexElement,
+        lengths: number[],
+        sleepTime: number
+    ) {
         const delayEach = 100;
 
-        selection
-            .data(lengths)
-            .attr("stroke-dasharray", (d) => d + ", " + d)
-            .attr("stroke-dashoffset", (d) => d)
-            .attr("fill-opacity", 0)
-            .transition()
-            .ease(this.ease)
-            .delay((d, i) => delayEach * i + this.sleepTime)
-            .duration(this.duration)
-            .attr("stroke-dashoffset", 0)
-            .attr("fill-opacity", 1);
+        const transition = () =>
+            selection
+                .data(lengths)
+                .attr("stroke-dasharray", (d) => d + ", " + d)
+                .attr("stroke-dashoffset", (d) => d)
+                .attr("fill-opacity", 0)
+                .transition()
+                .ease(this.ease)
+                .delay((_, i) => delayEach * i + sleepTime)
+                .duration(this.duration)
+                .attr("stroke-dashoffset", 0)
+                .attr("fill-opacity", 1);
 
-        this.cubicon.group.scene.sceneElapsed +=
-            (delayEach / 2) * lengths.length;
+        return transition;
     }
 }

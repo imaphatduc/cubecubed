@@ -16,36 +16,28 @@ export class DrawGrid extends Animation {
 
     constructor(params: AnimationParams<Grid>) {
         super({ cubicon: params.cubicon, ease: params.ease });
+
+        this.duration = this.drawLineDuration + this.drawOriginDuration;
     }
 
-    play() {
-        this.drawGrid();
+    getTransitions(sleepTime: number) {
+        const horizontalTransitions = this.getHorizontalTransitions(sleepTime);
+
+        const verticalTransitions = this.getVerticalTransitions(sleepTime);
+
+        const lineTransitions = [
+            ...horizontalTransitions,
+            ...verticalTransitions,
+        ];
+
+        const originTransitions = this.getOriginTransitions(sleepTime);
+
+        return [...lineTransitions, ...originTransitions];
     }
 
-    private drawGrid() {
-        this.drawLines();
-        this.drawOrigin();
-    }
-
-    private drawLines() {
-        const horizontalAnimations = this.getHorizontalAnimations();
-        const verticalAnimations = this.getVerticalAnimations();
-
-        this.cubicon.group.scene.play([
-            ...horizontalAnimations,
-            ...verticalAnimations,
-        ]);
-    }
-
-    private drawOrigin() {
-        const originAnimation = this.getOriginAnimation();
-
-        this.cubicon.group.scene.play([originAnimation]);
-    }
-
-    private getHorizontalAnimations() {
-        const horizontalAnimations = this.cubicon.horizontalLines.map(
-            (line) => {
+    private getHorizontalTransitions(sleepTime: number) {
+        const horizontalTransitions = this.cubicon.horizontalLines
+            .map((line) => {
                 const y = line.position.y;
 
                 const animation = new CreateShape({
@@ -54,40 +46,50 @@ export class DrawGrid extends Animation {
                     ease: this.ease,
                 });
 
-                animation.sleepTime += this.xDelayEach * Math.abs(y);
+                const transitions = animation.getTransitions(
+                    sleepTime + this.xDelayEach * Math.abs(y)
+                );
 
-                return animation;
-            }
-        );
+                return transitions;
+            })
+            .flat();
 
-        return horizontalAnimations;
+        return horizontalTransitions;
     }
 
-    private getVerticalAnimations() {
-        const verticalAnimations = this.cubicon.verticalLines.map((line) => {
-            const x = line.position.x;
+    private getVerticalTransitions(sleepTime: number) {
+        const verticalTransitions = this.cubicon.verticalLines
+            .map((line) => {
+                const x = line.position.x;
 
-            const animation = new CreateShape({
-                cubicon: line,
-                duration: this.drawLineDuration,
-                ease: this.ease,
-            });
+                const animation = new CreateShape({
+                    cubicon: line,
+                    duration: this.drawLineDuration,
+                    ease: this.ease,
+                });
 
-            animation.sleepTime += this.yDelayEach * Math.abs(x);
+                const transitions = animation.getTransitions(
+                    sleepTime + this.yDelayEach * Math.abs(x)
+                );
 
-            return animation;
-        });
+                return transitions;
+            })
+            .flat();
 
-        return verticalAnimations;
+        return verticalTransitions;
     }
 
-    private getOriginAnimation() {
-        const originAnimation = new CreateShape({
+    private getOriginTransitions(sleepTime: number) {
+        const animation = new CreateShape({
             cubicon: this.cubicon.gridOrigin,
             duration: this.drawOriginDuration,
             ease: this.ease,
         });
 
-        return originAnimation;
+        const transitions = animation.getTransitions(
+            sleepTime + this.drawLineDuration
+        );
+
+        return transitions;
     }
 }

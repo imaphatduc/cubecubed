@@ -45,9 +45,9 @@ function gabrielsHorn() {
             },
         }).render();
 
-        scene.play(
+        scene.play3D(
             [new CreateSurface({ cubicon: surface, duration: 2000 })],
-            false
+            group
         );
     })();
 }

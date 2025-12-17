@@ -34,38 +34,33 @@ export class Trace extends Animation {
         this.curve = params.curve;
     }
 
-    play() {
-        this.trace();
-    }
-
-    private trace() {
+    getTransitions(sleepTime: number) {
         const pathLength = this.curve.def_cubiconBase.node().getTotalLength();
 
-        this.curve.def_cubiconBase.attr(
-            "stroke-dasharray",
-            pathLength + ", " + pathLength
-        );
+        const transition = () =>
+            this.curve.def_cubiconBase
+                .attr("stroke-dasharray", pathLength + ", " + pathLength)
+                .attr("stroke-dashoffset", pathLength)
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attrTween("stroke-dashoffset", () => {
+                    const interpolate = interpolateNumber(pathLength, 0);
 
-        this.curve.def_cubiconBase
-            .attr("stroke-dashoffset", pathLength)
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attrTween("stroke-dashoffset", () => {
-                const interpolate = interpolateNumber(pathLength, 0);
+                    return (t: number) => {
+                        const currentPoint = this.curve.def_cubiconBase
+                            .node()
+                            .getPointAtLength(t * pathLength);
 
-                return (t: number) => {
-                    const currentPoint = this.curve.def_cubiconBase
-                        .node()
-                        .getPointAtLength(t * pathLength);
+                        this.cubicon.def_cubiconBase
+                            .attr("x2", currentPoint.x)
+                            .attr("y2", currentPoint.y);
 
-                    this.cubicon.def_cubiconBase
-                        .attr("x2", currentPoint.x)
-                        .attr("y2", currentPoint.y);
+                        return interpolate(t).toString();
+                    };
+                });
 
-                    return interpolate(t).toString();
-                };
-            });
+        return [transition];
     }
 }

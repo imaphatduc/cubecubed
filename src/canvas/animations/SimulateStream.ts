@@ -15,14 +15,7 @@ export class SimulateStream extends CanvasAnimation {
         });
     }
 
-    /**
-     * @internal
-     */
     play() {
-        this.simulateStream();
-    }
-
-    private simulateStream() {
         const { vertices, maxVertices, points } = this.cubicon;
 
         const nextVertex = this.cubicon.nextVertex();

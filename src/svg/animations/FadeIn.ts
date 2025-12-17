@@ -17,17 +17,16 @@ export class FadeIn extends Animation {
         });
     }
 
-    play() {
-        this.fadeIn();
-    }
+    getTransitions(sleepTime: number) {
+        const transition = () =>
+            this.cubicon.g_cubiconWrapper
+                .attr("opacity", 0)
+                .transition()
+                .ease(this.ease)
+                .delay(sleepTime)
+                .duration(this.duration)
+                .attr("opacity", 1);
 
-    private fadeIn() {
-        this.cubicon.g_cubiconWrapper
-            .attr("opacity", 0)
-            .transition()
-            .ease(this.ease)
-            .delay(this.sleepTime)
-            .duration(this.duration)
-            .attr("opacity", 1);
+        return [transition];
     }
 }

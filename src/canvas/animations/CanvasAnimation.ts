@@ -17,25 +17,14 @@ export abstract class CanvasAnimation {
 
     duration: number;
 
-    /**
-     * The time to wait before playing this animation.
-     */
-    sleepTime = 0;
-
     constructor(params: { cubicon: CanvasCubicon; duration?: number }) {
         this.cubicon = params.cubicon;
-
-        this.sleepTime = params.cubicon.group.scene.sceneElapsed;
 
         this.duration = params.duration ?? 0;
     }
 
     /**
      * Play this animation.
-     *
-     * @internal
      */
-    play() {
-        //
-    }
+    abstract play(): void;
 }
